@@ -10,7 +10,7 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Struct: WifiLanDependencies
-sharing.mojom.WifiLanDependenciesSpec = {
+sharing.mojom.mojom.WifiLanDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WifiLanDependencies',
@@ -27,7 +27,7 @@ sharing.mojom.WifiLanDependenciesSpec = {
 };
 
 // Struct: WifiDirectDependencies
-sharing.mojom.WifiDirectDependenciesSpec = {
+sharing.mojom.mojom.WifiDirectDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WifiDirectDependencies',
@@ -42,17 +42,17 @@ sharing.mojom.WifiDirectDependenciesSpec = {
 };
 
 // Struct: NearbyDependencies
-sharing.mojom.NearbyDependenciesSpec = {
+sharing.mojom.mojom.NearbyDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NearbyDependencies',
       packedSize: 40,
       fields: [
-        { name: 'bluetooth_adapter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'webrtc_dependencies', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.WebRtcDependenciesSpec, nullable: false, minVersion: 0 },
-        { name: 'wifilan_dependencies', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.WifiLanDependenciesSpec, nullable: true, minVersion: 0 },
-        { name: 'wifidirect_dependencies', packedOffset: 24, packedBitOffset: 0, type: sharing.mojom.WifiDirectDependenciesSpec, nullable: true, minVersion: 0 },
-        { name: 'nearby_presence_credential_storage', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'bluetooth_adapter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'webrtc_dependencies', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.WebRtcDependenciesSpec, nullable: false, minVersion: 0 },
+        { name: 'wifilan_dependencies', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.WifiLanDependenciesSpec, nullable: true, minVersion: 0 },
+        { name: 'wifidirect_dependencies', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.WifiDirectDependenciesSpec, nullable: true, minVersion: 0 },
+        { name: 'nearby_presence_credential_storage', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -60,24 +60,24 @@ sharing.mojom.NearbyDependenciesSpec = {
 };
 
 // Interface: Sharing
-sharing.mojom.Sharing = {};
+sharing.mojom.mojom.Sharing = {};
 
-sharing.mojom.SharingPendingReceiver = class {
+sharing.mojom.mojom.SharingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.SharingRemote = class {
+sharing.mojom.mojom.SharingRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.Sharing';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.SharingPendingReceiver,
+      sharing.mojom.mojom.SharingPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.SharingRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.mojom.SharingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -89,7 +89,7 @@ sharing.mojom.SharingRemote = class {
   }
 };
 
-sharing.mojom.SharingRemoteCallHandler = class {
+sharing.mojom.mojom.SharingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -98,7 +98,7 @@ sharing.mojom.SharingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.Sharing_Connect_ParamsSpec,
+      sharing.mojom.mojom.Sharing_Connect_ParamsSpec,
       null,
       [deps, nearby_connections, nearby_presence, decoder, quick_start_decoder]);
   }
@@ -107,15 +107,15 @@ sharing.mojom.SharingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.Sharing_ShutDown_ParamsSpec,
+      sharing.mojom.mojom.Sharing_ShutDown_ParamsSpec,
       null,
       []);
   }
 
 };
 
-sharing.mojom.Sharing.getRemote = function() {
-  let remote = new sharing.mojom.SharingRemote();
+sharing.mojom.mojom.Sharing.getRemote = function() {
+  let remote = new sharing.mojom.mojom.SharingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -125,7 +125,7 @@ sharing.mojom.Sharing.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-sharing.mojom.Sharing_Connect_ParamsSpec = {
+sharing.mojom.mojom.Sharing_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.Sharing.Connect_Params',
@@ -143,7 +143,7 @@ sharing.mojom.Sharing_Connect_ParamsSpec = {
 };
 
 // ParamsSpec for ShutDown
-sharing.mojom.Sharing_ShutDown_ParamsSpec = {
+sharing.mojom.mojom.Sharing_ShutDown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.Sharing.ShutDown_Params',
@@ -156,6 +156,6 @@ sharing.mojom.Sharing_ShutDown_ParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.SharingPtr = sharing.mojom.SharingRemote;
-sharing.mojom.SharingRequest = sharing.mojom.SharingPendingReceiver;
+sharing.mojom.mojom.SharingPtr = sharing.mojom.mojom.SharingRemote;
+sharing.mojom.mojom.SharingRequest = sharing.mojom.mojom.SharingPendingReceiver;
 

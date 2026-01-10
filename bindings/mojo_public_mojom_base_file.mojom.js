@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: File
-mojo_base.mojom.FileSpec = {
+mojo_base.mojom.mojom.FileSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.File',
@@ -25,7 +25,7 @@ mojo_base.mojom.FileSpec = {
 };
 
 // Struct: ReadOnlyFile
-mojo_base.mojom.ReadOnlyFileSpec = {
+mojo_base.mojom.mojom.ReadOnlyFileSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ReadOnlyFile',

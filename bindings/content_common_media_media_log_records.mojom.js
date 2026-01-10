@@ -10,24 +10,24 @@ content.mojom = content.mojom || {};
 
 
 // Interface: MediaInternalLogRecords
-content.mojom.MediaInternalLogRecords = {};
+content.mojom.mojom.MediaInternalLogRecords = {};
 
-content.mojom.MediaInternalLogRecordsPendingReceiver = class {
+content.mojom.mojom.MediaInternalLogRecordsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.MediaInternalLogRecordsRemote = class {
+content.mojom.mojom.MediaInternalLogRecordsRemote = class {
   static get $interfaceName() {
     return 'content.mojom.MediaInternalLogRecords';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.MediaInternalLogRecordsPendingReceiver,
+      content.mojom.mojom.MediaInternalLogRecordsPendingReceiver,
       handle);
-    this.$ = new content.mojom.MediaInternalLogRecordsRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.MediaInternalLogRecordsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ content.mojom.MediaInternalLogRecordsRemote = class {
   }
 };
 
-content.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
+content.mojom.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ content.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MediaInternalLogRecords_Log_ParamsSpec,
+      content.mojom.mojom.MediaInternalLogRecords_Log_ParamsSpec,
       null,
       [events]);
   }
 
 };
 
-content.mojom.MediaInternalLogRecords.getRemote = function() {
-  let remote = new content.mojom.MediaInternalLogRecordsRemote();
+content.mojom.mojom.MediaInternalLogRecords.getRemote = function() {
+  let remote = new content.mojom.mojom.MediaInternalLogRecordsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ content.mojom.MediaInternalLogRecords.getRemote = function() {
 };
 
 // ParamsSpec for Log
-content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
+content.mojom.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MediaInternalLogRecords.Log_Params',
@@ -80,6 +80,6 @@ content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.MediaInternalLogRecordsPtr = content.mojom.MediaInternalLogRecordsRemote;
-content.mojom.MediaInternalLogRecordsRequest = content.mojom.MediaInternalLogRecordsPendingReceiver;
+content.mojom.mojom.MediaInternalLogRecordsPtr = content.mojom.mojom.MediaInternalLogRecordsRemote;
+content.mojom.mojom.MediaInternalLogRecordsRequest = content.mojom.mojom.MediaInternalLogRecordsPendingReceiver;
 

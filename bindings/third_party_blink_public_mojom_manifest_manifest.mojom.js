@@ -7,69 +7,76 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
+var url = url || {};
 
 
 // Enum: TextDirection
-blink.mojom.TextDirection = {
+blink.mojom.mojom.TextDirection = {
   kAuto: 0,
   kLTR: 1,
   kRTL: 2,
 };
-blink.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Purpose
-blink.mojom.Purpose = {
+blink.mojom.mojom.Purpose = {
   ANY: 0,
   MONOCHROME: 1,
   MASKABLE: 2,
 };
-blink.mojom.PurposeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FormFactor
-blink.mojom.FormFactor = {
+blink.mojom.mojom.FormFactor = {
   kUnknown: 0,
   kWide: 1,
   kNarrow: 2,
 };
-blink.mojom.FormFactorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.FormFactorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Method
-blink.mojom.Method = {
+blink.mojom.mojom.Method = {
   kGet: 0,
   kPost: 1,
 };
-blink.mojom.MethodSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.MethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: Enctype
-blink.mojom.Enctype = {
+blink.mojom.mojom.Enctype = {
   kFormUrlEncoded: 0,
   kMultipartFormData: 1,
 };
-blink.mojom.EnctypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.EnctypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LaunchType
-blink.mojom.LaunchType = {
+blink.mojom.mojom.LaunchType = {
   kSingleClient: 0,
   kMultipleClients: 1,
 };
-blink.mojom.LaunchTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.LaunchTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ManifestMigrationBehavior
-blink.mojom.ManifestMigrationBehavior = {
+blink.mojom.mojom.ManifestMigrationBehavior = {
   kSuggest: 0,
   kForce: 1,
 };
-blink.mojom.ManifestMigrationBehaviorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ManifestMigrationBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabStripMemberVisibility
-blink.mojom.TabStripMemberVisibility = {
+blink.mojom.mojom.TabStripMemberVisibility = {
   kAuto: 0,
   kAbsent: 1,
 };
-blink.mojom.TabStripMemberVisibilitySpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.TabStripMemberVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: ManifestRequestResult
-blink.mojom.ManifestRequestResult = {
+blink.mojom.mojom.ManifestRequestResult = {
   kUnexpectedFailure: 0,
   kNoManifestAllowed: 1,
   kNoManifestSpecified: 2,
@@ -77,10 +84,10 @@ blink.mojom.ManifestRequestResult = {
   kManifestFailedToParse: 4,
   kSuccess: 5,
 };
-blink.mojom.ManifestRequestResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ManifestRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Union: HomeTabUnion
-blink.mojom.HomeTabUnionSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.HomeTabUnionSpec = { $: mojo.internal.Union(
     'blink.mojom.HomeTabUnion', {
       'visibility': {
         'ordinal': 0,
@@ -94,7 +101,7 @@ blink.mojom.HomeTabUnionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Manifest
-blink.mojom.ManifestSpec = {
+blink.mojom.mojom.ManifestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Manifest',
@@ -108,7 +115,7 @@ blink.mojom.ManifestSpec = {
 };
 
 // Struct: ManifestLocalizedTextObject
-blink.mojom.ManifestLocalizedTextObjectSpec = {
+blink.mojom.mojom.ManifestLocalizedTextObjectSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestLocalizedTextObject',
@@ -124,7 +131,7 @@ blink.mojom.ManifestLocalizedTextObjectSpec = {
 };
 
 // Struct: Locale
-blink.mojom.LocaleSpec = {
+blink.mojom.mojom.LocaleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Locale',
@@ -138,7 +145,7 @@ blink.mojom.LocaleSpec = {
 };
 
 // Struct: ManifestShortcutItem
-blink.mojom.ManifestShortcutItemSpec = {
+blink.mojom.mojom.ManifestShortcutItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestShortcutItem',
@@ -160,7 +167,7 @@ blink.mojom.ManifestShortcutItemSpec = {
 };
 
 // Struct: ManifestImageResource
-blink.mojom.ManifestImageResourceSpec = {
+blink.mojom.mojom.ManifestImageResourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestImageResource',
@@ -174,7 +181,7 @@ blink.mojom.ManifestImageResourceSpec = {
 };
 
 // Struct: ManifestScreenshot
-blink.mojom.ManifestScreenshotSpec = {
+blink.mojom.mojom.ManifestScreenshotSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestScreenshot',
@@ -188,7 +195,7 @@ blink.mojom.ManifestScreenshotSpec = {
 };
 
 // Struct: ManifestFileFilter
-blink.mojom.ManifestFileFilterSpec = {
+blink.mojom.mojom.ManifestFileFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestFileFilter',
@@ -203,7 +210,7 @@ blink.mojom.ManifestFileFilterSpec = {
 };
 
 // Struct: ManifestProtocolHandler
-blink.mojom.ManifestProtocolHandlerSpec = {
+blink.mojom.mojom.ManifestProtocolHandlerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestProtocolHandler',
@@ -218,7 +225,7 @@ blink.mojom.ManifestProtocolHandlerSpec = {
 };
 
 // Struct: ManifestScopeExtension
-blink.mojom.ManifestScopeExtensionSpec = {
+blink.mojom.mojom.ManifestScopeExtensionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestScopeExtension',
@@ -233,7 +240,7 @@ blink.mojom.ManifestScopeExtensionSpec = {
 };
 
 // Struct: ManifestLockScreen
-blink.mojom.ManifestLockScreenSpec = {
+blink.mojom.mojom.ManifestLockScreenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestLockScreen',
@@ -247,7 +254,7 @@ blink.mojom.ManifestLockScreenSpec = {
 };
 
 // Struct: ManifestNoteTaking
-blink.mojom.ManifestNoteTakingSpec = {
+blink.mojom.mojom.ManifestNoteTakingSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestNoteTaking',
@@ -261,7 +268,7 @@ blink.mojom.ManifestNoteTakingSpec = {
 };
 
 // Struct: ManifestRelatedApplication
-blink.mojom.ManifestRelatedApplicationSpec = {
+blink.mojom.mojom.ManifestRelatedApplicationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestRelatedApplication',
@@ -277,7 +284,7 @@ blink.mojom.ManifestRelatedApplicationSpec = {
 };
 
 // Struct: ManifestShareTargetParams
-blink.mojom.ManifestShareTargetParamsSpec = {
+blink.mojom.mojom.ManifestShareTargetParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestShareTargetParams',
@@ -294,7 +301,7 @@ blink.mojom.ManifestShareTargetParamsSpec = {
 };
 
 // Struct: ManifestShareTarget
-blink.mojom.ManifestShareTargetSpec = {
+blink.mojom.mojom.ManifestShareTargetSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestShareTarget',
@@ -308,7 +315,7 @@ blink.mojom.ManifestShareTargetSpec = {
 };
 
 // Struct: ManifestFileHandler
-blink.mojom.ManifestFileHandlerSpec = {
+blink.mojom.mojom.ManifestFileHandlerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestFileHandler',
@@ -326,7 +333,7 @@ blink.mojom.ManifestFileHandlerSpec = {
 };
 
 // Struct: ManifestTranslationItem
-blink.mojom.ManifestTranslationItemSpec = {
+blink.mojom.mojom.ManifestTranslationItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestTranslationItem',
@@ -342,7 +349,7 @@ blink.mojom.ManifestTranslationItemSpec = {
 };
 
 // Struct: ManifestMigrateFrom
-blink.mojom.ManifestMigrateFromSpec = {
+blink.mojom.mojom.ManifestMigrateFromSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestMigrateFrom',
@@ -358,7 +365,7 @@ blink.mojom.ManifestMigrateFromSpec = {
 };
 
 // Struct: ManifestMigrateTo
-blink.mojom.ManifestMigrateToSpec = {
+blink.mojom.mojom.ManifestMigrateToSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestMigrateTo',
@@ -373,7 +380,7 @@ blink.mojom.ManifestMigrateToSpec = {
 };
 
 // Struct: ManifestTabStrip
-blink.mojom.ManifestTabStripSpec = {
+blink.mojom.mojom.ManifestTabStripSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestTabStrip',
@@ -388,7 +395,7 @@ blink.mojom.ManifestTabStripSpec = {
 };
 
 // Struct: HomeTabParams
-blink.mojom.HomeTabParamsSpec = {
+blink.mojom.mojom.HomeTabParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HomeTabParams',
@@ -403,7 +410,7 @@ blink.mojom.HomeTabParamsSpec = {
 };
 
 // Struct: NewTabButtonParams
-blink.mojom.NewTabButtonParamsSpec = {
+blink.mojom.mojom.NewTabButtonParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NewTabButtonParams',
@@ -417,7 +424,7 @@ blink.mojom.NewTabButtonParamsSpec = {
 };
 
 // Struct: ManifestDebugInfo
-blink.mojom.ManifestDebugInfoSpec = {
+blink.mojom.mojom.ManifestDebugInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestDebugInfo',
@@ -432,16 +439,16 @@ blink.mojom.ManifestDebugInfoSpec = {
 };
 
 // Struct: ManifestError
-blink.mojom.ManifestErrorSpec = {
+blink.mojom.mojom.ManifestErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestError',
       packedSize: 32,
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'critical', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'line', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'column', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'critical', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'line', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'column', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -449,14 +456,14 @@ blink.mojom.ManifestErrorSpec = {
 };
 
 // Struct: DisplayOverrideItem
-blink.mojom.DisplayOverrideItemSpec = {
+blink.mojom.mojom.DisplayOverrideItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DisplayOverrideItem',
       packedSize: 24,
       fields: [
-        { name: 'display', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DisplayModeSpec, nullable: false, minVersion: 0 },
-        { name: 'url_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternSpec, false), nullable: false, minVersion: 0 },
+        { name: 'display', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DisplayModeSpec, nullable: false, minVersion: 0 },
+        { name: 'url_patterns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

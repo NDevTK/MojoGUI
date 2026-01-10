@@ -7,28 +7,29 @@
 // Module namespace
 var payments = payments || {};
 payments.facilitated = payments.facilitated || {};
-payments.facilitated.mojom = payments.facilitated.mojom || {};
+payments.facilitated.facilitated.mojom = payments.facilitated.facilitated.mojom || {};
+var url = url || {};
 
 
 // Interface: PaymentLinkHandler
-payments.facilitated.mojom.PaymentLinkHandler = {};
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandler = {};
 
-payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver = class {
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.facilitated.mojom.PaymentLinkHandlerRemote = class {
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerRemote = class {
   static get $interfaceName() {
     return 'payments.facilitated.mojom.PaymentLinkHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver,
+      payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerPendingReceiver,
       handle);
-    this.$ = new payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler(this.proxy);
+    this.$ = new payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +41,7 @@ payments.facilitated.mojom.PaymentLinkHandlerRemote = class {
   }
 };
 
-payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler = class {
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +50,15 @@ payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec,
+      payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec,
       null,
       [url]);
   }
 
 };
 
-payments.facilitated.mojom.PaymentLinkHandler.getRemote = function() {
-  let remote = new payments.facilitated.mojom.PaymentLinkHandlerRemote();
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandler.getRemote = function() {
+  let remote = new payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +68,7 @@ payments.facilitated.mojom.PaymentLinkHandler.getRemote = function() {
 };
 
 // ParamsSpec for HandlePaymentLink
-payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.facilitated.mojom.PaymentLinkHandler.HandlePaymentLink_Params',
@@ -81,6 +82,6 @@ payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
 };
 
 // Legacy compatibility
-payments.facilitated.mojom.PaymentLinkHandlerPtr = payments.facilitated.mojom.PaymentLinkHandlerRemote;
-payments.facilitated.mojom.PaymentLinkHandlerRequest = payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver;
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerPtr = payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerRemote;
+payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerRequest = payments.facilitated.facilitated.mojom.mojom.PaymentLinkHandlerPendingReceiver;
 

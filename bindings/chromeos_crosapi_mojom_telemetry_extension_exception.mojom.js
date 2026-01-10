@@ -10,15 +10,15 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: Reason
-crosapi.mojom.Reason = {
+crosapi.mojom.mojom.Reason = {
   kMojoDisconnectWithoutReason: 0,
   kUnexpected: 1,
   kUnsupported: 2,
 };
-crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: TelemetryExtensionSupportStatus
-crosapi.mojom.TelemetryExtensionSupportStatusSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.TelemetryExtensionSupportStatusSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryExtensionSupportStatus', {
       'unmapped_union_field': {
         'ordinal': 0,
@@ -40,7 +40,7 @@ crosapi.mojom.TelemetryExtensionSupportStatusSpec = { $: mojo.internal.Union(
 };
 
 // Union: TelemetryExtensionUnsupportedReason
-crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryExtensionUnsupportedReason', {
       'unmapped_union_field': {
         'ordinal': 0,
@@ -50,7 +50,7 @@ crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: mojo.internal.Union
 };
 
 // Struct: TelemetryExtensionException
-crosapi.mojom.TelemetryExtensionExceptionSpec = {
+crosapi.mojom.mojom.TelemetryExtensionExceptionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExtensionException',
@@ -64,7 +64,7 @@ crosapi.mojom.TelemetryExtensionExceptionSpec = {
 };
 
 // Struct: TelemetryExtensionSupported
-crosapi.mojom.TelemetryExtensionSupportedSpec = {
+crosapi.mojom.mojom.TelemetryExtensionSupportedSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExtensionSupported',
@@ -77,14 +77,14 @@ crosapi.mojom.TelemetryExtensionSupportedSpec = {
 };
 
 // Struct: TelemetryExtensionUnsupported
-crosapi.mojom.TelemetryExtensionUnsupportedSpec = {
+crosapi.mojom.mojom.TelemetryExtensionUnsupportedSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExtensionUnsupported',
       packedSize: 32,
       fields: [
-        { name: 'debug_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, nullable: true, minVersion: 0 },
+        { name: 'debug_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

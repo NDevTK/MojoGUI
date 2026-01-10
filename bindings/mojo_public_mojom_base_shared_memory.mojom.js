@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: ReadOnlySharedMemoryRegion
-mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = {
+mojo_base.mojom.mojom.ReadOnlySharedMemoryRegionSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ReadOnlySharedMemoryRegion',
@@ -24,7 +24,7 @@ mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = {
 };
 
 // Struct: WritableSharedMemoryRegion
-mojo_base.mojom.WritableSharedMemoryRegionSpec = {
+mojo_base.mojom.mojom.WritableSharedMemoryRegionSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.WritableSharedMemoryRegion',
@@ -38,7 +38,7 @@ mojo_base.mojom.WritableSharedMemoryRegionSpec = {
 };
 
 // Struct: UnsafeSharedMemoryRegion
-mojo_base.mojom.UnsafeSharedMemoryRegionSpec = {
+mojo_base.mojom.mojom.UnsafeSharedMemoryRegionSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.UnsafeSharedMemoryRegion',

@@ -7,17 +7,18 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
+var blink = blink || {};
 
 
 // Struct: CreateGraphSuccess
-webnn.mojom.CreateGraphSuccessSpec = {
+webnn.mojom.mojom.CreateGraphSuccessSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateGraphSuccess',
       packedSize: 24,
       fields: [
-        { name: 'graph_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(webnn.mojom.DeviceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'graph_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(webnn.mojom.DeviceSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,24 +26,24 @@ webnn.mojom.CreateGraphSuccessSpec = {
 };
 
 // Interface: WebNNGraphBuilder
-webnn.mojom.WebNNGraphBuilder = {};
+webnn.mojom.mojom.WebNNGraphBuilder = {};
 
-webnn.mojom.WebNNGraphBuilderPendingReceiver = class {
+webnn.mojom.mojom.WebNNGraphBuilderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webnn.mojom.WebNNGraphBuilderRemote = class {
+webnn.mojom.mojom.WebNNGraphBuilderRemote = class {
   static get $interfaceName() {
     return 'webnn.mojom.WebNNGraphBuilder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webnn.mojom.WebNNGraphBuilderPendingReceiver,
+      webnn.mojom.mojom.WebNNGraphBuilderPendingReceiver,
       handle);
-    this.$ = new webnn.mojom.WebNNGraphBuilderRemoteCallHandler(this.proxy);
+    this.$ = new webnn.mojom.mojom.WebNNGraphBuilderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +55,7 @@ webnn.mojom.WebNNGraphBuilderRemote = class {
   }
 };
 
-webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
+webnn.mojom.mojom.WebNNGraphBuilderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +64,7 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec,
+      webnn.mojom.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec,
       null,
       [constant_handle, data_type, data]);
   }
@@ -72,7 +73,7 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec,
+      webnn.mojom.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec,
       null,
       [graph_info]);
   }
@@ -81,15 +82,15 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
-      webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
+      webnn.mojom.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
+      webnn.mojom.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
       [context_properties, graph_info]);
   }
 
 };
 
-webnn.mojom.WebNNGraphBuilder.getRemote = function() {
-  let remote = new webnn.mojom.WebNNGraphBuilderRemote();
+webnn.mojom.mojom.WebNNGraphBuilder.getRemote = function() {
+  let remote = new webnn.mojom.mojom.WebNNGraphBuilderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,15 +100,15 @@ webnn.mojom.WebNNGraphBuilder.getRemote = function() {
 };
 
 // ParamsSpec for CreatePendingConstant
-webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
+webnn.mojom.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNGraphBuilder.CreatePendingConstant_Params',
       packedSize: 40,
       fields: [
-        { name: 'constant_handle', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebNNPendingConstantTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'data_type', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.DataTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'constant_handle', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebNNPendingConstantTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'data_type', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.DataTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -115,7 +116,7 @@ webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = {
 };
 
 // ParamsSpec for CreateGraph
-webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
+webnn.mojom.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNGraphBuilder.CreateGraph_Params',
@@ -129,7 +130,7 @@ webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = {
 };
 
 // ParamsSpec for IsValidGraphForTesting
-webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
+webnn.mojom.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNGraphBuilder.IsValidGraphForTesting_Params',
@@ -143,7 +144,7 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = {
   }
 };
 
-webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = {
+webnn.mojom.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNGraphBuilder.IsValidGraphForTesting_ResponseParams',
@@ -157,6 +158,6 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-webnn.mojom.WebNNGraphBuilderPtr = webnn.mojom.WebNNGraphBuilderRemote;
-webnn.mojom.WebNNGraphBuilderRequest = webnn.mojom.WebNNGraphBuilderPendingReceiver;
+webnn.mojom.mojom.WebNNGraphBuilderPtr = webnn.mojom.mojom.WebNNGraphBuilderRemote;
+webnn.mojom.mojom.WebNNGraphBuilderRequest = webnn.mojom.mojom.WebNNGraphBuilderPendingReceiver;
 

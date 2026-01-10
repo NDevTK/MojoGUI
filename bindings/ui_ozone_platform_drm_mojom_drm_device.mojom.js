@@ -7,28 +7,38 @@
 // Module namespace
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
-ui.ozone.mojom = ui.ozone.mojom || {};
+ui.ozone.ozone.mojom = ui.ozone.ozone.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
 
 
 // Interface: DrmDevice
-ui.ozone.mojom.DrmDevice = {};
+ui.ozone.ozone.mojom.mojom.DrmDevice = {};
 
-ui.ozone.mojom.DrmDevicePendingReceiver = class {
+ui.ozone.ozone.mojom.mojom.DrmDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ui.ozone.mojom.DrmDeviceRemote = class {
+ui.ozone.ozone.mojom.mojom.DrmDeviceRemote = class {
   static get $interfaceName() {
     return 'ui.ozone.mojom.DrmDevice';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ui.ozone.mojom.DrmDevicePendingReceiver,
+      ui.ozone.ozone.mojom.mojom.DrmDevicePendingReceiver,
       handle);
-    this.$ = new ui.ozone.mojom.DrmDeviceRemoteCallHandler(this.proxy);
+    this.$ = new ui.ozone.ozone.mojom.mojom.DrmDeviceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +50,7 @@ ui.ozone.mojom.DrmDeviceRemote = class {
   }
 };
 
-ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
+ui.ozone.ozone.mojom.mojom.DrmDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +59,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_CreateWindow_ParamsSpec,
       null,
       [widget, initial_bounds]);
   }
@@ -58,7 +68,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_DestroyWindow_ParamsSpec,
       null,
       [widget]);
   }
@@ -67,7 +77,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetWindowBounds_ParamsSpec,
       null,
       [widget, bounds]);
   }
@@ -76,8 +86,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_TakeDisplayControl_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec,
       []);
   }
 
@@ -85,8 +95,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec,
       []);
   }
 
@@ -94,8 +104,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec,
       []);
   }
 
@@ -103,7 +113,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec,
       null,
       [path, fd_mojo_handle]);
   }
@@ -112,7 +122,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec,
       null,
       [path]);
   }
@@ -121,8 +131,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec,
       [event_props]);
   }
 
@@ -130,8 +140,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec,
       [config_requests, modeset_flags]);
   }
 
@@ -139,8 +149,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec,
       [display_id, key]);
   }
 
@@ -148,8 +158,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_GetHDCPState_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec,
       [display_id]);
   }
 
@@ -157,8 +167,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetHDCPState_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec,
       [display_id, state, protection_method]);
   }
 
@@ -166,7 +176,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec,
       null,
       [display_id, cta]);
   }
@@ -175,7 +185,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetColorCalibration_ParamsSpec,
       null,
       [display_id, calibration]);
   }
@@ -184,7 +194,7 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec,
       null,
       [display_id, adjustment]);
   }
@@ -193,8 +203,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec,
       [display_id, enabled]);
   }
 
@@ -202,8 +212,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec,
-      ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec,
       [display_id]);
   }
 
@@ -211,15 +221,15 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.DrmDevice_GetDeviceCursor_ParamsSpec,
       null,
       [cursor]);
   }
 
 };
 
-ui.ozone.mojom.DrmDevice.getRemote = function() {
-  let remote = new ui.ozone.mojom.DrmDeviceRemote();
+ui.ozone.ozone.mojom.mojom.DrmDevice.getRemote = function() {
+  let remote = new ui.ozone.ozone.mojom.mojom.DrmDeviceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +239,7 @@ ui.ozone.mojom.DrmDevice.getRemote = function() {
 };
 
 // ParamsSpec for CreateWindow
-ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_CreateWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.CreateWindow_Params',
@@ -244,7 +254,7 @@ ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = {
 };
 
 // ParamsSpec for DestroyWindow
-ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_DestroyWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.DestroyWindow_Params',
@@ -258,7 +268,7 @@ ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = {
 };
 
 // ParamsSpec for SetWindowBounds
-ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetWindowBounds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetWindowBounds_Params',
@@ -273,7 +283,7 @@ ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = {
 };
 
 // ParamsSpec for TakeDisplayControl
-ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.TakeDisplayControl_Params',
@@ -285,7 +295,7 @@ ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.TakeDisplayControl_ResponseParams',
@@ -299,7 +309,7 @@ ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RelinquishDisplayControl
-ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.RelinquishDisplayControl_Params',
@@ -311,7 +321,7 @@ ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.RelinquishDisplayControl_ResponseParams',
@@ -325,7 +335,7 @@ ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RefreshNativeDisplays
-ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.RefreshNativeDisplays_Params',
@@ -337,7 +347,7 @@ ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.RefreshNativeDisplays_ResponseParams',
@@ -351,7 +361,7 @@ ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddGraphicsDevice
-ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.AddGraphicsDevice_Params',
@@ -366,7 +376,7 @@ ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveGraphicsDevice
-ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.RemoveGraphicsDevice_Params',
@@ -380,7 +390,7 @@ ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = {
 };
 
 // ParamsSpec for ShouldDisplayEventTriggerConfiguration
-ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.ShouldDisplayEventTriggerConfiguration_Params',
@@ -393,7 +403,7 @@ ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.ShouldDisplayEventTriggerConfiguration_ResponseParams',
@@ -407,7 +417,7 @@ ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSp
 };
 
 // ParamsSpec for ConfigureNativeDisplays
-ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.ConfigureNativeDisplays_Params',
@@ -421,7 +431,7 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.ConfigureNativeDisplays_ResponseParams',
@@ -436,7 +446,7 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetHdcpKeyProp
-ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetHdcpKeyProp_Params',
@@ -450,7 +460,7 @@ ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetHdcpKeyProp_ResponseParams',
@@ -465,7 +475,7 @@ ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetHDCPState
-ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_GetHDCPState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.GetHDCPState_Params',
@@ -478,16 +488,16 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.GetHDCPState_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 12, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false, minVersion: 0 },
-        { name: 'protection_method', packedOffset: 16, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: display.mojom.HDCPStateSpec, nullable: false, minVersion: 0 },
+        { name: 'protection_method', packedOffset: 12, packedBitOffset: 0, type: display.mojom.ContentProtectionMethodSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -495,7 +505,7 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetHDCPState
-ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetHDCPState_Params',
@@ -510,7 +520,7 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetHDCPState_ResponseParams',
@@ -525,7 +535,7 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetColorTemperatureAdjustment
-ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetColorTemperatureAdjustment_Params',
@@ -540,7 +550,7 @@ ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = {
 };
 
 // ParamsSpec for SetColorCalibration
-ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetColorCalibration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetColorCalibration_Params',
@@ -555,7 +565,7 @@ ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = {
 };
 
 // ParamsSpec for SetGammaAdjustment
-ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetGammaAdjustment_Params',
@@ -570,7 +580,7 @@ ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = {
 };
 
 // ParamsSpec for SetPrivacyScreen
-ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetPrivacyScreen_Params',
@@ -584,7 +594,7 @@ ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.SetPrivacyScreen_ResponseParams',
@@ -598,7 +608,7 @@ ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSeamlessRefreshRates
-ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.GetSeamlessRefreshRates_Params',
@@ -611,7 +621,7 @@ ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.GetSeamlessRefreshRates_ResponseParams',
@@ -625,7 +635,7 @@ ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDeviceCursor
-ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.DrmDevice.GetDeviceCursor_Params',
@@ -639,6 +649,6 @@ ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = {
 };
 
 // Legacy compatibility
-ui.ozone.mojom.DrmDevicePtr = ui.ozone.mojom.DrmDeviceRemote;
-ui.ozone.mojom.DrmDeviceRequest = ui.ozone.mojom.DrmDevicePendingReceiver;
+ui.ozone.ozone.mojom.mojom.DrmDevicePtr = ui.ozone.ozone.mojom.mojom.DrmDeviceRemote;
+ui.ozone.ozone.mojom.mojom.DrmDeviceRequest = ui.ozone.ozone.mojom.mojom.DrmDevicePendingReceiver;
 

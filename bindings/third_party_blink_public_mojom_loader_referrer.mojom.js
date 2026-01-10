@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: Referrer
-blink.mojom.ReferrerSpec = {
+blink.mojom.mojom.ReferrerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Referrer',

@@ -10,13 +10,13 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ErrorType
-arc.mojom.ErrorType = {
+arc.mojom.mojom.ErrorType = {
   ANR: 0,
 };
-arc.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ErrorDetails
-arc.mojom.ErrorDetailsSpec = {
+arc.mojom.mojom.ErrorDetailsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorDetails',
@@ -24,8 +24,8 @@ arc.mojom.ErrorDetailsSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ErrorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'buttonLabels', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'buttonLabels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -33,24 +33,24 @@ arc.mojom.ErrorDetailsSpec = {
 };
 
 // Interface: ErrorNotificationHost
-arc.mojom.ErrorNotificationHost = {};
+arc.mojom.mojom.ErrorNotificationHost = {};
 
-arc.mojom.ErrorNotificationHostPendingReceiver = class {
+arc.mojom.mojom.ErrorNotificationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ErrorNotificationHostRemote = class {
+arc.mojom.mojom.ErrorNotificationHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ErrorNotificationHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ErrorNotificationHostPendingReceiver,
+      arc.mojom.mojom.ErrorNotificationHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.ErrorNotificationHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ErrorNotificationHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +62,7 @@ arc.mojom.ErrorNotificationHostRemote = class {
   }
 };
 
-arc.mojom.ErrorNotificationHostRemoteCallHandler = class {
+arc.mojom.mojom.ErrorNotificationHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,15 +71,15 @@ arc.mojom.ErrorNotificationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec,
-      arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec,
+      arc.mojom.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec,
+      arc.mojom.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec,
       [details, action_handler]);
   }
 
 };
 
-arc.mojom.ErrorNotificationHost.getRemote = function() {
-  let remote = new arc.mojom.ErrorNotificationHostRemote();
+arc.mojom.mojom.ErrorNotificationHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.ErrorNotificationHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,7 +89,7 @@ arc.mojom.ErrorNotificationHost.getRemote = function() {
 };
 
 // ParamsSpec for SendErrorDetails
-arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = {
+arc.mojom.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorNotificationHost.SendErrorDetails_Params',
@@ -103,7 +103,7 @@ arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = {
   }
 };
 
-arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = {
+arc.mojom.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorNotificationHost.SendErrorDetails_ResponseParams',
@@ -117,29 +117,29 @@ arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ErrorNotificationHostPtr = arc.mojom.ErrorNotificationHostRemote;
-arc.mojom.ErrorNotificationHostRequest = arc.mojom.ErrorNotificationHostPendingReceiver;
+arc.mojom.mojom.ErrorNotificationHostPtr = arc.mojom.mojom.ErrorNotificationHostRemote;
+arc.mojom.mojom.ErrorNotificationHostRequest = arc.mojom.mojom.ErrorNotificationHostPendingReceiver;
 
 
 // Interface: ErrorNotificationInstance
-arc.mojom.ErrorNotificationInstance = {};
+arc.mojom.mojom.ErrorNotificationInstance = {};
 
-arc.mojom.ErrorNotificationInstancePendingReceiver = class {
+arc.mojom.mojom.ErrorNotificationInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ErrorNotificationInstanceRemote = class {
+arc.mojom.mojom.ErrorNotificationInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ErrorNotificationInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ErrorNotificationInstancePendingReceiver,
+      arc.mojom.mojom.ErrorNotificationInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.ErrorNotificationInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ErrorNotificationInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -151,7 +151,7 @@ arc.mojom.ErrorNotificationInstanceRemote = class {
   }
 };
 
-arc.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
+arc.mojom.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -160,15 +160,15 @@ arc.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.ErrorNotificationInstance_Init_ParamsSpec,
+      arc.mojom.mojom.ErrorNotificationInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.ErrorNotificationInstance.getRemote = function() {
-  let remote = new arc.mojom.ErrorNotificationInstanceRemote();
+arc.mojom.mojom.ErrorNotificationInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.ErrorNotificationInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -178,7 +178,7 @@ arc.mojom.ErrorNotificationInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.ErrorNotificationInstance_Init_ParamsSpec = {
+arc.mojom.mojom.ErrorNotificationInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorNotificationInstance.Init_Params',
@@ -192,29 +192,29 @@ arc.mojom.ErrorNotificationInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ErrorNotificationInstancePtr = arc.mojom.ErrorNotificationInstanceRemote;
-arc.mojom.ErrorNotificationInstanceRequest = arc.mojom.ErrorNotificationInstancePendingReceiver;
+arc.mojom.mojom.ErrorNotificationInstancePtr = arc.mojom.mojom.ErrorNotificationInstanceRemote;
+arc.mojom.mojom.ErrorNotificationInstanceRequest = arc.mojom.mojom.ErrorNotificationInstancePendingReceiver;
 
 
 // Interface: ErrorNotificationItem
-arc.mojom.ErrorNotificationItem = {};
+arc.mojom.mojom.ErrorNotificationItem = {};
 
-arc.mojom.ErrorNotificationItemPendingReceiver = class {
+arc.mojom.mojom.ErrorNotificationItemPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ErrorNotificationItemRemote = class {
+arc.mojom.mojom.ErrorNotificationItemRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ErrorNotificationItem';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ErrorNotificationItemPendingReceiver,
+      arc.mojom.mojom.ErrorNotificationItemPendingReceiver,
       handle);
-    this.$ = new arc.mojom.ErrorNotificationItemRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ErrorNotificationItemRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -226,7 +226,7 @@ arc.mojom.ErrorNotificationItemRemote = class {
   }
 };
 
-arc.mojom.ErrorNotificationItemRemoteCallHandler = class {
+arc.mojom.mojom.ErrorNotificationItemRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -235,15 +235,15 @@ arc.mojom.ErrorNotificationItemRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec,
+      arc.mojom.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.ErrorNotificationItem.getRemote = function() {
-  let remote = new arc.mojom.ErrorNotificationItemRemote();
+arc.mojom.mojom.ErrorNotificationItem.getRemote = function() {
+  let remote = new arc.mojom.mojom.ErrorNotificationItemRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -253,7 +253,7 @@ arc.mojom.ErrorNotificationItem.getRemote = function() {
 };
 
 // ParamsSpec for CloseErrorNotification
-arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec = {
+arc.mojom.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorNotificationItem.CloseErrorNotification_Params',
@@ -266,29 +266,29 @@ arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ErrorNotificationItemPtr = arc.mojom.ErrorNotificationItemRemote;
-arc.mojom.ErrorNotificationItemRequest = arc.mojom.ErrorNotificationItemPendingReceiver;
+arc.mojom.mojom.ErrorNotificationItemPtr = arc.mojom.mojom.ErrorNotificationItemRemote;
+arc.mojom.mojom.ErrorNotificationItemRequest = arc.mojom.mojom.ErrorNotificationItemPendingReceiver;
 
 
 // Interface: ErrorNotificationActionHandler
-arc.mojom.ErrorNotificationActionHandler = {};
+arc.mojom.mojom.ErrorNotificationActionHandler = {};
 
-arc.mojom.ErrorNotificationActionHandlerPendingReceiver = class {
+arc.mojom.mojom.ErrorNotificationActionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ErrorNotificationActionHandlerRemote = class {
+arc.mojom.mojom.ErrorNotificationActionHandlerRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ErrorNotificationActionHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ErrorNotificationActionHandlerPendingReceiver,
+      arc.mojom.mojom.ErrorNotificationActionHandlerPendingReceiver,
       handle);
-    this.$ = new arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ErrorNotificationActionHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -300,7 +300,7 @@ arc.mojom.ErrorNotificationActionHandlerRemote = class {
   }
 };
 
-arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
+arc.mojom.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -309,7 +309,7 @@ arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec,
+      arc.mojom.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec,
       null,
       [buttonIndex]);
   }
@@ -318,15 +318,15 @@ arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec,
+      arc.mojom.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.ErrorNotificationActionHandler.getRemote = function() {
-  let remote = new arc.mojom.ErrorNotificationActionHandlerRemote();
+arc.mojom.mojom.ErrorNotificationActionHandler.getRemote = function() {
+  let remote = new arc.mojom.mojom.ErrorNotificationActionHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -336,7 +336,7 @@ arc.mojom.ErrorNotificationActionHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnNotificationButtonClicked
-arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec = {
+arc.mojom.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorNotificationActionHandler.OnNotificationButtonClicked_Params',
@@ -350,7 +350,7 @@ arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec 
 };
 
 // ParamsSpec for OnNotificationClosed
-arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec = {
+arc.mojom.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ErrorNotificationActionHandler.OnNotificationClosed_Params',
@@ -363,6 +363,6 @@ arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ErrorNotificationActionHandlerPtr = arc.mojom.ErrorNotificationActionHandlerRemote;
-arc.mojom.ErrorNotificationActionHandlerRequest = arc.mojom.ErrorNotificationActionHandlerPendingReceiver;
+arc.mojom.mojom.ErrorNotificationActionHandlerPtr = arc.mojom.mojom.ErrorNotificationActionHandlerRemote;
+arc.mojom.mojom.ErrorNotificationActionHandlerRequest = arc.mojom.mojom.ErrorNotificationActionHandlerPendingReceiver;
 

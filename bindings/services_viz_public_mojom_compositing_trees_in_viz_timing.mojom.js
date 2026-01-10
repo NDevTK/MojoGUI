@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: TreesInVizTiming
-viz.mojom.TreesInVizTimingSpec = {
+viz.mojom.mojom.TreesInVizTimingSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TreesInVizTiming',

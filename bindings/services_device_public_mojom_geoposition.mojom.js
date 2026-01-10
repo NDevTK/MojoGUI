@@ -9,30 +9,30 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
-device.mojom.kBadLatitudeLongitude = 200;
+device.mojom.mojom.kBadLatitudeLongitude = 200;
 
-device.mojom.kBadAltitude = -10000;
+device.mojom.mojom.kBadAltitude = -10000;
 
-device.mojom.kBadAccuracy = -1;
+device.mojom.mojom.kBadAccuracy = -1;
 
-device.mojom.kBadHeading = -1;
+device.mojom.mojom.kBadHeading = -1;
 
-device.mojom.kBadSpeed = -1;
+device.mojom.mojom.kBadSpeed = -1;
 
-device.mojom.kGeoPermissionDeniedErrorMessage = "User denied geolocation permission";
+device.mojom.mojom.kGeoPermissionDeniedErrorMessage = "User denied geolocation permission";
 
-device.mojom.kGeoPositionUnavailableErrorMessage = "Position update is unavailable";
+device.mojom.mojom.kGeoPositionUnavailableErrorMessage = "Position update is unavailable";
 
 // Enum: GeopositionErrorCode
-device.mojom.GeopositionErrorCode = {
+device.mojom.mojom.GeopositionErrorCode = {
   kPermissionDenied: 0,
   kPositionUnavailable: 1,
   kWifiDisabled: 2,
 };
-device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: GeopositionResult
-device.mojom.GeopositionResultSpec = { $: mojo.internal.Union(
+device.mojom.mojom.GeopositionResultSpec = { $: mojo.internal.Union(
     'device.mojom.GeopositionResult', {
       'position': {
         'ordinal': 0,
@@ -46,7 +46,7 @@ device.mojom.GeopositionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Geoposition
-device.mojom.GeopositionSpec = {
+device.mojom.mojom.GeopositionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Geoposition',
@@ -68,15 +68,15 @@ device.mojom.GeopositionSpec = {
 };
 
 // Struct: GeopositionError
-device.mojom.GeopositionErrorSpec = {
+device.mojom.mojom.GeopositionErrorSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GeopositionError',
       packedSize: 32,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_technical', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeopositionErrorCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error_technical', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

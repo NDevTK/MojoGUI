@@ -10,7 +10,7 @@ autofill.mojom = autofill.mojom || {};
 
 
 // Enum: EntityTypeName
-autofill.mojom.EntityTypeName = {
+autofill.mojom.mojom.EntityTypeName = {
   kPassport: 0,
   kDriversLicense: 1,
   kVehicle: 2,
@@ -19,4 +19,4 @@ autofill.mojom.EntityTypeName = {
   kRedressNumber: 5,
   kFlightReservation: 6,
 };
-autofill.mojom.EntityTypeNameSpec = { $: mojo.internal.Enum() };
+autofill.mojom.mojom.EntityTypeNameSpec = { $: mojo.internal.Enum() };

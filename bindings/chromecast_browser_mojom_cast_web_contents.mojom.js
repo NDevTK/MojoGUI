@@ -7,10 +7,11 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var url = url || {};
 
 
 // Enum: PageState
-chromecast.mojom.PageState = {
+chromecast.mojom.mojom.PageState = {
   IDLE: 0,
   LOADING: 1,
   LOADED: 2,
@@ -18,27 +19,27 @@ chromecast.mojom.PageState = {
   DESTROYED: 4,
   ERROR: 5,
 };
-chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.PageStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: CastWebContentsObserver
-chromecast.mojom.CastWebContentsObserver = {};
+chromecast.mojom.mojom.CastWebContentsObserver = {};
 
-chromecast.mojom.CastWebContentsObserverPendingReceiver = class {
+chromecast.mojom.mojom.CastWebContentsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.CastWebContentsObserverRemote = class {
+chromecast.mojom.mojom.CastWebContentsObserverRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.CastWebContentsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.CastWebContentsObserverPendingReceiver,
+      chromecast.mojom.mojom.CastWebContentsObserverPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.CastWebContentsObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.CastWebContentsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -50,7 +51,7 @@ chromecast.mojom.CastWebContentsObserverRemote = class {
   }
 };
 
-chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
+chromecast.mojom.mojom.CastWebContentsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -59,7 +60,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -68,7 +69,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_PageStopped_ParamsSpec,
       null,
       [state, error_code]);
   }
@@ -77,7 +78,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec,
       null,
       [render_process_id, render_frame_id]);
   }
@@ -86,7 +87,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec,
       null,
       []);
   }
@@ -95,7 +96,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec,
       null,
       [title]);
   }
@@ -104,7 +105,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec,
       null,
       [url]);
   }
@@ -113,7 +114,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec,
       null,
       []);
   }
@@ -122,7 +123,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec,
       null,
       []);
   }
@@ -131,7 +132,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec,
       null,
       [pid]);
   }
@@ -140,7 +141,7 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec,
       null,
       [media_playing]);
   }
@@ -149,15 +150,15 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec,
       null,
       [web_contents]);
   }
 
 };
 
-chromecast.mojom.CastWebContentsObserver.getRemote = function() {
-  let remote = new chromecast.mojom.CastWebContentsObserverRemote();
+chromecast.mojom.mojom.CastWebContentsObserver.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.CastWebContentsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -167,7 +168,7 @@ chromecast.mojom.CastWebContentsObserver.getRemote = function() {
 };
 
 // ParamsSpec for PageStateChanged
-chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.PageStateChanged_Params',
@@ -181,7 +182,7 @@ chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for PageStopped
-chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.PageStopped_Params',
@@ -196,7 +197,7 @@ chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = {
 };
 
 // ParamsSpec for RenderFrameCreated
-chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.RenderFrameCreated_Params',
@@ -211,7 +212,7 @@ chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = {
 };
 
 // ParamsSpec for MainFrameFinishedNavigation
-chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.MainFrameFinishedNavigation_Params',
@@ -224,7 +225,7 @@ chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec 
 };
 
 // ParamsSpec for UpdateTitle
-chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.UpdateTitle_Params',
@@ -238,7 +239,7 @@ chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateFaviconURL
-chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.UpdateFaviconURL_Params',
@@ -252,7 +253,7 @@ chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = {
 };
 
 // ParamsSpec for DidFirstVisuallyNonEmptyPaint
-chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.DidFirstVisuallyNonEmptyPaint_Params',
@@ -265,7 +266,7 @@ chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpe
 };
 
 // ParamsSpec for ResourceLoadFailed
-chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.ResourceLoadFailed_Params',
@@ -278,7 +279,7 @@ chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = {
 };
 
 // ParamsSpec for OnRenderProcessReady
-chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.OnRenderProcessReady_Params',
@@ -292,7 +293,7 @@ chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = {
 };
 
 // ParamsSpec for MediaPlaybackChanged
-chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.MediaPlaybackChanged_Params',
@@ -306,7 +307,7 @@ chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = {
 };
 
 // ParamsSpec for InnerContentsCreated
-chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContentsObserver.InnerContentsCreated_Params',
@@ -320,29 +321,29 @@ chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.CastWebContentsObserverPtr = chromecast.mojom.CastWebContentsObserverRemote;
-chromecast.mojom.CastWebContentsObserverRequest = chromecast.mojom.CastWebContentsObserverPendingReceiver;
+chromecast.mojom.mojom.CastWebContentsObserverPtr = chromecast.mojom.mojom.CastWebContentsObserverRemote;
+chromecast.mojom.mojom.CastWebContentsObserverRequest = chromecast.mojom.mojom.CastWebContentsObserverPendingReceiver;
 
 
 // Interface: CastWebContents
-chromecast.mojom.CastWebContents = {};
+chromecast.mojom.mojom.CastWebContents = {};
 
-chromecast.mojom.CastWebContentsPendingReceiver = class {
+chromecast.mojom.mojom.CastWebContentsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.CastWebContentsRemote = class {
+chromecast.mojom.mojom.CastWebContentsRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.CastWebContents';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.CastWebContentsPendingReceiver,
+      chromecast.mojom.mojom.CastWebContentsPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.CastWebContentsRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.CastWebContentsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -354,7 +355,7 @@ chromecast.mojom.CastWebContentsRemote = class {
   }
 };
 
-chromecast.mojom.CastWebContentsRemoteCallHandler = class {
+chromecast.mojom.mojom.CastWebContentsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -363,7 +364,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_SetAppProperties_ParamsSpec,
       null,
       [app_id, session_id, is_audio_app, app_web_url, enforce_feature_permissions, feature_permissions, additional_feature_permission_origins]);
   }
@@ -372,7 +373,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_SetGroupInfo_ParamsSpec,
       null,
       [session_id, is_multizone_launch]);
   }
@@ -381,7 +382,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_AddRendererFeatures_ParamsSpec,
       null,
       [features]);
   }
@@ -390,7 +391,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec,
       null,
       [remote_interfaces]);
   }
@@ -399,7 +400,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_LoadUrl_ParamsSpec,
       null,
       [url]);
   }
@@ -408,7 +409,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.mojom.CastWebContents_ClosePage_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_ClosePage_ParamsSpec,
       null,
       []);
   }
@@ -417,7 +418,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec,
       null,
       [visible]);
   }
@@ -426,7 +427,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_BlockMediaLoading_ParamsSpec,
       null,
       [blocked]);
   }
@@ -435,7 +436,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_BlockMediaStarting_ParamsSpec,
       null,
       [blocked]);
   }
@@ -444,7 +445,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec,
       null,
       [enabled]);
   }
@@ -453,7 +454,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec,
       null,
       [api_bindings_remote]);
   }
@@ -462,7 +463,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      chromecast.mojom.CastWebContents_AddObserver_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -471,7 +472,7 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec,
       null,
       [enabled]);
   }
@@ -480,15 +481,15 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec,
-      chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_GetMainFramePid_ParamsSpec,
+      chromecast.mojom.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec,
       []);
   }
 
 };
 
-chromecast.mojom.CastWebContents.getRemote = function() {
-  let remote = new chromecast.mojom.CastWebContentsRemote();
+chromecast.mojom.mojom.CastWebContents.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.CastWebContentsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -498,7 +499,7 @@ chromecast.mojom.CastWebContents.getRemote = function() {
 };
 
 // ParamsSpec for SetAppProperties
-chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.SetAppProperties_Params',
@@ -506,11 +507,11 @@ chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_audio_app', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'app_web_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'enforce_feature_permissions', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_permissions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'additional_feature_permission_origins', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'is_audio_app', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'app_web_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'enforce_feature_permissions', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'feature_permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'additional_feature_permission_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -518,7 +519,7 @@ chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = {
 };
 
 // ParamsSpec for SetGroupInfo
-chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_SetGroupInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.SetGroupInfo_Params',
@@ -533,7 +534,7 @@ chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = {
 };
 
 // ParamsSpec for AddRendererFeatures
-chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.AddRendererFeatures_Params',
@@ -547,7 +548,7 @@ chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = {
 };
 
 // ParamsSpec for SetInterfacesForRenderer
-chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.SetInterfacesForRenderer_Params',
@@ -561,7 +562,7 @@ chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
 };
 
 // ParamsSpec for LoadUrl
-chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_LoadUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.LoadUrl_Params',
@@ -575,7 +576,7 @@ chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = {
 };
 
 // ParamsSpec for ClosePage
-chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_ClosePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.ClosePage_Params',
@@ -588,7 +589,7 @@ chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = {
 };
 
 // ParamsSpec for SetWebVisibilityAndPaint
-chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.SetWebVisibilityAndPaint_Params',
@@ -602,7 +603,7 @@ chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = {
 };
 
 // ParamsSpec for BlockMediaLoading
-chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.BlockMediaLoading_Params',
@@ -616,7 +617,7 @@ chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = {
 };
 
 // ParamsSpec for BlockMediaStarting
-chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.BlockMediaStarting_Params',
@@ -630,7 +631,7 @@ chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = {
 };
 
 // ParamsSpec for EnableBackgroundVideoPlayback
-chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.EnableBackgroundVideoPlayback_Params',
@@ -644,7 +645,7 @@ chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = {
 };
 
 // ParamsSpec for ConnectToBindingsService
-chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.ConnectToBindingsService_Params',
@@ -658,7 +659,7 @@ chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
 };
 
 // ParamsSpec for AddObserver
-chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.AddObserver_Params',
@@ -672,7 +673,7 @@ chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for SetEnabledForRemoteDebugging
-chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.SetEnabledForRemoteDebugging_Params',
@@ -686,7 +687,7 @@ chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = {
 };
 
 // ParamsSpec for GetMainFramePid
-chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.GetMainFramePid_Params',
@@ -698,7 +699,7 @@ chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
   }
 };
 
-chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = {
+chromecast.mojom.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebContents.GetMainFramePid_ResponseParams',
@@ -712,6 +713,6 @@ chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.CastWebContentsPtr = chromecast.mojom.CastWebContentsRemote;
-chromecast.mojom.CastWebContentsRequest = chromecast.mojom.CastWebContentsPendingReceiver;
+chromecast.mojom.mojom.CastWebContentsPtr = chromecast.mojom.mojom.CastWebContentsRemote;
+chromecast.mojom.mojom.CastWebContentsRequest = chromecast.mojom.mojom.CastWebContentsPendingReceiver;
 

@@ -7,10 +7,11 @@
 // Module namespace
 var glic = glic || {};
 glic.mojom = glic.mojom || {};
+var url = url || {};
 
 
 // Enum: FreWebUiState
-glic.mojom.FreWebUiState = {
+glic.mojom.mojom.FreWebUiState = {
   kUninitialized: 0,
   kBeginLoading: 1,
   kShowLoading: 2,
@@ -21,27 +22,27 @@ glic.mojom.FreWebUiState = {
   kReady: 7,
   kDisabledByAdmin: 8,
 };
-glic.mojom.FreWebUiStateSpec = { $: mojo.internal.Enum() };
+glic.mojom.mojom.FreWebUiStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: FrePageHandlerFactory
-glic.mojom.FrePageHandlerFactory = {};
+glic.mojom.mojom.FrePageHandlerFactory = {};
 
-glic.mojom.FrePageHandlerFactoryPendingReceiver = class {
+glic.mojom.mojom.FrePageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.FrePageHandlerFactoryRemote = class {
+glic.mojom.mojom.FrePageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.FrePageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.FrePageHandlerFactoryPendingReceiver,
+      glic.mojom.mojom.FrePageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new glic.mojom.FrePageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.mojom.FrePageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +54,7 @@ glic.mojom.FrePageHandlerFactoryRemote = class {
   }
 };
 
-glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
+glic.mojom.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +63,15 @@ glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec,
+      glic.mojom.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-glic.mojom.FrePageHandlerFactory.getRemote = function() {
-  let remote = new glic.mojom.FrePageHandlerFactoryRemote();
+glic.mojom.mojom.FrePageHandlerFactory.getRemote = function() {
+  let remote = new glic.mojom.mojom.FrePageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +81,7 @@ glic.mojom.FrePageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
+glic.mojom.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandlerFactory.CreatePageHandler_Params',
@@ -94,29 +95,29 @@ glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.FrePageHandlerFactoryPtr = glic.mojom.FrePageHandlerFactoryRemote;
-glic.mojom.FrePageHandlerFactoryRequest = glic.mojom.FrePageHandlerFactoryPendingReceiver;
+glic.mojom.mojom.FrePageHandlerFactoryPtr = glic.mojom.mojom.FrePageHandlerFactoryRemote;
+glic.mojom.mojom.FrePageHandlerFactoryRequest = glic.mojom.mojom.FrePageHandlerFactoryPendingReceiver;
 
 
 // Interface: FrePageHandler
-glic.mojom.FrePageHandler = {};
+glic.mojom.mojom.FrePageHandler = {};
 
-glic.mojom.FrePageHandlerPendingReceiver = class {
+glic.mojom.mojom.FrePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-glic.mojom.FrePageHandlerRemote = class {
+glic.mojom.mojom.FrePageHandlerRemote = class {
   static get $interfaceName() {
     return 'glic.mojom.FrePageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      glic.mojom.FrePageHandlerPendingReceiver,
+      glic.mojom.mojom.FrePageHandlerPendingReceiver,
       handle);
-    this.$ = new glic.mojom.FrePageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new glic.mojom.mojom.FrePageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -128,7 +129,7 @@ glic.mojom.FrePageHandlerRemote = class {
   }
 };
 
-glic.mojom.FrePageHandlerRemoteCallHandler = class {
+glic.mojom.mojom.FrePageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -137,7 +138,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      glic.mojom.FrePageHandler_AcceptFre_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_AcceptFre_ParamsSpec,
       null,
       []);
   }
@@ -146,7 +147,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      glic.mojom.FrePageHandler_RejectFre_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_RejectFre_ParamsSpec,
       null,
       []);
   }
@@ -155,7 +156,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      glic.mojom.FrePageHandler_DismissFre_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_DismissFre_ParamsSpec,
       null,
       [panel]);
   }
@@ -164,7 +165,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      glic.mojom.FrePageHandler_FreReloaded_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_FreReloaded_ParamsSpec,
       null,
       []);
   }
@@ -173,8 +174,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec,
-      glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
+      glic.mojom.mojom.FrePageHandler_PrepareForClient_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
       []);
   }
 
@@ -182,7 +183,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
       null,
       [url]);
   }
@@ -191,7 +192,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec,
       null,
       [new_state]);
   }
@@ -200,7 +201,7 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec,
       null,
       []);
   }
@@ -209,15 +210,15 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec,
+      glic.mojom.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec,
       null,
       []);
   }
 
 };
 
-glic.mojom.FrePageHandler.getRemote = function() {
-  let remote = new glic.mojom.FrePageHandlerRemote();
+glic.mojom.mojom.FrePageHandler.getRemote = function() {
+  let remote = new glic.mojom.mojom.FrePageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -227,7 +228,7 @@ glic.mojom.FrePageHandler.getRemote = function() {
 };
 
 // ParamsSpec for AcceptFre
-glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.AcceptFre_Params',
@@ -240,7 +241,7 @@ glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = {
 };
 
 // ParamsSpec for RejectFre
-glic.mojom.FrePageHandler_RejectFre_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_RejectFre_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.RejectFre_Params',
@@ -253,7 +254,7 @@ glic.mojom.FrePageHandler_RejectFre_ParamsSpec = {
 };
 
 // ParamsSpec for DismissFre
-glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_DismissFre_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.DismissFre_Params',
@@ -267,7 +268,7 @@ glic.mojom.FrePageHandler_DismissFre_ParamsSpec = {
 };
 
 // ParamsSpec for FreReloaded
-glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.FreReloaded_Params',
@@ -280,7 +281,7 @@ glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = {
 };
 
 // ParamsSpec for PrepareForClient
-glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.PrepareForClient_Params',
@@ -292,7 +293,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
   }
 };
 
-glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
+glic.mojom.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.PrepareForClient_ResponseParams',
@@ -306,7 +307,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ValidateAndOpenLinkInNewTab
-glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.ValidateAndOpenLinkInNewTab_Params',
@@ -320,7 +321,7 @@ glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = {
 };
 
 // ParamsSpec for WebUiStateChanged
-glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.WebUiStateChanged_Params',
@@ -334,7 +335,7 @@ glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for ExceededTimeoutError
-glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.ExceededTimeoutError_Params',
@@ -347,7 +348,7 @@ glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = {
 };
 
 // ParamsSpec for LogWebUiLoadComplete
-glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
+glic.mojom.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'glic.mojom.FrePageHandler.LogWebUiLoadComplete_Params',
@@ -360,6 +361,6 @@ glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-glic.mojom.FrePageHandlerPtr = glic.mojom.FrePageHandlerRemote;
-glic.mojom.FrePageHandlerRequest = glic.mojom.FrePageHandlerPendingReceiver;
+glic.mojom.mojom.FrePageHandlerPtr = glic.mojom.mojom.FrePageHandlerRemote;
+glic.mojom.mojom.FrePageHandlerRequest = glic.mojom.mojom.FrePageHandlerPendingReceiver;
 

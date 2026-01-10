@@ -10,14 +10,14 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Enum: CreatePushSubscriptionSuccessCode
-video_capture.mojom.CreatePushSubscriptionSuccessCode = {
+video_capture.mojom.mojom.CreatePushSubscriptionSuccessCode = {
   kCreatedWithRequestedSettings: 0,
   kCreatedWithDifferentSettings: 1,
 };
-video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
+video_capture.mojom.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: CreatePushSubscriptionResultCode
-video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: mojo.internal.Union(
+video_capture.mojom.mojom.CreatePushSubscriptionResultCodeSpec = { $: mojo.internal.Union(
     'video_capture.mojom.CreatePushSubscriptionResultCode', {
       'success_code': {
         'ordinal': 0,
@@ -31,24 +31,24 @@ video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: mojo.internal.Un
 };
 
 // Interface: PushVideoStreamSubscription
-video_capture.mojom.PushVideoStreamSubscription = {};
+video_capture.mojom.mojom.PushVideoStreamSubscription = {};
 
-video_capture.mojom.PushVideoStreamSubscriptionPendingReceiver = class {
+video_capture.mojom.mojom.PushVideoStreamSubscriptionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-video_capture.mojom.PushVideoStreamSubscriptionRemote = class {
+video_capture.mojom.mojom.PushVideoStreamSubscriptionRemote = class {
   static get $interfaceName() {
     return 'video_capture.mojom.PushVideoStreamSubscription';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      video_capture.mojom.PushVideoStreamSubscriptionPendingReceiver,
+      video_capture.mojom.mojom.PushVideoStreamSubscriptionPendingReceiver,
       handle);
-    this.$ = new video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler(this.proxy);
+    this.$ = new video_capture.mojom.mojom.PushVideoStreamSubscriptionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +60,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemote = class {
   }
 };
 
-video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
+video_capture.mojom.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,7 +69,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_Activate_ParamsSpec,
       null,
       []);
   }
@@ -78,7 +78,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
       null,
       []);
   }
@@ -87,7 +87,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_Resume_ParamsSpec,
       null,
       []);
   }
@@ -96,8 +96,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec,
-      video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
       []);
   }
 
@@ -105,8 +105,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec,
-      video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
       [settings]);
   }
 
@@ -114,8 +114,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec,
-      video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
       []);
   }
 
@@ -123,7 +123,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
       null,
       []);
   }
@@ -132,15 +132,15 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec,
+      video_capture.mojom.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec,
       null,
       [feedback]);
   }
 
 };
 
-video_capture.mojom.PushVideoStreamSubscription.getRemote = function() {
-  let remote = new video_capture.mojom.PushVideoStreamSubscriptionRemote();
+video_capture.mojom.mojom.PushVideoStreamSubscription.getRemote = function() {
+  let remote = new video_capture.mojom.mojom.PushVideoStreamSubscriptionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -150,7 +150,7 @@ video_capture.mojom.PushVideoStreamSubscription.getRemote = function() {
 };
 
 // ParamsSpec for Activate
-video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.Activate_Params',
@@ -163,7 +163,7 @@ video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
 };
 
 // ParamsSpec for Suspend
-video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.Suspend_Params',
@@ -176,7 +176,7 @@ video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.Resume_Params',
@@ -189,7 +189,7 @@ video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for GetPhotoState
-video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.GetPhotoState_Params',
@@ -201,7 +201,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
   }
 };
 
-video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.GetPhotoState_ResponseParams',
@@ -215,7 +215,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec
 };
 
 // ParamsSpec for SetPhotoOptions
-video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_Params',
@@ -228,7 +228,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
   }
 };
 
-video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_ResponseParams',
@@ -242,7 +242,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSp
 };
 
 // ParamsSpec for TakePhoto
-video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.TakePhoto_Params',
@@ -254,7 +254,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
   }
 };
 
-video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.TakePhoto_ResponseParams',
@@ -268,7 +268,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Close
-video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.Close_Params',
@@ -281,7 +281,7 @@ video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
 };
 
 // ParamsSpec for ProcessFeedback
-video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
+video_capture.mojom.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.PushVideoStreamSubscription.ProcessFeedback_Params',
@@ -295,29 +295,29 @@ video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
 };
 
 // Legacy compatibility
-video_capture.mojom.PushVideoStreamSubscriptionPtr = video_capture.mojom.PushVideoStreamSubscriptionRemote;
-video_capture.mojom.PushVideoStreamSubscriptionRequest = video_capture.mojom.PushVideoStreamSubscriptionPendingReceiver;
+video_capture.mojom.mojom.PushVideoStreamSubscriptionPtr = video_capture.mojom.mojom.PushVideoStreamSubscriptionRemote;
+video_capture.mojom.mojom.PushVideoStreamSubscriptionRequest = video_capture.mojom.mojom.PushVideoStreamSubscriptionPendingReceiver;
 
 
 // Interface: VideoSource
-video_capture.mojom.VideoSource = {};
+video_capture.mojom.mojom.VideoSource = {};
 
-video_capture.mojom.VideoSourcePendingReceiver = class {
+video_capture.mojom.mojom.VideoSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-video_capture.mojom.VideoSourceRemote = class {
+video_capture.mojom.mojom.VideoSourceRemote = class {
   static get $interfaceName() {
     return 'video_capture.mojom.VideoSource';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      video_capture.mojom.VideoSourcePendingReceiver,
+      video_capture.mojom.mojom.VideoSourcePendingReceiver,
       handle);
-    this.$ = new video_capture.mojom.VideoSourceRemoteCallHandler(this.proxy);
+    this.$ = new video_capture.mojom.mojom.VideoSourceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -329,7 +329,7 @@ video_capture.mojom.VideoSourceRemote = class {
   }
 };
 
-video_capture.mojom.VideoSourceRemoteCallHandler = class {
+video_capture.mojom.mojom.VideoSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -338,15 +338,15 @@ video_capture.mojom.VideoSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec,
-      video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
+      video_capture.mojom.mojom.VideoSource_CreatePushSubscription_ParamsSpec,
+      video_capture.mojom.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
       [subscriber, requested_settings, force_reopen_with_new_settings, subscription]);
   }
 
 };
 
-video_capture.mojom.VideoSource.getRemote = function() {
-  let remote = new video_capture.mojom.VideoSourceRemote();
+video_capture.mojom.mojom.VideoSource.getRemote = function() {
+  let remote = new video_capture.mojom.mojom.VideoSourceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -356,23 +356,23 @@ video_capture.mojom.VideoSource.getRemote = function() {
 };
 
 // ParamsSpec for CreatePushSubscription
-video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
+video_capture.mojom.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSource.CreatePushSubscription_Params',
       packedSize: 32,
       fields: [
-        { name: 'subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'requested_settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'force_reopen_with_new_settings', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'subscriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'requested_settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'force_reopen_with_new_settings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'subscription', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
+video_capture.mojom.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSource.CreatePushSubscription_ResponseParams',
@@ -387,6 +387,6 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-video_capture.mojom.VideoSourcePtr = video_capture.mojom.VideoSourceRemote;
-video_capture.mojom.VideoSourceRequest = video_capture.mojom.VideoSourcePendingReceiver;
+video_capture.mojom.mojom.VideoSourcePtr = video_capture.mojom.mojom.VideoSourceRemote;
+video_capture.mojom.mojom.VideoSourceRequest = video_capture.mojom.mojom.VideoSourcePendingReceiver;
 

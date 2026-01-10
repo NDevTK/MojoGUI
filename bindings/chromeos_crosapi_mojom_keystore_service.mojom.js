@@ -10,28 +10,28 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: KeystoreType
-crosapi.mojom.KeystoreType = {
+crosapi.mojom.mojom.KeystoreType = {
   kUser: 0,
   kDevice: 1,
 };
-crosapi.mojom.KeystoreTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.KeystoreTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeystoreAlgorithmName
-crosapi.mojom.KeystoreAlgorithmName = {
+crosapi.mojom.mojom.KeystoreAlgorithmName = {
   kRsassaPkcs115: 0,
   kRsaOaep: 1,
   kEcdsa: 2,
 };
-crosapi.mojom.KeystoreAlgorithmNameSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.KeystoreAlgorithmNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeystoreKeyAttributeType
-crosapi.mojom.KeystoreKeyAttributeType = {
+crosapi.mojom.mojom.KeystoreKeyAttributeType = {
   kPlatformKeysTag: 0,
 };
-crosapi.mojom.KeystoreKeyAttributeTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.KeystoreKeyAttributeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeystoreSigningScheme
-crosapi.mojom.KeystoreSigningScheme = {
+crosapi.mojom.mojom.KeystoreSigningScheme = {
   kRsassaPkcs1V15None: 0,
   kRsassaPkcs1V15Sha1: 1,
   kRsassaPkcs1V15Sha256: 2,
@@ -42,17 +42,17 @@ crosapi.mojom.KeystoreSigningScheme = {
   kEcdsaSha384: 7,
   kEcdsaSha512: 8,
 };
-crosapi.mojom.KeystoreSigningSchemeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.KeystoreSigningSchemeSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeyTag
-crosapi.mojom.KeyTag = {
+crosapi.mojom.mojom.KeyTag = {
   kNoTags: 0,
   kCorporate: 1,
 };
-crosapi.mojom.KeyTagSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.KeyTagSpec = { $: mojo.internal.Enum() };
 
 // Union: KeystoreAlgorithm
-crosapi.mojom.KeystoreAlgorithmSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.KeystoreAlgorithmSpec = { $: mojo.internal.Union(
     'crosapi.mojom.KeystoreAlgorithm', {
       'rsassa_pkcs115': {
         'ordinal': 0,
@@ -70,7 +70,7 @@ crosapi.mojom.KeystoreAlgorithmSpec = { $: mojo.internal.Union(
 };
 
 // Union: ChallengeAttestationOnlyKeystoreResult
-crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ChallengeAttestationOnlyKeystoreResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ChallengeAttestationOnlyKeystoreResult', {
       'error_message': {
         'ordinal': 0,
@@ -84,7 +84,7 @@ crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec = { $: mojo.internal.Un
 };
 
 // Union: KeystoreBinaryResult
-crosapi.mojom.KeystoreBinaryResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.KeystoreBinaryResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.KeystoreBinaryResult', {
       'error': {
         'ordinal': 0,
@@ -98,7 +98,7 @@ crosapi.mojom.KeystoreBinaryResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: GetCertificatesResult
-crosapi.mojom.GetCertificatesResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.GetCertificatesResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.GetCertificatesResult', {
       'error': {
         'ordinal': 0,
@@ -112,7 +112,7 @@ crosapi.mojom.GetCertificatesResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: KeystoreSelectClientCertificatesResult
-crosapi.mojom.KeystoreSelectClientCertificatesResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.KeystoreSelectClientCertificatesResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.KeystoreSelectClientCertificatesResult', {
       'error': {
         'ordinal': 0,
@@ -126,7 +126,7 @@ crosapi.mojom.KeystoreSelectClientCertificatesResultSpec = { $: mojo.internal.Un
 };
 
 // Union: GetKeyStoresResult
-crosapi.mojom.GetKeyStoresResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.GetKeyStoresResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.GetKeyStoresResult', {
       'error': {
         'ordinal': 0,
@@ -140,7 +140,7 @@ crosapi.mojom.GetKeyStoresResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: GetPublicKeyResult
-crosapi.mojom.GetPublicKeyResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.GetPublicKeyResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.GetPublicKeyResult', {
       'error': {
         'ordinal': 0,
@@ -154,7 +154,7 @@ crosapi.mojom.GetPublicKeyResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: GetKeyTagsResult
-crosapi.mojom.GetKeyTagsResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.GetKeyTagsResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.GetKeyTagsResult', {
       'error': {
         'ordinal': 0,
@@ -168,7 +168,7 @@ crosapi.mojom.GetKeyTagsResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: DEPRECATED_ExtensionKeystoreBinaryResult
-crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResult', {
       'error_message': {
         'ordinal': 0,
@@ -182,7 +182,7 @@ crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec = { $: mojo.internal.
 };
 
 // Union: DEPRECATED_GetPublicKeyResult
-crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.DEPRECATED_GetPublicKeyResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.DEPRECATED_GetPublicKeyResult', {
       'error_message': {
         'ordinal': 0,
@@ -196,7 +196,7 @@ crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: DEPRECATED_GetKeyStoresResult
-crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.DEPRECATED_GetKeyStoresResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.DEPRECATED_GetKeyStoresResult', {
       'error_message': {
         'ordinal': 0,
@@ -210,7 +210,7 @@ crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: DEPRECATED_GetCertificatesResult
-crosapi.mojom.DEPRECATED_GetCertificatesResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.DEPRECATED_GetCertificatesResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.DEPRECATED_GetCertificatesResult', {
       'error_message': {
         'ordinal': 0,
@@ -224,7 +224,7 @@ crosapi.mojom.DEPRECATED_GetCertificatesResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: DEPRECATED_KeystoreStringResult
-crosapi.mojom.DEPRECATED_KeystoreStringResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.DEPRECATED_KeystoreStringResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.DEPRECATED_KeystoreStringResult', {
       'error_message': {
         'ordinal': 0,
@@ -238,15 +238,15 @@ crosapi.mojom.DEPRECATED_KeystoreStringResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: KeystoreRsaParams
-crosapi.mojom.KeystoreRsaParamsSpec = {
+crosapi.mojom.mojom.KeystoreRsaParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreRsaParams',
       packedSize: 24,
       fields: [
-        { name: 'modulus_length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'public_exponent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'sw_backed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'modulus_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'public_exponent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'sw_backed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -254,7 +254,7 @@ crosapi.mojom.KeystoreRsaParamsSpec = {
 };
 
 // Struct: KeystoreEcdsaParams
-crosapi.mojom.KeystoreEcdsaParamsSpec = {
+crosapi.mojom.mojom.KeystoreEcdsaParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreEcdsaParams',
@@ -268,14 +268,14 @@ crosapi.mojom.KeystoreEcdsaParamsSpec = {
 };
 
 // Struct: GetPublicKeySuccessResult
-crosapi.mojom.GetPublicKeySuccessResultSpec = {
+crosapi.mojom.mojom.GetPublicKeySuccessResultSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.GetPublicKeySuccessResult',
       packedSize: 32,
       fields: [
-        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'algorithm_properties', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'public_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'algorithm_properties', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -283,24 +283,24 @@ crosapi.mojom.GetPublicKeySuccessResultSpec = {
 };
 
 // Interface: KeystoreService
-crosapi.mojom.KeystoreService = {};
+crosapi.mojom.mojom.KeystoreService = {};
 
-crosapi.mojom.KeystoreServicePendingReceiver = class {
+crosapi.mojom.mojom.KeystoreServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.KeystoreServiceRemote = class {
+crosapi.mojom.mojom.KeystoreServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.KeystoreService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.KeystoreServicePendingReceiver,
+      crosapi.mojom.mojom.KeystoreServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.KeystoreServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.KeystoreServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -312,7 +312,7 @@ crosapi.mojom.KeystoreServiceRemote = class {
   }
 };
 
-crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
+crosapi.mojom.mojom.KeystoreServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -321,8 +321,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec,
-      crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
       [type, challenge, migrate, algorithm]);
   }
 
@@ -330,8 +330,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec,
-      crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetKeyStores_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec,
       []);
   }
 
@@ -339,8 +339,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec,
-      crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_SelectClientCertificates_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec,
       [certificate_authorities]);
   }
 
@@ -348,8 +348,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec,
-      crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetCertificates_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetCertificates_ResponseParamsSpec,
       [keystore]);
   }
 
@@ -357,8 +357,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec,
-      crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_AddCertificate_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_AddCertificate_ResponseParamsSpec,
       [keystore, certificate]);
   }
 
@@ -366,8 +366,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec,
-      crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_RemoveCertificate_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec,
       [keystore, certificate]);
   }
 
@@ -375,8 +375,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec,
-      crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetPublicKey_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec,
       [certificate, algorithm_name]);
   }
 
@@ -384,8 +384,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec,
-      crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GenerateKey_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GenerateKey_ResponseParamsSpec,
       [keystore, algorithm]);
   }
 
@@ -393,8 +393,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec,
-      crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_RemoveKey_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_RemoveKey_ResponseParamsSpec,
       [keystore, public_key]);
   }
 
@@ -402,8 +402,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      crosapi.mojom.KeystoreService_Sign_ParamsSpec,
-      crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_Sign_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_Sign_ResponseParamsSpec,
       [is_keystore_provided, keystore, public_key, scheme, data]);
   }
 
@@ -411,8 +411,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec,
-      crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetKeyTags_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec,
       [public_key]);
   }
 
@@ -420,8 +420,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec,
-      crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_AddKeyTags_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec,
       [public_key, tags]);
   }
 
@@ -429,8 +429,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec,
-      crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec,
       [public_key]);
   }
 
@@ -438,8 +438,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec,
-      crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_SetAttributeForKey_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec,
       [keystore, public_key, attribute_type, attribute_value]);
   }
 
@@ -447,8 +447,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec,
       [keystore, algorithm, extension_id]);
   }
 
@@ -456,8 +456,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec,
       [keystore, public_key, scheme, data, extension_id]);
   }
 
@@ -465,8 +465,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec,
       [certificate, algorithm_name]);
   }
 
@@ -474,8 +474,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec,
       []);
   }
 
@@ -483,8 +483,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec,
       [keystore]);
   }
 
@@ -492,8 +492,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec,
       [keystore, certificate]);
   }
 
@@ -501,8 +501,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec,
       [keystore, certificate]);
   }
 
@@ -510,15 +510,15 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec,
-      crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec,
+      crosapi.mojom.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
       [challenge, type, migrate]);
   }
 
 };
 
-crosapi.mojom.KeystoreService.getRemote = function() {
-  let remote = new crosapi.mojom.KeystoreServiceRemote();
+crosapi.mojom.mojom.KeystoreService.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.KeystoreServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -528,23 +528,23 @@ crosapi.mojom.KeystoreService.getRemote = function() {
 };
 
 // ParamsSpec for ChallengeAttestationOnlyKeystore
-crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.ChallengeAttestationOnlyKeystore_Params',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'migrate', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmNameSpec, nullable: false, minVersion: 17 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'migrate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 12, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmNameSpec, nullable: false, minVersion: 17 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 17, packedSize: 32}]
+      versions: [{version: 0, packedSize: 32}, {version: 17, packedSize: 32}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.ChallengeAttestationOnlyKeystore_ResponseParams',
@@ -558,7 +558,7 @@ crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpe
 };
 
 // ParamsSpec for GetKeyStores
-crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetKeyStores_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetKeyStores_Params',
@@ -570,7 +570,7 @@ crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetKeyStores_ResponseParams',
@@ -584,7 +584,7 @@ crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SelectClientCertificates
-crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_SelectClientCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.SelectClientCertificates_Params',
@@ -597,7 +597,7 @@ crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.SelectClientCertificates_ResponseParams',
@@ -611,7 +611,7 @@ crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCertificates
-crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetCertificates_Params',
@@ -624,7 +624,7 @@ crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetCertificates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetCertificates_ResponseParams',
@@ -638,28 +638,28 @@ crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddCertificate
-crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_AddCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.AddCertificate_Params',
       packedSize: 24,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'certificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_AddCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.AddCertificate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -667,28 +667,28 @@ crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveCertificate
-crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_RemoveCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.RemoveCertificate_Params',
       packedSize: 24,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'certificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.RemoveCertificate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -696,7 +696,7 @@ crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetPublicKey
-crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetPublicKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetPublicKey_Params',
@@ -710,7 +710,7 @@ crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetPublicKey_ResponseParams',
@@ -724,21 +724,21 @@ crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenerateKey
-crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GenerateKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GenerateKey_Params',
       packedSize: 32,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GenerateKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GenerateKey_ResponseParams',
@@ -752,28 +752,28 @@ crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveKey
-crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_RemoveKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.RemoveKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_RemoveKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.RemoveKey_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -781,24 +781,24 @@ crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Sign
-crosapi.mojom.KeystoreService_Sign_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_Sign_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.Sign_Params',
       packedSize: 40,
       fields: [
-        { name: 'is_keystore_provided', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'keystore', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'scheme', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreSigningSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'is_keystore_provided', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'scheme', packedOffset: 20, packedBitOffset: 0, type: crosapi.mojom.KeystoreSigningSchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_Sign_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.Sign_ResponseParams',
@@ -812,7 +812,7 @@ crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetKeyTags
-crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetKeyTags_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetKeyTags_Params',
@@ -825,7 +825,7 @@ crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.GetKeyTags_ResponseParams',
@@ -839,7 +839,7 @@ crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddKeyTags
-crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_AddKeyTags_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.AddKeyTags_Params',
@@ -853,14 +853,14 @@ crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.AddKeyTags_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -868,7 +868,7 @@ crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CanUserGrantPermissionForKey
-crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.CanUserGrantPermissionForKey_Params',
@@ -881,7 +881,7 @@ crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.CanUserGrantPermissionForKey_ResponseParams',
@@ -895,30 +895,30 @@ crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec = 
 };
 
 // ParamsSpec for SetAttributeForKey
-crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_SetAttributeForKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.SetAttributeForKey_Params',
       packedSize: 32,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'attribute_type', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreKeyAttributeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'attribute_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'attribute_type', packedOffset: 20, packedBitOffset: 0, type: crosapi.mojom.KeystoreKeyAttributeTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'attribute_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.SetAttributeForKey_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreErrorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -926,22 +926,22 @@ crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_ExtensionGenerateKey
-crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_ExtensionGenerateKey_Params',
       packedSize: 40,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false, minVersion: 0 },
-        { name: 'extension_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 5 },
+        { name: 'keystore', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'extension_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 5 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 5, packedSize: 40}]
+      versions: [{version: 0, packedSize: 40}, {version: 5, packedSize: 40}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_ExtensionGenerateKey_ResponseParams',
@@ -955,24 +955,24 @@ crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec
 };
 
 // ParamsSpec for DEPRECATED_ExtensionSign
-crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_ExtensionSign_Params',
       packedSize: 40,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'scheme', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.KeystoreSigningSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'extension_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'public_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'scheme', packedOffset: 28, packedBitOffset: 0, type: crosapi.mojom.KeystoreSigningSchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'extension_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_ExtensionSign_ResponseParams',
@@ -986,7 +986,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_GetPublicKey
-crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_GetPublicKey_Params',
@@ -1000,7 +1000,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_GetPublicKey_ResponseParams',
@@ -1014,7 +1014,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_GetKeyStores
-crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_GetKeyStores_Params',
@@ -1026,7 +1026,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_GetKeyStores_ResponseParams',
@@ -1040,7 +1040,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_GetCertificates
-crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_GetCertificates_Params',
@@ -1053,7 +1053,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec = {
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_GetCertificates_ResponseParams',
@@ -1067,21 +1067,21 @@ crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_AddCertificate
-crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_AddCertificate_Params',
       packedSize: 24,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'certificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_AddCertificate_ResponseParams',
@@ -1095,21 +1095,21 @@ crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DEPRECATED_RemoveCertificate
-crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_RemoveCertificate_Params',
       packedSize: 24,
       fields: [
-        { name: 'keystore', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'certificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_RemoveCertificate_ResponseParams',
@@ -1123,7 +1123,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec = 
 };
 
 // ParamsSpec for DEPRECATED_ChallengeAttestationOnlyKeystore
-crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_ChallengeAttestationOnlyKeystore_Params',
@@ -1138,7 +1138,7 @@ crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_Params
   }
 };
 
-crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec = {
+crosapi.mojom.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParams',
@@ -1152,6 +1152,6 @@ crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_Respon
 };
 
 // Legacy compatibility
-crosapi.mojom.KeystoreServicePtr = crosapi.mojom.KeystoreServiceRemote;
-crosapi.mojom.KeystoreServiceRequest = crosapi.mojom.KeystoreServicePendingReceiver;
+crosapi.mojom.mojom.KeystoreServicePtr = crosapi.mojom.mojom.KeystoreServiceRemote;
+crosapi.mojom.mojom.KeystoreServiceRequest = crosapi.mojom.mojom.KeystoreServicePendingReceiver;
 

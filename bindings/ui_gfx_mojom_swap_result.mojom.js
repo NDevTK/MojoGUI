@@ -10,10 +10,10 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Enum: SwapResult
-gfx.mojom.SwapResult = {
+gfx.mojom.mojom.SwapResult = {
   ACK: 0,
   FAILED: 1,
   SKIPPED: 2,
   NAK_RECREATE_BUFFERS: 3,
 };
-gfx.mojom.SwapResultSpec = { $: mojo.internal.Enum() };
+gfx.mojom.mojom.SwapResultSpec = { $: mojo.internal.Enum() };

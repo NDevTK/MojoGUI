@@ -7,24 +7,26 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: CopyOutputRequest
-viz.mojom.CopyOutputRequestSpec = {
+viz.mojom.mojom.CopyOutputRequestSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CopyOutputRequest',
       packedSize: 80,
       fields: [
-        { name: 'result_format', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CopyOutputResultFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'result_destination', packedOffset: 4, packedBitOffset: 0, type: viz.mojom.CopyOutputResultDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'send_result_delay', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_from', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_to', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'area', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'result_selection', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'blit_request', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.BlitRequestSpec, nullable: true, minVersion: 0 },
+        { name: 'result_format', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.CopyOutputResultFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'result_destination', packedOffset: 60, packedBitOffset: 0, type: viz.mojom.CopyOutputResultDestinationSpec, nullable: false, minVersion: 0 },
+        { name: 'send_result_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'scale_from', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
+        { name: 'scale_to', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'area', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
+        { name: 'result_selection', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
+        { name: 'blit_request', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.BlitRequestSpec, nullable: true, minVersion: 0 },
         { name: 'result_sender', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
@@ -33,24 +35,24 @@ viz.mojom.CopyOutputRequestSpec = {
 };
 
 // Interface: CopyOutputResultSender
-viz.mojom.CopyOutputResultSender = {};
+viz.mojom.mojom.CopyOutputResultSender = {};
 
-viz.mojom.CopyOutputResultSenderPendingReceiver = class {
+viz.mojom.mojom.CopyOutputResultSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.CopyOutputResultSenderRemote = class {
+viz.mojom.mojom.CopyOutputResultSenderRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.CopyOutputResultSender';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.CopyOutputResultSenderPendingReceiver,
+      viz.mojom.mojom.CopyOutputResultSenderPendingReceiver,
       handle);
-    this.$ = new viz.mojom.CopyOutputResultSenderRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.CopyOutputResultSenderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +64,7 @@ viz.mojom.CopyOutputResultSenderRemote = class {
   }
 };
 
-viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
+viz.mojom.mojom.CopyOutputResultSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,15 +73,15 @@ viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
+      viz.mojom.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-viz.mojom.CopyOutputResultSender.getRemote = function() {
-  let remote = new viz.mojom.CopyOutputResultSenderRemote();
+viz.mojom.mojom.CopyOutputResultSender.getRemote = function() {
+  let remote = new viz.mojom.mojom.CopyOutputResultSenderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,7 +91,7 @@ viz.mojom.CopyOutputResultSender.getRemote = function() {
 };
 
 // ParamsSpec for SendResult
-viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
+viz.mojom.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CopyOutputResultSender.SendResult_Params',
@@ -103,6 +105,6 @@ viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.CopyOutputResultSenderPtr = viz.mojom.CopyOutputResultSenderRemote;
-viz.mojom.CopyOutputResultSenderRequest = viz.mojom.CopyOutputResultSenderPendingReceiver;
+viz.mojom.mojom.CopyOutputResultSenderPtr = viz.mojom.mojom.CopyOutputResultSenderRemote;
+viz.mojom.mojom.CopyOutputResultSenderRequest = viz.mojom.mojom.CopyOutputResultSenderPendingReceiver;
 

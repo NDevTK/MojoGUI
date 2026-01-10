@@ -10,7 +10,7 @@ download.mojom = download.mojom || {};
 
 
 // Enum: NetworkRequestStatus
-download.mojom.NetworkRequestStatus = {
+download.mojom.mojom.NetworkRequestStatus = {
   OK: 0,
   NETWORK_TIMEOUT: 1,
   NETWORK_DISCONNECTED: 2,
@@ -22,10 +22,10 @@ download.mojom.NetworkRequestStatus = {
   USER_CANCELED: 8,
   NETWORK_FAILED: 9,
 };
-download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
+download.mojom.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DownloadStreamHandle
-download.mojom.DownloadStreamHandleSpec = {
+download.mojom.mojom.DownloadStreamHandleSpec = {
   $: {
     structSpec: {
       name: 'download.mojom.DownloadStreamHandle',
@@ -40,24 +40,24 @@ download.mojom.DownloadStreamHandleSpec = {
 };
 
 // Interface: DownloadStreamClient
-download.mojom.DownloadStreamClient = {};
+download.mojom.mojom.DownloadStreamClient = {};
 
-download.mojom.DownloadStreamClientPendingReceiver = class {
+download.mojom.mojom.DownloadStreamClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-download.mojom.DownloadStreamClientRemote = class {
+download.mojom.mojom.DownloadStreamClientRemote = class {
   static get $interfaceName() {
     return 'download.mojom.DownloadStreamClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      download.mojom.DownloadStreamClientPendingReceiver,
+      download.mojom.mojom.DownloadStreamClientPendingReceiver,
       handle);
-    this.$ = new download.mojom.DownloadStreamClientRemoteCallHandler(this.proxy);
+    this.$ = new download.mojom.mojom.DownloadStreamClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +69,7 @@ download.mojom.DownloadStreamClientRemote = class {
   }
 };
 
-download.mojom.DownloadStreamClientRemoteCallHandler = class {
+download.mojom.mojom.DownloadStreamClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,15 +78,15 @@ download.mojom.DownloadStreamClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
+      download.mojom.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-download.mojom.DownloadStreamClient.getRemote = function() {
-  let remote = new download.mojom.DownloadStreamClientRemote();
+download.mojom.mojom.DownloadStreamClient.getRemote = function() {
+  let remote = new download.mojom.mojom.DownloadStreamClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -96,7 +96,7 @@ download.mojom.DownloadStreamClient.getRemote = function() {
 };
 
 // ParamsSpec for OnStreamCompleted
-download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
+download.mojom.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'download.mojom.DownloadStreamClient.OnStreamCompleted_Params',
@@ -110,6 +110,6 @@ download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-download.mojom.DownloadStreamClientPtr = download.mojom.DownloadStreamClientRemote;
-download.mojom.DownloadStreamClientRequest = download.mojom.DownloadStreamClientPendingReceiver;
+download.mojom.mojom.DownloadStreamClientPtr = download.mojom.mojom.DownloadStreamClientRemote;
+download.mojom.mojom.DownloadStreamClientRequest = download.mojom.mojom.DownloadStreamClientPendingReceiver;
 

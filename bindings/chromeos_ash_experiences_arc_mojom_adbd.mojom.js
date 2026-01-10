@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: AdbdMonitorHost
-arc.mojom.AdbdMonitorHost = {};
+arc.mojom.mojom.AdbdMonitorHost = {};
 
-arc.mojom.AdbdMonitorHostPendingReceiver = class {
+arc.mojom.mojom.AdbdMonitorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.AdbdMonitorHostRemote = class {
+arc.mojom.mojom.AdbdMonitorHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AdbdMonitorHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.AdbdMonitorHostPendingReceiver,
+      arc.mojom.mojom.AdbdMonitorHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.AdbdMonitorHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.AdbdMonitorHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.AdbdMonitorHostRemote = class {
   }
 };
 
-arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
+arc.mojom.mojom.AdbdMonitorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec,
+      arc.mojom.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec,
       null,
       []);
   }
@@ -57,15 +57,15 @@ arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec,
+      arc.mojom.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.AdbdMonitorHost.getRemote = function() {
-  let remote = new arc.mojom.AdbdMonitorHostRemote();
+arc.mojom.mojom.AdbdMonitorHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.AdbdMonitorHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ arc.mojom.AdbdMonitorHost.getRemote = function() {
 };
 
 // ParamsSpec for AdbdStarted
-arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = {
+arc.mojom.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AdbdMonitorHost.AdbdStarted_Params',
@@ -88,7 +88,7 @@ arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = {
 };
 
 // ParamsSpec for AdbdStopped
-arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = {
+arc.mojom.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AdbdMonitorHost.AdbdStopped_Params',
@@ -101,29 +101,29 @@ arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.AdbdMonitorHostPtr = arc.mojom.AdbdMonitorHostRemote;
-arc.mojom.AdbdMonitorHostRequest = arc.mojom.AdbdMonitorHostPendingReceiver;
+arc.mojom.mojom.AdbdMonitorHostPtr = arc.mojom.mojom.AdbdMonitorHostRemote;
+arc.mojom.mojom.AdbdMonitorHostRequest = arc.mojom.mojom.AdbdMonitorHostPendingReceiver;
 
 
 // Interface: AdbdMonitorInstance
-arc.mojom.AdbdMonitorInstance = {};
+arc.mojom.mojom.AdbdMonitorInstance = {};
 
-arc.mojom.AdbdMonitorInstancePendingReceiver = class {
+arc.mojom.mojom.AdbdMonitorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.AdbdMonitorInstanceRemote = class {
+arc.mojom.mojom.AdbdMonitorInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AdbdMonitorInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.AdbdMonitorInstancePendingReceiver,
+      arc.mojom.mojom.AdbdMonitorInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.AdbdMonitorInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.AdbdMonitorInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -135,7 +135,7 @@ arc.mojom.AdbdMonitorInstanceRemote = class {
   }
 };
 
-arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
+arc.mojom.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -144,15 +144,15 @@ arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.AdbdMonitorInstance_Init_ParamsSpec,
+      arc.mojom.mojom.AdbdMonitorInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.AdbdMonitorInstance.getRemote = function() {
-  let remote = new arc.mojom.AdbdMonitorInstanceRemote();
+arc.mojom.mojom.AdbdMonitorInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.AdbdMonitorInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -162,7 +162,7 @@ arc.mojom.AdbdMonitorInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = {
+arc.mojom.mojom.AdbdMonitorInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AdbdMonitorInstance.Init_Params',
@@ -176,6 +176,6 @@ arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.AdbdMonitorInstancePtr = arc.mojom.AdbdMonitorInstanceRemote;
-arc.mojom.AdbdMonitorInstanceRequest = arc.mojom.AdbdMonitorInstancePendingReceiver;
+arc.mojom.mojom.AdbdMonitorInstancePtr = arc.mojom.mojom.AdbdMonitorInstanceRemote;
+arc.mojom.mojom.AdbdMonitorInstanceRequest = arc.mojom.mojom.AdbdMonitorInstancePendingReceiver;
 

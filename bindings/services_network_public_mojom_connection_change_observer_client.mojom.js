@@ -10,25 +10,25 @@ network.mojom = network.mojom || {};
 
 
 // Enum: NetworkChangeEvent
-network.mojom.NetworkChangeEvent = {
+network.mojom.mojom.NetworkChangeEvent = {
   kSoonToDisconnect: 0,
   kDisconnected: 1,
   kConnected: 2,
   kDefaultNetworkChanged: 3,
 };
-network.mojom.NetworkChangeEventSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.NetworkChangeEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: ConnectionKeepAliveConfig
-network.mojom.ConnectionKeepAliveConfigSpec = {
+network.mojom.mojom.ConnectionKeepAliveConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionKeepAliveConfig',
       packedSize: 32,
       fields: [
-        { name: 'idle_timeout_in_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ping_interval_in_seconds', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'enable_connection_keep_alive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'quic_connection_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'idle_timeout_in_seconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'ping_interval_in_seconds', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'enable_connection_keep_alive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'quic_connection_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -36,24 +36,24 @@ network.mojom.ConnectionKeepAliveConfigSpec = {
 };
 
 // Interface: ConnectionChangeObserverClient
-network.mojom.ConnectionChangeObserverClient = {};
+network.mojom.mojom.ConnectionChangeObserverClient = {};
 
-network.mojom.ConnectionChangeObserverClientPendingReceiver = class {
+network.mojom.mojom.ConnectionChangeObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ConnectionChangeObserverClientRemote = class {
+network.mojom.mojom.ConnectionChangeObserverClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ConnectionChangeObserverClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ConnectionChangeObserverClientPendingReceiver,
+      network.mojom.mojom.ConnectionChangeObserverClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.ConnectionChangeObserverClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.ConnectionChangeObserverClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -65,7 +65,7 @@ network.mojom.ConnectionChangeObserverClientRemote = class {
   }
 };
 
-network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
+network.mojom.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -74,7 +74,7 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec,
+      network.mojom.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec,
       null,
       []);
   }
@@ -83,7 +83,7 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec,
+      network.mojom.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -92,15 +92,15 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec,
+      network.mojom.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.ConnectionChangeObserverClient.getRemote = function() {
-  let remote = new network.mojom.ConnectionChangeObserverClientRemote();
+network.mojom.mojom.ConnectionChangeObserverClient.getRemote = function() {
+  let remote = new network.mojom.mojom.ConnectionChangeObserverClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -110,7 +110,7 @@ network.mojom.ConnectionChangeObserverClient.getRemote = function() {
 };
 
 // ParamsSpec for OnSessionClosed
-network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
+network.mojom.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionChangeObserverClient.OnSessionClosed_Params',
@@ -123,7 +123,7 @@ network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
 };
 
 // ParamsSpec for OnNetworkEvent
-network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
+network.mojom.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionChangeObserverClient.OnNetworkEvent_Params',
@@ -137,7 +137,7 @@ network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnectionFailed
-network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
+network.mojom.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionChangeObserverClient.OnConnectionFailed_Params',
@@ -150,6 +150,6 @@ network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.ConnectionChangeObserverClientPtr = network.mojom.ConnectionChangeObserverClientRemote;
-network.mojom.ConnectionChangeObserverClientRequest = network.mojom.ConnectionChangeObserverClientPendingReceiver;
+network.mojom.mojom.ConnectionChangeObserverClientPtr = network.mojom.mojom.ConnectionChangeObserverClientRemote;
+network.mojom.mojom.ConnectionChangeObserverClientRequest = network.mojom.mojom.ConnectionChangeObserverClientPendingReceiver;
 

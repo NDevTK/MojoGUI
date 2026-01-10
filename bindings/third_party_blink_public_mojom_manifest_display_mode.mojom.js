@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: DisplayMode
-blink.mojom.DisplayMode = {
+blink.mojom.mojom.DisplayMode = {
   kUndefined: 0,
   kBrowser: 1,
   kMinimalUi: 2,
@@ -21,4 +21,4 @@ blink.mojom.DisplayMode = {
   kBorderless: 7,
   kPictureInPicture: 8,
 };
-blink.mojom.DisplayModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.DisplayModeSpec = { $: mojo.internal.Enum() };

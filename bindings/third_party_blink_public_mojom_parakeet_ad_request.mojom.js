@@ -7,19 +7,20 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Enum: AdSignals
-blink.mojom.AdSignals = {
+blink.mojom.mojom.AdSignals = {
   kCourseGeolocation: 0,
   kCourseUserAgent: 1,
   kTargeting: 2,
   kUserAdInterests: 3,
 };
-blink.mojom.AdSignalsSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.AdSignalsSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdProperties
-blink.mojom.AdPropertiesSpec = {
+blink.mojom.mojom.AdPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdProperties',
@@ -38,7 +39,7 @@ blink.mojom.AdPropertiesSpec = {
 };
 
 // Struct: AdGeolocation
-blink.mojom.AdGeolocationSpec = {
+blink.mojom.mojom.AdGeolocationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdGeolocation',
@@ -53,7 +54,7 @@ blink.mojom.AdGeolocationSpec = {
 };
 
 // Struct: AdTargeting
-blink.mojom.AdTargetingSpec = {
+blink.mojom.mojom.AdTargetingSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdTargeting',
@@ -68,7 +69,7 @@ blink.mojom.AdTargetingSpec = {
 };
 
 // Struct: AdRequestConfig
-blink.mojom.AdRequestConfigSpec = {
+blink.mojom.mojom.AdRequestConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdRequestConfig',

@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.personalization_app = ash.personalization_app || {};
-ash.personalization_app.mojom = ash.personalization_app.mojom || {};
+ash.personalization_app.personalization_app.mojom = ash.personalization_app.personalization_app.mojom || {};
 
 
 // Enum: SeaPenTemplateId
-ash.personalization_app.mojom.SeaPenTemplateId = {
+ash.personalization_app.personalization_app.mojom.mojom.SeaPenTemplateId = {
   kFlower: 0,
   kMineral: 1,
   kArt: 2,
@@ -34,10 +34,10 @@ ash.personalization_app.mojom.SeaPenTemplateId = {
   kVcBackgroundCharacters: 19,
   kVcBackgroundGlowscapes: 20,
 };
-ash.personalization_app.mojom.SeaPenTemplateIdSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.SeaPenTemplateIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: SeaPenTemplateChip
-ash.personalization_app.mojom.SeaPenTemplateChip = {
+ash.personalization_app.personalization_app.mojom.mojom.SeaPenTemplateChip = {
   kFlowerType: 0,
   kFlowerColor: 1,
   kMineralName: 2,
@@ -84,10 +84,10 @@ ash.personalization_app.mojom.SeaPenTemplateChip = {
   kVcBackgroundGlowscapesLandscape: 43,
   kVcBackgroundGlowscapesFeature: 44,
 };
-ash.personalization_app.mojom.SeaPenTemplateChipSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.SeaPenTemplateChipSpec = { $: mojo.internal.Enum() };
 
 // Enum: SeaPenTemplateOption
-ash.personalization_app.mojom.SeaPenTemplateOption = {
+ash.personalization_app.personalization_app.mojom.mojom.SeaPenTemplateOption = {
   kFlowerTypeRose: 0,
   kFlowerTypeCallaLily: 1,
   kFlowerTypeWindflower: 2,
@@ -698,4 +698,4 @@ ash.personalization_app.mojom.SeaPenTemplateOption = {
   kVcBackgroundGlowscapesFeatureWalkway: 607,
   kVcBackgroundGlowscapesFeaturePool: 608,
 };
-ash.personalization_app.mojom.SeaPenTemplateOptionSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.SeaPenTemplateOptionSpec = { $: mojo.internal.Enum() };

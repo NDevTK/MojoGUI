@@ -7,10 +7,12 @@
 // Module namespace
 var quarantine = quarantine || {};
 quarantine.mojom = quarantine.mojom || {};
+var url = url || {};
+var url = url || {};
 
 
 // Enum: QuarantineFileResult
-quarantine.mojom.QuarantineFileResult = {
+quarantine.mojom.mojom.QuarantineFileResult = {
   OK: 0,
   ACCESS_DENIED: 1,
   BLOCKED_BY_POLICY: 2,
@@ -19,27 +21,27 @@ quarantine.mojom.QuarantineFileResult = {
   SECURITY_CHECK_FAILED: 5,
   VIRUS_INFECTED: 6,
 };
-quarantine.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum() };
+quarantine.mojom.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: Quarantine
-quarantine.mojom.Quarantine = {};
+quarantine.mojom.mojom.Quarantine = {};
 
-quarantine.mojom.QuarantinePendingReceiver = class {
+quarantine.mojom.mojom.QuarantinePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-quarantine.mojom.QuarantineRemote = class {
+quarantine.mojom.mojom.QuarantineRemote = class {
   static get $interfaceName() {
     return 'quarantine.mojom.Quarantine';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      quarantine.mojom.QuarantinePendingReceiver,
+      quarantine.mojom.mojom.QuarantinePendingReceiver,
       handle);
-    this.$ = new quarantine.mojom.QuarantineRemoteCallHandler(this.proxy);
+    this.$ = new quarantine.mojom.mojom.QuarantineRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -51,7 +53,7 @@ quarantine.mojom.QuarantineRemote = class {
   }
 };
 
-quarantine.mojom.QuarantineRemoteCallHandler = class {
+quarantine.mojom.mojom.QuarantineRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -60,15 +62,15 @@ quarantine.mojom.QuarantineRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec,
-      quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
+      quarantine.mojom.mojom.Quarantine_QuarantineFile_ParamsSpec,
+      quarantine.mojom.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
       [full_path, source_url, referrer_url, request_initiator, client_guid]);
   }
 
 };
 
-quarantine.mojom.Quarantine.getRemote = function() {
-  let remote = new quarantine.mojom.QuarantineRemote();
+quarantine.mojom.mojom.Quarantine.getRemote = function() {
+  let remote = new quarantine.mojom.mojom.QuarantineRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -78,7 +80,7 @@ quarantine.mojom.Quarantine.getRemote = function() {
 };
 
 // ParamsSpec for QuarantineFile
-quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
+quarantine.mojom.mojom.Quarantine_QuarantineFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'quarantine.mojom.Quarantine.QuarantineFile_Params',
@@ -95,7 +97,7 @@ quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
   }
 };
 
-quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
+quarantine.mojom.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'quarantine.mojom.Quarantine.QuarantineFile_ResponseParams',
@@ -109,6 +111,6 @@ quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-quarantine.mojom.QuarantinePtr = quarantine.mojom.QuarantineRemote;
-quarantine.mojom.QuarantineRequest = quarantine.mojom.QuarantinePendingReceiver;
+quarantine.mojom.mojom.QuarantinePtr = quarantine.mojom.mojom.QuarantineRemote;
+quarantine.mojom.mojom.QuarantineRequest = quarantine.mojom.mojom.QuarantinePendingReceiver;
 

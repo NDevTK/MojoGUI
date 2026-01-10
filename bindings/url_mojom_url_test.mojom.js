@@ -7,27 +7,29 @@
 // Module namespace
 var url = url || {};
 url.mojom = url.mojom || {};
+var url = url || {};
+var url = url || {};
 
 
 // Interface: UrlTest
-url.mojom.UrlTest = {};
+url.mojom.mojom.UrlTest = {};
 
-url.mojom.UrlTestPendingReceiver = class {
+url.mojom.mojom.UrlTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-url.mojom.UrlTestRemote = class {
+url.mojom.mojom.UrlTestRemote = class {
   static get $interfaceName() {
     return 'url.mojom.UrlTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      url.mojom.UrlTestPendingReceiver,
+      url.mojom.mojom.UrlTestPendingReceiver,
       handle);
-    this.$ = new url.mojom.UrlTestRemoteCallHandler(this.proxy);
+    this.$ = new url.mojom.mojom.UrlTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ url.mojom.UrlTestRemote = class {
   }
 };
 
-url.mojom.UrlTestRemoteCallHandler = class {
+url.mojom.mojom.UrlTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +50,8 @@ url.mojom.UrlTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      url.mojom.UrlTest_BounceUrl_ParamsSpec,
-      url.mojom.UrlTest_BounceUrl_ResponseParamsSpec,
+      url.mojom.mojom.UrlTest_BounceUrl_ParamsSpec,
+      url.mojom.mojom.UrlTest_BounceUrl_ResponseParamsSpec,
       [in]);
   }
 
@@ -57,15 +59,15 @@ url.mojom.UrlTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      url.mojom.UrlTest_BounceOrigin_ParamsSpec,
-      url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec,
+      url.mojom.mojom.UrlTest_BounceOrigin_ParamsSpec,
+      url.mojom.mojom.UrlTest_BounceOrigin_ResponseParamsSpec,
       [in]);
   }
 
 };
 
-url.mojom.UrlTest.getRemote = function() {
-  let remote = new url.mojom.UrlTestRemote();
+url.mojom.mojom.UrlTest.getRemote = function() {
+  let remote = new url.mojom.mojom.UrlTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +77,7 @@ url.mojom.UrlTest.getRemote = function() {
 };
 
 // ParamsSpec for BounceUrl
-url.mojom.UrlTest_BounceUrl_ParamsSpec = {
+url.mojom.mojom.UrlTest_BounceUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'url.mojom.UrlTest.BounceUrl_Params',
@@ -88,7 +90,7 @@ url.mojom.UrlTest_BounceUrl_ParamsSpec = {
   }
 };
 
-url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
+url.mojom.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'url.mojom.UrlTest.BounceUrl_ResponseParams',
@@ -102,7 +104,7 @@ url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BounceOrigin
-url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
+url.mojom.mojom.UrlTest_BounceOrigin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'url.mojom.UrlTest.BounceOrigin_Params',
@@ -115,7 +117,7 @@ url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
   }
 };
 
-url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
+url.mojom.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'url.mojom.UrlTest.BounceOrigin_ResponseParams',
@@ -129,6 +131,6 @@ url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-url.mojom.UrlTestPtr = url.mojom.UrlTestRemote;
-url.mojom.UrlTestRequest = url.mojom.UrlTestPendingReceiver;
+url.mojom.mojom.UrlTestPtr = url.mojom.mojom.UrlTestRemote;
+url.mojom.mojom.UrlTestRequest = url.mojom.mojom.UrlTestPendingReceiver;
 

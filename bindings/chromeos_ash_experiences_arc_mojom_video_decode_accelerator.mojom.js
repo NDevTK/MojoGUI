@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: Result
-arc.mojom.Result = {
+arc.mojom.mojom.Result = {
   SUCCESS: 0,
   ILLEGAL_STATE: 1,
   INVALID_ARGUMENT: 2,
@@ -19,10 +19,10 @@ arc.mojom.Result = {
   INSUFFICIENT_RESOURCES: 5,
   CANCELLED: 6,
 };
-arc.mojom.ResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: BitstreamBuffer
-arc.mojom.BitstreamBufferSpec = {
+arc.mojom.mojom.BitstreamBufferSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BitstreamBuffer',
@@ -39,15 +39,15 @@ arc.mojom.BitstreamBufferSpec = {
 };
 
 // Struct: Picture
-arc.mojom.PictureSpec = {
+arc.mojom.mojom.PictureSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Picture',
       packedSize: 24,
       fields: [
-        { name: 'picture_buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bitstream_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'crop_rect', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'picture_buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bitstream_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'crop_rect', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -55,14 +55,14 @@ arc.mojom.PictureSpec = {
 };
 
 // Struct: PictureBufferFormat
-arc.mojom.PictureBufferFormatSpec = {
+arc.mojom.mojom.PictureBufferFormatSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PictureBufferFormat',
       packedSize: 24,
       fields: [
-        { name: 'min_num_buffers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'min_num_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -70,7 +70,7 @@ arc.mojom.PictureBufferFormatSpec = {
 };
 
 // Struct: VideoDecodeAcceleratorConfig
-arc.mojom.VideoDecodeAcceleratorConfigSpec = {
+arc.mojom.mojom.VideoDecodeAcceleratorConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAcceleratorConfig',
@@ -85,7 +85,7 @@ arc.mojom.VideoDecodeAcceleratorConfigSpec = {
 };
 
 // Struct: BufferModifier
-arc.mojom.BufferModifierSpec = {
+arc.mojom.mojom.BufferModifierSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BufferModifier',
@@ -99,24 +99,24 @@ arc.mojom.BufferModifierSpec = {
 };
 
 // Interface: VideoDecodeAccelerator
-arc.mojom.VideoDecodeAccelerator = {};
+arc.mojom.mojom.VideoDecodeAccelerator = {};
 
-arc.mojom.VideoDecodeAcceleratorPendingReceiver = class {
+arc.mojom.mojom.VideoDecodeAcceleratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.VideoDecodeAcceleratorRemote = class {
+arc.mojom.mojom.VideoDecodeAcceleratorRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.VideoDecodeAccelerator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.VideoDecodeAcceleratorPendingReceiver,
+      arc.mojom.mojom.VideoDecodeAcceleratorPendingReceiver,
       handle);
-    this.$ = new arc.mojom.VideoDecodeAcceleratorRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.VideoDecodeAcceleratorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -128,7 +128,7 @@ arc.mojom.VideoDecodeAcceleratorRemote = class {
   }
 };
 
-arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
+arc.mojom.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -137,8 +137,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec,
-      arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec,
       [config, client]);
   }
 
@@ -146,7 +146,7 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_Decode_ParamsSpec,
       null,
       [bitstream_buffer]);
   }
@@ -155,7 +155,7 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec,
       null,
       [count]);
   }
@@ -164,7 +164,7 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec,
       null,
       [picture_buffer_id, format, handle_fd, planes, modifier]);
   }
@@ -173,7 +173,7 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec,
       null,
       [picture_buffer_id]);
   }
@@ -182,8 +182,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec,
-      arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_Reset_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec,
       []);
   }
 
@@ -191,15 +191,15 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec,
-      arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_Flush_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.VideoDecodeAccelerator.getRemote = function() {
-  let remote = new arc.mojom.VideoDecodeAcceleratorRemote();
+arc.mojom.mojom.VideoDecodeAccelerator.getRemote = function() {
+  let remote = new arc.mojom.mojom.VideoDecodeAcceleratorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -209,7 +209,7 @@ arc.mojom.VideoDecodeAccelerator.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.Initialize_Params',
@@ -223,7 +223,7 @@ arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec = {
   }
 };
 
-arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.Initialize_ResponseParams',
@@ -237,7 +237,7 @@ arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Decode
-arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_Decode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.Decode_Params',
@@ -251,7 +251,7 @@ arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec = {
 };
 
 // ParamsSpec for AssignPictureBuffers
-arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.AssignPictureBuffers_Params',
@@ -265,25 +265,25 @@ arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec = {
 };
 
 // ParamsSpec for ImportBufferForPicture
-arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.ImportBufferForPicture_Params',
       packedSize: 40,
       fields: [
-        { name: 'picture_buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'handle_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'planes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), nullable: false, minVersion: 0 },
-        { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.BufferModifierSpec, nullable: true, minVersion: 4 },
+        { name: 'picture_buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'handle_fd', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), nullable: false, minVersion: 0 },
+        { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BufferModifierSpec, nullable: true, minVersion: 4 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 40}]
+      versions: [{version: 0, packedSize: 40}, {version: 4, packedSize: 40}]
     }
   }
 };
 
 // ParamsSpec for ReusePictureBuffer
-arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.ReusePictureBuffer_Params',
@@ -297,7 +297,7 @@ arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for Reset
-arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_Reset_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.Reset_Params',
@@ -309,7 +309,7 @@ arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec = {
   }
 };
 
-arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.Reset_ResponseParams',
@@ -323,7 +323,7 @@ arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Flush
-arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.Flush_Params',
@@ -335,7 +335,7 @@ arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec = {
   }
 };
 
-arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec = {
+arc.mojom.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeAccelerator.Flush_ResponseParams',
@@ -349,29 +349,29 @@ arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.VideoDecodeAcceleratorPtr = arc.mojom.VideoDecodeAcceleratorRemote;
-arc.mojom.VideoDecodeAcceleratorRequest = arc.mojom.VideoDecodeAcceleratorPendingReceiver;
+arc.mojom.mojom.VideoDecodeAcceleratorPtr = arc.mojom.mojom.VideoDecodeAcceleratorRemote;
+arc.mojom.mojom.VideoDecodeAcceleratorRequest = arc.mojom.mojom.VideoDecodeAcceleratorPendingReceiver;
 
 
 // Interface: VideoDecodeClient
-arc.mojom.VideoDecodeClient = {};
+arc.mojom.mojom.VideoDecodeClient = {};
 
-arc.mojom.VideoDecodeClientPendingReceiver = class {
+arc.mojom.mojom.VideoDecodeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.VideoDecodeClientRemote = class {
+arc.mojom.mojom.VideoDecodeClientRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.VideoDecodeClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.VideoDecodeClientPendingReceiver,
+      arc.mojom.mojom.VideoDecodeClientPendingReceiver,
       handle);
-    this.$ = new arc.mojom.VideoDecodeClientRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.VideoDecodeClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -383,7 +383,7 @@ arc.mojom.VideoDecodeClientRemote = class {
   }
 };
 
-arc.mojom.VideoDecodeClientRemoteCallHandler = class {
+arc.mojom.mojom.VideoDecodeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -392,7 +392,7 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeClient_PictureReady_ParamsSpec,
       null,
       [picture]);
   }
@@ -401,7 +401,7 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec,
       null,
       [bitstream_id]);
   }
@@ -410,7 +410,7 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeClient_NotifyError_ParamsSpec,
       null,
       [error]);
   }
@@ -419,15 +419,15 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec,
+      arc.mojom.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec,
       null,
       [format, visible_rect]);
   }
 
 };
 
-arc.mojom.VideoDecodeClient.getRemote = function() {
-  let remote = new arc.mojom.VideoDecodeClientRemote();
+arc.mojom.mojom.VideoDecodeClient.getRemote = function() {
+  let remote = new arc.mojom.mojom.VideoDecodeClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -437,7 +437,7 @@ arc.mojom.VideoDecodeClient.getRemote = function() {
 };
 
 // ParamsSpec for PictureReady
-arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeClient_PictureReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeClient.PictureReady_Params',
@@ -451,7 +451,7 @@ arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyEndOfBitstreamBuffer
-arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeClient.NotifyEndOfBitstreamBuffer_Params',
@@ -465,7 +465,7 @@ arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyError
-arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeClient_NotifyError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeClient.NotifyError_Params',
@@ -479,7 +479,7 @@ arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec = {
 };
 
 // ParamsSpec for ProvidePictureBuffers
-arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec = {
+arc.mojom.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecodeClient.ProvidePictureBuffers_Params',
@@ -494,6 +494,6 @@ arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.VideoDecodeClientPtr = arc.mojom.VideoDecodeClientRemote;
-arc.mojom.VideoDecodeClientRequest = arc.mojom.VideoDecodeClientPendingReceiver;
+arc.mojom.mojom.VideoDecodeClientPtr = arc.mojom.mojom.VideoDecodeClientRemote;
+arc.mojom.mojom.VideoDecodeClientRequest = arc.mojom.mojom.VideoDecodeClientPendingReceiver;
 

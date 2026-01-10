@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: FileSystemAccessStatus
-blink.mojom.FileSystemAccessStatus = {
+blink.mojom.mojom.FileSystemAccessStatus = {
   kOk: 0,
   kPermissionDenied: 1,
   kSecurityError: 2,
@@ -23,18 +23,18 @@ blink.mojom.FileSystemAccessStatus = {
   kOperationAborted: 9,
   kFileError: 10,
 };
-blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: FileSystemAccessError
-blink.mojom.FileSystemAccessErrorSpec = {
+blink.mojom.mojom.FileSystemAccessErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessError',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'file_error', packedOffset: 4, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'file_error', packedOffset: 12, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

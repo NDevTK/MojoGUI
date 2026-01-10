@@ -10,15 +10,15 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: SerializedArrayBufferContents
-blink.mojom.SerializedArrayBufferContentsSpec = {
+blink.mojom.mojom.SerializedArrayBufferContentsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerializedArrayBufferContents',
       packedSize: 40,
       fields: [
         { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'is_resizable_by_user_javascript', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_byte_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'is_resizable_by_user_javascript', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'max_byte_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

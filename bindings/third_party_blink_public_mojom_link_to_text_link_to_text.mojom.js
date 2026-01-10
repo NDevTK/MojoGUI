@@ -7,17 +7,19 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: LinkGenerationReadyStatus
-blink.mojom.LinkGenerationReadyStatus = {
+blink.mojom.mojom.LinkGenerationReadyStatus = {
   kRequestedBeforeReady: 0,
   kRequestedAfterReady: 1,
 };
-blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkGenerationError
-blink.mojom.LinkGenerationError = {
+blink.mojom.mojom.LinkGenerationError = {
   kNone: 0,
   kIncorrectSelector: 1,
   kNoRange: 2,
@@ -35,27 +37,27 @@ blink.mojom.LinkGenerationError = {
   kNoRemoteConnection: 14,
   kNotGenerated: 15,
 };
-blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: TextFragmentReceiver
-blink.mojom.TextFragmentReceiver = {};
+blink.mojom.mojom.TextFragmentReceiver = {};
 
-blink.mojom.TextFragmentReceiverPendingReceiver = class {
+blink.mojom.mojom.TextFragmentReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.TextFragmentReceiverRemote = class {
+blink.mojom.mojom.TextFragmentReceiverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.TextFragmentReceiver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.TextFragmentReceiverPendingReceiver,
+      blink.mojom.mojom.TextFragmentReceiverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.TextFragmentReceiverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.TextFragmentReceiverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -67,7 +69,7 @@ blink.mojom.TextFragmentReceiverRemote = class {
   }
 };
 
-blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
+blink.mojom.mojom.TextFragmentReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -76,7 +78,7 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_Cancel_ParamsSpec,
       null,
       []);
   }
@@ -85,8 +87,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec,
-      blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec,
       []);
   }
 
@@ -94,7 +96,7 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec,
       null,
       []);
   }
@@ -103,8 +105,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec,
-      blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec,
       []);
   }
 
@@ -112,8 +114,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec,
-      blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec,
       []);
   }
 
@@ -121,15 +123,15 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec,
-      blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec,
+      blink.mojom.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.TextFragmentReceiver.getRemote = function() {
-  let remote = new blink.mojom.TextFragmentReceiverRemote();
+blink.mojom.mojom.TextFragmentReceiver.getRemote = function() {
+  let remote = new blink.mojom.mojom.TextFragmentReceiverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -139,7 +141,7 @@ blink.mojom.TextFragmentReceiver.getRemote = function() {
 };
 
 // ParamsSpec for Cancel
-blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.Cancel_Params',
@@ -152,7 +154,7 @@ blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSelector
-blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.RequestSelector_Params',
@@ -164,7 +166,7 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
   }
 };
 
-blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.RequestSelector_ResponseParams',
@@ -180,7 +182,7 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveFragments
-blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.RemoveFragments_Params',
@@ -193,7 +195,7 @@ blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
 };
 
 // ParamsSpec for ExtractTextFragmentsMatches
-blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.ExtractTextFragmentsMatches_Params',
@@ -205,7 +207,7 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
   }
 };
 
-blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.ExtractTextFragmentsMatches_ResponseParams',
@@ -219,7 +221,7 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec 
 };
 
 // ParamsSpec for GetExistingSelectors
-blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.GetExistingSelectors_Params',
@@ -231,7 +233,7 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
   }
 };
 
-blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.GetExistingSelectors_ResponseParams',
@@ -245,7 +247,7 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExtractFirstFragmentRect
-blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_Params',
@@ -257,7 +259,7 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
   }
 };
 
-blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
+blink.mojom.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_ResponseParams',
@@ -271,6 +273,6 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.TextFragmentReceiverPtr = blink.mojom.TextFragmentReceiverRemote;
-blink.mojom.TextFragmentReceiverRequest = blink.mojom.TextFragmentReceiverPendingReceiver;
+blink.mojom.mojom.TextFragmentReceiverPtr = blink.mojom.mojom.TextFragmentReceiverRemote;
+blink.mojom.mojom.TextFragmentReceiverRequest = blink.mojom.mojom.TextFragmentReceiverPendingReceiver;
 

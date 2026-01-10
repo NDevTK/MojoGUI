@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: InstallErrorReason
-arc.mojom.InstallErrorReason = {
+arc.mojom.mojom.InstallErrorReason = {
   REASON_UNSPECIFIED: 0,
   TIMEOUT: 1,
   TRANSIENT_ERROR: 2,
@@ -23,35 +23,35 @@ arc.mojom.InstallErrorReason = {
   NOT_ENROLLED: 9,
   USER_INVALID: 10,
 };
-arc.mojom.InstallErrorReasonSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.InstallErrorReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: CommandResultType
-arc.mojom.CommandResultType = {
+arc.mojom.mojom.CommandResultType = {
   IGNORED: 0,
   FAILURE: 1,
   SUCCESS: 2,
 };
-arc.mojom.CommandResultTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.CommandResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: PolicyHost
-arc.mojom.PolicyHost = {};
+arc.mojom.mojom.PolicyHost = {};
 
-arc.mojom.PolicyHostPendingReceiver = class {
+arc.mojom.mojom.PolicyHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.PolicyHostRemote = class {
+arc.mojom.mojom.PolicyHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PolicyHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.PolicyHostPendingReceiver,
+      arc.mojom.mojom.PolicyHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.PolicyHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.PolicyHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -63,7 +63,7 @@ arc.mojom.PolicyHostRemote = class {
   }
 };
 
-arc.mojom.PolicyHostRemoteCallHandler = class {
+arc.mojom.mojom.PolicyHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -72,8 +72,8 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.PolicyHost_GetPolicies_ParamsSpec,
-      arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec,
+      arc.mojom.mojom.PolicyHost_GetPolicies_ParamsSpec,
+      arc.mojom.mojom.PolicyHost_GetPolicies_ResponseParamsSpec,
       []);
   }
 
@@ -81,8 +81,8 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.PolicyHost_ReportCompliance_ParamsSpec,
-      arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec,
+      arc.mojom.mojom.PolicyHost_ReportCompliance_ParamsSpec,
+      arc.mojom.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec,
       [request]);
   }
 
@@ -90,7 +90,7 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec,
+      arc.mojom.mojom.PolicyHost_ReportDPCVersion_ParamsSpec,
       null,
       [version]);
   }
@@ -99,15 +99,15 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec,
+      arc.mojom.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec,
       null,
       [time, package_names]);
   }
 
 };
 
-arc.mojom.PolicyHost.getRemote = function() {
-  let remote = new arc.mojom.PolicyHostRemote();
+arc.mojom.mojom.PolicyHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.PolicyHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -117,7 +117,7 @@ arc.mojom.PolicyHost.getRemote = function() {
 };
 
 // ParamsSpec for GetPolicies
-arc.mojom.PolicyHost_GetPolicies_ParamsSpec = {
+arc.mojom.mojom.PolicyHost_GetPolicies_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyHost.GetPolicies_Params',
@@ -129,7 +129,7 @@ arc.mojom.PolicyHost_GetPolicies_ParamsSpec = {
   }
 };
 
-arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = {
+arc.mojom.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyHost.GetPolicies_ResponseParams',
@@ -143,7 +143,7 @@ arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReportCompliance
-arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = {
+arc.mojom.mojom.PolicyHost_ReportCompliance_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyHost.ReportCompliance_Params',
@@ -156,7 +156,7 @@ arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = {
   }
 };
 
-arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = {
+arc.mojom.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyHost.ReportCompliance_ResponseParams',
@@ -170,7 +170,7 @@ arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReportDPCVersion
-arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = {
+arc.mojom.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyHost.ReportDPCVersion_Params',
@@ -184,7 +184,7 @@ arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = {
 };
 
 // ParamsSpec for ReportPlayStoreLocalPolicySet
-arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = {
+arc.mojom.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyHost.ReportPlayStoreLocalPolicySet_Params',
@@ -199,29 +199,29 @@ arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.PolicyHostPtr = arc.mojom.PolicyHostRemote;
-arc.mojom.PolicyHostRequest = arc.mojom.PolicyHostPendingReceiver;
+arc.mojom.mojom.PolicyHostPtr = arc.mojom.mojom.PolicyHostRemote;
+arc.mojom.mojom.PolicyHostRequest = arc.mojom.mojom.PolicyHostPendingReceiver;
 
 
 // Interface: PolicyInstance
-arc.mojom.PolicyInstance = {};
+arc.mojom.mojom.PolicyInstance = {};
 
-arc.mojom.PolicyInstancePendingReceiver = class {
+arc.mojom.mojom.PolicyInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.PolicyInstanceRemote = class {
+arc.mojom.mojom.PolicyInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PolicyInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.PolicyInstancePendingReceiver,
+      arc.mojom.mojom.PolicyInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.PolicyInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.PolicyInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -233,7 +233,7 @@ arc.mojom.PolicyInstanceRemote = class {
   }
 };
 
-arc.mojom.PolicyInstanceRemoteCallHandler = class {
+arc.mojom.mojom.PolicyInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -242,7 +242,7 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.PolicyInstance_Init_ParamsSpec,
+      arc.mojom.mojom.PolicyInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -251,7 +251,7 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec,
+      arc.mojom.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec,
       null,
       []);
   }
@@ -260,15 +260,15 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec,
-      arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec,
+      arc.mojom.mojom.PolicyInstance_OnCommandReceived_ParamsSpec,
+      arc.mojom.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec,
       [command]);
   }
 
 };
 
-arc.mojom.PolicyInstance.getRemote = function() {
-  let remote = new arc.mojom.PolicyInstanceRemote();
+arc.mojom.mojom.PolicyInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.PolicyInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -278,7 +278,7 @@ arc.mojom.PolicyInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.PolicyInstance_Init_ParamsSpec = {
+arc.mojom.mojom.PolicyInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyInstance.Init_Params',
@@ -292,7 +292,7 @@ arc.mojom.PolicyInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for OnPolicyUpdated
-arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = {
+arc.mojom.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyInstance.OnPolicyUpdated_Params',
@@ -305,7 +305,7 @@ arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnCommandReceived
-arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = {
+arc.mojom.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyInstance.OnCommandReceived_Params',
@@ -318,7 +318,7 @@ arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = {
   }
 };
 
-arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = {
+arc.mojom.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PolicyInstance.OnCommandReceived_ResponseParams',
@@ -332,6 +332,6 @@ arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.PolicyInstancePtr = arc.mojom.PolicyInstanceRemote;
-arc.mojom.PolicyInstanceRequest = arc.mojom.PolicyInstancePendingReceiver;
+arc.mojom.mojom.PolicyInstancePtr = arc.mojom.mojom.PolicyInstanceRemote;
+arc.mojom.mojom.PolicyInstanceRequest = arc.mojom.mojom.PolicyInstancePendingReceiver;
 

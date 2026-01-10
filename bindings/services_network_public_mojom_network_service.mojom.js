@@ -7,10 +7,12 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
+var url = url || {};
 
 
 // Struct: HttpAuthStaticParams
-network.mojom.HttpAuthStaticParamsSpec = {
+network.mojom.mojom.HttpAuthStaticParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpAuthStaticParams',
@@ -24,7 +26,7 @@ network.mojom.HttpAuthStaticParamsSpec = {
 };
 
 // Struct: HttpAuthDynamicParams
-network.mojom.HttpAuthDynamicParamsSpec = {
+network.mojom.mojom.HttpAuthDynamicParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpAuthDynamicParams',
@@ -34,13 +36,13 @@ network.mojom.HttpAuthDynamicParamsSpec = {
         { name: 'patterns_allowed_to_use_all_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
         { name: 'server_allowlist', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'delegate_allowlist', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'delegate_by_kdc_policy', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'negotiate_disable_cname_lookup', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_negotiate_port', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ntlm_v2_enabled', packedOffset: 32, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'android_negotiate_account_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'allow_gssapi_library_load', packedOffset: 32, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'basic_over_http_enabled', packedOffset: 32, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'delegate_by_kdc_policy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'negotiate_disable_cname_lookup', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_negotiate_port', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ntlm_v2_enabled', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'android_negotiate_account_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'allow_gssapi_library_load', packedOffset: 40, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'basic_over_http_enabled', packedOffset: 40, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -48,7 +50,7 @@ network.mojom.HttpAuthDynamicParamsSpec = {
 };
 
 // Struct: EnvironmentVariable
-network.mojom.EnvironmentVariableSpec = {
+network.mojom.mojom.EnvironmentVariableSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EnvironmentVariable',
@@ -63,19 +65,19 @@ network.mojom.EnvironmentVariableSpec = {
 };
 
 // Struct: NetworkServiceParams
-network.mojom.NetworkServiceParamsSpec = {
+network.mojom.mojom.NetworkServiceParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkServiceParams',
       packedSize: 48,
       fields: [
-        { name: 'initial_connection_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'initial_connection_subtype', packedOffset: 4, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false, minVersion: 0 },
-        { name: 'initial_address_map', packedOffset: 8, packedBitOffset: 0, type: network.mojom.InitialAddressMapSpec, nullable: true, minVersion: 0 },
-        { name: 'environment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.EnvironmentVariableSpec, false), nullable: false, minVersion: 0 },
+        { name: 'initial_connection_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_connection_subtype', packedOffset: 20, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_address_map', packedOffset: 0, packedBitOffset: 0, type: network.mojom.InitialAddressMapSpec, nullable: true, minVersion: 0 },
+        { name: 'environment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.EnvironmentVariableSpec, false), nullable: false, minVersion: 0 },
         { name: 'default_observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'first_party_sets_enabled', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'system_dns_resolver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'first_party_sets_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'system_dns_resolver', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -83,7 +85,7 @@ network.mojom.NetworkServiceParamsSpec = {
 };
 
 // Struct: SCTAuditingConfiguration
-network.mojom.SCTAuditingConfigurationSpec = {
+network.mojom.mojom.SCTAuditingConfigurationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SCTAuditingConfiguration',
@@ -103,7 +105,7 @@ network.mojom.SCTAuditingConfigurationSpec = {
 };
 
 // Struct: NetworkDurableMessageConfig
-network.mojom.NetworkDurableMessageConfigSpec = {
+network.mojom.mojom.NetworkDurableMessageConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkDurableMessageConfig',
@@ -117,24 +119,24 @@ network.mojom.NetworkDurableMessageConfigSpec = {
 };
 
 // Interface: GssapiLibraryLoadObserver
-network.mojom.GssapiLibraryLoadObserver = {};
+network.mojom.mojom.GssapiLibraryLoadObserver = {};
 
-network.mojom.GssapiLibraryLoadObserverPendingReceiver = class {
+network.mojom.mojom.GssapiLibraryLoadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.GssapiLibraryLoadObserverRemote = class {
+network.mojom.mojom.GssapiLibraryLoadObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.GssapiLibraryLoadObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.GssapiLibraryLoadObserverPendingReceiver,
+      network.mojom.mojom.GssapiLibraryLoadObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.GssapiLibraryLoadObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.GssapiLibraryLoadObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -146,7 +148,7 @@ network.mojom.GssapiLibraryLoadObserverRemote = class {
   }
 };
 
-network.mojom.GssapiLibraryLoadObserverRemoteCallHandler = class {
+network.mojom.mojom.GssapiLibraryLoadObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -155,15 +157,15 @@ network.mojom.GssapiLibraryLoadObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec,
+      network.mojom.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.GssapiLibraryLoadObserver.getRemote = function() {
-  let remote = new network.mojom.GssapiLibraryLoadObserverRemote();
+network.mojom.mojom.GssapiLibraryLoadObserver.getRemote = function() {
+  let remote = new network.mojom.mojom.GssapiLibraryLoadObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -173,7 +175,7 @@ network.mojom.GssapiLibraryLoadObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnBeforeGssapiLibraryLoad
-network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec = {
+network.mojom.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.GssapiLibraryLoadObserver.OnBeforeGssapiLibraryLoad_Params',
@@ -186,29 +188,29 @@ network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.GssapiLibraryLoadObserverPtr = network.mojom.GssapiLibraryLoadObserverRemote;
-network.mojom.GssapiLibraryLoadObserverRequest = network.mojom.GssapiLibraryLoadObserverPendingReceiver;
+network.mojom.mojom.GssapiLibraryLoadObserverPtr = network.mojom.mojom.GssapiLibraryLoadObserverRemote;
+network.mojom.mojom.GssapiLibraryLoadObserverRequest = network.mojom.mojom.GssapiLibraryLoadObserverPendingReceiver;
 
 
 // Interface: NetworkService
-network.mojom.NetworkService = {};
+network.mojom.mojom.NetworkService = {};
 
-network.mojom.NetworkServicePendingReceiver = class {
+network.mojom.mojom.NetworkServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.NetworkServiceRemote = class {
+network.mojom.mojom.NetworkServiceRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.NetworkServicePendingReceiver,
+      network.mojom.mojom.NetworkServicePendingReceiver,
       handle);
-    this.$ = new network.mojom.NetworkServiceRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.NetworkServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -220,7 +222,7 @@ network.mojom.NetworkServiceRemote = class {
   }
 };
 
-network.mojom.NetworkServiceRemoteCallHandler = class {
+network.mojom.mojom.NetworkServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -229,7 +231,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkService_SetParams_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetParams_ParamsSpec,
       null,
       [params]);
   }
@@ -238,7 +240,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.NetworkService_StartNetLog_ParamsSpec,
+      network.mojom.mojom.NetworkService_StartNetLog_ParamsSpec,
       null,
       [file, max_total_size, capture_mode, constants, duration]);
   }
@@ -247,7 +249,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec,
+      network.mojom.mojom.NetworkService_AttachNetLogProxy_ParamsSpec,
       null,
       [proxy_source, proxy_sink]);
   }
@@ -256,7 +258,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec,
       null,
       [file]);
   }
@@ -265,7 +267,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.NetworkService_CreateNetworkContext_ParamsSpec,
+      network.mojom.mojom.NetworkService_CreateNetworkContext_ParamsSpec,
       null,
       [context, params]);
   }
@@ -274,7 +276,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec,
+      network.mojom.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec,
       null,
       [insecure_dns_client_enabled, happy_eyeballs_v3_enabled, secure_dns_mode, dns_over_https_config, additional_dns_types_enabled, fallback_doh_nameservers]);
   }
@@ -283,7 +285,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.NetworkService_DisableQuic_ParamsSpec,
+      network.mojom.mojom.NetworkService_DisableQuic_ParamsSpec,
       null,
       []);
   }
@@ -292,7 +294,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetUpHttpAuth_ParamsSpec,
       null,
       [http_auth_static_params]);
   }
@@ -301,7 +303,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec,
+      network.mojom.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec,
       null,
       [http_auth_dynamic_params]);
   }
@@ -310,7 +312,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec,
       null,
       [process_id, origins]);
   }
@@ -319,7 +321,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec,
       null,
       [max_connections]);
   }
@@ -328,7 +330,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec,
+      network.mojom.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec,
       null,
       [network_change_manager]);
   }
@@ -337,7 +339,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec,
+      network.mojom.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -346,7 +348,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec,
+      network.mojom.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -355,8 +357,8 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      network.mojom.NetworkService_GetNetworkList_ParamsSpec,
-      network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec,
+      network.mojom.mojom.NetworkService_GetNetworkList_ParamsSpec,
+      network.mojom.mojom.NetworkService_GetNetworkList_ResponseParamsSpec,
       [policy]);
   }
 
@@ -364,7 +366,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec,
+      network.mojom.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec,
       null,
       []);
   }
@@ -373,7 +375,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec,
+      network.mojom.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec,
       null,
       []);
   }
@@ -382,7 +384,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      network.mojom.NetworkService_SetEncryptionKey_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetEncryptionKey_ParamsSpec,
       null,
       [encryption_key]);
   }
@@ -391,7 +393,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec,
+      network.mojom.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec,
       null,
       [count]);
   }
@@ -400,7 +402,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec,
+      network.mojom.mojom.NetworkService_OnApplicationStateChange_ParamsSpec,
       null,
       [state]);
   }
@@ -409,7 +411,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec,
       null,
       [raw_commitments]);
   }
@@ -418,7 +420,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec,
+      network.mojom.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec,
       null,
       []);
   }
@@ -427,7 +429,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec,
+      network.mojom.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec,
       null,
       [configuration]);
   }
@@ -436,7 +438,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      network.mojom.NetworkService_UpdateCtLogList_ParamsSpec,
+      network.mojom.mojom.NetworkService_UpdateCtLogList_ParamsSpec,
       null,
       [log_list]);
   }
@@ -445,7 +447,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec,
+      network.mojom.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec,
       null,
       [sct_hashes]);
   }
@@ -454,7 +456,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -463,7 +465,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec,
+      network.mojom.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec,
       null,
       [pin_list, update_time]);
   }
@@ -472,7 +474,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec,
+      network.mojom.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec,
       null,
       [dump_request_time]);
   }
@@ -481,7 +483,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec,
+      network.mojom.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec,
       null,
       [receiver]);
   }
@@ -490,7 +492,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      network.mojom.NetworkService_SetFirstPartySets_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetFirstPartySets_ParamsSpec,
       null,
       [sets]);
   }
@@ -499,7 +501,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec,
       null,
       [ports]);
   }
@@ -508,8 +510,8 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      network.mojom.NetworkService_ParseHeaders_ParamsSpec,
-      network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec,
+      network.mojom.mojom.NetworkService_ParseHeaders_ParamsSpec,
+      network.mojom.mojom.NetworkService_ParseHeaders_ResponseParamsSpec,
       [url, headers]);
   }
 
@@ -517,7 +519,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec,
+      network.mojom.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec,
       null,
       [enable]);
   }
@@ -526,7 +528,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec,
       null,
       [reachability_override]);
   }
@@ -535,7 +537,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec,
       null,
       [gssapi_library_load_observer]);
   }
@@ -544,7 +546,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec,
       null,
       [remote]);
   }
@@ -553,7 +555,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec,
       null,
       [settings]);
   }
@@ -562,7 +564,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec,
+      network.mojom.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec,
       null,
       [content_encoding_types, source_body, dest_body, source_url_loader, source_url_loader_client, dest_url_loader, dest_url_loader_client]);
   }
@@ -571,8 +573,8 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec,
-      network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec,
+      network.mojom.mojom.NetworkService_DecodeContentEncoding_ParamsSpec,
+      network.mojom.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec,
       [content_encoding_types, source_body, dest_body]);
   }
 
@@ -580,7 +582,7 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec,
+      network.mojom.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -589,15 +591,15 @@ network.mojom.NetworkServiceRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec,
+      network.mojom.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-network.mojom.NetworkService.getRemote = function() {
-  let remote = new network.mojom.NetworkServiceRemote();
+network.mojom.mojom.NetworkService.getRemote = function() {
+  let remote = new network.mojom.mojom.NetworkServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -607,7 +609,7 @@ network.mojom.NetworkService.getRemote = function() {
 };
 
 // ParamsSpec for SetParams
-network.mojom.NetworkService_SetParams_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetParams_Params',
@@ -621,7 +623,7 @@ network.mojom.NetworkService_SetParams_ParamsSpec = {
 };
 
 // ParamsSpec for StartNetLog
-network.mojom.NetworkService_StartNetLog_ParamsSpec = {
+network.mojom.mojom.NetworkService_StartNetLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.StartNetLog_Params',
@@ -629,9 +631,9 @@ network.mojom.NetworkService_StartNetLog_ParamsSpec = {
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
         { name: 'max_total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'capture_mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetLogCaptureModeSpec, nullable: false, minVersion: 0 },
-        { name: 'constants', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+        { name: 'capture_mode', packedOffset: 32, packedBitOffset: 0, type: network.mojom.NetLogCaptureModeSpec, nullable: false, minVersion: 0 },
+        { name: 'constants', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -639,7 +641,7 @@ network.mojom.NetworkService_StartNetLog_ParamsSpec = {
 };
 
 // ParamsSpec for AttachNetLogProxy
-network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec = {
+network.mojom.mojom.NetworkService_AttachNetLogProxy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.AttachNetLogProxy_Params',
@@ -654,7 +656,7 @@ network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec = {
 };
 
 // ParamsSpec for SetSSLKeyLogFile
-network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetSSLKeyLogFile_Params',
@@ -668,14 +670,14 @@ network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec = {
 };
 
 // ParamsSpec for CreateNetworkContext
-network.mojom.NetworkService_CreateNetworkContext_ParamsSpec = {
+network.mojom.mojom.NetworkService_CreateNetworkContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.CreateNetworkContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetworkContextParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkContextParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -683,18 +685,18 @@ network.mojom.NetworkService_CreateNetworkContext_ParamsSpec = {
 };
 
 // ParamsSpec for ConfigureStubHostResolver
-network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec = {
+network.mojom.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.ConfigureStubHostResolver_Params',
       packedSize: 32,
       fields: [
-        { name: 'insecure_dns_client_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'happy_eyeballs_v3_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'secure_dns_mode', packedOffset: 4, packedBitOffset: 0, type: network.mojom.SecureDnsModeSpec, nullable: false, minVersion: 0 },
-        { name: 'dns_over_https_config', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsOverHttpsConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'additional_dns_types_enabled', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'fallback_doh_nameservers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPEndPointSpec, false), nullable: false, minVersion: 0 },
+        { name: 'insecure_dns_client_enabled', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'happy_eyeballs_v3_enabled', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'secure_dns_mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SecureDnsModeSpec, nullable: false, minVersion: 0 },
+        { name: 'dns_over_https_config', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DnsOverHttpsConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'additional_dns_types_enabled', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'fallback_doh_nameservers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPEndPointSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -702,7 +704,7 @@ network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec = {
 };
 
 // ParamsSpec for DisableQuic
-network.mojom.NetworkService_DisableQuic_ParamsSpec = {
+network.mojom.mojom.NetworkService_DisableQuic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.DisableQuic_Params',
@@ -715,7 +717,7 @@ network.mojom.NetworkService_DisableQuic_ParamsSpec = {
 };
 
 // ParamsSpec for SetUpHttpAuth
-network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetUpHttpAuth_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetUpHttpAuth_Params',
@@ -729,7 +731,7 @@ network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec = {
 };
 
 // ParamsSpec for ConfigureHttpAuthPrefs
-network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec = {
+network.mojom.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.ConfigureHttpAuthPrefs_Params',
@@ -743,14 +745,14 @@ network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec = {
 };
 
 // ParamsSpec for SetRawHeadersAccess
-network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetRawHeadersAccess_Params',
       packedSize: 24,
       fields: [
-        { name: 'process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
+        { name: 'process_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -758,7 +760,7 @@ network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec = {
 };
 
 // ParamsSpec for SetMaxConnectionsPerProxyChain
-network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetMaxConnectionsPerProxyChain_Params',
@@ -772,7 +774,7 @@ network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec = {
 };
 
 // ParamsSpec for GetNetworkChangeManager
-network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec = {
+network.mojom.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.GetNetworkChangeManager_Params',
@@ -786,7 +788,7 @@ network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec = {
 };
 
 // ParamsSpec for GetNetworkQualityEstimatorManager
-network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec = {
+network.mojom.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.GetNetworkQualityEstimatorManager_Params',
@@ -800,7 +802,7 @@ network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec = {
 };
 
 // ParamsSpec for GetDnsConfigChangeManager
-network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec = {
+network.mojom.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.GetDnsConfigChangeManager_Params',
@@ -814,7 +816,7 @@ network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec = {
 };
 
 // ParamsSpec for GetNetworkList
-network.mojom.NetworkService_GetNetworkList_ParamsSpec = {
+network.mojom.mojom.NetworkService_GetNetworkList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.GetNetworkList_Params',
@@ -827,7 +829,7 @@ network.mojom.NetworkService_GetNetworkList_ParamsSpec = {
   }
 };
 
-network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec = {
+network.mojom.mojom.NetworkService_GetNetworkList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.GetNetworkList_ResponseParams',
@@ -841,7 +843,7 @@ network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnTrustStoreChanged
-network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec = {
+network.mojom.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.OnTrustStoreChanged_Params',
@@ -854,7 +856,7 @@ network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnClientCertStoreChanged
-network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec = {
+network.mojom.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.OnClientCertStoreChanged_Params',
@@ -867,7 +869,7 @@ network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec = {
 };
 
 // ParamsSpec for SetEncryptionKey
-network.mojom.NetworkService_SetEncryptionKey_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetEncryptionKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetEncryptionKey_Params',
@@ -881,7 +883,7 @@ network.mojom.NetworkService_SetEncryptionKey_ParamsSpec = {
 };
 
 // ParamsSpec for OnPeerToPeerConnectionsCountChange
-network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec = {
+network.mojom.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.OnPeerToPeerConnectionsCountChange_Params',
@@ -895,7 +897,7 @@ network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnApplicationStateChange
-network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec = {
+network.mojom.mojom.NetworkService_OnApplicationStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.OnApplicationStateChange_Params',
@@ -909,7 +911,7 @@ network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec = {
 };
 
 // ParamsSpec for SetTrustTokenKeyCommitments
-network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetTrustTokenKeyCommitments_Params',
@@ -923,7 +925,7 @@ network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec = {
 };
 
 // ParamsSpec for ClearSCTAuditingCache
-network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec = {
+network.mojom.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.ClearSCTAuditingCache_Params',
@@ -936,7 +938,7 @@ network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec = {
 };
 
 // ParamsSpec for ConfigureSCTAuditing
-network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec = {
+network.mojom.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.ConfigureSCTAuditing_Params',
@@ -950,7 +952,7 @@ network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateCtLogList
-network.mojom.NetworkService_UpdateCtLogList_ParamsSpec = {
+network.mojom.mojom.NetworkService_UpdateCtLogList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.UpdateCtLogList_Params',
@@ -964,7 +966,7 @@ network.mojom.NetworkService_UpdateCtLogList_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateCtKnownPopularSCTs
-network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec = {
+network.mojom.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.UpdateCtKnownPopularSCTs_Params',
@@ -978,7 +980,7 @@ network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec = {
 };
 
 // ParamsSpec for SetCtEnforcementEnabled
-network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetCtEnforcementEnabled_Params',
@@ -992,7 +994,7 @@ network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateKeyPinsList
-network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec = {
+network.mojom.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.UpdateKeyPinsList_Params',
@@ -1007,7 +1009,7 @@ network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec = {
 };
 
 // ParamsSpec for DumpWithoutCrashing
-network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec = {
+network.mojom.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.DumpWithoutCrashing_Params',
@@ -1021,7 +1023,7 @@ network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec = {
 };
 
 // ParamsSpec for BindTestInterfaceForTesting
-network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec = {
+network.mojom.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.BindTestInterfaceForTesting_Params',
@@ -1035,7 +1037,7 @@ network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec = {
 };
 
 // ParamsSpec for SetFirstPartySets
-network.mojom.NetworkService_SetFirstPartySets_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetFirstPartySets_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetFirstPartySets_Params',
@@ -1049,7 +1051,7 @@ network.mojom.NetworkService_SetFirstPartySets_ParamsSpec = {
 };
 
 // ParamsSpec for SetExplicitlyAllowedPorts
-network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetExplicitlyAllowedPorts_Params',
@@ -1063,7 +1065,7 @@ network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec = {
 };
 
 // ParamsSpec for ParseHeaders
-network.mojom.NetworkService_ParseHeaders_ParamsSpec = {
+network.mojom.mojom.NetworkService_ParseHeaders_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.ParseHeaders_Params',
@@ -1077,7 +1079,7 @@ network.mojom.NetworkService_ParseHeaders_ParamsSpec = {
   }
 };
 
-network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec = {
+network.mojom.mojom.NetworkService_ParseHeaders_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.ParseHeaders_ResponseParams',
@@ -1091,7 +1093,7 @@ network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EnableDataUseUpdates
-network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec = {
+network.mojom.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.EnableDataUseUpdates_Params',
@@ -1105,7 +1107,7 @@ network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec = {
 };
 
 // ParamsSpec for SetIPv6ReachabilityOverride
-network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetIPv6ReachabilityOverride_Params',
@@ -1119,7 +1121,7 @@ network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec = {
 };
 
 // ParamsSpec for SetGssapiLibraryLoadObserver
-network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetGssapiLibraryLoadObserver_Params',
@@ -1133,7 +1135,7 @@ network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec = {
 };
 
 // ParamsSpec for SetNetworkAnnotationMonitor
-network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetNetworkAnnotationMonitor_Params',
@@ -1147,7 +1149,7 @@ network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec = {
 };
 
 // ParamsSpec for SetTpcdMetadataGrants
-network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetTpcdMetadataGrants_Params',
@@ -1161,7 +1163,7 @@ network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec = {
 };
 
 // ParamsSpec for InterceptUrlLoaderForBodyDecoding
-network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec = {
+network.mojom.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.InterceptUrlLoaderForBodyDecoding_Params',
@@ -1181,7 +1183,7 @@ network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec = {
 };
 
 // ParamsSpec for DecodeContentEncoding
-network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec = {
+network.mojom.mojom.NetworkService_DecodeContentEncoding_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.DecodeContentEncoding_Params',
@@ -1196,7 +1198,7 @@ network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec = {
   }
 };
 
-network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec = {
+network.mojom.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.DecodeContentEncoding_ResponseParams',
@@ -1210,7 +1212,7 @@ network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetTLS13EarlyDataEnabled
-network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec = {
+network.mojom.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.SetTLS13EarlyDataEnabled_Params',
@@ -1224,7 +1226,7 @@ network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for AddDurableMessageCollector
-network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec = {
+network.mojom.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.AddDurableMessageCollector_Params',
@@ -1238,29 +1240,29 @@ network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.NetworkServicePtr = network.mojom.NetworkServiceRemote;
-network.mojom.NetworkServiceRequest = network.mojom.NetworkServicePendingReceiver;
+network.mojom.mojom.NetworkServicePtr = network.mojom.mojom.NetworkServiceRemote;
+network.mojom.mojom.NetworkServiceRequest = network.mojom.mojom.NetworkServicePendingReceiver;
 
 
 // Interface: DurableMessageCollector
-network.mojom.DurableMessageCollector = {};
+network.mojom.mojom.DurableMessageCollector = {};
 
-network.mojom.DurableMessageCollectorPendingReceiver = class {
+network.mojom.mojom.DurableMessageCollectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.DurableMessageCollectorRemote = class {
+network.mojom.mojom.DurableMessageCollectorRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DurableMessageCollector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.DurableMessageCollectorPendingReceiver,
+      network.mojom.mojom.DurableMessageCollectorPendingReceiver,
       handle);
-    this.$ = new network.mojom.DurableMessageCollectorRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.DurableMessageCollectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1272,7 +1274,7 @@ network.mojom.DurableMessageCollectorRemote = class {
   }
 };
 
-network.mojom.DurableMessageCollectorRemoteCallHandler = class {
+network.mojom.mojom.DurableMessageCollectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1281,7 +1283,7 @@ network.mojom.DurableMessageCollectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DurableMessageCollector_Configure_ParamsSpec,
+      network.mojom.mojom.DurableMessageCollector_Configure_ParamsSpec,
       null,
       [config]);
   }
@@ -1290,7 +1292,7 @@ network.mojom.DurableMessageCollectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec,
+      network.mojom.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec,
       null,
       [throttling_profile_id]);
   }
@@ -1299,7 +1301,7 @@ network.mojom.DurableMessageCollectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec,
+      network.mojom.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec,
       null,
       [throttling_profile_id]);
   }
@@ -1308,15 +1310,15 @@ network.mojom.DurableMessageCollectorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.DurableMessageCollector_Retrieve_ParamsSpec,
-      network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec,
+      network.mojom.mojom.DurableMessageCollector_Retrieve_ParamsSpec,
+      network.mojom.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec,
       [devtools_request_id]);
   }
 
 };
 
-network.mojom.DurableMessageCollector.getRemote = function() {
-  let remote = new network.mojom.DurableMessageCollectorRemote();
+network.mojom.mojom.DurableMessageCollector.getRemote = function() {
+  let remote = new network.mojom.mojom.DurableMessageCollectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1326,7 +1328,7 @@ network.mojom.DurableMessageCollector.getRemote = function() {
 };
 
 // ParamsSpec for Configure
-network.mojom.DurableMessageCollector_Configure_ParamsSpec = {
+network.mojom.mojom.DurableMessageCollector_Configure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DurableMessageCollector.Configure_Params',
@@ -1340,7 +1342,7 @@ network.mojom.DurableMessageCollector_Configure_ParamsSpec = {
 };
 
 // ParamsSpec for EnableForProfile
-network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec = {
+network.mojom.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DurableMessageCollector.EnableForProfile_Params',
@@ -1354,7 +1356,7 @@ network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec = {
 };
 
 // ParamsSpec for DisableForProfile
-network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec = {
+network.mojom.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DurableMessageCollector.DisableForProfile_Params',
@@ -1368,7 +1370,7 @@ network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec = {
 };
 
 // ParamsSpec for Retrieve
-network.mojom.DurableMessageCollector_Retrieve_ParamsSpec = {
+network.mojom.mojom.DurableMessageCollector_Retrieve_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DurableMessageCollector.Retrieve_Params',
@@ -1381,7 +1383,7 @@ network.mojom.DurableMessageCollector_Retrieve_ParamsSpec = {
   }
 };
 
-network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec = {
+network.mojom.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DurableMessageCollector.Retrieve_ResponseParams',
@@ -1395,6 +1397,6 @@ network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.DurableMessageCollectorPtr = network.mojom.DurableMessageCollectorRemote;
-network.mojom.DurableMessageCollectorRequest = network.mojom.DurableMessageCollectorPendingReceiver;
+network.mojom.mojom.DurableMessageCollectorPtr = network.mojom.mojom.DurableMessageCollectorRemote;
+network.mojom.mojom.DurableMessageCollectorRequest = network.mojom.mojom.DurableMessageCollectorPendingReceiver;
 

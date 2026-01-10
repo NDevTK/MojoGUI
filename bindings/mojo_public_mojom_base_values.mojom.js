@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Union: Value
-mojo_base.mojom.ValueSpec = { $: mojo.internal.Union(
+mojo_base.mojom.mojom.ValueSpec = { $: mojo.internal.Union(
     'mojo_base.mojom.Value', {
       'null_value': {
         'ordinal': 0,
@@ -48,7 +48,7 @@ mojo_base.mojom.ValueSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DictionaryValue
-mojo_base.mojom.DictionaryValueSpec = {
+mojo_base.mojom.mojom.DictionaryValueSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.DictionaryValue',
@@ -62,7 +62,7 @@ mojo_base.mojom.DictionaryValueSpec = {
 };
 
 // Struct: ListValue
-mojo_base.mojom.ListValueSpec = {
+mojo_base.mojom.mojom.ListValueSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ListValue',

@@ -10,24 +10,24 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: VizDebugOutput
-viz.mojom.VizDebugOutput = {};
+viz.mojom.mojom.VizDebugOutput = {};
 
-viz.mojom.VizDebugOutputPendingReceiver = class {
+viz.mojom.mojom.VizDebugOutputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.VizDebugOutputRemote = class {
+viz.mojom.mojom.VizDebugOutputRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.VizDebugOutput';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.VizDebugOutputPendingReceiver,
+      viz.mojom.mojom.VizDebugOutputPendingReceiver,
       handle);
-    this.$ = new viz.mojom.VizDebugOutputRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.VizDebugOutputRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ viz.mojom.VizDebugOutputRemote = class {
   }
 };
 
-viz.mojom.VizDebugOutputRemoteCallHandler = class {
+viz.mojom.mojom.VizDebugOutputRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ viz.mojom.VizDebugOutputRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.VizDebugOutput_LogFrame_ParamsSpec,
+      viz.mojom.mojom.VizDebugOutput_LogFrame_ParamsSpec,
       null,
       [frameData]);
   }
 
 };
 
-viz.mojom.VizDebugOutput.getRemote = function() {
-  let remote = new viz.mojom.VizDebugOutputRemote();
+viz.mojom.mojom.VizDebugOutput.getRemote = function() {
+  let remote = new viz.mojom.mojom.VizDebugOutputRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ viz.mojom.VizDebugOutput.getRemote = function() {
 };
 
 // ParamsSpec for LogFrame
-viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
+viz.mojom.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizDebugOutput.LogFrame_Params',
@@ -80,6 +80,6 @@ viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.VizDebugOutputPtr = viz.mojom.VizDebugOutputRemote;
-viz.mojom.VizDebugOutputRequest = viz.mojom.VizDebugOutputPendingReceiver;
+viz.mojom.mojom.VizDebugOutputPtr = viz.mojom.mojom.VizDebugOutputRemote;
+viz.mojom.mojom.VizDebugOutputRequest = viz.mojom.mojom.VizDebugOutputPendingReceiver;
 

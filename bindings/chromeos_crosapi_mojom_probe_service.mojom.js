@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: ProbeCategoryEnum
-crosapi.mojom.ProbeCategoryEnum = {
+crosapi.mojom.mojom.ProbeCategoryEnum = {
   kBattery: 0,
   kNonRemovableBlockDevices: 1,
   kCachedVpdData: 2,
@@ -27,19 +27,19 @@ crosapi.mojom.ProbeCategoryEnum = {
   kAudio: 13,
   kBus: 14,
 };
-crosapi.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeErrorType
-crosapi.mojom.ProbeErrorType = {
+crosapi.mojom.mojom.ProbeErrorType = {
   kFileReadError: 0,
   kParseError: 1,
   kSystemUtilityError: 2,
   kServiceUnavailable: 3,
 };
-crosapi.mojom.ProbeErrorTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeFwupdVersionFormat
-crosapi.mojom.ProbeFwupdVersionFormat = {
+crosapi.mojom.mojom.ProbeFwupdVersionFormat = {
   kPlain: 0,
   kNumber: 1,
   kPair: 2,
@@ -53,18 +53,18 @@ crosapi.mojom.ProbeFwupdVersionFormat = {
   kDellBios: 10,
   kHex: 11,
 };
-crosapi.mojom.ProbeFwupdVersionFormatSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeFwupdVersionFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeUsbVersion
-crosapi.mojom.ProbeUsbVersion = {
+crosapi.mojom.mojom.ProbeUsbVersion = {
   kUsb1: 0,
   kUsb2: 1,
   kUsb3: 2,
 };
-crosapi.mojom.ProbeUsbVersionSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeUsbVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeUsbSpecSpeed
-crosapi.mojom.ProbeUsbSpecSpeed = {
+crosapi.mojom.mojom.ProbeUsbSpecSpeed = {
   k1_5Mbps: 0,
   k12Mbps: 1,
   k480Mbps: 2,
@@ -72,39 +72,39 @@ crosapi.mojom.ProbeUsbSpecSpeed = {
   k10Gbps: 4,
   k20Gbps: 5,
 };
-crosapi.mojom.ProbeUsbSpecSpeedSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeUsbSpecSpeedSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeCpuArchitectureEnum
-crosapi.mojom.ProbeCpuArchitectureEnum = {
+crosapi.mojom.mojom.ProbeCpuArchitectureEnum = {
   kX86_64: 0,
   kAArch64: 1,
   kArmv7l: 2,
 };
-crosapi.mojom.ProbeCpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeCpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeTpmGSCVersion
-crosapi.mojom.ProbeTpmGSCVersion = {
+crosapi.mojom.mojom.ProbeTpmGSCVersion = {
   kCr50: 0,
   kTi50: 1,
 };
-crosapi.mojom.ProbeTpmGSCVersionSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeTpmGSCVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeDisplayInputType
-crosapi.mojom.ProbeDisplayInputType = {
+crosapi.mojom.mojom.ProbeDisplayInputType = {
   kDigital: 0,
   kAnalog: 1,
 };
-crosapi.mojom.ProbeDisplayInputTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeDisplayInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeThermalSensorSource
-crosapi.mojom.ProbeThermalSensorSource = {
+crosapi.mojom.mojom.ProbeThermalSensorSource = {
   kEc: 0,
   kSysFs: 1,
 };
-crosapi.mojom.ProbeThermalSensorSourceSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ProbeThermalSensorSourceSpec = { $: mojo.internal.Enum() };
 
 // Union: ProbeBatteryResult
-crosapi.mojom.ProbeBatteryResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeBatteryResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBatteryResult', {
       'battery_info': {
         'ordinal': 0,
@@ -119,7 +119,7 @@ crosapi.mojom.ProbeBatteryResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBusInfo
-crosapi.mojom.ProbeBusInfoSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeBusInfoSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBusInfo', {
       'unmapped_field': {
         'ordinal': 0,
@@ -133,7 +133,7 @@ crosapi.mojom.ProbeBusInfoSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBusResult
-crosapi.mojom.ProbeBusResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeBusResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBusResult', {
       'bus_devices_info': {
         'ordinal': 0,
@@ -147,7 +147,7 @@ crosapi.mojom.ProbeBusResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeNonRemovableBlockDeviceResult
-crosapi.mojom.ProbeNonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeNonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeNonRemovableBlockDeviceResult', {
       'block_device_info': {
         'ordinal': 0,
@@ -161,7 +161,7 @@ crosapi.mojom.ProbeNonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeCachedVpdResult
-crosapi.mojom.ProbeCachedVpdResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeCachedVpdResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeCachedVpdResult', {
       'vpd_info': {
         'ordinal': 0,
@@ -175,7 +175,7 @@ crosapi.mojom.ProbeCachedVpdResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeCpuResult
-crosapi.mojom.ProbeCpuResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeCpuResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeCpuResult', {
       'cpu_info': {
         'ordinal': 0,
@@ -189,7 +189,7 @@ crosapi.mojom.ProbeCpuResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeTimezoneResult
-crosapi.mojom.ProbeTimezoneResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeTimezoneResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeTimezoneResult', {
       'timezone_info': {
         'ordinal': 0,
@@ -203,7 +203,7 @@ crosapi.mojom.ProbeTimezoneResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeMemoryResult
-crosapi.mojom.ProbeMemoryResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeMemoryResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeMemoryResult', {
       'memory_info': {
         'ordinal': 0,
@@ -217,7 +217,7 @@ crosapi.mojom.ProbeMemoryResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBacklightResult
-crosapi.mojom.ProbeBacklightResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeBacklightResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBacklightResult', {
       'backlight_info': {
         'ordinal': 0,
@@ -231,7 +231,7 @@ crosapi.mojom.ProbeBacklightResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeFanResult
-crosapi.mojom.ProbeFanResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeFanResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeFanResult', {
       'fan_info': {
         'ordinal': 0,
@@ -245,7 +245,7 @@ crosapi.mojom.ProbeFanResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeStatefulPartitionResult
-crosapi.mojom.ProbeStatefulPartitionResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeStatefulPartitionResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeStatefulPartitionResult', {
       'partition_info': {
         'ordinal': 0,
@@ -259,7 +259,7 @@ crosapi.mojom.ProbeStatefulPartitionResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeTpmResult
-crosapi.mojom.ProbeTpmResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeTpmResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeTpmResult', {
       'tpm_info': {
         'ordinal': 0,
@@ -273,7 +273,7 @@ crosapi.mojom.ProbeTpmResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeBluetoothResult
-crosapi.mojom.ProbeBluetoothResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeBluetoothResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeBluetoothResult', {
       'bluetooth_adapter_info': {
         'ordinal': 0,
@@ -287,7 +287,7 @@ crosapi.mojom.ProbeBluetoothResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeSystemResult
-crosapi.mojom.ProbeSystemResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeSystemResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeSystemResult', {
       'system_info': {
         'ordinal': 0,
@@ -301,7 +301,7 @@ crosapi.mojom.ProbeSystemResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeNetworkResult
-crosapi.mojom.ProbeNetworkResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeNetworkResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeNetworkResult', {
       'network_health': {
         'ordinal': 0,
@@ -315,7 +315,7 @@ crosapi.mojom.ProbeNetworkResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeAudioResult
-crosapi.mojom.ProbeAudioResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeAudioResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeAudioResult', {
       'audio_info': {
         'ordinal': 0,
@@ -329,7 +329,7 @@ crosapi.mojom.ProbeAudioResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeDisplayResult
-crosapi.mojom.ProbeDisplayResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeDisplayResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeDisplayResult', {
       'display_info': {
         'ordinal': 0,
@@ -343,7 +343,7 @@ crosapi.mojom.ProbeDisplayResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: ProbeThermalResult
-crosapi.mojom.ProbeThermalResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.ProbeThermalResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.ProbeThermalResult', {
       'thermal_info': {
         'ordinal': 0,
@@ -357,14 +357,14 @@ crosapi.mojom.ProbeThermalResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ProbeError
-crosapi.mojom.ProbeErrorSpec = {
+crosapi.mojom.mojom.ProbeErrorSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeError',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ProbeErrorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.ProbeErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -372,7 +372,7 @@ crosapi.mojom.ProbeErrorSpec = {
 };
 
 // Struct: ProbeBatteryInfo
-crosapi.mojom.ProbeBatteryInfoSpec = {
+crosapi.mojom.mojom.ProbeBatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeBatteryInfo',
@@ -399,7 +399,7 @@ crosapi.mojom.ProbeBatteryInfoSpec = {
 };
 
 // Struct: ProbeUsbBusInterfaceInfo
-crosapi.mojom.ProbeUsbBusInterfaceInfoSpec = {
+crosapi.mojom.mojom.ProbeUsbBusInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeUsbBusInterfaceInfo',
@@ -417,7 +417,7 @@ crosapi.mojom.ProbeUsbBusInterfaceInfoSpec = {
 };
 
 // Struct: ProbeFwupdFirmwareVersionInfo
-crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec = {
+crosapi.mojom.mojom.ProbeFwupdFirmwareVersionInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeFwupdFirmwareVersionInfo',
@@ -432,7 +432,7 @@ crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec = {
 };
 
 // Struct: ProbeUsbBusInfo
-crosapi.mojom.ProbeUsbBusInfoSpec = {
+crosapi.mojom.mojom.ProbeUsbBusInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeUsbBusInfo',
@@ -445,8 +445,8 @@ crosapi.mojom.ProbeUsbBusInfoSpec = {
         { name: 'product_id', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UInt16ValueSpec, nullable: false, minVersion: 0 },
         { name: 'interfaces', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.ProbeUsbBusInterfaceInfoSpec, false), nullable: true, minVersion: 0 },
         { name: 'fwupd_firmware_version_info', packedOffset: 48, packedBitOffset: 0, type: crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'version', packedOffset: 56, packedBitOffset: 0, type: crosapi.mojom.ProbeUsbVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'spec_speed', packedOffset: 64, packedBitOffset: 0, type: crosapi.mojom.ProbeUsbSpecSpeedSpec, nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 64, packedBitOffset: 0, type: crosapi.mojom.ProbeUsbVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'spec_speed', packedOffset: 56, packedBitOffset: 0, type: crosapi.mojom.ProbeUsbSpecSpeedSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -454,7 +454,7 @@ crosapi.mojom.ProbeUsbBusInfoSpec = {
 };
 
 // Struct: ProbeNonRemovableBlockDeviceInfo
-crosapi.mojom.ProbeNonRemovableBlockDeviceInfoSpec = {
+crosapi.mojom.mojom.ProbeNonRemovableBlockDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeNonRemovableBlockDeviceInfo',
@@ -479,7 +479,7 @@ crosapi.mojom.ProbeNonRemovableBlockDeviceInfoSpec = {
 };
 
 // Struct: ProbeCachedVpdInfo
-crosapi.mojom.ProbeCachedVpdInfoSpec = {
+crosapi.mojom.mojom.ProbeCachedVpdInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeCachedVpdInfo',
@@ -496,7 +496,7 @@ crosapi.mojom.ProbeCachedVpdInfoSpec = {
 };
 
 // Struct: ProbeCpuCStateInfo
-crosapi.mojom.ProbeCpuCStateInfoSpec = {
+crosapi.mojom.mojom.ProbeCpuCStateInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeCpuCStateInfo',
@@ -511,7 +511,7 @@ crosapi.mojom.ProbeCpuCStateInfoSpec = {
 };
 
 // Struct: ProbeLogicalCpuInfo
-crosapi.mojom.ProbeLogicalCpuInfoSpec = {
+crosapi.mojom.mojom.ProbeLogicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeLogicalCpuInfo',
@@ -530,7 +530,7 @@ crosapi.mojom.ProbeLogicalCpuInfoSpec = {
 };
 
 // Struct: ProbePhysicalCpuInfo
-crosapi.mojom.ProbePhysicalCpuInfoSpec = {
+crosapi.mojom.mojom.ProbePhysicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbePhysicalCpuInfo',
@@ -545,15 +545,15 @@ crosapi.mojom.ProbePhysicalCpuInfoSpec = {
 };
 
 // Struct: ProbeCpuInfo
-crosapi.mojom.ProbeCpuInfoSpec = {
+crosapi.mojom.mojom.ProbeCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeCpuInfo',
       packedSize: 32,
       fields: [
         { name: 'num_total_threads', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'architecture', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.ProbeCpuArchitectureEnumSpec, nullable: false, minVersion: 0 },
-        { name: 'physical_cpus', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.ProbePhysicalCpuInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'architecture', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.ProbeCpuArchitectureEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'physical_cpus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.ProbePhysicalCpuInfoSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -561,7 +561,7 @@ crosapi.mojom.ProbeCpuInfoSpec = {
 };
 
 // Struct: ProbeTimezoneInfo
-crosapi.mojom.ProbeTimezoneInfoSpec = {
+crosapi.mojom.mojom.ProbeTimezoneInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTimezoneInfo',
@@ -576,7 +576,7 @@ crosapi.mojom.ProbeTimezoneInfoSpec = {
 };
 
 // Struct: ProbeMemoryInfo
-crosapi.mojom.ProbeMemoryInfoSpec = {
+crosapi.mojom.mojom.ProbeMemoryInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeMemoryInfo',
@@ -593,7 +593,7 @@ crosapi.mojom.ProbeMemoryInfoSpec = {
 };
 
 // Struct: ProbeBacklightInfo
-crosapi.mojom.ProbeBacklightInfoSpec = {
+crosapi.mojom.mojom.ProbeBacklightInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeBacklightInfo',
@@ -609,7 +609,7 @@ crosapi.mojom.ProbeBacklightInfoSpec = {
 };
 
 // Struct: ProbeFanInfo
-crosapi.mojom.ProbeFanInfoSpec = {
+crosapi.mojom.mojom.ProbeFanInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeFanInfo',
@@ -623,7 +623,7 @@ crosapi.mojom.ProbeFanInfoSpec = {
 };
 
 // Struct: ProbeStatefulPartitionInfo
-crosapi.mojom.ProbeStatefulPartitionInfoSpec = {
+crosapi.mojom.mojom.ProbeStatefulPartitionInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeStatefulPartitionInfo',
@@ -638,19 +638,19 @@ crosapi.mojom.ProbeStatefulPartitionInfoSpec = {
 };
 
 // Struct: ProbeTpmVersion
-crosapi.mojom.ProbeTpmVersionSpec = {
+crosapi.mojom.mojom.ProbeTpmVersionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmVersion',
       packedSize: 64,
       fields: [
-        { name: 'gsc_version', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ProbeTpmGSCVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'family', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'spec_level', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.UInt64ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'manufacturer', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'tpm_model', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'firmware_version', packedOffset: 40, packedBitOffset: 0, type: crosapi.mojom.UInt64ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'vendor_specific', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'gsc_version', packedOffset: 48, packedBitOffset: 0, type: crosapi.mojom.ProbeTpmGSCVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'family', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'spec_level', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.UInt64ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'manufacturer', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'tpm_model', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'firmware_version', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UInt64ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'vendor_specific', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -658,7 +658,7 @@ crosapi.mojom.ProbeTpmVersionSpec = {
 };
 
 // Struct: ProbeTpmStatus
-crosapi.mojom.ProbeTpmStatusSpec = {
+crosapi.mojom.mojom.ProbeTpmStatusSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmStatus',
@@ -674,7 +674,7 @@ crosapi.mojom.ProbeTpmStatusSpec = {
 };
 
 // Struct: ProbeTpmDictionaryAttack
-crosapi.mojom.ProbeTpmDictionaryAttackSpec = {
+crosapi.mojom.mojom.ProbeTpmDictionaryAttackSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmDictionaryAttack',
@@ -691,7 +691,7 @@ crosapi.mojom.ProbeTpmDictionaryAttackSpec = {
 };
 
 // Struct: ProbeTpmInfo
-crosapi.mojom.ProbeTpmInfoSpec = {
+crosapi.mojom.mojom.ProbeTpmInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTpmInfo',
@@ -707,7 +707,7 @@ crosapi.mojom.ProbeTpmInfoSpec = {
 };
 
 // Struct: ProbeBluetoothAdapterInfo
-crosapi.mojom.ProbeBluetoothAdapterInfoSpec = {
+crosapi.mojom.mojom.ProbeBluetoothAdapterInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeBluetoothAdapterInfo',
@@ -724,7 +724,7 @@ crosapi.mojom.ProbeBluetoothAdapterInfoSpec = {
 };
 
 // Struct: ProbeOsVersion
-crosapi.mojom.ProbeOsVersionSpec = {
+crosapi.mojom.mojom.ProbeOsVersionSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeOsVersion',
@@ -741,7 +741,7 @@ crosapi.mojom.ProbeOsVersionSpec = {
 };
 
 // Struct: ProbeOsInfo
-crosapi.mojom.ProbeOsInfoSpec = {
+crosapi.mojom.mojom.ProbeOsInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeOsInfo',
@@ -757,7 +757,7 @@ crosapi.mojom.ProbeOsInfoSpec = {
 };
 
 // Struct: ProbeSystemInfo
-crosapi.mojom.ProbeSystemInfoSpec = {
+crosapi.mojom.mojom.ProbeSystemInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeSystemInfo',
@@ -771,7 +771,7 @@ crosapi.mojom.ProbeSystemInfoSpec = {
 };
 
 // Struct: ProbeAudioInputNodeInfo
-crosapi.mojom.ProbeAudioInputNodeInfoSpec = {
+crosapi.mojom.mojom.ProbeAudioInputNodeInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeAudioInputNodeInfo',
@@ -789,7 +789,7 @@ crosapi.mojom.ProbeAudioInputNodeInfoSpec = {
 };
 
 // Struct: ProbeAudioOutputNodeInfo
-crosapi.mojom.ProbeAudioOutputNodeInfoSpec = {
+crosapi.mojom.mojom.ProbeAudioOutputNodeInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeAudioOutputNodeInfo',
@@ -807,7 +807,7 @@ crosapi.mojom.ProbeAudioOutputNodeInfoSpec = {
 };
 
 // Struct: ProbeAudioInfo
-crosapi.mojom.ProbeAudioInfoSpec = {
+crosapi.mojom.mojom.ProbeAudioInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeAudioInfo',
@@ -826,38 +826,38 @@ crosapi.mojom.ProbeAudioInfoSpec = {
 };
 
 // Struct: ProbeEmbeddedDisplayInfo
-crosapi.mojom.ProbeEmbeddedDisplayInfoSpec = {
+crosapi.mojom.mojom.ProbeEmbeddedDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeEmbeddedDisplayInfo',
       packedSize: 72,
       fields: [
-        { name: 'privacy_screen_supported_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'privacy_screen_supported_$value', originalFieldName: 'privacy_screen_supported' } },
-        { name: 'privacy_screen_supported_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'privacy_screen_supported_$flag', originalFieldName: 'privacy_screen_supported' } },
-        { name: 'privacy_screen_enabled_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'privacy_screen_enabled_$value', originalFieldName: 'privacy_screen_enabled' } },
-        { name: 'privacy_screen_enabled_$value', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'privacy_screen_enabled_$flag', originalFieldName: 'privacy_screen_enabled' } },
-        { name: 'display_width_$flag', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' } },
-        { name: 'display_width_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' } },
-        { name: 'display_height_$flag', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' } },
-        { name: 'display_height_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' } },
-        { name: 'resolution_horizontal_$flag', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' } },
-        { name: 'resolution_horizontal_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' } },
-        { name: 'resolution_vertical_$flag', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' } },
-        { name: 'resolution_vertical_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' } },
-        { name: 'refresh_rate_$flag', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' } },
-        { name: 'refresh_rate_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' } },
-        { name: 'manufacturer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'model_id_$flag', packedOffset: 1, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' } },
-        { name: 'model_id_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' } },
-        { name: 'serial_number_$flag', packedOffset: 1, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' } },
-        { name: 'serial_number_$value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' } },
-        { name: 'manufacture_week_$flag', packedOffset: 1, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' } },
-        { name: 'manufacture_week_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' } },
-        { name: 'manufacture_year_$flag', packedOffset: 1, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' } },
-        { name: 'manufacture_year_$value', packedOffset: 42, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' } },
-        { name: 'edid_version', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'input_type', packedOffset: 44, packedBitOffset: 0, type: crosapi.mojom.ProbeDisplayInputTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'privacy_screen_supported_$flag', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'privacy_screen_supported_$value', originalFieldName: 'privacy_screen_supported' } },
+        { name: 'privacy_screen_supported_$value', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'privacy_screen_supported_$flag', originalFieldName: 'privacy_screen_supported' } },
+        { name: 'privacy_screen_enabled_$flag', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'privacy_screen_enabled_$value', originalFieldName: 'privacy_screen_enabled' } },
+        { name: 'privacy_screen_enabled_$value', packedOffset: 60, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'privacy_screen_enabled_$flag', originalFieldName: 'privacy_screen_enabled' } },
+        { name: 'display_width_$flag', packedOffset: 60, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' } },
+        { name: 'display_width_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' } },
+        { name: 'display_height_$flag', packedOffset: 60, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' } },
+        { name: 'display_height_$value', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' } },
+        { name: 'resolution_horizontal_$flag', packedOffset: 60, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' } },
+        { name: 'resolution_horizontal_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' } },
+        { name: 'resolution_vertical_$flag', packedOffset: 60, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' } },
+        { name: 'resolution_vertical_$value', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' } },
+        { name: 'refresh_rate_$flag', packedOffset: 61, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' } },
+        { name: 'refresh_rate_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' } },
+        { name: 'manufacturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'model_id_$flag', packedOffset: 61, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' } },
+        { name: 'model_id_$value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' } },
+        { name: 'serial_number_$flag', packedOffset: 61, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' } },
+        { name: 'serial_number_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' } },
+        { name: 'manufacture_week_$flag', packedOffset: 61, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' } },
+        { name: 'manufacture_week_$value', packedOffset: 62, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' } },
+        { name: 'manufacture_year_$flag', packedOffset: 61, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' } },
+        { name: 'manufacture_year_$value', packedOffset: 58, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' } },
+        { name: 'edid_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'input_type', packedOffset: 52, packedBitOffset: 0, type: crosapi.mojom.ProbeDisplayInputTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -865,34 +865,34 @@ crosapi.mojom.ProbeEmbeddedDisplayInfoSpec = {
 };
 
 // Struct: ProbeExternalDisplayInfo
-crosapi.mojom.ProbeExternalDisplayInfoSpec = {
+crosapi.mojom.mojom.ProbeExternalDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeExternalDisplayInfo',
       packedSize: 72,
       fields: [
-        { name: 'display_width_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' } },
-        { name: 'display_width_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' } },
-        { name: 'display_height_$flag', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' } },
-        { name: 'display_height_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' } },
-        { name: 'resolution_horizontal_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' } },
-        { name: 'resolution_horizontal_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' } },
-        { name: 'resolution_vertical_$flag', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' } },
-        { name: 'resolution_vertical_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' } },
-        { name: 'refresh_rate_$flag', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' } },
-        { name: 'refresh_rate_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' } },
-        { name: 'manufacturer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'model_id_$flag', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' } },
-        { name: 'model_id_$value', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' } },
-        { name: 'serial_number_$flag', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' } },
-        { name: 'serial_number_$value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' } },
-        { name: 'manufacture_week_$flag', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' } },
-        { name: 'manufacture_week_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' } },
-        { name: 'manufacture_year_$flag', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' } },
-        { name: 'manufacture_year_$value', packedOffset: 42, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' } },
-        { name: 'edid_version', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'input_type', packedOffset: 44, packedBitOffset: 0, type: crosapi.mojom.ProbeDisplayInputTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'display_width_$flag', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' } },
+        { name: 'display_width_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' } },
+        { name: 'display_height_$flag', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' } },
+        { name: 'display_height_$value', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' } },
+        { name: 'resolution_horizontal_$flag', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' } },
+        { name: 'resolution_horizontal_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' } },
+        { name: 'resolution_vertical_$flag', packedOffset: 60, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' } },
+        { name: 'resolution_vertical_$value', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' } },
+        { name: 'refresh_rate_$flag', packedOffset: 60, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' } },
+        { name: 'refresh_rate_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' } },
+        { name: 'manufacturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'model_id_$flag', packedOffset: 60, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' } },
+        { name: 'model_id_$value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' } },
+        { name: 'serial_number_$flag', packedOffset: 60, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' } },
+        { name: 'serial_number_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' } },
+        { name: 'manufacture_week_$flag', packedOffset: 60, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' } },
+        { name: 'manufacture_week_$value', packedOffset: 61, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' } },
+        { name: 'manufacture_year_$flag', packedOffset: 62, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' } },
+        { name: 'manufacture_year_$value', packedOffset: 58, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' } },
+        { name: 'edid_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'input_type', packedOffset: 52, packedBitOffset: 0, type: crosapi.mojom.ProbeDisplayInputTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -900,7 +900,7 @@ crosapi.mojom.ProbeExternalDisplayInfoSpec = {
 };
 
 // Struct: ProbeDisplayInfo
-crosapi.mojom.ProbeDisplayInfoSpec = {
+crosapi.mojom.mojom.ProbeDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeDisplayInfo',
@@ -915,7 +915,7 @@ crosapi.mojom.ProbeDisplayInfoSpec = {
 };
 
 // Struct: ProbeThermalSensorInfo
-crosapi.mojom.ProbeThermalSensorInfoSpec = {
+crosapi.mojom.mojom.ProbeThermalSensorInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeThermalSensorInfo',
@@ -931,7 +931,7 @@ crosapi.mojom.ProbeThermalSensorInfoSpec = {
 };
 
 // Struct: ProbeThermalInfo
-crosapi.mojom.ProbeThermalInfoSpec = {
+crosapi.mojom.mojom.ProbeThermalInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeThermalInfo',
@@ -945,7 +945,7 @@ crosapi.mojom.ProbeThermalInfoSpec = {
 };
 
 // Struct: ProbeTelemetryInfo
-crosapi.mojom.ProbeTelemetryInfoSpec = {
+crosapi.mojom.mojom.ProbeTelemetryInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeTelemetryInfo',
@@ -975,7 +975,7 @@ crosapi.mojom.ProbeTelemetryInfoSpec = {
 };
 
 // Struct: ProbeOemData
-crosapi.mojom.ProbeOemDataSpec = {
+crosapi.mojom.mojom.ProbeOemDataSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ProbeOemData',
@@ -989,24 +989,24 @@ crosapi.mojom.ProbeOemDataSpec = {
 };
 
 // Interface: TelemetryProbeService
-crosapi.mojom.TelemetryProbeService = {};
+crosapi.mojom.mojom.TelemetryProbeService = {};
 
-crosapi.mojom.TelemetryProbeServicePendingReceiver = class {
+crosapi.mojom.mojom.TelemetryProbeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.TelemetryProbeServiceRemote = class {
+crosapi.mojom.mojom.TelemetryProbeServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryProbeService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.TelemetryProbeServicePendingReceiver,
+      crosapi.mojom.mojom.TelemetryProbeServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.TelemetryProbeServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.TelemetryProbeServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1018,7 +1018,7 @@ crosapi.mojom.TelemetryProbeServiceRemote = class {
   }
 };
 
-crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {
+crosapi.mojom.mojom.TelemetryProbeServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1027,8 +1027,8 @@ crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec,
-      crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
+      crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec,
+      crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
       [categories]);
   }
 
@@ -1036,15 +1036,15 @@ crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec,
-      crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec,
+      crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ParamsSpec,
+      crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec,
       []);
   }
 
 };
 
-crosapi.mojom.TelemetryProbeService.getRemote = function() {
-  let remote = new crosapi.mojom.TelemetryProbeServiceRemote();
+crosapi.mojom.mojom.TelemetryProbeService.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.TelemetryProbeServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1054,7 +1054,7 @@ crosapi.mojom.TelemetryProbeService.getRemote = function() {
 };
 
 // ParamsSpec for ProbeTelemetryInfo
-crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
+crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.ProbeTelemetryInfo_Params',
@@ -1067,7 +1067,7 @@ crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
   }
 };
 
-crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
+crosapi.mojom.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.ProbeTelemetryInfo_ResponseParams',
@@ -1081,7 +1081,7 @@ crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetOemData
-crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
+crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.GetOemData_Params',
@@ -1093,7 +1093,7 @@ crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
   }
 };
 
-crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = {
+crosapi.mojom.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryProbeService.GetOemData_ResponseParams',
@@ -1107,6 +1107,6 @@ crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.TelemetryProbeServicePtr = crosapi.mojom.TelemetryProbeServiceRemote;
-crosapi.mojom.TelemetryProbeServiceRequest = crosapi.mojom.TelemetryProbeServicePendingReceiver;
+crosapi.mojom.mojom.TelemetryProbeServicePtr = crosapi.mojom.mojom.TelemetryProbeServiceRemote;
+crosapi.mojom.mojom.TelemetryProbeServiceRequest = crosapi.mojom.mojom.TelemetryProbeServicePendingReceiver;
 

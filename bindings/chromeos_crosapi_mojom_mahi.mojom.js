@@ -7,10 +7,15 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Enum: MahiContextMenuActionType
-crosapi.mojom.MahiContextMenuActionType = {
+crosapi.mojom.mojom.MahiContextMenuActionType = {
   kSummary: 0,
   kOutline: 1,
   kSettings: 2,
@@ -18,10 +23,10 @@ crosapi.mojom.MahiContextMenuActionType = {
   kElucidation: 4,
   kSummaryOfSelection: 5,
 };
-crosapi.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MahiPageInfo
-crosapi.mojom.MahiPageInfoSpec = {
+crosapi.mojom.mojom.MahiPageInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MahiPageInfo',
@@ -42,24 +47,24 @@ crosapi.mojom.MahiPageInfoSpec = {
 };
 
 // Struct: MahiContextMenuRequest
-crosapi.mojom.MahiContextMenuRequestSpec = {
+crosapi.mojom.mojom.MahiContextMenuRequestSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MahiContextMenuRequest',
       packedSize: 40,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'action_type', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.MahiContextMenuActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'question', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'mahi_menu_bounds', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
+        { name: 'action_type', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.MahiContextMenuActionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'question', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'mahi_menu_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}]
+      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 40}]
     }
   }
 };
 
 // Struct: MahiPageContent
-crosapi.mojom.MahiPageContentSpec = {
+crosapi.mojom.mojom.MahiPageContentSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.MahiPageContent',

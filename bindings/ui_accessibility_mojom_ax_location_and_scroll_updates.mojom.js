@@ -7,17 +7,19 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
 
 
 // Struct: AXLocationChange
-ax.mojom.AXLocationChangeSpec = {
+ax.mojom.mojom.AXLocationChangeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXLocationChange',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'new_location', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'new_location', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,7 +27,7 @@ ax.mojom.AXLocationChangeSpec = {
 };
 
 // Struct: AXScrollChange
-ax.mojom.AXScrollChangeSpec = {
+ax.mojom.mojom.AXScrollChangeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXScrollChange',
@@ -41,7 +43,7 @@ ax.mojom.AXScrollChangeSpec = {
 };
 
 // Struct: AXLocationAndScrollUpdates
-ax.mojom.AXLocationAndScrollUpdatesSpec = {
+ax.mojom.mojom.AXLocationAndScrollUpdatesSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXLocationAndScrollUpdates',

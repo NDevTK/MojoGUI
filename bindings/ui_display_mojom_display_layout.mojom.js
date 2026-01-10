@@ -10,23 +10,23 @@ display.mojom = display.mojom || {};
 
 
 // Enum: Position
-display.mojom.Position = {
+display.mojom.mojom.Position = {
   TOP: 0,
   RIGHT: 1,
   BOTTOM: 2,
   LEFT: 3,
 };
-display.mojom.PositionSpec = { $: mojo.internal.Enum() };
+display.mojom.mojom.PositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: OffsetReference
-display.mojom.OffsetReference = {
+display.mojom.mojom.OffsetReference = {
   TOP_LEFT: 0,
   BOTTOM_RIGHT: 1,
 };
-display.mojom.OffsetReferenceSpec = { $: mojo.internal.Enum() };
+display.mojom.mojom.OffsetReferenceSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayPlacement
-display.mojom.DisplayPlacementSpec = {
+display.mojom.mojom.DisplayPlacementSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayPlacement',
@@ -44,15 +44,15 @@ display.mojom.DisplayPlacementSpec = {
 };
 
 // Struct: DisplayLayout
-display.mojom.DisplayLayoutSpec = {
+display.mojom.mojom.DisplayLayoutSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.DisplayLayout',
       packedSize: 32,
       fields: [
-        { name: 'default_unified', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'placement_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.DisplayPlacementSpec, false), nullable: false, minVersion: 0 },
+        { name: 'default_unified', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'primary_display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'placement_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.DisplayPlacementSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

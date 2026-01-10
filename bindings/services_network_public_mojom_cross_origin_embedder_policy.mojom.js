@@ -7,26 +7,27 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: CrossOriginEmbedderPolicyValue
-network.mojom.CrossOriginEmbedderPolicyValue = {
+network.mojom.mojom.CrossOriginEmbedderPolicyValue = {
   kNone: 0,
   kRequireCorp: 1,
   kCredentialless: 2,
 };
-network.mojom.CrossOriginEmbedderPolicyValueSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CrossOriginEmbedderPolicyValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: CrossOriginEmbedderPolicy
-network.mojom.CrossOriginEmbedderPolicySpec = {
+network.mojom.mojom.CrossOriginEmbedderPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginEmbedderPolicy',
       packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicyValueSpec, nullable: false, minVersion: 0 },
-        { name: 'reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'report_only_reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicyValueSpec, nullable: false, minVersion: 0 },
+        { name: 'reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'report_only_reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -34,24 +35,24 @@ network.mojom.CrossOriginEmbedderPolicySpec = {
 };
 
 // Interface: CrossOriginEmbedderPolicyReporter
-network.mojom.CrossOriginEmbedderPolicyReporter = {};
+network.mojom.mojom.CrossOriginEmbedderPolicyReporter = {};
 
-network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver = class {
+network.mojom.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.CrossOriginEmbedderPolicyReporterRemote = class {
+network.mojom.mojom.CrossOriginEmbedderPolicyReporterRemote = class {
   static get $interfaceName() {
     return 'network.mojom.CrossOriginEmbedderPolicyReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver,
+      network.mojom.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver,
       handle);
-    this.$ = new network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -63,7 +64,7 @@ network.mojom.CrossOriginEmbedderPolicyReporterRemote = class {
   }
 };
 
-network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
+network.mojom.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -72,7 +73,7 @@ network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec,
+      network.mojom.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec,
       null,
       [blocked_url, destination, report_only]);
   }
@@ -81,15 +82,15 @@ network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec,
+      network.mojom.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-network.mojom.CrossOriginEmbedderPolicyReporter.getRemote = function() {
-  let remote = new network.mojom.CrossOriginEmbedderPolicyReporterRemote();
+network.mojom.mojom.CrossOriginEmbedderPolicyReporter.getRemote = function() {
+  let remote = new network.mojom.mojom.CrossOriginEmbedderPolicyReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +100,7 @@ network.mojom.CrossOriginEmbedderPolicyReporter.getRemote = function() {
 };
 
 // ParamsSpec for QueueCorpViolationReport
-network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
+network.mojom.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginEmbedderPolicyReporter.QueueCorpViolationReport_Params',
@@ -115,7 +116,7 @@ network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsS
 };
 
 // ParamsSpec for Clone
-network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
+network.mojom.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CrossOriginEmbedderPolicyReporter.Clone_Params',
@@ -129,6 +130,6 @@ network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.CrossOriginEmbedderPolicyReporterPtr = network.mojom.CrossOriginEmbedderPolicyReporterRemote;
-network.mojom.CrossOriginEmbedderPolicyReporterRequest = network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver;
+network.mojom.mojom.CrossOriginEmbedderPolicyReporterPtr = network.mojom.mojom.CrossOriginEmbedderPolicyReporterRemote;
+network.mojom.mojom.CrossOriginEmbedderPolicyReporterRequest = network.mojom.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver;
 

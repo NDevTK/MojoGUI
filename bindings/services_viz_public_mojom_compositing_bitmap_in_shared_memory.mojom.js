@@ -7,10 +7,11 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var skia = skia || {};
 
 
 // Struct: BitmapInSharedMemory
-viz.mojom.BitmapInSharedMemorySpec = {
+viz.mojom.mojom.BitmapInSharedMemorySpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.BitmapInSharedMemory',

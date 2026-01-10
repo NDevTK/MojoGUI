@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: Time
-mojo_base.mojom.TimeSpec = {
+mojo_base.mojom.mojom.TimeSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Time',
@@ -24,7 +24,7 @@ mojo_base.mojom.TimeSpec = {
 };
 
 // Struct: JSTime
-mojo_base.mojom.JSTimeSpec = {
+mojo_base.mojom.mojom.JSTimeSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.JSTime',
@@ -38,7 +38,7 @@ mojo_base.mojom.JSTimeSpec = {
 };
 
 // Struct: TimeDelta
-mojo_base.mojom.TimeDeltaSpec = {
+mojo_base.mojom.mojom.TimeDeltaSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.TimeDelta',
@@ -52,7 +52,7 @@ mojo_base.mojom.TimeDeltaSpec = {
 };
 
 // Struct: TimeTicks
-mojo_base.mojom.TimeTicksSpec = {
+mojo_base.mojom.mojom.TimeTicksSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.TimeTicks',

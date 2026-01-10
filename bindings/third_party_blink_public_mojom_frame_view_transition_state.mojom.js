@@ -7,10 +7,15 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: ViewTransitionPropertyId
-blink.mojom.ViewTransitionPropertyId = {
+blink.mojom.mojom.ViewTransitionPropertyId = {
   kBackdropFilter: 0,
   kBorderRadius: 1,
   kBorderWidth: 2,
@@ -20,17 +25,17 @@ blink.mojom.ViewTransitionPropertyId = {
   kTextOrientation: 6,
   kWritingMode: 7,
 };
-blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: ViewTransitionElementBoxSizing
-blink.mojom.ViewTransitionElementBoxSizing = {
+blink.mojom.mojom.ViewTransitionElementBoxSizing = {
   kBorderBox: 0,
   kContentBox: 1,
 };
-blink.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum() };
 
 // Struct: ViewTransitionElementLayeredBoxProperties
-blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
+blink.mojom.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewTransitionElementLayeredBoxProperties',
@@ -46,7 +51,7 @@ blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
 };
 
 // Struct: ViewTransitionElement
-blink.mojom.ViewTransitionElementSpec = {
+blink.mojom.mojom.ViewTransitionElementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewTransitionElement',
@@ -58,13 +63,13 @@ blink.mojom.ViewTransitionElementSpec = {
         { name: 'overflow_rect_in_layout_space', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
         { name: 'captured_rect_in_layout_space', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: true, minVersion: 0 },
         { name: 'snapshot_id', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'paint_order', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'captured_css_properties', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'group_children_css_properties', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'border_offset', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'class_list', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'containing_group_name', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'layered_box_properties', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, nullable: true, minVersion: 0 },
+        { name: 'paint_order', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'captured_css_properties', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'group_children_css_properties', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'border_offset', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
+        { name: 'class_list', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'containing_group_name', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'layered_box_properties', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 112}]
     }
@@ -72,7 +77,7 @@ blink.mojom.ViewTransitionElementSpec = {
 };
 
 // Struct: ViewTransitionState
-blink.mojom.ViewTransitionStateSpec = {
+blink.mojom.mojom.ViewTransitionStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewTransitionState',
@@ -81,10 +86,10 @@ blink.mojom.ViewTransitionStateSpec = {
         { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ViewTransitionElementSpec, false), nullable: false, minVersion: 0 },
         { name: 'transition_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false, minVersion: 0 },
         { name: 'snapshot_root_size_at_capture', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_pixel_ratio', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'next_element_resource_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'subframe_snapshot_id', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'id_to_auto_name_map', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'device_pixel_ratio', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'next_element_resource_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'subframe_snapshot_id', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'id_to_auto_name_map', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
         { name: 'delay_layer_tree_view_deletion', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]

@@ -10,7 +10,7 @@ ai.mojom = ai.mojom || {};
 
 
 // Union: EnhancedCalendarResponseResult
-ai.mojom.EnhancedCalendarResponseResultSpec = { $: mojo.internal.Union(
+ai.mojom.mojom.EnhancedCalendarResponseResultSpec = { $: mojo.internal.Union(
     'ai.mojom.EnhancedCalendarResponseResult', {
       'response': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ ai.mojom.EnhancedCalendarResponseResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: EnhancedCalendarServiceRequestParams
-ai.mojom.EnhancedCalendarServiceRequestParamsSpec = {
+ai.mojom.mojom.EnhancedCalendarServiceRequestParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.EnhancedCalendarServiceRequestParams',
@@ -40,24 +40,24 @@ ai.mojom.EnhancedCalendarServiceRequestParamsSpec = {
 };
 
 // Interface: EnhancedCalendarService
-ai.mojom.EnhancedCalendarService = {};
+ai.mojom.mojom.EnhancedCalendarService = {};
 
-ai.mojom.EnhancedCalendarServicePendingReceiver = class {
+ai.mojom.mojom.EnhancedCalendarServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ai.mojom.EnhancedCalendarServiceRemote = class {
+ai.mojom.mojom.EnhancedCalendarServiceRemote = class {
   static get $interfaceName() {
     return 'ai.mojom.EnhancedCalendarService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ai.mojom.EnhancedCalendarServicePendingReceiver,
+      ai.mojom.mojom.EnhancedCalendarServicePendingReceiver,
       handle);
-    this.$ = new ai.mojom.EnhancedCalendarServiceRemoteCallHandler(this.proxy);
+    this.$ = new ai.mojom.mojom.EnhancedCalendarServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +69,7 @@ ai.mojom.EnhancedCalendarServiceRemote = class {
   }
 };
 
-ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
+ai.mojom.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,15 +78,15 @@ ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec,
-      ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
+      ai.mojom.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec,
+      ai.mojom.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
       [request_params]);
   }
 
 };
 
-ai.mojom.EnhancedCalendarService.getRemote = function() {
-  let remote = new ai.mojom.EnhancedCalendarServiceRemote();
+ai.mojom.mojom.EnhancedCalendarService.getRemote = function() {
+  let remote = new ai.mojom.mojom.EnhancedCalendarServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -96,7 +96,7 @@ ai.mojom.EnhancedCalendarService.getRemote = function() {
 };
 
 // ParamsSpec for ExecuteEnhancedCalendarRequest
-ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
+ai.mojom.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_Params',
@@ -109,7 +109,7 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
   }
 };
 
-ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec = {
+ai.mojom.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_ResponseParams',
@@ -123,6 +123,6 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSp
 };
 
 // Legacy compatibility
-ai.mojom.EnhancedCalendarServicePtr = ai.mojom.EnhancedCalendarServiceRemote;
-ai.mojom.EnhancedCalendarServiceRequest = ai.mojom.EnhancedCalendarServicePendingReceiver;
+ai.mojom.mojom.EnhancedCalendarServicePtr = ai.mojom.mojom.EnhancedCalendarServiceRemote;
+ai.mojom.mojom.EnhancedCalendarServiceRequest = ai.mojom.mojom.EnhancedCalendarServicePendingReceiver;
 

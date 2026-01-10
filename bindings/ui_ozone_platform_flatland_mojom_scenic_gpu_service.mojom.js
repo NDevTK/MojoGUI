@@ -7,27 +7,28 @@
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
+var ui = ui || {};
 
 
 // Interface: ScenicGpuService
-ui.mojom.ScenicGpuService = {};
+ui.mojom.mojom.ScenicGpuService = {};
 
-ui.mojom.ScenicGpuServicePendingReceiver = class {
+ui.mojom.mojom.ScenicGpuServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ui.mojom.ScenicGpuServiceRemote = class {
+ui.mojom.mojom.ScenicGpuServiceRemote = class {
   static get $interfaceName() {
     return 'ui.mojom.ScenicGpuService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ui.mojom.ScenicGpuServicePendingReceiver,
+      ui.mojom.mojom.ScenicGpuServicePendingReceiver,
       handle);
-    this.$ = new ui.mojom.ScenicGpuServiceRemoteCallHandler(this.proxy);
+    this.$ = new ui.mojom.mojom.ScenicGpuServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ ui.mojom.ScenicGpuServiceRemote = class {
   }
 };
 
-ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
+ui.mojom.mojom.ScenicGpuServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.mojom.ScenicGpuService_Initialize_ParamsSpec,
+      ui.mojom.mojom.ScenicGpuService_Initialize_ParamsSpec,
       null,
       [scenic_gpu_host]);
   }
 
 };
 
-ui.mojom.ScenicGpuService.getRemote = function() {
-  let remote = new ui.mojom.ScenicGpuServiceRemote();
+ui.mojom.mojom.ScenicGpuService.getRemote = function() {
+  let remote = new ui.mojom.mojom.ScenicGpuServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ ui.mojom.ScenicGpuService.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
+ui.mojom.mojom.ScenicGpuService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ScenicGpuService.Initialize_Params',
@@ -80,6 +81,6 @@ ui.mojom.ScenicGpuService_Initialize_ParamsSpec = {
 };
 
 // Legacy compatibility
-ui.mojom.ScenicGpuServicePtr = ui.mojom.ScenicGpuServiceRemote;
-ui.mojom.ScenicGpuServiceRequest = ui.mojom.ScenicGpuServicePendingReceiver;
+ui.mojom.mojom.ScenicGpuServicePtr = ui.mojom.mojom.ScenicGpuServiceRemote;
+ui.mojom.mojom.ScenicGpuServiceRequest = ui.mojom.mojom.ScenicGpuServicePendingReceiver;
 

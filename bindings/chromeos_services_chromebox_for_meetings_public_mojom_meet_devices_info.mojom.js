@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
-chromeos.cfm.mojom = chromeos.cfm.mojom || {};
+chromeos.cfm.cfm.mojom = chromeos.cfm.cfm.mojom || {};
 
 
 // Struct: PolicyInfo
-chromeos.cfm.mojom.PolicyInfoSpec = {
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.PolicyInfo',
@@ -31,7 +31,7 @@ chromeos.cfm.mojom.PolicyInfoSpec = {
 };
 
 // Struct: SysInfo
-chromeos.cfm.mojom.SysInfoSpec = {
+chromeos.cfm.cfm.mojom.mojom.SysInfoSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.SysInfo',
@@ -52,7 +52,7 @@ chromeos.cfm.mojom.SysInfoSpec = {
 };
 
 // Struct: MachineStatisticsInfo
-chromeos.cfm.mojom.MachineStatisticsInfoSpec = {
+chromeos.cfm.cfm.mojom.mojom.MachineStatisticsInfoSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MachineStatisticsInfo',
@@ -66,24 +66,24 @@ chromeos.cfm.mojom.MachineStatisticsInfoSpec = {
 };
 
 // Interface: MeetDevicesInfo
-chromeos.cfm.mojom.MeetDevicesInfo = {};
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo = {};
 
-chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver = class {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesInfoRemote = class {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoRemote = class {
   static get $interfaceName() {
     return 'chromeos.cfm.mojom.MeetDevicesInfo';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoPendingReceiver,
       handle);
-    this.$ = new chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -95,7 +95,7 @@ chromeos.cfm.mojom.MeetDevicesInfoRemote = class {
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -104,7 +104,7 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -113,8 +113,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec,
-      chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec,
       []);
   }
 
@@ -122,8 +122,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec,
-      chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec,
       []);
   }
 
@@ -131,15 +131,15 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec,
-      chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec,
       []);
   }
 
 };
 
-chromeos.cfm.mojom.MeetDevicesInfo.getRemote = function() {
-  let remote = new chromeos.cfm.mojom.MeetDevicesInfoRemote();
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo.getRemote = function() {
+  let remote = new chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -149,7 +149,7 @@ chromeos.cfm.mojom.MeetDevicesInfo.getRemote = function() {
 };
 
 // ParamsSpec for AddDeviceSettingsObserver
-chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesInfo.AddDeviceSettingsObserver_Params',
@@ -163,7 +163,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = {
 };
 
 // ParamsSpec for GetPolicyInfo
-chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetPolicyInfo_Params',
@@ -175,7 +175,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetPolicyInfo_ResponseParams',
@@ -189,7 +189,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSysInfo
-chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetSysInfo_Params',
@@ -201,7 +201,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetSysInfo_ResponseParams',
@@ -215,7 +215,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMachineStatisticsInfo
-chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetMachineStatisticsInfo_Params',
@@ -227,7 +227,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetMachineStatisticsInfo_ResponseParams',
@@ -241,29 +241,29 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-chromeos.cfm.mojom.MeetDevicesInfoPtr = chromeos.cfm.mojom.MeetDevicesInfoRemote;
-chromeos.cfm.mojom.MeetDevicesInfoRequest = chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver;
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoPtr = chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoRemote;
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoRequest = chromeos.cfm.cfm.mojom.mojom.MeetDevicesInfoPendingReceiver;
 
 
 // Interface: PolicyInfoObserver
-chromeos.cfm.mojom.PolicyInfoObserver = {};
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserver = {};
 
-chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver = class {
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cfm.mojom.PolicyInfoObserverRemote = class {
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverRemote = class {
   static get $interfaceName() {
     return 'chromeos.cfm.mojom.PolicyInfoObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver,
+      chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverPendingReceiver,
       handle);
-    this.$ = new chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -275,7 +275,7 @@ chromeos.cfm.mojom.PolicyInfoObserverRemote = class {
   }
 };
 
-chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = class {
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -284,15 +284,15 @@ chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-chromeos.cfm.mojom.PolicyInfoObserver.getRemote = function() {
-  let remote = new chromeos.cfm.mojom.PolicyInfoObserverRemote();
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserver.getRemote = function() {
+  let remote = new chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -302,7 +302,7 @@ chromeos.cfm.mojom.PolicyInfoObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnPolicyInfoChange
-chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.PolicyInfoObserver.OnPolicyInfoChange_Params',
@@ -316,6 +316,6 @@ chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.cfm.mojom.PolicyInfoObserverPtr = chromeos.cfm.mojom.PolicyInfoObserverRemote;
-chromeos.cfm.mojom.PolicyInfoObserverRequest = chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver;
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverPtr = chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverRemote;
+chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverRequest = chromeos.cfm.cfm.mojom.mojom.PolicyInfoObserverPendingReceiver;
 

@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Union: FileSystemAccessChangeType
-blink.mojom.FileSystemAccessChangeTypeSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.FileSystemAccessChangeTypeSpec = { $: mojo.internal.Union(
     'blink.mojom.FileSystemAccessChangeType', {
       'appeared': {
         'ordinal': 0,
@@ -40,7 +41,7 @@ blink.mojom.FileSystemAccessChangeTypeSpec = { $: mojo.internal.Union(
 };
 
 // Struct: FileSystemAccessChangeTypeAppeared
-blink.mojom.FileSystemAccessChangeTypeAppearedSpec = {
+blink.mojom.mojom.FileSystemAccessChangeTypeAppearedSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChangeTypeAppeared',
@@ -53,7 +54,7 @@ blink.mojom.FileSystemAccessChangeTypeAppearedSpec = {
 };
 
 // Struct: FileSystemAccessChangeTypeDisappeared
-blink.mojom.FileSystemAccessChangeTypeDisappearedSpec = {
+blink.mojom.mojom.FileSystemAccessChangeTypeDisappearedSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChangeTypeDisappeared',
@@ -66,7 +67,7 @@ blink.mojom.FileSystemAccessChangeTypeDisappearedSpec = {
 };
 
 // Struct: FileSystemAccessChangeTypeErrored
-blink.mojom.FileSystemAccessChangeTypeErroredSpec = {
+blink.mojom.mojom.FileSystemAccessChangeTypeErroredSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChangeTypeErrored',
@@ -79,7 +80,7 @@ blink.mojom.FileSystemAccessChangeTypeErroredSpec = {
 };
 
 // Struct: FileSystemAccessChangeTypeModified
-blink.mojom.FileSystemAccessChangeTypeModifiedSpec = {
+blink.mojom.mojom.FileSystemAccessChangeTypeModifiedSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChangeTypeModified',
@@ -92,7 +93,7 @@ blink.mojom.FileSystemAccessChangeTypeModifiedSpec = {
 };
 
 // Struct: FileSystemAccessChangeTypeMoved
-blink.mojom.FileSystemAccessChangeTypeMovedSpec = {
+blink.mojom.mojom.FileSystemAccessChangeTypeMovedSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChangeTypeMoved',
@@ -106,7 +107,7 @@ blink.mojom.FileSystemAccessChangeTypeMovedSpec = {
 };
 
 // Struct: FileSystemAccessChangeTypeUnknown
-blink.mojom.FileSystemAccessChangeTypeUnknownSpec = {
+blink.mojom.mojom.FileSystemAccessChangeTypeUnknownSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChangeTypeUnknown',
@@ -119,7 +120,7 @@ blink.mojom.FileSystemAccessChangeTypeUnknownSpec = {
 };
 
 // Struct: FileSystemAccessChangeMetadata
-blink.mojom.FileSystemAccessChangeMetadataSpec = {
+blink.mojom.mojom.FileSystemAccessChangeMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChangeMetadata',
@@ -135,14 +136,14 @@ blink.mojom.FileSystemAccessChangeMetadataSpec = {
 };
 
 // Struct: FileSystemAccessChange
-blink.mojom.FileSystemAccessChangeSpec = {
+blink.mojom.mojom.FileSystemAccessChangeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessChange',
       packedSize: 32,
       fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessChangeTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -150,24 +151,24 @@ blink.mojom.FileSystemAccessChangeSpec = {
 };
 
 // Interface: FileSystemAccessObserver
-blink.mojom.FileSystemAccessObserver = {};
+blink.mojom.mojom.FileSystemAccessObserver = {};
 
-blink.mojom.FileSystemAccessObserverPendingReceiver = class {
+blink.mojom.mojom.FileSystemAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FileSystemAccessObserverRemote = class {
+blink.mojom.mojom.FileSystemAccessObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FileSystemAccessObserverPendingReceiver,
+      blink.mojom.mojom.FileSystemAccessObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FileSystemAccessObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FileSystemAccessObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -179,7 +180,7 @@ blink.mojom.FileSystemAccessObserverRemote = class {
   }
 };
 
-blink.mojom.FileSystemAccessObserverRemoteCallHandler = class {
+blink.mojom.mojom.FileSystemAccessObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -188,15 +189,15 @@ blink.mojom.FileSystemAccessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec,
       null,
       [changes]);
   }
 
 };
 
-blink.mojom.FileSystemAccessObserver.getRemote = function() {
-  let remote = new blink.mojom.FileSystemAccessObserverRemote();
+blink.mojom.mojom.FileSystemAccessObserver.getRemote = function() {
+  let remote = new blink.mojom.mojom.FileSystemAccessObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -206,7 +207,7 @@ blink.mojom.FileSystemAccessObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnFileChanges
-blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessObserver.OnFileChanges_Params',
@@ -220,6 +221,6 @@ blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.FileSystemAccessObserverPtr = blink.mojom.FileSystemAccessObserverRemote;
-blink.mojom.FileSystemAccessObserverRequest = blink.mojom.FileSystemAccessObserverPendingReceiver;
+blink.mojom.mojom.FileSystemAccessObserverPtr = blink.mojom.mojom.FileSystemAccessObserverRemote;
+blink.mojom.mojom.FileSystemAccessObserverRequest = blink.mojom.mojom.FileSystemAccessObserverPendingReceiver;
 

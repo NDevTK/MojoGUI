@@ -10,9 +10,9 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: TextDirection
-mojo_base.mojom.TextDirection = {
+mojo_base.mojom.mojom.TextDirection = {
   UNKNOWN_DIRECTION: 0,
   RIGHT_TO_LEFT: 1,
   LEFT_TO_RIGHT: 2,
 };
-mojo_base.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };

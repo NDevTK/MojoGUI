@@ -7,17 +7,20 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Struct: BlockingDetails
-blink.mojom.BlockingDetailsSpec = {
+blink.mojom.mojom.BlockingDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlockingDetails',
       packedSize: 24,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebSchedulerTrackedFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebSchedulerTrackedFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,24 +28,24 @@ blink.mojom.BlockingDetailsSpec = {
 };
 
 // Interface: BackForwardCacheControllerHost
-blink.mojom.BackForwardCacheControllerHost = {};
+blink.mojom.mojom.BackForwardCacheControllerHost = {};
 
-blink.mojom.BackForwardCacheControllerHostPendingReceiver = class {
+blink.mojom.mojom.BackForwardCacheControllerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BackForwardCacheControllerHostRemote = class {
+blink.mojom.mojom.BackForwardCacheControllerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BackForwardCacheControllerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BackForwardCacheControllerHostPendingReceiver,
+      blink.mojom.mojom.BackForwardCacheControllerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.BackForwardCacheControllerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BackForwardCacheControllerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +57,7 @@ blink.mojom.BackForwardCacheControllerHostRemote = class {
   }
 };
 
-blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
+blink.mojom.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +66,7 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec,
+      blink.mojom.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec,
       null,
       [reason, source]);
   }
@@ -72,15 +75,15 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec,
+      blink.mojom.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec,
       null,
       [details]);
   }
 
 };
 
-blink.mojom.BackForwardCacheControllerHost.getRemote = function() {
-  let remote = new blink.mojom.BackForwardCacheControllerHostRemote();
+blink.mojom.mojom.BackForwardCacheControllerHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.BackForwardCacheControllerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,14 +93,14 @@ blink.mojom.BackForwardCacheControllerHost.getRemote = function() {
 };
 
 // ParamsSpec for EvictFromBackForwardCache
-blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec = {
+blink.mojom.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackForwardCacheControllerHost.EvictFromBackForwardCache_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RendererEvictionReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RendererEvictionReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -105,7 +108,7 @@ blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec 
 };
 
 // ParamsSpec for DidChangeBackForwardCacheDisablingFeatures
-blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec = {
+blink.mojom.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackForwardCacheControllerHost.DidChangeBackForwardCacheDisablingFeatures_Params',
@@ -119,6 +122,6 @@ blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFea
 };
 
 // Legacy compatibility
-blink.mojom.BackForwardCacheControllerHostPtr = blink.mojom.BackForwardCacheControllerHostRemote;
-blink.mojom.BackForwardCacheControllerHostRequest = blink.mojom.BackForwardCacheControllerHostPendingReceiver;
+blink.mojom.mojom.BackForwardCacheControllerHostPtr = blink.mojom.mojom.BackForwardCacheControllerHostRemote;
+blink.mojom.mojom.BackForwardCacheControllerHostRequest = blink.mojom.mojom.BackForwardCacheControllerHostPendingReceiver;
 

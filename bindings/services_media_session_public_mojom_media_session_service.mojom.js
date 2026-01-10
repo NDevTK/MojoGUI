@@ -10,24 +10,24 @@ media_session.mojom = media_session.mojom || {};
 
 
 // Interface: MediaSessionService
-media_session.mojom.MediaSessionService = {};
+media_session.mojom.mojom.MediaSessionService = {};
 
-media_session.mojom.MediaSessionServicePendingReceiver = class {
+media_session.mojom.mojom.MediaSessionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_session.mojom.MediaSessionServiceRemote = class {
+media_session.mojom.mojom.MediaSessionServiceRemote = class {
   static get $interfaceName() {
     return 'media_session.mojom.MediaSessionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_session.mojom.MediaSessionServicePendingReceiver,
+      media_session.mojom.mojom.MediaSessionServicePendingReceiver,
       handle);
-    this.$ = new media_session.mojom.MediaSessionServiceRemoteCallHandler(this.proxy);
+    this.$ = new media_session.mojom.mojom.MediaSessionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ media_session.mojom.MediaSessionServiceRemote = class {
   }
 };
 
-media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
+media_session.mojom.mojom.MediaSessionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,15 +75,15 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_session.mojom.MediaSessionService_Bind_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionService_Bind_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-media_session.mojom.MediaSessionService.getRemote = function() {
-  let remote = new media_session.mojom.MediaSessionServiceRemote();
+media_session.mojom.mojom.MediaSessionService.getRemote = function() {
+  let remote = new media_session.mojom.mojom.MediaSessionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +93,7 @@ media_session.mojom.MediaSessionService.getRemote = function() {
 };
 
 // ParamsSpec for BindAudioFocusManager
-media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionService.BindAudioFocusManager_Params',
@@ -107,7 +107,7 @@ media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindAudioFocusManagerDebug
-media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionService.BindAudioFocusManagerDebug_Params',
@@ -121,7 +121,7 @@ media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = 
 };
 
 // ParamsSpec for BindMediaControllerManager
-media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionService.BindMediaControllerManager_Params',
@@ -135,7 +135,7 @@ media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = 
 };
 
 // ParamsSpec for Bind
-media_session.mojom.MediaSessionService_Bind_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionService_Bind_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionService.Bind_Params',
@@ -149,6 +149,6 @@ media_session.mojom.MediaSessionService_Bind_ParamsSpec = {
 };
 
 // Legacy compatibility
-media_session.mojom.MediaSessionServicePtr = media_session.mojom.MediaSessionServiceRemote;
-media_session.mojom.MediaSessionServiceRequest = media_session.mojom.MediaSessionServicePendingReceiver;
+media_session.mojom.mojom.MediaSessionServicePtr = media_session.mojom.mojom.MediaSessionServiceRemote;
+media_session.mojom.mojom.MediaSessionServiceRequest = media_session.mojom.mojom.MediaSessionServicePendingReceiver;
 

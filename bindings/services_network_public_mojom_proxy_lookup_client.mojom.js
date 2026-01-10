@@ -10,24 +10,24 @@ network.mojom = network.mojom || {};
 
 
 // Interface: ProxyLookupClient
-network.mojom.ProxyLookupClient = {};
+network.mojom.mojom.ProxyLookupClient = {};
 
-network.mojom.ProxyLookupClientPendingReceiver = class {
+network.mojom.mojom.ProxyLookupClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ProxyLookupClientRemote = class {
+network.mojom.mojom.ProxyLookupClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ProxyLookupClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ProxyLookupClientPendingReceiver,
+      network.mojom.mojom.ProxyLookupClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.ProxyLookupClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.ProxyLookupClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ network.mojom.ProxyLookupClientRemote = class {
   }
 };
 
-network.mojom.ProxyLookupClientRemoteCallHandler = class {
+network.mojom.mojom.ProxyLookupClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ network.mojom.ProxyLookupClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec,
+      network.mojom.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec,
       null,
       [net_error, proxy_info]);
   }
 
 };
 
-network.mojom.ProxyLookupClient.getRemote = function() {
-  let remote = new network.mojom.ProxyLookupClientRemote();
+network.mojom.mojom.ProxyLookupClient.getRemote = function() {
+  let remote = new network.mojom.mojom.ProxyLookupClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,14 +66,14 @@ network.mojom.ProxyLookupClient.getRemote = function() {
 };
 
 // ParamsSpec for OnProxyLookupComplete
-network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
+network.mojom.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyLookupClient.OnProxyLookupComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'proxy_info', packedOffset: 8, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'proxy_info', packedOffset: 0, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -81,6 +81,6 @@ network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.ProxyLookupClientPtr = network.mojom.ProxyLookupClientRemote;
-network.mojom.ProxyLookupClientRequest = network.mojom.ProxyLookupClientPendingReceiver;
+network.mojom.mojom.ProxyLookupClientPtr = network.mojom.mojom.ProxyLookupClientRemote;
+network.mojom.mojom.ProxyLookupClientRequest = network.mojom.mojom.ProxyLookupClientPendingReceiver;
 

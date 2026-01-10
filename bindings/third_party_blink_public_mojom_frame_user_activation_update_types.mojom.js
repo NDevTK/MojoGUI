@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: UserActivationUpdateType
-blink.mojom.UserActivationUpdateType = {
+blink.mojom.mojom.UserActivationUpdateType = {
   kNotifyActivation: 0,
   kNotifyActivationStickyOnly: 1,
   kConsumeTransientActivation: 2,
   kClearActivation: 3,
 };
-blink.mojom.UserActivationUpdateTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.UserActivationUpdateTypeSpec = { $: mojo.internal.Enum() };

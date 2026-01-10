@@ -7,10 +7,11 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var url = url || {};
 
 
 // Struct: FileInfo
-arc.mojom.FileInfoSpec = {
+arc.mojom.mojom.FileInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.FileInfo',
@@ -27,7 +28,7 @@ arc.mojom.FileInfoSpec = {
 };
 
 // Struct: ShareIntentInfo
-arc.mojom.ShareIntentInfoSpec = {
+arc.mojom.mojom.ShareIntentInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ShareIntentInfo',
@@ -44,24 +45,24 @@ arc.mojom.ShareIntentInfoSpec = {
 };
 
 // Interface: NearbyShareSessionHost
-arc.mojom.NearbyShareSessionHost = {};
+arc.mojom.mojom.NearbyShareSessionHost = {};
 
-arc.mojom.NearbyShareSessionHostPendingReceiver = class {
+arc.mojom.mojom.NearbyShareSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.NearbyShareSessionHostRemote = class {
+arc.mojom.mojom.NearbyShareSessionHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NearbyShareSessionHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.NearbyShareSessionHostPendingReceiver,
+      arc.mojom.mojom.NearbyShareSessionHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.NearbyShareSessionHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.NearbyShareSessionHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -73,15 +74,15 @@ arc.mojom.NearbyShareSessionHostRemote = class {
   }
 };
 
-arc.mojom.NearbyShareSessionHostRemoteCallHandler = class {
+arc.mojom.mojom.NearbyShareSessionHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-arc.mojom.NearbyShareSessionHost.getRemote = function() {
-  let remote = new arc.mojom.NearbyShareSessionHostRemote();
+arc.mojom.mojom.NearbyShareSessionHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.NearbyShareSessionHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -91,29 +92,29 @@ arc.mojom.NearbyShareSessionHost.getRemote = function() {
 };
 
 // Legacy compatibility
-arc.mojom.NearbyShareSessionHostPtr = arc.mojom.NearbyShareSessionHostRemote;
-arc.mojom.NearbyShareSessionHostRequest = arc.mojom.NearbyShareSessionHostPendingReceiver;
+arc.mojom.mojom.NearbyShareSessionHostPtr = arc.mojom.mojom.NearbyShareSessionHostRemote;
+arc.mojom.mojom.NearbyShareSessionHostRequest = arc.mojom.mojom.NearbyShareSessionHostPendingReceiver;
 
 
 // Interface: NearbyShareSessionInstance
-arc.mojom.NearbyShareSessionInstance = {};
+arc.mojom.mojom.NearbyShareSessionInstance = {};
 
-arc.mojom.NearbyShareSessionInstancePendingReceiver = class {
+arc.mojom.mojom.NearbyShareSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.NearbyShareSessionInstanceRemote = class {
+arc.mojom.mojom.NearbyShareSessionInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NearbyShareSessionInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.NearbyShareSessionInstancePendingReceiver,
+      arc.mojom.mojom.NearbyShareSessionInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.NearbyShareSessionInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.NearbyShareSessionInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -125,7 +126,7 @@ arc.mojom.NearbyShareSessionInstanceRemote = class {
   }
 };
 
-arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
+arc.mojom.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -134,15 +135,15 @@ arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec,
+      arc.mojom.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.NearbyShareSessionInstance.getRemote = function() {
-  let remote = new arc.mojom.NearbyShareSessionInstanceRemote();
+arc.mojom.mojom.NearbyShareSessionInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.NearbyShareSessionInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -152,7 +153,7 @@ arc.mojom.NearbyShareSessionInstance.getRemote = function() {
 };
 
 // ParamsSpec for OnNearbyShareViewClosed
-arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec = {
+arc.mojom.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NearbyShareSessionInstance.OnNearbyShareViewClosed_Params',
@@ -165,29 +166,29 @@ arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.NearbyShareSessionInstancePtr = arc.mojom.NearbyShareSessionInstanceRemote;
-arc.mojom.NearbyShareSessionInstanceRequest = arc.mojom.NearbyShareSessionInstancePendingReceiver;
+arc.mojom.mojom.NearbyShareSessionInstancePtr = arc.mojom.mojom.NearbyShareSessionInstanceRemote;
+arc.mojom.mojom.NearbyShareSessionInstanceRequest = arc.mojom.mojom.NearbyShareSessionInstancePendingReceiver;
 
 
 // Interface: NearbyShareHost
-arc.mojom.NearbyShareHost = {};
+arc.mojom.mojom.NearbyShareHost = {};
 
-arc.mojom.NearbyShareHostPendingReceiver = class {
+arc.mojom.mojom.NearbyShareHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.NearbyShareHostRemote = class {
+arc.mojom.mojom.NearbyShareHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NearbyShareHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.NearbyShareHostPendingReceiver,
+      arc.mojom.mojom.NearbyShareHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.NearbyShareHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.NearbyShareHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -199,7 +200,7 @@ arc.mojom.NearbyShareHostRemote = class {
   }
 };
 
-arc.mojom.NearbyShareHostRemoteCallHandler = class {
+arc.mojom.mojom.NearbyShareHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -208,15 +209,15 @@ arc.mojom.NearbyShareHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec,
-      arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec,
+      arc.mojom.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec,
+      arc.mojom.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec,
       [task_id, info, instance]);
   }
 
 };
 
-arc.mojom.NearbyShareHost.getRemote = function() {
-  let remote = new arc.mojom.NearbyShareHostRemote();
+arc.mojom.mojom.NearbyShareHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.NearbyShareHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -226,22 +227,22 @@ arc.mojom.NearbyShareHost.getRemote = function() {
 };
 
 // ParamsSpec for StartNearbyShare
-arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = {
+arc.mojom.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NearbyShareHost.StartNearbyShare_Params',
       packedSize: 24,
       fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ShareIntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'instance', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ShareIntentInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'instance', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = {
+arc.mojom.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NearbyShareHost.StartNearbyShare_ResponseParams',
@@ -255,29 +256,29 @@ arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.NearbyShareHostPtr = arc.mojom.NearbyShareHostRemote;
-arc.mojom.NearbyShareHostRequest = arc.mojom.NearbyShareHostPendingReceiver;
+arc.mojom.mojom.NearbyShareHostPtr = arc.mojom.mojom.NearbyShareHostRemote;
+arc.mojom.mojom.NearbyShareHostRequest = arc.mojom.mojom.NearbyShareHostPendingReceiver;
 
 
 // Interface: NearbyShareInstance
-arc.mojom.NearbyShareInstance = {};
+arc.mojom.mojom.NearbyShareInstance = {};
 
-arc.mojom.NearbyShareInstancePendingReceiver = class {
+arc.mojom.mojom.NearbyShareInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.NearbyShareInstanceRemote = class {
+arc.mojom.mojom.NearbyShareInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.NearbyShareInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.NearbyShareInstancePendingReceiver,
+      arc.mojom.mojom.NearbyShareInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.NearbyShareInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.NearbyShareInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -289,7 +290,7 @@ arc.mojom.NearbyShareInstanceRemote = class {
   }
 };
 
-arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
+arc.mojom.mojom.NearbyShareInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -298,15 +299,15 @@ arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.NearbyShareInstance_Init_ParamsSpec,
+      arc.mojom.mojom.NearbyShareInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.NearbyShareInstance.getRemote = function() {
-  let remote = new arc.mojom.NearbyShareInstanceRemote();
+arc.mojom.mojom.NearbyShareInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.NearbyShareInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -316,7 +317,7 @@ arc.mojom.NearbyShareInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.NearbyShareInstance_Init_ParamsSpec = {
+arc.mojom.mojom.NearbyShareInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NearbyShareInstance.Init_Params',
@@ -330,6 +331,6 @@ arc.mojom.NearbyShareInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.NearbyShareInstancePtr = arc.mojom.NearbyShareInstanceRemote;
-arc.mojom.NearbyShareInstanceRequest = arc.mojom.NearbyShareInstancePendingReceiver;
+arc.mojom.mojom.NearbyShareInstancePtr = arc.mojom.mojom.NearbyShareInstanceRemote;
+arc.mojom.mojom.NearbyShareInstanceRequest = arc.mojom.mojom.NearbyShareInstancePendingReceiver;
 

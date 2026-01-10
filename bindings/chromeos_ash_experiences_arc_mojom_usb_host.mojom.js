@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: UsbHostHost
-arc.mojom.UsbHostHost = {};
+arc.mojom.mojom.UsbHostHost = {};
 
-arc.mojom.UsbHostHostPendingReceiver = class {
+arc.mojom.mojom.UsbHostHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.UsbHostHostRemote = class {
+arc.mojom.mojom.UsbHostHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.UsbHostHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.UsbHostHostPendingReceiver,
+      arc.mojom.mojom.UsbHostHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.UsbHostHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.UsbHostHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.UsbHostHostRemote = class {
   }
 };
 
-arc.mojom.UsbHostHostRemoteCallHandler = class {
+arc.mojom.mojom.UsbHostHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.UsbHostHost_OpenDevice_ParamsSpec,
-      arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec,
+      arc.mojom.mojom.UsbHostHost_OpenDevice_ParamsSpec,
+      arc.mojom.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec,
       [guid, pkg_name]);
   }
 
@@ -57,8 +57,8 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec,
-      arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec,
+      arc.mojom.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec,
+      arc.mojom.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec,
       [guid]);
   }
 
@@ -66,15 +66,15 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.UsbHostHost_RequestPermission_ParamsSpec,
-      arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec,
+      arc.mojom.mojom.UsbHostHost_RequestPermission_ParamsSpec,
+      arc.mojom.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec,
       [guid, pkg_name, interactive]);
   }
 
 };
 
-arc.mojom.UsbHostHost.getRemote = function() {
-  let remote = new arc.mojom.UsbHostHostRemote();
+arc.mojom.mojom.UsbHostHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.UsbHostHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ arc.mojom.UsbHostHost.getRemote = function() {
 };
 
 // ParamsSpec for OpenDevice
-arc.mojom.UsbHostHost_OpenDevice_ParamsSpec = {
+arc.mojom.mojom.UsbHostHost_OpenDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostHost.OpenDevice_Params',
@@ -98,7 +98,7 @@ arc.mojom.UsbHostHost_OpenDevice_ParamsSpec = {
   }
 };
 
-arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec = {
+arc.mojom.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostHost.OpenDevice_ResponseParams',
@@ -112,7 +112,7 @@ arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDeviceInfo
-arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec = {
+arc.mojom.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostHost.GetDeviceInfo_Params',
@@ -125,7 +125,7 @@ arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec = {
   }
 };
 
-arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec = {
+arc.mojom.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostHost.GetDeviceInfo_ResponseParams',
@@ -140,7 +140,7 @@ arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestPermission
-arc.mojom.UsbHostHost_RequestPermission_ParamsSpec = {
+arc.mojom.mojom.UsbHostHost_RequestPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostHost.RequestPermission_Params',
@@ -155,7 +155,7 @@ arc.mojom.UsbHostHost_RequestPermission_ParamsSpec = {
   }
 };
 
-arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec = {
+arc.mojom.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostHost.RequestPermission_ResponseParams',
@@ -169,29 +169,29 @@ arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.UsbHostHostPtr = arc.mojom.UsbHostHostRemote;
-arc.mojom.UsbHostHostRequest = arc.mojom.UsbHostHostPendingReceiver;
+arc.mojom.mojom.UsbHostHostPtr = arc.mojom.mojom.UsbHostHostRemote;
+arc.mojom.mojom.UsbHostHostRequest = arc.mojom.mojom.UsbHostHostPendingReceiver;
 
 
 // Interface: UsbHostInstance
-arc.mojom.UsbHostInstance = {};
+arc.mojom.mojom.UsbHostInstance = {};
 
-arc.mojom.UsbHostInstancePendingReceiver = class {
+arc.mojom.mojom.UsbHostInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.UsbHostInstanceRemote = class {
+arc.mojom.mojom.UsbHostInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.UsbHostInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.UsbHostInstancePendingReceiver,
+      arc.mojom.mojom.UsbHostInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.UsbHostInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.UsbHostInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -203,7 +203,7 @@ arc.mojom.UsbHostInstanceRemote = class {
   }
 };
 
-arc.mojom.UsbHostInstanceRemoteCallHandler = class {
+arc.mojom.mojom.UsbHostInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -212,7 +212,7 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.UsbHostInstance_Init_ParamsSpec,
+      arc.mojom.mojom.UsbHostInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -221,7 +221,7 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec,
+      arc.mojom.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec,
       null,
       [guid, event_receiver_packages]);
   }
@@ -230,15 +230,15 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec,
+      arc.mojom.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec,
       null,
       [guid, event_receiver_packages]);
   }
 
 };
 
-arc.mojom.UsbHostInstance.getRemote = function() {
-  let remote = new arc.mojom.UsbHostInstanceRemote();
+arc.mojom.mojom.UsbHostInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.UsbHostInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -248,7 +248,7 @@ arc.mojom.UsbHostInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.UsbHostInstance_Init_ParamsSpec = {
+arc.mojom.mojom.UsbHostInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostInstance.Init_Params',
@@ -262,7 +262,7 @@ arc.mojom.UsbHostInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceAdded
-arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec = {
+arc.mojom.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostInstance.OnDeviceAdded_Params',
@@ -277,7 +277,7 @@ arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceRemoved
-arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec = {
+arc.mojom.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UsbHostInstance.OnDeviceRemoved_Params',
@@ -292,6 +292,6 @@ arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.UsbHostInstancePtr = arc.mojom.UsbHostInstanceRemote;
-arc.mojom.UsbHostInstanceRequest = arc.mojom.UsbHostInstancePendingReceiver;
+arc.mojom.mojom.UsbHostInstancePtr = arc.mojom.mojom.UsbHostInstanceRemote;
+arc.mojom.mojom.UsbHostInstanceRequest = arc.mojom.mojom.UsbHostInstancePendingReceiver;
 

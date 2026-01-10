@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: MemoryAllocatorDumpCrossProcessUid
-mojo_base.mojom.MemoryAllocatorDumpCrossProcessUidSpec = {
+mojo_base.mojom.mojom.MemoryAllocatorDumpCrossProcessUidSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.MemoryAllocatorDumpCrossProcessUid',

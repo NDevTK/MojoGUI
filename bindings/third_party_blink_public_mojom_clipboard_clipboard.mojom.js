@@ -7,38 +7,42 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var skia = skia || {};
+var blink = blink || {};
+var blink = blink || {};
+var url = url || {};
 
 
-blink.mojom.kMaxFormatSize = 1024;
+blink.mojom.mojom.kMaxFormatSize = 1024;
 
-blink.mojom.kMaxDataSize = 1073741824;
+blink.mojom.mojom.kMaxDataSize = 1073741824;
 
 // Enum: ClipboardFormat
-blink.mojom.ClipboardFormat = {
+blink.mojom.mojom.ClipboardFormat = {
   kPlaintext: 0,
   kHtml: 1,
   kSmartPaste: 2,
   kBookmark: 3,
 };
-blink.mojom.ClipboardFormatSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ClipboardFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClipboardBuffer
-blink.mojom.ClipboardBuffer = {
+blink.mojom.mojom.ClipboardBuffer = {
   kStandard: 0,
   kSelection: 1,
 };
-blink.mojom.ClipboardBufferSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ClipboardBufferSpec = { $: mojo.internal.Enum() };
 
 // Enum: PlatformClipboardPermissionState
-blink.mojom.PlatformClipboardPermissionState = {
+blink.mojom.mojom.PlatformClipboardPermissionState = {
   kAllow: 0,
   kAsk: 1,
   kDeny: 2,
 };
-blink.mojom.PlatformClipboardPermissionStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PlatformClipboardPermissionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClipboardFiles
-blink.mojom.ClipboardFilesSpec = {
+blink.mojom.mojom.ClipboardFilesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardFiles',
@@ -53,24 +57,24 @@ blink.mojom.ClipboardFilesSpec = {
 };
 
 // Interface: ClipboardListener
-blink.mojom.ClipboardListener = {};
+blink.mojom.mojom.ClipboardListener = {};
 
-blink.mojom.ClipboardListenerPendingReceiver = class {
+blink.mojom.mojom.ClipboardListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ClipboardListenerRemote = class {
+blink.mojom.mojom.ClipboardListenerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ClipboardListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ClipboardListenerPendingReceiver,
+      blink.mojom.mojom.ClipboardListenerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ClipboardListenerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ClipboardListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -82,7 +86,7 @@ blink.mojom.ClipboardListenerRemote = class {
   }
 };
 
-blink.mojom.ClipboardListenerRemoteCallHandler = class {
+blink.mojom.mojom.ClipboardListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -91,15 +95,15 @@ blink.mojom.ClipboardListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec,
+      blink.mojom.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec,
       null,
       [types, change_id]);
   }
 
 };
 
-blink.mojom.ClipboardListener.getRemote = function() {
-  let remote = new blink.mojom.ClipboardListenerRemote();
+blink.mojom.mojom.ClipboardListener.getRemote = function() {
+  let remote = new blink.mojom.mojom.ClipboardListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -109,7 +113,7 @@ blink.mojom.ClipboardListener.getRemote = function() {
 };
 
 // ParamsSpec for OnClipboardDataChanged
-blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec = {
+blink.mojom.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardListener.OnClipboardDataChanged_Params',
@@ -124,29 +128,29 @@ blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ClipboardListenerPtr = blink.mojom.ClipboardListenerRemote;
-blink.mojom.ClipboardListenerRequest = blink.mojom.ClipboardListenerPendingReceiver;
+blink.mojom.mojom.ClipboardListenerPtr = blink.mojom.mojom.ClipboardListenerRemote;
+blink.mojom.mojom.ClipboardListenerRequest = blink.mojom.mojom.ClipboardListenerPendingReceiver;
 
 
 // Interface: ClipboardHost
-blink.mojom.ClipboardHost = {};
+blink.mojom.mojom.ClipboardHost = {};
 
-blink.mojom.ClipboardHostPendingReceiver = class {
+blink.mojom.mojom.ClipboardHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ClipboardHostRemote = class {
+blink.mojom.mojom.ClipboardHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ClipboardHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ClipboardHostPendingReceiver,
+      blink.mojom.mojom.ClipboardHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ClipboardHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ClipboardHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -158,7 +162,7 @@ blink.mojom.ClipboardHostRemote = class {
   }
 };
 
-blink.mojom.ClipboardHostRemoteCallHandler = class {
+blink.mojom.mojom.ClipboardHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -167,8 +171,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec,
-      blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -176,8 +180,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec,
-      blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
       [format, buffer]);
   }
 
@@ -185,8 +189,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -194,8 +198,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ClipboardHost_ReadText_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadText_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -203,8 +207,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ClipboardHost_ReadHtml_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadHtml_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -212,8 +216,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ClipboardHost_ReadSvg_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadSvg_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -221,8 +225,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ClipboardHost_ReadRtf_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadRtf_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -230,8 +234,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.ClipboardHost_ReadPng_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadPng_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -239,8 +243,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.ClipboardHost_ReadFiles_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadFiles_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -248,8 +252,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
       [buffer, type]);
   }
 
@@ -257,8 +261,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
       []);
   }
 
@@ -266,8 +270,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec,
-      blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
       [format]);
   }
 
@@ -275,7 +279,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.ClipboardHost_WriteText_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteText_ParamsSpec,
       null,
       [text]);
   }
@@ -284,7 +288,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.ClipboardHost_WriteHtml_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteHtml_ParamsSpec,
       null,
       [markup, url]);
   }
@@ -293,7 +297,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.ClipboardHost_WriteSvg_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteSvg_ParamsSpec,
       null,
       [markup]);
   }
@@ -302,7 +306,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec,
       null,
       []);
   }
@@ -311,7 +315,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec,
       null,
       [data]);
   }
@@ -320,7 +324,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteBookmark_ParamsSpec,
       null,
       [url, title]);
   }
@@ -329,7 +333,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      blink.mojom.ClipboardHost_WriteImage_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteImage_ParamsSpec,
       null,
       [image]);
   }
@@ -338,7 +342,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec,
       null,
       [format, data]);
   }
@@ -347,7 +351,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      blink.mojom.ClipboardHost_CommitWrite_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_CommitWrite_ParamsSpec,
       null,
       []);
   }
@@ -356,7 +360,7 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec,
       null,
       [text]);
   }
@@ -365,8 +369,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec,
-      blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec,
+      blink.mojom.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec,
       []);
   }
 
@@ -374,15 +378,15 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
+      blink.mojom.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-blink.mojom.ClipboardHost.getRemote = function() {
-  let remote = new blink.mojom.ClipboardHostRemote();
+blink.mojom.mojom.ClipboardHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.ClipboardHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -392,7 +396,7 @@ blink.mojom.ClipboardHost.getRemote = function() {
 };
 
 // ParamsSpec for GetSequenceNumber
-blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.GetSequenceNumber_Params',
@@ -405,7 +409,7 @@ blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.GetSequenceNumber_ResponseParams',
@@ -419,7 +423,7 @@ blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsFormatAvailable
-blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.IsFormatAvailable_Params',
@@ -433,7 +437,7 @@ blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.IsFormatAvailable_ResponseParams',
@@ -447,7 +451,7 @@ blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadAvailableTypes
-blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadAvailableTypes_Params',
@@ -460,7 +464,7 @@ blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadAvailableTypes_ResponseParams',
@@ -474,7 +478,7 @@ blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadText
-blink.mojom.ClipboardHost_ReadText_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadText_Params',
@@ -487,7 +491,7 @@ blink.mojom.ClipboardHost_ReadText_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadText_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadText_ResponseParams',
@@ -501,7 +505,7 @@ blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadHtml
-blink.mojom.ClipboardHost_ReadHtml_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadHtml_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadHtml_Params',
@@ -514,7 +518,7 @@ blink.mojom.ClipboardHost_ReadHtml_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadHtml_ResponseParams',
@@ -531,7 +535,7 @@ blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadSvg
-blink.mojom.ClipboardHost_ReadSvg_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadSvg_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadSvg_Params',
@@ -544,7 +548,7 @@ blink.mojom.ClipboardHost_ReadSvg_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadSvg_ResponseParams',
@@ -558,7 +562,7 @@ blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadRtf
-blink.mojom.ClipboardHost_ReadRtf_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadRtf_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadRtf_Params',
@@ -571,7 +575,7 @@ blink.mojom.ClipboardHost_ReadRtf_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadRtf_ResponseParams',
@@ -585,7 +589,7 @@ blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadPng
-blink.mojom.ClipboardHost_ReadPng_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadPng_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadPng_Params',
@@ -598,7 +602,7 @@ blink.mojom.ClipboardHost_ReadPng_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadPng_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadPng_ResponseParams',
@@ -612,7 +616,7 @@ blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadFiles
-blink.mojom.ClipboardHost_ReadFiles_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadFiles_Params',
@@ -625,7 +629,7 @@ blink.mojom.ClipboardHost_ReadFiles_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadFiles_ResponseParams',
@@ -639,21 +643,21 @@ blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadDataTransferCustomData
-blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadDataTransferCustomData_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ClipboardBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ClipboardBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadDataTransferCustomData_ResponseParams',
@@ -667,7 +671,7 @@ blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadAvailableCustomAndStandardFormats
-blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadAvailableCustomAndStandardFormats_Params',
@@ -679,7 +683,7 @@ blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadAvailableCustomAndStandardFormats_ResponseParams',
@@ -693,7 +697,7 @@ blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSp
 };
 
 // ParamsSpec for ReadUnsanitizedCustomFormat
-blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadUnsanitizedCustomFormat_Params',
@@ -706,7 +710,7 @@ blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.ReadUnsanitizedCustomFormat_ResponseParams',
@@ -720,7 +724,7 @@ blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WriteText
-blink.mojom.ClipboardHost_WriteText_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteText_Params',
@@ -734,7 +738,7 @@ blink.mojom.ClipboardHost_WriteText_ParamsSpec = {
 };
 
 // ParamsSpec for WriteHtml
-blink.mojom.ClipboardHost_WriteHtml_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteHtml_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteHtml_Params',
@@ -749,7 +753,7 @@ blink.mojom.ClipboardHost_WriteHtml_ParamsSpec = {
 };
 
 // ParamsSpec for WriteSvg
-blink.mojom.ClipboardHost_WriteSvg_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteSvg_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteSvg_Params',
@@ -763,7 +767,7 @@ blink.mojom.ClipboardHost_WriteSvg_ParamsSpec = {
 };
 
 // ParamsSpec for WriteSmartPasteMarker
-blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteSmartPasteMarker_Params',
@@ -776,7 +780,7 @@ blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec = {
 };
 
 // ParamsSpec for WriteDataTransferCustomData
-blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteDataTransferCustomData_Params',
@@ -790,7 +794,7 @@ blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec = {
 };
 
 // ParamsSpec for WriteBookmark
-blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteBookmark_Params',
@@ -805,7 +809,7 @@ blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec = {
 };
 
 // ParamsSpec for WriteImage
-blink.mojom.ClipboardHost_WriteImage_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteImage_Params',
@@ -819,14 +823,14 @@ blink.mojom.ClipboardHost_WriteImage_ParamsSpec = {
 };
 
 // ParamsSpec for WriteUnsanitizedCustomFormat
-blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteUnsanitizedCustomFormat_Params',
       packedSize: 32,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -834,7 +838,7 @@ blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec = {
 };
 
 // ParamsSpec for CommitWrite
-blink.mojom.ClipboardHost_CommitWrite_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_CommitWrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.CommitWrite_Params',
@@ -847,7 +851,7 @@ blink.mojom.ClipboardHost_CommitWrite_ParamsSpec = {
 };
 
 // ParamsSpec for WriteStringToFindPboard
-blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.WriteStringToFindPboard_Params',
@@ -861,7 +865,7 @@ blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec = {
 };
 
 // ParamsSpec for GetPlatformPermissionState
-blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.GetPlatformPermissionState_Params',
@@ -873,7 +877,7 @@ blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = {
   }
 };
 
-blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = {
+blink.mojom.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.GetPlatformPermissionState_ResponseParams',
@@ -887,7 +891,7 @@ blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterClipboardListener
-blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = {
+blink.mojom.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardHost.RegisterClipboardListener_Params',
@@ -901,6 +905,6 @@ blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ClipboardHostPtr = blink.mojom.ClipboardHostRemote;
-blink.mojom.ClipboardHostRequest = blink.mojom.ClipboardHostPendingReceiver;
+blink.mojom.mojom.ClipboardHostPtr = blink.mojom.mojom.ClipboardHostRemote;
+blink.mojom.mojom.ClipboardHostRequest = blink.mojom.mojom.ClipboardHostPendingReceiver;
 

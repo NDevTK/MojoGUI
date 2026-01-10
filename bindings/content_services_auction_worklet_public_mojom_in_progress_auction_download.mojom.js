@@ -7,10 +7,11 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
+var url = url || {};
 
 
 // Struct: InProgressAuctionDownload
-auction_worklet.mojom.InProgressAuctionDownloadSpec = {
+auction_worklet.mojom.mojom.InProgressAuctionDownloadSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.InProgressAuctionDownload',

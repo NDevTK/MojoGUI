@@ -10,7 +10,7 @@ drivefs.mojom = drivefs.mojom || {};
 
 
 // Union: DriveFsNotification
-drivefs.mojom.DriveFsNotificationSpec = { $: mojo.internal.Union(
+drivefs.mojom.mojom.DriveFsNotificationSpec = { $: mojo.internal.Union(
     'drivefs.mojom.DriveFsNotification', {
       'unknown': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ drivefs.mojom.DriveFsNotificationSpec = { $: mojo.internal.Union(
 };
 
 // Struct: MirrorDownloadDeletedNotification
-drivefs.mojom.MirrorDownloadDeletedNotificationSpec = {
+drivefs.mojom.mojom.MirrorDownloadDeletedNotificationSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.MirrorDownloadDeletedNotification',

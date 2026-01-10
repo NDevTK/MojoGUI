@@ -7,11 +7,11 @@
 // Module namespace
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
-ui.ozone.mojom = ui.ozone.mojom || {};
+ui.ozone.ozone.mojom = ui.ozone.ozone.mojom || {};
 
 
 // Enum: SetGesturePropErrorCode
-ui.ozone.mojom.SetGesturePropErrorCode = {
+ui.ozone.ozone.mojom.mojom.SetGesturePropErrorCode = {
   SUCCESS: 0,
   UNKNOWN_ERROR: 1,
   NOT_FOUND: 2,
@@ -19,10 +19,10 @@ ui.ozone.mojom.SetGesturePropErrorCode = {
   TYPE_MISMATCH: 4,
   SIZE_MISMATCH: 5,
 };
-ui.ozone.mojom.SetGesturePropErrorCodeSpec = { $: mojo.internal.Enum() };
+ui.ozone.ozone.mojom.mojom.SetGesturePropErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: GesturePropValue
-ui.ozone.mojom.GesturePropValueSpec = { $: mojo.internal.Union(
+ui.ozone.ozone.mojom.mojom.GesturePropValueSpec = { $: mojo.internal.Union(
     'ui.ozone.mojom.GesturePropValue', {
       'ints': {
         'ordinal': 0,
@@ -48,24 +48,24 @@ ui.ozone.mojom.GesturePropValueSpec = { $: mojo.internal.Union(
 };
 
 // Interface: GesturePropertiesService
-ui.ozone.mojom.GesturePropertiesService = {};
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService = {};
 
-ui.ozone.mojom.GesturePropertiesServicePendingReceiver = class {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ui.ozone.mojom.GesturePropertiesServiceRemote = class {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesServiceRemote = class {
   static get $interfaceName() {
     return 'ui.ozone.mojom.GesturePropertiesService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ui.ozone.mojom.GesturePropertiesServicePendingReceiver,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesServicePendingReceiver,
       handle);
-    this.$ = new ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler(this.proxy);
+    this.$ = new ui.ozone.ozone.mojom.mojom.GesturePropertiesServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -77,7 +77,7 @@ ui.ozone.mojom.GesturePropertiesServiceRemote = class {
   }
 };
 
-ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -86,8 +86,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec,
-      ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListDevices_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
       []);
   }
 
@@ -95,8 +95,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec,
-      ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListProperties_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
       [device_id]);
   }
 
@@ -104,8 +104,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec,
-      ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_GetProperty_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
       [device_id, name]);
   }
 
@@ -113,15 +113,15 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec,
-      ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_SetProperty_ParamsSpec,
+      ui.ozone.ozone.mojom.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
       [device_id, name, value]);
   }
 
 };
 
-ui.ozone.mojom.GesturePropertiesService.getRemote = function() {
-  let remote = new ui.ozone.mojom.GesturePropertiesServiceRemote();
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService.getRemote = function() {
+  let remote = new ui.ozone.ozone.mojom.mojom.GesturePropertiesServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -131,7 +131,7 @@ ui.ozone.mojom.GesturePropertiesService.getRemote = function() {
 };
 
 // ParamsSpec for ListDevices
-ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.ListDevices_Params',
@@ -143,7 +143,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.ListDevices_ResponseParams',
@@ -157,7 +157,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ListProperties
-ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.ListProperties_Params',
@@ -170,7 +170,7 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
   }
 };
 
-ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.ListProperties_ResponseParams',
@@ -184,28 +184,28 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetProperty
-ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'is_read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: true, minVersion: 0 },
+        { name: 'is_read_only', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -213,22 +213,22 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetProperty
-ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_Params',
       packedSize: 40,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
+ui.ozone.ozone.mojom.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_ResponseParams',
@@ -242,6 +242,6 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ui.ozone.mojom.GesturePropertiesServicePtr = ui.ozone.mojom.GesturePropertiesServiceRemote;
-ui.ozone.mojom.GesturePropertiesServiceRequest = ui.ozone.mojom.GesturePropertiesServicePendingReceiver;
+ui.ozone.ozone.mojom.mojom.GesturePropertiesServicePtr = ui.ozone.ozone.mojom.mojom.GesturePropertiesServiceRemote;
+ui.ozone.ozone.mojom.mojom.GesturePropertiesServiceRequest = ui.ozone.ozone.mojom.mojom.GesturePropertiesServicePendingReceiver;
 

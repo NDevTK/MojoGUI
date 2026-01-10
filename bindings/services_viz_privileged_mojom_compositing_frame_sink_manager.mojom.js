@@ -7,10 +7,14 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: RootCompositorFrameSinkParams
-viz.mojom.RootCompositorFrameSinkParamsSpec = {
+viz.mojom.mojom.RootCompositorFrameSinkParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RootCompositorFrameSinkParams',
@@ -18,18 +22,18 @@ viz.mojom.RootCompositorFrameSinkParamsSpec = {
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
         { name: 'widget', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SurfaceHandleSpec, nullable: false, minVersion: 0 },
-        { name: 'gpu_compositing', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'renderer_settings', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.RendererSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'send_swap_size_notifications', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disable_frame_rate_limit', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'create_input_receiver', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'refresh_rate', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'compositor_frame_sink', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'compositor_frame_sink_client', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'display_private', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'display_client', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'external_begin_frame_controller', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'external_begin_frame_controller_client', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'gpu_compositing', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'renderer_settings', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.RendererSettingsSpec, nullable: false, minVersion: 0 },
+        { name: 'send_swap_size_notifications', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disable_frame_rate_limit', packedOffset: 52, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'create_input_receiver', packedOffset: 52, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'refresh_rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'compositor_frame_sink', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'compositor_frame_sink_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'display_private', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'display_client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'external_begin_frame_controller', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'external_begin_frame_controller_client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -37,7 +41,7 @@ viz.mojom.RootCompositorFrameSinkParamsSpec = {
 };
 
 // Struct: CompositorDisplayLinkParams
-viz.mojom.CompositorDisplayLinkParamsSpec = {
+viz.mojom.mojom.CompositorDisplayLinkParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorDisplayLinkParams',
@@ -52,24 +56,24 @@ viz.mojom.CompositorDisplayLinkParamsSpec = {
 };
 
 // Interface: FrameSinkManager
-viz.mojom.FrameSinkManager = {};
+viz.mojom.mojom.FrameSinkManager = {};
 
-viz.mojom.FrameSinkManagerPendingReceiver = class {
+viz.mojom.mojom.FrameSinkManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.FrameSinkManagerRemote = class {
+viz.mojom.mojom.FrameSinkManagerRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinkManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.FrameSinkManagerPendingReceiver,
+      viz.mojom.mojom.FrameSinkManagerPendingReceiver,
       handle);
-    this.$ = new viz.mojom.FrameSinkManagerRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.FrameSinkManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -81,7 +85,7 @@ viz.mojom.FrameSinkManagerRemote = class {
   }
 };
 
-viz.mojom.FrameSinkManagerRemoteCallHandler = class {
+viz.mojom.mojom.FrameSinkManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -90,7 +94,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec,
       null,
       [frame_sink_id, report_activation]);
   }
@@ -99,7 +103,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -108,7 +112,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec,
       null,
       [frame_sink_id, debug_label]);
   }
@@ -117,7 +121,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec,
       null,
       [params]);
   }
@@ -126,7 +130,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec,
       null,
       [params]);
   }
@@ -135,7 +139,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec,
       null,
       [bundle_id, receiver, client]);
   }
@@ -144,7 +148,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config]);
   }
@@ -153,7 +157,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -162,7 +166,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
       [parent_frame_sink_id, child_frame_sink_id]);
   }
@@ -171,7 +175,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
       [parent_frame_sink_id, child_frame_sink_id]);
   }
@@ -180,7 +184,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -189,7 +193,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec,
       null,
       [receiver, capture_version_source]);
   }
@@ -198,7 +202,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec,
       null,
       [surface_ids]);
   }
@@ -207,7 +211,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      viz.mojom.FrameSinkManager_Throttle_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_Throttle_ParamsSpec,
       null,
       [frame_sink_ids, interval]);
   }
@@ -216,7 +220,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec,
       null,
       [interval]);
   }
@@ -225,7 +229,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec,
       null,
       []);
   }
@@ -234,7 +238,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec,
       null,
       [surface_id, request, capture_exact_surface_id]);
   }
@@ -243,7 +247,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec,
       null,
       [cache_id, root_frame_sink_id]);
   }
@@ -252,7 +256,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec,
       null,
       [cache_id]);
   }
@@ -261,7 +265,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec,
       null,
       [debug_settings]);
   }
@@ -270,7 +274,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec,
       null,
       [transition_token]);
   }
@@ -279,7 +283,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec,
       null,
       [receiver]);
   }
@@ -288,7 +292,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec,
       null,
       [receiver]);
   }
@@ -297,7 +301,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec,
       null,
       [receiver]);
   }
@@ -306,7 +310,7 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec,
       null,
       [blocked, render_input_routers]);
   }
@@ -315,15 +319,15 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManager_RequestInputBack_ParamsSpec,
       null,
       []);
   }
 
 };
 
-viz.mojom.FrameSinkManager.getRemote = function() {
-  let remote = new viz.mojom.FrameSinkManagerRemote();
+viz.mojom.mojom.FrameSinkManager.getRemote = function() {
+  let remote = new viz.mojom.mojom.FrameSinkManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -333,7 +337,7 @@ viz.mojom.FrameSinkManager.getRemote = function() {
 };
 
 // ParamsSpec for RegisterFrameSinkId
-viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.RegisterFrameSinkId_Params',
@@ -348,7 +352,7 @@ viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec = {
 };
 
 // ParamsSpec for InvalidateFrameSinkId
-viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.InvalidateFrameSinkId_Params',
@@ -362,7 +366,7 @@ viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec = {
 };
 
 // ParamsSpec for SetFrameSinkDebugLabel
-viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.SetFrameSinkDebugLabel_Params',
@@ -377,7 +381,7 @@ viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec = {
 };
 
 // ParamsSpec for CreateRootCompositorFrameSink
-viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.CreateRootCompositorFrameSink_Params',
@@ -391,7 +395,7 @@ viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec = {
 };
 
 // ParamsSpec for CreateCompositorDisplayLink
-viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.CreateCompositorDisplayLink_Params',
@@ -405,7 +409,7 @@ viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec = {
 };
 
 // ParamsSpec for CreateFrameSinkBundle
-viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.CreateFrameSinkBundle_Params',
@@ -421,7 +425,7 @@ viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec = {
 };
 
 // ParamsSpec for CreateCompositorFrameSink
-viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.CreateCompositorFrameSink_Params',
@@ -429,9 +433,9 @@ viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
         { name: 'bundle_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkBundleIdSpec, nullable: true, minVersion: 0 },
-        { name: 'compositor_frame_sink', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'compositor_frame_sink_client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 24, packedBitOffset: 0, type: input.mojom.RenderInputRouterConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'compositor_frame_sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'compositor_frame_sink_client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: input.mojom.RenderInputRouterConfigSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -439,7 +443,7 @@ viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec = {
 };
 
 // ParamsSpec for DestroyCompositorFrameSink
-viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.DestroyCompositorFrameSink_Params',
@@ -453,7 +457,7 @@ viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterFrameSinkHierarchy
-viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.RegisterFrameSinkHierarchy_Params',
@@ -468,7 +472,7 @@ viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec = {
 };
 
 // ParamsSpec for UnregisterFrameSinkHierarchy
-viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.UnregisterFrameSinkHierarchy_Params',
@@ -483,7 +487,7 @@ viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec = {
 };
 
 // ParamsSpec for AddVideoDetectorObserver
-viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.AddVideoDetectorObserver_Params',
@@ -497,7 +501,7 @@ viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec = {
 };
 
 // ParamsSpec for CreateVideoCapturer
-viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.CreateVideoCapturer_Params',
@@ -512,7 +516,7 @@ viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec = {
 };
 
 // ParamsSpec for EvictSurfaces
-viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.EvictSurfaces_Params',
@@ -526,7 +530,7 @@ viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec = {
 };
 
 // ParamsSpec for Throttle
-viz.mojom.FrameSinkManager_Throttle_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_Throttle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.Throttle_Params',
@@ -541,7 +545,7 @@ viz.mojom.FrameSinkManager_Throttle_ParamsSpec = {
 };
 
 // ParamsSpec for StartThrottlingAllFrameSinks
-viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.StartThrottlingAllFrameSinks_Params',
@@ -555,7 +559,7 @@ viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec = {
 };
 
 // ParamsSpec for StopThrottlingAllFrameSinks
-viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.StopThrottlingAllFrameSinks_Params',
@@ -568,7 +572,7 @@ viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec = {
 };
 
 // ParamsSpec for RequestCopyOfOutput
-viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.RequestCopyOfOutput_Params',
@@ -584,14 +588,14 @@ viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec = {
 };
 
 // ParamsSpec for CacheBackBuffer
-viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.CacheBackBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'cache_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'root_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'cache_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -599,7 +603,7 @@ viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for EvictBackBuffer
-viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.EvictBackBuffer_Params',
@@ -613,7 +617,7 @@ viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateDebugRendererSettings
-viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.UpdateDebugRendererSettings_Params',
@@ -627,7 +631,7 @@ viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec = {
 };
 
 // ParamsSpec for ClearUnclaimedViewTransitionResources
-viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.ClearUnclaimedViewTransitionResources_Params',
@@ -641,7 +645,7 @@ viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec = {
 };
 
 // ParamsSpec for CreateMetricsRecorderForTest
-viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.CreateMetricsRecorderForTest_Params',
@@ -655,7 +659,7 @@ viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec = {
 };
 
 // ParamsSpec for EnableFrameSinkManagerTestApi
-viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.EnableFrameSinkManagerTestApi_Params',
@@ -669,7 +673,7 @@ viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec = {
 };
 
 // ParamsSpec for SetupRendererInputRouterDelegateRegistry
-viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.SetupRendererInputRouterDelegateRegistry_Params',
@@ -683,14 +687,14 @@ viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec =
 };
 
 // ParamsSpec for NotifyRendererBlockStateChanged
-viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.NotifyRendererBlockStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'render_input_routers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.FrameSinkIdSpec, false), nullable: false, minVersion: 0 },
+        { name: 'blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'render_input_routers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.FrameSinkIdSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -698,7 +702,7 @@ viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for RequestInputBack
-viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManager_RequestInputBack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManager.RequestInputBack_Params',
@@ -711,29 +715,29 @@ viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.FrameSinkManagerPtr = viz.mojom.FrameSinkManagerRemote;
-viz.mojom.FrameSinkManagerRequest = viz.mojom.FrameSinkManagerPendingReceiver;
+viz.mojom.mojom.FrameSinkManagerPtr = viz.mojom.mojom.FrameSinkManagerRemote;
+viz.mojom.mojom.FrameSinkManagerRequest = viz.mojom.mojom.FrameSinkManagerPendingReceiver;
 
 
 // Interface: FrameSinkManagerClient
-viz.mojom.FrameSinkManagerClient = {};
+viz.mojom.mojom.FrameSinkManagerClient = {};
 
-viz.mojom.FrameSinkManagerClientPendingReceiver = class {
+viz.mojom.mojom.FrameSinkManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.FrameSinkManagerClientRemote = class {
+viz.mojom.mojom.FrameSinkManagerClientRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinkManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.FrameSinkManagerClientPendingReceiver,
+      viz.mojom.mojom.FrameSinkManagerClientPendingReceiver,
       handle);
-    this.$ = new viz.mojom.FrameSinkManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.FrameSinkManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -745,7 +749,7 @@ viz.mojom.FrameSinkManagerClientRemote = class {
   }
 };
 
-viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
+viz.mojom.mojom.FrameSinkManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -754,7 +758,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec,
       null,
       [surface_info]);
   }
@@ -763,7 +767,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec,
       null,
       [frame_sink_id, hit_test_data]);
   }
@@ -772,7 +776,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec,
       null,
       [frame_sink_id, frame_token, activation_time]);
   }
@@ -781,8 +785,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec,
-      viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec,
       [thread_ids]);
   }
 
@@ -790,7 +794,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec,
       null,
       [destination_token, copy_output_result]);
   }
@@ -799,7 +803,7 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec,
       null,
       [region]);
   }
@@ -808,15 +812,15 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec,
       null,
       [transition_token]);
   }
 
 };
 
-viz.mojom.FrameSinkManagerClient.getRemote = function() {
-  let remote = new viz.mojom.FrameSinkManagerClientRemote();
+viz.mojom.mojom.FrameSinkManagerClient.getRemote = function() {
+  let remote = new viz.mojom.mojom.FrameSinkManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -826,7 +830,7 @@ viz.mojom.FrameSinkManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnFirstSurfaceActivation
-viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.OnFirstSurfaceActivation_Params',
@@ -840,7 +844,7 @@ viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec = {
 };
 
 // ParamsSpec for OnAggregatedHitTestRegionListUpdated
-viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.OnAggregatedHitTestRegionListUpdated_Params',
@@ -855,15 +859,15 @@ viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec
 };
 
 // ParamsSpec for OnFrameTokenChanged
-viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.OnFrameTokenChanged_Params',
       packedSize: 32,
       fields: [
         { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'activation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'activation_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -871,7 +875,7 @@ viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec = {
 };
 
 // ParamsSpec for VerifyThreadIdsDoNotBelongToHost
-viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.VerifyThreadIdsDoNotBelongToHost_Params',
@@ -884,7 +888,7 @@ viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec = {
   }
 };
 
-viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.VerifyThreadIdsDoNotBelongToHost_ResponseParams',
@@ -898,7 +902,7 @@ viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParams
 };
 
 // ParamsSpec for OnScreenshotCaptured
-viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.OnScreenshotCaptured_Params',
@@ -913,7 +917,7 @@ viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec = {
 };
 
 // ParamsSpec for OnVizTouchStateAvailable
-viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.OnVizTouchStateAvailable_Params',
@@ -927,7 +931,7 @@ viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec = {
 };
 
 // ParamsSpec for OnViewTransitionResourcesCaptured
-viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerClient.OnViewTransitionResourcesCaptured_Params',
@@ -941,29 +945,29 @@ viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec = 
 };
 
 // Legacy compatibility
-viz.mojom.FrameSinkManagerClientPtr = viz.mojom.FrameSinkManagerClientRemote;
-viz.mojom.FrameSinkManagerClientRequest = viz.mojom.FrameSinkManagerClientPendingReceiver;
+viz.mojom.mojom.FrameSinkManagerClientPtr = viz.mojom.mojom.FrameSinkManagerClientRemote;
+viz.mojom.mojom.FrameSinkManagerClientRequest = viz.mojom.mojom.FrameSinkManagerClientPendingReceiver;
 
 
 // Interface: RendererInputRouterDelegateRegistry
-viz.mojom.RendererInputRouterDelegateRegistry = {};
+viz.mojom.mojom.RendererInputRouterDelegateRegistry = {};
 
-viz.mojom.RendererInputRouterDelegateRegistryPendingReceiver = class {
+viz.mojom.mojom.RendererInputRouterDelegateRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.RendererInputRouterDelegateRegistryRemote = class {
+viz.mojom.mojom.RendererInputRouterDelegateRegistryRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.RendererInputRouterDelegateRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.RendererInputRouterDelegateRegistryPendingReceiver,
+      viz.mojom.mojom.RendererInputRouterDelegateRegistryPendingReceiver,
       handle);
-    this.$ = new viz.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -975,7 +979,7 @@ viz.mojom.RendererInputRouterDelegateRegistryRemote = class {
   }
 };
 
-viz.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler = class {
+viz.mojom.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -984,15 +988,15 @@ viz.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec,
+      viz.mojom.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec,
       null,
       [id, rir_delegate_client_remote, rir_delegate_receiver]);
   }
 
 };
 
-viz.mojom.RendererInputRouterDelegateRegistry.getRemote = function() {
-  let remote = new viz.mojom.RendererInputRouterDelegateRegistryRemote();
+viz.mojom.mojom.RendererInputRouterDelegateRegistry.getRemote = function() {
+  let remote = new viz.mojom.mojom.RendererInputRouterDelegateRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1002,7 +1006,7 @@ viz.mojom.RendererInputRouterDelegateRegistry.getRemote = function() {
 };
 
 // ParamsSpec for SetupRenderInputRouterDelegateConnection
-viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec = {
+viz.mojom.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RendererInputRouterDelegateRegistry.SetupRenderInputRouterDelegateConnection_Params',
@@ -1018,6 +1022,6 @@ viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConn
 };
 
 // Legacy compatibility
-viz.mojom.RendererInputRouterDelegateRegistryPtr = viz.mojom.RendererInputRouterDelegateRegistryRemote;
-viz.mojom.RendererInputRouterDelegateRegistryRequest = viz.mojom.RendererInputRouterDelegateRegistryPendingReceiver;
+viz.mojom.mojom.RendererInputRouterDelegateRegistryPtr = viz.mojom.mojom.RendererInputRouterDelegateRegistryRemote;
+viz.mojom.mojom.RendererInputRouterDelegateRegistryRequest = viz.mojom.mojom.RendererInputRouterDelegateRegistryPendingReceiver;
 

@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Enum: SingleplanarFormat
-viz.mojom.SingleplanarFormat = {
+viz.mojom.mojom.SingleplanarFormat = {
   RGBA_8888: 0,
   RGBA_4444: 1,
   BGRA_8888: 2,
@@ -29,4 +29,4 @@ viz.mojom.SingleplanarFormat = {
   BGRA_1010102: 15,
   R_F16: 16,
 };
-viz.mojom.SingleplanarFormatSpec = { $: mojo.internal.Enum() };
+viz.mojom.mojom.SingleplanarFormatSpec = { $: mojo.internal.Enum() };

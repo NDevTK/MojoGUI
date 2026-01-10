@@ -7,17 +7,19 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
+var url = url || {};
 
 
 // Enum: Type
-network.mojom.Type = {
+network.mojom.mojom.Type = {
   kRead: 0,
   kChange: 1,
 };
-network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CookieAccessDetails
-network.mojom.CookieAccessDetailsSpec = {
+network.mojom.mojom.CookieAccessDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieAccessDetails',
@@ -31,24 +33,24 @@ network.mojom.CookieAccessDetailsSpec = {
 };
 
 // Interface: CookieAccessObserver
-network.mojom.CookieAccessObserver = {};
+network.mojom.mojom.CookieAccessObserver = {};
 
-network.mojom.CookieAccessObserverPendingReceiver = class {
+network.mojom.mojom.CookieAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.CookieAccessObserverRemote = class {
+network.mojom.mojom.CookieAccessObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.CookieAccessObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.CookieAccessObserverPendingReceiver,
+      network.mojom.mojom.CookieAccessObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.CookieAccessObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.CookieAccessObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +62,7 @@ network.mojom.CookieAccessObserverRemote = class {
   }
 };
 
-network.mojom.CookieAccessObserverRemoteCallHandler = class {
+network.mojom.mojom.CookieAccessObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,7 +71,7 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec,
+      network.mojom.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec,
       null,
       [details]);
   }
@@ -78,15 +80,15 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.CookieAccessObserver_Clone_ParamsSpec,
+      network.mojom.mojom.CookieAccessObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-network.mojom.CookieAccessObserver.getRemote = function() {
-  let remote = new network.mojom.CookieAccessObserverRemote();
+network.mojom.mojom.CookieAccessObserver.getRemote = function() {
+  let remote = new network.mojom.mojom.CookieAccessObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -96,7 +98,7 @@ network.mojom.CookieAccessObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnCookiesAccessed
-network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
+network.mojom.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieAccessObserver.OnCookiesAccessed_Params',
@@ -110,7 +112,7 @@ network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec = {
 };
 
 // ParamsSpec for Clone
-network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
+network.mojom.mojom.CookieAccessObserver_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CookieAccessObserver.Clone_Params',
@@ -124,6 +126,6 @@ network.mojom.CookieAccessObserver_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.CookieAccessObserverPtr = network.mojom.CookieAccessObserverRemote;
-network.mojom.CookieAccessObserverRequest = network.mojom.CookieAccessObserverPendingReceiver;
+network.mojom.mojom.CookieAccessObserverPtr = network.mojom.mojom.CookieAccessObserverRemote;
+network.mojom.mojom.CookieAccessObserverRequest = network.mojom.mojom.CookieAccessObserverPendingReceiver;
 

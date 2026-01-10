@@ -10,16 +10,16 @@ network.mojom = network.mojom || {};
 
 
 // Enum: UnencodedDigestIssue
-network.mojom.UnencodedDigestIssue = {
+network.mojom.mojom.UnencodedDigestIssue = {
   kMalformedDictionary: 0,
   kUnknownAlgorithm: 1,
   kIncorrectDigestType: 2,
   kIncorrectDigestLength: 3,
 };
-network.mojom.UnencodedDigestIssueSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.UnencodedDigestIssueSpec = { $: mojo.internal.Enum() };
 
 // Struct: UnencodedDigests
-network.mojom.UnencodedDigestsSpec = {
+network.mojom.mojom.UnencodedDigestsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.UnencodedDigests',

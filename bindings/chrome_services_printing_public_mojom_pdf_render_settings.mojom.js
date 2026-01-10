@@ -7,16 +7,18 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: Mode
-printing.mojom.Mode = {
+printing.mojom.mojom.Mode = {
   NORMAL: 0,
 };
-printing.mojom.ModeSpec = { $: mojo.internal.Enum() };
+printing.mojom.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PdfRenderSettings
-printing.mojom.PdfRenderSettingsSpec = {
+printing.mojom.mojom.PdfRenderSettingsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfRenderSettings',

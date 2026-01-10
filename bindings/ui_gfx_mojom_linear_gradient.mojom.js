@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: Step
-gfx.mojom.StepSpec = {
+gfx.mojom.mojom.StepSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Step',
@@ -25,15 +25,15 @@ gfx.mojom.StepSpec = {
 };
 
 // Struct: LinearGradient
-gfx.mojom.LinearGradientSpec = {
+gfx.mojom.mojom.LinearGradientSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.LinearGradient',
       packedSize: 24,
       fields: [
-        { name: 'angle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'step_count', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'steps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.Step, 8Spec, false), nullable: false, minVersion: 0 },
+        { name: 'angle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'step_count', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'steps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.Step, 8Spec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

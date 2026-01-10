@@ -10,7 +10,7 @@ payments.mojom = payments.mojom || {};
 
 
 // Struct: PaymentAddress
-payments.mojom.PaymentAddressSpec = {
+payments.mojom.mojom.PaymentAddressSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentAddress',
@@ -33,7 +33,7 @@ payments.mojom.PaymentAddressSpec = {
 };
 
 // Struct: PaymentCurrencyAmount
-payments.mojom.PaymentCurrencyAmountSpec = {
+payments.mojom.mojom.PaymentCurrencyAmountSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentCurrencyAmount',
@@ -48,7 +48,7 @@ payments.mojom.PaymentCurrencyAmountSpec = {
 };
 
 // Struct: PaymentValidationErrors
-payments.mojom.PaymentValidationErrorsSpec = {
+payments.mojom.mojom.PaymentValidationErrorsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentValidationErrors',
@@ -64,7 +64,7 @@ payments.mojom.PaymentValidationErrorsSpec = {
 };
 
 // Struct: PayerErrors
-payments.mojom.PayerErrorsSpec = {
+payments.mojom.mojom.PayerErrorsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PayerErrors',
@@ -80,7 +80,7 @@ payments.mojom.PayerErrorsSpec = {
 };
 
 // Struct: AddressErrors
-payments.mojom.AddressErrorsSpec = {
+payments.mojom.mojom.AddressErrorsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.AddressErrors',

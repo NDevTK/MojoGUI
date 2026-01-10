@@ -10,9 +10,9 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: BatteryPowerStatus
-mojo_base.mojom.BatteryPowerStatus = {
+mojo_base.mojom.mojom.BatteryPowerStatus = {
   kUnknown: 0,
   kBatteryPower: 1,
   kExternalPower: 2,
 };
-mojo_base.mojom.BatteryPowerStatusSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.mojom.BatteryPowerStatusSpec = { $: mojo.internal.Enum() };

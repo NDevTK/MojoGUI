@@ -10,10 +10,10 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Enum: OverlayType
-gfx.mojom.OverlayType = {
+gfx.mojom.mojom.OverlayType = {
   kSimple: 0,
   kUnderlay: 1,
   kSingleOnTop: 2,
   kFullScreen: 3,
 };
-gfx.mojom.OverlayTypeSpec = { $: mojo.internal.Enum() };
+gfx.mojom.mojom.OverlayTypeSpec = { $: mojo.internal.Enum() };

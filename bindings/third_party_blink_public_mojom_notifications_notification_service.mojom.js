@@ -7,35 +7,37 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Enum: PersistentNotificationError
-blink.mojom.PersistentNotificationError = {
+blink.mojom.mojom.PersistentNotificationError = {
   NONE: 0,
   INTERNAL_ERROR: 1,
   PERMISSION_DENIED: 2,
 };
-blink.mojom.PersistentNotificationErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PersistentNotificationErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: NonPersistentNotificationListener
-blink.mojom.NonPersistentNotificationListener = {};
+blink.mojom.mojom.NonPersistentNotificationListener = {};
 
-blink.mojom.NonPersistentNotificationListenerPendingReceiver = class {
+blink.mojom.mojom.NonPersistentNotificationListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.NonPersistentNotificationListenerRemote = class {
+blink.mojom.mojom.NonPersistentNotificationListenerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.NonPersistentNotificationListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.NonPersistentNotificationListenerPendingReceiver,
+      blink.mojom.mojom.NonPersistentNotificationListenerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.NonPersistentNotificationListenerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.NonPersistentNotificationListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +49,7 @@ blink.mojom.NonPersistentNotificationListenerRemote = class {
   }
 };
 
-blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
+blink.mojom.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,7 +58,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec,
+      blink.mojom.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec,
       null,
       []);
   }
@@ -65,7 +67,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
+      blink.mojom.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
       null,
       []);
   }
@@ -74,15 +76,15 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
+      blink.mojom.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.NonPersistentNotificationListener.getRemote = function() {
-  let remote = new blink.mojom.NonPersistentNotificationListenerRemote();
+blink.mojom.mojom.NonPersistentNotificationListener.getRemote = function() {
+  let remote = new blink.mojom.mojom.NonPersistentNotificationListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -92,7 +94,7 @@ blink.mojom.NonPersistentNotificationListener.getRemote = function() {
 };
 
 // ParamsSpec for OnShow
-blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
+blink.mojom.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NonPersistentNotificationListener.OnShow_Params',
@@ -105,7 +107,7 @@ blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
 };
 
 // ParamsSpec for OnClick
-blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
+blink.mojom.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NonPersistentNotificationListener.OnClick_Params',
@@ -118,7 +120,7 @@ blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
 };
 
 // ParamsSpec for OnClose
-blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
+blink.mojom.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NonPersistentNotificationListener.OnClose_Params',
@@ -131,29 +133,29 @@ blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.NonPersistentNotificationListenerPtr = blink.mojom.NonPersistentNotificationListenerRemote;
-blink.mojom.NonPersistentNotificationListenerRequest = blink.mojom.NonPersistentNotificationListenerPendingReceiver;
+blink.mojom.mojom.NonPersistentNotificationListenerPtr = blink.mojom.mojom.NonPersistentNotificationListenerRemote;
+blink.mojom.mojom.NonPersistentNotificationListenerRequest = blink.mojom.mojom.NonPersistentNotificationListenerPendingReceiver;
 
 
 // Interface: NotificationService
-blink.mojom.NotificationService = {};
+blink.mojom.mojom.NotificationService = {};
 
-blink.mojom.NotificationServicePendingReceiver = class {
+blink.mojom.mojom.NotificationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.NotificationServiceRemote = class {
+blink.mojom.mojom.NotificationServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.NotificationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.NotificationServicePendingReceiver,
+      blink.mojom.mojom.NotificationServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.NotificationServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.NotificationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,7 +167,7 @@ blink.mojom.NotificationServiceRemote = class {
   }
 };
 
-blink.mojom.NotificationServiceRemoteCallHandler = class {
+blink.mojom.mojom.NotificationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -174,8 +176,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec,
-      blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
+      blink.mojom.mojom.NotificationService_GetPermissionStatus_ParamsSpec,
+      blink.mojom.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
       []);
   }
 
@@ -183,7 +185,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec,
+      blink.mojom.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec,
       null,
       [token, notification_data, notification_resources, event_listener]);
   }
@@ -192,7 +194,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec,
+      blink.mojom.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec,
       null,
       [token]);
   }
@@ -201,8 +203,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec,
-      blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
+      blink.mojom.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec,
+      blink.mojom.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
       [service_worker_registration_id, notification_data, notification_resources]);
   }
 
@@ -210,7 +212,7 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec,
+      blink.mojom.mojom.NotificationService_ClosePersistentNotification_ParamsSpec,
       null,
       [notification_id]);
   }
@@ -219,15 +221,15 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.NotificationService_GetNotifications_ParamsSpec,
-      blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
+      blink.mojom.mojom.NotificationService_GetNotifications_ParamsSpec,
+      blink.mojom.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
       [service_worker_registration_id, filter_tag, include_triggered]);
   }
 
 };
 
-blink.mojom.NotificationService.getRemote = function() {
-  let remote = new blink.mojom.NotificationServiceRemote();
+blink.mojom.mojom.NotificationService.getRemote = function() {
+  let remote = new blink.mojom.mojom.NotificationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -237,7 +239,7 @@ blink.mojom.NotificationService.getRemote = function() {
 };
 
 // ParamsSpec for GetPermissionStatus
-blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
+blink.mojom.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.GetPermissionStatus_Params',
@@ -249,7 +251,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
   }
 };
 
-blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
+blink.mojom.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.GetPermissionStatus_ResponseParams',
@@ -263,7 +265,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DisplayNonPersistentNotification
-blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
+blink.mojom.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.DisplayNonPersistentNotification_Params',
@@ -280,7 +282,7 @@ blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
 };
 
 // ParamsSpec for CloseNonPersistentNotification
-blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
+blink.mojom.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.CloseNonPersistentNotification_Params',
@@ -294,7 +296,7 @@ blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
 };
 
 // ParamsSpec for DisplayPersistentNotification
-blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
+blink.mojom.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.DisplayPersistentNotification_Params',
@@ -309,7 +311,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
   }
 };
 
-blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = {
+blink.mojom.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.DisplayPersistentNotification_ResponseParams',
@@ -323,7 +325,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec
 };
 
 // ParamsSpec for ClosePersistentNotification
-blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
+blink.mojom.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.ClosePersistentNotification_Params',
@@ -337,7 +339,7 @@ blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
 };
 
 // ParamsSpec for GetNotifications
-blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
+blink.mojom.mojom.NotificationService_GetNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.GetNotifications_Params',
@@ -352,7 +354,7 @@ blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
   }
 };
 
-blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
+blink.mojom.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationService.GetNotifications_ResponseParams',
@@ -367,6 +369,6 @@ blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.NotificationServicePtr = blink.mojom.NotificationServiceRemote;
-blink.mojom.NotificationServiceRequest = blink.mojom.NotificationServicePendingReceiver;
+blink.mojom.mojom.NotificationServicePtr = blink.mojom.mojom.NotificationServiceRemote;
+blink.mojom.mojom.NotificationServiceRequest = blink.mojom.mojom.NotificationServicePendingReceiver;
 

@@ -7,10 +7,11 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var url = url || {};
 
 
 // Struct: SpeechRecognitionGrammar
-media.mojom.SpeechRecognitionGrammarSpec = {
+media.mojom.mojom.SpeechRecognitionGrammarSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionGrammar',

@@ -10,15 +10,15 @@ fuzz.mojom = fuzz.mojom || {};
 
 
 // Enum: FuzzEnum
-fuzz.mojom.FuzzEnum = {
+fuzz.mojom.mojom.FuzzEnum = {
   FUZZ_VALUE0: 0,
   FUZZ_VALUE1: 1,
   FUZZ_VALUE2: 2,
 };
-fuzz.mojom.FuzzEnumSpec = { $: mojo.internal.Enum() };
+fuzz.mojom.mojom.FuzzEnumSpec = { $: mojo.internal.Enum() };
 
 // Union: FuzzUnion
-fuzz.mojom.FuzzUnionSpec = { $: mojo.internal.Union(
+fuzz.mojom.mojom.FuzzUnionSpec = { $: mojo.internal.Union(
     'fuzz.mojom.FuzzUnion', {
       'fuzz_bool': {
         'ordinal': 0,
@@ -105,7 +105,7 @@ fuzz.mojom.FuzzUnionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: FuzzDummyStruct
-fuzz.mojom.FuzzDummyStructSpec = {
+fuzz.mojom.mojom.FuzzDummyStructSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzDummyStruct',
@@ -119,33 +119,33 @@ fuzz.mojom.FuzzDummyStructSpec = {
 };
 
 // Struct: FuzzStruct
-fuzz.mojom.FuzzStructSpec = {
+fuzz.mojom.mojom.FuzzStructSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzStruct',
       packedSize: 136,
       fields: [
-        { name: 'fuzz_bool', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'fuzz_int8', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-        { name: 'fuzz_uint8', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'fuzz_int16', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'fuzz_uint16', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'fuzz_int32', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'fuzz_uint32', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'fuzz_int64', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'fuzz_uint64', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'fuzz_float', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'fuzz_double', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'fuzz_string', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fuzz_bool_array', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-        { name: 'fuzz_primitive_array', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: false, minVersion: 0 },
-        { name: 'fuzz_primitive_map', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Int8, false), nullable: false, minVersion: 0 },
-        { name: 'fuzz_array_map', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), nullable: false, minVersion: 0 },
-        { name: 'fuzz_union_map', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, fuzz.mojom.FuzzUnionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'fuzz_union_array', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(fuzz.mojom.FuzzUnionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'fuzz_struct_array', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), nullable: false, minVersion: 0 },
-        { name: 'fuzz_nullable_array', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: true, minVersion: 0 },
-        { name: 'fuzz_complex', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), false), false), false), nullable: true, minVersion: 0 },
+        { name: 'fuzz_bool', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int8', packedOffset: 121, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint8', packedOffset: 122, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int16', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint16', packedOffset: 118, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int32', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint32', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'fuzz_int64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'fuzz_uint64', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'fuzz_float', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'fuzz_double', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'fuzz_string', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fuzz_bool_array', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_primitive_array', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_primitive_map', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Int8, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_array_map', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_union_map', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, fuzz.mojom.FuzzUnionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_union_array', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(fuzz.mojom.FuzzUnionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_struct_array', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fuzz_nullable_array', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: true, minVersion: 0 },
+        { name: 'fuzz_complex', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), false), false), false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 136}]
     }
@@ -153,24 +153,24 @@ fuzz.mojom.FuzzStructSpec = {
 };
 
 // Interface: FuzzDummyInterface
-fuzz.mojom.FuzzDummyInterface = {};
+fuzz.mojom.mojom.FuzzDummyInterface = {};
 
-fuzz.mojom.FuzzDummyInterfacePendingReceiver = class {
+fuzz.mojom.mojom.FuzzDummyInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-fuzz.mojom.FuzzDummyInterfaceRemote = class {
+fuzz.mojom.mojom.FuzzDummyInterfaceRemote = class {
   static get $interfaceName() {
     return 'fuzz.mojom.FuzzDummyInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      fuzz.mojom.FuzzDummyInterfacePendingReceiver,
+      fuzz.mojom.mojom.FuzzDummyInterfacePendingReceiver,
       handle);
-    this.$ = new fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new fuzz.mojom.mojom.FuzzDummyInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -182,7 +182,7 @@ fuzz.mojom.FuzzDummyInterfaceRemote = class {
   }
 };
 
-fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
+fuzz.mojom.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -191,15 +191,15 @@ fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec,
+      fuzz.mojom.mojom.FuzzDummyInterface_Ping_ParamsSpec,
       null,
       []);
   }
 
 };
 
-fuzz.mojom.FuzzDummyInterface.getRemote = function() {
-  let remote = new fuzz.mojom.FuzzDummyInterfaceRemote();
+fuzz.mojom.mojom.FuzzDummyInterface.getRemote = function() {
+  let remote = new fuzz.mojom.mojom.FuzzDummyInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -209,7 +209,7 @@ fuzz.mojom.FuzzDummyInterface.getRemote = function() {
 };
 
 // ParamsSpec for Ping
-fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = {
+fuzz.mojom.mojom.FuzzDummyInterface_Ping_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzDummyInterface.Ping_Params',
@@ -222,29 +222,29 @@ fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = {
 };
 
 // Legacy compatibility
-fuzz.mojom.FuzzDummyInterfacePtr = fuzz.mojom.FuzzDummyInterfaceRemote;
-fuzz.mojom.FuzzDummyInterfaceRequest = fuzz.mojom.FuzzDummyInterfacePendingReceiver;
+fuzz.mojom.mojom.FuzzDummyInterfacePtr = fuzz.mojom.mojom.FuzzDummyInterfaceRemote;
+fuzz.mojom.mojom.FuzzDummyInterfaceRequest = fuzz.mojom.mojom.FuzzDummyInterfacePendingReceiver;
 
 
 // Interface: FuzzInterface
-fuzz.mojom.FuzzInterface = {};
+fuzz.mojom.mojom.FuzzInterface = {};
 
-fuzz.mojom.FuzzInterfacePendingReceiver = class {
+fuzz.mojom.mojom.FuzzInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-fuzz.mojom.FuzzInterfaceRemote = class {
+fuzz.mojom.mojom.FuzzInterfaceRemote = class {
   static get $interfaceName() {
     return 'fuzz.mojom.FuzzInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      fuzz.mojom.FuzzInterfacePendingReceiver,
+      fuzz.mojom.mojom.FuzzInterfacePendingReceiver,
       handle);
-    this.$ = new fuzz.mojom.FuzzInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new fuzz.mojom.mojom.FuzzInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -256,7 +256,7 @@ fuzz.mojom.FuzzInterfaceRemote = class {
   }
 };
 
-fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
+fuzz.mojom.mojom.FuzzInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -265,7 +265,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec,
+      fuzz.mojom.mojom.FuzzInterface_FuzzBasic_ParamsSpec,
       null,
       []);
   }
@@ -274,7 +274,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec,
+      fuzz.mojom.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec,
       null,
       []);
   }
@@ -283,7 +283,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec,
+      fuzz.mojom.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec,
       null,
       []);
   }
@@ -292,7 +292,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec,
+      fuzz.mojom.mojom.FuzzInterface_FuzzArgs_ParamsSpec,
       null,
       [a, b]);
   }
@@ -301,7 +301,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec,
+      fuzz.mojom.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec,
       null,
       [a, b]);
   }
@@ -310,7 +310,7 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec,
+      fuzz.mojom.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec,
       null,
       [a, b]);
   }
@@ -319,15 +319,15 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec,
+      fuzz.mojom.mojom.FuzzInterface_FuzzAssociated_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-fuzz.mojom.FuzzInterface.getRemote = function() {
-  let remote = new fuzz.mojom.FuzzInterfaceRemote();
+fuzz.mojom.mojom.FuzzInterface.getRemote = function() {
+  let remote = new fuzz.mojom.mojom.FuzzInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -337,7 +337,7 @@ fuzz.mojom.FuzzInterface.getRemote = function() {
 };
 
 // ParamsSpec for FuzzBasic
-fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = {
+fuzz.mojom.mojom.FuzzInterface_FuzzBasic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzInterface.FuzzBasic_Params',
@@ -350,7 +350,7 @@ fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = {
 };
 
 // ParamsSpec for FuzzBasicResp
-fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = {
+fuzz.mojom.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzInterface.FuzzBasicResp_Params',
@@ -363,7 +363,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = {
 };
 
 // ParamsSpec for FuzzBasicSyncResp
-fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = {
+fuzz.mojom.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzInterface.FuzzBasicSyncResp_Params',
@@ -376,7 +376,7 @@ fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = {
 };
 
 // ParamsSpec for FuzzArgs
-fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
+fuzz.mojom.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgs_Params',
@@ -391,7 +391,7 @@ fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = {
 };
 
 // ParamsSpec for FuzzArgsResp
-fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
+fuzz.mojom.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsResp_Params',
@@ -406,7 +406,7 @@ fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = {
 };
 
 // ParamsSpec for FuzzArgsSyncResp
-fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
+fuzz.mojom.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzInterface.FuzzArgsSyncResp_Params',
@@ -421,7 +421,7 @@ fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = {
 };
 
 // ParamsSpec for FuzzAssociated
-fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
+fuzz.mojom.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'fuzz.mojom.FuzzInterface.FuzzAssociated_Params',
@@ -435,6 +435,6 @@ fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
 };
 
 // Legacy compatibility
-fuzz.mojom.FuzzInterfacePtr = fuzz.mojom.FuzzInterfaceRemote;
-fuzz.mojom.FuzzInterfaceRequest = fuzz.mojom.FuzzInterfacePendingReceiver;
+fuzz.mojom.mojom.FuzzInterfacePtr = fuzz.mojom.mojom.FuzzInterfaceRemote;
+fuzz.mojom.mojom.FuzzInterfaceRequest = fuzz.mojom.mojom.FuzzInterfacePendingReceiver;
 

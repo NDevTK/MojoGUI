@@ -10,9 +10,9 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: SimulateRightClickModifier
-ui.mojom.SimulateRightClickModifier = {
+ui.mojom.mojom.SimulateRightClickModifier = {
   kNone: 0,
   kAlt: 1,
   kSearch: 2,
 };
-ui.mojom.SimulateRightClickModifierSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.SimulateRightClickModifierSpec = { $: mojo.internal.Enum() };

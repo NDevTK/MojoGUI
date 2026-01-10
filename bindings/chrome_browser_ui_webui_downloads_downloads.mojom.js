@@ -7,10 +7,11 @@
 // Module namespace
 var downloads = downloads || {};
 downloads.mojom = downloads.mojom || {};
+var url = url || {};
 
 
 // Enum: DangerType
-downloads.mojom.DangerType = {
+downloads.mojom.mojom.DangerType = {
   kNoApplicableDangerType: 0,
   kDangerousFile: 1,
   kDangerousUrl: 2,
@@ -31,18 +32,18 @@ downloads.mojom.DangerType = {
   kBlockedScanFailed: 17,
   kForcedSaveToGdrive: 18,
 };
-downloads.mojom.DangerTypeSpec = { $: mojo.internal.Enum() };
+downloads.mojom.mojom.DangerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TailoredWarningType
-downloads.mojom.TailoredWarningType = {
+downloads.mojom.mojom.TailoredWarningType = {
   kNoApplicableTailoredWarningType: 0,
   kCookieTheft: 1,
   kSuspiciousArchive: 2,
 };
-downloads.mojom.TailoredWarningTypeSpec = { $: mojo.internal.Enum() };
+downloads.mojom.mojom.TailoredWarningTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-downloads.mojom.State = {
+downloads.mojom.mojom.State = {
   kInProgress: 0,
   kCancelled: 1,
   kComplete: 2,
@@ -54,51 +55,51 @@ downloads.mojom.State = {
   kPromptForScanning: 8,
   kPromptForLocalPasswordScanning: 9,
 };
-downloads.mojom.StateSpec = { $: mojo.internal.Enum() };
+downloads.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: SafeBrowsingState
-downloads.mojom.SafeBrowsingState = {
+downloads.mojom.mojom.SafeBrowsingState = {
   kNoSafeBrowsing: 0,
   kStandardProtection: 1,
   kEnhancedProtection: 2,
 };
-downloads.mojom.SafeBrowsingStateSpec = { $: mojo.internal.Enum() };
+downloads.mojom.mojom.SafeBrowsingStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: Data
-downloads.mojom.DataSpec = {
+downloads.mojom.mojom.DataSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.Data',
       packedSize: 152,
       fields: [
-        { name: 'file_externally_removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_dangerous', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_insecure', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_reviewable', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'otr', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resume', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'retry', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'percent', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'started', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'by_ext_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'by_ext_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'danger_type', packedOffset: 12, packedBitOffset: 0, type: downloads.mojom.DangerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'tailored_warning_type', packedOffset: 40, packedBitOffset: 0, type: downloads.mojom.TailoredWarningTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'date_string', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_path', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_url', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_reason_text', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'progress_status_text', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'show_in_folder_text', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'since_string', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 44, packedBitOffset: 0, type: downloads.mojom.StateSpec, nullable: false, minVersion: 0 },
-        { name: 'display_initiator_origin', packedOffset: 120, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 128, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'safe_browsing_state', packedOffset: 136, packedBitOffset: 0, type: downloads.mojom.SafeBrowsingStateSpec, nullable: false, minVersion: 0 },
-        { name: 'has_safe_browsing_verdict', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'file_externally_removed', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_dangerous', packedOffset: 136, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_insecure', packedOffset: 136, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_reviewable', packedOffset: 136, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'otr', packedOffset: 136, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'resume', packedOffset: 136, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'retry', packedOffset: 136, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'percent', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'started', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'by_ext_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'by_ext_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'danger_type', packedOffset: 120, packedBitOffset: 0, type: downloads.mojom.DangerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'tailored_warning_type', packedOffset: 124, packedBitOffset: 0, type: downloads.mojom.TailoredWarningTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'date_string', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'file_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'file_path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'file_url', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'last_reason_text', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'progress_status_text', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'show_in_folder_text', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'since_string', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 128, packedBitOffset: 0, type: downloads.mojom.StateSpec, nullable: false, minVersion: 0 },
+        { name: 'display_initiator_origin', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 104, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'safe_browsing_state', packedOffset: 132, packedBitOffset: 0, type: downloads.mojom.SafeBrowsingStateSpec, nullable: false, minVersion: 0 },
+        { name: 'has_safe_browsing_verdict', packedOffset: 136, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 152}]
     }
@@ -106,24 +107,24 @@ downloads.mojom.DataSpec = {
 };
 
 // Interface: PageHandlerFactory
-downloads.mojom.PageHandlerFactory = {};
+downloads.mojom.mojom.PageHandlerFactory = {};
 
-downloads.mojom.PageHandlerFactoryPendingReceiver = class {
+downloads.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-downloads.mojom.PageHandlerFactoryRemote = class {
+downloads.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'downloads.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      downloads.mojom.PageHandlerFactoryPendingReceiver,
+      downloads.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new downloads.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new downloads.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -135,7 +136,7 @@ downloads.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
+downloads.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -144,15 +145,15 @@ downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      downloads.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-downloads.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new downloads.mojom.PageHandlerFactoryRemote();
+downloads.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new downloads.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -162,7 +163,7 @@ downloads.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+downloads.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -177,29 +178,29 @@ downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-downloads.mojom.PageHandlerFactoryPtr = downloads.mojom.PageHandlerFactoryRemote;
-downloads.mojom.PageHandlerFactoryRequest = downloads.mojom.PageHandlerFactoryPendingReceiver;
+downloads.mojom.mojom.PageHandlerFactoryPtr = downloads.mojom.mojom.PageHandlerFactoryRemote;
+downloads.mojom.mojom.PageHandlerFactoryRequest = downloads.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-downloads.mojom.PageHandler = {};
+downloads.mojom.mojom.PageHandler = {};
 
-downloads.mojom.PageHandlerPendingReceiver = class {
+downloads.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-downloads.mojom.PageHandlerRemote = class {
+downloads.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'downloads.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      downloads.mojom.PageHandlerPendingReceiver,
+      downloads.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new downloads.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new downloads.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -211,7 +212,7 @@ downloads.mojom.PageHandlerRemote = class {
   }
 };
 
-downloads.mojom.PageHandlerRemoteCallHandler = class {
+downloads.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -220,7 +221,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      downloads.mojom.PageHandler_GetDownloads_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_GetDownloads_ParamsSpec,
       null,
       [search_terms]);
   }
@@ -229,7 +230,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -238,7 +239,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      downloads.mojom.PageHandler_Drag_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_Drag_ParamsSpec,
       null,
       [id]);
   }
@@ -247,7 +248,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -256,7 +257,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec,
       null,
       [id]);
   }
@@ -265,7 +266,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -274,7 +275,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec,
       null,
       [id]);
   }
@@ -283,7 +284,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_DiscardDangerous_ParamsSpec,
       null,
       [id]);
   }
@@ -292,7 +293,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      downloads.mojom.PageHandler_RetryDownload_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_RetryDownload_ParamsSpec,
       null,
       [id]);
   }
@@ -301,7 +302,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      downloads.mojom.PageHandler_Show_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_Show_ParamsSpec,
       null,
       [id]);
   }
@@ -310,7 +311,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      downloads.mojom.PageHandler_Pause_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_Pause_ParamsSpec,
       null,
       [id]);
   }
@@ -319,7 +320,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      downloads.mojom.PageHandler_Resume_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_Resume_ParamsSpec,
       null,
       [id]);
   }
@@ -328,7 +329,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      downloads.mojom.PageHandler_Remove_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_Remove_ParamsSpec,
       null,
       [id]);
   }
@@ -337,7 +338,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      downloads.mojom.PageHandler_Undo_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_Undo_ParamsSpec,
       null,
       []);
   }
@@ -346,7 +347,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      downloads.mojom.PageHandler_Cancel_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_Cancel_ParamsSpec,
       null,
       [id]);
   }
@@ -355,7 +356,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      downloads.mojom.PageHandler_ClearAll_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_ClearAll_ParamsSpec,
       null,
       []);
   }
@@ -364,7 +365,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec,
       null,
       []);
   }
@@ -373,7 +374,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_OpenEsbSettings_ParamsSpec,
       null,
       []);
   }
@@ -382,7 +383,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec,
       null,
       []);
   }
@@ -391,7 +392,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -400,7 +401,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -409,7 +410,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      downloads.mojom.PageHandler_DeepScan_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_DeepScan_ParamsSpec,
       null,
       [id]);
   }
@@ -418,7 +419,7 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec,
       null,
       [id]);
   }
@@ -427,15 +428,15 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec,
-      downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
+      downloads.mojom.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec,
+      downloads.mojom.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
       []);
   }
 
 };
 
-downloads.mojom.PageHandler.getRemote = function() {
-  let remote = new downloads.mojom.PageHandlerRemote();
+downloads.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new downloads.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -445,7 +446,7 @@ downloads.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetDownloads
-downloads.mojom.PageHandler_GetDownloads_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_GetDownloads_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.GetDownloads_Params',
@@ -459,7 +460,7 @@ downloads.mojom.PageHandler_GetDownloads_ParamsSpec = {
 };
 
 // ParamsSpec for OpenFileRequiringGesture
-downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.OpenFileRequiringGesture_Params',
@@ -473,7 +474,7 @@ downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec = {
 };
 
 // ParamsSpec for Drag
-downloads.mojom.PageHandler_Drag_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_Drag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.Drag_Params',
@@ -487,7 +488,7 @@ downloads.mojom.PageHandler_Drag_ParamsSpec = {
 };
 
 // ParamsSpec for SaveSuspiciousRequiringGesture
-downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.SaveSuspiciousRequiringGesture_Params',
@@ -501,7 +502,7 @@ downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec = {
 };
 
 // ParamsSpec for RecordOpenBypassWarningDialog
-downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.RecordOpenBypassWarningDialog_Params',
@@ -515,7 +516,7 @@ downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec = {
 };
 
 // ParamsSpec for SaveDangerousFromDialogRequiringGesture
-downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.SaveDangerousFromDialogRequiringGesture_Params',
@@ -529,7 +530,7 @@ downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec =
 };
 
 // ParamsSpec for RecordCancelBypassWarningDialog
-downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.RecordCancelBypassWarningDialog_Params',
@@ -543,7 +544,7 @@ downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec = {
 };
 
 // ParamsSpec for DiscardDangerous
-downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.DiscardDangerous_Params',
@@ -557,7 +558,7 @@ downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec = {
 };
 
 // ParamsSpec for RetryDownload
-downloads.mojom.PageHandler_RetryDownload_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_RetryDownload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.RetryDownload_Params',
@@ -571,7 +572,7 @@ downloads.mojom.PageHandler_RetryDownload_ParamsSpec = {
 };
 
 // ParamsSpec for Show
-downloads.mojom.PageHandler_Show_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_Show_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.Show_Params',
@@ -585,7 +586,7 @@ downloads.mojom.PageHandler_Show_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-downloads.mojom.PageHandler_Pause_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.Pause_Params',
@@ -599,7 +600,7 @@ downloads.mojom.PageHandler_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-downloads.mojom.PageHandler_Resume_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.Resume_Params',
@@ -613,7 +614,7 @@ downloads.mojom.PageHandler_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for Remove
-downloads.mojom.PageHandler_Remove_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_Remove_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.Remove_Params',
@@ -627,7 +628,7 @@ downloads.mojom.PageHandler_Remove_ParamsSpec = {
 };
 
 // ParamsSpec for Undo
-downloads.mojom.PageHandler_Undo_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_Undo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.Undo_Params',
@@ -640,7 +641,7 @@ downloads.mojom.PageHandler_Undo_ParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-downloads.mojom.PageHandler_Cancel_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.Cancel_Params',
@@ -654,7 +655,7 @@ downloads.mojom.PageHandler_Cancel_ParamsSpec = {
 };
 
 // ParamsSpec for ClearAll
-downloads.mojom.PageHandler_ClearAll_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_ClearAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.ClearAll_Params',
@@ -667,7 +668,7 @@ downloads.mojom.PageHandler_ClearAll_ParamsSpec = {
 };
 
 // ParamsSpec for OpenDownloadsFolderRequiringGesture
-downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.OpenDownloadsFolderRequiringGesture_Params',
@@ -680,7 +681,7 @@ downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec = {
 };
 
 // ParamsSpec for OpenEsbSettings
-downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_OpenEsbSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.OpenEsbSettings_Params',
@@ -693,7 +694,7 @@ downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec = {
 };
 
 // ParamsSpec for LogEsbPromotionRowViewed
-downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.LogEsbPromotionRowViewed_Params',
@@ -706,7 +707,7 @@ downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec = {
 };
 
 // ParamsSpec for OpenDuringScanningRequiringGesture
-downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.OpenDuringScanningRequiringGesture_Params',
@@ -720,7 +721,7 @@ downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec = {
 };
 
 // ParamsSpec for ReviewDangerousRequiringGesture
-downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.ReviewDangerousRequiringGesture_Params',
@@ -734,7 +735,7 @@ downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec = {
 };
 
 // ParamsSpec for DeepScan
-downloads.mojom.PageHandler_DeepScan_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_DeepScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.DeepScan_Params',
@@ -748,7 +749,7 @@ downloads.mojom.PageHandler_DeepScan_ParamsSpec = {
 };
 
 // ParamsSpec for BypassDeepScanRequiringGesture
-downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.BypassDeepScanRequiringGesture_Params',
@@ -762,7 +763,7 @@ downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec = {
 };
 
 // ParamsSpec for IsEligibleForEsbPromo
-downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
+downloads.mojom.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.IsEligibleForEsbPromo_Params',
@@ -774,7 +775,7 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
   }
 };
 
-downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
+downloads.mojom.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.PageHandler.IsEligibleForEsbPromo_ResponseParams',
@@ -788,29 +789,29 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-downloads.mojom.PageHandlerPtr = downloads.mojom.PageHandlerRemote;
-downloads.mojom.PageHandlerRequest = downloads.mojom.PageHandlerPendingReceiver;
+downloads.mojom.mojom.PageHandlerPtr = downloads.mojom.mojom.PageHandlerRemote;
+downloads.mojom.mojom.PageHandlerRequest = downloads.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-downloads.mojom.Page = {};
+downloads.mojom.mojom.Page = {};
 
-downloads.mojom.PagePendingReceiver = class {
+downloads.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-downloads.mojom.PageRemote = class {
+downloads.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'downloads.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      downloads.mojom.PagePendingReceiver,
+      downloads.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new downloads.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new downloads.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -822,7 +823,7 @@ downloads.mojom.PageRemote = class {
   }
 };
 
-downloads.mojom.PageRemoteCallHandler = class {
+downloads.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -831,7 +832,7 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      downloads.mojom.Page_RemoveItem_ParamsSpec,
+      downloads.mojom.mojom.Page_RemoveItem_ParamsSpec,
       null,
       [index]);
   }
@@ -840,7 +841,7 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      downloads.mojom.Page_UpdateItem_ParamsSpec,
+      downloads.mojom.mojom.Page_UpdateItem_ParamsSpec,
       null,
       [index, data]);
   }
@@ -849,7 +850,7 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      downloads.mojom.Page_InsertItems_ParamsSpec,
+      downloads.mojom.mojom.Page_InsertItems_ParamsSpec,
       null,
       [index, items]);
   }
@@ -858,15 +859,15 @@ downloads.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      downloads.mojom.Page_ClearAll_ParamsSpec,
+      downloads.mojom.mojom.Page_ClearAll_ParamsSpec,
       null,
       []);
   }
 
 };
 
-downloads.mojom.Page.getRemote = function() {
-  let remote = new downloads.mojom.PageRemote();
+downloads.mojom.mojom.Page.getRemote = function() {
+  let remote = new downloads.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -876,7 +877,7 @@ downloads.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for RemoveItem
-downloads.mojom.Page_RemoveItem_ParamsSpec = {
+downloads.mojom.mojom.Page_RemoveItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.Page.RemoveItem_Params',
@@ -890,14 +891,14 @@ downloads.mojom.Page_RemoveItem_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateItem
-downloads.mojom.Page_UpdateItem_ParamsSpec = {
+downloads.mojom.mojom.Page_UpdateItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.Page.UpdateItem_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: downloads.mojom.DataSpec, nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: downloads.mojom.DataSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -905,14 +906,14 @@ downloads.mojom.Page_UpdateItem_ParamsSpec = {
 };
 
 // ParamsSpec for InsertItems
-downloads.mojom.Page_InsertItems_ParamsSpec = {
+downloads.mojom.mojom.Page_InsertItems_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.Page.InsertItems_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(downloads.mojom.DataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(downloads.mojom.DataSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -920,7 +921,7 @@ downloads.mojom.Page_InsertItems_ParamsSpec = {
 };
 
 // ParamsSpec for ClearAll
-downloads.mojom.Page_ClearAll_ParamsSpec = {
+downloads.mojom.mojom.Page_ClearAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'downloads.mojom.Page.ClearAll_Params',
@@ -933,6 +934,6 @@ downloads.mojom.Page_ClearAll_ParamsSpec = {
 };
 
 // Legacy compatibility
-downloads.mojom.PagePtr = downloads.mojom.PageRemote;
-downloads.mojom.PageRequest = downloads.mojom.PagePendingReceiver;
+downloads.mojom.mojom.PagePtr = downloads.mojom.mojom.PageRemote;
+downloads.mojom.mojom.PageRequest = downloads.mojom.mojom.PagePendingReceiver;
 

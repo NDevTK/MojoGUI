@@ -10,14 +10,14 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Struct: TrustedVaultKey
-chrome.mojom.TrustedVaultKeySpec = {
+chrome.mojom.mojom.TrustedVaultKeySpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.TrustedVaultKey',
       packedSize: 24,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,24 +25,24 @@ chrome.mojom.TrustedVaultKeySpec = {
 };
 
 // Interface: TrustedVaultEncryptionKeysExtension
-chrome.mojom.TrustedVaultEncryptionKeysExtension = {};
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtension = {};
 
-chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver = class {
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote = class {
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.TrustedVaultEncryptionKeysExtension';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver,
+      chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote = class {
   }
 };
 
-chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +63,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec,
+      chrome.mojom.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec,
       null,
       [gaia_id, encryption_keys]);
   }
@@ -72,15 +72,15 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec,
+      chrome.mojom.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec,
       null,
       [gaia_id, public_key, method_type_hint]);
   }
 
 };
 
-chrome.mojom.TrustedVaultEncryptionKeysExtension.getRemote = function() {
-  let remote = new chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote();
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtension.getRemote = function() {
+  let remote = new chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +90,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension.getRemote = function() {
 };
 
 // ParamsSpec for SetEncryptionKeys
-chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = {
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.TrustedVaultEncryptionKeysExtension.SetEncryptionKeys_Params',
@@ -105,7 +105,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = 
 };
 
 // ParamsSpec for AddTrustedRecoveryMethod
-chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = {
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.TrustedVaultEncryptionKeysExtension.AddTrustedRecoveryMethod_Params',
@@ -121,6 +121,6 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params
 };
 
 // Legacy compatibility
-chrome.mojom.TrustedVaultEncryptionKeysExtensionPtr = chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote;
-chrome.mojom.TrustedVaultEncryptionKeysExtensionRequest = chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver;
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionPtr = chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionRemote;
+chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionRequest = chrome.mojom.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver;
 

@@ -10,7 +10,7 @@ ax.mojom = ax.mojom || {};
 
 
 // Struct: AXTreeChecks
-ax.mojom.AXTreeChecksSpec = {
+ax.mojom.mojom.AXTreeChecksSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXTreeChecks',

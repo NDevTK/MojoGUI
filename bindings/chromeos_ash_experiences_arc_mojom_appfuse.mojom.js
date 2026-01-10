@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: AppfuseHost
-arc.mojom.AppfuseHost = {};
+arc.mojom.mojom.AppfuseHost = {};
 
-arc.mojom.AppfuseHostPendingReceiver = class {
+arc.mojom.mojom.AppfuseHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.AppfuseHostRemote = class {
+arc.mojom.mojom.AppfuseHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AppfuseHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.AppfuseHostPendingReceiver,
+      arc.mojom.mojom.AppfuseHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.AppfuseHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.AppfuseHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.AppfuseHostRemote = class {
   }
 };
 
-arc.mojom.AppfuseHostRemoteCallHandler = class {
+arc.mojom.mojom.AppfuseHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ arc.mojom.AppfuseHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.AppfuseHost_Mount_ParamsSpec,
-      arc.mojom.AppfuseHost_Mount_ResponseParamsSpec,
+      arc.mojom.mojom.AppfuseHost_Mount_ParamsSpec,
+      arc.mojom.mojom.AppfuseHost_Mount_ResponseParamsSpec,
       [uid, mount_id]);
   }
 
@@ -57,8 +57,8 @@ arc.mojom.AppfuseHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.AppfuseHost_Unmount_ParamsSpec,
-      arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec,
+      arc.mojom.mojom.AppfuseHost_Unmount_ParamsSpec,
+      arc.mojom.mojom.AppfuseHost_Unmount_ResponseParamsSpec,
       [uid, mount_id]);
   }
 
@@ -66,15 +66,15 @@ arc.mojom.AppfuseHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.AppfuseHost_OpenFile_ParamsSpec,
-      arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec,
+      arc.mojom.mojom.AppfuseHost_OpenFile_ParamsSpec,
+      arc.mojom.mojom.AppfuseHost_OpenFile_ResponseParamsSpec,
       [uid, mount_id, file_id, flags]);
   }
 
 };
 
-arc.mojom.AppfuseHost.getRemote = function() {
-  let remote = new arc.mojom.AppfuseHostRemote();
+arc.mojom.mojom.AppfuseHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.AppfuseHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ arc.mojom.AppfuseHost.getRemote = function() {
 };
 
 // ParamsSpec for Mount
-arc.mojom.AppfuseHost_Mount_ParamsSpec = {
+arc.mojom.mojom.AppfuseHost_Mount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppfuseHost.Mount_Params',
@@ -98,7 +98,7 @@ arc.mojom.AppfuseHost_Mount_ParamsSpec = {
   }
 };
 
-arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = {
+arc.mojom.mojom.AppfuseHost_Mount_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppfuseHost.Mount_ResponseParams',
@@ -112,7 +112,7 @@ arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Unmount
-arc.mojom.AppfuseHost_Unmount_ParamsSpec = {
+arc.mojom.mojom.AppfuseHost_Unmount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppfuseHost.Unmount_Params',
@@ -126,7 +126,7 @@ arc.mojom.AppfuseHost_Unmount_ParamsSpec = {
   }
 };
 
-arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = {
+arc.mojom.mojom.AppfuseHost_Unmount_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppfuseHost.Unmount_ResponseParams',
@@ -140,7 +140,7 @@ arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenFile
-arc.mojom.AppfuseHost_OpenFile_ParamsSpec = {
+arc.mojom.mojom.AppfuseHost_OpenFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppfuseHost.OpenFile_Params',
@@ -156,7 +156,7 @@ arc.mojom.AppfuseHost_OpenFile_ParamsSpec = {
   }
 };
 
-arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = {
+arc.mojom.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppfuseHost.OpenFile_ResponseParams',
@@ -170,29 +170,29 @@ arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.AppfuseHostPtr = arc.mojom.AppfuseHostRemote;
-arc.mojom.AppfuseHostRequest = arc.mojom.AppfuseHostPendingReceiver;
+arc.mojom.mojom.AppfuseHostPtr = arc.mojom.mojom.AppfuseHostRemote;
+arc.mojom.mojom.AppfuseHostRequest = arc.mojom.mojom.AppfuseHostPendingReceiver;
 
 
 // Interface: AppfuseInstance
-arc.mojom.AppfuseInstance = {};
+arc.mojom.mojom.AppfuseInstance = {};
 
-arc.mojom.AppfuseInstancePendingReceiver = class {
+arc.mojom.mojom.AppfuseInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.AppfuseInstanceRemote = class {
+arc.mojom.mojom.AppfuseInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.AppfuseInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.AppfuseInstancePendingReceiver,
+      arc.mojom.mojom.AppfuseInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.AppfuseInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.AppfuseInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -204,7 +204,7 @@ arc.mojom.AppfuseInstanceRemote = class {
   }
 };
 
-arc.mojom.AppfuseInstanceRemoteCallHandler = class {
+arc.mojom.mojom.AppfuseInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -213,15 +213,15 @@ arc.mojom.AppfuseInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.AppfuseInstance_Init_ParamsSpec,
+      arc.mojom.mojom.AppfuseInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.AppfuseInstance.getRemote = function() {
-  let remote = new arc.mojom.AppfuseInstanceRemote();
+arc.mojom.mojom.AppfuseInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.AppfuseInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -231,7 +231,7 @@ arc.mojom.AppfuseInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.AppfuseInstance_Init_ParamsSpec = {
+arc.mojom.mojom.AppfuseInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AppfuseInstance.Init_Params',
@@ -245,6 +245,6 @@ arc.mojom.AppfuseInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.AppfuseInstancePtr = arc.mojom.AppfuseInstanceRemote;
-arc.mojom.AppfuseInstanceRequest = arc.mojom.AppfuseInstancePendingReceiver;
+arc.mojom.mojom.AppfuseInstancePtr = arc.mojom.mojom.AppfuseInstanceRemote;
+arc.mojom.mojom.AppfuseInstanceRequest = arc.mojom.mojom.AppfuseInstancePendingReceiver;
 

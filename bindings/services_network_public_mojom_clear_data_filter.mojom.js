@@ -7,17 +7,18 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: Type
-network.mojom.Type = {
+network.mojom.mojom.Type = {
   DELETE_MATCHES: 0,
   KEEP_MATCHES: 1,
 };
-network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClearDataFilter
-network.mojom.ClearDataFilterSpec = {
+network.mojom.mojom.ClearDataFilterSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ClearDataFilter',

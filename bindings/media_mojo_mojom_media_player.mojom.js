@@ -7,27 +7,29 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: MediaPlayer
-media.mojom.MediaPlayer = {};
+media.mojom.mojom.MediaPlayer = {};
 
-media.mojom.MediaPlayerPendingReceiver = class {
+media.mojom.mojom.MediaPlayerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaPlayerRemote = class {
+media.mojom.mojom.MediaPlayerRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaPlayer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaPlayerPendingReceiver,
+      media.mojom.mojom.MediaPlayerPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaPlayerRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaPlayerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ media.mojom.MediaPlayerRemote = class {
   }
 };
 
-media.mojom.MediaPlayerRemoteCallHandler = class {
+media.mojom.mojom.MediaPlayerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaPlayer_RequestPlay_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestPlay_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +59,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaPlayer_RequestPause_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestPause_ParamsSpec,
       null,
       [triggered_by_user]);
   }
@@ -66,7 +68,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestSeekForward_ParamsSpec,
       null,
       [seek_time]);
   }
@@ -75,7 +77,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec,
       null,
       [seek_time]);
   }
@@ -84,7 +86,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestSeekTo_ParamsSpec,
       null,
       [seek_time]);
   }
@@ -93,7 +95,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +104,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.MediaPlayer_RequestMute_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestMute_ParamsSpec,
       null,
       [mute]);
   }
@@ -111,7 +113,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec,
       null,
       [multiplier]);
   }
@@ -120,7 +122,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.MediaPlayer_SetPersistentState_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_SetPersistentState_ParamsSpec,
       null,
       [persistent]);
   }
@@ -129,7 +131,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec,
       null,
       [enabled]);
   }
@@ -138,7 +140,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec,
       null,
       [sink_id]);
   }
@@ -147,7 +149,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec,
       null,
       []);
   }
@@ -156,7 +158,7 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec,
       null,
       []);
   }
@@ -165,8 +167,8 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      media.mojom.MediaPlayer_RequestVisibility_ParamsSpec,
-      media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestVisibility_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec,
       []);
   }
 
@@ -174,15 +176,15 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec,
+      media.mojom.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec,
       null,
       [auto_picture_in_picture_info]);
   }
 
 };
 
-media.mojom.MediaPlayer.getRemote = function() {
-  let remote = new media.mojom.MediaPlayerRemote();
+media.mojom.mojom.MediaPlayer.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaPlayerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -192,7 +194,7 @@ media.mojom.MediaPlayer.getRemote = function() {
 };
 
 // ParamsSpec for RequestPlay
-media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestPlay_Params',
@@ -205,7 +207,7 @@ media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
 };
 
 // ParamsSpec for RequestPause
-media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestPause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestPause_Params',
@@ -219,7 +221,7 @@ media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSeekForward
-media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestSeekForward_Params',
@@ -233,7 +235,7 @@ media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSeekBackward
-media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestSeekBackward_Params',
@@ -247,7 +249,7 @@ media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSeekTo
-media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestSeekTo_Params',
@@ -261,7 +263,7 @@ media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
 };
 
 // ParamsSpec for RequestEnterPictureInPicture
-media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestEnterPictureInPicture_Params',
@@ -274,7 +276,7 @@ media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
 };
 
 // ParamsSpec for RequestMute
-media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestMute_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestMute_Params',
@@ -288,7 +290,7 @@ media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
 };
 
 // ParamsSpec for SetVolumeMultiplier
-media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.SetVolumeMultiplier_Params',
@@ -302,7 +304,7 @@ media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
 };
 
 // ParamsSpec for SetPersistentState
-media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.SetPersistentState_Params',
@@ -316,7 +318,7 @@ media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
 };
 
 // ParamsSpec for SetPowerExperimentState
-media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.SetPowerExperimentState_Params',
@@ -330,7 +332,7 @@ media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
 };
 
 // ParamsSpec for SetAudioSinkId
-media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.SetAudioSinkId_Params',
@@ -344,7 +346,7 @@ media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
 };
 
 // ParamsSpec for SuspendForFrameClosed
-media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.SuspendForFrameClosed_Params',
@@ -357,7 +359,7 @@ media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
 };
 
 // ParamsSpec for RequestMediaRemoting
-media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestMediaRemoting_Params',
@@ -370,7 +372,7 @@ media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
 };
 
 // ParamsSpec for RequestVisibility
-media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestVisibility_Params',
@@ -382,7 +384,7 @@ media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
   }
 };
 
-media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
+media.mojom.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RequestVisibility_ResponseParams',
@@ -396,7 +398,7 @@ media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RecordAutoPictureInPictureInfo
-media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
+media.mojom.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayer.RecordAutoPictureInPictureInfo_Params',
@@ -410,29 +412,29 @@ media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaPlayerPtr = media.mojom.MediaPlayerRemote;
-media.mojom.MediaPlayerRequest = media.mojom.MediaPlayerPendingReceiver;
+media.mojom.mojom.MediaPlayerPtr = media.mojom.mojom.MediaPlayerRemote;
+media.mojom.mojom.MediaPlayerRequest = media.mojom.mojom.MediaPlayerPendingReceiver;
 
 
 // Interface: MediaPlayerObserverClient
-media.mojom.MediaPlayerObserverClient = {};
+media.mojom.mojom.MediaPlayerObserverClient = {};
 
-media.mojom.MediaPlayerObserverClientPendingReceiver = class {
+media.mojom.mojom.MediaPlayerObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaPlayerObserverClientRemote = class {
+media.mojom.mojom.MediaPlayerObserverClientRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaPlayerObserverClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaPlayerObserverClientPendingReceiver,
+      media.mojom.mojom.MediaPlayerObserverClientPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaPlayerObserverClientRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaPlayerObserverClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -444,7 +446,7 @@ media.mojom.MediaPlayerObserverClientRemote = class {
   }
 };
 
-media.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
+media.mojom.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -453,15 +455,15 @@ media.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec,
-      media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec,
+      media.mojom.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec,
       []);
   }
 
 };
 
-media.mojom.MediaPlayerObserverClient.getRemote = function() {
-  let remote = new media.mojom.MediaPlayerObserverClientRemote();
+media.mojom.mojom.MediaPlayerObserverClient.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaPlayerObserverClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -471,7 +473,7 @@ media.mojom.MediaPlayerObserverClient.getRemote = function() {
 };
 
 // ParamsSpec for GetHasPlayedBefore
-media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserverClient.GetHasPlayedBefore_Params',
@@ -483,7 +485,7 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
   }
 };
 
-media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
+media.mojom.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserverClient.GetHasPlayedBefore_ResponseParams',
@@ -497,29 +499,29 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaPlayerObserverClientPtr = media.mojom.MediaPlayerObserverClientRemote;
-media.mojom.MediaPlayerObserverClientRequest = media.mojom.MediaPlayerObserverClientPendingReceiver;
+media.mojom.mojom.MediaPlayerObserverClientPtr = media.mojom.mojom.MediaPlayerObserverClientRemote;
+media.mojom.mojom.MediaPlayerObserverClientRequest = media.mojom.mojom.MediaPlayerObserverClientPendingReceiver;
 
 
 // Interface: MediaPlayerObserver
-media.mojom.MediaPlayerObserver = {};
+media.mojom.mojom.MediaPlayerObserver = {};
 
-media.mojom.MediaPlayerObserverPendingReceiver = class {
+media.mojom.mojom.MediaPlayerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaPlayerObserverRemote = class {
+media.mojom.mojom.MediaPlayerObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaPlayerObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaPlayerObserverPendingReceiver,
+      media.mojom.mojom.MediaPlayerObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaPlayerObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaPlayerObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -531,7 +533,7 @@ media.mojom.MediaPlayerObserverRemote = class {
   }
 };
 
-media.mojom.MediaPlayerObserverRemoteCallHandler = class {
+media.mojom.mojom.MediaPlayerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -540,7 +542,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec,
       null,
       []);
   }
@@ -549,7 +551,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec,
       null,
       [stream_ended]);
   }
@@ -558,7 +560,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec,
       null,
       [muted]);
   }
@@ -567,7 +569,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec,
       null,
       [has_audio, has_video, content_type]);
   }
@@ -576,7 +578,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec,
       null,
       [media_position]);
   }
@@ -585,7 +587,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec,
       null,
       [status]);
   }
@@ -594,7 +596,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec,
       null,
       [size]);
   }
@@ -603,7 +605,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec,
       null,
       [available]);
   }
@@ -612,7 +614,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec,
       null,
       [hashed_device_id]);
   }
@@ -621,7 +623,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec,
       null,
       [uses_audio_service]);
   }
@@ -630,7 +632,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec,
       null,
       []);
   }
@@ -639,7 +641,7 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec,
       null,
       [remote_playback_metadata]);
   }
@@ -648,15 +650,15 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec,
+      media.mojom.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec,
       null,
       [meets_visibility_threshold]);
   }
 
 };
 
-media.mojom.MediaPlayerObserver.getRemote = function() {
-  let remote = new media.mojom.MediaPlayerObserverRemote();
+media.mojom.mojom.MediaPlayerObserver.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaPlayerObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -666,7 +668,7 @@ media.mojom.MediaPlayerObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnMediaPlaying
-media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnMediaPlaying_Params',
@@ -679,7 +681,7 @@ media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
 };
 
 // ParamsSpec for OnMediaPaused
-media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnMediaPaused_Params',
@@ -693,7 +695,7 @@ media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
 };
 
 // ParamsSpec for OnMutedStatusChanged
-media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnMutedStatusChanged_Params',
@@ -707,15 +709,15 @@ media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnMediaMetadataChanged
-media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnMediaMetadataChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'has_audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_video', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_video', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -723,7 +725,7 @@ media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnMediaPositionStateChanged
-media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnMediaPositionStateChanged_Params',
@@ -737,7 +739,7 @@ media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnMediaEffectivelyFullscreenChanged
-media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnMediaEffectivelyFullscreenChanged_Params',
@@ -751,7 +753,7 @@ media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec =
 };
 
 // ParamsSpec for OnMediaSizeChanged
-media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnMediaSizeChanged_Params',
@@ -765,7 +767,7 @@ media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnPictureInPictureAvailabilityChanged
-media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnPictureInPictureAvailabilityChanged_Params',
@@ -779,7 +781,7 @@ media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec
 };
 
 // ParamsSpec for OnAudioOutputSinkChanged
-media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnAudioOutputSinkChanged_Params',
@@ -793,7 +795,7 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnUseAudioServiceChanged
-media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnUseAudioServiceChanged_Params',
@@ -807,7 +809,7 @@ media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnAudioOutputSinkChangingDisabled
-media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnAudioOutputSinkChangingDisabled_Params',
@@ -820,7 +822,7 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
 };
 
 // ParamsSpec for OnRemotePlaybackMetadataChange
-media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnRemotePlaybackMetadataChange_Params',
@@ -834,7 +836,7 @@ media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnVideoVisibilityChanged
-media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
+media.mojom.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerObserver.OnVideoVisibilityChanged_Params',
@@ -848,29 +850,29 @@ media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaPlayerObserverPtr = media.mojom.MediaPlayerObserverRemote;
-media.mojom.MediaPlayerObserverRequest = media.mojom.MediaPlayerObserverPendingReceiver;
+media.mojom.mojom.MediaPlayerObserverPtr = media.mojom.mojom.MediaPlayerObserverRemote;
+media.mojom.mojom.MediaPlayerObserverRequest = media.mojom.mojom.MediaPlayerObserverPendingReceiver;
 
 
 // Interface: MediaPlayerHost
-media.mojom.MediaPlayerHost = {};
+media.mojom.mojom.MediaPlayerHost = {};
 
-media.mojom.MediaPlayerHostPendingReceiver = class {
+media.mojom.mojom.MediaPlayerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaPlayerHostRemote = class {
+media.mojom.mojom.MediaPlayerHostRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaPlayerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaPlayerHostPendingReceiver,
+      media.mojom.mojom.MediaPlayerHostPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaPlayerHostRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaPlayerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -882,7 +884,7 @@ media.mojom.MediaPlayerHostRemote = class {
   }
 };
 
-media.mojom.MediaPlayerHostRemoteCallHandler = class {
+media.mojom.mojom.MediaPlayerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -891,15 +893,15 @@ media.mojom.MediaPlayerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec,
+      media.mojom.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec,
       null,
       [player_remote, observer, player_id]);
   }
 
 };
 
-media.mojom.MediaPlayerHost.getRemote = function() {
-  let remote = new media.mojom.MediaPlayerHostRemote();
+media.mojom.mojom.MediaPlayerHost.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaPlayerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -909,7 +911,7 @@ media.mojom.MediaPlayerHost.getRemote = function() {
 };
 
 // ParamsSpec for OnMediaPlayerAdded
-media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
+media.mojom.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerHost.OnMediaPlayerAdded_Params',
@@ -925,6 +927,6 @@ media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaPlayerHostPtr = media.mojom.MediaPlayerHostRemote;
-media.mojom.MediaPlayerHostRequest = media.mojom.MediaPlayerHostPendingReceiver;
+media.mojom.mojom.MediaPlayerHostPtr = media.mojom.mojom.MediaPlayerHostRemote;
+media.mojom.mojom.MediaPlayerHostRequest = media.mojom.mojom.MediaPlayerHostPendingReceiver;
 

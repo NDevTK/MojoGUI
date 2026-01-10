@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: Range
-gfx.mojom.RangeSpec = {
+gfx.mojom.mojom.RangeSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Range',
@@ -25,7 +25,7 @@ gfx.mojom.RangeSpec = {
 };
 
 // Struct: RangeF
-gfx.mojom.RangeFSpec = {
+gfx.mojom.mojom.RangeFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.RangeF',

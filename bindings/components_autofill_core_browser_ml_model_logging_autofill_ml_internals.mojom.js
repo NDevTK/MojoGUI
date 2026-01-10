@@ -7,18 +7,19 @@
 // Module namespace
 var autofill_ml_internals = autofill_ml_internals || {};
 autofill_ml_internals.mojom = autofill_ml_internals.mojom || {};
+var url = url || {};
 
 
 // Enum: OptimizationTarget
-autofill_ml_internals.mojom.OptimizationTarget = {
+autofill_ml_internals.mojom.mojom.OptimizationTarget = {
   kUnknown: 0,
   kAutofill: 1,
   kPassword: 2,
 };
-autofill_ml_internals.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum() };
+autofill_ml_internals.mojom.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum() };
 
 // Struct: SelectOption
-autofill_ml_internals.mojom.SelectOptionSpec = {
+autofill_ml_internals.mojom.mojom.SelectOptionSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.SelectOption',
@@ -33,7 +34,7 @@ autofill_ml_internals.mojom.SelectOptionSpec = {
 };
 
 // Struct: MlFieldPredictionLog
-autofill_ml_internals.mojom.MlFieldPredictionLogSpec = {
+autofill_ml_internals.mojom.mojom.MlFieldPredictionLogSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.MlFieldPredictionLog',
@@ -55,7 +56,7 @@ autofill_ml_internals.mojom.MlFieldPredictionLogSpec = {
 };
 
 // Struct: MlPredictionLog
-autofill_ml_internals.mojom.MlPredictionLogSpec = {
+autofill_ml_internals.mojom.mojom.MlPredictionLogSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.MlPredictionLog',
@@ -76,24 +77,24 @@ autofill_ml_internals.mojom.MlPredictionLogSpec = {
 };
 
 // Interface: Page
-autofill_ml_internals.mojom.Page = {};
+autofill_ml_internals.mojom.mojom.Page = {};
 
-autofill_ml_internals.mojom.PagePendingReceiver = class {
+autofill_ml_internals.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-autofill_ml_internals.mojom.PageRemote = class {
+autofill_ml_internals.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'autofill_ml_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      autofill_ml_internals.mojom.PagePendingReceiver,
+      autofill_ml_internals.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new autofill_ml_internals.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new autofill_ml_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -105,7 +106,7 @@ autofill_ml_internals.mojom.PageRemote = class {
   }
 };
 
-autofill_ml_internals.mojom.PageRemoteCallHandler = class {
+autofill_ml_internals.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -114,15 +115,15 @@ autofill_ml_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec,
+      autofill_ml_internals.mojom.mojom.Page_OnLogAdded_ParamsSpec,
       null,
       [log]);
   }
 
 };
 
-autofill_ml_internals.mojom.Page.getRemote = function() {
-  let remote = new autofill_ml_internals.mojom.PageRemote();
+autofill_ml_internals.mojom.mojom.Page.getRemote = function() {
+  let remote = new autofill_ml_internals.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -132,7 +133,7 @@ autofill_ml_internals.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnLogAdded
-autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
+autofill_ml_internals.mojom.mojom.Page_OnLogAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.Page.OnLogAdded_Params',
@@ -146,29 +147,29 @@ autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = {
 };
 
 // Legacy compatibility
-autofill_ml_internals.mojom.PagePtr = autofill_ml_internals.mojom.PageRemote;
-autofill_ml_internals.mojom.PageRequest = autofill_ml_internals.mojom.PagePendingReceiver;
+autofill_ml_internals.mojom.mojom.PagePtr = autofill_ml_internals.mojom.mojom.PageRemote;
+autofill_ml_internals.mojom.mojom.PageRequest = autofill_ml_internals.mojom.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
-autofill_ml_internals.mojom.PageHandler = {};
+autofill_ml_internals.mojom.mojom.PageHandler = {};
 
-autofill_ml_internals.mojom.PageHandlerPendingReceiver = class {
+autofill_ml_internals.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-autofill_ml_internals.mojom.PageHandlerRemote = class {
+autofill_ml_internals.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'autofill_ml_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      autofill_ml_internals.mojom.PageHandlerPendingReceiver,
+      autofill_ml_internals.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new autofill_ml_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new autofill_ml_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -180,7 +181,7 @@ autofill_ml_internals.mojom.PageHandlerRemote = class {
   }
 };
 
-autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
+autofill_ml_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -189,15 +190,15 @@ autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec,
+      autofill_ml_internals.mojom.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
 
 };
 
-autofill_ml_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new autofill_ml_internals.mojom.PageHandlerRemote();
+autofill_ml_internals.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new autofill_ml_internals.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -207,7 +208,7 @@ autofill_ml_internals.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for SetPage
-autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
+autofill_ml_internals.mojom.mojom.PageHandler_SetPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'autofill_ml_internals.mojom.PageHandler.SetPage_Params',
@@ -221,6 +222,6 @@ autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = {
 };
 
 // Legacy compatibility
-autofill_ml_internals.mojom.PageHandlerPtr = autofill_ml_internals.mojom.PageHandlerRemote;
-autofill_ml_internals.mojom.PageHandlerRequest = autofill_ml_internals.mojom.PageHandlerPendingReceiver;
+autofill_ml_internals.mojom.mojom.PageHandlerPtr = autofill_ml_internals.mojom.mojom.PageHandlerRemote;
+autofill_ml_internals.mojom.mojom.PageHandlerRequest = autofill_ml_internals.mojom.mojom.PageHandlerPendingReceiver;
 

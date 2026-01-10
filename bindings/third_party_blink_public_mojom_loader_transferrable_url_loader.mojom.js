@@ -7,20 +7,21 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: TransferrableURLLoader
-blink.mojom.TransferrableURLLoaderSpec = {
+blink.mojom.mojom.TransferrableURLLoaderSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TransferrableURLLoader',
       packedSize: 40,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'url_loader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'url_loader_client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'url_loader', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'url_loader_client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
+        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

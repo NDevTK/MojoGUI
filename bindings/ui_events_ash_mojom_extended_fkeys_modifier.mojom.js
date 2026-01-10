@@ -10,10 +10,10 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: ExtendedFkeysModifier
-ui.mojom.ExtendedFkeysModifier = {
+ui.mojom.mojom.ExtendedFkeysModifier = {
   kDisabled: 0,
   kAlt: 1,
   kShift: 2,
   kCtrlShift: 3,
 };
-ui.mojom.ExtendedFkeysModifierSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.ExtendedFkeysModifierSpec = { $: mojo.internal.Enum() };

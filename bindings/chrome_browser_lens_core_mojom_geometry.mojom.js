@@ -7,26 +7,28 @@
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: CoordinateType
-lens.mojom.CoordinateType = {
+lens.mojom.mojom.CoordinateType = {
   kUnspecified: 0,
   kNormalized: 1,
   kImage: 2,
 };
-lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
+lens.mojom.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CenterRotatedBox
-lens.mojom.CenterRotatedBoxSpec = {
+lens.mojom.mojom.CenterRotatedBoxSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.CenterRotatedBox',
       packedSize: 32,
       fields: [
         { name: 'box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'rotation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'kUnspecified', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'kUnspecified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -34,7 +36,7 @@ lens.mojom.CenterRotatedBoxSpec = {
 };
 
 // Struct: Geometry
-lens.mojom.GeometrySpec = {
+lens.mojom.mojom.GeometrySpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.Geometry',

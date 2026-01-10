@@ -10,14 +10,14 @@ media.mojom = media.mojom || {};
 
 
 // Enum: ProtectionType
-media.mojom.ProtectionType = {
+media.mojom.mojom.ProtectionType = {
   NONE: 0,
   HDCP: 1,
 };
-media.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkType
-media.mojom.LinkType = {
+media.mojom.mojom.LinkType = {
   NONE: 0,
   UNKNOWN: 1,
   INTERNAL: 2,
@@ -27,27 +27,27 @@ media.mojom.LinkType = {
   DISPLAYPORT: 6,
   NETWORK: 7,
 };
-media.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: OutputProtection
-media.mojom.OutputProtection = {};
+media.mojom.mojom.OutputProtection = {};
 
-media.mojom.OutputProtectionPendingReceiver = class {
+media.mojom.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.OutputProtectionRemote = class {
+media.mojom.mojom.OutputProtectionRemote = class {
   static get $interfaceName() {
     return 'media.mojom.OutputProtection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.OutputProtectionPendingReceiver,
+      media.mojom.mojom.OutputProtectionPendingReceiver,
       handle);
-    this.$ = new media.mojom.OutputProtectionRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.OutputProtectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -59,7 +59,7 @@ media.mojom.OutputProtectionRemote = class {
   }
 };
 
-media.mojom.OutputProtectionRemoteCallHandler = class {
+media.mojom.mojom.OutputProtectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -68,8 +68,8 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.OutputProtection_QueryStatus_ParamsSpec,
-      media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
+      media.mojom.mojom.OutputProtection_QueryStatus_ParamsSpec,
+      media.mojom.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
       []);
   }
 
@@ -77,15 +77,15 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.OutputProtection_EnableProtection_ParamsSpec,
-      media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
+      media.mojom.mojom.OutputProtection_EnableProtection_ParamsSpec,
+      media.mojom.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
       [desired_protection_mask]);
   }
 
 };
 
-media.mojom.OutputProtection.getRemote = function() {
-  let remote = new media.mojom.OutputProtectionRemote();
+media.mojom.mojom.OutputProtection.getRemote = function() {
+  let remote = new media.mojom.mojom.OutputProtectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -95,7 +95,7 @@ media.mojom.OutputProtection.getRemote = function() {
 };
 
 // ParamsSpec for QueryStatus
-media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
+media.mojom.mojom.OutputProtection_QueryStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.OutputProtection.QueryStatus_Params',
@@ -107,15 +107,15 @@ media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
   }
 };
 
-media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
+media.mojom.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.OutputProtection.QueryStatus_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'link_mask', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'protection_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'link_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'protection_mask', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -123,7 +123,7 @@ media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EnableProtection
-media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
+media.mojom.mojom.OutputProtection_EnableProtection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.OutputProtection.EnableProtection_Params',
@@ -136,7 +136,7 @@ media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
   }
 };
 
-media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
+media.mojom.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.OutputProtection.EnableProtection_ResponseParams',
@@ -150,6 +150,6 @@ media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.OutputProtectionPtr = media.mojom.OutputProtectionRemote;
-media.mojom.OutputProtectionRequest = media.mojom.OutputProtectionPendingReceiver;
+media.mojom.mojom.OutputProtectionPtr = media.mojom.mojom.OutputProtectionRemote;
+media.mojom.mojom.OutputProtectionRequest = media.mojom.mojom.OutputProtectionPendingReceiver;
 

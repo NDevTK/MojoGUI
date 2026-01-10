@@ -7,27 +7,29 @@
 // Module namespace
 var tracked_element = tracked_element || {};
 tracked_element.mojom = tracked_element.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: TrackedElementHandler
-tracked_element.mojom.TrackedElementHandler = {};
+tracked_element.mojom.mojom.TrackedElementHandler = {};
 
-tracked_element.mojom.TrackedElementHandlerPendingReceiver = class {
+tracked_element.mojom.mojom.TrackedElementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracked_element.mojom.TrackedElementHandlerRemote = class {
+tracked_element.mojom.mojom.TrackedElementHandlerRemote = class {
   static get $interfaceName() {
     return 'tracked_element.mojom.TrackedElementHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracked_element.mojom.TrackedElementHandlerPendingReceiver,
+      tracked_element.mojom.mojom.TrackedElementHandlerPendingReceiver,
       handle);
-    this.$ = new tracked_element.mojom.TrackedElementHandlerRemoteCallHandler(this.proxy);
+    this.$ = new tracked_element.mojom.mojom.TrackedElementHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ tracked_element.mojom.TrackedElementHandlerRemote = class {
   }
 };
 
-tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
+tracked_element.mojom.mojom.TrackedElementHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec,
+      tracked_element.mojom.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec,
       null,
       [native_identifier, visible, rect]);
   }
@@ -57,7 +59,7 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec,
+      tracked_element.mojom.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec,
       null,
       [native_identifier]);
   }
@@ -66,15 +68,15 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec,
+      tracked_element.mojom.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec,
       null,
       [native_identifier, custom_event_name]);
   }
 
 };
 
-tracked_element.mojom.TrackedElementHandler.getRemote = function() {
-  let remote = new tracked_element.mojom.TrackedElementHandlerRemote();
+tracked_element.mojom.mojom.TrackedElementHandler.getRemote = function() {
+  let remote = new tracked_element.mojom.mojom.TrackedElementHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,15 +86,15 @@ tracked_element.mojom.TrackedElementHandler.getRemote = function() {
 };
 
 // ParamsSpec for TrackedElementVisibilityChanged
-tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec = {
+tracked_element.mojom.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracked_element.mojom.TrackedElementHandler.TrackedElementVisibilityChanged_Params',
       packedSize: 32,
       fields: [
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'visible', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -100,7 +102,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Para
 };
 
 // ParamsSpec for TrackedElementActivated
-tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec = {
+tracked_element.mojom.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracked_element.mojom.TrackedElementHandler.TrackedElementActivated_Params',
@@ -114,7 +116,7 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec =
 };
 
 // ParamsSpec for TrackedElementCustomEvent
-tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec = {
+tracked_element.mojom.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracked_element.mojom.TrackedElementHandler.TrackedElementCustomEvent_Params',
@@ -129,6 +131,6 @@ tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec
 };
 
 // Legacy compatibility
-tracked_element.mojom.TrackedElementHandlerPtr = tracked_element.mojom.TrackedElementHandlerRemote;
-tracked_element.mojom.TrackedElementHandlerRequest = tracked_element.mojom.TrackedElementHandlerPendingReceiver;
+tracked_element.mojom.mojom.TrackedElementHandlerPtr = tracked_element.mojom.mojom.TrackedElementHandlerRemote;
+tracked_element.mojom.mojom.TrackedElementHandlerRequest = tracked_element.mojom.mojom.TrackedElementHandlerPendingReceiver;
 

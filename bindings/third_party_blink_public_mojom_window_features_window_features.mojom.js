@@ -7,10 +7,12 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: WindowFeatures
-blink.mojom.WindowFeaturesSpec = {
+blink.mojom.mojom.WindowFeaturesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WindowFeatures',

@@ -10,24 +10,24 @@ cros.mojom = cros.mojom || {};
 
 
 // Interface: JpegAcceleratorProvider
-cros.mojom.JpegAcceleratorProvider = {};
+cros.mojom.mojom.JpegAcceleratorProvider = {};
 
-cros.mojom.JpegAcceleratorProviderPendingReceiver = class {
+cros.mojom.mojom.JpegAcceleratorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.JpegAcceleratorProviderRemote = class {
+cros.mojom.mojom.JpegAcceleratorProviderRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.JpegAcceleratorProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.JpegAcceleratorProviderPendingReceiver,
+      cros.mojom.mojom.JpegAcceleratorProviderPendingReceiver,
       handle);
-    this.$ = new cros.mojom.JpegAcceleratorProviderRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.mojom.JpegAcceleratorProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ cros.mojom.JpegAcceleratorProviderRemote = class {
   }
 };
 
-cros.mojom.JpegAcceleratorProviderRemoteCallHandler = class {
+cros.mojom.mojom.JpegAcceleratorProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ cros.mojom.JpegAcceleratorProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec,
+      cros.mojom.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec,
       null,
       [jea]);
   }
@@ -57,15 +57,15 @@ cros.mojom.JpegAcceleratorProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec,
+      cros.mojom.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec,
       null,
       [jda]);
   }
 
 };
 
-cros.mojom.JpegAcceleratorProvider.getRemote = function() {
-  let remote = new cros.mojom.JpegAcceleratorProviderRemote();
+cros.mojom.mojom.JpegAcceleratorProvider.getRemote = function() {
+  let remote = new cros.mojom.mojom.JpegAcceleratorProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ cros.mojom.JpegAcceleratorProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetJpegEncodeAccelerator
-cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = {
+cros.mojom.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.JpegAcceleratorProvider.GetJpegEncodeAccelerator_Params',
@@ -89,7 +89,7 @@ cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = {
 };
 
 // ParamsSpec for GetMjpegDecodeAccelerator
-cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = {
+cros.mojom.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.JpegAcceleratorProvider.GetMjpegDecodeAccelerator_Params',
@@ -103,6 +103,6 @@ cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.JpegAcceleratorProviderPtr = cros.mojom.JpegAcceleratorProviderRemote;
-cros.mojom.JpegAcceleratorProviderRequest = cros.mojom.JpegAcceleratorProviderPendingReceiver;
+cros.mojom.mojom.JpegAcceleratorProviderPtr = cros.mojom.mojom.JpegAcceleratorProviderRemote;
+cros.mojom.mojom.JpegAcceleratorProviderRequest = cros.mojom.mojom.JpegAcceleratorProviderPendingReceiver;
 

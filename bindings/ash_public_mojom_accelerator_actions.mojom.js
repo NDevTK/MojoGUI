@@ -10,7 +10,7 @@ ash.mojom = ash.mojom || {};
 
 
 // Enum: AcceleratorAction
-ash.mojom.AcceleratorAction = {
+ash.mojom.mojom.AcceleratorAction = {
   kBrightnessDown: 0,
   kBrightnessUp: 1,
   kCycleBackwardMru: 2,
@@ -184,4 +184,4 @@ ash.mojom.AcceleratorAction = {
   kDebugStartSunfishSession: 170,
   kDebugShowTestWindow: 171,
 };
-ash.mojom.AcceleratorActionSpec = { $: mojo.internal.Enum() };
+ash.mojom.mojom.AcceleratorActionSpec = { $: mojo.internal.Enum() };

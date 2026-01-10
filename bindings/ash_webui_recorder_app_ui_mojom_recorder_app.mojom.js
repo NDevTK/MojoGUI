@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.recorder_app = ash.recorder_app || {};
-ash.recorder_app.mojom = ash.recorder_app.mojom || {};
+ash.recorder_app.recorder_app.mojom = ash.recorder_app.recorder_app.mojom || {};
 
 
 // Enum: ModelStateType
-ash.recorder_app.mojom.ModelStateType = {
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateType = {
   kUnavailable: 0,
   kNotInstalled: 1,
   kInstalling: 2,
@@ -19,10 +19,10 @@ ash.recorder_app.mojom.ModelStateType = {
   kError: 4,
   kNeedsReboot: 5,
 };
-ash.recorder_app.mojom.ModelStateTypeSpec = { $: mojo.internal.Enum() };
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ModelState
-ash.recorder_app.mojom.ModelStateSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.ModelState',
@@ -38,7 +38,7 @@ ash.recorder_app.mojom.ModelStateSpec = {
 };
 
 // Struct: ModelInfo
-ash.recorder_app.mojom.ModelInfoSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.ModelInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.ModelInfo',
@@ -54,7 +54,7 @@ ash.recorder_app.mojom.ModelInfoSpec = {
 };
 
 // Struct: MicrophoneInfo
-ash.recorder_app.mojom.MicrophoneInfoSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.MicrophoneInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.MicrophoneInfo',
@@ -69,7 +69,7 @@ ash.recorder_app.mojom.MicrophoneInfoSpec = {
 };
 
 // Struct: LangPackInfo
-ash.recorder_app.mojom.LangPackInfoSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.LangPackInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.LangPackInfo',
@@ -86,24 +86,24 @@ ash.recorder_app.mojom.LangPackInfoSpec = {
 };
 
 // Interface: ModelStateMonitor
-ash.recorder_app.mojom.ModelStateMonitor = {};
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitor = {};
 
-ash.recorder_app.mojom.ModelStateMonitorPendingReceiver = class {
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.recorder_app.mojom.ModelStateMonitorRemote = class {
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.recorder_app.mojom.ModelStateMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.recorder_app.mojom.ModelStateMonitorPendingReceiver,
+      ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorPendingReceiver,
       handle);
-    this.$ = new ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler(this.proxy);
+    this.$ = new ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +115,7 @@ ash.recorder_app.mojom.ModelStateMonitorRemote = class {
   }
 };
 
-ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +124,15 @@ ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitor_Update_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-ash.recorder_app.mojom.ModelStateMonitor.getRemote = function() {
-  let remote = new ash.recorder_app.mojom.ModelStateMonitorRemote();
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitor.getRemote = function() {
+  let remote = new ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +142,7 @@ ash.recorder_app.mojom.ModelStateMonitor.getRemote = function() {
 };
 
 // ParamsSpec for Update
-ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitor_Update_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.ModelStateMonitor.Update_Params',
@@ -156,29 +156,29 @@ ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.recorder_app.mojom.ModelStateMonitorPtr = ash.recorder_app.mojom.ModelStateMonitorRemote;
-ash.recorder_app.mojom.ModelStateMonitorRequest = ash.recorder_app.mojom.ModelStateMonitorPendingReceiver;
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorPtr = ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorRemote;
+ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorRequest = ash.recorder_app.recorder_app.mojom.mojom.ModelStateMonitorPendingReceiver;
 
 
 // Interface: QuietModeMonitor
-ash.recorder_app.mojom.QuietModeMonitor = {};
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitor = {};
 
-ash.recorder_app.mojom.QuietModeMonitorPendingReceiver = class {
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.recorder_app.mojom.QuietModeMonitorRemote = class {
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.recorder_app.mojom.QuietModeMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.recorder_app.mojom.QuietModeMonitorPendingReceiver,
+      ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorPendingReceiver,
       handle);
-    this.$ = new ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler(this.proxy);
+    this.$ = new ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -190,7 +190,7 @@ ash.recorder_app.mojom.QuietModeMonitorRemote = class {
   }
 };
 
-ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler = class {
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -199,15 +199,15 @@ ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitor_Update_ParamsSpec,
       null,
       [in_quiet_mode]);
   }
 
 };
 
-ash.recorder_app.mojom.QuietModeMonitor.getRemote = function() {
-  let remote = new ash.recorder_app.mojom.QuietModeMonitorRemote();
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitor.getRemote = function() {
+  let remote = new ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -217,7 +217,7 @@ ash.recorder_app.mojom.QuietModeMonitor.getRemote = function() {
 };
 
 // ParamsSpec for Update
-ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitor_Update_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.QuietModeMonitor.Update_Params',
@@ -231,29 +231,29 @@ ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.recorder_app.mojom.QuietModeMonitorPtr = ash.recorder_app.mojom.QuietModeMonitorRemote;
-ash.recorder_app.mojom.QuietModeMonitorRequest = ash.recorder_app.mojom.QuietModeMonitorPendingReceiver;
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorPtr = ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorRemote;
+ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorRequest = ash.recorder_app.recorder_app.mojom.mojom.QuietModeMonitorPendingReceiver;
 
 
 // Interface: PageHandler
-ash.recorder_app.mojom.PageHandler = {};
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler = {};
 
-ash.recorder_app.mojom.PageHandlerPendingReceiver = class {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.recorder_app.mojom.PageHandlerRemote = class {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.recorder_app.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.recorder_app.mojom.PageHandlerPendingReceiver,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.recorder_app.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.recorder_app.recorder_app.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -265,7 +265,7 @@ ash.recorder_app.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -274,8 +274,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetModelInfo_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
       [feature]);
   }
 
@@ -283,8 +283,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadModel_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadModel_ResponseParamsSpec,
       [model_id, model]);
   }
 
@@ -292,8 +292,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_FormatModelInput_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
       [uuid, feature, fields]);
   }
 
@@ -301,8 +301,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_ValidateSafetyResult_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
       [safety_feature, text, safety_info]);
   }
 
@@ -310,8 +310,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddModelMonitor_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
       [model_id, monitor]);
   }
 
@@ -319,8 +319,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
       []);
   }
 
@@ -328,8 +328,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetDefaultLanguage_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
       []);
   }
 
@@ -337,8 +337,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddSodaMonitor_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
       [language, monitor]);
   }
 
@@ -346,7 +346,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_InstallSoda_ParamsSpec,
       null,
       [language]);
   }
@@ -355,8 +355,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
       [language, soda_client, soda_recognizer]);
   }
 
@@ -364,7 +364,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec,
       null,
       [description_template]);
   }
@@ -373,8 +373,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
       [source_id]);
   }
 
@@ -382,8 +382,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
@@ -391,7 +391,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_SetQuietMode_ParamsSpec,
       null,
       [quiet_mode]);
   }
@@ -400,8 +400,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
       []);
   }
 
@@ -409,7 +409,7 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec,
       null,
       [consent_given, consent_description_names, consent_confirmation_name]);
   }
@@ -418,15 +418,15 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec,
-      ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec,
+      ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.recorder_app.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.recorder_app.mojom.PageHandlerRemote();
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.recorder_app.recorder_app.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -436,7 +436,7 @@ ash.recorder_app.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetModelInfo
-ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetModelInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetModelInfo_Params',
@@ -449,7 +449,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetModelInfo_ResponseParams',
@@ -463,7 +463,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadModel
-ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.LoadModel_Params',
@@ -477,7 +477,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.LoadModel_ResponseParams',
@@ -491,22 +491,22 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for FormatModelInput
-ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_FormatModelInput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.FormatModelInput_Params',
       packedSize: 32,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.FormatFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'fields', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.FormatFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'fields', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_FormatModelInput_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.FormatModelInput_ResponseParams',
@@ -520,22 +520,22 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ValidateSafetyResult
-ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.ValidateSafetyResult_Params',
       packedSize: 32,
       fields: [
-        { name: 'safety_feature', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'safety_info', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'safety_feature', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.SafetyFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'safety_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.ValidateSafetyResult_ResponseParams',
@@ -549,7 +549,7 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddModelMonitor
-ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.AddModelMonitor_Params',
@@ -563,7 +563,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.AddModelMonitor_ResponseParams',
@@ -577,7 +577,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAvailableLangPacks
-ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetAvailableLangPacks_Params',
@@ -589,7 +589,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetAvailableLangPacks_ResponseParams',
@@ -603,7 +603,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDefaultLanguage
-ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetDefaultLanguage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetDefaultLanguage_Params',
@@ -615,7 +615,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetDefaultLanguage_ResponseParams',
@@ -629,7 +629,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddSodaMonitor
-ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.AddSodaMonitor_Params',
@@ -643,7 +643,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.AddSodaMonitor_ResponseParams',
@@ -657,7 +657,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InstallSoda
-ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_InstallSoda_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.InstallSoda_Params',
@@ -671,7 +671,7 @@ ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec = {
 };
 
 // ParamsSpec for LoadSpeechRecognizer
-ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.LoadSpeechRecognizer_Params',
@@ -686,7 +686,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.LoadSpeechRecognizer_ResponseParams',
@@ -700,7 +700,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenAiFeedbackDialog
-ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.OpenAiFeedbackDialog_Params',
@@ -714,7 +714,7 @@ ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec = {
 };
 
 // ParamsSpec for GetMicrophoneInfo
-ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetMicrophoneInfo_Params',
@@ -727,7 +727,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.GetMicrophoneInfo_ResponseParams',
@@ -741,7 +741,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddQuietModeMonitor
-ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.AddQuietModeMonitor_Params',
@@ -754,7 +754,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.AddQuietModeMonitor_ResponseParams',
@@ -768,7 +768,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetQuietMode
-ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_SetQuietMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.SetQuietMode_Params',
@@ -782,7 +782,7 @@ ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec = {
 };
 
 // ParamsSpec for CanUseSpeakerLabel
-ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.CanUseSpeakerLabel_Params',
@@ -794,7 +794,7 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec = {
   }
 };
 
-ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.CanUseSpeakerLabel_ResponseParams',
@@ -808,15 +808,15 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RecordSpeakerLabelConsent
-ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.RecordSpeakerLabelConsent_Params',
       packedSize: 32,
       fields: [
-        { name: 'consent_given', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'consent_description_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'consent_confirmation_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'consent_given', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'consent_description_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'consent_confirmation_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -824,7 +824,7 @@ ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec = {
 };
 
 // ParamsSpec for CanCaptureSystemAudioWithLoopback
-ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.CanCaptureSystemAudioWithLoopback_Params',
@@ -836,7 +836,7 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec 
   }
 };
 
-ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec = {
+ash.recorder_app.recorder_app.mojom.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.CanCaptureSystemAudioWithLoopback_ResponseParams',
@@ -850,6 +850,6 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponsePar
 };
 
 // Legacy compatibility
-ash.recorder_app.mojom.PageHandlerPtr = ash.recorder_app.mojom.PageHandlerRemote;
-ash.recorder_app.mojom.PageHandlerRequest = ash.recorder_app.mojom.PageHandlerPendingReceiver;
+ash.recorder_app.recorder_app.mojom.mojom.PageHandlerPtr = ash.recorder_app.recorder_app.mojom.mojom.PageHandlerRemote;
+ash.recorder_app.recorder_app.mojom.mojom.PageHandlerRequest = ash.recorder_app.recorder_app.mojom.mojom.PageHandlerPendingReceiver;
 

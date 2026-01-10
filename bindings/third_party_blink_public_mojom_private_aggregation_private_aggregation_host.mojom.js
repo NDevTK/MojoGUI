@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Enum: PrivateAggregationErrorEvent
-blink.mojom.PrivateAggregationErrorEvent = {
+blink.mojom.mojom.PrivateAggregationErrorEvent = {
   kReportSuccess: 0,
   kTooManyContributions: 1,
   kEmptyReportDropped: 2,
@@ -19,10 +20,10 @@ blink.mojom.PrivateAggregationErrorEvent = {
   kContributionTimeoutReached: 5,
   kAlreadyTriggeredExternalError: 6,
 };
-blink.mojom.PrivateAggregationErrorEventSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PrivateAggregationErrorEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: DebugKey
-blink.mojom.DebugKeySpec = {
+blink.mojom.mojom.DebugKeySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DebugKey',
@@ -36,14 +37,14 @@ blink.mojom.DebugKeySpec = {
 };
 
 // Struct: DebugModeDetails
-blink.mojom.DebugModeDetailsSpec = {
+blink.mojom.mojom.DebugModeDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DebugModeDetails',
       packedSize: 24,
       fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'debug_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DebugKeySpec, nullable: true, minVersion: 0 },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'debug_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DebugKeySpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -51,24 +52,24 @@ blink.mojom.DebugModeDetailsSpec = {
 };
 
 // Interface: PrivateAggregationHost
-blink.mojom.PrivateAggregationHost = {};
+blink.mojom.mojom.PrivateAggregationHost = {};
 
-blink.mojom.PrivateAggregationHostPendingReceiver = class {
+blink.mojom.mojom.PrivateAggregationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PrivateAggregationHostRemote = class {
+blink.mojom.mojom.PrivateAggregationHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PrivateAggregationHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PrivateAggregationHostPendingReceiver,
+      blink.mojom.mojom.PrivateAggregationHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.PrivateAggregationHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.PrivateAggregationHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -80,7 +81,7 @@ blink.mojom.PrivateAggregationHostRemote = class {
   }
 };
 
-blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
+blink.mojom.mojom.PrivateAggregationHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -89,7 +90,7 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec,
+      blink.mojom.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec,
       null,
       [contributions]);
   }
@@ -98,7 +99,7 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec,
+      blink.mojom.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec,
       null,
       [error_event, contributions]);
   }
@@ -107,15 +108,15 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec,
+      blink.mojom.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec,
       null,
       [debug_key]);
   }
 
 };
 
-blink.mojom.PrivateAggregationHost.getRemote = function() {
-  let remote = new blink.mojom.PrivateAggregationHostRemote();
+blink.mojom.mojom.PrivateAggregationHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.PrivateAggregationHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -125,7 +126,7 @@ blink.mojom.PrivateAggregationHost.getRemote = function() {
 };
 
 // ParamsSpec for ContributeToHistogram
-blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = {
+blink.mojom.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrivateAggregationHost.ContributeToHistogram_Params',
@@ -139,14 +140,14 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = {
 };
 
 // ParamsSpec for ContributeToHistogramOnEvent
-blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = {
+blink.mojom.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrivateAggregationHost.ContributeToHistogramOnEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'error_event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PrivateAggregationErrorEventSpec, nullable: false, minVersion: 0 },
-        { name: 'contributions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AggregatableReportHistogramContributionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'error_event', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PrivateAggregationErrorEventSpec, nullable: false, minVersion: 0 },
+        { name: 'contributions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AggregatableReportHistogramContributionSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -154,7 +155,7 @@ blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = {
 };
 
 // ParamsSpec for EnableDebugMode
-blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = {
+blink.mojom.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrivateAggregationHost.EnableDebugMode_Params',
@@ -168,6 +169,6 @@ blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.PrivateAggregationHostPtr = blink.mojom.PrivateAggregationHostRemote;
-blink.mojom.PrivateAggregationHostRequest = blink.mojom.PrivateAggregationHostPendingReceiver;
+blink.mojom.mojom.PrivateAggregationHostPtr = blink.mojom.mojom.PrivateAggregationHostRemote;
+blink.mojom.mojom.PrivateAggregationHostRequest = blink.mojom.mojom.PrivateAggregationHostPendingReceiver;
 

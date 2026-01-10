@@ -7,17 +7,20 @@
 // Module namespace
 var side_panel = side_panel || {};
 side_panel.mojom = side_panel.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: ActionSource
-side_panel.mojom.ActionSource = {
+side_panel.mojom.mojom.ActionSource = {
   kBookmark: 0,
   kPriceTracking: 1,
 };
-side_panel.mojom.ActionSourceSpec = { $: mojo.internal.Enum() };
+side_panel.mojom.mojom.ActionSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: SortOrder
-side_panel.mojom.SortOrder = {
+side_panel.mojom.mojom.SortOrder = {
   kNewest: 0,
   kOldest: 1,
   kLastOpened: 2,
@@ -25,18 +28,18 @@ side_panel.mojom.SortOrder = {
   kReverseAlphabetical: 4,
   kCount: 5,
 };
-side_panel.mojom.SortOrderSpec = { $: mojo.internal.Enum() };
+side_panel.mojom.mojom.SortOrderSpec = { $: mojo.internal.Enum() };
 
 // Enum: ViewType
-side_panel.mojom.ViewType = {
+side_panel.mojom.mojom.ViewType = {
   kCompact: 0,
   kExpanded: 1,
   kCount: 2,
 };
-side_panel.mojom.ViewTypeSpec = { $: mojo.internal.Enum() };
+side_panel.mojom.mojom.ViewTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: BookmarksTreeNode
-side_panel.mojom.BookmarksTreeNodeSpec = {
+side_panel.mojom.mojom.BookmarksTreeNodeSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksTreeNode',
@@ -44,15 +47,15 @@ side_panel.mojom.BookmarksTreeNodeSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'parent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'children', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(side_panel.mojom.BookmarksTreeNodeSpec, false), nullable: true, minVersion: 0 },
-        { name: 'date_added_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'date_added_$value', originalFieldName: 'date_added' } },
-        { name: 'date_added_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'date_added_$flag', originalFieldName: 'date_added' } },
-        { name: 'date_last_used_$flag', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'date_last_used_$value', originalFieldName: 'date_last_used' } },
-        { name: 'date_last_used_$value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'date_last_used_$flag', originalFieldName: 'date_last_used' } },
-        { name: 'unmodifiable', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'children', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(side_panel.mojom.BookmarksTreeNodeSpec, false), nullable: true, minVersion: 0 },
+        { name: 'date_added_$flag', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'date_added_$value', originalFieldName: 'date_added' } },
+        { name: 'date_added_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'date_added_$flag', originalFieldName: 'date_added' } },
+        { name: 'date_last_used_$flag', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'date_last_used_$value', originalFieldName: 'date_last_used' } },
+        { name: 'date_last_used_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'date_last_used_$flag', originalFieldName: 'date_last_used' } },
+        { name: 'unmodifiable', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -60,24 +63,24 @@ side_panel.mojom.BookmarksTreeNodeSpec = {
 };
 
 // Interface: BookmarksPageHandlerFactory
-side_panel.mojom.BookmarksPageHandlerFactory = {};
+side_panel.mojom.mojom.BookmarksPageHandlerFactory = {};
 
-side_panel.mojom.BookmarksPageHandlerFactoryPendingReceiver = class {
+side_panel.mojom.mojom.BookmarksPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.mojom.BookmarksPageHandlerFactoryRemote = class {
+side_panel.mojom.mojom.BookmarksPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'side_panel.mojom.BookmarksPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.mojom.BookmarksPageHandlerFactoryPendingReceiver,
+      side_panel.mojom.mojom.BookmarksPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.mojom.mojom.BookmarksPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -89,7 +92,7 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemote = class {
   }
 };
 
-side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
+side_panel.mojom.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -98,15 +101,15 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-side_panel.mojom.BookmarksPageHandlerFactory.getRemote = function() {
-  let remote = new side_panel.mojom.BookmarksPageHandlerFactoryRemote();
+side_panel.mojom.mojom.BookmarksPageHandlerFactory.getRemote = function() {
+  let remote = new side_panel.mojom.mojom.BookmarksPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -116,7 +119,7 @@ side_panel.mojom.BookmarksPageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateBookmarksPageHandler
-side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandlerFactory.CreateBookmarksPageHandler_Params',
@@ -131,29 +134,29 @@ side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSp
 };
 
 // Legacy compatibility
-side_panel.mojom.BookmarksPageHandlerFactoryPtr = side_panel.mojom.BookmarksPageHandlerFactoryRemote;
-side_panel.mojom.BookmarksPageHandlerFactoryRequest = side_panel.mojom.BookmarksPageHandlerFactoryPendingReceiver;
+side_panel.mojom.mojom.BookmarksPageHandlerFactoryPtr = side_panel.mojom.mojom.BookmarksPageHandlerFactoryRemote;
+side_panel.mojom.mojom.BookmarksPageHandlerFactoryRequest = side_panel.mojom.mojom.BookmarksPageHandlerFactoryPendingReceiver;
 
 
 // Interface: BookmarksPageHandler
-side_panel.mojom.BookmarksPageHandler = {};
+side_panel.mojom.mojom.BookmarksPageHandler = {};
 
-side_panel.mojom.BookmarksPageHandlerPendingReceiver = class {
+side_panel.mojom.mojom.BookmarksPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.mojom.BookmarksPageHandlerRemote = class {
+side_panel.mojom.mojom.BookmarksPageHandlerRemote = class {
   static get $interfaceName() {
     return 'side_panel.mojom.BookmarksPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.mojom.BookmarksPageHandlerPendingReceiver,
+      side_panel.mojom.mojom.BookmarksPageHandlerPendingReceiver,
       handle);
-    this.$ = new side_panel.mojom.BookmarksPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.mojom.mojom.BookmarksPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,7 +168,7 @@ side_panel.mojom.BookmarksPageHandlerRemote = class {
   }
 };
 
-side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
+side_panel.mojom.mojom.BookmarksPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -174,7 +177,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec,
       null,
       [folder_id]);
   }
@@ -183,8 +186,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec,
-      side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
       [folder_id, title]);
   }
 
@@ -192,7 +195,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec,
       null,
       [folder_id]);
   }
@@ -201,7 +204,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -210,7 +213,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -219,7 +222,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -228,7 +231,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -237,7 +240,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -246,7 +249,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec,
       null,
       [side_panel_ids, source]);
   }
@@ -255,7 +258,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -264,7 +267,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec,
       null,
       [node_id, source]);
   }
@@ -273,7 +276,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec,
       null,
       [node_id, source]);
   }
@@ -282,7 +285,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec,
       null,
       [node_ids, source]);
   }
@@ -291,7 +294,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec,
       null,
       [node_id, parent_folder_depth, click_modifiers, source]);
   }
@@ -300,7 +303,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_Undo_ParamsSpec,
       null,
       []);
   }
@@ -309,7 +312,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec,
       null,
       [node_id, new_title]);
   }
@@ -318,7 +321,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
       null,
       [node_id, folder_id]);
   }
@@ -327,7 +330,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
       null,
       [node_ids]);
   }
@@ -336,7 +339,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
       null,
       [sort_order]);
   }
@@ -345,7 +348,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
       null,
       [view_type]);
   }
@@ -354,7 +357,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
       null,
       [id, point, source]);
   }
@@ -363,7 +366,7 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -372,15 +375,15 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
-      side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
       []);
   }
 
 };
 
-side_panel.mojom.BookmarksPageHandler.getRemote = function() {
-  let remote = new side_panel.mojom.BookmarksPageHandlerRemote();
+side_panel.mojom.mojom.BookmarksPageHandler.getRemote = function() {
+  let remote = new side_panel.mojom.mojom.BookmarksPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -390,7 +393,7 @@ side_panel.mojom.BookmarksPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for BookmarkCurrentTabInFolder
-side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.BookmarkCurrentTabInFolder_Params',
@@ -404,7 +407,7 @@ side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = {
 };
 
 // ParamsSpec for CreateFolder
-side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.CreateFolder_Params',
@@ -418,7 +421,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
   }
 };
 
-side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.CreateFolder_ResponseParams',
@@ -432,7 +435,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DropBookmarks
-side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.DropBookmarks_Params',
@@ -446,7 +449,7 @@ side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteEditCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteEditCommand_Params',
@@ -461,7 +464,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteMoveCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteMoveCommand_Params',
@@ -476,7 +479,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteOpenInNewTabCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInNewTabCommand_Params',
@@ -491,7 +494,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteOpenInNewWindowCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInNewWindowCommand_Params',
@@ -506,7 +509,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec =
 };
 
 // ParamsSpec for ExecuteOpenInIncognitoWindowCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInIncognitoWindowCommand_Params',
@@ -521,7 +524,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_Params
 };
 
 // ParamsSpec for ExecuteOpenInNewTabGroupCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInNewTabGroupCommand_Params',
@@ -536,7 +539,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec
 };
 
 // ParamsSpec for ExecuteOpenInSplitViewCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteOpenInSplitViewCommand_Params',
@@ -551,7 +554,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec =
 };
 
 // ParamsSpec for ExecuteAddToBookmarksBarCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteAddToBookmarksBarCommand_Params',
@@ -566,7 +569,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec
 };
 
 // ParamsSpec for ExecuteRemoveFromBookmarksBarCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteRemoveFromBookmarksBarCommand_Params',
@@ -581,7 +584,7 @@ side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_Param
 };
 
 // ParamsSpec for ExecuteDeleteCommand
-side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ExecuteDeleteCommand_Params',
@@ -596,16 +599,16 @@ side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec = {
 };
 
 // ParamsSpec for OpenBookmark
-side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.OpenBookmark_Params',
       packedSize: 32,
       fields: [
         { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'parent_folder_depth', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 12, packedBitOffset: 0, type: side_panel.mojom.ActionSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'parent_folder_depth', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 20, packedBitOffset: 0, type: side_panel.mojom.ActionSourceSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -613,7 +616,7 @@ side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec = {
 };
 
 // ParamsSpec for Undo
-side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_Undo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.Undo_Params',
@@ -626,7 +629,7 @@ side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec = {
 };
 
 // ParamsSpec for RenameBookmark
-side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.RenameBookmark_Params',
@@ -641,7 +644,7 @@ side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = {
 };
 
 // ParamsSpec for MoveBookmark
-side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.MoveBookmark_Params',
@@ -656,7 +659,7 @@ side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveBookmarks
-side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.RemoveBookmarks_Params',
@@ -670,7 +673,7 @@ side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = {
 };
 
 // ParamsSpec for SetSortOrder
-side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.SetSortOrder_Params',
@@ -684,7 +687,7 @@ side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec = {
 };
 
 // ParamsSpec for SetViewType
-side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_SetViewType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.SetViewType_Params',
@@ -698,7 +701,7 @@ side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec = {
 };
 
 // ParamsSpec for ShowContextMenu
-side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ShowContextMenu_Params',
@@ -714,7 +717,7 @@ side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec = {
 };
 
 // ParamsSpec for ShowUI
-side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_ShowUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.ShowUI_Params',
@@ -727,7 +730,7 @@ side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec = {
 };
 
 // ParamsSpec for GetAllBookmarks
-side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.GetAllBookmarks_Params',
@@ -739,7 +742,7 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec = {
   }
 };
 
-side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
+side_panel.mojom.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPageHandler.GetAllBookmarks_ResponseParams',
@@ -753,29 +756,29 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-side_panel.mojom.BookmarksPageHandlerPtr = side_panel.mojom.BookmarksPageHandlerRemote;
-side_panel.mojom.BookmarksPageHandlerRequest = side_panel.mojom.BookmarksPageHandlerPendingReceiver;
+side_panel.mojom.mojom.BookmarksPageHandlerPtr = side_panel.mojom.mojom.BookmarksPageHandlerRemote;
+side_panel.mojom.mojom.BookmarksPageHandlerRequest = side_panel.mojom.mojom.BookmarksPageHandlerPendingReceiver;
 
 
 // Interface: BookmarksPage
-side_panel.mojom.BookmarksPage = {};
+side_panel.mojom.mojom.BookmarksPage = {};
 
-side_panel.mojom.BookmarksPagePendingReceiver = class {
+side_panel.mojom.mojom.BookmarksPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.mojom.BookmarksPageRemote = class {
+side_panel.mojom.mojom.BookmarksPageRemote = class {
   static get $interfaceName() {
     return 'side_panel.mojom.BookmarksPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.mojom.BookmarksPagePendingReceiver,
+      side_panel.mojom.mojom.BookmarksPagePendingReceiver,
       handle);
-    this.$ = new side_panel.mojom.BookmarksPageRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.mojom.mojom.BookmarksPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -787,7 +790,7 @@ side_panel.mojom.BookmarksPageRemote = class {
   }
 };
 
-side_panel.mojom.BookmarksPageRemoteCallHandler = class {
+side_panel.mojom.mojom.BookmarksPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -796,7 +799,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec,
       null,
       [node]);
   }
@@ -805,7 +808,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec,
       null,
       [node_ids]);
   }
@@ -814,7 +817,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec,
       null,
       [folder_id, children_ordered_ids]);
   }
@@ -823,7 +826,7 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec,
       null,
       [old_parent_index, old_node_index, new_parent_index, new_node_index]);
   }
@@ -832,15 +835,15 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec,
+      side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec,
       null,
       [id, new_title, new_url]);
   }
 
 };
 
-side_panel.mojom.BookmarksPage.getRemote = function() {
-  let remote = new side_panel.mojom.BookmarksPageRemote();
+side_panel.mojom.mojom.BookmarksPage.getRemote = function() {
+  let remote = new side_panel.mojom.mojom.BookmarksPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -850,7 +853,7 @@ side_panel.mojom.BookmarksPage.getRemote = function() {
 };
 
 // ParamsSpec for OnBookmarkNodeAdded
-side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodeAdded_Params',
@@ -864,7 +867,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnBookmarkNodesRemoved
-side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodesRemoved_Params',
@@ -878,7 +881,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec = {
 };
 
 // ParamsSpec for OnBookmarkParentFolderChildrenReordered
-side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkParentFolderChildrenReordered_Params',
@@ -893,16 +896,16 @@ side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpe
 };
 
 // ParamsSpec for OnBookmarkNodeMoved
-side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodeMoved_Params',
       packedSize: 32,
       fields: [
         { name: 'old_parent_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'old_node_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'new_parent_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_node_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'old_node_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'new_parent_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'new_node_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -910,7 +913,7 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec = {
 };
 
 // ParamsSpec for OnBookmarkNodeChanged
-side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec = {
+side_panel.mojom.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.mojom.BookmarksPage.OnBookmarkNodeChanged_Params',
@@ -926,6 +929,6 @@ side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-side_panel.mojom.BookmarksPagePtr = side_panel.mojom.BookmarksPageRemote;
-side_panel.mojom.BookmarksPageRequest = side_panel.mojom.BookmarksPagePendingReceiver;
+side_panel.mojom.mojom.BookmarksPagePtr = side_panel.mojom.mojom.BookmarksPageRemote;
+side_panel.mojom.mojom.BookmarksPageRequest = side_panel.mojom.mojom.BookmarksPagePendingReceiver;
 

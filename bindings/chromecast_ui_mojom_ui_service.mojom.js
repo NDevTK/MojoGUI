@@ -10,7 +10,7 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Enum: ZOrder
-chromecast.mojom.ZOrder = {
+chromecast.mojom.mojom.ZOrder = {
   APP: 0,
   UNMANAGED_APP: 1,
   DEBUG_OVERLAY: 2,
@@ -21,4 +21,4 @@ chromecast.mojom.ZOrder = {
   SETTINGS: 7,
   BOOT_ANIMATION_OVERLAY: 8,
 };
-chromecast.mojom.ZOrderSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.ZOrderSpec = { $: mojo.internal.Enum() };

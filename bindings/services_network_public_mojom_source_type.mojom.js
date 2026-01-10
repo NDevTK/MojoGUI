@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: SourceType
-network.mojom.SourceType = {
+network.mojom.mojom.SourceType = {
   kBrotli: 0,
   kDeflate: 1,
   kGzip: 2,
@@ -18,4 +18,4 @@ network.mojom.SourceType = {
   kNone: 4,
   kUnknown: 5,
 };
-network.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };

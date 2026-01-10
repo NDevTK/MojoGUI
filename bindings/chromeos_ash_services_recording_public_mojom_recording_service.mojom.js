@@ -7,10 +7,14 @@
 // Module namespace
 var recording = recording || {};
 recording.mojom = recording.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: RecordingStatus
-recording.mojom.RecordingStatus = {
+recording.mojom.mojom.RecordingStatus = {
   kSuccess: 0,
   kServiceClosing: 1,
   kVizVideoCapturerDisconnected: 2,
@@ -23,27 +27,27 @@ recording.mojom.RecordingStatus = {
   kLowDriveFsQuota: 9,
   kVideoEncoderReconfigurationFailure: 10,
 };
-recording.mojom.RecordingStatusSpec = { $: mojo.internal.Enum() };
+recording.mojom.mojom.RecordingStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: DriveFsQuotaDelegate
-recording.mojom.DriveFsQuotaDelegate = {};
+recording.mojom.mojom.DriveFsQuotaDelegate = {};
 
-recording.mojom.DriveFsQuotaDelegatePendingReceiver = class {
+recording.mojom.mojom.DriveFsQuotaDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-recording.mojom.DriveFsQuotaDelegateRemote = class {
+recording.mojom.mojom.DriveFsQuotaDelegateRemote = class {
   static get $interfaceName() {
     return 'recording.mojom.DriveFsQuotaDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      recording.mojom.DriveFsQuotaDelegatePendingReceiver,
+      recording.mojom.mojom.DriveFsQuotaDelegatePendingReceiver,
       handle);
-    this.$ = new recording.mojom.DriveFsQuotaDelegateRemoteCallHandler(this.proxy);
+    this.$ = new recording.mojom.mojom.DriveFsQuotaDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +59,7 @@ recording.mojom.DriveFsQuotaDelegateRemote = class {
   }
 };
 
-recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
+recording.mojom.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +68,15 @@ recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec,
-      recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
+      recording.mojom.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec,
+      recording.mojom.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
       []);
   }
 
 };
 
-recording.mojom.DriveFsQuotaDelegate.getRemote = function() {
-  let remote = new recording.mojom.DriveFsQuotaDelegateRemote();
+recording.mojom.mojom.DriveFsQuotaDelegate.getRemote = function() {
+  let remote = new recording.mojom.mojom.DriveFsQuotaDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +86,7 @@ recording.mojom.DriveFsQuotaDelegate.getRemote = function() {
 };
 
 // ParamsSpec for GetDriveFsFreeSpaceBytes
-recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = {
+recording.mojom.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.DriveFsQuotaDelegate.GetDriveFsFreeSpaceBytes_Params',
@@ -94,7 +98,7 @@ recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = {
   }
 };
 
-recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec = {
+recording.mojom.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.DriveFsQuotaDelegate.GetDriveFsFreeSpaceBytes_ResponseParams',
@@ -108,29 +112,29 @@ recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec
 };
 
 // Legacy compatibility
-recording.mojom.DriveFsQuotaDelegatePtr = recording.mojom.DriveFsQuotaDelegateRemote;
-recording.mojom.DriveFsQuotaDelegateRequest = recording.mojom.DriveFsQuotaDelegatePendingReceiver;
+recording.mojom.mojom.DriveFsQuotaDelegatePtr = recording.mojom.mojom.DriveFsQuotaDelegateRemote;
+recording.mojom.mojom.DriveFsQuotaDelegateRequest = recording.mojom.mojom.DriveFsQuotaDelegatePendingReceiver;
 
 
 // Interface: RecordingServiceClient
-recording.mojom.RecordingServiceClient = {};
+recording.mojom.mojom.RecordingServiceClient = {};
 
-recording.mojom.RecordingServiceClientPendingReceiver = class {
+recording.mojom.mojom.RecordingServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-recording.mojom.RecordingServiceClientRemote = class {
+recording.mojom.mojom.RecordingServiceClientRemote = class {
   static get $interfaceName() {
     return 'recording.mojom.RecordingServiceClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      recording.mojom.RecordingServiceClientPendingReceiver,
+      recording.mojom.mojom.RecordingServiceClientPendingReceiver,
       handle);
-    this.$ = new recording.mojom.RecordingServiceClientRemoteCallHandler(this.proxy);
+    this.$ = new recording.mojom.mojom.RecordingServiceClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -142,7 +146,7 @@ recording.mojom.RecordingServiceClientRemote = class {
   }
 };
 
-recording.mojom.RecordingServiceClientRemoteCallHandler = class {
+recording.mojom.mojom.RecordingServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -151,15 +155,15 @@ recording.mojom.RecordingServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec,
+      recording.mojom.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec,
       null,
       [status, thumbnail]);
   }
 
 };
 
-recording.mojom.RecordingServiceClient.getRemote = function() {
-  let remote = new recording.mojom.RecordingServiceClientRemote();
+recording.mojom.mojom.RecordingServiceClient.getRemote = function() {
+  let remote = new recording.mojom.mojom.RecordingServiceClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,14 +173,14 @@ recording.mojom.RecordingServiceClient.getRemote = function() {
 };
 
 // ParamsSpec for OnRecordingEnded
-recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = {
+recording.mojom.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingServiceClient.OnRecordingEnded_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: recording.mojom.RecordingStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'thumbnail', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: recording.mojom.RecordingStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -184,29 +188,29 @@ recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = {
 };
 
 // Legacy compatibility
-recording.mojom.RecordingServiceClientPtr = recording.mojom.RecordingServiceClientRemote;
-recording.mojom.RecordingServiceClientRequest = recording.mojom.RecordingServiceClientPendingReceiver;
+recording.mojom.mojom.RecordingServiceClientPtr = recording.mojom.mojom.RecordingServiceClientRemote;
+recording.mojom.mojom.RecordingServiceClientRequest = recording.mojom.mojom.RecordingServiceClientPendingReceiver;
 
 
 // Interface: RecordingService
-recording.mojom.RecordingService = {};
+recording.mojom.mojom.RecordingService = {};
 
-recording.mojom.RecordingServicePendingReceiver = class {
+recording.mojom.mojom.RecordingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-recording.mojom.RecordingServiceRemote = class {
+recording.mojom.mojom.RecordingServiceRemote = class {
   static get $interfaceName() {
     return 'recording.mojom.RecordingService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      recording.mojom.RecordingServicePendingReceiver,
+      recording.mojom.mojom.RecordingServicePendingReceiver,
       handle);
-    this.$ = new recording.mojom.RecordingServiceRemoteCallHandler(this.proxy);
+    this.$ = new recording.mojom.mojom.RecordingServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -218,7 +222,7 @@ recording.mojom.RecordingServiceRemote = class {
   }
 };
 
-recording.mojom.RecordingServiceRemoteCallHandler = class {
+recording.mojom.mojom.RecordingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -227,7 +231,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      recording.mojom.RecordingService_RecordFullscreen_ParamsSpec,
+      recording.mojom.mojom.RecordingService_RecordFullscreen_ParamsSpec,
       null,
       [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor]);
   }
@@ -236,7 +240,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      recording.mojom.RecordingService_RecordWindow_ParamsSpec,
+      recording.mojom.mojom.RecordingService_RecordWindow_ParamsSpec,
       null,
       [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip]);
   }
@@ -245,7 +249,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      recording.mojom.RecordingService_RecordRegion_ParamsSpec,
+      recording.mojom.mojom.RecordingService_RecordRegion_ParamsSpec,
       null,
       [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip]);
   }
@@ -254,7 +258,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      recording.mojom.RecordingService_StopRecording_ParamsSpec,
+      recording.mojom.mojom.RecordingService_StopRecording_ParamsSpec,
       null,
       []);
   }
@@ -263,7 +267,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec,
+      recording.mojom.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec,
       null,
       [new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor]);
   }
@@ -272,7 +276,7 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec,
+      recording.mojom.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec,
       null,
       [new_window_size_dip]);
   }
@@ -281,15 +285,15 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec,
+      recording.mojom.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec,
       null,
       [new_frame_sink_size_dip, new_device_scale_factor]);
   }
 
 };
 
-recording.mojom.RecordingService.getRemote = function() {
-  let remote = new recording.mojom.RecordingServiceRemote();
+recording.mojom.mojom.RecordingService.getRemote = function() {
+  let remote = new recording.mojom.mojom.RecordingServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -299,21 +303,21 @@ recording.mojom.RecordingService.getRemote = function() {
 };
 
 // ParamsSpec for RecordFullscreen
-recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
+recording.mojom.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.RecordFullscreen_Params',
       packedSize: 56,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_capturer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'microphone_stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'system_audio_stream_factory', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'drive_fs_quota_delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'output_file_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_size_dip', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'video_capturer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'microphone_stream_factory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'system_audio_stream_factory', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'drive_fs_quota_delegate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'output_file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_size_dip', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -321,23 +325,23 @@ recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
 };
 
 // ParamsSpec for RecordWindow
-recording.mojom.RecordingService_RecordWindow_ParamsSpec = {
+recording.mojom.mojom.RecordingService_RecordWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.RecordWindow_Params',
       packedSize: 72,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_capturer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'microphone_stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'system_audio_stream_factory', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'drive_fs_quota_delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'output_file_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_size_dip', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'subtree_capture_id', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.SubtreeCaptureIdSpec, nullable: false, minVersion: 0 },
-        { name: 'window_size_dip', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'video_capturer', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'microphone_stream_factory', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'system_audio_stream_factory', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'drive_fs_quota_delegate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'output_file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_size_dip', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'subtree_capture_id', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.SubtreeCaptureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'window_size_dip', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -345,22 +349,22 @@ recording.mojom.RecordingService_RecordWindow_ParamsSpec = {
 };
 
 // ParamsSpec for RecordRegion
-recording.mojom.RecordingService_RecordRegion_ParamsSpec = {
+recording.mojom.mojom.RecordingService_RecordRegion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.RecordRegion_Params',
       packedSize: 64,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_capturer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'microphone_stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'system_audio_stream_factory', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'drive_fs_quota_delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'output_file_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_size_dip', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'crop_region_dip', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'video_capturer', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'microphone_stream_factory', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'system_audio_stream_factory', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'drive_fs_quota_delegate', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'output_file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_size_dip', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'crop_region_dip', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -368,7 +372,7 @@ recording.mojom.RecordingService_RecordRegion_ParamsSpec = {
 };
 
 // ParamsSpec for StopRecording
-recording.mojom.RecordingService_StopRecording_ParamsSpec = {
+recording.mojom.mojom.RecordingService_StopRecording_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.StopRecording_Params',
@@ -381,7 +385,7 @@ recording.mojom.RecordingService_StopRecording_ParamsSpec = {
 };
 
 // ParamsSpec for OnRecordedWindowChangingRoot
-recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = {
+recording.mojom.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.OnRecordedWindowChangingRoot_Params',
@@ -397,7 +401,7 @@ recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = {
 };
 
 // ParamsSpec for OnRecordedWindowSizeChanged
-recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = {
+recording.mojom.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.OnRecordedWindowSizeChanged_Params',
@@ -411,7 +415,7 @@ recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnFrameSinkSizeChanged
-recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = {
+recording.mojom.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.OnFrameSinkSizeChanged_Params',
@@ -426,6 +430,6 @@ recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-recording.mojom.RecordingServicePtr = recording.mojom.RecordingServiceRemote;
-recording.mojom.RecordingServiceRequest = recording.mojom.RecordingServicePendingReceiver;
+recording.mojom.mojom.RecordingServicePtr = recording.mojom.mojom.RecordingServiceRemote;
+recording.mojom.mojom.RecordingServiceRequest = recording.mojom.mojom.RecordingServicePendingReceiver;
 

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: WebBluetoothResult
-blink.mojom.WebBluetoothResult = {
+blink.mojom.mojom.WebBluetoothResult = {
   SUCCESS: 0,
   WATCH_ADVERTISEMENTS_ABORTED: 1,
   GATT_INVALID_ATTRIBUTE_LENGTH: 2,
@@ -73,25 +73,25 @@ blink.mojom.WebBluetoothResult = {
   PERMISSIONS_POLICY_VIOLATION: 59,
   SCANNING_BLOCKED: 60,
 };
-blink.mojom.WebBluetoothResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.WebBluetoothResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebBluetoothGATTQueryQuantity
-blink.mojom.WebBluetoothGATTQueryQuantity = {
+blink.mojom.mojom.WebBluetoothGATTQueryQuantity = {
   SINGLE: 0,
   MULTIPLE: 1,
 };
-blink.mojom.WebBluetoothGATTQueryQuantitySpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.WebBluetoothGATTQueryQuantitySpec = { $: mojo.internal.Enum() };
 
 // Enum: WebBluetoothWriteType
-blink.mojom.WebBluetoothWriteType = {
+blink.mojom.mojom.WebBluetoothWriteType = {
   kWriteDefaultDeprecated: 0,
   kWriteWithResponse: 1,
   kWriteWithoutResponse: 2,
 };
-blink.mojom.WebBluetoothWriteTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.WebBluetoothWriteTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebBluetoothLeScanFilter
-blink.mojom.WebBluetoothLeScanFilterSpec = {
+blink.mojom.mojom.WebBluetoothLeScanFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothLeScanFilter',
@@ -108,7 +108,7 @@ blink.mojom.WebBluetoothLeScanFilterSpec = {
 };
 
 // Struct: WebBluetoothCompany
-blink.mojom.WebBluetoothCompanySpec = {
+blink.mojom.mojom.WebBluetoothCompanySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothCompany',
@@ -122,7 +122,7 @@ blink.mojom.WebBluetoothCompanySpec = {
 };
 
 // Struct: WebBluetoothDataFilter
-blink.mojom.WebBluetoothDataFilterSpec = {
+blink.mojom.mojom.WebBluetoothDataFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothDataFilter',
@@ -137,7 +137,7 @@ blink.mojom.WebBluetoothDataFilterSpec = {
 };
 
 // Struct: WebBluetoothRequestDeviceOptions
-blink.mojom.WebBluetoothRequestDeviceOptionsSpec = {
+blink.mojom.mojom.WebBluetoothRequestDeviceOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRequestDeviceOptions',
@@ -155,7 +155,7 @@ blink.mojom.WebBluetoothRequestDeviceOptionsSpec = {
 };
 
 // Struct: WebBluetoothRequestLEScanOptions
-blink.mojom.WebBluetoothRequestLEScanOptionsSpec = {
+blink.mojom.mojom.WebBluetoothRequestLEScanOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRequestLEScanOptions',
@@ -171,7 +171,7 @@ blink.mojom.WebBluetoothRequestLEScanOptionsSpec = {
 };
 
 // Struct: WebBluetoothDeviceId
-blink.mojom.WebBluetoothDeviceIdSpec = {
+blink.mojom.mojom.WebBluetoothDeviceIdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothDeviceId',
@@ -185,7 +185,7 @@ blink.mojom.WebBluetoothDeviceIdSpec = {
 };
 
 // Struct: WebBluetoothDevice
-blink.mojom.WebBluetoothDeviceSpec = {
+blink.mojom.mojom.WebBluetoothDeviceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothDevice',
@@ -200,7 +200,7 @@ blink.mojom.WebBluetoothDeviceSpec = {
 };
 
 // Struct: WebBluetoothRemoteGATTService
-blink.mojom.WebBluetoothRemoteGATTServiceSpec = {
+blink.mojom.mojom.WebBluetoothRemoteGATTServiceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRemoteGATTService',
@@ -215,7 +215,7 @@ blink.mojom.WebBluetoothRemoteGATTServiceSpec = {
 };
 
 // Struct: WebBluetoothRemoteGATTCharacteristic
-blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec = {
+blink.mojom.mojom.WebBluetoothRemoteGATTCharacteristicSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRemoteGATTCharacteristic',
@@ -231,7 +231,7 @@ blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec = {
 };
 
 // Struct: WebBluetoothAdvertisingEvent
-blink.mojom.WebBluetoothAdvertisingEventSpec = {
+blink.mojom.mojom.WebBluetoothAdvertisingEventSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothAdvertisingEvent',
@@ -240,14 +240,14 @@ blink.mojom.WebBluetoothAdvertisingEventSpec = {
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothDeviceSpec, nullable: false, minVersion: 0 },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'uuids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(bluetooth.mojom.UUIDSpec, false), nullable: false, minVersion: 0 },
-        { name: 'appearance_is_set', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'appearance', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'tx_power_is_set', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'tx_power', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'rssi_is_set', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rssi', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'manufacturer_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.WebBluetoothCompanySpec, mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-        { name: 'service_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(bluetooth.mojom.UUIDSpec, mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
+        { name: 'appearance_is_set', packedOffset: 42, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'appearance', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'tx_power_is_set', packedOffset: 42, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tx_power', packedOffset: 43, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'rssi_is_set', packedOffset: 42, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'rssi', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'manufacturer_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.WebBluetoothCompanySpec, mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
+        { name: 'service_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(bluetooth.mojom.UUIDSpec, mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -255,7 +255,7 @@ blink.mojom.WebBluetoothAdvertisingEventSpec = {
 };
 
 // Struct: WebBluetoothRemoteGATTDescriptor
-blink.mojom.WebBluetoothRemoteGATTDescriptorSpec = {
+blink.mojom.mojom.WebBluetoothRemoteGATTDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothRemoteGATTDescriptor',
@@ -270,24 +270,24 @@ blink.mojom.WebBluetoothRemoteGATTDescriptorSpec = {
 };
 
 // Interface: WebBluetoothService
-blink.mojom.WebBluetoothService = {};
+blink.mojom.mojom.WebBluetoothService = {};
 
-blink.mojom.WebBluetoothServicePendingReceiver = class {
+blink.mojom.mojom.WebBluetoothServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebBluetoothServiceRemote = class {
+blink.mojom.mojom.WebBluetoothServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebBluetoothService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebBluetoothServicePendingReceiver,
+      blink.mojom.mojom.WebBluetoothServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebBluetoothServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebBluetoothServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -299,7 +299,7 @@ blink.mojom.WebBluetoothServiceRemote = class {
   }
 };
 
-blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
+blink.mojom.mojom.WebBluetoothServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -308,8 +308,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec,
-      blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_GetAvailability_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec,
       []);
   }
 
@@ -317,8 +317,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec,
-      blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RequestDevice_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec,
       [options]);
   }
 
@@ -326,8 +326,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WebBluetoothService_GetDevices_ParamsSpec,
-      blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_GetDevices_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -335,7 +335,7 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_ForgetDevice_ParamsSpec,
       null,
       [device_id]);
   }
@@ -344,8 +344,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec,
       [device_id, client]);
   }
 
@@ -353,7 +353,7 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec,
       null,
       [device_id]);
   }
@@ -362,8 +362,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec,
       [device_id, quantity, services_uuid]);
   }
 
@@ -371,8 +371,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec,
       [service_instance_id, quantity, characteristics_uuid]);
   }
 
@@ -380,8 +380,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec,
       [characteristic_instance_id]);
   }
 
@@ -389,8 +389,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec,
       [characteristic_instance_id, value, write_type]);
   }
 
@@ -398,8 +398,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec,
       [characteristic_instance_id, client]);
   }
 
@@ -407,7 +407,7 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec,
       null,
       [characteristic_instance_id]);
   }
@@ -416,8 +416,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec,
       [characteristics_instance_id, quantity, descriptor_uuid]);
   }
 
@@ -425,8 +425,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec,
       [descriptor_instance_id]);
   }
 
@@ -434,8 +434,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec,
-      blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec,
       [descriptor_instance_id, value]);
   }
 
@@ -443,8 +443,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec,
-      blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec,
       [client, options]);
   }
 
@@ -452,15 +452,15 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec,
-      blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec,
       [device_id, client]);
   }
 
 };
 
-blink.mojom.WebBluetoothService.getRemote = function() {
-  let remote = new blink.mojom.WebBluetoothServiceRemote();
+blink.mojom.mojom.WebBluetoothService.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebBluetoothServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -470,7 +470,7 @@ blink.mojom.WebBluetoothService.getRemote = function() {
 };
 
 // ParamsSpec for GetAvailability
-blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_GetAvailability_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.GetAvailability_Params',
@@ -482,7 +482,7 @@ blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.GetAvailability_ResponseParams',
@@ -496,7 +496,7 @@ blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestDevice
-blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RequestDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RequestDevice_Params',
@@ -509,14 +509,14 @@ blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RequestDevice_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothDeviceSpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
+        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothDeviceSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -524,7 +524,7 @@ blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDevices
-blink.mojom.WebBluetoothService_GetDevices_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_GetDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.GetDevices_Params',
@@ -536,7 +536,7 @@ blink.mojom.WebBluetoothService_GetDevices_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.GetDevices_ResponseParams',
@@ -550,7 +550,7 @@ blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ForgetDevice
-blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_ForgetDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.ForgetDevice_Params',
@@ -564,7 +564,7 @@ blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec = {
 };
 
 // ParamsSpec for RemoteServerConnect
-blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteServerConnect_Params',
@@ -578,7 +578,7 @@ blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteServerConnect_ResponseParams',
@@ -592,7 +592,7 @@ blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoteServerDisconnect
-blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteServerDisconnect_Params',
@@ -606,29 +606,29 @@ blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec = {
 };
 
 // ParamsSpec for RemoteServerGetPrimaryServices
-blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteServerGetPrimaryServices_Params',
       packedSize: 32,
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothDeviceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'quantity', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothGATTQueryQuantitySpec, nullable: false, minVersion: 0 },
-        { name: 'services_uuid', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
+        { name: 'quantity', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebBluetoothGATTQueryQuantitySpec, nullable: false, minVersion: 0 },
+        { name: 'services_uuid', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteServerGetPrimaryServices_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
-        { name: 'services', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebBluetoothRemoteGATTServiceSpec, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
+        { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebBluetoothRemoteGATTServiceSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -636,29 +636,29 @@ blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpe
 };
 
 // ParamsSpec for RemoteServiceGetCharacteristics
-blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteServiceGetCharacteristics_Params',
       packedSize: 32,
       fields: [
         { name: 'service_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'quantity', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothGATTQueryQuantitySpec, nullable: false, minVersion: 0 },
-        { name: 'characteristics_uuid', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
+        { name: 'quantity', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebBluetoothGATTQueryQuantitySpec, nullable: false, minVersion: 0 },
+        { name: 'characteristics_uuid', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteServiceGetCharacteristics_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
-        { name: 'characteristics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
+        { name: 'characteristics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebBluetoothRemoteGATTCharacteristicSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -666,7 +666,7 @@ blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSp
 };
 
 // ParamsSpec for RemoteCharacteristicReadValue
-blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicReadValue_Params',
@@ -679,14 +679,14 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicReadValue_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -694,7 +694,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec
 };
 
 // ParamsSpec for RemoteCharacteristicWriteValue
-blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicWriteValue_Params',
@@ -709,7 +709,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicWriteValue_ResponseParams',
@@ -723,7 +723,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpe
 };
 
 // ParamsSpec for RemoteCharacteristicStartNotifications
-blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicStartNotifications_Params',
@@ -737,7 +737,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpe
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicStartNotifications_ResponseParams',
@@ -751,7 +751,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseP
 };
 
 // ParamsSpec for RemoteCharacteristicStopNotifications
-blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicStopNotifications_Params',
@@ -765,29 +765,29 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec
 };
 
 // ParamsSpec for RemoteCharacteristicGetDescriptors
-blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicGetDescriptors_Params',
       packedSize: 32,
       fields: [
         { name: 'characteristics_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'quantity', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothGATTQueryQuantitySpec, nullable: false, minVersion: 0 },
-        { name: 'descriptor_uuid', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
+        { name: 'quantity', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebBluetoothGATTQueryQuantitySpec, nullable: false, minVersion: 0 },
+        { name: 'descriptor_uuid', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteCharacteristicGetDescriptors_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
-        { name: 'descriptors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebBluetoothRemoteGATTDescriptorSpec, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
+        { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebBluetoothRemoteGATTDescriptorSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -795,7 +795,7 @@ blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParam
 };
 
 // ParamsSpec for RemoteDescriptorReadValue
-blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteDescriptorReadValue_Params',
@@ -808,14 +808,14 @@ blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteDescriptorReadValue_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothResultSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -823,7 +823,7 @@ blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoteDescriptorWriteValue
-blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteDescriptorWriteValue_Params',
@@ -837,7 +837,7 @@ blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RemoteDescriptorWriteValue_ResponseParams',
@@ -851,21 +851,21 @@ blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec = 
 };
 
 // ParamsSpec for RequestScanningStart
-blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RequestScanningStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebBluetoothRequestLEScanOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebBluetoothRequestLEScanOptionsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.RequestScanningStart_ResponseParams',
@@ -879,7 +879,7 @@ blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WatchAdvertisementsForDevice
-blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.WatchAdvertisementsForDevice_Params',
@@ -893,7 +893,7 @@ blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec = {
   }
 };
 
-blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec = {
+blink.mojom.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothService.WatchAdvertisementsForDevice_ResponseParams',
@@ -907,29 +907,29 @@ blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-blink.mojom.WebBluetoothServicePtr = blink.mojom.WebBluetoothServiceRemote;
-blink.mojom.WebBluetoothServiceRequest = blink.mojom.WebBluetoothServicePendingReceiver;
+blink.mojom.mojom.WebBluetoothServicePtr = blink.mojom.mojom.WebBluetoothServiceRemote;
+blink.mojom.mojom.WebBluetoothServiceRequest = blink.mojom.mojom.WebBluetoothServicePendingReceiver;
 
 
 // Interface: WebBluetoothServerClient
-blink.mojom.WebBluetoothServerClient = {};
+blink.mojom.mojom.WebBluetoothServerClient = {};
 
-blink.mojom.WebBluetoothServerClientPendingReceiver = class {
+blink.mojom.mojom.WebBluetoothServerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebBluetoothServerClientRemote = class {
+blink.mojom.mojom.WebBluetoothServerClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebBluetoothServerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebBluetoothServerClientPendingReceiver,
+      blink.mojom.mojom.WebBluetoothServerClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebBluetoothServerClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebBluetoothServerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -941,7 +941,7 @@ blink.mojom.WebBluetoothServerClientRemote = class {
   }
 };
 
-blink.mojom.WebBluetoothServerClientRemoteCallHandler = class {
+blink.mojom.mojom.WebBluetoothServerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -950,15 +950,15 @@ blink.mojom.WebBluetoothServerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.WebBluetoothServerClient.getRemote = function() {
-  let remote = new blink.mojom.WebBluetoothServerClientRemote();
+blink.mojom.mojom.WebBluetoothServerClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebBluetoothServerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -968,7 +968,7 @@ blink.mojom.WebBluetoothServerClient.getRemote = function() {
 };
 
 // ParamsSpec for GATTServerDisconnected
-blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothServerClient.GATTServerDisconnected_Params',
@@ -981,29 +981,29 @@ blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WebBluetoothServerClientPtr = blink.mojom.WebBluetoothServerClientRemote;
-blink.mojom.WebBluetoothServerClientRequest = blink.mojom.WebBluetoothServerClientPendingReceiver;
+blink.mojom.mojom.WebBluetoothServerClientPtr = blink.mojom.mojom.WebBluetoothServerClientRemote;
+blink.mojom.mojom.WebBluetoothServerClientRequest = blink.mojom.mojom.WebBluetoothServerClientPendingReceiver;
 
 
 // Interface: WebBluetoothCharacteristicClient
-blink.mojom.WebBluetoothCharacteristicClient = {};
+blink.mojom.mojom.WebBluetoothCharacteristicClient = {};
 
-blink.mojom.WebBluetoothCharacteristicClientPendingReceiver = class {
+blink.mojom.mojom.WebBluetoothCharacteristicClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebBluetoothCharacteristicClientRemote = class {
+blink.mojom.mojom.WebBluetoothCharacteristicClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebBluetoothCharacteristicClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebBluetoothCharacteristicClientPendingReceiver,
+      blink.mojom.mojom.WebBluetoothCharacteristicClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebBluetoothCharacteristicClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebBluetoothCharacteristicClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1015,7 +1015,7 @@ blink.mojom.WebBluetoothCharacteristicClientRemote = class {
   }
 };
 
-blink.mojom.WebBluetoothCharacteristicClientRemoteCallHandler = class {
+blink.mojom.mojom.WebBluetoothCharacteristicClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1024,15 +1024,15 @@ blink.mojom.WebBluetoothCharacteristicClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec,
       null,
       [value]);
   }
 
 };
 
-blink.mojom.WebBluetoothCharacteristicClient.getRemote = function() {
-  let remote = new blink.mojom.WebBluetoothCharacteristicClientRemote();
+blink.mojom.mojom.WebBluetoothCharacteristicClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebBluetoothCharacteristicClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1042,7 +1042,7 @@ blink.mojom.WebBluetoothCharacteristicClient.getRemote = function() {
 };
 
 // ParamsSpec for RemoteCharacteristicValueChanged
-blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothCharacteristicClient.RemoteCharacteristicValueChanged_Params',
@@ -1056,29 +1056,29 @@ blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_Pa
 };
 
 // Legacy compatibility
-blink.mojom.WebBluetoothCharacteristicClientPtr = blink.mojom.WebBluetoothCharacteristicClientRemote;
-blink.mojom.WebBluetoothCharacteristicClientRequest = blink.mojom.WebBluetoothCharacteristicClientPendingReceiver;
+blink.mojom.mojom.WebBluetoothCharacteristicClientPtr = blink.mojom.mojom.WebBluetoothCharacteristicClientRemote;
+blink.mojom.mojom.WebBluetoothCharacteristicClientRequest = blink.mojom.mojom.WebBluetoothCharacteristicClientPendingReceiver;
 
 
 // Interface: WebBluetoothAdvertisementClient
-blink.mojom.WebBluetoothAdvertisementClient = {};
+blink.mojom.mojom.WebBluetoothAdvertisementClient = {};
 
-blink.mojom.WebBluetoothAdvertisementClientPendingReceiver = class {
+blink.mojom.mojom.WebBluetoothAdvertisementClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebBluetoothAdvertisementClientRemote = class {
+blink.mojom.mojom.WebBluetoothAdvertisementClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebBluetoothAdvertisementClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebBluetoothAdvertisementClientPendingReceiver,
+      blink.mojom.mojom.WebBluetoothAdvertisementClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebBluetoothAdvertisementClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebBluetoothAdvertisementClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1090,7 +1090,7 @@ blink.mojom.WebBluetoothAdvertisementClientRemote = class {
   }
 };
 
-blink.mojom.WebBluetoothAdvertisementClientRemoteCallHandler = class {
+blink.mojom.mojom.WebBluetoothAdvertisementClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1099,15 +1099,15 @@ blink.mojom.WebBluetoothAdvertisementClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec,
+      blink.mojom.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-blink.mojom.WebBluetoothAdvertisementClient.getRemote = function() {
-  let remote = new blink.mojom.WebBluetoothAdvertisementClientRemote();
+blink.mojom.mojom.WebBluetoothAdvertisementClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebBluetoothAdvertisementClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1117,7 +1117,7 @@ blink.mojom.WebBluetoothAdvertisementClient.getRemote = function() {
 };
 
 // ParamsSpec for AdvertisingEvent
-blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec = {
+blink.mojom.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebBluetoothAdvertisementClient.AdvertisingEvent_Params',
@@ -1131,6 +1131,6 @@ blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WebBluetoothAdvertisementClientPtr = blink.mojom.WebBluetoothAdvertisementClientRemote;
-blink.mojom.WebBluetoothAdvertisementClientRequest = blink.mojom.WebBluetoothAdvertisementClientPendingReceiver;
+blink.mojom.mojom.WebBluetoothAdvertisementClientPtr = blink.mojom.mojom.WebBluetoothAdvertisementClientRemote;
+blink.mojom.mojom.WebBluetoothAdvertisementClientRequest = blink.mojom.mojom.WebBluetoothAdvertisementClientPendingReceiver;
 

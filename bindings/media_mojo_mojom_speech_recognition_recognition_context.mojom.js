@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: SpeechRecognitionPhrase
-media.mojom.SpeechRecognitionPhraseSpec = {
+media.mojom.mojom.SpeechRecognitionPhraseSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionPhrase',
@@ -25,7 +25,7 @@ media.mojom.SpeechRecognitionPhraseSpec = {
 };
 
 // Struct: SpeechRecognitionRecognitionContext
-media.mojom.SpeechRecognitionRecognitionContextSpec = {
+media.mojom.mojom.SpeechRecognitionRecognitionContextSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionRecognitionContext',

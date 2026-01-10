@@ -7,10 +7,12 @@
 // Module namespace
 var global_media_controls = global_media_controls || {};
 global_media_controls.mojom = global_media_controls.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: IconType
-global_media_controls.mojom.IconType = {
+global_media_controls.mojom.mojom.IconType = {
   kUnknown: 0,
   kThrobber: 1,
   kInfo: 2,
@@ -19,10 +21,10 @@ global_media_controls.mojom.IconType = {
   kSpeakerGroup: 5,
   kInput: 6,
 };
-global_media_controls.mojom.IconTypeSpec = { $: mojo.internal.Enum() };
+global_media_controls.mojom.mojom.IconTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Device
-global_media_controls.mojom.DeviceSpec = {
+global_media_controls.mojom.mojom.DeviceSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.Device',
@@ -39,24 +41,24 @@ global_media_controls.mojom.DeviceSpec = {
 };
 
 // Interface: DeviceListHost
-global_media_controls.mojom.DeviceListHost = {};
+global_media_controls.mojom.mojom.DeviceListHost = {};
 
-global_media_controls.mojom.DeviceListHostPendingReceiver = class {
+global_media_controls.mojom.mojom.DeviceListHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-global_media_controls.mojom.DeviceListHostRemote = class {
+global_media_controls.mojom.mojom.DeviceListHostRemote = class {
   static get $interfaceName() {
     return 'global_media_controls.mojom.DeviceListHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      global_media_controls.mojom.DeviceListHostPendingReceiver,
+      global_media_controls.mojom.mojom.DeviceListHostPendingReceiver,
       handle);
-    this.$ = new global_media_controls.mojom.DeviceListHostRemoteCallHandler(this.proxy);
+    this.$ = new global_media_controls.mojom.mojom.DeviceListHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -68,7 +70,7 @@ global_media_controls.mojom.DeviceListHostRemote = class {
   }
 };
 
-global_media_controls.mojom.DeviceListHostRemoteCallHandler = class {
+global_media_controls.mojom.mojom.DeviceListHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -77,15 +79,15 @@ global_media_controls.mojom.DeviceListHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec,
+      global_media_controls.mojom.mojom.DeviceListHost_SelectDevice_ParamsSpec,
       null,
       [device_id]);
   }
 
 };
 
-global_media_controls.mojom.DeviceListHost.getRemote = function() {
-  let remote = new global_media_controls.mojom.DeviceListHostRemote();
+global_media_controls.mojom.mojom.DeviceListHost.getRemote = function() {
+  let remote = new global_media_controls.mojom.mojom.DeviceListHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -95,7 +97,7 @@ global_media_controls.mojom.DeviceListHost.getRemote = function() {
 };
 
 // ParamsSpec for SelectDevice
-global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec = {
+global_media_controls.mojom.mojom.DeviceListHost_SelectDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceListHost.SelectDevice_Params',
@@ -109,29 +111,29 @@ global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec = {
 };
 
 // Legacy compatibility
-global_media_controls.mojom.DeviceListHostPtr = global_media_controls.mojom.DeviceListHostRemote;
-global_media_controls.mojom.DeviceListHostRequest = global_media_controls.mojom.DeviceListHostPendingReceiver;
+global_media_controls.mojom.mojom.DeviceListHostPtr = global_media_controls.mojom.mojom.DeviceListHostRemote;
+global_media_controls.mojom.mojom.DeviceListHostRequest = global_media_controls.mojom.mojom.DeviceListHostPendingReceiver;
 
 
 // Interface: DeviceListClient
-global_media_controls.mojom.DeviceListClient = {};
+global_media_controls.mojom.mojom.DeviceListClient = {};
 
-global_media_controls.mojom.DeviceListClientPendingReceiver = class {
+global_media_controls.mojom.mojom.DeviceListClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-global_media_controls.mojom.DeviceListClientRemote = class {
+global_media_controls.mojom.mojom.DeviceListClientRemote = class {
   static get $interfaceName() {
     return 'global_media_controls.mojom.DeviceListClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      global_media_controls.mojom.DeviceListClientPendingReceiver,
+      global_media_controls.mojom.mojom.DeviceListClientPendingReceiver,
       handle);
-    this.$ = new global_media_controls.mojom.DeviceListClientRemoteCallHandler(this.proxy);
+    this.$ = new global_media_controls.mojom.mojom.DeviceListClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -143,7 +145,7 @@ global_media_controls.mojom.DeviceListClientRemote = class {
   }
 };
 
-global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
+global_media_controls.mojom.mojom.DeviceListClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -152,7 +154,7 @@ global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec,
+      global_media_controls.mojom.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec,
       null,
       [devices]);
   }
@@ -161,15 +163,15 @@ global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec,
+      global_media_controls.mojom.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec,
       null,
       []);
   }
 
 };
 
-global_media_controls.mojom.DeviceListClient.getRemote = function() {
-  let remote = new global_media_controls.mojom.DeviceListClientRemote();
+global_media_controls.mojom.mojom.DeviceListClient.getRemote = function() {
+  let remote = new global_media_controls.mojom.mojom.DeviceListClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -179,7 +181,7 @@ global_media_controls.mojom.DeviceListClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDevicesUpdated
-global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec = {
+global_media_controls.mojom.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceListClient.OnDevicesUpdated_Params',
@@ -193,7 +195,7 @@ global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnPermissionRejected
-global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec = {
+global_media_controls.mojom.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceListClient.OnPermissionRejected_Params',
@@ -206,29 +208,29 @@ global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec = {
 };
 
 // Legacy compatibility
-global_media_controls.mojom.DeviceListClientPtr = global_media_controls.mojom.DeviceListClientRemote;
-global_media_controls.mojom.DeviceListClientRequest = global_media_controls.mojom.DeviceListClientPendingReceiver;
+global_media_controls.mojom.mojom.DeviceListClientPtr = global_media_controls.mojom.mojom.DeviceListClientRemote;
+global_media_controls.mojom.mojom.DeviceListClientRequest = global_media_controls.mojom.mojom.DeviceListClientPendingReceiver;
 
 
 // Interface: DeviceService
-global_media_controls.mojom.DeviceService = {};
+global_media_controls.mojom.mojom.DeviceService = {};
 
-global_media_controls.mojom.DeviceServicePendingReceiver = class {
+global_media_controls.mojom.mojom.DeviceServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-global_media_controls.mojom.DeviceServiceRemote = class {
+global_media_controls.mojom.mojom.DeviceServiceRemote = class {
   static get $interfaceName() {
     return 'global_media_controls.mojom.DeviceService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      global_media_controls.mojom.DeviceServicePendingReceiver,
+      global_media_controls.mojom.mojom.DeviceServicePendingReceiver,
       handle);
-    this.$ = new global_media_controls.mojom.DeviceServiceRemoteCallHandler(this.proxy);
+    this.$ = new global_media_controls.mojom.mojom.DeviceServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -240,7 +242,7 @@ global_media_controls.mojom.DeviceServiceRemote = class {
   }
 };
 
-global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
+global_media_controls.mojom.mojom.DeviceServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -249,7 +251,7 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec,
+      global_media_controls.mojom.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec,
       null,
       [session_id, host_receiver, client_remote]);
   }
@@ -258,7 +260,7 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec,
+      global_media_controls.mojom.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec,
       null,
       [host_receiver, client_remote]);
   }
@@ -267,15 +269,15 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec,
+      global_media_controls.mojom.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec,
       null,
       [provider_remote]);
   }
 
 };
 
-global_media_controls.mojom.DeviceService.getRemote = function() {
-  let remote = new global_media_controls.mojom.DeviceServiceRemote();
+global_media_controls.mojom.mojom.DeviceService.getRemote = function() {
+  let remote = new global_media_controls.mojom.mojom.DeviceServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -285,7 +287,7 @@ global_media_controls.mojom.DeviceService.getRemote = function() {
 };
 
 // ParamsSpec for GetDeviceListHostForSession
-global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec = {
+global_media_controls.mojom.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceService.GetDeviceListHostForSession_Params',
@@ -301,7 +303,7 @@ global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec
 };
 
 // ParamsSpec for GetDeviceListHostForPresentation
-global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec = {
+global_media_controls.mojom.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceService.GetDeviceListHostForPresentation_Params',
@@ -316,7 +318,7 @@ global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_Param
 };
 
 // ParamsSpec for SetDevicePickerProvider
-global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec = {
+global_media_controls.mojom.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceService.SetDevicePickerProvider_Params',
@@ -330,29 +332,29 @@ global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec = {
 };
 
 // Legacy compatibility
-global_media_controls.mojom.DeviceServicePtr = global_media_controls.mojom.DeviceServiceRemote;
-global_media_controls.mojom.DeviceServiceRequest = global_media_controls.mojom.DeviceServicePendingReceiver;
+global_media_controls.mojom.mojom.DeviceServicePtr = global_media_controls.mojom.mojom.DeviceServiceRemote;
+global_media_controls.mojom.mojom.DeviceServiceRequest = global_media_controls.mojom.mojom.DeviceServicePendingReceiver;
 
 
 // Interface: DevicePickerProvider
-global_media_controls.mojom.DevicePickerProvider = {};
+global_media_controls.mojom.mojom.DevicePickerProvider = {};
 
-global_media_controls.mojom.DevicePickerProviderPendingReceiver = class {
+global_media_controls.mojom.mojom.DevicePickerProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-global_media_controls.mojom.DevicePickerProviderRemote = class {
+global_media_controls.mojom.mojom.DevicePickerProviderRemote = class {
   static get $interfaceName() {
     return 'global_media_controls.mojom.DevicePickerProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      global_media_controls.mojom.DevicePickerProviderPendingReceiver,
+      global_media_controls.mojom.mojom.DevicePickerProviderPendingReceiver,
       handle);
-    this.$ = new global_media_controls.mojom.DevicePickerProviderRemoteCallHandler(this.proxy);
+    this.$ = new global_media_controls.mojom.mojom.DevicePickerProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -364,7 +366,7 @@ global_media_controls.mojom.DevicePickerProviderRemote = class {
   }
 };
 
-global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
+global_media_controls.mojom.mojom.DevicePickerProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -373,7 +375,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_CreateItem_ParamsSpec,
       null,
       [source_id]);
   }
@@ -382,7 +384,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_DeleteItem_ParamsSpec,
       null,
       []);
   }
@@ -391,7 +393,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_ShowItem_ParamsSpec,
       null,
       []);
   }
@@ -400,7 +402,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_HideItem_ParamsSpec,
       null,
       []);
   }
@@ -409,7 +411,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec,
       null,
       [metadata]);
   }
@@ -418,7 +420,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec,
       null,
       [artwork_image]);
   }
@@ -427,7 +429,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec,
       null,
       [favicon_image]);
   }
@@ -436,7 +438,7 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -445,15 +447,15 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec,
       null,
       []);
   }
 
 };
 
-global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
-  let remote = new global_media_controls.mojom.DevicePickerProviderRemote();
+global_media_controls.mojom.mojom.DevicePickerProvider.getRemote = function() {
+  let remote = new global_media_controls.mojom.mojom.DevicePickerProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -463,7 +465,7 @@ global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
 };
 
 // ParamsSpec for CreateItem
-global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_CreateItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.CreateItem_Params',
@@ -477,7 +479,7 @@ global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec = {
 };
 
 // ParamsSpec for DeleteItem
-global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_DeleteItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.DeleteItem_Params',
@@ -490,7 +492,7 @@ global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec = {
 };
 
 // ParamsSpec for ShowItem
-global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_ShowItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.ShowItem_Params',
@@ -503,7 +505,7 @@ global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec = {
 };
 
 // ParamsSpec for HideItem
-global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_HideItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.HideItem_Params',
@@ -516,7 +518,7 @@ global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec = {
 };
 
 // ParamsSpec for OnMetadataChanged
-global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.OnMetadataChanged_Params',
@@ -530,7 +532,7 @@ global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec = 
 };
 
 // ParamsSpec for OnArtworkImageChanged
-global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.OnArtworkImageChanged_Params',
@@ -544,7 +546,7 @@ global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpe
 };
 
 // ParamsSpec for OnFaviconImageChanged
-global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.OnFaviconImageChanged_Params',
@@ -558,7 +560,7 @@ global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpe
 };
 
 // ParamsSpec for AddObserver
-global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.AddObserver_Params',
@@ -572,7 +574,7 @@ global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for HideMediaUI
-global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerProvider.HideMediaUI_Params',
@@ -585,29 +587,29 @@ global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec = {
 };
 
 // Legacy compatibility
-global_media_controls.mojom.DevicePickerProviderPtr = global_media_controls.mojom.DevicePickerProviderRemote;
-global_media_controls.mojom.DevicePickerProviderRequest = global_media_controls.mojom.DevicePickerProviderPendingReceiver;
+global_media_controls.mojom.mojom.DevicePickerProviderPtr = global_media_controls.mojom.mojom.DevicePickerProviderRemote;
+global_media_controls.mojom.mojom.DevicePickerProviderRequest = global_media_controls.mojom.mojom.DevicePickerProviderPendingReceiver;
 
 
 // Interface: DevicePickerObserver
-global_media_controls.mojom.DevicePickerObserver = {};
+global_media_controls.mojom.mojom.DevicePickerObserver = {};
 
-global_media_controls.mojom.DevicePickerObserverPendingReceiver = class {
+global_media_controls.mojom.mojom.DevicePickerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-global_media_controls.mojom.DevicePickerObserverRemote = class {
+global_media_controls.mojom.mojom.DevicePickerObserverRemote = class {
   static get $interfaceName() {
     return 'global_media_controls.mojom.DevicePickerObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      global_media_controls.mojom.DevicePickerObserverPendingReceiver,
+      global_media_controls.mojom.mojom.DevicePickerObserverPendingReceiver,
       handle);
-    this.$ = new global_media_controls.mojom.DevicePickerObserverRemoteCallHandler(this.proxy);
+    this.$ = new global_media_controls.mojom.mojom.DevicePickerObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -619,7 +621,7 @@ global_media_controls.mojom.DevicePickerObserverRemote = class {
   }
 };
 
-global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
+global_media_controls.mojom.mojom.DevicePickerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -628,7 +630,7 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec,
       null,
       []);
   }
@@ -637,7 +639,7 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec,
       null,
       []);
   }
@@ -646,7 +648,7 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec,
       null,
       []);
   }
@@ -655,15 +657,15 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec,
+      global_media_controls.mojom.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
-  let remote = new global_media_controls.mojom.DevicePickerObserverRemote();
+global_media_controls.mojom.mojom.DevicePickerObserver.getRemote = function() {
+  let remote = new global_media_controls.mojom.mojom.DevicePickerObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -673,7 +675,7 @@ global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnMediaUIOpened
-global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerObserver.OnMediaUIOpened_Params',
@@ -686,7 +688,7 @@ global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec = {
 };
 
 // ParamsSpec for OnMediaUIClosed
-global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerObserver.OnMediaUIClosed_Params',
@@ -699,7 +701,7 @@ global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec = {
 };
 
 // ParamsSpec for OnMediaUIUpdated
-global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerObserver.OnMediaUIUpdated_Params',
@@ -712,7 +714,7 @@ global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnPickerDismissed
-global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec = {
+global_media_controls.mojom.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DevicePickerObserver.OnPickerDismissed_Params',
@@ -725,6 +727,6 @@ global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec = 
 };
 
 // Legacy compatibility
-global_media_controls.mojom.DevicePickerObserverPtr = global_media_controls.mojom.DevicePickerObserverRemote;
-global_media_controls.mojom.DevicePickerObserverRequest = global_media_controls.mojom.DevicePickerObserverPendingReceiver;
+global_media_controls.mojom.mojom.DevicePickerObserverPtr = global_media_controls.mojom.mojom.DevicePickerObserverRemote;
+global_media_controls.mojom.mojom.DevicePickerObserverRequest = global_media_controls.mojom.mojom.DevicePickerObserverPendingReceiver;
 

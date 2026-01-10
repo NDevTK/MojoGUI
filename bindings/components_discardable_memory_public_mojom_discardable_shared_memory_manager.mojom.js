@@ -10,24 +10,24 @@ discardable_memory.mojom = discardable_memory.mojom || {};
 
 
 // Interface: DiscardableSharedMemoryManager
-discardable_memory.mojom.DiscardableSharedMemoryManager = {};
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManager = {};
 
-discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver = class {
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-discardable_memory.mojom.DiscardableSharedMemoryManagerRemote = class {
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerRemote = class {
   static get $interfaceName() {
     return 'discardable_memory.mojom.DiscardableSharedMemoryManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver,
+      discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerPendingReceiver,
       handle);
-    this.$ = new discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler(this.proxy);
+    this.$ = new discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemote = class {
   }
 };
 
-discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class {
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec,
-      discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
+      discardable_memory.mojom.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec,
+      discardable_memory.mojom.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
       [size, id]);
   }
 
@@ -57,15 +57,15 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec,
+      discardable_memory.mojom.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec,
       null,
       [id]);
   }
 
 };
 
-discardable_memory.mojom.DiscardableSharedMemoryManager.getRemote = function() {
-  let remote = new discardable_memory.mojom.DiscardableSharedMemoryManagerRemote();
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManager.getRemote = function() {
+  let remote = new discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager.getRemote = function() {
 };
 
 // ParamsSpec for AllocateLockedDiscardableSharedMemory
-discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = {
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_Params',
@@ -89,7 +89,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
   }
 };
 
-discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = {
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.AllocateLockedDiscardableSharedMemory_ResponseParams',
@@ -103,7 +103,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardabl
 };
 
 // ParamsSpec for DeletedDiscardableSharedMemory
-discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = {
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discardable_memory.mojom.DiscardableSharedMemoryManager.DeletedDiscardableSharedMemory_Params',
@@ -117,6 +117,6 @@ discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableShared
 };
 
 // Legacy compatibility
-discardable_memory.mojom.DiscardableSharedMemoryManagerPtr = discardable_memory.mojom.DiscardableSharedMemoryManagerRemote;
-discardable_memory.mojom.DiscardableSharedMemoryManagerRequest = discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver;
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerPtr = discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerRemote;
+discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerRequest = discardable_memory.mojom.mojom.DiscardableSharedMemoryManagerPendingReceiver;
 

@@ -7,18 +7,21 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: PrintFailureReason
-printing.mojom.PrintFailureReason = {
+printing.mojom.mojom.PrintFailureReason = {
   kGeneralFailure: 0,
   kInvalidPageRange: 1,
   kPrintingInProgress: 2,
 };
-printing.mojom.PrintFailureReasonSpec = { $: mojo.internal.Enum() };
+printing.mojom.mojom.PrintFailureReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: PreviewIds
-printing.mojom.PreviewIdsSpec = {
+printing.mojom.mojom.PreviewIdsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PreviewIds',
@@ -33,7 +36,7 @@ printing.mojom.PreviewIdsSpec = {
 };
 
 // Struct: RequestPrintPreviewParams
-printing.mojom.RequestPrintPreviewParamsSpec = {
+printing.mojom.mojom.RequestPrintPreviewParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.RequestPrintPreviewParams',
@@ -51,7 +54,7 @@ printing.mojom.RequestPrintPreviewParamsSpec = {
 };
 
 // Struct: PrintFrameContentParams
-printing.mojom.PrintFrameContentParamsSpec = {
+printing.mojom.mojom.PrintFrameContentParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintFrameContentParams',
@@ -66,15 +69,15 @@ printing.mojom.PrintFrameContentParamsSpec = {
 };
 
 // Struct: OptionsFromDocumentParams
-printing.mojom.OptionsFromDocumentParamsSpec = {
+printing.mojom.mojom.OptionsFromDocumentParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.OptionsFromDocumentParams',
       packedSize: 24,
       fields: [
-        { name: 'is_scaling_disabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'copies', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'duplex', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.DuplexModeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_scaling_disabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'copies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'duplex', packedOffset: 4, packedBitOffset: 0, type: printing.mojom.DuplexModeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -82,7 +85,7 @@ printing.mojom.OptionsFromDocumentParamsSpec = {
 };
 
 // Struct: DidPrintContentParams
-printing.mojom.DidPrintContentParamsSpec = {
+printing.mojom.mojom.DidPrintContentParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.DidPrintContentParams',
@@ -97,16 +100,16 @@ printing.mojom.DidPrintContentParamsSpec = {
 };
 
 // Struct: DidStartPreviewParams
-printing.mojom.DidStartPreviewParamsSpec = {
+printing.mojom.mojom.DidStartPreviewParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.DidStartPreviewParams',
       packedSize: 40,
       fields: [
-        { name: 'page_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pages_to_render', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'pages_per_sheet', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'page_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
+        { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pages_to_render', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'pages_per_sheet', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
         { name: 'fit_to_page_scaling', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -115,7 +118,7 @@ printing.mojom.DidStartPreviewParamsSpec = {
 };
 
 // Struct: DidPreviewPageParams
-printing.mojom.DidPreviewPageParamsSpec = {
+printing.mojom.mojom.DidPreviewPageParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.DidPreviewPageParams',
@@ -131,7 +134,7 @@ printing.mojom.DidPreviewPageParamsSpec = {
 };
 
 // Struct: DidPreviewDocumentParams
-printing.mojom.DidPreviewDocumentParamsSpec = {
+printing.mojom.mojom.DidPreviewDocumentParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.DidPreviewDocumentParams',
@@ -147,7 +150,7 @@ printing.mojom.DidPreviewDocumentParamsSpec = {
 };
 
 // Struct: PrintParams
-printing.mojom.PrintParamsSpec = {
+printing.mojom.mojom.PrintParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintParams',
@@ -156,32 +159,32 @@ printing.mojom.PrintParamsSpec = {
         { name: 'page_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
         { name: 'content_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
         { name: 'printable_area', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'margin_top', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'margin_left', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'page_orientation', packedOffset: 32, packedBitOffset: 0, type: printing.mojom.PageOrientationSpec, nullable: false, minVersion: 0 },
-        { name: 'dpi', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'document_cookie', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'selection_only', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preview_ui_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'preview_request_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_first_request', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'print_scaling_option', packedOffset: 68, packedBitOffset: 0, type: printing.mojom.PrintScalingOptionSpec, nullable: false, minVersion: 0 },
-        { name: 'print_to_pdf', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'display_header_footer', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'header_template', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'footer_template', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'rasterize_pdf', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rasterize_pdf_dpi', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'should_print_backgrounds', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'printed_doc_type', packedOffset: 108, packedBitOffset: 0, type: printing.mojom.SkiaDocumentTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'prefer_css_page_size', packedOffset: 56, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'pages_per_sheet', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'generate_tagged_pdf_$flag', packedOffset: 56, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'generate_tagged_pdf_$value', originalFieldName: 'generate_tagged_pdf' } },
-        { name: 'generate_tagged_pdf_$value', packedOffset: 57, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'generate_tagged_pdf_$flag', originalFieldName: 'generate_tagged_pdf' } },
-        { name: 'generate_document_outline', packedOffset: 116, packedBitOffset: 0, type: printing.mojom.GenerateDocumentOutlineSpec, nullable: false, minVersion: 0 },
+        { name: 'margin_top', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'margin_left', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'page_orientation', packedOffset: 80, packedBitOffset: 0, type: printing.mojom.PageOrientationSpec, nullable: false, minVersion: 0 },
+        { name: 'dpi', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'document_cookie', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'selection_only', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'preview_ui_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'preview_request_id', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_first_request', packedOffset: 116, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'print_scaling_option', packedOffset: 96, packedBitOffset: 0, type: printing.mojom.PrintScalingOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'print_to_pdf', packedOffset: 116, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'display_header_footer', packedOffset: 116, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'header_template', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'footer_template', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'rasterize_pdf', packedOffset: 116, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'rasterize_pdf_dpi', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'should_print_backgrounds', packedOffset: 116, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'printed_doc_type', packedOffset: 104, packedBitOffset: 0, type: printing.mojom.SkiaDocumentTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'prefer_css_page_size', packedOffset: 116, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'pages_per_sheet', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'generate_tagged_pdf_$flag', packedOffset: 116, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'generate_tagged_pdf_$value', originalFieldName: 'generate_tagged_pdf' } },
+        { name: 'generate_tagged_pdf_$value', packedOffset: 117, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'generate_tagged_pdf_$flag', originalFieldName: 'generate_tagged_pdf' } },
+        { name: 'generate_document_outline', packedOffset: 112, packedBitOffset: 0, type: printing.mojom.GenerateDocumentOutlineSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 128}]
     }
@@ -189,7 +192,7 @@ printing.mojom.PrintParamsSpec = {
 };
 
 // Struct: PrintPagesParams
-printing.mojom.PrintPagesParamsSpec = {
+printing.mojom.mojom.PrintPagesParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPagesParams',
@@ -204,17 +207,17 @@ printing.mojom.PrintPagesParamsSpec = {
 };
 
 // Struct: DidPrintDocumentParams
-printing.mojom.DidPrintDocumentParamsSpec = {
+printing.mojom.mojom.DidPrintDocumentParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.DidPrintDocumentParams',
       packedSize: 48,
       fields: [
         { name: 'content', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintContentParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'document_cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'page_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'content_area', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'physical_offsets', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'document_cookie', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'page_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'content_area', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'physical_offsets', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -222,7 +225,7 @@ printing.mojom.DidPrintDocumentParamsSpec = {
 };
 
 // Struct: ScriptedPrintParams
-printing.mojom.ScriptedPrintParamsSpec = {
+printing.mojom.mojom.ScriptedPrintParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.ScriptedPrintParams',
@@ -230,9 +233,9 @@ printing.mojom.ScriptedPrintParamsSpec = {
       fields: [
         { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'expected_pages_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'has_selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_scripted', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'margin_type', packedOffset: 12, packedBitOffset: 0, type: printing.mojom.MarginTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_selection', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_scripted', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'margin_type', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.MarginTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -240,7 +243,7 @@ printing.mojom.ScriptedPrintParamsSpec = {
 };
 
 // Struct: PrintWithParamsResultData
-printing.mojom.PrintWithParamsResultDataSpec = {
+printing.mojom.mojom.PrintWithParamsResultDataSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintWithParamsResultData',
@@ -256,24 +259,24 @@ printing.mojom.PrintWithParamsResultDataSpec = {
 };
 
 // Interface: PrintRenderer
-printing.mojom.PrintRenderer = {};
+printing.mojom.mojom.PrintRenderer = {};
 
-printing.mojom.PrintRendererPendingReceiver = class {
+printing.mojom.mojom.PrintRendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PrintRendererRemote = class {
+printing.mojom.mojom.PrintRendererRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PrintRenderer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PrintRendererPendingReceiver,
+      printing.mojom.mojom.PrintRendererPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PrintRendererRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PrintRendererRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -285,7 +288,7 @@ printing.mojom.PrintRendererRemote = class {
   }
 };
 
-printing.mojom.PrintRendererRemoteCallHandler = class {
+printing.mojom.mojom.PrintRendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -294,15 +297,15 @@ printing.mojom.PrintRendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec,
-      printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec,
+      printing.mojom.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec,
+      printing.mojom.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec,
       [job_settings]);
   }
 
 };
 
-printing.mojom.PrintRenderer.getRemote = function() {
-  let remote = new printing.mojom.PrintRendererRemote();
+printing.mojom.mojom.PrintRenderer.getRemote = function() {
+  let remote = new printing.mojom.mojom.PrintRendererRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -312,7 +315,7 @@ printing.mojom.PrintRenderer.getRemote = function() {
 };
 
 // ParamsSpec for CreatePreviewDocument
-printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec = {
+printing.mojom.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderer.CreatePreviewDocument_Params',
@@ -325,7 +328,7 @@ printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec = {
+printing.mojom.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderer.CreatePreviewDocument_ResponseParams',
@@ -339,29 +342,29 @@ printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PrintRendererPtr = printing.mojom.PrintRendererRemote;
-printing.mojom.PrintRendererRequest = printing.mojom.PrintRendererPendingReceiver;
+printing.mojom.mojom.PrintRendererPtr = printing.mojom.mojom.PrintRendererRemote;
+printing.mojom.mojom.PrintRendererRequest = printing.mojom.mojom.PrintRendererPendingReceiver;
 
 
 // Interface: PrintPreviewUI
-printing.mojom.PrintPreviewUI = {};
+printing.mojom.mojom.PrintPreviewUI = {};
 
-printing.mojom.PrintPreviewUIPendingReceiver = class {
+printing.mojom.mojom.PrintPreviewUIPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PrintPreviewUIRemote = class {
+printing.mojom.mojom.PrintPreviewUIRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PrintPreviewUI';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PrintPreviewUIPendingReceiver,
+      printing.mojom.mojom.PrintPreviewUIPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PrintPreviewUIRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PrintPreviewUIRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -373,7 +376,7 @@ printing.mojom.PrintPreviewUIRemote = class {
   }
 };
 
-printing.mojom.PrintPreviewUIRemoteCallHandler = class {
+printing.mojom.mojom.PrintPreviewUIRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -382,7 +385,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec,
       null,
       [params, request_id]);
   }
@@ -391,7 +394,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec,
       null,
       [document_cookie, request_id]);
   }
@@ -400,7 +403,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec,
       null,
       [params, request_id]);
   }
@@ -409,7 +412,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec,
       null,
       [params, request_id]);
   }
@@ -418,7 +421,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec,
       null,
       [document_cookie, request_id]);
   }
@@ -427,7 +430,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec,
       null,
       [document_cookie, request_id]);
   }
@@ -436,7 +439,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec,
       null,
       [document_cookie, request_id]);
   }
@@ -445,7 +448,7 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec,
       null,
       [page_layout_in_points, printable_area_in_points, all_pages_have_custom_size, all_pages_have_custom_orientation, request_id]);
   }
@@ -454,15 +457,15 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec,
+      printing.mojom.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec,
       null,
       [params, request_id]);
   }
 
 };
 
-printing.mojom.PrintPreviewUI.getRemote = function() {
-  let remote = new printing.mojom.PrintPreviewUIRemote();
+printing.mojom.mojom.PrintPreviewUI.getRemote = function() {
+  let remote = new printing.mojom.mojom.PrintPreviewUIRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -472,7 +475,7 @@ printing.mojom.PrintPreviewUI.getRemote = function() {
 };
 
 // ParamsSpec for SetOptionsFromDocument
-printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.SetOptionsFromDocument_Params',
@@ -487,7 +490,7 @@ printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec = {
 };
 
 // ParamsSpec for DidPrepareDocumentForPreview
-printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.DidPrepareDocumentForPreview_Params',
@@ -502,7 +505,7 @@ printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec = {
 };
 
 // ParamsSpec for DidPreviewPage
-printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.DidPreviewPage_Params',
@@ -517,7 +520,7 @@ printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec = {
 };
 
 // ParamsSpec for MetafileReadyForPrinting
-printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.MetafileReadyForPrinting_Params',
@@ -532,7 +535,7 @@ printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec = {
 };
 
 // ParamsSpec for PrintPreviewFailed
-printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.PrintPreviewFailed_Params',
@@ -547,7 +550,7 @@ printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec = {
 };
 
 // ParamsSpec for PrintPreviewCancelled
-printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.PrintPreviewCancelled_Params',
@@ -562,7 +565,7 @@ printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec = {
 };
 
 // ParamsSpec for PrinterSettingsInvalid
-printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.PrinterSettingsInvalid_Params',
@@ -577,7 +580,7 @@ printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec = {
 };
 
 // ParamsSpec for DidGetDefaultPageLayout
-printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.DidGetDefaultPageLayout_Params',
@@ -585,9 +588,9 @@ printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec = {
       fields: [
         { name: 'page_layout_in_points', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PageSizeMarginsSpec, nullable: false, minVersion: 0 },
         { name: 'printable_area_in_points', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'all_pages_have_custom_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'all_pages_have_custom_orientation', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'request_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'all_pages_have_custom_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'all_pages_have_custom_orientation', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -595,7 +598,7 @@ printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec = {
 };
 
 // ParamsSpec for DidStartPreview
-printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec = {
+printing.mojom.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintPreviewUI.DidStartPreview_Params',
@@ -610,29 +613,29 @@ printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PrintPreviewUIPtr = printing.mojom.PrintPreviewUIRemote;
-printing.mojom.PrintPreviewUIRequest = printing.mojom.PrintPreviewUIPendingReceiver;
+printing.mojom.mojom.PrintPreviewUIPtr = printing.mojom.mojom.PrintPreviewUIRemote;
+printing.mojom.mojom.PrintPreviewUIRequest = printing.mojom.mojom.PrintPreviewUIPendingReceiver;
 
 
 // Interface: PrintRenderFrame
-printing.mojom.PrintRenderFrame = {};
+printing.mojom.mojom.PrintRenderFrame = {};
 
-printing.mojom.PrintRenderFramePendingReceiver = class {
+printing.mojom.mojom.PrintRenderFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PrintRenderFrameRemote = class {
+printing.mojom.mojom.PrintRenderFrameRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PrintRenderFrame';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PrintRenderFramePendingReceiver,
+      printing.mojom.mojom.PrintRenderFramePendingReceiver,
       handle);
-    this.$ = new printing.mojom.PrintRenderFrameRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PrintRenderFrameRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -644,7 +647,7 @@ printing.mojom.PrintRenderFrameRemote = class {
   }
 };
 
-printing.mojom.PrintRenderFrameRemoteCallHandler = class {
+printing.mojom.mojom.PrintRenderFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -653,7 +656,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec,
       null,
       []);
   }
@@ -662,7 +665,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec,
       null,
       [params]);
   }
@@ -671,7 +674,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec,
       null,
       []);
   }
@@ -680,7 +683,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec,
       null,
       [print_renderer, has_selection]);
   }
@@ -689,7 +692,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec,
       null,
       [preview]);
   }
@@ -698,7 +701,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintPreview_ParamsSpec,
       null,
       [settings]);
   }
@@ -707,7 +710,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec,
       null,
       []);
   }
@@ -716,8 +719,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec,
-      printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec,
       [params]);
   }
 
@@ -725,7 +728,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec,
       null,
       []);
   }
@@ -734,7 +737,7 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintingDone_ParamsSpec,
       null,
       [success]);
   }
@@ -743,15 +746,15 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec,
+      printing.mojom.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec,
       null,
       []);
   }
 
 };
 
-printing.mojom.PrintRenderFrame.getRemote = function() {
-  let remote = new printing.mojom.PrintRenderFrameRemote();
+printing.mojom.mojom.PrintRenderFrame.getRemote = function() {
+  let remote = new printing.mojom.mojom.PrintRenderFrameRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -761,7 +764,7 @@ printing.mojom.PrintRenderFrame.getRemote = function() {
 };
 
 // ParamsSpec for PrintRequestedPages
-printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintRequestedPages_Params',
@@ -774,7 +777,7 @@ printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec = {
 };
 
 // ParamsSpec for PrintWithParams
-printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintWithParams_Params',
@@ -788,7 +791,7 @@ printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec = {
 };
 
 // ParamsSpec for PrintForSystemDialog
-printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintForSystemDialog_Params',
@@ -801,7 +804,7 @@ printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec = {
 };
 
 // ParamsSpec for InitiatePrintPreview
-printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.InitiatePrintPreview_Params',
@@ -816,7 +819,7 @@ printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec = {
 };
 
 // ParamsSpec for SetPrintPreviewUI
-printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.SetPrintPreviewUI_Params',
@@ -830,7 +833,7 @@ printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec = {
 };
 
 // ParamsSpec for PrintPreview
-printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintPreview_Params',
@@ -844,7 +847,7 @@ printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec = {
 };
 
 // ParamsSpec for OnPrintPreviewDialogClosed
-printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.OnPrintPreviewDialogClosed_Params',
@@ -857,7 +860,7 @@ printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec = {
 };
 
 // ParamsSpec for PrintFrameContent
-printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintFrameContent_Params',
@@ -870,14 +873,14 @@ printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintFrameContent_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.DidPrintContentParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'document_cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DidPrintContentParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -885,7 +888,7 @@ printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ConnectToPdfRenderer
-printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.ConnectToPdfRenderer_Params',
@@ -898,7 +901,7 @@ printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec = {
 };
 
 // ParamsSpec for PrintingDone
-printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintingDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintingDone_Params',
@@ -912,7 +915,7 @@ printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec = {
 };
 
 // ParamsSpec for PrintNodeUnderContextMenu
-printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec = {
+printing.mojom.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.PrintNodeUnderContextMenu_Params',
@@ -925,29 +928,29 @@ printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PrintRenderFramePtr = printing.mojom.PrintRenderFrameRemote;
-printing.mojom.PrintRenderFrameRequest = printing.mojom.PrintRenderFramePendingReceiver;
+printing.mojom.mojom.PrintRenderFramePtr = printing.mojom.mojom.PrintRenderFrameRemote;
+printing.mojom.mojom.PrintRenderFrameRequest = printing.mojom.mojom.PrintRenderFramePendingReceiver;
 
 
 // Interface: PrintManagerHost
-printing.mojom.PrintManagerHost = {};
+printing.mojom.mojom.PrintManagerHost = {};
 
-printing.mojom.PrintManagerHostPendingReceiver = class {
+printing.mojom.mojom.PrintManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PrintManagerHostRemote = class {
+printing.mojom.mojom.PrintManagerHostRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PrintManagerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PrintManagerHostPendingReceiver,
+      printing.mojom.mojom.PrintManagerHostPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PrintManagerHostRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PrintManagerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -959,7 +962,7 @@ printing.mojom.PrintManagerHostRemote = class {
   }
 };
 
-printing.mojom.PrintManagerHostRemoteCallHandler = class {
+printing.mojom.mojom.PrintManagerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -968,7 +971,7 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec,
       null,
       [cookie, number_pages]);
   }
@@ -977,8 +980,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec,
-      printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec,
       []);
   }
 
@@ -986,7 +989,7 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec,
       null,
       []);
   }
@@ -995,8 +998,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec,
-      printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec,
       [params]);
   }
 
@@ -1004,8 +1007,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec,
-      printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1013,8 +1016,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec,
-      printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec,
       [params]);
   }
 
@@ -1022,7 +1025,7 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_PrintingFailed_ParamsSpec,
       null,
       [cookie, reason]);
   }
@@ -1031,8 +1034,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec,
-      printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec,
       [job_settings]);
   }
 
@@ -1040,7 +1043,7 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec,
       null,
       []);
   }
@@ -1049,7 +1052,7 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec,
       null,
       [is_modifiable]);
   }
@@ -1058,7 +1061,7 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec,
       null,
       [params]);
   }
@@ -1067,8 +1070,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec,
-      printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_CheckForCancel_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec,
       [preview_ui_id, request_id]);
   }
 
@@ -1076,15 +1079,15 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec,
+      printing.mojom.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec,
       null,
       [cookie, accessibility_tree]);
   }
 
 };
 
-printing.mojom.PrintManagerHost.getRemote = function() {
-  let remote = new printing.mojom.PrintManagerHostRemote();
+printing.mojom.mojom.PrintManagerHost.getRemote = function() {
+  let remote = new printing.mojom.mojom.PrintManagerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1094,7 +1097,7 @@ printing.mojom.PrintManagerHost.getRemote = function() {
 };
 
 // ParamsSpec for DidGetPrintedPagesCount
-printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.DidGetPrintedPagesCount_Params',
@@ -1109,7 +1112,7 @@ printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec = {
 };
 
 // ParamsSpec for GetDefaultPrintSettings
-printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.GetDefaultPrintSettings_Params',
@@ -1121,7 +1124,7 @@ printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.GetDefaultPrintSettings_ResponseParams',
@@ -1135,7 +1138,7 @@ printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DidShowPrintDialog
-printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.DidShowPrintDialog_Params',
@@ -1148,7 +1151,7 @@ printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec = {
 };
 
 // ParamsSpec for DidPrintDocument
-printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.DidPrintDocument_Params',
@@ -1161,7 +1164,7 @@ printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.DidPrintDocument_ResponseParams',
@@ -1175,7 +1178,7 @@ printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsPrintingEnabled
-printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.IsPrintingEnabled_Params',
@@ -1187,7 +1190,7 @@ printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.IsPrintingEnabled_ResponseParams',
@@ -1201,7 +1204,7 @@ printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ScriptedPrint
-printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.ScriptedPrint_Params',
@@ -1214,7 +1217,7 @@ printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.ScriptedPrint_ResponseParams',
@@ -1228,7 +1231,7 @@ printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PrintingFailed
-printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_PrintingFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.PrintingFailed_Params',
@@ -1243,7 +1246,7 @@ printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec = {
 };
 
 // ParamsSpec for UpdatePrintSettings
-printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.UpdatePrintSettings_Params',
@@ -1256,7 +1259,7 @@ printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.UpdatePrintSettings_ResponseParams',
@@ -1270,7 +1273,7 @@ printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetupScriptedPrintPreview
-printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.SetupScriptedPrintPreview_Params',
@@ -1283,7 +1286,7 @@ printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec = {
 };
 
 // ParamsSpec for ShowScriptedPrintPreview
-printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.ShowScriptedPrintPreview_Params',
@@ -1297,7 +1300,7 @@ printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec = {
 };
 
 // ParamsSpec for RequestPrintPreview
-printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.RequestPrintPreview_Params',
@@ -1311,7 +1314,7 @@ printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec = {
 };
 
 // ParamsSpec for CheckForCancel
-printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_CheckForCancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.CheckForCancel_Params',
@@ -1325,7 +1328,7 @@ printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec = {
   }
 };
 
-printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.CheckForCancel_ResponseParams',
@@ -1339,14 +1342,14 @@ printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetAccessibilityTree
-printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec = {
+printing.mojom.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintManagerHost.SetAccessibilityTree_Params',
       packedSize: 24,
       fields: [
-        { name: 'cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'accessibility_tree', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
+        { name: 'cookie', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'accessibility_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1354,6 +1357,6 @@ printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PrintManagerHostPtr = printing.mojom.PrintManagerHostRemote;
-printing.mojom.PrintManagerHostRequest = printing.mojom.PrintManagerHostPendingReceiver;
+printing.mojom.mojom.PrintManagerHostPtr = printing.mojom.mojom.PrintManagerHostRemote;
+printing.mojom.mojom.PrintManagerHostRequest = printing.mojom.mojom.PrintManagerHostPendingReceiver;
 

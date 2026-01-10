@@ -10,24 +10,24 @@ midi.mojom = midi.mojom || {};
 
 
 // Enum: Result
-midi.mojom.Result = {
+midi.mojom.mojom.Result = {
   NOT_INITIALIZED: 0,
   OK: 1,
   NOT_SUPPORTED: 2,
   INITIALIZATION_ERROR: 3,
 };
-midi.mojom.ResultSpec = { $: mojo.internal.Enum() };
+midi.mojom.mojom.ResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PortState
-midi.mojom.PortState = {
+midi.mojom.mojom.PortState = {
   DISCONNECTED: 0,
   CONNECTED: 1,
   OPENED: 2,
 };
-midi.mojom.PortStateSpec = { $: mojo.internal.Enum() };
+midi.mojom.mojom.PortStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: PortInfo
-midi.mojom.PortInfoSpec = {
+midi.mojom.mojom.PortInfoSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.PortInfo',
@@ -45,24 +45,24 @@ midi.mojom.PortInfoSpec = {
 };
 
 // Interface: MidiSessionClient
-midi.mojom.MidiSessionClient = {};
+midi.mojom.mojom.MidiSessionClient = {};
 
-midi.mojom.MidiSessionClientPendingReceiver = class {
+midi.mojom.mojom.MidiSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-midi.mojom.MidiSessionClientRemote = class {
+midi.mojom.mojom.MidiSessionClientRemote = class {
   static get $interfaceName() {
     return 'midi.mojom.MidiSessionClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      midi.mojom.MidiSessionClientPendingReceiver,
+      midi.mojom.mojom.MidiSessionClientPendingReceiver,
       handle);
-    this.$ = new midi.mojom.MidiSessionClientRemoteCallHandler(this.proxy);
+    this.$ = new midi.mojom.mojom.MidiSessionClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +74,7 @@ midi.mojom.MidiSessionClientRemote = class {
   }
 };
 
-midi.mojom.MidiSessionClientRemoteCallHandler = class {
+midi.mojom.mojom.MidiSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,7 +83,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec,
+      midi.mojom.mojom.MidiSessionClient_AddInputPort_ParamsSpec,
       null,
       [info]);
   }
@@ -92,7 +92,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec,
+      midi.mojom.mojom.MidiSessionClient_AddOutputPort_ParamsSpec,
       null,
       [info]);
   }
@@ -101,7 +101,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec,
+      midi.mojom.mojom.MidiSessionClient_SetInputPortState_ParamsSpec,
       null,
       [port, state]);
   }
@@ -110,7 +110,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec,
+      midi.mojom.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec,
       null,
       [port, state]);
   }
@@ -119,7 +119,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec,
+      midi.mojom.mojom.MidiSessionClient_SessionStarted_ParamsSpec,
       null,
       [result]);
   }
@@ -128,7 +128,7 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec,
+      midi.mojom.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec,
       null,
       [bytes]);
   }
@@ -137,15 +137,15 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      midi.mojom.MidiSessionClient_DataReceived_ParamsSpec,
+      midi.mojom.mojom.MidiSessionClient_DataReceived_ParamsSpec,
       null,
       [port, data, timestamp]);
   }
 
 };
 
-midi.mojom.MidiSessionClient.getRemote = function() {
-  let remote = new midi.mojom.MidiSessionClientRemote();
+midi.mojom.mojom.MidiSessionClient.getRemote = function() {
+  let remote = new midi.mojom.mojom.MidiSessionClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -155,7 +155,7 @@ midi.mojom.MidiSessionClient.getRemote = function() {
 };
 
 // ParamsSpec for AddInputPort
-midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = {
+midi.mojom.mojom.MidiSessionClient_AddInputPort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionClient.AddInputPort_Params',
@@ -169,7 +169,7 @@ midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = {
 };
 
 // ParamsSpec for AddOutputPort
-midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = {
+midi.mojom.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionClient.AddOutputPort_Params',
@@ -183,7 +183,7 @@ midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = {
 };
 
 // ParamsSpec for SetInputPortState
-midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = {
+midi.mojom.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionClient.SetInputPortState_Params',
@@ -198,7 +198,7 @@ midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = {
 };
 
 // ParamsSpec for SetOutputPortState
-midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = {
+midi.mojom.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionClient.SetOutputPortState_Params',
@@ -213,7 +213,7 @@ midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = {
 };
 
 // ParamsSpec for SessionStarted
-midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = {
+midi.mojom.mojom.MidiSessionClient_SessionStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionClient.SessionStarted_Params',
@@ -227,7 +227,7 @@ midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = {
 };
 
 // ParamsSpec for AcknowledgeSentData
-midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = {
+midi.mojom.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionClient.AcknowledgeSentData_Params',
@@ -241,15 +241,15 @@ midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = {
 };
 
 // ParamsSpec for DataReceived
-midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = {
+midi.mojom.mojom.MidiSessionClient_DataReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionClient.DataReceived_Params',
       packedSize: 32,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -257,29 +257,29 @@ midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = {
 };
 
 // Legacy compatibility
-midi.mojom.MidiSessionClientPtr = midi.mojom.MidiSessionClientRemote;
-midi.mojom.MidiSessionClientRequest = midi.mojom.MidiSessionClientPendingReceiver;
+midi.mojom.mojom.MidiSessionClientPtr = midi.mojom.mojom.MidiSessionClientRemote;
+midi.mojom.mojom.MidiSessionClientRequest = midi.mojom.mojom.MidiSessionClientPendingReceiver;
 
 
 // Interface: MidiSessionProvider
-midi.mojom.MidiSessionProvider = {};
+midi.mojom.mojom.MidiSessionProvider = {};
 
-midi.mojom.MidiSessionProviderPendingReceiver = class {
+midi.mojom.mojom.MidiSessionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-midi.mojom.MidiSessionProviderRemote = class {
+midi.mojom.mojom.MidiSessionProviderRemote = class {
   static get $interfaceName() {
     return 'midi.mojom.MidiSessionProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      midi.mojom.MidiSessionProviderPendingReceiver,
+      midi.mojom.mojom.MidiSessionProviderPendingReceiver,
       handle);
-    this.$ = new midi.mojom.MidiSessionProviderRemoteCallHandler(this.proxy);
+    this.$ = new midi.mojom.mojom.MidiSessionProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -291,7 +291,7 @@ midi.mojom.MidiSessionProviderRemote = class {
   }
 };
 
-midi.mojom.MidiSessionProviderRemoteCallHandler = class {
+midi.mojom.mojom.MidiSessionProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -300,15 +300,15 @@ midi.mojom.MidiSessionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      midi.mojom.MidiSessionProvider_StartSession_ParamsSpec,
+      midi.mojom.mojom.MidiSessionProvider_StartSession_ParamsSpec,
       null,
       [receiver, client]);
   }
 
 };
 
-midi.mojom.MidiSessionProvider.getRemote = function() {
-  let remote = new midi.mojom.MidiSessionProviderRemote();
+midi.mojom.mojom.MidiSessionProvider.getRemote = function() {
+  let remote = new midi.mojom.mojom.MidiSessionProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -318,7 +318,7 @@ midi.mojom.MidiSessionProvider.getRemote = function() {
 };
 
 // ParamsSpec for StartSession
-midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = {
+midi.mojom.mojom.MidiSessionProvider_StartSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSessionProvider.StartSession_Params',
@@ -333,29 +333,29 @@ midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = {
 };
 
 // Legacy compatibility
-midi.mojom.MidiSessionProviderPtr = midi.mojom.MidiSessionProviderRemote;
-midi.mojom.MidiSessionProviderRequest = midi.mojom.MidiSessionProviderPendingReceiver;
+midi.mojom.mojom.MidiSessionProviderPtr = midi.mojom.mojom.MidiSessionProviderRemote;
+midi.mojom.mojom.MidiSessionProviderRequest = midi.mojom.mojom.MidiSessionProviderPendingReceiver;
 
 
 // Interface: MidiSession
-midi.mojom.MidiSession = {};
+midi.mojom.mojom.MidiSession = {};
 
-midi.mojom.MidiSessionPendingReceiver = class {
+midi.mojom.mojom.MidiSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-midi.mojom.MidiSessionRemote = class {
+midi.mojom.mojom.MidiSessionRemote = class {
   static get $interfaceName() {
     return 'midi.mojom.MidiSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      midi.mojom.MidiSessionPendingReceiver,
+      midi.mojom.mojom.MidiSessionPendingReceiver,
       handle);
-    this.$ = new midi.mojom.MidiSessionRemoteCallHandler(this.proxy);
+    this.$ = new midi.mojom.mojom.MidiSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -367,7 +367,7 @@ midi.mojom.MidiSessionRemote = class {
   }
 };
 
-midi.mojom.MidiSessionRemoteCallHandler = class {
+midi.mojom.mojom.MidiSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -376,15 +376,15 @@ midi.mojom.MidiSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      midi.mojom.MidiSession_SendData_ParamsSpec,
+      midi.mojom.mojom.MidiSession_SendData_ParamsSpec,
       null,
       [port, data, timestamp]);
   }
 
 };
 
-midi.mojom.MidiSession.getRemote = function() {
-  let remote = new midi.mojom.MidiSessionRemote();
+midi.mojom.mojom.MidiSession.getRemote = function() {
+  let remote = new midi.mojom.mojom.MidiSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -394,15 +394,15 @@ midi.mojom.MidiSession.getRemote = function() {
 };
 
 // ParamsSpec for SendData
-midi.mojom.MidiSession_SendData_ParamsSpec = {
+midi.mojom.mojom.MidiSession_SendData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'midi.mojom.MidiSession.SendData_Params',
       packedSize: 32,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -410,6 +410,6 @@ midi.mojom.MidiSession_SendData_ParamsSpec = {
 };
 
 // Legacy compatibility
-midi.mojom.MidiSessionPtr = midi.mojom.MidiSessionRemote;
-midi.mojom.MidiSessionRequest = midi.mojom.MidiSessionPendingReceiver;
+midi.mojom.mojom.MidiSessionPtr = midi.mojom.mojom.MidiSessionRemote;
+midi.mojom.mojom.MidiSessionRequest = midi.mojom.mojom.MidiSessionPendingReceiver;
 

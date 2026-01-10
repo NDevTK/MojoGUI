@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Enum: TriggerRegistrationError
-attribution_reporting.mojom.TriggerRegistrationError = {
+attribution_reporting.mojom.mojom.TriggerRegistrationError = {
   kInvalidJson: 0,
   kRootWrongType: 1,
   kFiltersWrongType: 2,
@@ -47,4 +47,4 @@ attribution_reporting.mojom.TriggerRegistrationError = {
   kAggregatableNamedBudgetWrongType: 33,
   kAggregatableNamedBudgetNameInvalid: 34,
 };
-attribution_reporting.mojom.TriggerRegistrationErrorSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.mojom.TriggerRegistrationErrorSpec = { $: mojo.internal.Enum() };

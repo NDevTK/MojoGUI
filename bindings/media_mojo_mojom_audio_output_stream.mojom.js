@@ -10,34 +10,34 @@ media.mojom = media.mojom || {};
 
 
 // Enum: DisconnectReason
-media.mojom.DisconnectReason = {
+media.mojom.mojom.DisconnectReason = {
   kDefault: 0,
   kPlatformError: 1,
   kTerminatedByClient: 2,
   kStreamCreationFailed: 3,
   kDocumentDestroyed: 4,
 };
-media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: AudioOutputStream
-media.mojom.AudioOutputStream = {};
+media.mojom.mojom.AudioOutputStream = {};
 
-media.mojom.AudioOutputStreamPendingReceiver = class {
+media.mojom.mojom.AudioOutputStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.AudioOutputStreamRemote = class {
+media.mojom.mojom.AudioOutputStreamRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioOutputStream';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.AudioOutputStreamPendingReceiver,
+      media.mojom.mojom.AudioOutputStreamPendingReceiver,
       handle);
-    this.$ = new media.mojom.AudioOutputStreamRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.AudioOutputStreamRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +49,7 @@ media.mojom.AudioOutputStreamRemote = class {
   }
 };
 
-media.mojom.AudioOutputStreamRemoteCallHandler = class {
+media.mojom.mojom.AudioOutputStreamRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,7 +58,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStream_Play_ParamsSpec,
+      media.mojom.mojom.AudioOutputStream_Play_ParamsSpec,
       null,
       []);
   }
@@ -67,7 +67,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioOutputStream_Pause_ParamsSpec,
+      media.mojom.mojom.AudioOutputStream_Pause_ParamsSpec,
       null,
       []);
   }
@@ -76,7 +76,7 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioOutputStream_Flush_ParamsSpec,
+      media.mojom.mojom.AudioOutputStream_Flush_ParamsSpec,
       null,
       []);
   }
@@ -85,15 +85,15 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.AudioOutputStream_SetVolume_ParamsSpec,
+      media.mojom.mojom.AudioOutputStream_SetVolume_ParamsSpec,
       null,
       [volume]);
   }
 
 };
 
-media.mojom.AudioOutputStream.getRemote = function() {
-  let remote = new media.mojom.AudioOutputStreamRemote();
+media.mojom.mojom.AudioOutputStream.getRemote = function() {
+  let remote = new media.mojom.mojom.AudioOutputStreamRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +103,7 @@ media.mojom.AudioOutputStream.getRemote = function() {
 };
 
 // ParamsSpec for Play
-media.mojom.AudioOutputStream_Play_ParamsSpec = {
+media.mojom.mojom.AudioOutputStream_Play_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStream.Play_Params',
@@ -116,7 +116,7 @@ media.mojom.AudioOutputStream_Play_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-media.mojom.AudioOutputStream_Pause_ParamsSpec = {
+media.mojom.mojom.AudioOutputStream_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStream.Pause_Params',
@@ -129,7 +129,7 @@ media.mojom.AudioOutputStream_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Flush
-media.mojom.AudioOutputStream_Flush_ParamsSpec = {
+media.mojom.mojom.AudioOutputStream_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStream.Flush_Params',
@@ -142,7 +142,7 @@ media.mojom.AudioOutputStream_Flush_ParamsSpec = {
 };
 
 // ParamsSpec for SetVolume
-media.mojom.AudioOutputStream_SetVolume_ParamsSpec = {
+media.mojom.mojom.AudioOutputStream_SetVolume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStream.SetVolume_Params',
@@ -156,29 +156,29 @@ media.mojom.AudioOutputStream_SetVolume_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.AudioOutputStreamPtr = media.mojom.AudioOutputStreamRemote;
-media.mojom.AudioOutputStreamRequest = media.mojom.AudioOutputStreamPendingReceiver;
+media.mojom.mojom.AudioOutputStreamPtr = media.mojom.mojom.AudioOutputStreamRemote;
+media.mojom.mojom.AudioOutputStreamRequest = media.mojom.mojom.AudioOutputStreamPendingReceiver;
 
 
 // Interface: AudioOutputStreamObserver
-media.mojom.AudioOutputStreamObserver = {};
+media.mojom.mojom.AudioOutputStreamObserver = {};
 
-media.mojom.AudioOutputStreamObserverPendingReceiver = class {
+media.mojom.mojom.AudioOutputStreamObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.AudioOutputStreamObserverRemote = class {
+media.mojom.mojom.AudioOutputStreamObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioOutputStreamObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.AudioOutputStreamObserverPendingReceiver,
+      media.mojom.mojom.AudioOutputStreamObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.AudioOutputStreamObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.AudioOutputStreamObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -190,7 +190,7 @@ media.mojom.AudioOutputStreamObserverRemote = class {
   }
 };
 
-media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
+media.mojom.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -199,7 +199,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec,
+      media.mojom.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec,
       null,
       []);
   }
@@ -208,7 +208,7 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec,
+      media.mojom.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec,
       null,
       []);
   }
@@ -217,15 +217,15 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec,
+      media.mojom.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec,
       null,
       [is_audible]);
   }
 
 };
 
-media.mojom.AudioOutputStreamObserver.getRemote = function() {
-  let remote = new media.mojom.AudioOutputStreamObserverRemote();
+media.mojom.mojom.AudioOutputStreamObserver.getRemote = function() {
+  let remote = new media.mojom.mojom.AudioOutputStreamObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -235,7 +235,7 @@ media.mojom.AudioOutputStreamObserver.getRemote = function() {
 };
 
 // ParamsSpec for DidStartPlaying
-media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = {
+media.mojom.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStreamObserver.DidStartPlaying_Params',
@@ -248,7 +248,7 @@ media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = {
 };
 
 // ParamsSpec for DidStopPlaying
-media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = {
+media.mojom.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStreamObserver.DidStopPlaying_Params',
@@ -261,7 +261,7 @@ media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = {
 };
 
 // ParamsSpec for DidChangeAudibleState
-media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = {
+media.mojom.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStreamObserver.DidChangeAudibleState_Params',
@@ -275,29 +275,29 @@ media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.AudioOutputStreamObserverPtr = media.mojom.AudioOutputStreamObserverRemote;
-media.mojom.AudioOutputStreamObserverRequest = media.mojom.AudioOutputStreamObserverPendingReceiver;
+media.mojom.mojom.AudioOutputStreamObserverPtr = media.mojom.mojom.AudioOutputStreamObserverRemote;
+media.mojom.mojom.AudioOutputStreamObserverRequest = media.mojom.mojom.AudioOutputStreamObserverPendingReceiver;
 
 
 // Interface: AudioOutputStreamProvider
-media.mojom.AudioOutputStreamProvider = {};
+media.mojom.mojom.AudioOutputStreamProvider = {};
 
-media.mojom.AudioOutputStreamProviderPendingReceiver = class {
+media.mojom.mojom.AudioOutputStreamProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.AudioOutputStreamProviderRemote = class {
+media.mojom.mojom.AudioOutputStreamProviderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioOutputStreamProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.AudioOutputStreamProviderPendingReceiver,
+      media.mojom.mojom.AudioOutputStreamProviderPendingReceiver,
       handle);
-    this.$ = new media.mojom.AudioOutputStreamProviderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.AudioOutputStreamProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -309,7 +309,7 @@ media.mojom.AudioOutputStreamProviderRemote = class {
   }
 };
 
-media.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
+media.mojom.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -318,15 +318,15 @@ media.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec,
+      media.mojom.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec,
       null,
       [params, client]);
   }
 
 };
 
-media.mojom.AudioOutputStreamProvider.getRemote = function() {
-  let remote = new media.mojom.AudioOutputStreamProviderRemote();
+media.mojom.mojom.AudioOutputStreamProvider.getRemote = function() {
+  let remote = new media.mojom.mojom.AudioOutputStreamProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -336,7 +336,7 @@ media.mojom.AudioOutputStreamProvider.getRemote = function() {
 };
 
 // ParamsSpec for Acquire
-media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
+media.mojom.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStreamProvider.Acquire_Params',
@@ -351,29 +351,29 @@ media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.AudioOutputStreamProviderPtr = media.mojom.AudioOutputStreamProviderRemote;
-media.mojom.AudioOutputStreamProviderRequest = media.mojom.AudioOutputStreamProviderPendingReceiver;
+media.mojom.mojom.AudioOutputStreamProviderPtr = media.mojom.mojom.AudioOutputStreamProviderRemote;
+media.mojom.mojom.AudioOutputStreamProviderRequest = media.mojom.mojom.AudioOutputStreamProviderPendingReceiver;
 
 
 // Interface: AudioOutputStreamProviderClient
-media.mojom.AudioOutputStreamProviderClient = {};
+media.mojom.mojom.AudioOutputStreamProviderClient = {};
 
-media.mojom.AudioOutputStreamProviderClientPendingReceiver = class {
+media.mojom.mojom.AudioOutputStreamProviderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.AudioOutputStreamProviderClientRemote = class {
+media.mojom.mojom.AudioOutputStreamProviderClientRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioOutputStreamProviderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.AudioOutputStreamProviderClientPendingReceiver,
+      media.mojom.mojom.AudioOutputStreamProviderClientPendingReceiver,
       handle);
-    this.$ = new media.mojom.AudioOutputStreamProviderClientRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.AudioOutputStreamProviderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -385,7 +385,7 @@ media.mojom.AudioOutputStreamProviderClientRemote = class {
   }
 };
 
-media.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
+media.mojom.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -394,15 +394,15 @@ media.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec,
+      media.mojom.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec,
       null,
       [stream, data_pipe]);
   }
 
 };
 
-media.mojom.AudioOutputStreamProviderClient.getRemote = function() {
-  let remote = new media.mojom.AudioOutputStreamProviderClientRemote();
+media.mojom.mojom.AudioOutputStreamProviderClient.getRemote = function() {
+  let remote = new media.mojom.mojom.AudioOutputStreamProviderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -412,14 +412,14 @@ media.mojom.AudioOutputStreamProviderClient.getRemote = function() {
 };
 
 // ParamsSpec for Created
-media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
+media.mojom.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioOutputStreamProviderClient.Created_Params',
       packedSize: 24,
       fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -427,29 +427,29 @@ media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.AudioOutputStreamProviderClientPtr = media.mojom.AudioOutputStreamProviderClientRemote;
-media.mojom.AudioOutputStreamProviderClientRequest = media.mojom.AudioOutputStreamProviderClientPendingReceiver;
+media.mojom.mojom.AudioOutputStreamProviderClientPtr = media.mojom.mojom.AudioOutputStreamProviderClientRemote;
+media.mojom.mojom.AudioOutputStreamProviderClientRequest = media.mojom.mojom.AudioOutputStreamProviderClientPendingReceiver;
 
 
 // Interface: DeviceSwitchInterface
-media.mojom.DeviceSwitchInterface = {};
+media.mojom.mojom.DeviceSwitchInterface = {};
 
-media.mojom.DeviceSwitchInterfacePendingReceiver = class {
+media.mojom.mojom.DeviceSwitchInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.DeviceSwitchInterfaceRemote = class {
+media.mojom.mojom.DeviceSwitchInterfaceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.DeviceSwitchInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.DeviceSwitchInterfacePendingReceiver,
+      media.mojom.mojom.DeviceSwitchInterfacePendingReceiver,
       handle);
-    this.$ = new media.mojom.DeviceSwitchInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.DeviceSwitchInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -461,7 +461,7 @@ media.mojom.DeviceSwitchInterfaceRemote = class {
   }
 };
 
-media.mojom.DeviceSwitchInterfaceRemoteCallHandler = class {
+media.mojom.mojom.DeviceSwitchInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -470,15 +470,15 @@ media.mojom.DeviceSwitchInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec,
+      media.mojom.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec,
       null,
       [output_device_id]);
   }
 
 };
 
-media.mojom.DeviceSwitchInterface.getRemote = function() {
-  let remote = new media.mojom.DeviceSwitchInterfaceRemote();
+media.mojom.mojom.DeviceSwitchInterface.getRemote = function() {
+  let remote = new media.mojom.mojom.DeviceSwitchInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -488,7 +488,7 @@ media.mojom.DeviceSwitchInterface.getRemote = function() {
 };
 
 // ParamsSpec for SwitchAudioOutputDeviceId
-media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = {
+media.mojom.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DeviceSwitchInterface.SwitchAudioOutputDeviceId_Params',
@@ -502,6 +502,6 @@ media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.DeviceSwitchInterfacePtr = media.mojom.DeviceSwitchInterfaceRemote;
-media.mojom.DeviceSwitchInterfaceRequest = media.mojom.DeviceSwitchInterfacePendingReceiver;
+media.mojom.mojom.DeviceSwitchInterfacePtr = media.mojom.mojom.DeviceSwitchInterfaceRemote;
+media.mojom.mojom.DeviceSwitchInterfaceRequest = media.mojom.mojom.DeviceSwitchInterfacePendingReceiver;
 

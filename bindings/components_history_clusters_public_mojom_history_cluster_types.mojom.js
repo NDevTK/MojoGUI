@@ -7,25 +7,26 @@
 // Module namespace
 var history_clusters = history_clusters || {};
 history_clusters.mojom = history_clusters.mojom || {};
+var url = url || {};
 
 
 // Enum: Annotation
-history_clusters.mojom.Annotation = {
+history_clusters.mojom.mojom.Annotation = {
   kBookmarked: 0,
   kSearchResultsPage: 1,
 };
-history_clusters.mojom.AnnotationSpec = { $: mojo.internal.Enum() };
+history_clusters.mojom.mojom.AnnotationSpec = { $: mojo.internal.Enum() };
 
 // Enum: InteractionState
-history_clusters.mojom.InteractionState = {
+history_clusters.mojom.mojom.InteractionState = {
   kDefault: 0,
   kHidden: 1,
   kDone: 2,
 };
-history_clusters.mojom.InteractionStateSpec = { $: mojo.internal.Enum() };
+history_clusters.mojom.mojom.InteractionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: MatchPosition
-history_clusters.mojom.MatchPositionSpec = {
+history_clusters.mojom.mojom.MatchPositionSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.MatchPosition',
@@ -40,7 +41,7 @@ history_clusters.mojom.MatchPositionSpec = {
 };
 
 // Struct: SearchQuery
-history_clusters.mojom.SearchQuerySpec = {
+history_clusters.mojom.mojom.SearchQuerySpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.SearchQuery',
@@ -55,7 +56,7 @@ history_clusters.mojom.SearchQuerySpec = {
 };
 
 // Struct: RawVisitData
-history_clusters.mojom.RawVisitDataSpec = {
+history_clusters.mojom.mojom.RawVisitDataSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.RawVisitData',
@@ -70,7 +71,7 @@ history_clusters.mojom.RawVisitDataSpec = {
 };
 
 // Struct: URLVisit
-history_clusters.mojom.URLVisitSpec = {
+history_clusters.mojom.mojom.URLVisitSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.URLVisit',
@@ -86,9 +87,9 @@ history_clusters.mojom.URLVisitSpec = {
         { name: 'duplicates', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.RawVisitDataSpec, false), nullable: false, minVersion: 0 },
         { name: 'relative_date', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'annotations', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.AnnotationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_known_to_sync', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'debug_info', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'has_url_keyed_image', packedOffset: 80, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_known_to_sync', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'debug_info', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'has_url_keyed_image', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 104}]
     }
@@ -96,7 +97,7 @@ history_clusters.mojom.URLVisitSpec = {
 };
 
 // Struct: Cluster
-history_clusters.mojom.ClusterSpec = {
+history_clusters.mojom.mojom.ClusterSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.Cluster',
@@ -109,8 +110,8 @@ history_clusters.mojom.ClusterSpec = {
         { name: 'label_match_positions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.MatchPositionSpec, false), nullable: false, minVersion: 0 },
         { name: 'related_searches', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.SearchQuerySpec, false), nullable: false, minVersion: 0 },
         { name: 'image_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'from_persistence', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'debug_info', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'from_persistence', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'debug_info', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }

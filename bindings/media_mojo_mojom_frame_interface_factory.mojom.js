@@ -7,27 +7,28 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var url = url || {};
 
 
 // Interface: MuteStateObserver
-media.mojom.MuteStateObserver = {};
+media.mojom.mojom.MuteStateObserver = {};
 
-media.mojom.MuteStateObserverPendingReceiver = class {
+media.mojom.mojom.MuteStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MuteStateObserverRemote = class {
+media.mojom.mojom.MuteStateObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MuteStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MuteStateObserverPendingReceiver,
+      media.mojom.mojom.MuteStateObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.MuteStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MuteStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ media.mojom.MuteStateObserverRemote = class {
   }
 };
 
-media.mojom.MuteStateObserverRemoteCallHandler = class {
+media.mojom.mojom.MuteStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ media.mojom.MuteStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec,
+      media.mojom.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec,
       null,
       [muted]);
   }
 
 };
 
-media.mojom.MuteStateObserver.getRemote = function() {
-  let remote = new media.mojom.MuteStateObserverRemote();
+media.mojom.mojom.MuteStateObserver.getRemote = function() {
+  let remote = new media.mojom.mojom.MuteStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ media.mojom.MuteStateObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnMuteStateChange
-media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
+media.mojom.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MuteStateObserver.OnMuteStateChange_Params',
@@ -80,29 +81,29 @@ media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MuteStateObserverPtr = media.mojom.MuteStateObserverRemote;
-media.mojom.MuteStateObserverRequest = media.mojom.MuteStateObserverPendingReceiver;
+media.mojom.mojom.MuteStateObserverPtr = media.mojom.mojom.MuteStateObserverRemote;
+media.mojom.mojom.MuteStateObserverRequest = media.mojom.mojom.MuteStateObserverPendingReceiver;
 
 
 // Interface: FrameInterfaceFactory
-media.mojom.FrameInterfaceFactory = {};
+media.mojom.mojom.FrameInterfaceFactory = {};
 
-media.mojom.FrameInterfaceFactoryPendingReceiver = class {
+media.mojom.mojom.FrameInterfaceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.FrameInterfaceFactoryRemote = class {
+media.mojom.mojom.FrameInterfaceFactoryRemote = class {
   static get $interfaceName() {
     return 'media.mojom.FrameInterfaceFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.FrameInterfaceFactoryPendingReceiver,
+      media.mojom.mojom.FrameInterfaceFactoryPendingReceiver,
       handle);
-    this.$ = new media.mojom.FrameInterfaceFactoryRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.FrameInterfaceFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +115,7 @@ media.mojom.FrameInterfaceFactoryRemote = class {
   }
 };
 
-media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
+media.mojom.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,7 +124,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec,
+      media.mojom.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec,
       null,
       [provision_fetcher]);
   }
@@ -132,7 +133,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec,
+      media.mojom.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec,
       null,
       [cdm_storage]);
   }
@@ -141,7 +142,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec,
+      media.mojom.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec,
       null,
       [site_mute_observer]);
   }
@@ -150,7 +151,7 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec,
+      media.mojom.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec,
       null,
       [registry]);
   }
@@ -159,8 +160,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec,
-      media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
+      media.mojom.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec,
+      media.mojom.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
       []);
   }
 
@@ -168,15 +169,15 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec,
+      media.mojom.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-media.mojom.FrameInterfaceFactory.getRemote = function() {
-  let remote = new media.mojom.FrameInterfaceFactoryRemote();
+media.mojom.mojom.FrameInterfaceFactory.getRemote = function() {
+  let remote = new media.mojom.mojom.FrameInterfaceFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -186,7 +187,7 @@ media.mojom.FrameInterfaceFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateProvisionFetcher
-media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
+media.mojom.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameInterfaceFactory.CreateProvisionFetcher_Params',
@@ -200,7 +201,7 @@ media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
 };
 
 // ParamsSpec for CreateCdmStorage
-media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
+media.mojom.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameInterfaceFactory.CreateCdmStorage_Params',
@@ -214,7 +215,7 @@ media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterMuteStateObserver
-media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
+media.mojom.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameInterfaceFactory.RegisterMuteStateObserver_Params',
@@ -228,7 +229,7 @@ media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
 };
 
 // ParamsSpec for CreateDCOMPSurfaceRegistry
-media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
+media.mojom.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameInterfaceFactory.CreateDCOMPSurfaceRegistry_Params',
@@ -242,7 +243,7 @@ media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
 };
 
 // ParamsSpec for GetCdmOrigin
-media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
+media.mojom.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameInterfaceFactory.GetCdmOrigin_Params',
@@ -254,7 +255,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
   }
 };
 
-media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
+media.mojom.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameInterfaceFactory.GetCdmOrigin_ResponseParams',
@@ -268,7 +269,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BindEmbedderReceiver
-media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
+media.mojom.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameInterfaceFactory.BindEmbedderReceiver_Params',
@@ -282,6 +283,6 @@ media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.FrameInterfaceFactoryPtr = media.mojom.FrameInterfaceFactoryRemote;
-media.mojom.FrameInterfaceFactoryRequest = media.mojom.FrameInterfaceFactoryPendingReceiver;
+media.mojom.mojom.FrameInterfaceFactoryPtr = media.mojom.mojom.FrameInterfaceFactoryRemote;
+media.mojom.mojom.FrameInterfaceFactoryRequest = media.mojom.mojom.FrameInterfaceFactoryPendingReceiver;
 

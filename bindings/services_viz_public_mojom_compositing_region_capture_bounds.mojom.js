@@ -7,10 +7,12 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: CropIdBoundsPair
-viz.mojom.CropIdBoundsPairSpec = {
+viz.mojom.mojom.CropIdBoundsPairSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CropIdBoundsPair',
@@ -25,7 +27,7 @@ viz.mojom.CropIdBoundsPairSpec = {
 };
 
 // Struct: RegionCaptureBounds
-viz.mojom.RegionCaptureBoundsSpec = {
+viz.mojom.mojom.RegionCaptureBoundsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.RegionCaptureBounds',

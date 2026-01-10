@@ -10,86 +10,86 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceType
-crosapi.mojom.DeviceType = {
+crosapi.mojom.mojom.DeviceType = {
   kHeadphone: 0,
   kMicrophone: 1,
 };
-crosapi.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kClosed: 0,
   kOpened: 1,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kAdd: 0,
   kRemove: 1,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kAcInserted: 0,
   kAcRemoved: 1,
   kOsSuspend: 2,
   kOsResume: 3,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kInserted: 0,
   kRemoved: 1,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryInputTouchButton
-crosapi.mojom.TelemetryInputTouchButton = {
+crosapi.mojom.mojom.TelemetryInputTouchButton = {
   kLeft: 0,
   kMiddle: 1,
   kRight: 2,
 };
-crosapi.mojom.TelemetryInputTouchButtonSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryInputTouchButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
-crosapi.mojom.State = {
+crosapi.mojom.mojom.State = {
   kPressed: 0,
   kReleased: 1,
 };
-crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryEventCategoryEnum
-crosapi.mojom.TelemetryEventCategoryEnum = {
+crosapi.mojom.mojom.TelemetryEventCategoryEnum = {
   kAudioJack: 0,
 };
-crosapi.mojom.TelemetryEventCategoryEnumSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryEventCategoryEnumSpec = { $: mojo.internal.Enum() };
 
 // Union: TelemetryEventInfo
-crosapi.mojom.TelemetryEventInfoSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.TelemetryEventInfoSpec = { $: mojo.internal.Union(
     'crosapi.mojom.TelemetryEventInfo', {
       'default_type': {
         'ordinal': 0,
@@ -159,7 +159,7 @@ crosapi.mojom.TelemetryEventInfoSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TelemetryAudioJackEventInfo
-crosapi.mojom.TelemetryAudioJackEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryAudioJackEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryAudioJackEventInfo',
@@ -173,7 +173,7 @@ crosapi.mojom.TelemetryAudioJackEventInfoSpec = {
 };
 
 // Struct: TelemetryLidEventInfo
-crosapi.mojom.TelemetryLidEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryLidEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryLidEventInfo',
@@ -187,7 +187,7 @@ crosapi.mojom.TelemetryLidEventInfoSpec = {
 };
 
 // Struct: TelemetryUsbEventInfo
-crosapi.mojom.TelemetryUsbEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryUsbEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryUsbEventInfo',
@@ -195,10 +195,10 @@ crosapi.mojom.TelemetryUsbEventInfoSpec = {
       fields: [
         { name: 'vendor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'vid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'categories', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'kUnmappedEnumField', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'vid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 34, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'categories', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'kUnmappedEnumField', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -206,7 +206,7 @@ crosapi.mojom.TelemetryUsbEventInfoSpec = {
 };
 
 // Struct: TelemetryExternalDisplayEventInfo
-crosapi.mojom.TelemetryExternalDisplayEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryExternalDisplayEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryExternalDisplayEventInfo',
@@ -220,7 +220,7 @@ crosapi.mojom.TelemetryExternalDisplayEventInfoSpec = {
 };
 
 // Struct: TelemetrySdCardEventInfo
-crosapi.mojom.TelemetrySdCardEventInfoSpec = {
+crosapi.mojom.mojom.TelemetrySdCardEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetrySdCardEventInfo',
@@ -234,7 +234,7 @@ crosapi.mojom.TelemetrySdCardEventInfoSpec = {
 };
 
 // Struct: TelemetryPowerEventInfo
-crosapi.mojom.TelemetryPowerEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryPowerEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryPowerEventInfo',
@@ -248,7 +248,7 @@ crosapi.mojom.TelemetryPowerEventInfoSpec = {
 };
 
 // Struct: TelemetryStylusGarageEventInfo
-crosapi.mojom.TelemetryStylusGarageEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryStylusGarageEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusGarageEventInfo',
@@ -262,14 +262,14 @@ crosapi.mojom.TelemetryStylusGarageEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchpadButtonEventInfo
-crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryTouchpadButtonEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchpadButtonEventInfo',
       packedSize: 24,
       fields: [
-        { name: 'button', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryInputTouchButtonSpec, nullable: false, minVersion: 0 },
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'button', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.TelemetryInputTouchButtonSpec, nullable: false, minVersion: 0 },
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -277,18 +277,18 @@ crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchPointInfo
-crosapi.mojom.TelemetryTouchPointInfoSpec = {
+crosapi.mojom.mojom.TelemetryTouchPointInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchPointInfo',
       packedSize: 48,
       fields: [
-        { name: 'tracking_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pressure', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'touch_major', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'touch_minor', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'tracking_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'x', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pressure', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'touch_major', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'touch_minor', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -296,7 +296,7 @@ crosapi.mojom.TelemetryTouchPointInfoSpec = {
 };
 
 // Struct: TelemetryTouchpadTouchEventInfo
-crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryTouchpadTouchEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchpadTouchEventInfo',
@@ -310,16 +310,16 @@ crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchpadConnectedEventInfo
-crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryTouchpadConnectedEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchpadConnectedEventInfo',
       packedSize: 32,
       fields: [
-        { name: 'max_x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max_y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max_pressure', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'buttons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.TelemetryInputTouchButtonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'max_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'max_y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'max_pressure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'buttons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.TelemetryInputTouchButtonSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -327,7 +327,7 @@ crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchscreenTouchEventInfo
-crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryTouchscreenTouchEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchscreenTouchEventInfo',
@@ -341,18 +341,18 @@ crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec = {
 };
 
 // Struct: TelemetryTouchscreenConnectedEventInfo
-crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryTouchscreenConnectedEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryTouchscreenConnectedEventInfo',
       packedSize: 24,
       fields: [
-        { name: 'max_x_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_x_$value', originalFieldName: 'max_x' } },
-        { name: 'max_x_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_x_$flag', originalFieldName: 'max_x' } },
-        { name: 'max_y_$flag', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_y_$value', originalFieldName: 'max_y' } },
-        { name: 'max_y_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_y_$flag', originalFieldName: 'max_y' } },
-        { name: 'max_pressure_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_pressure_$value', originalFieldName: 'max_pressure' } },
-        { name: 'max_pressure_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_pressure_$flag', originalFieldName: 'max_pressure' } },
+        { name: 'max_x_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_x_$value', originalFieldName: 'max_x' } },
+        { name: 'max_x_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_x_$flag', originalFieldName: 'max_x' } },
+        { name: 'max_y_$flag', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_y_$value', originalFieldName: 'max_y' } },
+        { name: 'max_y_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_y_$flag', originalFieldName: 'max_y' } },
+        { name: 'max_pressure_$flag', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_pressure_$value', originalFieldName: 'max_pressure' } },
+        { name: 'max_pressure_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_pressure_$flag', originalFieldName: 'max_pressure' } },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -360,18 +360,18 @@ crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec = {
 };
 
 // Struct: TelemetryStylusTouchPointInfo
-crosapi.mojom.TelemetryStylusTouchPointInfoSpec = {
+crosapi.mojom.mojom.TelemetryStylusTouchPointInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusTouchPointInfo',
       packedSize: 24,
       fields: [
-        { name: 'x_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'x_$value', originalFieldName: 'x' } },
-        { name: 'x_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'x_$flag', originalFieldName: 'x' } },
-        { name: 'y_$flag', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'y_$value', originalFieldName: 'y' } },
-        { name: 'y_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'y_$flag', originalFieldName: 'y' } },
-        { name: 'pressure_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'pressure_$value', originalFieldName: 'pressure' } },
-        { name: 'pressure_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'pressure_$flag', originalFieldName: 'pressure' } },
+        { name: 'x_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'x_$value', originalFieldName: 'x' } },
+        { name: 'x_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'x_$flag', originalFieldName: 'x' } },
+        { name: 'y_$flag', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'y_$value', originalFieldName: 'y' } },
+        { name: 'y_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'y_$flag', originalFieldName: 'y' } },
+        { name: 'pressure_$flag', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'pressure_$value', originalFieldName: 'pressure' } },
+        { name: 'pressure_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'pressure_$flag', originalFieldName: 'pressure' } },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -379,7 +379,7 @@ crosapi.mojom.TelemetryStylusTouchPointInfoSpec = {
 };
 
 // Struct: TelemetryStylusTouchEventInfo
-crosapi.mojom.TelemetryStylusTouchEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryStylusTouchEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusTouchEventInfo',
@@ -393,18 +393,18 @@ crosapi.mojom.TelemetryStylusTouchEventInfoSpec = {
 };
 
 // Struct: TelemetryStylusConnectedEventInfo
-crosapi.mojom.TelemetryStylusConnectedEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryStylusConnectedEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryStylusConnectedEventInfo',
       packedSize: 24,
       fields: [
-        { name: 'max_x_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_x_$value', originalFieldName: 'max_x' } },
-        { name: 'max_x_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_x_$flag', originalFieldName: 'max_x' } },
-        { name: 'max_y_$flag', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_y_$value', originalFieldName: 'max_y' } },
-        { name: 'max_y_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_y_$flag', originalFieldName: 'max_y' } },
-        { name: 'max_pressure_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_pressure_$value', originalFieldName: 'max_pressure' } },
-        { name: 'max_pressure_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_pressure_$flag', originalFieldName: 'max_pressure' } },
+        { name: 'max_x_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_x_$value', originalFieldName: 'max_x' } },
+        { name: 'max_x_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_x_$flag', originalFieldName: 'max_x' } },
+        { name: 'max_y_$flag', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_y_$value', originalFieldName: 'max_y' } },
+        { name: 'max_y_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_y_$flag', originalFieldName: 'max_y' } },
+        { name: 'max_pressure_$flag', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_pressure_$value', originalFieldName: 'max_pressure' } },
+        { name: 'max_pressure_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_pressure_$flag', originalFieldName: 'max_pressure' } },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -412,24 +412,24 @@ crosapi.mojom.TelemetryStylusConnectedEventInfoSpec = {
 };
 
 // Interface: TelemetryEventObserver
-crosapi.mojom.TelemetryEventObserver = {};
+crosapi.mojom.mojom.TelemetryEventObserver = {};
 
-crosapi.mojom.TelemetryEventObserverPendingReceiver = class {
+crosapi.mojom.mojom.TelemetryEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.TelemetryEventObserverRemote = class {
+crosapi.mojom.mojom.TelemetryEventObserverRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryEventObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.TelemetryEventObserverPendingReceiver,
+      crosapi.mojom.mojom.TelemetryEventObserverPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.TelemetryEventObserverRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.TelemetryEventObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -441,7 +441,7 @@ crosapi.mojom.TelemetryEventObserverRemote = class {
   }
 };
 
-crosapi.mojom.TelemetryEventObserverRemoteCallHandler = class {
+crosapi.mojom.mojom.TelemetryEventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -450,15 +450,15 @@ crosapi.mojom.TelemetryEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec,
+      crosapi.mojom.mojom.TelemetryEventObserver_OnEvent_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-crosapi.mojom.TelemetryEventObserver.getRemote = function() {
-  let remote = new crosapi.mojom.TelemetryEventObserverRemote();
+crosapi.mojom.mojom.TelemetryEventObserver.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.TelemetryEventObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -468,7 +468,7 @@ crosapi.mojom.TelemetryEventObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnEvent
-crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = {
+crosapi.mojom.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventObserver.OnEvent_Params',
@@ -482,29 +482,29 @@ crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.TelemetryEventObserverPtr = crosapi.mojom.TelemetryEventObserverRemote;
-crosapi.mojom.TelemetryEventObserverRequest = crosapi.mojom.TelemetryEventObserverPendingReceiver;
+crosapi.mojom.mojom.TelemetryEventObserverPtr = crosapi.mojom.mojom.TelemetryEventObserverRemote;
+crosapi.mojom.mojom.TelemetryEventObserverRequest = crosapi.mojom.mojom.TelemetryEventObserverPendingReceiver;
 
 
 // Interface: TelemetryEventService
-crosapi.mojom.TelemetryEventService = {};
+crosapi.mojom.mojom.TelemetryEventService = {};
 
-crosapi.mojom.TelemetryEventServicePendingReceiver = class {
+crosapi.mojom.mojom.TelemetryEventServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.TelemetryEventServiceRemote = class {
+crosapi.mojom.mojom.TelemetryEventServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.TelemetryEventService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.TelemetryEventServicePendingReceiver,
+      crosapi.mojom.mojom.TelemetryEventServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.TelemetryEventServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.TelemetryEventServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -516,7 +516,7 @@ crosapi.mojom.TelemetryEventServiceRemote = class {
   }
 };
 
-crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
+crosapi.mojom.mojom.TelemetryEventServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -525,7 +525,7 @@ crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec,
+      crosapi.mojom.mojom.TelemetryEventService_AddEventObserver_ParamsSpec,
       null,
       [category, observer]);
   }
@@ -534,15 +534,15 @@ crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec,
-      crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec,
+      crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ParamsSpec,
+      crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec,
       [category]);
   }
 
 };
 
-crosapi.mojom.TelemetryEventService.getRemote = function() {
-  let remote = new crosapi.mojom.TelemetryEventServiceRemote();
+crosapi.mojom.mojom.TelemetryEventService.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.TelemetryEventServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -552,7 +552,7 @@ crosapi.mojom.TelemetryEventService.getRemote = function() {
 };
 
 // ParamsSpec for AddEventObserver
-crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
+crosapi.mojom.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventService.AddEventObserver_Params',
@@ -567,7 +567,7 @@ crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
 };
 
 // ParamsSpec for IsEventSupported
-crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
+crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventService.IsEventSupported_Params',
@@ -580,7 +580,7 @@ crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
   }
 };
 
-crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = {
+crosapi.mojom.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventService.IsEventSupported_ResponseParams',
@@ -594,6 +594,6 @@ crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.TelemetryEventServicePtr = crosapi.mojom.TelemetryEventServiceRemote;
-crosapi.mojom.TelemetryEventServiceRequest = crosapi.mojom.TelemetryEventServicePendingReceiver;
+crosapi.mojom.mojom.TelemetryEventServicePtr = crosapi.mojom.mojom.TelemetryEventServiceRemote;
+crosapi.mojom.mojom.TelemetryEventServiceRequest = crosapi.mojom.mojom.TelemetryEventServicePendingReceiver;
 

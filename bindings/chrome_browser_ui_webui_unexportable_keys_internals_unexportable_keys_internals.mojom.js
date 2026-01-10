@@ -10,7 +10,7 @@ unexportable_keys_internals.mojom = unexportable_keys_internals.mojom || {};
 
 
 // Struct: UnexportableKeyId
-unexportable_keys_internals.mojom.UnexportableKeyIdSpec = {
+unexportable_keys_internals.mojom.mojom.UnexportableKeyIdSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.UnexportableKeyId',
@@ -24,7 +24,7 @@ unexportable_keys_internals.mojom.UnexportableKeyIdSpec = {
 };
 
 // Struct: UnexportableKeyInfo
-unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = {
+unexportable_keys_internals.mojom.mojom.UnexportableKeyInfoSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.UnexportableKeyInfo',
@@ -42,24 +42,24 @@ unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = {
 };
 
 // Interface: PageHandlerFactory
-unexportable_keys_internals.mojom.PageHandlerFactory = {};
+unexportable_keys_internals.mojom.mojom.PageHandlerFactory = {};
 
-unexportable_keys_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+unexportable_keys_internals.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-unexportable_keys_internals.mojom.PageHandlerFactoryRemote = class {
+unexportable_keys_internals.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'unexportable_keys_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      unexportable_keys_internals.mojom.PageHandlerFactoryPendingReceiver,
+      unexportable_keys_internals.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new unexportable_keys_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -71,7 +71,7 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+unexportable_keys_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -80,15 +80,15 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec,
+      unexportable_keys_internals.mojom.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-unexportable_keys_internals.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new unexportable_keys_internals.mojom.PageHandlerFactoryRemote();
+unexportable_keys_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new unexportable_keys_internals.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -98,7 +98,7 @@ unexportable_keys_internals.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateUnexportableKeysInternalsHandler
-unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec = {
+unexportable_keys_internals.mojom.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.PageHandlerFactory.CreateUnexportableKeysInternalsHandler_Params',
@@ -113,29 +113,29 @@ unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInter
 };
 
 // Legacy compatibility
-unexportable_keys_internals.mojom.PageHandlerFactoryPtr = unexportable_keys_internals.mojom.PageHandlerFactoryRemote;
-unexportable_keys_internals.mojom.PageHandlerFactoryRequest = unexportable_keys_internals.mojom.PageHandlerFactoryPendingReceiver;
+unexportable_keys_internals.mojom.mojom.PageHandlerFactoryPtr = unexportable_keys_internals.mojom.mojom.PageHandlerFactoryRemote;
+unexportable_keys_internals.mojom.mojom.PageHandlerFactoryRequest = unexportable_keys_internals.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-unexportable_keys_internals.mojom.PageHandler = {};
+unexportable_keys_internals.mojom.mojom.PageHandler = {};
 
-unexportable_keys_internals.mojom.PageHandlerPendingReceiver = class {
+unexportable_keys_internals.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-unexportable_keys_internals.mojom.PageHandlerRemote = class {
+unexportable_keys_internals.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'unexportable_keys_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      unexportable_keys_internals.mojom.PageHandlerPendingReceiver,
+      unexportable_keys_internals.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new unexportable_keys_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -147,7 +147,7 @@ unexportable_keys_internals.mojom.PageHandlerRemote = class {
   }
 };
 
-unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
+unexportable_keys_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -156,8 +156,8 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec,
-      unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
+      unexportable_keys_internals.mojom.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec,
+      unexportable_keys_internals.mojom.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
       []);
   }
 
@@ -165,15 +165,15 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec,
-      unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
+      unexportable_keys_internals.mojom.mojom.PageHandler_DeleteKey_ParamsSpec,
+      unexportable_keys_internals.mojom.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
       [key_id]);
   }
 
 };
 
-unexportable_keys_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new unexportable_keys_internals.mojom.PageHandlerRemote();
+unexportable_keys_internals.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new unexportable_keys_internals.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -183,7 +183,7 @@ unexportable_keys_internals.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetUnexportableKeysInfo
-unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec = {
+unexportable_keys_internals.mojom.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.PageHandler.GetUnexportableKeysInfo_Params',
@@ -195,7 +195,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec
   }
 };
 
-unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = {
+unexportable_keys_internals.mojom.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.PageHandler.GetUnexportableKeysInfo_ResponseParams',
@@ -209,7 +209,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponsePa
 };
 
 // ParamsSpec for DeleteKey
-unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
+unexportable_keys_internals.mojom.mojom.PageHandler_DeleteKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.PageHandler.DeleteKey_Params',
@@ -222,7 +222,7 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
   }
 };
 
-unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
+unexportable_keys_internals.mojom.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'unexportable_keys_internals.mojom.PageHandler.DeleteKey_ResponseParams',
@@ -236,29 +236,29 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-unexportable_keys_internals.mojom.PageHandlerPtr = unexportable_keys_internals.mojom.PageHandlerRemote;
-unexportable_keys_internals.mojom.PageHandlerRequest = unexportable_keys_internals.mojom.PageHandlerPendingReceiver;
+unexportable_keys_internals.mojom.mojom.PageHandlerPtr = unexportable_keys_internals.mojom.mojom.PageHandlerRemote;
+unexportable_keys_internals.mojom.mojom.PageHandlerRequest = unexportable_keys_internals.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-unexportable_keys_internals.mojom.Page = {};
+unexportable_keys_internals.mojom.mojom.Page = {};
 
-unexportable_keys_internals.mojom.PagePendingReceiver = class {
+unexportable_keys_internals.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-unexportable_keys_internals.mojom.PageRemote = class {
+unexportable_keys_internals.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'unexportable_keys_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      unexportable_keys_internals.mojom.PagePendingReceiver,
+      unexportable_keys_internals.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new unexportable_keys_internals.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new unexportable_keys_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -270,15 +270,15 @@ unexportable_keys_internals.mojom.PageRemote = class {
   }
 };
 
-unexportable_keys_internals.mojom.PageRemoteCallHandler = class {
+unexportable_keys_internals.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-unexportable_keys_internals.mojom.Page.getRemote = function() {
-  let remote = new unexportable_keys_internals.mojom.PageRemote();
+unexportable_keys_internals.mojom.mojom.Page.getRemote = function() {
+  let remote = new unexportable_keys_internals.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -288,6 +288,6 @@ unexportable_keys_internals.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-unexportable_keys_internals.mojom.PagePtr = unexportable_keys_internals.mojom.PageRemote;
-unexportable_keys_internals.mojom.PageRequest = unexportable_keys_internals.mojom.PagePendingReceiver;
+unexportable_keys_internals.mojom.mojom.PagePtr = unexportable_keys_internals.mojom.mojom.PageRemote;
+unexportable_keys_internals.mojom.mojom.PageRequest = unexportable_keys_internals.mojom.mojom.PagePendingReceiver;
 

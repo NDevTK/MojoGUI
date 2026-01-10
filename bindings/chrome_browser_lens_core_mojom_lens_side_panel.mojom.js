@@ -7,37 +7,38 @@
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
+var url = url || {};
 
 
 // Enum: SidePanelResultStatus
-lens.mojom.SidePanelResultStatus = {
+lens.mojom.mojom.SidePanelResultStatus = {
   kUnknown: 0,
   kResultShown: 1,
   kErrorPageShownOffline: 2,
   kErrorPageShownStartQueryError: 3,
   kErrorPageShownProtected: 4,
 };
-lens.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum() };
+lens.mojom.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: LensSidePanelPageHandlerFactory
-lens.mojom.LensSidePanelPageHandlerFactory = {};
+lens.mojom.mojom.LensSidePanelPageHandlerFactory = {};
 
-lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver = class {
+lens.mojom.mojom.LensSidePanelPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerFactoryRemote = class {
+lens.mojom.mojom.LensSidePanelPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensSidePanelPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver,
+      lens.mojom.mojom.LensSidePanelPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new lens.mojom.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +50,7 @@ lens.mojom.LensSidePanelPageHandlerFactoryRemote = class {
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
+lens.mojom.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,15 +59,15 @@ lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec,
       null,
       [handler, page]);
   }
 
 };
 
-lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
-  let remote = new lens.mojom.LensSidePanelPageHandlerFactoryRemote();
+lens.mojom.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
+  let remote = new lens.mojom.mojom.LensSidePanelPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +77,7 @@ lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateSidePanelPageHandler
-lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandlerFactory.CreateSidePanelPageHandler_Params',
@@ -91,29 +92,29 @@ lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec
 };
 
 // Legacy compatibility
-lens.mojom.LensSidePanelPageHandlerFactoryPtr = lens.mojom.LensSidePanelPageHandlerFactoryRemote;
-lens.mojom.LensSidePanelPageHandlerFactoryRequest = lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver;
+lens.mojom.mojom.LensSidePanelPageHandlerFactoryPtr = lens.mojom.mojom.LensSidePanelPageHandlerFactoryRemote;
+lens.mojom.mojom.LensSidePanelPageHandlerFactoryRequest = lens.mojom.mojom.LensSidePanelPageHandlerFactoryPendingReceiver;
 
 
 // Interface: LensSidePanelPageHandler
-lens.mojom.LensSidePanelPageHandler = {};
+lens.mojom.mojom.LensSidePanelPageHandler = {};
 
-lens.mojom.LensSidePanelPageHandlerPendingReceiver = class {
+lens.mojom.mojom.LensSidePanelPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerRemote = class {
+lens.mojom.mojom.LensSidePanelPageHandlerRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensSidePanelPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensSidePanelPageHandlerPendingReceiver,
+      lens.mojom.mojom.LensSidePanelPageHandlerPendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensSidePanelPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new lens.mojom.mojom.LensSidePanelPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -125,7 +126,7 @@ lens.mojom.LensSidePanelPageHandlerRemote = class {
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
+lens.mojom.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -134,7 +135,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec,
       null,
       []);
   }
@@ -143,8 +144,8 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec,
-      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec,
       []);
   }
 
@@ -152,7 +153,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec,
       null,
       [text_fragments, pdf_page_number]);
   }
@@ -161,7 +162,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec,
       null,
       []);
   }
@@ -170,7 +171,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -179,15 +180,15 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec,
       null,
       []);
   }
 
 };
 
-lens.mojom.LensSidePanelPageHandler.getRemote = function() {
-  let remote = new lens.mojom.LensSidePanelPageHandlerRemote();
+lens.mojom.mojom.LensSidePanelPageHandler.getRemote = function() {
+  let remote = new lens.mojom.mojom.LensSidePanelPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -197,7 +198,7 @@ lens.mojom.LensSidePanelPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for PopAndLoadQueryFromHistory
-lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandler.PopAndLoadQueryFromHistory_Params',
@@ -210,7 +211,7 @@ lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = {
 };
 
 // ParamsSpec for GetIsContextualSearchbox
-lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandler.GetIsContextualSearchbox_Params',
@@ -222,7 +223,7 @@ lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = {
   }
 };
 
-lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandler.GetIsContextualSearchbox_ResponseParams',
@@ -236,7 +237,7 @@ lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec 
 };
 
 // ParamsSpec for OnScrollToMessage
-lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandler.OnScrollToMessage_Params',
@@ -251,7 +252,7 @@ lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSendFeedback
-lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandler.RequestSendFeedback_Params',
@@ -264,7 +265,7 @@ lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = {
 };
 
 // ParamsSpec for OnAimMessage
-lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandler.OnAimMessage_Params',
@@ -278,7 +279,7 @@ lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = {
 };
 
 // ParamsSpec for OnImageQueryWithEmptyText
-lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPageHandler.OnImageQueryWithEmptyText_Params',
@@ -291,29 +292,29 @@ lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = {
 };
 
 // Legacy compatibility
-lens.mojom.LensSidePanelPageHandlerPtr = lens.mojom.LensSidePanelPageHandlerRemote;
-lens.mojom.LensSidePanelPageHandlerRequest = lens.mojom.LensSidePanelPageHandlerPendingReceiver;
+lens.mojom.mojom.LensSidePanelPageHandlerPtr = lens.mojom.mojom.LensSidePanelPageHandlerRemote;
+lens.mojom.mojom.LensSidePanelPageHandlerRequest = lens.mojom.mojom.LensSidePanelPageHandlerPendingReceiver;
 
 
 // Interface: LensSidePanelPage
-lens.mojom.LensSidePanelPage = {};
+lens.mojom.mojom.LensSidePanelPage = {};
 
-lens.mojom.LensSidePanelPagePendingReceiver = class {
+lens.mojom.mojom.LensSidePanelPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensSidePanelPageRemote = class {
+lens.mojom.mojom.LensSidePanelPageRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensSidePanelPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensSidePanelPagePendingReceiver,
+      lens.mojom.mojom.LensSidePanelPagePendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensSidePanelPageRemoteCallHandler(this.proxy);
+    this.$ = new lens.mojom.mojom.LensSidePanelPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -325,7 +326,7 @@ lens.mojom.LensSidePanelPageRemote = class {
   }
 };
 
-lens.mojom.LensSidePanelPageRemoteCallHandler = class {
+lens.mojom.mojom.LensSidePanelPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -334,7 +335,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec,
       null,
       [results_url]);
   }
@@ -343,7 +344,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec,
       null,
       [is_loading]);
   }
@@ -352,7 +353,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec,
       null,
       [progress]);
   }
@@ -361,7 +362,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -370,7 +371,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec,
       null,
       [should_show_error_page, status]);
   }
@@ -379,7 +380,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec,
       null,
       []);
   }
@@ -388,7 +389,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec,
       null,
       [new_page_content_type]);
   }
@@ -397,7 +398,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_ShowToast_ParamsSpec,
       null,
       [message]);
   }
@@ -406,7 +407,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec,
       null,
       [serialized_message]);
   }
@@ -415,7 +416,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec,
       null,
       []);
   }
@@ -424,7 +425,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec,
       null,
       [on_aim]);
   }
@@ -433,7 +434,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec,
       null,
       []);
   }
@@ -442,7 +443,7 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec,
       null,
       [is_showing]);
   }
@@ -451,15 +452,15 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec,
+      lens.mojom.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec,
       null,
       []);
   }
 
 };
 
-lens.mojom.LensSidePanelPage.getRemote = function() {
-  let remote = new lens.mojom.LensSidePanelPageRemote();
+lens.mojom.mojom.LensSidePanelPage.getRemote = function() {
+  let remote = new lens.mojom.mojom.LensSidePanelPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -469,7 +470,7 @@ lens.mojom.LensSidePanelPage.getRemote = function() {
 };
 
 // ParamsSpec for LoadResultsInFrame
-lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.LoadResultsInFrame_Params',
@@ -483,7 +484,7 @@ lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsLoadingResults
-lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.SetIsLoadingResults_Params',
@@ -497,7 +498,7 @@ lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = {
 };
 
 // ParamsSpec for SetPageContentUploadProgress
-lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.SetPageContentUploadProgress_Params',
@@ -511,7 +512,7 @@ lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = {
 };
 
 // ParamsSpec for SetBackArrowVisible
-lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.SetBackArrowVisible_Params',
@@ -525,14 +526,14 @@ lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = {
 };
 
 // ParamsSpec for SetShowErrorPage
-lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.SetShowErrorPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_show_error_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 4, packedBitOffset: 0, type: lens.mojom.SidePanelResultStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'should_show_error_page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.SidePanelResultStatusSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -540,7 +541,7 @@ lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = {
 };
 
 // ParamsSpec for SuppressGhostLoader
-lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.SuppressGhostLoader_Params',
@@ -553,7 +554,7 @@ lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = {
 };
 
 // ParamsSpec for PageContentTypeChanged
-lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.PageContentTypeChanged_Params',
@@ -567,7 +568,7 @@ lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for ShowToast
-lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_ShowToast_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.ShowToast_Params',
@@ -581,7 +582,7 @@ lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = {
 };
 
 // ParamsSpec for SendClientMessageToAim
-lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.SendClientMessageToAim_Params',
@@ -595,7 +596,7 @@ lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = {
 };
 
 // ParamsSpec for AimHandshakeReceived
-lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.AimHandshakeReceived_Params',
@@ -608,7 +609,7 @@ lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = {
 };
 
 // ParamsSpec for AimResultsChanged
-lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.AimResultsChanged_Params',
@@ -622,7 +623,7 @@ lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for FocusResultsFrame
-lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.FocusResultsFrame_Params',
@@ -635,7 +636,7 @@ lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsOverlayShowing
-lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.SetIsOverlayShowing_Params',
@@ -649,7 +650,7 @@ lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = {
 };
 
 // ParamsSpec for FocusSearchbox
-lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = {
+lens.mojom.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensSidePanelPage.FocusSearchbox_Params',
@@ -662,6 +663,6 @@ lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = {
 };
 
 // Legacy compatibility
-lens.mojom.LensSidePanelPagePtr = lens.mojom.LensSidePanelPageRemote;
-lens.mojom.LensSidePanelPageRequest = lens.mojom.LensSidePanelPagePendingReceiver;
+lens.mojom.mojom.LensSidePanelPagePtr = lens.mojom.mojom.LensSidePanelPageRemote;
+lens.mojom.mojom.LensSidePanelPageRequest = lens.mojom.mojom.LensSidePanelPagePendingReceiver;
 

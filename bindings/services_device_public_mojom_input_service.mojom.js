@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Enum: InputDeviceSubsystem
-device.mojom.InputDeviceSubsystem = {
+device.mojom.mojom.InputDeviceSubsystem = {
   SUBSYSTEM_HID: 0,
   SUBSYSTEM_INPUT: 1,
   SUBSYSTEM_UNKNOWN: 2,
 };
-device.mojom.InputDeviceSubsystemSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.InputDeviceSubsystemSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputDeviceType
-device.mojom.InputDeviceType = {
+device.mojom.mojom.InputDeviceType = {
   TYPE_BLUETOOTH: 0,
   TYPE_USB: 1,
   TYPE_SERIO: 2,
   TYPE_UNKNOWN: 3,
 };
-device.mojom.InputDeviceTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.InputDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: InputDeviceInfo
-device.mojom.InputDeviceInfoSpec = {
+device.mojom.mojom.InputDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.InputDeviceInfo',
@@ -52,24 +52,24 @@ device.mojom.InputDeviceInfoSpec = {
 };
 
 // Interface: InputDeviceManagerClient
-device.mojom.InputDeviceManagerClient = {};
+device.mojom.mojom.InputDeviceManagerClient = {};
 
-device.mojom.InputDeviceManagerClientPendingReceiver = class {
+device.mojom.mojom.InputDeviceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.InputDeviceManagerClientRemote = class {
+device.mojom.mojom.InputDeviceManagerClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.InputDeviceManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.InputDeviceManagerClientPendingReceiver,
+      device.mojom.mojom.InputDeviceManagerClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.InputDeviceManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.InputDeviceManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -81,7 +81,7 @@ device.mojom.InputDeviceManagerClientRemote = class {
   }
 };
 
-device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
+device.mojom.mojom.InputDeviceManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -90,7 +90,7 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec,
+      device.mojom.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec,
       null,
       [device_info]);
   }
@@ -99,15 +99,15 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec,
+      device.mojom.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec,
       null,
       [id]);
   }
 
 };
 
-device.mojom.InputDeviceManagerClient.getRemote = function() {
-  let remote = new device.mojom.InputDeviceManagerClientRemote();
+device.mojom.mojom.InputDeviceManagerClient.getRemote = function() {
+  let remote = new device.mojom.mojom.InputDeviceManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -117,7 +117,7 @@ device.mojom.InputDeviceManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for InputDeviceAdded
-device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
+device.mojom.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.InputDeviceManagerClient.InputDeviceAdded_Params',
@@ -131,7 +131,7 @@ device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
 };
 
 // ParamsSpec for InputDeviceRemoved
-device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
+device.mojom.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.InputDeviceManagerClient.InputDeviceRemoved_Params',
@@ -145,29 +145,29 @@ device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.InputDeviceManagerClientPtr = device.mojom.InputDeviceManagerClientRemote;
-device.mojom.InputDeviceManagerClientRequest = device.mojom.InputDeviceManagerClientPendingReceiver;
+device.mojom.mojom.InputDeviceManagerClientPtr = device.mojom.mojom.InputDeviceManagerClientRemote;
+device.mojom.mojom.InputDeviceManagerClientRequest = device.mojom.mojom.InputDeviceManagerClientPendingReceiver;
 
 
 // Interface: InputDeviceManager
-device.mojom.InputDeviceManager = {};
+device.mojom.mojom.InputDeviceManager = {};
 
-device.mojom.InputDeviceManagerPendingReceiver = class {
+device.mojom.mojom.InputDeviceManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.InputDeviceManagerRemote = class {
+device.mojom.mojom.InputDeviceManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.InputDeviceManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.InputDeviceManagerPendingReceiver,
+      device.mojom.mojom.InputDeviceManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.InputDeviceManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.InputDeviceManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -179,7 +179,7 @@ device.mojom.InputDeviceManagerRemote = class {
   }
 };
 
-device.mojom.InputDeviceManagerRemoteCallHandler = class {
+device.mojom.mojom.InputDeviceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -188,8 +188,8 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec,
-      device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
+      device.mojom.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec,
+      device.mojom.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
       [client]);
   }
 
@@ -197,15 +197,15 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.InputDeviceManager_GetDevices_ParamsSpec,
-      device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
+      device.mojom.mojom.InputDeviceManager_GetDevices_ParamsSpec,
+      device.mojom.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.InputDeviceManager.getRemote = function() {
-  let remote = new device.mojom.InputDeviceManagerRemote();
+device.mojom.mojom.InputDeviceManager.getRemote = function() {
+  let remote = new device.mojom.mojom.InputDeviceManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -215,7 +215,7 @@ device.mojom.InputDeviceManager.getRemote = function() {
 };
 
 // ParamsSpec for GetDevicesAndSetClient
-device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
+device.mojom.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_Params',
@@ -228,7 +228,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
   }
 };
 
-device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
+device.mojom.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_ResponseParams',
@@ -242,7 +242,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDevices
-device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
+device.mojom.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.InputDeviceManager.GetDevices_Params',
@@ -254,7 +254,7 @@ device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
   }
 };
 
-device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
+device.mojom.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.InputDeviceManager.GetDevices_ResponseParams',
@@ -268,6 +268,6 @@ device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.InputDeviceManagerPtr = device.mojom.InputDeviceManagerRemote;
-device.mojom.InputDeviceManagerRequest = device.mojom.InputDeviceManagerPendingReceiver;
+device.mojom.mojom.InputDeviceManagerPtr = device.mojom.mojom.InputDeviceManagerRemote;
+device.mojom.mojom.InputDeviceManagerRequest = device.mojom.mojom.InputDeviceManagerPendingReceiver;
 

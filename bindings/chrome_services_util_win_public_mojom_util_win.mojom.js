@@ -10,7 +10,7 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Enum: SelectFileDialogType
-chrome.mojom.SelectFileDialogType = {
+chrome.mojom.mojom.SelectFileDialogType = {
   kNone: 0,
   kFolder: 1,
   kUploadFolder: 2,
@@ -19,35 +19,35 @@ chrome.mojom.SelectFileDialogType = {
   kOpenFile: 5,
   kOpenMultiFile: 6,
 };
-chrome.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CertificateType
-chrome.mojom.CertificateType = {
+chrome.mojom.mojom.CertificateType = {
   kNoCertificate: 0,
   kCertificateInFile: 1,
   kCertificateInCatalog: 2,
 };
-chrome.mojom.CertificateTypeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.CertificateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AntiVirusProductState
-chrome.mojom.AntiVirusProductState = {
+chrome.mojom.mojom.AntiVirusProductState = {
   kOn: 0,
   kOff: 1,
   kSnoozed: 2,
   kExpired: 3,
 };
-chrome.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShortcutOperation
-chrome.mojom.ShortcutOperation = {
+chrome.mojom.mojom.ShortcutOperation = {
   kCreateAlways: 0,
   kReplaceExisting: 1,
   kUpdateExisting: 2,
 };
-chrome.mojom.ShortcutOperationSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.ShortcutOperationSpec = { $: mojo.internal.Enum() };
 
 // Struct: FileFilterSpec
-chrome.mojom.FileFilterSpecSpec = {
+chrome.mojom.mojom.FileFilterSpecSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.FileFilterSpec',
@@ -62,7 +62,7 @@ chrome.mojom.FileFilterSpecSpec = {
 };
 
 // Struct: InspectionResult
-chrome.mojom.InspectionResultSpec = {
+chrome.mojom.mojom.InspectionResultSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.InspectionResult',
@@ -73,9 +73,9 @@ chrome.mojom.InspectionResultSpec = {
         { name: 'product_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'certificate_type', packedOffset: 40, packedBitOffset: 0, type: chrome.mojom.CertificateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'certificate_path', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'certificate_subject', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'certificate_type', packedOffset: 56, packedBitOffset: 0, type: chrome.mojom.CertificateTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'certificate_path', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'certificate_subject', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -83,16 +83,16 @@ chrome.mojom.InspectionResultSpec = {
 };
 
 // Struct: AntiVirusProduct
-chrome.mojom.AntiVirusProductSpec = {
+chrome.mojom.mojom.AntiVirusProductSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AntiVirusProduct',
       packedSize: 40,
       fields: [
         { name: 'product_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'product_name_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'product_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'product_version_hash', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'product_name_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'product_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'product_version_hash', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'state', packedOffset: 24, packedBitOffset: 0, type: chrome.mojom.AntiVirusProductStateSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -101,16 +101,16 @@ chrome.mojom.AntiVirusProductSpec = {
 };
 
 // Struct: TpmIdentifier
-chrome.mojom.TpmIdentifierSpec = {
+chrome.mojom.mojom.TpmIdentifierSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.TpmIdentifier',
       packedSize: 40,
       fields: [
-        { name: 'manufacturer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'manufacturer_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'manufacturer_version_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'tpm_specific_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'manufacturer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'manufacturer_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'manufacturer_version_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'tpm_specific_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -118,7 +118,7 @@ chrome.mojom.TpmIdentifierSpec = {
 };
 
 // Struct: ClsId
-chrome.mojom.ClsIdSpec = {
+chrome.mojom.mojom.ClsIdSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ClsId',
@@ -132,7 +132,7 @@ chrome.mojom.ClsIdSpec = {
 };
 
 // Struct: ShortcutProperties
-chrome.mojom.ShortcutPropertiesSpec = {
+chrome.mojom.mojom.ShortcutPropertiesSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ShortcutProperties',
@@ -143,10 +143,10 @@ chrome.mojom.ShortcutPropertiesSpec = {
         { name: 'arguments', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false, minVersion: 0 },
         { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false, minVersion: 0 },
         { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'icon_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'app_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false, minVersion: 0 },
-        { name: 'toast_activator_clsid', packedOffset: 56, packedBitOffset: 0, type: chrome.mojom.ClsIdSpec, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'icon_index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'app_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false, minVersion: 0 },
+        { name: 'toast_activator_clsid', packedOffset: 48, packedBitOffset: 0, type: chrome.mojom.ClsIdSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -154,24 +154,24 @@ chrome.mojom.ShortcutPropertiesSpec = {
 };
 
 // Interface: UtilWin
-chrome.mojom.UtilWin = {};
+chrome.mojom.mojom.UtilWin = {};
 
-chrome.mojom.UtilWinPendingReceiver = class {
+chrome.mojom.mojom.UtilWinPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.UtilWinRemote = class {
+chrome.mojom.mojom.UtilWinRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.UtilWin';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.UtilWinPendingReceiver,
+      chrome.mojom.mojom.UtilWinPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.UtilWinRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.UtilWinRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -183,7 +183,7 @@ chrome.mojom.UtilWinRemote = class {
   }
 };
 
-chrome.mojom.UtilWinRemoteCallHandler = class {
+chrome.mojom.mojom.UtilWinRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -192,8 +192,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec,
-      chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
+      chrome.mojom.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec,
+      chrome.mojom.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
       []);
   }
 
@@ -201,7 +201,7 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec,
+      chrome.mojom.mojom.UtilWin_UnpinShortcuts_ParamsSpec,
       null,
       [shortcut_paths]);
   }
@@ -210,8 +210,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec,
-      chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
+      chrome.mojom.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec,
+      chrome.mojom.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
       [shortcut_paths, properties, operation]);
   }
 
@@ -219,8 +219,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec,
-      chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
+      chrome.mojom.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec,
+      chrome.mojom.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
       [type, owner, title, default_path, filter, file_type_index, default_extension]);
   }
 
@@ -228,8 +228,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.UtilWin_InspectModule_ParamsSpec,
-      chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec,
+      chrome.mojom.mojom.UtilWin_InspectModule_ParamsSpec,
+      chrome.mojom.mojom.UtilWin_InspectModule_ResponseParamsSpec,
       [module_path]);
   }
 
@@ -237,8 +237,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec,
-      chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
+      chrome.mojom.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec,
+      chrome.mojom.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
       [report_full_names]);
   }
 
@@ -246,15 +246,15 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec,
-      chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
+      chrome.mojom.mojom.UtilWin_GetTpmIdentifier_ParamsSpec,
+      chrome.mojom.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
       []);
   }
 
 };
 
-chrome.mojom.UtilWin.getRemote = function() {
-  let remote = new chrome.mojom.UtilWinRemote();
+chrome.mojom.mojom.UtilWin.getRemote = function() {
+  let remote = new chrome.mojom.mojom.UtilWinRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -264,7 +264,7 @@ chrome.mojom.UtilWin.getRemote = function() {
 };
 
 // ParamsSpec for IsPinnedToTaskbar
-chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = {
+chrome.mojom.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.IsPinnedToTaskbar_Params',
@@ -276,7 +276,7 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = {
   }
 };
 
-chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
+chrome.mojom.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.IsPinnedToTaskbar_ResponseParams',
@@ -291,7 +291,7 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UnpinShortcuts
-chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = {
+chrome.mojom.mojom.UtilWin_UnpinShortcuts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.UnpinShortcuts_Params',
@@ -305,7 +305,7 @@ chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = {
 };
 
 // ParamsSpec for CreateOrUpdateShortcuts
-chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
+chrome.mojom.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.CreateOrUpdateShortcuts_Params',
@@ -320,7 +320,7 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
   }
 };
 
-chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
+chrome.mojom.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.CreateOrUpdateShortcuts_ResponseParams',
@@ -334,26 +334,26 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CallExecuteSelectFile
-chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
+chrome.mojom.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.CallExecuteSelectFile_Params',
       packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SelectFileDialogTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'owner', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'default_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.FileFilterSpecSpec, false), nullable: false, minVersion: 0 },
-        { name: 'file_type_index', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'default_extension', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: chrome.mojom.SelectFileDialogTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'owner', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'default_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.FileFilterSpecSpec, false), nullable: false, minVersion: 0 },
+        { name: 'file_type_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'default_extension', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
   }
 };
 
-chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
+chrome.mojom.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.CallExecuteSelectFile_ResponseParams',
@@ -368,7 +368,7 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InspectModule
-chrome.mojom.UtilWin_InspectModule_ParamsSpec = {
+chrome.mojom.mojom.UtilWin_InspectModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.InspectModule_Params',
@@ -381,7 +381,7 @@ chrome.mojom.UtilWin_InspectModule_ParamsSpec = {
   }
 };
 
-chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
+chrome.mojom.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.InspectModule_ResponseParams',
@@ -395,7 +395,7 @@ chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAntiVirusProducts
-chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
+chrome.mojom.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.GetAntiVirusProducts_Params',
@@ -408,7 +408,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
   }
 };
 
-chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
+chrome.mojom.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.GetAntiVirusProducts_ResponseParams',
@@ -422,7 +422,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetTpmIdentifier
-chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = {
+chrome.mojom.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.GetTpmIdentifier_Params',
@@ -434,7 +434,7 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = {
   }
 };
 
-chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
+chrome.mojom.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilWin.GetTpmIdentifier_ResponseParams',
@@ -448,29 +448,29 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.UtilWinPtr = chrome.mojom.UtilWinRemote;
-chrome.mojom.UtilWinRequest = chrome.mojom.UtilWinPendingReceiver;
+chrome.mojom.mojom.UtilWinPtr = chrome.mojom.mojom.UtilWinRemote;
+chrome.mojom.mojom.UtilWinRequest = chrome.mojom.mojom.UtilWinPendingReceiver;
 
 
 // Interface: ProcessorMetrics
-chrome.mojom.ProcessorMetrics = {};
+chrome.mojom.mojom.ProcessorMetrics = {};
 
-chrome.mojom.ProcessorMetricsPendingReceiver = class {
+chrome.mojom.mojom.ProcessorMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.ProcessorMetricsRemote = class {
+chrome.mojom.mojom.ProcessorMetricsRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.ProcessorMetrics';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.ProcessorMetricsPendingReceiver,
+      chrome.mojom.mojom.ProcessorMetricsPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.ProcessorMetricsRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.ProcessorMetricsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -482,7 +482,7 @@ chrome.mojom.ProcessorMetricsRemote = class {
   }
 };
 
-chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
+chrome.mojom.mojom.ProcessorMetricsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -491,15 +491,15 @@ chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec,
+      chrome.mojom.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chrome.mojom.ProcessorMetrics.getRemote = function() {
-  let remote = new chrome.mojom.ProcessorMetricsRemote();
+chrome.mojom.mojom.ProcessorMetrics.getRemote = function() {
+  let remote = new chrome.mojom.mojom.ProcessorMetricsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -509,7 +509,7 @@ chrome.mojom.ProcessorMetrics.getRemote = function() {
 };
 
 // ParamsSpec for RecordProcessorMetrics
-chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = {
+chrome.mojom.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ProcessorMetrics.RecordProcessorMetrics_Params',
@@ -522,6 +522,6 @@ chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.ProcessorMetricsPtr = chrome.mojom.ProcessorMetricsRemote;
-chrome.mojom.ProcessorMetricsRequest = chrome.mojom.ProcessorMetricsPendingReceiver;
+chrome.mojom.mojom.ProcessorMetricsPtr = chrome.mojom.mojom.ProcessorMetricsRemote;
+chrome.mojom.mojom.ProcessorMetricsRequest = chrome.mojom.mojom.ProcessorMetricsPendingReceiver;
 

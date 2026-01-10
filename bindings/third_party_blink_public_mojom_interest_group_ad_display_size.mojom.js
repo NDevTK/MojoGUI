@@ -7,18 +7,19 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Enum: LengthUnit
-blink.mojom.LengthUnit = {
+blink.mojom.mojom.LengthUnit = {
   kPixels: 0,
   kScreenWidth: 1,
   kScreenHeight: 2,
 };
-blink.mojom.LengthUnitSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.LengthUnitSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdSize
-blink.mojom.AdSizeSpec = {
+blink.mojom.mojom.AdSizeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdSize',
@@ -32,7 +33,7 @@ blink.mojom.AdSizeSpec = {
 };
 
 // Struct: AdDescriptor
-blink.mojom.AdDescriptorSpec = {
+blink.mojom.mojom.AdDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdDescriptor',

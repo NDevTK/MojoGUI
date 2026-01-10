@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: Hyphenation
-blink.mojom.Hyphenation = {};
+blink.mojom.mojom.Hyphenation = {};
 
-blink.mojom.HyphenationPendingReceiver = class {
+blink.mojom.mojom.HyphenationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.HyphenationRemote = class {
+blink.mojom.mojom.HyphenationRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.Hyphenation';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.HyphenationPendingReceiver,
+      blink.mojom.mojom.HyphenationPendingReceiver,
       handle);
-    this.$ = new blink.mojom.HyphenationRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.HyphenationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.HyphenationRemote = class {
   }
 };
 
-blink.mojom.HyphenationRemoteCallHandler = class {
+blink.mojom.mojom.HyphenationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.HyphenationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.Hyphenation_OpenDictionary_ParamsSpec,
-      blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec,
+      blink.mojom.mojom.Hyphenation_OpenDictionary_ParamsSpec,
+      blink.mojom.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec,
       [locale]);
   }
 
 };
 
-blink.mojom.Hyphenation.getRemote = function() {
-  let remote = new blink.mojom.HyphenationRemote();
+blink.mojom.mojom.Hyphenation.getRemote = function() {
+  let remote = new blink.mojom.mojom.HyphenationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.Hyphenation.getRemote = function() {
 };
 
 // ParamsSpec for OpenDictionary
-blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
+blink.mojom.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Hyphenation.OpenDictionary_Params',
@@ -79,7 +79,7 @@ blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
   }
 };
 
-blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
+blink.mojom.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Hyphenation.OpenDictionary_ResponseParams',
@@ -93,6 +93,6 @@ blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.HyphenationPtr = blink.mojom.HyphenationRemote;
-blink.mojom.HyphenationRequest = blink.mojom.HyphenationPendingReceiver;
+blink.mojom.mojom.HyphenationPtr = blink.mojom.mojom.HyphenationRemote;
+blink.mojom.mojom.HyphenationRequest = blink.mojom.mojom.HyphenationPendingReceiver;
 

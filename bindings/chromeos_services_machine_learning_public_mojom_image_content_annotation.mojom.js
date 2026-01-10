@@ -7,17 +7,19 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: Status
-chromeos.machine_learning.mojom.Status = {
+chromeos.machine_learning.machine_learning.mojom.mojom.Status = {
   ERROR: 0,
 };
-chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.machine_learning.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImageAnnotatorConfig
-chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageAnnotatorConfigSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.ImageAnnotatorConfig',
@@ -31,26 +33,26 @@ chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec = {
 };
 
 // Struct: ImageAnnotationScore
-chromeos.machine_learning.mojom.ImageAnnotationScoreSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageAnnotationScoreSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.ImageAnnotationScore',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'DEPRECATED_confidence', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'mid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 1 },
-        { name: 'bounding_box', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
+        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'DEPRECATED_confidence', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'mid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'score', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 1 },
+        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 48}]
+      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 48}]
     }
   }
 };
 
 // Struct: ImageAnnotationResult
-chromeos.machine_learning.mojom.ImageAnnotationResultSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageAnnotationResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.ImageAnnotationResult',
@@ -64,24 +66,24 @@ chromeos.machine_learning.mojom.ImageAnnotationResultSpec = {
 };
 
 // Interface: ImageContentAnnotator
-chromeos.machine_learning.mojom.ImageContentAnnotator = {};
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator = {};
 
-chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.mojom.ImageContentAnnotatorRemote = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.ImageContentAnnotator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver,
+      chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -93,7 +95,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemote = class {
   }
 };
 
-chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -102,8 +104,8 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec,
-      chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec,
       [rgb_bytes, width, height, line_stride]);
   }
 
@@ -111,15 +113,15 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec,
-      chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec,
       [encoded_image]);
   }
 
 };
 
-chromeos.machine_learning.mojom.ImageContentAnnotator.getRemote = function() {
-  let remote = new chromeos.machine_learning.mojom.ImageContentAnnotatorRemote();
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator.getRemote = function() {
+  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -129,7 +131,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotator.getRemote = function() {
 };
 
 // ParamsSpec for AnnotateRawImage
-chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.ImageContentAnnotator.AnnotateRawImage_Params',
@@ -145,7 +147,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpe
   }
 };
 
-chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.ImageContentAnnotator.AnnotateRawImage_ResponseParams',
@@ -159,7 +161,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseP
 };
 
 // ParamsSpec for AnnotateEncodedImage
-chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.ImageContentAnnotator.AnnotateEncodedImage_Params',
@@ -172,7 +174,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_Param
   }
 };
 
-chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.ImageContentAnnotator.AnnotateEncodedImage_ResponseParams',
@@ -186,6 +188,6 @@ chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_Respo
 };
 
 // Legacy compatibility
-chromeos.machine_learning.mojom.ImageContentAnnotatorPtr = chromeos.machine_learning.mojom.ImageContentAnnotatorRemote;
-chromeos.machine_learning.mojom.ImageContentAnnotatorRequest = chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver;
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorPtr = chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorRemote;
+chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorRequest = chromeos.machine_learning.machine_learning.mojom.mojom.ImageContentAnnotatorPendingReceiver;
 

@@ -10,24 +10,24 @@ color_change_listener.mojom = color_change_listener.mojom || {};
 
 
 // Interface: PageHandler
-color_change_listener.mojom.PageHandler = {};
+color_change_listener.mojom.mojom.PageHandler = {};
 
-color_change_listener.mojom.PageHandlerPendingReceiver = class {
+color_change_listener.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-color_change_listener.mojom.PageHandlerRemote = class {
+color_change_listener.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'color_change_listener.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      color_change_listener.mojom.PageHandlerPendingReceiver,
+      color_change_listener.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new color_change_listener.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new color_change_listener.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ color_change_listener.mojom.PageHandlerRemote = class {
   }
 };
 
-color_change_listener.mojom.PageHandlerRemoteCallHandler = class {
+color_change_listener.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ color_change_listener.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      color_change_listener.mojom.PageHandler_SetPage_ParamsSpec,
+      color_change_listener.mojom.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
 
 };
 
-color_change_listener.mojom.PageHandler.getRemote = function() {
-  let remote = new color_change_listener.mojom.PageHandlerRemote();
+color_change_listener.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new color_change_listener.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ color_change_listener.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for SetPage
-color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = {
+color_change_listener.mojom.mojom.PageHandler_SetPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'color_change_listener.mojom.PageHandler.SetPage_Params',
@@ -80,29 +80,29 @@ color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = {
 };
 
 // Legacy compatibility
-color_change_listener.mojom.PageHandlerPtr = color_change_listener.mojom.PageHandlerRemote;
-color_change_listener.mojom.PageHandlerRequest = color_change_listener.mojom.PageHandlerPendingReceiver;
+color_change_listener.mojom.mojom.PageHandlerPtr = color_change_listener.mojom.mojom.PageHandlerRemote;
+color_change_listener.mojom.mojom.PageHandlerRequest = color_change_listener.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-color_change_listener.mojom.Page = {};
+color_change_listener.mojom.mojom.Page = {};
 
-color_change_listener.mojom.PagePendingReceiver = class {
+color_change_listener.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-color_change_listener.mojom.PageRemote = class {
+color_change_listener.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'color_change_listener.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      color_change_listener.mojom.PagePendingReceiver,
+      color_change_listener.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new color_change_listener.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new color_change_listener.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ color_change_listener.mojom.PageRemote = class {
   }
 };
 
-color_change_listener.mojom.PageRemoteCallHandler = class {
+color_change_listener.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,15 +123,15 @@ color_change_listener.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec,
+      color_change_listener.mojom.mojom.Page_OnColorProviderChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-color_change_listener.mojom.Page.getRemote = function() {
-  let remote = new color_change_listener.mojom.PageRemote();
+color_change_listener.mojom.mojom.Page.getRemote = function() {
+  let remote = new color_change_listener.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -141,7 +141,7 @@ color_change_listener.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnColorProviderChanged
-color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = {
+color_change_listener.mojom.mojom.Page_OnColorProviderChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'color_change_listener.mojom.Page.OnColorProviderChanged_Params',
@@ -154,6 +154,6 @@ color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-color_change_listener.mojom.PagePtr = color_change_listener.mojom.PageRemote;
-color_change_listener.mojom.PageRequest = color_change_listener.mojom.PagePendingReceiver;
+color_change_listener.mojom.mojom.PagePtr = color_change_listener.mojom.mojom.PageRemote;
+color_change_listener.mojom.mojom.PageRequest = color_change_listener.mojom.mojom.PagePendingReceiver;
 

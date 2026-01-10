@@ -7,17 +7,20 @@
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Enum: MediaPlaybackState
-media_session.mojom.MediaPlaybackState = {
+media_session.mojom.mojom.MediaPlaybackState = {
   kPaused: 0,
   kPlaying: 1,
 };
-media_session.mojom.MediaPlaybackStateSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.MediaPlaybackStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaSessionAction
-media_session.mojom.MediaSessionAction = {
+media_session.mojom.mojom.MediaSessionAction = {
   kPlay: 0,
   kPause: 1,
   kPreviousTrack: 2,
@@ -32,70 +35,70 @@ media_session.mojom.MediaSessionAction = {
   kExitPictureInPicture: 11,
   kSwitchAudioDevice: 12,
 };
-media_session.mojom.MediaSessionActionSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.MediaSessionActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaSessionImageType
-media_session.mojom.MediaSessionImageType = {
+media_session.mojom.mojom.MediaSessionImageType = {
   kArtwork: 0,
   kSourceIcon: 1,
 };
-media_session.mojom.MediaSessionImageTypeSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.MediaSessionImageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaPictureInPictureState
-media_session.mojom.MediaPictureInPictureState = {
+media_session.mojom.mojom.MediaPictureInPictureState = {
   kNotInPictureInPicture: 0,
   kInPictureInPicture: 1,
 };
-media_session.mojom.MediaPictureInPictureStateSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.MediaPictureInPictureStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaAudioVideoState
-media_session.mojom.MediaAudioVideoState = {
+media_session.mojom.mojom.MediaAudioVideoState = {
   kDeprecatedUnknown: 0,
   kAudioOnly: 1,
   kAudioVideo: 2,
 };
-media_session.mojom.MediaAudioVideoStateSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.MediaAudioVideoStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaImageBitmapColorType
-media_session.mojom.MediaImageBitmapColorType = {
+media_session.mojom.mojom.MediaImageBitmapColorType = {
   kRGBA_8888: 0,
   kBGRA_8888: 1,
 };
-media_session.mojom.MediaImageBitmapColorTypeSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.MediaImageBitmapColorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MicrophoneState
-media_session.mojom.MicrophoneState = {
+media_session.mojom.mojom.MicrophoneState = {
   kMuted: 0,
   kUnmuted: 1,
 };
-media_session.mojom.MicrophoneStateSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.MicrophoneStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraState
-media_session.mojom.CameraState = {
+media_session.mojom.mojom.CameraState = {
   kTurnedOn: 0,
   kTurnedOff: 1,
 };
-media_session.mojom.CameraStateSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.CameraStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: SessionState
-media_session.mojom.SessionState = {
+media_session.mojom.mojom.SessionState = {
   kActive: 0,
   kDucking: 1,
   kSuspended: 2,
   kInactive: 3,
 };
-media_session.mojom.SessionStateSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.SessionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: SuspendType
-media_session.mojom.SuspendType = {
+media_session.mojom.mojom.SuspendType = {
   kSystem: 0,
   kUI: 1,
   kContent: 2,
 };
-media_session.mojom.SuspendTypeSpec = { $: mojo.internal.Enum() };
+media_session.mojom.mojom.SuspendTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MediaImage
-media_session.mojom.MediaImageSpec = {
+media_session.mojom.mojom.MediaImageSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaImage',
@@ -111,7 +114,7 @@ media_session.mojom.MediaImageSpec = {
 };
 
 // Struct: ChapterInformation
-media_session.mojom.ChapterInformationSpec = {
+media_session.mojom.mojom.ChapterInformationSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.ChapterInformation',
@@ -127,7 +130,7 @@ media_session.mojom.ChapterInformationSpec = {
 };
 
 // Struct: MediaMetadata
-media_session.mojom.MediaMetadataSpec = {
+media_session.mojom.mojom.MediaMetadataSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaMetadata',
@@ -145,15 +148,15 @@ media_session.mojom.MediaMetadataSpec = {
 };
 
 // Struct: MediaImageBitmap
-media_session.mojom.MediaImageBitmapSpec = {
+media_session.mojom.mojom.MediaImageBitmapSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaImageBitmap',
       packedSize: 32,
       fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'pixel_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'pixel_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'color_type', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapColorTypeSpec, nullable: false, minVersion: 5 },
       ],
       versions: [{version: 0, packedSize: 24}, {version: 5, packedSize: 32}]
@@ -162,7 +165,7 @@ media_session.mojom.MediaImageBitmapSpec = {
 };
 
 // Struct: MediaPosition
-media_session.mojom.MediaPositionSpec = {
+media_session.mojom.mojom.MediaPositionSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaPosition',
@@ -180,7 +183,7 @@ media_session.mojom.MediaPositionSpec = {
 };
 
 // Struct: RemotePlaybackMetadata
-media_session.mojom.RemotePlaybackMetadataSpec = {
+media_session.mojom.mojom.RemotePlaybackMetadataSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.RemotePlaybackMetadata',
@@ -188,18 +191,18 @@ media_session.mojom.RemotePlaybackMetadataSpec = {
       fields: [
         { name: 'video_codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'audio_codec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_playback_disabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'remote_playback_started', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 17 },
-        { name: 'unused_field', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 17 },
-        { name: 'is_encrypted_media', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 18 },
+        { name: 'remote_playback_disabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'remote_playback_started', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 17 },
+        { name: 'unused_field', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 17 },
+        { name: 'is_encrypted_media', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 18 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 17, packedSize: 40}, {version: 18, packedSize: 40}]
+      versions: [{version: 0, packedSize: 40}, {version: 17, packedSize: 40}, {version: 18, packedSize: 40}]
     }
   }
 };
 
 // Struct: MediaSessionInfo
-media_session.mojom.MediaSessionInfoSpec = {
+media_session.mojom.mojom.MediaSessionInfoSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionInfo',
@@ -213,7 +216,7 @@ media_session.mojom.MediaSessionInfoSpec = {
 };
 
 // Struct: MediaSessionDebugInfo
-media_session.mojom.MediaSessionDebugInfoSpec = {
+media_session.mojom.mojom.MediaSessionDebugInfoSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionDebugInfo',
@@ -229,24 +232,24 @@ media_session.mojom.MediaSessionDebugInfoSpec = {
 };
 
 // Interface: MediaSessionObserver
-media_session.mojom.MediaSessionObserver = {};
+media_session.mojom.mojom.MediaSessionObserver = {};
 
-media_session.mojom.MediaSessionObserverPendingReceiver = class {
+media_session.mojom.mojom.MediaSessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_session.mojom.MediaSessionObserverRemote = class {
+media_session.mojom.mojom.MediaSessionObserverRemote = class {
   static get $interfaceName() {
     return 'media_session.mojom.MediaSessionObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_session.mojom.MediaSessionObserverPendingReceiver,
+      media_session.mojom.mojom.MediaSessionObserverPendingReceiver,
       handle);
-    this.$ = new media_session.mojom.MediaSessionObserverRemoteCallHandler(this.proxy);
+    this.$ = new media_session.mojom.mojom.MediaSessionObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -258,7 +261,7 @@ media_session.mojom.MediaSessionObserverRemote = class {
   }
 };
 
-media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
+media_session.mojom.mojom.MediaSessionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -267,7 +270,7 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec,
       null,
       [info]);
   }
@@ -276,7 +279,7 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec,
       null,
       [metadata]);
   }
@@ -285,7 +288,7 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec,
       null,
       [action]);
   }
@@ -294,7 +297,7 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec,
       null,
       [images]);
   }
@@ -303,15 +306,15 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec,
+      media_session.mojom.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec,
       null,
       [position]);
   }
 
 };
 
-media_session.mojom.MediaSessionObserver.getRemote = function() {
-  let remote = new media_session.mojom.MediaSessionObserverRemote();
+media_session.mojom.mojom.MediaSessionObserver.getRemote = function() {
+  let remote = new media_session.mojom.mojom.MediaSessionObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -321,7 +324,7 @@ media_session.mojom.MediaSessionObserver.getRemote = function() {
 };
 
 // ParamsSpec for MediaSessionInfoChanged
-media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionObserver.MediaSessionInfoChanged_Params',
@@ -335,7 +338,7 @@ media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec = {
 };
 
 // ParamsSpec for MediaSessionMetadataChanged
-media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionObserver.MediaSessionMetadataChanged_Params',
@@ -349,7 +352,7 @@ media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec 
 };
 
 // ParamsSpec for MediaSessionActionsChanged
-media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionObserver.MediaSessionActionsChanged_Params',
@@ -363,7 +366,7 @@ media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec =
 };
 
 // ParamsSpec for MediaSessionImagesChanged
-media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionObserver.MediaSessionImagesChanged_Params',
@@ -377,7 +380,7 @@ media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec = 
 };
 
 // ParamsSpec for MediaSessionPositionChanged
-media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec = {
+media_session.mojom.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSessionObserver.MediaSessionPositionChanged_Params',
@@ -391,29 +394,29 @@ media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec 
 };
 
 // Legacy compatibility
-media_session.mojom.MediaSessionObserverPtr = media_session.mojom.MediaSessionObserverRemote;
-media_session.mojom.MediaSessionObserverRequest = media_session.mojom.MediaSessionObserverPendingReceiver;
+media_session.mojom.mojom.MediaSessionObserverPtr = media_session.mojom.mojom.MediaSessionObserverRemote;
+media_session.mojom.mojom.MediaSessionObserverRequest = media_session.mojom.mojom.MediaSessionObserverPendingReceiver;
 
 
 // Interface: MediaSession
-media_session.mojom.MediaSession = {};
+media_session.mojom.mojom.MediaSession = {};
 
-media_session.mojom.MediaSessionPendingReceiver = class {
+media_session.mojom.mojom.MediaSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_session.mojom.MediaSessionRemote = class {
+media_session.mojom.mojom.MediaSessionRemote = class {
   static get $interfaceName() {
     return 'media_session.mojom.MediaSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_session.mojom.MediaSessionPendingReceiver,
+      media_session.mojom.mojom.MediaSessionPendingReceiver,
       handle);
-    this.$ = new media_session.mojom.MediaSessionRemoteCallHandler(this.proxy);
+    this.$ = new media_session.mojom.mojom.MediaSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -425,7 +428,7 @@ media_session.mojom.MediaSessionRemote = class {
   }
 };
 
-media_session.mojom.MediaSessionRemoteCallHandler = class {
+media_session.mojom.mojom.MediaSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -434,8 +437,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec,
-      media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec,
       []);
   }
 
@@ -443,8 +446,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec,
-      media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetDebugInfo_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec,
       []);
   }
 
@@ -452,7 +455,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_session.mojom.MediaSession_StartDucking_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_StartDucking_ParamsSpec,
       null,
       []);
   }
@@ -461,7 +464,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media_session.mojom.MediaSession_StopDucking_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_StopDucking_ParamsSpec,
       null,
       []);
   }
@@ -470,7 +473,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media_session.mojom.MediaSession_Suspend_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_Suspend_ParamsSpec,
       null,
       [suspend_type]);
   }
@@ -479,7 +482,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media_session.mojom.MediaSession_Resume_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_Resume_ParamsSpec,
       null,
       [suspend_type]);
   }
@@ -488,7 +491,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media_session.mojom.MediaSession_AddObserver_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -497,7 +500,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media_session.mojom.MediaSession_PreviousTrack_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_PreviousTrack_ParamsSpec,
       null,
       []);
   }
@@ -506,7 +509,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media_session.mojom.MediaSession_NextTrack_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_NextTrack_ParamsSpec,
       null,
       []);
   }
@@ -515,7 +518,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      media_session.mojom.MediaSession_Seek_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_Seek_ParamsSpec,
       null,
       [seek_time]);
   }
@@ -524,7 +527,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      media_session.mojom.MediaSession_Stop_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_Stop_ParamsSpec,
       null,
       [suspend_type]);
   }
@@ -533,7 +536,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      media_session.mojom.MediaSession_SkipAd_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_SkipAd_ParamsSpec,
       null,
       []);
   }
@@ -542,8 +545,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec,
-      media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec,
       [image, minimum_size_px, desired_size_px]);
   }
 
@@ -551,7 +554,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      media_session.mojom.MediaSession_SeekTo_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_SeekTo_ParamsSpec,
       null,
       [seek_time]);
   }
@@ -560,7 +563,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      media_session.mojom.MediaSession_ScrubTo_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_ScrubTo_ParamsSpec,
       null,
       [seek_time]);
   }
@@ -569,7 +572,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_EnterPictureInPicture_ParamsSpec,
       null,
       []);
   }
@@ -578,7 +581,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_ExitPictureInPicture_ParamsSpec,
       null,
       []);
   }
@@ -587,7 +590,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_SetAudioSinkId_ParamsSpec,
       null,
       [id]);
   }
@@ -596,7 +599,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_ToggleMicrophone_ParamsSpec,
       null,
       []);
   }
@@ -605,7 +608,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      media_session.mojom.MediaSession_ToggleCamera_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_ToggleCamera_ParamsSpec,
       null,
       []);
   }
@@ -614,7 +617,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      media_session.mojom.MediaSession_HangUp_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_HangUp_ParamsSpec,
       null,
       []);
   }
@@ -623,7 +626,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      media_session.mojom.MediaSession_Raise_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_Raise_ParamsSpec,
       null,
       []);
   }
@@ -632,7 +635,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      media_session.mojom.MediaSession_SetMute_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_SetMute_ParamsSpec,
       null,
       [mute]);
   }
@@ -641,7 +644,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_RequestMediaRemoting_ParamsSpec,
       null,
       []);
   }
@@ -650,7 +653,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      media_session.mojom.MediaSession_PreviousSlide_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_PreviousSlide_ParamsSpec,
       null,
       []);
   }
@@ -659,7 +662,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      media_session.mojom.MediaSession_NextSlide_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_NextSlide_ParamsSpec,
       null,
       []);
   }
@@ -668,7 +671,7 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec,
       null,
       []);
   }
@@ -677,15 +680,15 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      media_session.mojom.MediaSession_GetVisibility_ParamsSpec,
-      media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetVisibility_ParamsSpec,
+      media_session.mojom.mojom.MediaSession_GetVisibility_ResponseParamsSpec,
       []);
   }
 
 };
 
-media_session.mojom.MediaSession.getRemote = function() {
-  let remote = new media_session.mojom.MediaSessionRemote();
+media_session.mojom.mojom.MediaSession.getRemote = function() {
+  let remote = new media_session.mojom.mojom.MediaSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -695,7 +698,7 @@ media_session.mojom.MediaSession.getRemote = function() {
 };
 
 // ParamsSpec for GetMediaSessionInfo
-media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetMediaSessionInfo_Params',
@@ -707,7 +710,7 @@ media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec = {
   }
 };
 
-media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetMediaSessionInfo_ResponseParams',
@@ -721,7 +724,7 @@ media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDebugInfo
-media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetDebugInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetDebugInfo_Params',
@@ -733,7 +736,7 @@ media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec = {
   }
 };
 
-media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetDebugInfo_ResponseParams',
@@ -747,7 +750,7 @@ media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartDucking
-media_session.mojom.MediaSession_StartDucking_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_StartDucking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.StartDucking_Params',
@@ -760,7 +763,7 @@ media_session.mojom.MediaSession_StartDucking_ParamsSpec = {
 };
 
 // ParamsSpec for StopDucking
-media_session.mojom.MediaSession_StopDucking_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_StopDucking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.StopDucking_Params',
@@ -773,7 +776,7 @@ media_session.mojom.MediaSession_StopDucking_ParamsSpec = {
 };
 
 // ParamsSpec for Suspend
-media_session.mojom.MediaSession_Suspend_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_Suspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.Suspend_Params',
@@ -787,7 +790,7 @@ media_session.mojom.MediaSession_Suspend_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-media_session.mojom.MediaSession_Resume_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.Resume_Params',
@@ -801,7 +804,7 @@ media_session.mojom.MediaSession_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for AddObserver
-media_session.mojom.MediaSession_AddObserver_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.AddObserver_Params',
@@ -815,7 +818,7 @@ media_session.mojom.MediaSession_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for PreviousTrack
-media_session.mojom.MediaSession_PreviousTrack_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_PreviousTrack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.PreviousTrack_Params',
@@ -828,7 +831,7 @@ media_session.mojom.MediaSession_PreviousTrack_ParamsSpec = {
 };
 
 // ParamsSpec for NextTrack
-media_session.mojom.MediaSession_NextTrack_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_NextTrack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.NextTrack_Params',
@@ -841,7 +844,7 @@ media_session.mojom.MediaSession_NextTrack_ParamsSpec = {
 };
 
 // ParamsSpec for Seek
-media_session.mojom.MediaSession_Seek_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_Seek_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.Seek_Params',
@@ -855,7 +858,7 @@ media_session.mojom.MediaSession_Seek_ParamsSpec = {
 };
 
 // ParamsSpec for Stop
-media_session.mojom.MediaSession_Stop_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.Stop_Params',
@@ -869,7 +872,7 @@ media_session.mojom.MediaSession_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for SkipAd
-media_session.mojom.MediaSession_SkipAd_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_SkipAd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.SkipAd_Params',
@@ -882,7 +885,7 @@ media_session.mojom.MediaSession_SkipAd_ParamsSpec = {
 };
 
 // ParamsSpec for GetMediaImageBitmap
-media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetMediaImageBitmap_Params',
@@ -897,7 +900,7 @@ media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec = {
   }
 };
 
-media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetMediaImageBitmap_ResponseParams',
@@ -911,7 +914,7 @@ media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SeekTo
-media_session.mojom.MediaSession_SeekTo_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_SeekTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.SeekTo_Params',
@@ -925,7 +928,7 @@ media_session.mojom.MediaSession_SeekTo_ParamsSpec = {
 };
 
 // ParamsSpec for ScrubTo
-media_session.mojom.MediaSession_ScrubTo_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_ScrubTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.ScrubTo_Params',
@@ -939,7 +942,7 @@ media_session.mojom.MediaSession_ScrubTo_ParamsSpec = {
 };
 
 // ParamsSpec for EnterPictureInPicture
-media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_EnterPictureInPicture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.EnterPictureInPicture_Params',
@@ -952,7 +955,7 @@ media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec = {
 };
 
 // ParamsSpec for ExitPictureInPicture
-media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_ExitPictureInPicture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.ExitPictureInPicture_Params',
@@ -965,7 +968,7 @@ media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec = {
 };
 
 // ParamsSpec for SetAudioSinkId
-media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_SetAudioSinkId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.SetAudioSinkId_Params',
@@ -979,7 +982,7 @@ media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleMicrophone
-media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_ToggleMicrophone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.ToggleMicrophone_Params',
@@ -992,7 +995,7 @@ media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleCamera
-media_session.mojom.MediaSession_ToggleCamera_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_ToggleCamera_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.ToggleCamera_Params',
@@ -1005,7 +1008,7 @@ media_session.mojom.MediaSession_ToggleCamera_ParamsSpec = {
 };
 
 // ParamsSpec for HangUp
-media_session.mojom.MediaSession_HangUp_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_HangUp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.HangUp_Params',
@@ -1018,7 +1021,7 @@ media_session.mojom.MediaSession_HangUp_ParamsSpec = {
 };
 
 // ParamsSpec for Raise
-media_session.mojom.MediaSession_Raise_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_Raise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.Raise_Params',
@@ -1031,7 +1034,7 @@ media_session.mojom.MediaSession_Raise_ParamsSpec = {
 };
 
 // ParamsSpec for SetMute
-media_session.mojom.MediaSession_SetMute_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_SetMute_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.SetMute_Params',
@@ -1045,7 +1048,7 @@ media_session.mojom.MediaSession_SetMute_ParamsSpec = {
 };
 
 // ParamsSpec for RequestMediaRemoting
-media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_RequestMediaRemoting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.RequestMediaRemoting_Params',
@@ -1058,7 +1061,7 @@ media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec = {
 };
 
 // ParamsSpec for PreviousSlide
-media_session.mojom.MediaSession_PreviousSlide_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_PreviousSlide_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.PreviousSlide_Params',
@@ -1071,7 +1074,7 @@ media_session.mojom.MediaSession_PreviousSlide_ParamsSpec = {
 };
 
 // ParamsSpec for NextSlide
-media_session.mojom.MediaSession_NextSlide_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_NextSlide_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.NextSlide_Params',
@@ -1084,7 +1087,7 @@ media_session.mojom.MediaSession_NextSlide_ParamsSpec = {
 };
 
 // ParamsSpec for EnterAutoPictureInPicture
-media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.EnterAutoPictureInPicture_Params',
@@ -1097,7 +1100,7 @@ media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec = {
 };
 
 // ParamsSpec for GetVisibility
-media_session.mojom.MediaSession_GetVisibility_ParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetVisibility_Params',
@@ -1109,7 +1112,7 @@ media_session.mojom.MediaSession_GetVisibility_ParamsSpec = {
   }
 };
 
-media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec = {
+media_session.mojom.mojom.MediaSession_GetVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.MediaSession.GetVisibility_ResponseParams',
@@ -1123,6 +1126,6 @@ media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media_session.mojom.MediaSessionPtr = media_session.mojom.MediaSessionRemote;
-media_session.mojom.MediaSessionRequest = media_session.mojom.MediaSessionPendingReceiver;
+media_session.mojom.mojom.MediaSessionPtr = media_session.mojom.mojom.MediaSessionRemote;
+media_session.mojom.mojom.MediaSessionRequest = media_session.mojom.mojom.MediaSessionPendingReceiver;
 

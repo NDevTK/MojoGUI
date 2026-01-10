@@ -7,11 +7,11 @@
 // Module namespace
 var arc = arc || {};
 arc.keymanagement = arc.keymanagement || {};
-arc.keymanagement.mojom = arc.keymanagement.mojom || {};
+arc.keymanagement.keymanagement.mojom = arc.keymanagement.keymanagement.mojom || {};
 
 
 // Enum: ChapsSlot
-arc.keymanagement.mojom.ChapsSlot = {
+arc.keymanagement.keymanagement.mojom.mojom.ChapsSlot = {
   kSystem: 0,
 };
-arc.keymanagement.mojom.ChapsSlotSpec = { $: mojo.internal.Enum() };
+arc.keymanagement.keymanagement.mojom.mojom.ChapsSlotSpec = { $: mojo.internal.Enum() };

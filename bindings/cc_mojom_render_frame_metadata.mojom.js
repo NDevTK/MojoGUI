@@ -7,18 +7,21 @@
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: RootScrollOffsetUpdateFrequency
-cc.mojom.RootScrollOffsetUpdateFrequency = {
+cc.mojom.mojom.RootScrollOffsetUpdateFrequency = {
   kNone: 0,
   kOnScrollEnd: 1,
   kAllUpdates: 2,
 };
-cc.mojom.RootScrollOffsetUpdateFrequencySpec = { $: mojo.internal.Enum() };
+cc.mojom.mojom.RootScrollOffsetUpdateFrequencySpec = { $: mojo.internal.Enum() };
 
 // Struct: DelegatedInkBrowserMetadata
-cc.mojom.DelegatedInkBrowserMetadataSpec = {
+cc.mojom.mojom.DelegatedInkBrowserMetadataSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.DelegatedInkBrowserMetadata',
@@ -32,7 +35,7 @@ cc.mojom.DelegatedInkBrowserMetadataSpec = {
 };
 
 // Struct: RenderFrameMetadata
-cc.mojom.RenderFrameMetadataSpec = {
+cc.mojom.mojom.RenderFrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadata',
@@ -40,29 +43,29 @@ cc.mojom.RenderFrameMetadataSpec = {
       fields: [
         { name: 'root_background_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
         { name: 'root_scroll_offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: true, minVersion: 0 },
-        { name: 'is_scroll_offset_at_top', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'selection', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.SelectionSpec, nullable: false, minVersion: 0 },
-        { name: 'is_mobile_optimized', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'delegated_ink_metadata', packedOffset: 32, packedBitOffset: 0, type: cc.mojom.DelegatedInkBrowserMetadataSpec, nullable: true, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'viewport_size_in_pixels', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'local_surface_id', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
-        { name: 'page_scale_factor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'external_page_scale_factor', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'top_controls_height', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'top_controls_shown_ratio', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'new_vertical_scroll_direction', packedOffset: 72, packedBitOffset: 0, type: viz.mojom.VerticalScrollDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'primary_main_frame_item_sequence_number', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'bottom_controls_height', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bottom_controls_shown_ratio', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'top_controls_min_height_offset', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'bottom_controls_min_height_offset', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'min_page_scale_factor', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'max_page_scale_factor', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'root_overflow_y_hidden', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'scrollable_viewport_size', packedOffset: 112, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
-        { name: 'root_layer_size', packedOffset: 120, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
-        { name: 'has_transparent_background', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_scroll_offset_at_top', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'selection', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SelectionSpec, nullable: false, minVersion: 0 },
+        { name: 'is_mobile_optimized', packedOffset: 120, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'delegated_ink_metadata', packedOffset: 24, packedBitOffset: 0, type: cc.mojom.DelegatedInkBrowserMetadataSpec, nullable: true, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'viewport_size_in_pixels', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
+        { name: 'page_scale_factor', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'external_page_scale_factor', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'top_controls_height', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'top_controls_shown_ratio', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'new_vertical_scroll_direction', packedOffset: 92, packedBitOffset: 0, type: viz.mojom.VerticalScrollDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'primary_main_frame_item_sequence_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'bottom_controls_height', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'bottom_controls_shown_ratio', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'top_controls_min_height_offset', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'bottom_controls_min_height_offset', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'min_page_scale_factor', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'max_page_scale_factor', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'root_overflow_y_hidden', packedOffset: 120, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'scrollable_viewport_size', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
+        { name: 'root_layer_size', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
+        { name: 'has_transparent_background', packedOffset: 120, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 136}]
     }
@@ -70,24 +73,24 @@ cc.mojom.RenderFrameMetadataSpec = {
 };
 
 // Interface: RenderFrameMetadataObserver
-cc.mojom.RenderFrameMetadataObserver = {};
+cc.mojom.mojom.RenderFrameMetadataObserver = {};
 
-cc.mojom.RenderFrameMetadataObserverPendingReceiver = class {
+cc.mojom.mojom.RenderFrameMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cc.mojom.RenderFrameMetadataObserverRemote = class {
+cc.mojom.mojom.RenderFrameMetadataObserverRemote = class {
   static get $interfaceName() {
     return 'cc.mojom.RenderFrameMetadataObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cc.mojom.RenderFrameMetadataObserverPendingReceiver,
+      cc.mojom.mojom.RenderFrameMetadataObserverPendingReceiver,
       handle);
-    this.$ = new cc.mojom.RenderFrameMetadataObserverRemoteCallHandler(this.proxy);
+    this.$ = new cc.mojom.mojom.RenderFrameMetadataObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -99,7 +102,7 @@ cc.mojom.RenderFrameMetadataObserverRemote = class {
   }
 };
 
-cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
+cc.mojom.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -108,7 +111,7 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec,
+      cc.mojom.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec,
       null,
       [frequency]);
   }
@@ -117,15 +120,15 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
+      cc.mojom.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-cc.mojom.RenderFrameMetadataObserver.getRemote = function() {
-  let remote = new cc.mojom.RenderFrameMetadataObserverRemote();
+cc.mojom.mojom.RenderFrameMetadataObserver.getRemote = function() {
+  let remote = new cc.mojom.mojom.RenderFrameMetadataObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -135,7 +138,7 @@ cc.mojom.RenderFrameMetadataObserver.getRemote = function() {
 };
 
 // ParamsSpec for UpdateRootScrollOffsetUpdateFrequency
-cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec = {
+cc.mojom.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserver.UpdateRootScrollOffsetUpdateFrequency_Params',
@@ -149,7 +152,7 @@ cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Param
 };
 
 // ParamsSpec for ReportAllFrameSubmissionsForTesting
-cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = {
+cc.mojom.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserver.ReportAllFrameSubmissionsForTesting_Params',
@@ -163,29 +166,29 @@ cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsS
 };
 
 // Legacy compatibility
-cc.mojom.RenderFrameMetadataObserverPtr = cc.mojom.RenderFrameMetadataObserverRemote;
-cc.mojom.RenderFrameMetadataObserverRequest = cc.mojom.RenderFrameMetadataObserverPendingReceiver;
+cc.mojom.mojom.RenderFrameMetadataObserverPtr = cc.mojom.mojom.RenderFrameMetadataObserverRemote;
+cc.mojom.mojom.RenderFrameMetadataObserverRequest = cc.mojom.mojom.RenderFrameMetadataObserverPendingReceiver;
 
 
 // Interface: RenderFrameMetadataObserverClient
-cc.mojom.RenderFrameMetadataObserverClient = {};
+cc.mojom.mojom.RenderFrameMetadataObserverClient = {};
 
-cc.mojom.RenderFrameMetadataObserverClientPendingReceiver = class {
+cc.mojom.mojom.RenderFrameMetadataObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cc.mojom.RenderFrameMetadataObserverClientRemote = class {
+cc.mojom.mojom.RenderFrameMetadataObserverClientRemote = class {
   static get $interfaceName() {
     return 'cc.mojom.RenderFrameMetadataObserverClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cc.mojom.RenderFrameMetadataObserverClientPendingReceiver,
+      cc.mojom.mojom.RenderFrameMetadataObserverClientPendingReceiver,
       handle);
-    this.$ = new cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler(this.proxy);
+    this.$ = new cc.mojom.mojom.RenderFrameMetadataObserverClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -197,7 +200,7 @@ cc.mojom.RenderFrameMetadataObserverClientRemote = class {
   }
 };
 
-cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
+cc.mojom.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -206,7 +209,7 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
+      cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
       null,
       [frame_token, metadata]);
   }
@@ -215,7 +218,7 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
+      cc.mojom.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
       null,
       [frame_token]);
   }
@@ -224,15 +227,15 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec,
+      cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec,
       null,
       [root_scroll_offset]);
   }
 
 };
 
-cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
-  let remote = new cc.mojom.RenderFrameMetadataObserverClientRemote();
+cc.mojom.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
+  let remote = new cc.mojom.mojom.RenderFrameMetadataObserverClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -242,14 +245,14 @@ cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
 };
 
 // ParamsSpec for OnRenderFrameMetadataChanged
-cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = {
+cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnRenderFrameMetadataChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.RenderFrameMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.RenderFrameMetadataSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -257,7 +260,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSp
 };
 
 // ParamsSpec for OnFrameSubmissionForTesting
-cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = {
+cc.mojom.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnFrameSubmissionForTesting_Params',
@@ -271,7 +274,7 @@ cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpe
 };
 
 // ParamsSpec for OnRootScrollOffsetChanged
-cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec = {
+cc.mojom.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.RenderFrameMetadataObserverClient.OnRootScrollOffsetChanged_Params',
@@ -285,6 +288,6 @@ cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec 
 };
 
 // Legacy compatibility
-cc.mojom.RenderFrameMetadataObserverClientPtr = cc.mojom.RenderFrameMetadataObserverClientRemote;
-cc.mojom.RenderFrameMetadataObserverClientRequest = cc.mojom.RenderFrameMetadataObserverClientPendingReceiver;
+cc.mojom.mojom.RenderFrameMetadataObserverClientPtr = cc.mojom.mojom.RenderFrameMetadataObserverClientRemote;
+cc.mojom.mojom.RenderFrameMetadataObserverClientRequest = cc.mojom.mojom.RenderFrameMetadataObserverClientPendingReceiver;
 

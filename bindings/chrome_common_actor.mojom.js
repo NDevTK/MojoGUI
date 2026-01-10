@@ -7,41 +7,44 @@
 // Module namespace
 var actor = actor || {};
 actor.mojom = actor.mojom || {};
+var blink = blink || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: Type
-actor.mojom.Type = {
+actor.mojom.mojom.Type = {
   kLeft: 0,
   kRight: 1,
 };
-actor.mojom.TypeSpec = { $: mojo.internal.Enum() };
+actor.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Count
-actor.mojom.Count = {
+actor.mojom.mojom.Count = {
   kSingle: 0,
   kDouble: 1,
 };
-actor.mojom.CountSpec = { $: mojo.internal.Enum() };
+actor.mojom.mojom.CountSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
-actor.mojom.Mode = {
+actor.mojom.mojom.Mode = {
   kDeleteExisting: 0,
   kPrepend: 1,
   kAppend: 2,
 };
-actor.mojom.ModeSpec = { $: mojo.internal.Enum() };
+actor.mojom.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollDirection
-actor.mojom.ScrollDirection = {
+actor.mojom.mojom.ScrollDirection = {
   kLeft: 0,
   kRight: 1,
   kUp: 2,
   kDown: 3,
 };
-actor.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };
+actor.mojom.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionResultCode
-actor.mojom.ActionResultCode = {
+actor.mojom.mojom.ActionResultCode = {
   kOk: 0,
   kUrlBlocked: 1,
   kNewTabCreationFailed: 2,
@@ -130,18 +133,18 @@ actor.mojom.ActionResultCode = {
   kScriptToolInvocationFailed: 85,
   kActorUiError: 86,
 };
-actor.mojom.ActionResultCodeSpec = { $: mojo.internal.Enum() };
+actor.mojom.mojom.ActionResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: JournalEntryType
-actor.mojom.JournalEntryType = {
+actor.mojom.mojom.JournalEntryType = {
   kBegin: 0,
   kEnd: 1,
   kInstant: 2,
 };
-actor.mojom.JournalEntryTypeSpec = { $: mojo.internal.Enum() };
+actor.mojom.mojom.JournalEntryTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: ToolTarget
-actor.mojom.ToolTargetSpec = { $: mojo.internal.Union(
+actor.mojom.mojom.ToolTargetSpec = { $: mojo.internal.Union(
     'actor.mojom.ToolTarget', {
       'dom_node_id': {
         'ordinal': 0,
@@ -155,7 +158,7 @@ actor.mojom.ToolTargetSpec = { $: mojo.internal.Union(
 };
 
 // Union: ToolAction
-actor.mojom.ToolActionSpec = { $: mojo.internal.Union(
+actor.mojom.mojom.ToolActionSpec = { $: mojo.internal.Union(
     'actor.mojom.ToolAction', {
       'click': {
         'ordinal': 0,
@@ -193,7 +196,7 @@ actor.mojom.ToolActionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ObservedToolTarget
-actor.mojom.ObservedToolTargetSpec = {
+actor.mojom.mojom.ObservedToolTargetSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ObservedToolTarget',
@@ -207,7 +210,7 @@ actor.mojom.ObservedToolTargetSpec = {
 };
 
 // Struct: ClickAction
-actor.mojom.ClickActionSpec = {
+actor.mojom.mojom.ClickActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ClickAction',
@@ -221,7 +224,7 @@ actor.mojom.ClickActionSpec = {
 };
 
 // Struct: MouseMoveAction
-actor.mojom.MouseMoveActionSpec = {
+actor.mojom.mojom.MouseMoveActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.MouseMoveAction',
@@ -234,7 +237,7 @@ actor.mojom.MouseMoveActionSpec = {
 };
 
 // Struct: ScrollToAction
-actor.mojom.ScrollToActionSpec = {
+actor.mojom.mojom.ScrollToActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ScrollToAction',
@@ -247,7 +250,7 @@ actor.mojom.ScrollToActionSpec = {
 };
 
 // Struct: TypeAction
-actor.mojom.TypeActionSpec = {
+actor.mojom.mojom.TypeActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.TypeAction',
@@ -261,7 +264,7 @@ actor.mojom.TypeActionSpec = {
 };
 
 // Struct: ScrollAction
-actor.mojom.ScrollActionSpec = {
+actor.mojom.mojom.ScrollActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ScrollAction',
@@ -275,7 +278,7 @@ actor.mojom.ScrollActionSpec = {
 };
 
 // Struct: SelectAction
-actor.mojom.SelectActionSpec = {
+actor.mojom.mojom.SelectActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.SelectAction',
@@ -289,7 +292,7 @@ actor.mojom.SelectActionSpec = {
 };
 
 // Struct: DragAndReleaseAction
-actor.mojom.DragAndReleaseActionSpec = {
+actor.mojom.mojom.DragAndReleaseActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.DragAndReleaseAction',
@@ -303,7 +306,7 @@ actor.mojom.DragAndReleaseActionSpec = {
 };
 
 // Struct: ScriptToolAction
-actor.mojom.ScriptToolActionSpec = {
+actor.mojom.mojom.ScriptToolActionSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ScriptToolAction',
@@ -318,7 +321,7 @@ actor.mojom.ScriptToolActionSpec = {
 };
 
 // Struct: TaskId
-actor.mojom.TaskIdSpec = {
+actor.mojom.mojom.TaskIdSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.TaskId',
@@ -332,15 +335,15 @@ actor.mojom.TaskIdSpec = {
 };
 
 // Struct: ToolInvocation
-actor.mojom.ToolInvocationSpec = {
+actor.mojom.mojom.ToolInvocationSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ToolInvocation',
       packedSize: 56,
       fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.ToolActionSpec, nullable: false, minVersion: 0 },
-        { name: 'target', packedOffset: 24, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 32, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ToolActionSpec, nullable: false, minVersion: 0 },
+        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: actor.mojom.ToolTargetSpec, nullable: false, minVersion: 0 },
         { name: 'observed_target', packedOffset: 40, packedBitOffset: 0, type: actor.mojom.ObservedToolTargetSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
@@ -349,17 +352,17 @@ actor.mojom.ToolInvocationSpec = {
 };
 
 // Struct: ActionResult
-actor.mojom.ActionResultSpec = {
+actor.mojom.mojom.ActionResultSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.ActionResult',
       packedSize: 40,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ActionResultCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'requires_page_stabilization', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'script_tool_response', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'execution_end_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'code', packedOffset: 24, packedBitOffset: 0, type: actor.mojom.ActionResultCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'requires_page_stabilization', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'script_tool_response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'execution_end_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -367,7 +370,7 @@ actor.mojom.ActionResultSpec = {
 };
 
 // Struct: JournalDetails
-actor.mojom.JournalDetailsSpec = {
+actor.mojom.mojom.JournalDetailsSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.JournalDetails',
@@ -382,18 +385,18 @@ actor.mojom.JournalDetailsSpec = {
 };
 
 // Struct: JournalEntry
-actor.mojom.JournalEntrySpec = {
+actor.mojom.mojom.JournalEntrySpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.JournalEntry',
       packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.JournalEntryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'track_uuid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(actor.mojom.JournalDetailsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: actor.mojom.JournalEntryTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'track_uuid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(actor.mojom.JournalDetailsSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -401,24 +404,24 @@ actor.mojom.JournalEntrySpec = {
 };
 
 // Interface: JournalClient
-actor.mojom.JournalClient = {};
+actor.mojom.mojom.JournalClient = {};
 
-actor.mojom.JournalClientPendingReceiver = class {
+actor.mojom.mojom.JournalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.mojom.JournalClientRemote = class {
+actor.mojom.mojom.JournalClientRemote = class {
   static get $interfaceName() {
     return 'actor.mojom.JournalClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.mojom.JournalClientPendingReceiver,
+      actor.mojom.mojom.JournalClientPendingReceiver,
       handle);
-    this.$ = new actor.mojom.JournalClientRemoteCallHandler(this.proxy);
+    this.$ = new actor.mojom.mojom.JournalClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -430,7 +433,7 @@ actor.mojom.JournalClientRemote = class {
   }
 };
 
-actor.mojom.JournalClientRemoteCallHandler = class {
+actor.mojom.mojom.JournalClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -439,15 +442,15 @@ actor.mojom.JournalClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
+      actor.mojom.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
       null,
       [entries]);
   }
 
 };
 
-actor.mojom.JournalClient.getRemote = function() {
-  let remote = new actor.mojom.JournalClientRemote();
+actor.mojom.mojom.JournalClient.getRemote = function() {
+  let remote = new actor.mojom.mojom.JournalClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -457,7 +460,7 @@ actor.mojom.JournalClient.getRemote = function() {
 };
 
 // ParamsSpec for AddEntriesToJournal
-actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
+actor.mojom.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.JournalClient.AddEntriesToJournal_Params',
@@ -471,29 +474,29 @@ actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = {
 };
 
 // Legacy compatibility
-actor.mojom.JournalClientPtr = actor.mojom.JournalClientRemote;
-actor.mojom.JournalClientRequest = actor.mojom.JournalClientPendingReceiver;
+actor.mojom.mojom.JournalClientPtr = actor.mojom.mojom.JournalClientRemote;
+actor.mojom.mojom.JournalClientRequest = actor.mojom.mojom.JournalClientPendingReceiver;
 
 
 // Interface: PageStabilityMonitor
-actor.mojom.PageStabilityMonitor = {};
+actor.mojom.mojom.PageStabilityMonitor = {};
 
-actor.mojom.PageStabilityMonitorPendingReceiver = class {
+actor.mojom.mojom.PageStabilityMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.mojom.PageStabilityMonitorRemote = class {
+actor.mojom.mojom.PageStabilityMonitorRemote = class {
   static get $interfaceName() {
     return 'actor.mojom.PageStabilityMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.mojom.PageStabilityMonitorPendingReceiver,
+      actor.mojom.mojom.PageStabilityMonitorPendingReceiver,
       handle);
-    this.$ = new actor.mojom.PageStabilityMonitorRemoteCallHandler(this.proxy);
+    this.$ = new actor.mojom.mojom.PageStabilityMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -505,7 +508,7 @@ actor.mojom.PageStabilityMonitorRemote = class {
   }
 };
 
-actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
+actor.mojom.mojom.PageStabilityMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -514,15 +517,15 @@ actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
+      actor.mojom.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
       null,
       [observation_delay]);
   }
 
 };
 
-actor.mojom.PageStabilityMonitor.getRemote = function() {
-  let remote = new actor.mojom.PageStabilityMonitorRemote();
+actor.mojom.mojom.PageStabilityMonitor.getRemote = function() {
+  let remote = new actor.mojom.mojom.PageStabilityMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -532,7 +535,7 @@ actor.mojom.PageStabilityMonitor.getRemote = function() {
 };
 
 // ParamsSpec for NotifyWhenStable
-actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
+actor.mojom.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.mojom.PageStabilityMonitor.NotifyWhenStable_Params',
@@ -546,6 +549,6 @@ actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = {
 };
 
 // Legacy compatibility
-actor.mojom.PageStabilityMonitorPtr = actor.mojom.PageStabilityMonitorRemote;
-actor.mojom.PageStabilityMonitorRequest = actor.mojom.PageStabilityMonitorPendingReceiver;
+actor.mojom.mojom.PageStabilityMonitorPtr = actor.mojom.mojom.PageStabilityMonitorRemote;
+actor.mojom.mojom.PageStabilityMonitorRequest = actor.mojom.mojom.PageStabilityMonitorPendingReceiver;
 

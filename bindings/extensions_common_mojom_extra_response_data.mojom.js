@@ -7,10 +7,11 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var blink = blink || {};
 
 
 // Struct: ExtraResponseData
-extensions.mojom.ExtraResponseDataSpec = {
+extensions.mojom.mojom.ExtraResponseDataSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExtraResponseData',

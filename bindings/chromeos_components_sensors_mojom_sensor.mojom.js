@@ -7,49 +7,49 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.sensors = chromeos.sensors || {};
-chromeos.sensors.mojom = chromeos.sensors.mojom || {};
+chromeos.sensors.sensors.mojom = chromeos.sensors.sensors.mojom || {};
 
 
-chromeos.sensors.mojom.kScale = "scale";
+chromeos.sensors.sensors.mojom.mojom.kScale = "scale";
 
-chromeos.sensors.mojom.kSamplingFrequencyAvailable = "sampling_frequency_available";
+chromeos.sensors.sensors.mojom.mojom.kSamplingFrequencyAvailable = "sampling_frequency_available";
 
-chromeos.sensors.mojom.kLocation = "location";
+chromeos.sensors.sensors.mojom.mojom.kLocation = "location";
 
-chromeos.sensors.mojom.kLabel = "label";
+chromeos.sensors.sensors.mojom.mojom.kLabel = "label";
 
-chromeos.sensors.mojom.kDeviceName = "name";
+chromeos.sensors.sensors.mojom.mojom.kDeviceName = "name";
 
-chromeos.sensors.mojom.kSysPath = "syspath";
+chromeos.sensors.sensors.mojom.mojom.kSysPath = "syspath";
 
-chromeos.sensors.mojom.kDevlink = "devlink";
+chromeos.sensors.sensors.mojom.mojom.kDevlink = "devlink";
 
-chromeos.sensors.mojom.kLocationBase = "base";
+chromeos.sensors.sensors.mojom.mojom.kLocationBase = "base";
 
-chromeos.sensors.mojom.kLocationLid = "lid";
+chromeos.sensors.sensors.mojom.mojom.kLocationLid = "lid";
 
-chromeos.sensors.mojom.kLocationCamera = "camera";
+chromeos.sensors.sensors.mojom.mojom.kLocationCamera = "camera";
 
-chromeos.sensors.mojom.kLabelBase = "accel-base";
+chromeos.sensors.sensors.mojom.mojom.kLabelBase = "accel-base";
 
-chromeos.sensors.mojom.kLabelLid = "accel-display";
+chromeos.sensors.sensors.mojom.mojom.kLabelLid = "accel-display";
 
-chromeos.sensors.mojom.kAccelerometerChannel = "accel";
+chromeos.sensors.sensors.mojom.mojom.kAccelerometerChannel = "accel";
 
-chromeos.sensors.mojom.kGyroscopeChannel = "anglvel";
+chromeos.sensors.sensors.mojom.mojom.kGyroscopeChannel = "anglvel";
 
-chromeos.sensors.mojom.kMagnetometerChannel = "magn";
+chromeos.sensors.sensors.mojom.mojom.kMagnetometerChannel = "magn";
 
-chromeos.sensors.mojom.kGravityChannel = "gravity";
+chromeos.sensors.sensors.mojom.mojom.kGravityChannel = "gravity";
 
-chromeos.sensors.mojom.kLightChannel = "illuminance";
+chromeos.sensors.sensors.mojom.mojom.kLightChannel = "illuminance";
 
-chromeos.sensors.mojom.kPressureChannel = "pressure";
+chromeos.sensors.sensors.mojom.mojom.kPressureChannel = "pressure";
 
-chromeos.sensors.mojom.kTimestampChannel = "timestamp";
+chromeos.sensors.sensors.mojom.mojom.kTimestampChannel = "timestamp";
 
 // Enum: DeviceType
-chromeos.sensors.mojom.DeviceType = {
+chromeos.sensors.sensors.mojom.mojom.DeviceType = {
   ACCEL: 0,
   ANGLVEL: 1,
   LIGHT: 2,
@@ -62,10 +62,10 @@ chromeos.sensors.mojom.DeviceType = {
   MAGN_UNCALIBRATED: 9,
   GRAVITY: 10,
 };
-chromeos.sensors.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.sensors.mojom.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ObserverErrorType
-chromeos.sensors.mojom.ObserverErrorType = {
+chromeos.sensors.sensors.mojom.mojom.ObserverErrorType = {
   SET_FREQUENCY_IO_FAILED: 0,
   FREQUENCY_INVALID: 1,
   NO_ENABLED_CHANNELS: 2,
@@ -73,40 +73,40 @@ chromeos.sensors.mojom.ObserverErrorType = {
   READ_FAILED: 4,
   READ_TIMEOUT: 5,
 };
-chromeos.sensors.mojom.ObserverErrorTypeSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.sensors.mojom.mojom.ObserverErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SensorServiceDisconnectReason
-chromeos.sensors.mojom.SensorServiceDisconnectReason = {
+chromeos.sensors.sensors.mojom.mojom.SensorServiceDisconnectReason = {
   IIOSERVICE_SHUTDOWN: 0,
   CHROME_STOPPED: 1,
 };
-chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.sensors.mojom.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SensorDeviceDisconnectReason
-chromeos.sensors.mojom.SensorDeviceDisconnectReason = {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceDisconnectReason = {
   DEVICE_REMOVED: 0,
 };
-chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: SensorService
-chromeos.sensors.mojom.SensorService = {};
+chromeos.sensors.sensors.mojom.mojom.SensorService = {};
 
-chromeos.sensors.mojom.SensorServicePendingReceiver = class {
+chromeos.sensors.sensors.mojom.mojom.SensorServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.sensors.mojom.SensorServiceRemote = class {
+chromeos.sensors.sensors.mojom.mojom.SensorServiceRemote = class {
   static get $interfaceName() {
     return 'chromeos.sensors.mojom.SensorService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.sensors.mojom.SensorServicePendingReceiver,
+      chromeos.sensors.sensors.mojom.mojom.SensorServicePendingReceiver,
       handle);
-    this.$ = new chromeos.sensors.mojom.SensorServiceRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.sensors.sensors.mojom.mojom.SensorServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -118,7 +118,7 @@ chromeos.sensors.mojom.SensorServiceRemote = class {
   }
 };
 
-chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
+chromeos.sensors.sensors.mojom.mojom.SensorServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -127,8 +127,8 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec,
-      chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorService_GetDeviceIds_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorService_GetDeviceIds_ResponseParamsSpec,
       [type]);
   }
 
@@ -136,8 +136,8 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec,
-      chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorService_GetAllDeviceIds_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec,
       []);
   }
 
@@ -145,15 +145,15 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorService_GetDevice_ParamsSpec,
       null,
       [iio_device_id, device_request]);
   }
 
 };
 
-chromeos.sensors.mojom.SensorService.getRemote = function() {
-  let remote = new chromeos.sensors.mojom.SensorServiceRemote();
+chromeos.sensors.sensors.mojom.mojom.SensorService.getRemote = function() {
+  let remote = new chromeos.sensors.sensors.mojom.mojom.SensorServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -163,7 +163,7 @@ chromeos.sensors.mojom.SensorService.getRemote = function() {
 };
 
 // ParamsSpec for GetDeviceIds
-chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorService_GetDeviceIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorService.GetDeviceIds_Params',
@@ -176,7 +176,7 @@ chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = {
   }
 };
 
-chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorService.GetDeviceIds_ResponseParams',
@@ -190,7 +190,7 @@ chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAllDeviceIds
-chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorService_GetAllDeviceIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorService.GetAllDeviceIds_Params',
@@ -202,7 +202,7 @@ chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = {
   }
 };
 
-chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorService.GetAllDeviceIds_ResponseParams',
@@ -216,7 +216,7 @@ chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDevice
-chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorService_GetDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorService.GetDevice_Params',
@@ -231,29 +231,29 @@ chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.sensors.mojom.SensorServicePtr = chromeos.sensors.mojom.SensorServiceRemote;
-chromeos.sensors.mojom.SensorServiceRequest = chromeos.sensors.mojom.SensorServicePendingReceiver;
+chromeos.sensors.sensors.mojom.mojom.SensorServicePtr = chromeos.sensors.sensors.mojom.mojom.SensorServiceRemote;
+chromeos.sensors.sensors.mojom.mojom.SensorServiceRequest = chromeos.sensors.sensors.mojom.mojom.SensorServicePendingReceiver;
 
 
 // Interface: SensorDevice
-chromeos.sensors.mojom.SensorDevice = {};
+chromeos.sensors.sensors.mojom.mojom.SensorDevice = {};
 
-chromeos.sensors.mojom.SensorDevicePendingReceiver = class {
+chromeos.sensors.sensors.mojom.mojom.SensorDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.sensors.mojom.SensorDeviceRemote = class {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceRemote = class {
   static get $interfaceName() {
     return 'chromeos.sensors.mojom.SensorDevice';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.sensors.mojom.SensorDevicePendingReceiver,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevicePendingReceiver,
       handle);
-    this.$ = new chromeos.sensors.mojom.SensorDeviceRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.sensors.sensors.mojom.mojom.SensorDeviceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -265,7 +265,7 @@ chromeos.sensors.mojom.SensorDeviceRemote = class {
   }
 };
 
-chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -274,7 +274,7 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_SetTimeout_ParamsSpec,
       null,
       [timeout]);
   }
@@ -283,8 +283,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec,
-      chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAttributes_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAttributes_ResponseParamsSpec,
       [attr_names]);
   }
 
@@ -292,8 +292,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec,
-      chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_SetFrequency_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_SetFrequency_ResponseParamsSpec,
       [frequency]);
   }
 
@@ -301,7 +301,7 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_StartReadingSamples_ParamsSpec,
       null,
       [observer]);
   }
@@ -310,7 +310,7 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_StopReadingSamples_ParamsSpec,
       null,
       []);
   }
@@ -319,8 +319,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec,
-      chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAllChannelIds_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec,
       []);
   }
 
@@ -328,8 +328,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec,
-      chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec,
       [iio_chn_indices]);
   }
 
@@ -337,15 +337,15 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec,
-      chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec,
       [iio_chn_indices, attr_name]);
   }
 
 };
 
-chromeos.sensors.mojom.SensorDevice.getRemote = function() {
-  let remote = new chromeos.sensors.mojom.SensorDeviceRemote();
+chromeos.sensors.sensors.mojom.mojom.SensorDevice.getRemote = function() {
+  let remote = new chromeos.sensors.sensors.mojom.mojom.SensorDeviceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -355,7 +355,7 @@ chromeos.sensors.mojom.SensorDevice.getRemote = function() {
 };
 
 // ParamsSpec for SetTimeout
-chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_SetTimeout_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.SetTimeout_Params',
@@ -369,7 +369,7 @@ chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = {
 };
 
 // ParamsSpec for GetAttributes
-chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAttributes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetAttributes_Params',
@@ -382,7 +382,7 @@ chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = {
   }
 };
 
-chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetAttributes_ResponseParams',
@@ -396,7 +396,7 @@ chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetFrequency
-chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_SetFrequency_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.SetFrequency_Params',
@@ -409,7 +409,7 @@ chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = {
   }
 };
 
-chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.SetFrequency_ResponseParams',
@@ -423,7 +423,7 @@ chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartReadingSamples
-chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_StartReadingSamples_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.StartReadingSamples_Params',
@@ -437,7 +437,7 @@ chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec = {
 };
 
 // ParamsSpec for StopReadingSamples
-chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_StopReadingSamples_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.StopReadingSamples_Params',
@@ -450,7 +450,7 @@ chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec = {
 };
 
 // ParamsSpec for GetAllChannelIds
-chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetAllChannelIds_Params',
@@ -462,7 +462,7 @@ chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = {
   }
 };
 
-chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetAllChannelIds_ResponseParams',
@@ -476,7 +476,7 @@ chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetChannelsEnabled
-chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsEnabled_Params',
@@ -489,7 +489,7 @@ chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = {
   }
 };
 
-chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsEnabled_ResponseParams',
@@ -503,7 +503,7 @@ chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetChannelsAttributes
-chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsAttributes_Params',
@@ -517,7 +517,7 @@ chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = {
   }
 };
 
-chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsAttributes_ResponseParams',
@@ -531,29 +531,29 @@ chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.sensors.mojom.SensorDevicePtr = chromeos.sensors.mojom.SensorDeviceRemote;
-chromeos.sensors.mojom.SensorDeviceRequest = chromeos.sensors.mojom.SensorDevicePendingReceiver;
+chromeos.sensors.sensors.mojom.mojom.SensorDevicePtr = chromeos.sensors.sensors.mojom.mojom.SensorDeviceRemote;
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceRequest = chromeos.sensors.sensors.mojom.mojom.SensorDevicePendingReceiver;
 
 
 // Interface: SensorDeviceSamplesObserver
-chromeos.sensors.mojom.SensorDeviceSamplesObserver = {};
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserver = {};
 
-chromeos.sensors.mojom.SensorDeviceSamplesObserverPendingReceiver = class {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote = class {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverRemote = class {
   static get $interfaceName() {
     return 'chromeos.sensors.mojom.SensorDeviceSamplesObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.sensors.mojom.SensorDeviceSamplesObserverPendingReceiver,
+      chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverPendingReceiver,
       handle);
-    this.$ = new chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -565,7 +565,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote = class {
   }
 };
 
-chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -574,7 +574,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec,
       null,
       [sample]);
   }
@@ -583,15 +583,15 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec,
       null,
       [type]);
   }
 
 };
 
-chromeos.sensors.mojom.SensorDeviceSamplesObserver.getRemote = function() {
-  let remote = new chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote();
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserver.getRemote = function() {
+  let remote = new chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -601,7 +601,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnSampleUpdated
-chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDeviceSamplesObserver.OnSampleUpdated_Params',
@@ -615,7 +615,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = 
 };
 
 // ParamsSpec for OnErrorOccurred
-chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorDeviceSamplesObserver.OnErrorOccurred_Params',
@@ -629,29 +629,29 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = 
 };
 
 // Legacy compatibility
-chromeos.sensors.mojom.SensorDeviceSamplesObserverPtr = chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote;
-chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest = chromeos.sensors.mojom.SensorDeviceSamplesObserverPendingReceiver;
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverPtr = chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverRemote;
+chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverRequest = chromeos.sensors.sensors.mojom.mojom.SensorDeviceSamplesObserverPendingReceiver;
 
 
 // Interface: SensorServiceNewDevicesObserver
-chromeos.sensors.mojom.SensorServiceNewDevicesObserver = {};
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserver = {};
 
-chromeos.sensors.mojom.SensorServiceNewDevicesObserverPendingReceiver = class {
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote = class {
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverRemote = class {
   static get $interfaceName() {
     return 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.sensors.mojom.SensorServiceNewDevicesObserverPendingReceiver,
+      chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverPendingReceiver,
       handle);
-    this.$ = new chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -663,7 +663,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote = class {
   }
 };
 
-chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemoteCallHandler = class {
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -672,15 +672,15 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec,
+      chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec,
       null,
       [iio_device_id, types]);
   }
 
 };
 
-chromeos.sensors.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
-  let remote = new chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote();
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
+  let remote = new chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -690,14 +690,14 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnNewDeviceAdded
-chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = {
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver.OnNewDeviceAdded_Params',
       packedSize: 24,
       fields: [
-        { name: 'iio_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'iio_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -705,6 +705,6 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSp
 };
 
 // Legacy compatibility
-chromeos.sensors.mojom.SensorServiceNewDevicesObserverPtr = chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote;
-chromeos.sensors.mojom.SensorServiceNewDevicesObserverRequest = chromeos.sensors.mojom.SensorServiceNewDevicesObserverPendingReceiver;
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverPtr = chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverRemote;
+chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverRequest = chromeos.sensors.sensors.mojom.mojom.SensorServiceNewDevicesObserverPendingReceiver;
 

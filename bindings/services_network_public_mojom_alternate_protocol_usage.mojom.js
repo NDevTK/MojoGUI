@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: AlternateProtocolUsage
-network.mojom.AlternateProtocolUsage = {
+network.mojom.mojom.AlternateProtocolUsage = {
   kNoRace: 0,
   kWonRace: 1,
   kMainJobWonRace: 2,
@@ -20,4 +20,4 @@ network.mojom.AlternateProtocolUsage = {
   kDnsAlpnH3JobWonRace: 6,
   kUnspecifiedReason: 7,
 };
-network.mojom.AlternateProtocolUsageSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.AlternateProtocolUsageSpec = { $: mojo.internal.Enum() };

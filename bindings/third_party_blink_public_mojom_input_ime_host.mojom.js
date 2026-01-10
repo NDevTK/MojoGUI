@@ -7,10 +7,13 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: EditorBoundsInfo
-blink.mojom.EditorBoundsInfoSpec = {
+blink.mojom.mojom.EditorBoundsInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EditorBoundsInfo',
@@ -25,7 +28,7 @@ blink.mojom.EditorBoundsInfoSpec = {
 };
 
 // Struct: TextAppearanceInfo
-blink.mojom.TextAppearanceInfoSpec = {
+blink.mojom.mojom.TextAppearanceInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextAppearanceInfo',
@@ -39,7 +42,7 @@ blink.mojom.TextAppearanceInfoSpec = {
 };
 
 // Struct: InputCursorAnchorInfo
-blink.mojom.InputCursorAnchorInfoSpec = {
+blink.mojom.mojom.InputCursorAnchorInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InputCursorAnchorInfo',
@@ -58,24 +61,24 @@ blink.mojom.InputCursorAnchorInfoSpec = {
 };
 
 // Interface: ImeRenderWidgetHost
-blink.mojom.ImeRenderWidgetHost = {};
+blink.mojom.mojom.ImeRenderWidgetHost = {};
 
-blink.mojom.ImeRenderWidgetHostPendingReceiver = class {
+blink.mojom.mojom.ImeRenderWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ImeRenderWidgetHostRemote = class {
+blink.mojom.mojom.ImeRenderWidgetHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ImeRenderWidgetHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ImeRenderWidgetHostPendingReceiver,
+      blink.mojom.mojom.ImeRenderWidgetHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ImeRenderWidgetHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ImeRenderWidgetHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -87,7 +90,7 @@ blink.mojom.ImeRenderWidgetHostRemote = class {
   }
 };
 
-blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class {
+blink.mojom.mojom.ImeRenderWidgetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -96,15 +99,15 @@ blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec,
+      blink.mojom.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec,
       null,
       [cursor_anchor_info]);
   }
 
 };
 
-blink.mojom.ImeRenderWidgetHost.getRemote = function() {
-  let remote = new blink.mojom.ImeRenderWidgetHostRemote();
+blink.mojom.mojom.ImeRenderWidgetHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.ImeRenderWidgetHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -114,7 +117,7 @@ blink.mojom.ImeRenderWidgetHost.getRemote = function() {
 };
 
 // ParamsSpec for UpdateCursorAnchorInfo
-blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
+blink.mojom.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ImeRenderWidgetHost.UpdateCursorAnchorInfo_Params',
@@ -128,6 +131,6 @@ blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ImeRenderWidgetHostPtr = blink.mojom.ImeRenderWidgetHostRemote;
-blink.mojom.ImeRenderWidgetHostRequest = blink.mojom.ImeRenderWidgetHostPendingReceiver;
+blink.mojom.mojom.ImeRenderWidgetHostPtr = blink.mojom.mojom.ImeRenderWidgetHostRemote;
+blink.mojom.mojom.ImeRenderWidgetHostRequest = blink.mojom.mojom.ImeRenderWidgetHostPendingReceiver;
 

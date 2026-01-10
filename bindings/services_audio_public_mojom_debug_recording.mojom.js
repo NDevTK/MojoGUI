@@ -10,32 +10,32 @@ audio.mojom = audio.mojom || {};
 
 
 // Enum: DebugRecordingStreamType
-audio.mojom.DebugRecordingStreamType = {
+audio.mojom.mojom.DebugRecordingStreamType = {
   kInput: 0,
   kOutput: 1,
   kLoopback: 2,
 };
-audio.mojom.DebugRecordingStreamTypeSpec = { $: mojo.internal.Enum() };
+audio.mojom.mojom.DebugRecordingStreamTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: DebugRecordingFileProvider
-audio.mojom.DebugRecordingFileProvider = {};
+audio.mojom.mojom.DebugRecordingFileProvider = {};
 
-audio.mojom.DebugRecordingFileProviderPendingReceiver = class {
+audio.mojom.mojom.DebugRecordingFileProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.DebugRecordingFileProviderRemote = class {
+audio.mojom.mojom.DebugRecordingFileProviderRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.DebugRecordingFileProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.DebugRecordingFileProviderPendingReceiver,
+      audio.mojom.mojom.DebugRecordingFileProviderPendingReceiver,
       handle);
-    this.$ = new audio.mojom.DebugRecordingFileProviderRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.mojom.DebugRecordingFileProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +47,7 @@ audio.mojom.DebugRecordingFileProviderRemote = class {
   }
 };
 
-audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
+audio.mojom.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,8 +56,8 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec,
-      audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
+      audio.mojom.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec,
+      audio.mojom.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
       [stream_type, id]);
   }
 
@@ -65,15 +65,15 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec,
-      audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
+      audio.mojom.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec,
+      audio.mojom.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
       [id]);
   }
 
 };
 
-audio.mojom.DebugRecordingFileProvider.getRemote = function() {
-  let remote = new audio.mojom.DebugRecordingFileProviderRemote();
+audio.mojom.mojom.DebugRecordingFileProvider.getRemote = function() {
+  let remote = new audio.mojom.mojom.DebugRecordingFileProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +83,7 @@ audio.mojom.DebugRecordingFileProvider.getRemote = function() {
 };
 
 // ParamsSpec for CreateWavFile
-audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
+audio.mojom.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.DebugRecordingFileProvider.CreateWavFile_Params',
@@ -97,7 +97,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
   }
 };
 
-audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
+audio.mojom.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.DebugRecordingFileProvider.CreateWavFile_ResponseParams',
@@ -111,7 +111,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateAecdumpFile
-audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = {
+audio.mojom.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.DebugRecordingFileProvider.CreateAecdumpFile_Params',
@@ -124,7 +124,7 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = {
   }
 };
 
-audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
+audio.mojom.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.DebugRecordingFileProvider.CreateAecdumpFile_ResponseParams',
@@ -138,29 +138,29 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.DebugRecordingFileProviderPtr = audio.mojom.DebugRecordingFileProviderRemote;
-audio.mojom.DebugRecordingFileProviderRequest = audio.mojom.DebugRecordingFileProviderPendingReceiver;
+audio.mojom.mojom.DebugRecordingFileProviderPtr = audio.mojom.mojom.DebugRecordingFileProviderRemote;
+audio.mojom.mojom.DebugRecordingFileProviderRequest = audio.mojom.mojom.DebugRecordingFileProviderPendingReceiver;
 
 
 // Interface: DebugRecording
-audio.mojom.DebugRecording = {};
+audio.mojom.mojom.DebugRecording = {};
 
-audio.mojom.DebugRecordingPendingReceiver = class {
+audio.mojom.mojom.DebugRecordingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.DebugRecordingRemote = class {
+audio.mojom.mojom.DebugRecordingRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.DebugRecording';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.DebugRecordingPendingReceiver,
+      audio.mojom.mojom.DebugRecordingPendingReceiver,
       handle);
-    this.$ = new audio.mojom.DebugRecordingRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.mojom.DebugRecordingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -172,7 +172,7 @@ audio.mojom.DebugRecordingRemote = class {
   }
 };
 
-audio.mojom.DebugRecordingRemoteCallHandler = class {
+audio.mojom.mojom.DebugRecordingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -181,15 +181,15 @@ audio.mojom.DebugRecordingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.DebugRecording_Enable_ParamsSpec,
+      audio.mojom.mojom.DebugRecording_Enable_ParamsSpec,
       null,
       [file_provider]);
   }
 
 };
 
-audio.mojom.DebugRecording.getRemote = function() {
-  let remote = new audio.mojom.DebugRecordingRemote();
+audio.mojom.mojom.DebugRecording.getRemote = function() {
+  let remote = new audio.mojom.mojom.DebugRecordingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -199,7 +199,7 @@ audio.mojom.DebugRecording.getRemote = function() {
 };
 
 // ParamsSpec for Enable
-audio.mojom.DebugRecording_Enable_ParamsSpec = {
+audio.mojom.mojom.DebugRecording_Enable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.DebugRecording.Enable_Params',
@@ -213,6 +213,6 @@ audio.mojom.DebugRecording_Enable_ParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.DebugRecordingPtr = audio.mojom.DebugRecordingRemote;
-audio.mojom.DebugRecordingRequest = audio.mojom.DebugRecordingPendingReceiver;
+audio.mojom.mojom.DebugRecordingPtr = audio.mojom.mojom.DebugRecordingRemote;
+audio.mojom.mojom.DebugRecordingRequest = audio.mojom.mojom.DebugRecordingPendingReceiver;
 

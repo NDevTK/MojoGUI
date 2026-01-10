@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: DWriteStringPair
-blink.mojom.DWriteStringPairSpec = {
+blink.mojom.mojom.DWriteStringPairSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteStringPair',
@@ -25,7 +25,7 @@ blink.mojom.DWriteStringPairSpec = {
 };
 
 // Struct: DWriteFontStyle
-blink.mojom.DWriteFontStyleSpec = {
+blink.mojom.mojom.DWriteFontStyleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontStyle',
@@ -41,17 +41,17 @@ blink.mojom.DWriteFontStyleSpec = {
 };
 
 // Struct: MapCharactersResult
-blink.mojom.MapCharactersResultSpec = {
+blink.mojom.mojom.MapCharactersResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MapCharactersResult',
       packedSize: 40,
       fields: [
-        { name: 'family_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'family_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'mapped_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'font_style', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false, minVersion: 0 },
+        { name: 'family_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'family_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'mapped_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'scale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -59,24 +59,24 @@ blink.mojom.MapCharactersResultSpec = {
 };
 
 // Interface: DWriteFontProxy
-blink.mojom.DWriteFontProxy = {};
+blink.mojom.mojom.DWriteFontProxy = {};
 
-blink.mojom.DWriteFontProxyPendingReceiver = class {
+blink.mojom.mojom.DWriteFontProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DWriteFontProxyRemote = class {
+blink.mojom.mojom.DWriteFontProxyRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DWriteFontProxy';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DWriteFontProxyPendingReceiver,
+      blink.mojom.mojom.DWriteFontProxyPendingReceiver,
       handle);
-    this.$ = new blink.mojom.DWriteFontProxyRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.DWriteFontProxyRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -88,7 +88,7 @@ blink.mojom.DWriteFontProxyRemote = class {
   }
 };
 
-blink.mojom.DWriteFontProxyRemoteCallHandler = class {
+blink.mojom.mojom.DWriteFontProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -97,8 +97,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec,
-      blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_FindFamily_ParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec,
       [family_name]);
   }
 
@@ -106,8 +106,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec,
-      blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec,
       []);
   }
 
@@ -115,8 +115,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec,
-      blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec,
       [family_index]);
   }
 
@@ -124,8 +124,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec,
-      blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec,
       [family_index]);
   }
 
@@ -133,8 +133,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec,
-      blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec,
       [font_unique_name]);
   }
 
@@ -142,15 +142,15 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec,
-      blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_MapCharacters_ParamsSpec,
+      blink.mojom.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec,
       [text, font_style, locale_name, reading_direction, base_family_name]);
   }
 
 };
 
-blink.mojom.DWriteFontProxy.getRemote = function() {
-  let remote = new blink.mojom.DWriteFontProxyRemote();
+blink.mojom.mojom.DWriteFontProxy.getRemote = function() {
+  let remote = new blink.mojom.mojom.DWriteFontProxyRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -160,7 +160,7 @@ blink.mojom.DWriteFontProxy.getRemote = function() {
 };
 
 // ParamsSpec for FindFamily
-blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_FindFamily_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.FindFamily_Params',
@@ -173,7 +173,7 @@ blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = {
   }
 };
 
-blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.FindFamily_ResponseParams',
@@ -187,7 +187,7 @@ blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetFamilyCount
-blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.GetFamilyCount_Params',
@@ -199,7 +199,7 @@ blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = {
   }
 };
 
-blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.GetFamilyCount_ResponseParams',
@@ -213,7 +213,7 @@ blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetFamilyNames
-blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.GetFamilyNames_Params',
@@ -226,7 +226,7 @@ blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = {
   }
 };
 
-blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.GetFamilyNames_ResponseParams',
@@ -240,7 +240,7 @@ blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetFontFileHandles
-blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.GetFontFileHandles_Params',
@@ -253,7 +253,7 @@ blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = {
   }
 };
 
-blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.GetFontFileHandles_ResponseParams',
@@ -267,7 +267,7 @@ blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = {
 };
 
 // ParamsSpec for MatchUniqueFont
-blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.MatchUniqueFont_Params',
@@ -280,7 +280,7 @@ blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = {
   }
 };
 
-blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.MatchUniqueFont_ResponseParams',
@@ -295,7 +295,7 @@ blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = {
 };
 
 // ParamsSpec for MapCharacters
-blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.MapCharacters_Params',
@@ -304,15 +304,15 @@ blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'font_style', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DWriteFontStyleSpec, nullable: false, minVersion: 0 },
         { name: 'locale_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'reading_direction', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'base_family_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'reading_direction', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'base_family_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
   }
 };
 
-blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = {
+blink.mojom.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DWriteFontProxy.MapCharacters_ResponseParams',
@@ -326,6 +326,6 @@ blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.DWriteFontProxyPtr = blink.mojom.DWriteFontProxyRemote;
-blink.mojom.DWriteFontProxyRequest = blink.mojom.DWriteFontProxyPendingReceiver;
+blink.mojom.mojom.DWriteFontProxyPtr = blink.mojom.mojom.DWriteFontProxyRemote;
+blink.mojom.mojom.DWriteFontProxyRequest = blink.mojom.mojom.DWriteFontProxyPendingReceiver;
 

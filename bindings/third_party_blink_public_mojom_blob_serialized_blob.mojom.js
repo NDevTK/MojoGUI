@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Struct: SerializedBlob
-blink.mojom.SerializedBlobSpec = {
+blink.mojom.mojom.SerializedBlobSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerializedBlob',

@@ -10,24 +10,24 @@ media_router.mojom = media_router.mojom || {};
 
 
 // Interface: Debugger
-media_router.mojom.Debugger = {};
+media_router.mojom.mojom.Debugger = {};
 
-media_router.mojom.DebuggerPendingReceiver = class {
+media_router.mojom.mojom.DebuggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_router.mojom.DebuggerRemote = class {
+media_router.mojom.mojom.DebuggerRemote = class {
   static get $interfaceName() {
     return 'media_router.mojom.Debugger';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_router.mojom.DebuggerPendingReceiver,
+      media_router.mojom.mojom.DebuggerPendingReceiver,
       handle);
-    this.$ = new media_router.mojom.DebuggerRemoteCallHandler(this.proxy);
+    this.$ = new media_router.mojom.mojom.DebuggerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ media_router.mojom.DebuggerRemote = class {
   }
 };
 
-media_router.mojom.DebuggerRemoteCallHandler = class {
+media_router.mojom.mojom.DebuggerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec,
-      media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
+      media_router.mojom.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec,
+      media_router.mojom.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media_router.mojom.Debugger_OnMirroringStats_ParamsSpec,
+      media_router.mojom.mojom.Debugger_OnMirroringStats_ParamsSpec,
       null,
       [json_stats]);
   }
@@ -66,15 +66,15 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media_router.mojom.Debugger_BindReceiver_ParamsSpec,
+      media_router.mojom.mojom.Debugger_BindReceiver_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-media_router.mojom.Debugger.getRemote = function() {
-  let remote = new media_router.mojom.DebuggerRemote();
+media_router.mojom.mojom.Debugger.getRemote = function() {
+  let remote = new media_router.mojom.mojom.DebuggerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ media_router.mojom.Debugger.getRemote = function() {
 };
 
 // ParamsSpec for ShouldFetchMirroringStats
-media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
+media_router.mojom.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Debugger.ShouldFetchMirroringStats_Params',
@@ -96,7 +96,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = {
   }
 };
 
-media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
+media_router.mojom.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Debugger.ShouldFetchMirroringStats_ResponseParams',
@@ -110,7 +110,7 @@ media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnMirroringStats
-media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
+media_router.mojom.mojom.Debugger_OnMirroringStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Debugger.OnMirroringStats_Params',
@@ -124,7 +124,7 @@ media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = {
 };
 
 // ParamsSpec for BindReceiver
-media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
+media_router.mojom.mojom.Debugger_BindReceiver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.Debugger.BindReceiver_Params',
@@ -138,6 +138,6 @@ media_router.mojom.Debugger_BindReceiver_ParamsSpec = {
 };
 
 // Legacy compatibility
-media_router.mojom.DebuggerPtr = media_router.mojom.DebuggerRemote;
-media_router.mojom.DebuggerRequest = media_router.mojom.DebuggerPendingReceiver;
+media_router.mojom.mojom.DebuggerPtr = media_router.mojom.mojom.DebuggerRemote;
+media_router.mojom.mojom.DebuggerRequest = media_router.mojom.mojom.DebuggerPendingReceiver;
 

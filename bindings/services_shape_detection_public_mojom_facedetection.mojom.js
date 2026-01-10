@@ -7,18 +7,21 @@
 // Module namespace
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: LandmarkType
-shape_detection.mojom.LandmarkType = {
+shape_detection.mojom.mojom.LandmarkType = {
   MOUTH: 0,
   EYE: 1,
   NOSE: 2,
 };
-shape_detection.mojom.LandmarkTypeSpec = { $: mojo.internal.Enum() };
+shape_detection.mojom.mojom.LandmarkTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Landmark
-shape_detection.mojom.LandmarkSpec = {
+shape_detection.mojom.mojom.LandmarkSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.Landmark',
@@ -33,7 +36,7 @@ shape_detection.mojom.LandmarkSpec = {
 };
 
 // Struct: FaceDetectionResult
-shape_detection.mojom.FaceDetectionResultSpec = {
+shape_detection.mojom.mojom.FaceDetectionResultSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.FaceDetectionResult',
@@ -48,7 +51,7 @@ shape_detection.mojom.FaceDetectionResultSpec = {
 };
 
 // Struct: FaceDetectorOptions
-shape_detection.mojom.FaceDetectorOptionsSpec = {
+shape_detection.mojom.mojom.FaceDetectorOptionsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.FaceDetectorOptions',
@@ -63,24 +66,24 @@ shape_detection.mojom.FaceDetectorOptionsSpec = {
 };
 
 // Interface: FaceDetection
-shape_detection.mojom.FaceDetection = {};
+shape_detection.mojom.mojom.FaceDetection = {};
 
-shape_detection.mojom.FaceDetectionPendingReceiver = class {
+shape_detection.mojom.mojom.FaceDetectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-shape_detection.mojom.FaceDetectionRemote = class {
+shape_detection.mojom.mojom.FaceDetectionRemote = class {
   static get $interfaceName() {
     return 'shape_detection.mojom.FaceDetection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      shape_detection.mojom.FaceDetectionPendingReceiver,
+      shape_detection.mojom.mojom.FaceDetectionPendingReceiver,
       handle);
-    this.$ = new shape_detection.mojom.FaceDetectionRemoteCallHandler(this.proxy);
+    this.$ = new shape_detection.mojom.mojom.FaceDetectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -92,7 +95,7 @@ shape_detection.mojom.FaceDetectionRemote = class {
   }
 };
 
-shape_detection.mojom.FaceDetectionRemoteCallHandler = class {
+shape_detection.mojom.mojom.FaceDetectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -101,15 +104,15 @@ shape_detection.mojom.FaceDetectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.FaceDetection_Detect_ParamsSpec,
-      shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec,
+      shape_detection.mojom.mojom.FaceDetection_Detect_ParamsSpec,
+      shape_detection.mojom.mojom.FaceDetection_Detect_ResponseParamsSpec,
       [bitmap_data]);
   }
 
 };
 
-shape_detection.mojom.FaceDetection.getRemote = function() {
-  let remote = new shape_detection.mojom.FaceDetectionRemote();
+shape_detection.mojom.mojom.FaceDetection.getRemote = function() {
+  let remote = new shape_detection.mojom.mojom.FaceDetectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +122,7 @@ shape_detection.mojom.FaceDetection.getRemote = function() {
 };
 
 // ParamsSpec for Detect
-shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
+shape_detection.mojom.mojom.FaceDetection_Detect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.FaceDetection.Detect_Params',
@@ -132,7 +135,7 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
   }
 };
 
-shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
+shape_detection.mojom.mojom.FaceDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.FaceDetection.Detect_ResponseParams',
@@ -146,6 +149,6 @@ shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-shape_detection.mojom.FaceDetectionPtr = shape_detection.mojom.FaceDetectionRemote;
-shape_detection.mojom.FaceDetectionRequest = shape_detection.mojom.FaceDetectionPendingReceiver;
+shape_detection.mojom.mojom.FaceDetectionPtr = shape_detection.mojom.mojom.FaceDetectionRemote;
+shape_detection.mojom.mojom.FaceDetectionRequest = shape_detection.mojom.mojom.FaceDetectionPendingReceiver;
 

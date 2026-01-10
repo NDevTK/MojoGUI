@@ -7,17 +7,18 @@
 // Module namespace
 var url_rewrite = url_rewrite || {};
 url_rewrite.mojom = url_rewrite.mojom || {};
+var url = url || {};
 
 
 // Enum: UrlRequestAccessPolicy
-url_rewrite.mojom.UrlRequestAccessPolicy = {
+url_rewrite.mojom.mojom.UrlRequestAccessPolicy = {
   kAllow: 0,
   kDeny: 1,
 };
-url_rewrite.mojom.UrlRequestAccessPolicySpec = { $: mojo.internal.Enum() };
+url_rewrite.mojom.mojom.UrlRequestAccessPolicySpec = { $: mojo.internal.Enum() };
 
 // Union: UrlRequestAction
-url_rewrite.mojom.UrlRequestActionSpec = { $: mojo.internal.Union(
+url_rewrite.mojom.mojom.UrlRequestActionSpec = { $: mojo.internal.Union(
     'url_rewrite.mojom.UrlRequestAction', {
       'add_headers': {
         'ordinal': 0,
@@ -47,7 +48,7 @@ url_rewrite.mojom.UrlRequestActionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: UrlRequestRewriteRules
-url_rewrite.mojom.UrlRequestRewriteRulesSpec = {
+url_rewrite.mojom.mojom.UrlRequestRewriteRulesSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteRules',
@@ -61,7 +62,7 @@ url_rewrite.mojom.UrlRequestRewriteRulesSpec = {
 };
 
 // Struct: UrlRequestRule
-url_rewrite.mojom.UrlRequestRuleSpec = {
+url_rewrite.mojom.mojom.UrlRequestRuleSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRule',
@@ -77,7 +78,7 @@ url_rewrite.mojom.UrlRequestRuleSpec = {
 };
 
 // Struct: UrlRequestRewriteAddHeaders
-url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec = {
+url_rewrite.mojom.mojom.UrlRequestRewriteAddHeadersSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteAddHeaders',
@@ -91,7 +92,7 @@ url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec = {
 };
 
 // Struct: UrlHeader
-url_rewrite.mojom.UrlHeaderSpec = {
+url_rewrite.mojom.mojom.UrlHeaderSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlHeader',
@@ -106,7 +107,7 @@ url_rewrite.mojom.UrlHeaderSpec = {
 };
 
 // Struct: UrlRequestRewriteRemoveHeader
-url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = {
+url_rewrite.mojom.mojom.UrlRequestRewriteRemoveHeaderSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteRemoveHeader',
@@ -121,7 +122,7 @@ url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = {
 };
 
 // Struct: UrlRequestRewriteSubstituteQueryPattern
-url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = {
+url_rewrite.mojom.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern',
@@ -136,7 +137,7 @@ url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = {
 };
 
 // Struct: UrlRequestRewriteReplaceUrl
-url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = {
+url_rewrite.mojom.mojom.UrlRequestRewriteReplaceUrlSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteReplaceUrl',
@@ -151,7 +152,7 @@ url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = {
 };
 
 // Struct: UrlRequestRewriteAppendToQuery
-url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec = {
+url_rewrite.mojom.mojom.UrlRequestRewriteAppendToQuerySpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRewriteAppendToQuery',
@@ -165,24 +166,24 @@ url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec = {
 };
 
 // Interface: UrlRequestRulesReceiver
-url_rewrite.mojom.UrlRequestRulesReceiver = {};
+url_rewrite.mojom.mojom.UrlRequestRulesReceiver = {};
 
-url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver = class {
+url_rewrite.mojom.mojom.UrlRequestRulesReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-url_rewrite.mojom.UrlRequestRulesReceiverRemote = class {
+url_rewrite.mojom.mojom.UrlRequestRulesReceiverRemote = class {
   static get $interfaceName() {
     return 'url_rewrite.mojom.UrlRequestRulesReceiver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver,
+      url_rewrite.mojom.mojom.UrlRequestRulesReceiverPendingReceiver,
       handle);
-    this.$ = new url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler(this.proxy);
+    this.$ = new url_rewrite.mojom.mojom.UrlRequestRulesReceiverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -194,7 +195,7 @@ url_rewrite.mojom.UrlRequestRulesReceiverRemote = class {
   }
 };
 
-url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
+url_rewrite.mojom.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -203,15 +204,15 @@ url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec,
+      url_rewrite.mojom.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec,
       null,
       [rules]);
   }
 
 };
 
-url_rewrite.mojom.UrlRequestRulesReceiver.getRemote = function() {
-  let remote = new url_rewrite.mojom.UrlRequestRulesReceiverRemote();
+url_rewrite.mojom.mojom.UrlRequestRulesReceiver.getRemote = function() {
+  let remote = new url_rewrite.mojom.mojom.UrlRequestRulesReceiverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -221,7 +222,7 @@ url_rewrite.mojom.UrlRequestRulesReceiver.getRemote = function() {
 };
 
 // ParamsSpec for OnRulesUpdated
-url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
+url_rewrite.mojom.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'url_rewrite.mojom.UrlRequestRulesReceiver.OnRulesUpdated_Params',
@@ -235,6 +236,6 @@ url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-url_rewrite.mojom.UrlRequestRulesReceiverPtr = url_rewrite.mojom.UrlRequestRulesReceiverRemote;
-url_rewrite.mojom.UrlRequestRulesReceiverRequest = url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver;
+url_rewrite.mojom.mojom.UrlRequestRulesReceiverPtr = url_rewrite.mojom.mojom.UrlRequestRulesReceiverRemote;
+url_rewrite.mojom.mojom.UrlRequestRulesReceiverRequest = url_rewrite.mojom.mojom.UrlRequestRulesReceiverPendingReceiver;
 

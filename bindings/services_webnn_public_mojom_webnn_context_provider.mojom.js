@@ -7,18 +7,19 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
+var blink = blink || {};
 
 
 // Enum: PowerPreference
-webnn.mojom.PowerPreference = {
+webnn.mojom.mojom.PowerPreference = {
   kDefault: 0,
   kHighPerformance: 1,
   kLowPower: 2,
 };
-webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
+webnn.mojom.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Union: CreateContextResult
-webnn.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
+webnn.mojom.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
     'webnn.mojom.CreateContextResult', {
       'success': {
         'ordinal': 0,
@@ -32,7 +33,7 @@ webnn.mojom.CreateContextResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: CreateContextOptions
-webnn.mojom.CreateContextOptionsSpec = {
+webnn.mojom.mojom.CreateContextOptionsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateContextOptions',
@@ -46,17 +47,17 @@ webnn.mojom.CreateContextOptionsSpec = {
 };
 
 // Struct: CreateContextSuccess
-webnn.mojom.CreateContextSuccessSpec = {
+webnn.mojom.mojom.CreateContextSuccessSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.CreateContextSuccess',
       packedSize: 48,
       fields: [
-        { name: 'context_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'context_properties', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'context_handle', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'write_tensor_producer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'read_tensor_consumer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'context_remote', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'context_properties', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ContextPropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'context_handle', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebNNContextTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'write_tensor_producer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'read_tensor_consumer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -64,24 +65,24 @@ webnn.mojom.CreateContextSuccessSpec = {
 };
 
 // Interface: WebNNContextProvider
-webnn.mojom.WebNNContextProvider = {};
+webnn.mojom.mojom.WebNNContextProvider = {};
 
-webnn.mojom.WebNNContextProviderPendingReceiver = class {
+webnn.mojom.mojom.WebNNContextProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webnn.mojom.WebNNContextProviderRemote = class {
+webnn.mojom.mojom.WebNNContextProviderRemote = class {
   static get $interfaceName() {
     return 'webnn.mojom.WebNNContextProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webnn.mojom.WebNNContextProviderPendingReceiver,
+      webnn.mojom.mojom.WebNNContextProviderPendingReceiver,
       handle);
-    this.$ = new webnn.mojom.WebNNContextProviderRemoteCallHandler(this.proxy);
+    this.$ = new webnn.mojom.mojom.WebNNContextProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -93,7 +94,7 @@ webnn.mojom.WebNNContextProviderRemote = class {
   }
 };
 
-webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
+webnn.mojom.mojom.WebNNContextProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -102,15 +103,15 @@ webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
-      webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
+      webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
+      webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
       [options]);
   }
 
 };
 
-webnn.mojom.WebNNContextProvider.getRemote = function() {
-  let remote = new webnn.mojom.WebNNContextProviderRemote();
+webnn.mojom.mojom.WebNNContextProvider.getRemote = function() {
+  let remote = new webnn.mojom.mojom.WebNNContextProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +121,7 @@ webnn.mojom.WebNNContextProvider.getRemote = function() {
 };
 
 // ParamsSpec for CreateWebNNContext
-webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
+webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_Params',
@@ -133,7 +134,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
   }
 };
 
-webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
+webnn.mojom.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
@@ -147,6 +148,6 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-webnn.mojom.WebNNContextProviderPtr = webnn.mojom.WebNNContextProviderRemote;
-webnn.mojom.WebNNContextProviderRequest = webnn.mojom.WebNNContextProviderPendingReceiver;
+webnn.mojom.mojom.WebNNContextProviderPtr = webnn.mojom.mojom.WebNNContextProviderRemote;
+webnn.mojom.mojom.WebNNContextProviderRequest = webnn.mojom.mojom.WebNNContextProviderPendingReceiver;
 

@@ -7,40 +7,40 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
-chromeos.cfm.mojom = chromeos.cfm.mojom || {};
+chromeos.cfm.cfm.mojom = chromeos.cfm.cfm.mojom || {};
 
 
-chromeos.cfm.mojom.kUnknownCode = 0;
+chromeos.cfm.cfm.mojom.mojom.kUnknownCode = 0;
 
-chromeos.cfm.mojom.kUnknownMessage = "unknown";
+chromeos.cfm.cfm.mojom.mojom.kUnknownMessage = "unknown";
 
-chromeos.cfm.mojom.kServiceUnavailableCode = 1;
+chromeos.cfm.cfm.mojom.mojom.kServiceUnavailableCode = 1;
 
-chromeos.cfm.mojom.kServiceUnavailableMessage = "Hotline Disabled";
+chromeos.cfm.cfm.mojom.mojom.kServiceUnavailableMessage = "Hotline Disabled";
 
-chromeos.cfm.mojom.kFinchDisabledCode = 2;
+chromeos.cfm.cfm.mojom.mojom.kFinchDisabledCode = 2;
 
-chromeos.cfm.mojom.kFinchDisabledMessage = "Finch Disabled";
+chromeos.cfm.cfm.mojom.mojom.kFinchDisabledMessage = "Finch Disabled";
 
 // Interface: DisconnectReason
-chromeos.cfm.mojom.DisconnectReason = {};
+chromeos.cfm.cfm.mojom.mojom.DisconnectReason = {};
 
-chromeos.cfm.mojom.DisconnectReasonPendingReceiver = class {
+chromeos.cfm.cfm.mojom.mojom.DisconnectReasonPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cfm.mojom.DisconnectReasonRemote = class {
+chromeos.cfm.cfm.mojom.mojom.DisconnectReasonRemote = class {
   static get $interfaceName() {
     return 'chromeos.cfm.mojom.DisconnectReason';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cfm.mojom.DisconnectReasonPendingReceiver,
+      chromeos.cfm.cfm.mojom.mojom.DisconnectReasonPendingReceiver,
       handle);
-    this.$ = new chromeos.cfm.mojom.DisconnectReasonRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cfm.cfm.mojom.mojom.DisconnectReasonRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -52,15 +52,15 @@ chromeos.cfm.mojom.DisconnectReasonRemote = class {
   }
 };
 
-chromeos.cfm.mojom.DisconnectReasonRemoteCallHandler = class {
+chromeos.cfm.cfm.mojom.mojom.DisconnectReasonRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-chromeos.cfm.mojom.DisconnectReason.getRemote = function() {
-  let remote = new chromeos.cfm.mojom.DisconnectReasonRemote();
+chromeos.cfm.cfm.mojom.mojom.DisconnectReason.getRemote = function() {
+  let remote = new chromeos.cfm.cfm.mojom.mojom.DisconnectReasonRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -70,29 +70,29 @@ chromeos.cfm.mojom.DisconnectReason.getRemote = function() {
 };
 
 // Legacy compatibility
-chromeos.cfm.mojom.DisconnectReasonPtr = chromeos.cfm.mojom.DisconnectReasonRemote;
-chromeos.cfm.mojom.DisconnectReasonRequest = chromeos.cfm.mojom.DisconnectReasonPendingReceiver;
+chromeos.cfm.cfm.mojom.mojom.DisconnectReasonPtr = chromeos.cfm.cfm.mojom.mojom.DisconnectReasonRemote;
+chromeos.cfm.cfm.mojom.mojom.DisconnectReasonRequest = chromeos.cfm.cfm.mojom.mojom.DisconnectReasonPendingReceiver;
 
 
 // Interface: CfmServiceContext
-chromeos.cfm.mojom.CfmServiceContext = {};
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContext = {};
 
-chromeos.cfm.mojom.CfmServiceContextPendingReceiver = class {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cfm.mojom.CfmServiceContextRemote = class {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContextRemote = class {
   static get $interfaceName() {
     return 'chromeos.cfm.mojom.CfmServiceContext';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cfm.mojom.CfmServiceContextPendingReceiver,
+      chromeos.cfm.cfm.mojom.mojom.CfmServiceContextPendingReceiver,
       handle);
-    this.$ = new chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cfm.cfm.mojom.mojom.CfmServiceContextRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -104,7 +104,7 @@ chromeos.cfm.mojom.CfmServiceContextRemote = class {
   }
 };
 
-chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = class {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -113,8 +113,8 @@ chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec,
-      chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec,
       [interface_name, adaptor_remote]);
   }
 
@@ -122,15 +122,15 @@ chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec,
-      chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_RequestBindService_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec,
       [interface_name, receiver_pipe]);
   }
 
 };
 
-chromeos.cfm.mojom.CfmServiceContext.getRemote = function() {
-  let remote = new chromeos.cfm.mojom.CfmServiceContextRemote();
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContext.getRemote = function() {
+  let remote = new chromeos.cfm.cfm.mojom.mojom.CfmServiceContextRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -140,7 +140,7 @@ chromeos.cfm.mojom.CfmServiceContext.getRemote = function() {
 };
 
 // ParamsSpec for ProvideAdaptor
-chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmServiceContext.ProvideAdaptor_Params',
@@ -154,7 +154,7 @@ chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmServiceContext.ProvideAdaptor_ResponseParams',
@@ -168,7 +168,7 @@ chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestBindService
-chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_RequestBindService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmServiceContext.RequestBindService_Params',
@@ -182,7 +182,7 @@ chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmServiceContext.RequestBindService_ResponseParams',
@@ -196,29 +196,29 @@ chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.cfm.mojom.CfmServiceContextPtr = chromeos.cfm.mojom.CfmServiceContextRemote;
-chromeos.cfm.mojom.CfmServiceContextRequest = chromeos.cfm.mojom.CfmServiceContextPendingReceiver;
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContextPtr = chromeos.cfm.cfm.mojom.mojom.CfmServiceContextRemote;
+chromeos.cfm.cfm.mojom.mojom.CfmServiceContextRequest = chromeos.cfm.cfm.mojom.mojom.CfmServiceContextPendingReceiver;
 
 
 // Interface: CfmServiceAdaptor
-chromeos.cfm.mojom.CfmServiceAdaptor = {};
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptor = {};
 
-chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver = class {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cfm.mojom.CfmServiceAdaptorRemote = class {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorRemote = class {
   static get $interfaceName() {
     return 'chromeos.cfm.mojom.CfmServiceAdaptor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver,
+      chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorPendingReceiver,
       handle);
-    this.$ = new chromeos.cfm.mojom.CfmServiceAdaptorRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -230,7 +230,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorRemote = class {
   }
 };
 
-chromeos.cfm.mojom.CfmServiceAdaptorRemoteCallHandler = class {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -239,15 +239,15 @@ chromeos.cfm.mojom.CfmServiceAdaptorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec,
       null,
       [receiver_pipe]);
   }
 
 };
 
-chromeos.cfm.mojom.CfmServiceAdaptor.getRemote = function() {
-  let remote = new chromeos.cfm.mojom.CfmServiceAdaptorRemote();
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptor.getRemote = function() {
+  let remote = new chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -257,7 +257,7 @@ chromeos.cfm.mojom.CfmServiceAdaptor.getRemote = function() {
 };
 
 // ParamsSpec for OnBindService
-chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmServiceAdaptor.OnBindService_Params',
@@ -271,6 +271,6 @@ chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.cfm.mojom.CfmServiceAdaptorPtr = chromeos.cfm.mojom.CfmServiceAdaptorRemote;
-chromeos.cfm.mojom.CfmServiceAdaptorRequest = chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver;
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorPtr = chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorRemote;
+chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorRequest = chromeos.cfm.cfm.mojom.mojom.CfmServiceAdaptorPendingReceiver;
 

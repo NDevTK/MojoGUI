@@ -10,7 +10,7 @@ bluetooth.mojom = bluetooth.mojom || {};
 
 
 // Struct: GattCharacteristicPermissions
-bluetooth.mojom.GattCharacteristicPermissionsSpec = {
+bluetooth.mojom.mojom.GattCharacteristicPermissionsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattCharacteristicPermissions',

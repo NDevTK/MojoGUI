@@ -7,18 +7,21 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Enum: PlayState
-media_router.mojom.PlayState = {
+media_router.mojom.mojom.PlayState = {
   PLAYING: 0,
   PAUSED: 1,
   BUFFERING: 2,
 };
-media_router.mojom.PlayStateSpec = { $: mojo.internal.Enum() };
+media_router.mojom.mojom.PlayStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: MediaImage
-media_router.mojom.MediaImageSpec = {
+media_router.mojom.mojom.MediaImageSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.MediaImage',
@@ -33,7 +36,7 @@ media_router.mojom.MediaImageSpec = {
 };
 
 // Struct: MediaStatus
-media_router.mojom.MediaStatusSpec = {
+media_router.mojom.mojom.MediaStatusSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.MediaStatus',
@@ -47,24 +50,24 @@ media_router.mojom.MediaStatusSpec = {
 };
 
 // Interface: MediaStatusObserver
-media_router.mojom.MediaStatusObserver = {};
+media_router.mojom.mojom.MediaStatusObserver = {};
 
-media_router.mojom.MediaStatusObserverPendingReceiver = class {
+media_router.mojom.mojom.MediaStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_router.mojom.MediaStatusObserverRemote = class {
+media_router.mojom.mojom.MediaStatusObserverRemote = class {
   static get $interfaceName() {
     return 'media_router.mojom.MediaStatusObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_router.mojom.MediaStatusObserverPendingReceiver,
+      media_router.mojom.mojom.MediaStatusObserverPendingReceiver,
       handle);
-    this.$ = new media_router.mojom.MediaStatusObserverRemoteCallHandler(this.proxy);
+    this.$ = new media_router.mojom.mojom.MediaStatusObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -76,7 +79,7 @@ media_router.mojom.MediaStatusObserverRemote = class {
   }
 };
 
-media_router.mojom.MediaStatusObserverRemoteCallHandler = class {
+media_router.mojom.mojom.MediaStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -85,15 +88,15 @@ media_router.mojom.MediaStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec,
+      media_router.mojom.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-media_router.mojom.MediaStatusObserver.getRemote = function() {
-  let remote = new media_router.mojom.MediaStatusObserverRemote();
+media_router.mojom.mojom.MediaStatusObserver.getRemote = function() {
+  let remote = new media_router.mojom.mojom.MediaStatusObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +106,7 @@ media_router.mojom.MediaStatusObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnMediaStatusUpdated
-media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
+media_router.mojom.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.MediaStatusObserver.OnMediaStatusUpdated_Params',
@@ -117,6 +120,6 @@ media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-media_router.mojom.MediaStatusObserverPtr = media_router.mojom.MediaStatusObserverRemote;
-media_router.mojom.MediaStatusObserverRequest = media_router.mojom.MediaStatusObserverPendingReceiver;
+media_router.mojom.mojom.MediaStatusObserverPtr = media_router.mojom.mojom.MediaStatusObserverRemote;
+media_router.mojom.mojom.MediaStatusObserverRequest = media_router.mojom.mojom.MediaStatusObserverPendingReceiver;
 

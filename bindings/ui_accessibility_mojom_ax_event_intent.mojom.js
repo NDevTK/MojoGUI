@@ -7,10 +7,11 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
 
 
 // Struct: EventIntent
-ax.mojom.EventIntentSpec = {
+ax.mojom.mojom.EventIntentSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.EventIntent',

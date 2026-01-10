@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: OpenGraphMetadata
-blink.mojom.OpenGraphMetadataSpec = {
+blink.mojom.mojom.OpenGraphMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OpenGraphMetadata',

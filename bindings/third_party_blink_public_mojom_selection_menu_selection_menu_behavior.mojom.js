@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: SelectionMenuBehavior
-blink.mojom.SelectionMenuBehavior = {
+blink.mojom.mojom.SelectionMenuBehavior = {
   kHide: 0,
   kShow: 1,
 };
-blink.mojom.SelectionMenuBehaviorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SelectionMenuBehaviorSpec = { $: mojo.internal.Enum() };

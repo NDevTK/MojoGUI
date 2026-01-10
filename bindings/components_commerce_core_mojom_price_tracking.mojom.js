@@ -7,28 +7,28 @@
 // Module namespace
 var commerce = commerce || {};
 commerce.price_tracking = commerce.price_tracking || {};
-commerce.price_tracking.mojom = commerce.price_tracking.mojom || {};
+commerce.price_tracking.price_tracking.mojom = commerce.price_tracking.price_tracking.mojom || {};
 
 
 // Interface: PriceTrackingHandler
-commerce.price_tracking.mojom.PriceTrackingHandler = {};
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler = {};
 
-commerce.price_tracking.mojom.PriceTrackingHandlerPendingReceiver = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandlerRemote = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerRemote = class {
   static get $interfaceName() {
     return 'commerce.price_tracking.mojom.PriceTrackingHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.price_tracking.mojom.PriceTrackingHandlerPendingReceiver,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerPendingReceiver,
       handle);
-    this.$ = new commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler(this.proxy);
+    this.$ = new commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemote = class {
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +49,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec,
       null,
       [bookmark_id]);
   }
@@ -58,7 +58,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec,
       null,
       [bookmark_id]);
   }
@@ -67,7 +67,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec,
       null,
       [track]);
   }
@@ -76,8 +76,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec,
       []);
   }
 
@@ -85,8 +85,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec,
       []);
   }
 
@@ -94,8 +94,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec,
       []);
   }
 
@@ -103,8 +103,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec,
-      commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec,
       []);
   }
 
@@ -112,15 +112,15 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec,
       null,
       []);
   }
 
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandler.getRemote = function() {
-  let remote = new commerce.price_tracking.mojom.PriceTrackingHandlerRemote();
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler.getRemote = function() {
+  let remote = new commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -130,7 +130,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler.getRemote = function() {
 };
 
 // ParamsSpec for TrackPriceForBookmark
-commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.TrackPriceForBookmark_Params',
@@ -144,7 +144,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsS
 };
 
 // ParamsSpec for UntrackPriceForBookmark
-commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.UntrackPriceForBookmark_Params',
@@ -158,7 +158,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_Param
 };
 
 // ParamsSpec for SetPriceTrackingStatusForCurrentUrl
-commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.SetPriceTrackingStatusForCurrentUrl_Params',
@@ -172,7 +172,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurr
 };
 
 // ParamsSpec for GetAllShoppingBookmarkProductInfo
-commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllShoppingBookmarkProductInfo_Params',
@@ -184,7 +184,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllShoppingBookmarkProductInfo_ResponseParams',
@@ -198,7 +198,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
 };
 
 // ParamsSpec for GetAllPriceTrackedBookmarkProductInfo
-commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllPriceTrackedBookmarkProductInfo_Params',
@@ -210,7 +210,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllPriceTrackedBookmarkProductInfo_ResponseParams',
@@ -224,7 +224,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
 };
 
 // ParamsSpec for GetShoppingCollectionBookmarkFolderId
-commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetShoppingCollectionBookmarkFolderId_Params',
@@ -236,7 +236,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetShoppingCollectionBookmarkFolderId_ResponseParams',
@@ -250,7 +250,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
 };
 
 // ParamsSpec for GetParentBookmarkFolderNameForCurrentUrl
-commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetParentBookmarkFolderNameForCurrentUrl_Params',
@@ -262,7 +262,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetParentBookmarkFolderNameForCurrentUrl_ResponseParams',
@@ -276,7 +276,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
 };
 
 // ParamsSpec for ShowBookmarkEditorForCurrentUrl
-commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.ShowBookmarkEditorForCurrentUrl_Params',
@@ -289,29 +289,29 @@ commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentU
 };
 
 // Legacy compatibility
-commerce.price_tracking.mojom.PriceTrackingHandlerPtr = commerce.price_tracking.mojom.PriceTrackingHandlerRemote;
-commerce.price_tracking.mojom.PriceTrackingHandlerRequest = commerce.price_tracking.mojom.PriceTrackingHandlerPendingReceiver;
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerPtr = commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerRemote;
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerRequest = commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerPendingReceiver;
 
 
 // Interface: Page
-commerce.price_tracking.mojom.Page = {};
+commerce.price_tracking.price_tracking.mojom.mojom.Page = {};
 
-commerce.price_tracking.mojom.PagePendingReceiver = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.price_tracking.mojom.PageRemote = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'commerce.price_tracking.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.price_tracking.mojom.PagePendingReceiver,
+      commerce.price_tracking.price_tracking.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new commerce.price_tracking.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new commerce.price_tracking.price_tracking.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -323,7 +323,7 @@ commerce.price_tracking.mojom.PageRemote = class {
   }
 };
 
-commerce.price_tracking.mojom.PageRemoteCallHandler = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -332,7 +332,7 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.Page_PriceTrackedForBookmark_ParamsSpec,
       null,
       [bookmark_product]);
   }
@@ -341,7 +341,7 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.Page_PriceUntrackedForBookmark_ParamsSpec,
       null,
       [bookmark_product]);
   }
@@ -350,7 +350,7 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.Page_OperationFailedForBookmark_ParamsSpec,
       null,
       [bookmark_product, attempted_track]);
   }
@@ -359,15 +359,15 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.Page_OnProductBookmarkMoved_ParamsSpec,
       null,
       [bookmark_product]);
   }
 
 };
 
-commerce.price_tracking.mojom.Page.getRemote = function() {
-  let remote = new commerce.price_tracking.mojom.PageRemote();
+commerce.price_tracking.price_tracking.mojom.mojom.Page.getRemote = function() {
+  let remote = new commerce.price_tracking.price_tracking.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -377,7 +377,7 @@ commerce.price_tracking.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for PriceTrackedForBookmark
-commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.Page.PriceTrackedForBookmark_Params',
@@ -391,7 +391,7 @@ commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
 };
 
 // ParamsSpec for PriceUntrackedForBookmark
-commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.Page.PriceUntrackedForBookmark_Params',
@@ -405,7 +405,7 @@ commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
 };
 
 // ParamsSpec for OperationFailedForBookmark
-commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.Page.OperationFailedForBookmark_Params',
@@ -420,7 +420,7 @@ commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
 };
 
 // ParamsSpec for OnProductBookmarkMoved
-commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.Page.OnProductBookmarkMoved_Params',
@@ -434,29 +434,29 @@ commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
 };
 
 // Legacy compatibility
-commerce.price_tracking.mojom.PagePtr = commerce.price_tracking.mojom.PageRemote;
-commerce.price_tracking.mojom.PageRequest = commerce.price_tracking.mojom.PagePendingReceiver;
+commerce.price_tracking.price_tracking.mojom.mojom.PagePtr = commerce.price_tracking.price_tracking.mojom.mojom.PageRemote;
+commerce.price_tracking.price_tracking.mojom.mojom.PageRequest = commerce.price_tracking.price_tracking.mojom.mojom.PagePendingReceiver;
 
 
 // Interface: PriceTrackingHandlerFactory
-commerce.price_tracking.mojom.PriceTrackingHandlerFactory = {};
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactory = {};
 
-commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPendingReceiver = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'commerce.price_tracking.mojom.PriceTrackingHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPendingReceiver,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -468,7 +468,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote = class {
   }
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemoteCallHandler = class {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -477,15 +477,15 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec,
+      commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-commerce.price_tracking.mojom.PriceTrackingHandlerFactory.getRemote = function() {
-  let remote = new commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote();
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactory.getRemote = function() {
+  let remote = new commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -495,7 +495,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactory.getRemote = function()
 };
 
 // ParamsSpec for CreatePriceTrackingHandler
-commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec = {
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.price_tracking.mojom.PriceTrackingHandlerFactory.CreatePriceTrackingHandler_Params',
@@ -510,6 +510,6 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHan
 };
 
 // Legacy compatibility
-commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPtr = commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote;
-commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRequest = commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPendingReceiver;
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryPtr = commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryRemote;
+commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryRequest = commerce.price_tracking.price_tracking.mojom.mojom.PriceTrackingHandlerFactoryPendingReceiver;
 

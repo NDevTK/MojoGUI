@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: VideoCodecProfile
-arc.mojom.VideoCodecProfile = {
+arc.mojom.mojom.VideoCodecProfile = {
   VIDEO_CODEC_PROFILE_UNKNOWN: 0,
   VIDEO_CODEC_PROFILE_MIN: 1,
   H264PROFILE_MIN: 2,
@@ -82,26 +82,26 @@ arc.mojom.VideoCodecProfile = {
   VVCPROFILE_MAX: 68,
   VIDEO_CODEC_PROFILE_MAX: 69,
 };
-arc.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
 
 // Enum: HalPixelFormat
-arc.mojom.HalPixelFormat = {
+arc.mojom.mojom.HalPixelFormat = {
   HAL_PIXEL_FORMAT_BGRA_8888: 0,
   HAL_PIXEL_FORMAT_YCbCr_420_888: 1,
   HAL_PIXEL_FORMAT_YV12: 2,
   HAL_PIXEL_FORMAT_NV12: 3,
 };
-arc.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoPixelFormat
-arc.mojom.VideoPixelFormat = {
+arc.mojom.mojom.VideoPixelFormat = {
   PIXEL_FORMAT_UNKNOWN: 0,
   PIXEL_FORMAT_I420: 1,
 };
-arc.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: VideoFramePlane
-arc.mojom.VideoFramePlaneSpec = {
+arc.mojom.mojom.VideoFramePlaneSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoFramePlane',
@@ -116,7 +116,7 @@ arc.mojom.VideoFramePlaneSpec = {
 };
 
 // Struct: ColorPlaneLayout
-arc.mojom.ColorPlaneLayoutSpec = {
+arc.mojom.mojom.ColorPlaneLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ColorPlaneLayout',
@@ -132,18 +132,18 @@ arc.mojom.ColorPlaneLayoutSpec = {
 };
 
 // Struct: VideoFrameLayout
-arc.mojom.VideoFrameLayoutSpec = {
+arc.mojom.mojom.VideoFrameLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoFrameLayout',
       packedSize: 48,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'planes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ColorPlaneLayoutSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_multi_planar', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'buffer_addr_align', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'modifier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ColorPlaneLayoutSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_multi_planar', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'buffer_addr_align', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'modifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }

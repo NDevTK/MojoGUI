@@ -10,14 +10,14 @@ content.mojom = content.mojom || {};
 
 
 // Struct: AlternativeErrorPageOverrideInfo
-content.mojom.AlternativeErrorPageOverrideInfoSpec = {
+content.mojom.mojom.AlternativeErrorPageOverrideInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AlternativeErrorPageOverrideInfo',
       packedSize: 24,
       fields: [
-        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'alternative_error_page_params', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'alternative_error_page_params', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

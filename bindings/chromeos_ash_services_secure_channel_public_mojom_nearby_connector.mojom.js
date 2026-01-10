@@ -7,13 +7,13 @@
 // Module namespace
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
-ash.secure_channel.mojom = ash.secure_channel.mojom || {};
+ash.secure_channel.secure_channel.mojom = ash.secure_channel.secure_channel.mojom || {};
 
 
-ash.secure_channel.mojom.kServiceId = "secure_channel";
+ash.secure_channel.secure_channel.mojom.mojom.kServiceId = "secure_channel";
 
 // Enum: NearbyConnectionStep
-ash.secure_channel.mojom.NearbyConnectionStep = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStep = {
   kDiscoveringEndpointStarted: 0,
   kDiscoveringEndpointEnded: 1,
   kRequestingConnectionStarted: 2,
@@ -27,10 +27,10 @@ ash.secure_channel.mojom.NearbyConnectionStep = {
   kDisconnectionStarted: 10,
   kDisconnectionFinished: 11,
 };
-ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum() };
 
 // Enum: NearbyConnectionStepResult
-ash.secure_channel.mojom.NearbyConnectionStepResult = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStepResult = {
   kSuccess: 0,
   kTimeoutTransitionState: 1,
   kError: 2,
@@ -52,27 +52,27 @@ ash.secure_channel.mojom.NearbyConnectionStepResult = {
   kTimeout: 18,
   kUnknown: 19,
 };
-ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: NearbyConnectionStateListener
-ash.secure_channel.mojom.NearbyConnectionStateListener = {};
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListener = {};
 
-ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.NearbyConnectionStateListenerRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.NearbyConnectionStateListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.NearbyConnectionStateListenerRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -84,7 +84,7 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerRemote = class {
   }
 };
 
-ash.secure_channel.mojom.NearbyConnectionStateListenerRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -93,15 +93,15 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec,
       null,
       [step, result]);
   }
 
 };
 
-ash.secure_channel.mojom.NearbyConnectionStateListener.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.NearbyConnectionStateListenerRemote();
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListener.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -111,7 +111,7 @@ ash.secure_channel.mojom.NearbyConnectionStateListener.getRemote = function() {
 };
 
 // ParamsSpec for OnNearbyConnectionStateChanged
-ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyConnectionStateListener.OnNearbyConnectionStateChanged_Params',
@@ -126,29 +126,29 @@ ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateCh
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.NearbyConnectionStateListenerPtr = ash.secure_channel.mojom.NearbyConnectionStateListenerRemote;
-ash.secure_channel.mojom.NearbyConnectionStateListenerRequest = ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerPtr = ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerRemote;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerRequest = ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectionStateListenerPendingReceiver;
 
 
 // Interface: NearbyMessageSender
-ash.secure_channel.mojom.NearbyMessageSender = {};
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSender = {};
 
-ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.NearbyMessageSenderRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.NearbyMessageSender';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -160,7 +160,7 @@ ash.secure_channel.mojom.NearbyMessageSenderRemote = class {
   }
 };
 
-ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -169,15 +169,15 @@ ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec,
-      ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSender_SendMessage_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec,
       [message]);
   }
 
 };
 
-ash.secure_channel.mojom.NearbyMessageSender.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.NearbyMessageSenderRemote();
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSender.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -187,7 +187,7 @@ ash.secure_channel.mojom.NearbyMessageSender.getRemote = function() {
 };
 
 // ParamsSpec for SendMessage
-ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSender_SendMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyMessageSender.SendMessage_Params',
@@ -200,7 +200,7 @@ ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = {
   }
 };
 
-ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyMessageSender.SendMessage_ResponseParams',
@@ -214,29 +214,29 @@ ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.NearbyMessageSenderPtr = ash.secure_channel.mojom.NearbyMessageSenderRemote;
-ash.secure_channel.mojom.NearbyMessageSenderRequest = ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderPtr = ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderRemote;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderRequest = ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageSenderPendingReceiver;
 
 
 // Interface: NearbyMessageReceiver
-ash.secure_channel.mojom.NearbyMessageReceiver = {};
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiver = {};
 
-ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.NearbyMessageReceiverRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.NearbyMessageReceiver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.NearbyMessageReceiverRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -248,7 +248,7 @@ ash.secure_channel.mojom.NearbyMessageReceiverRemote = class {
   }
 };
 
-ash.secure_channel.mojom.NearbyMessageReceiverRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -257,15 +257,15 @@ ash.secure_channel.mojom.NearbyMessageReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec,
       null,
       [message]);
   }
 
 };
 
-ash.secure_channel.mojom.NearbyMessageReceiver.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.NearbyMessageReceiverRemote();
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiver.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -275,7 +275,7 @@ ash.secure_channel.mojom.NearbyMessageReceiver.getRemote = function() {
 };
 
 // ParamsSpec for OnMessageReceived
-ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyMessageReceiver.OnMessageReceived_Params',
@@ -289,29 +289,29 @@ ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.NearbyMessageReceiverPtr = ash.secure_channel.mojom.NearbyMessageReceiverRemote;
-ash.secure_channel.mojom.NearbyMessageReceiverRequest = ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverPtr = ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverRemote;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverRequest = ash.secure_channel.secure_channel.mojom.mojom.NearbyMessageReceiverPendingReceiver;
 
 
 // Interface: NearbyFilePayloadHandler
-ash.secure_channel.mojom.NearbyFilePayloadHandler = {};
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandler = {};
 
-ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.NearbyFilePayloadHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.NearbyFilePayloadHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -323,7 +323,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote = class {
   }
 };
 
-ash.secure_channel.mojom.NearbyFilePayloadHandlerRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -332,15 +332,15 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec,
-      ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec,
       [payload_id, payload_files, listener]);
   }
 
 };
 
-ash.secure_channel.mojom.NearbyFilePayloadHandler.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote();
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandler.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -350,7 +350,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler.getRemote = function() {
 };
 
 // ParamsSpec for RegisterPayloadFile
-ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyFilePayloadHandler.RegisterPayloadFile_Params',
@@ -365,7 +365,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec
   }
 };
 
-ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyFilePayloadHandler.RegisterPayloadFile_ResponseParams',
@@ -379,29 +379,29 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponsePa
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.NearbyFilePayloadHandlerPtr = ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote;
-ash.secure_channel.mojom.NearbyFilePayloadHandlerRequest = ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerPtr = ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerRemote;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerRequest = ash.secure_channel.secure_channel.mojom.mojom.NearbyFilePayloadHandlerPendingReceiver;
 
 
 // Interface: NearbyConnector
-ash.secure_channel.mojom.NearbyConnector = {};
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnector = {};
 
-ash.secure_channel.mojom.NearbyConnectorPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.NearbyConnectorRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.NearbyConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.NearbyConnectorPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.NearbyConnectorRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -413,7 +413,7 @@ ash.secure_channel.mojom.NearbyConnectorRemote = class {
   }
 };
 
-ash.secure_channel.mojom.NearbyConnectorRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -422,15 +422,15 @@ ash.secure_channel.mojom.NearbyConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec,
-      ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyConnector_Connect_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.NearbyConnector_Connect_ResponseParamsSpec,
       [bluetooth_public_address, eid, message_receiver, nearby_connection_state_listener]);
   }
 
 };
 
-ash.secure_channel.mojom.NearbyConnector.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.NearbyConnectorRemote();
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnector.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -440,7 +440,7 @@ ash.secure_channel.mojom.NearbyConnector.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyConnector.Connect_Params',
@@ -456,7 +456,7 @@ ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = {
   }
 };
 
-ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnector_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.NearbyConnector.Connect_ResponseParams',
@@ -471,6 +471,6 @@ ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.NearbyConnectorPtr = ash.secure_channel.mojom.NearbyConnectorRemote;
-ash.secure_channel.mojom.NearbyConnectorRequest = ash.secure_channel.mojom.NearbyConnectorPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorPtr = ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorRemote;
+ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorRequest = ash.secure_channel.secure_channel.mojom.mojom.NearbyConnectorPendingReceiver;
 

@@ -10,16 +10,16 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: FrameCountingPerSinkData
-viz.mojom.FrameCountingPerSinkDataSpec = {
+viz.mojom.mojom.FrameCountingPerSinkDataSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameCountingPerSinkData',
       packedSize: 32,
       fields: [
-        { name: 'is_root', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'debug_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'start_bucket', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'presented_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'is_root', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'debug_label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'start_bucket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'presented_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -27,7 +27,7 @@ viz.mojom.FrameCountingPerSinkDataSpec = {
 };
 
 // Struct: FrameCountingData
-viz.mojom.FrameCountingDataSpec = {
+viz.mojom.mojom.FrameCountingDataSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameCountingData',
@@ -41,7 +41,7 @@ viz.mojom.FrameCountingDataSpec = {
 };
 
 // Struct: OverdrawData
-viz.mojom.OverdrawDataSpec = {
+viz.mojom.mojom.OverdrawDataSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OverdrawData',
@@ -55,24 +55,24 @@ viz.mojom.OverdrawDataSpec = {
 };
 
 // Interface: FrameSinksMetricsRecorder
-viz.mojom.FrameSinksMetricsRecorder = {};
+viz.mojom.mojom.FrameSinksMetricsRecorder = {};
 
-viz.mojom.FrameSinksMetricsRecorderPendingReceiver = class {
+viz.mojom.mojom.FrameSinksMetricsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.FrameSinksMetricsRecorderRemote = class {
+viz.mojom.mojom.FrameSinksMetricsRecorderRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinksMetricsRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.FrameSinksMetricsRecorderPendingReceiver,
+      viz.mojom.mojom.FrameSinksMetricsRecorderPendingReceiver,
       handle);
-    this.$ = new viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.FrameSinksMetricsRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -84,7 +84,7 @@ viz.mojom.FrameSinksMetricsRecorderRemote = class {
   }
 };
 
-viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
+viz.mojom.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -93,7 +93,7 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
+      viz.mojom.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
       null,
       [start_time, bucket_size]);
   }
@@ -102,8 +102,8 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
-      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
+      viz.mojom.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
+      viz.mojom.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
       []);
   }
 
@@ -111,7 +111,7 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
+      viz.mojom.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
       null,
       [root_frame_sink_id, bucket_size]);
   }
@@ -120,15 +120,15 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
-      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
+      viz.mojom.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
+      viz.mojom.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
       [root_frame_sink_id]);
   }
 
 };
 
-viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
-  let remote = new viz.mojom.FrameSinksMetricsRecorderRemote();
+viz.mojom.mojom.FrameSinksMetricsRecorder.getRemote = function() {
+  let remote = new viz.mojom.mojom.FrameSinksMetricsRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -138,7 +138,7 @@ viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
 };
 
 // ParamsSpec for StartFrameCounting
-viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
+viz.mojom.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StartFrameCounting_Params',
@@ -153,7 +153,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
 };
 
 // ParamsSpec for StopFrameCounting
-viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
+viz.mojom.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopFrameCounting_Params',
@@ -165,7 +165,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
   }
 };
 
-viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
+viz.mojom.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopFrameCounting_ResponseParams',
@@ -179,7 +179,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartOverdrawTracking
-viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
+viz.mojom.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StartOverdrawTracking_Params',
@@ -194,7 +194,7 @@ viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
 };
 
 // ParamsSpec for StopOverdrawTracking
-viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
+viz.mojom.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_Params',
@@ -207,7 +207,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
   }
 };
 
-viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
+viz.mojom.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_ResponseParams',
@@ -221,6 +221,6 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.FrameSinksMetricsRecorderPtr = viz.mojom.FrameSinksMetricsRecorderRemote;
-viz.mojom.FrameSinksMetricsRecorderRequest = viz.mojom.FrameSinksMetricsRecorderPendingReceiver;
+viz.mojom.mojom.FrameSinksMetricsRecorderPtr = viz.mojom.mojom.FrameSinksMetricsRecorderRemote;
+viz.mojom.mojom.FrameSinksMetricsRecorderRequest = viz.mojom.mojom.FrameSinksMetricsRecorderPendingReceiver;
 

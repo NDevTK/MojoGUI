@@ -10,9 +10,9 @@ cc.mojom = cc.mojom || {};
 
 
 // Enum: MissingTileReason
-cc.mojom.MissingTileReason = {
+cc.mojom.mojom.MissingTileReason = {
   kOutOfMemory: 0,
   kResourceNotReady: 1,
   kTileDeleted: 2,
 };
-cc.mojom.MissingTileReasonSpec = { $: mojo.internal.Enum() };
+cc.mojom.mojom.MissingTileReasonSpec = { $: mojo.internal.Enum() };

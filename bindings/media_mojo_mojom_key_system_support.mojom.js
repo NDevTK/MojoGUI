@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Enum: CdmCapabilityQueryStatus
-media.mojom.CdmCapabilityQueryStatus = {
+media.mojom.mojom.CdmCapabilityQueryStatus = {
   kSuccess: 0,
   kUnknown: 1,
   kHardwareSecureCodecNotSupported: 2,
@@ -25,10 +25,10 @@ media.mojom.CdmCapabilityQueryStatus = {
   kNoMediaDrmSupport: 11,
   kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
 };
-media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: VideoCodecInfo
-media.mojom.VideoCodecInfoSpec = {
+media.mojom.mojom.VideoCodecInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCodecInfo',
@@ -43,7 +43,7 @@ media.mojom.VideoCodecInfoSpec = {
 };
 
 // Struct: CdmCapability
-media.mojom.CdmCapabilitySpec = {
+media.mojom.mojom.CdmCapabilitySpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmCapability',
@@ -61,7 +61,7 @@ media.mojom.CdmCapabilitySpec = {
 };
 
 // Struct: KeySystemCapability
-media.mojom.KeySystemCapabilitySpec = {
+media.mojom.mojom.KeySystemCapabilitySpec = {
   $: {
     structSpec: {
       name: 'media.mojom.KeySystemCapability',
@@ -78,24 +78,24 @@ media.mojom.KeySystemCapabilitySpec = {
 };
 
 // Interface: KeySystemSupportObserver
-media.mojom.KeySystemSupportObserver = {};
+media.mojom.mojom.KeySystemSupportObserver = {};
 
-media.mojom.KeySystemSupportObserverPendingReceiver = class {
+media.mojom.mojom.KeySystemSupportObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.KeySystemSupportObserverRemote = class {
+media.mojom.mojom.KeySystemSupportObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.KeySystemSupportObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.KeySystemSupportObserverPendingReceiver,
+      media.mojom.mojom.KeySystemSupportObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.KeySystemSupportObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.KeySystemSupportObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -107,7 +107,7 @@ media.mojom.KeySystemSupportObserverRemote = class {
   }
 };
 
-media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
+media.mojom.mojom.KeySystemSupportObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -116,15 +116,15 @@ media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec,
+      media.mojom.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec,
       null,
       [key_systems]);
   }
 
 };
 
-media.mojom.KeySystemSupportObserver.getRemote = function() {
-  let remote = new media.mojom.KeySystemSupportObserverRemote();
+media.mojom.mojom.KeySystemSupportObserver.getRemote = function() {
+  let remote = new media.mojom.mojom.KeySystemSupportObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -134,7 +134,7 @@ media.mojom.KeySystemSupportObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnKeySystemSupportUpdated
-media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
+media.mojom.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.KeySystemSupportObserver.OnKeySystemSupportUpdated_Params',
@@ -148,29 +148,29 @@ media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.KeySystemSupportObserverPtr = media.mojom.KeySystemSupportObserverRemote;
-media.mojom.KeySystemSupportObserverRequest = media.mojom.KeySystemSupportObserverPendingReceiver;
+media.mojom.mojom.KeySystemSupportObserverPtr = media.mojom.mojom.KeySystemSupportObserverRemote;
+media.mojom.mojom.KeySystemSupportObserverRequest = media.mojom.mojom.KeySystemSupportObserverPendingReceiver;
 
 
 // Interface: KeySystemSupport
-media.mojom.KeySystemSupport = {};
+media.mojom.mojom.KeySystemSupport = {};
 
-media.mojom.KeySystemSupportPendingReceiver = class {
+media.mojom.mojom.KeySystemSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.KeySystemSupportRemote = class {
+media.mojom.mojom.KeySystemSupportRemote = class {
   static get $interfaceName() {
     return 'media.mojom.KeySystemSupport';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.KeySystemSupportPendingReceiver,
+      media.mojom.mojom.KeySystemSupportPendingReceiver,
       handle);
-    this.$ = new media.mojom.KeySystemSupportRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.KeySystemSupportRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -182,7 +182,7 @@ media.mojom.KeySystemSupportRemote = class {
   }
 };
 
-media.mojom.KeySystemSupportRemoteCallHandler = class {
+media.mojom.mojom.KeySystemSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -191,15 +191,15 @@ media.mojom.KeySystemSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.KeySystemSupport_SetObserver_ParamsSpec,
+      media.mojom.mojom.KeySystemSupport_SetObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-media.mojom.KeySystemSupport.getRemote = function() {
-  let remote = new media.mojom.KeySystemSupportRemote();
+media.mojom.mojom.KeySystemSupport.getRemote = function() {
+  let remote = new media.mojom.mojom.KeySystemSupportRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -209,7 +209,7 @@ media.mojom.KeySystemSupport.getRemote = function() {
 };
 
 // ParamsSpec for SetObserver
-media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
+media.mojom.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.KeySystemSupport.SetObserver_Params',
@@ -223,6 +223,6 @@ media.mojom.KeySystemSupport_SetObserver_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.KeySystemSupportPtr = media.mojom.KeySystemSupportRemote;
-media.mojom.KeySystemSupportRequest = media.mojom.KeySystemSupportPendingReceiver;
+media.mojom.mojom.KeySystemSupportPtr = media.mojom.mojom.KeySystemSupportRemote;
+media.mojom.mojom.KeySystemSupportRequest = media.mojom.mojom.KeySystemSupportPendingReceiver;
 

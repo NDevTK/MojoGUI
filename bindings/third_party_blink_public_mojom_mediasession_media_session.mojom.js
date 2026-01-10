@@ -10,23 +10,23 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: MediaSessionPlaybackState
-blink.mojom.MediaSessionPlaybackState = {
+blink.mojom.mojom.MediaSessionPlaybackState = {
   NONE: 0,
   PAUSED: 1,
   PLAYING: 2,
 };
-blink.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaSessionEnterPictureInPictureReason
-blink.mojom.MediaSessionEnterPictureInPictureReason = {
+blink.mojom.mojom.MediaSessionEnterPictureInPictureReason = {
   kOther: 0,
   kUserAction: 1,
   kContentOccluded: 2,
 };
-blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: MediaSessionActionDetails
-blink.mojom.MediaSessionActionDetailsSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.MediaSessionActionDetailsSpec = { $: mojo.internal.Union(
     'blink.mojom.MediaSessionActionDetails', {
       'seek_to': {
         'ordinal': 0,
@@ -40,7 +40,7 @@ blink.mojom.MediaSessionActionDetailsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: MediaSessionSeekToDetails
-blink.mojom.MediaSessionSeekToDetailsSpec = {
+blink.mojom.mojom.MediaSessionSeekToDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionSeekToDetails',
@@ -55,7 +55,7 @@ blink.mojom.MediaSessionSeekToDetailsSpec = {
 };
 
 // Struct: MediaSessionEnterPictureInPictureDetails
-blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = {
+blink.mojom.mojom.MediaSessionEnterPictureInPictureDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionEnterPictureInPictureDetails',
@@ -69,7 +69,7 @@ blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = {
 };
 
 // Struct: SpecMediaMetadata
-blink.mojom.SpecMediaMetadataSpec = {
+blink.mojom.mojom.SpecMediaMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpecMediaMetadata',
@@ -87,24 +87,24 @@ blink.mojom.SpecMediaMetadataSpec = {
 };
 
 // Interface: MediaSessionClient
-blink.mojom.MediaSessionClient = {};
+blink.mojom.mojom.MediaSessionClient = {};
 
-blink.mojom.MediaSessionClientPendingReceiver = class {
+blink.mojom.mojom.MediaSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.MediaSessionClientRemote = class {
+blink.mojom.mojom.MediaSessionClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MediaSessionClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.MediaSessionClientPendingReceiver,
+      blink.mojom.mojom.MediaSessionClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.MediaSessionClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.MediaSessionClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -116,7 +116,7 @@ blink.mojom.MediaSessionClientRemote = class {
   }
 };
 
-blink.mojom.MediaSessionClientRemoteCallHandler = class {
+blink.mojom.mojom.MediaSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -125,15 +125,15 @@ blink.mojom.MediaSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec,
+      blink.mojom.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec,
       null,
       [action, details]);
   }
 
 };
 
-blink.mojom.MediaSessionClient.getRemote = function() {
-  let remote = new blink.mojom.MediaSessionClientRemote();
+blink.mojom.mojom.MediaSessionClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.MediaSessionClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -143,14 +143,14 @@ blink.mojom.MediaSessionClient.getRemote = function() {
 };
 
 // ParamsSpec for DidReceiveAction
-blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
+blink.mojom.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionClient.DidReceiveAction_Params',
       packedSize: 32,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaSessionActionDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionActionDetailsSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -158,29 +158,29 @@ blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.MediaSessionClientPtr = blink.mojom.MediaSessionClientRemote;
-blink.mojom.MediaSessionClientRequest = blink.mojom.MediaSessionClientPendingReceiver;
+blink.mojom.mojom.MediaSessionClientPtr = blink.mojom.mojom.MediaSessionClientRemote;
+blink.mojom.mojom.MediaSessionClientRequest = blink.mojom.mojom.MediaSessionClientPendingReceiver;
 
 
 // Interface: MediaSessionService
-blink.mojom.MediaSessionService = {};
+blink.mojom.mojom.MediaSessionService = {};
 
-blink.mojom.MediaSessionServicePendingReceiver = class {
+blink.mojom.mojom.MediaSessionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.MediaSessionServiceRemote = class {
+blink.mojom.mojom.MediaSessionServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MediaSessionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.MediaSessionServicePendingReceiver,
+      blink.mojom.mojom.MediaSessionServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.MediaSessionServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.MediaSessionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -192,7 +192,7 @@ blink.mojom.MediaSessionServiceRemote = class {
   }
 };
 
-blink.mojom.MediaSessionServiceRemoteCallHandler = class {
+blink.mojom.mojom.MediaSessionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -201,7 +201,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MediaSessionService_SetClient_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -210,7 +210,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_SetPlaybackState_ParamsSpec,
       null,
       [state]);
   }
@@ -219,7 +219,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.MediaSessionService_SetPositionState_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_SetPositionState_ParamsSpec,
       null,
       [position]);
   }
@@ -228,7 +228,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.MediaSessionService_SetMetadata_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_SetMetadata_ParamsSpec,
       null,
       [metadata]);
   }
@@ -237,7 +237,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec,
       null,
       [microphone_state]);
   }
@@ -246,7 +246,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.MediaSessionService_SetCameraState_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_SetCameraState_ParamsSpec,
       null,
       [camera_state]);
   }
@@ -255,7 +255,7 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.MediaSessionService_EnableAction_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_EnableAction_ParamsSpec,
       null,
       [action]);
   }
@@ -264,15 +264,15 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.MediaSessionService_DisableAction_ParamsSpec,
+      blink.mojom.mojom.MediaSessionService_DisableAction_ParamsSpec,
       null,
       [action]);
   }
 
 };
 
-blink.mojom.MediaSessionService.getRemote = function() {
-  let remote = new blink.mojom.MediaSessionServiceRemote();
+blink.mojom.mojom.MediaSessionService.getRemote = function() {
+  let remote = new blink.mojom.mojom.MediaSessionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -282,7 +282,7 @@ blink.mojom.MediaSessionService.getRemote = function() {
 };
 
 // ParamsSpec for SetClient
-blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.SetClient_Params',
@@ -296,7 +296,7 @@ blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
 };
 
 // ParamsSpec for SetPlaybackState
-blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.SetPlaybackState_Params',
@@ -310,7 +310,7 @@ blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
 };
 
 // ParamsSpec for SetPositionState
-blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.SetPositionState_Params',
@@ -324,7 +324,7 @@ blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
 };
 
 // ParamsSpec for SetMetadata
-blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.SetMetadata_Params',
@@ -338,7 +338,7 @@ blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
 };
 
 // ParamsSpec for SetMicrophoneState
-blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.SetMicrophoneState_Params',
@@ -352,7 +352,7 @@ blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
 };
 
 // ParamsSpec for SetCameraState
-blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.SetCameraState_Params',
@@ -366,7 +366,7 @@ blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
 };
 
 // ParamsSpec for EnableAction
-blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_EnableAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.EnableAction_Params',
@@ -380,7 +380,7 @@ blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
 };
 
 // ParamsSpec for DisableAction
-blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
+blink.mojom.mojom.MediaSessionService_DisableAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaSessionService.DisableAction_Params',
@@ -394,6 +394,6 @@ blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.MediaSessionServicePtr = blink.mojom.MediaSessionServiceRemote;
-blink.mojom.MediaSessionServiceRequest = blink.mojom.MediaSessionServicePendingReceiver;
+blink.mojom.mojom.MediaSessionServicePtr = blink.mojom.mojom.MediaSessionServiceRemote;
+blink.mojom.mojom.MediaSessionServiceRequest = blink.mojom.mojom.MediaSessionServicePendingReceiver;
 

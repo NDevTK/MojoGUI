@@ -7,38 +7,42 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var blink = blink || {};
 
 
 // Enum: AnchorElementUserInteractionEventForMLModelType
-blink.mojom.AnchorElementUserInteractionEventForMLModelType = {
+blink.mojom.mojom.AnchorElementUserInteractionEventForMLModelType = {
   kPointerOver: 0,
   kPointerOut: 1,
   kEnteredViewport: 2,
   kLeftViewport: 3,
   kUnknown: 4,
 };
-blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AnchorElementMetrics
-blink.mojom.AnchorElementMetricsSpec = {
+blink.mojom.mojom.AnchorElementMetricsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetrics',
       packedSize: 56,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'ratio_area', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'ratio_distance_top_to_visible_top', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'ratio_distance_root_top', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'is_in_iframe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'contains_image', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_same_host', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_url_incremented_by_one', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_text_sibling', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'font_size_px', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'font_weight', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'target_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'viewport_size', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'ratio_area', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'ratio_distance_top_to_visible_top', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'ratio_distance_root_top', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'is_in_iframe', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'contains_image', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_same_host', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_url_incremented_by_one', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_text_sibling', packedOffset: 40, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'font_size_px', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'font_weight', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'target_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'viewport_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -46,15 +50,15 @@ blink.mojom.AnchorElementMetricsSpec = {
 };
 
 // Struct: AnchorElementClick
-blink.mojom.AnchorElementClickSpec = {
+blink.mojom.mojom.AnchorElementClickSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementClick',
       packedSize: 32,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'target_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_start_to_click', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'target_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'navigation_start_to_click', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -62,14 +66,14 @@ blink.mojom.AnchorElementClickSpec = {
 };
 
 // Struct: AnchorElementPointerDataOnHoverTimerFired
-blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = {
+blink.mojom.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerDataOnHoverTimerFired',
       packedSize: 24,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pointer_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AnchorElementPointerDataSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -77,14 +81,14 @@ blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = {
 };
 
 // Struct: AnchorElementEnteredViewport
-blink.mojom.AnchorElementEnteredViewportSpec = {
+blink.mojom.mojom.AnchorElementEnteredViewportSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementEnteredViewport',
       packedSize: 24,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'navigation_start_to_entered_viewport', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'navigation_start_to_entered_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -92,14 +96,14 @@ blink.mojom.AnchorElementEnteredViewportSpec = {
 };
 
 // Struct: AnchorElementLeftViewport
-blink.mojom.AnchorElementLeftViewportSpec = {
+blink.mojom.mojom.AnchorElementLeftViewportSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementLeftViewport',
       packedSize: 24,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'time_in_viewport', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'time_in_viewport', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -107,14 +111,14 @@ blink.mojom.AnchorElementLeftViewportSpec = {
 };
 
 // Struct: AnchorElementPointerOver
-blink.mojom.AnchorElementPointerOverSpec = {
+blink.mojom.mojom.AnchorElementPointerOverSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerOver',
       packedSize: 24,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'navigation_start_to_pointer_over', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'navigation_start_to_pointer_over', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -122,14 +126,14 @@ blink.mojom.AnchorElementPointerOverSpec = {
 };
 
 // Struct: AnchorElementPointerOut
-blink.mojom.AnchorElementPointerOutSpec = {
+blink.mojom.mojom.AnchorElementPointerOutSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerOut',
       packedSize: 24,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'hover_dwell_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'hover_dwell_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -137,15 +141,15 @@ blink.mojom.AnchorElementPointerOutSpec = {
 };
 
 // Struct: AnchorElementPointerEventForMLModel
-blink.mojom.AnchorElementPointerEventForMLModelSpec = {
+blink.mojom.mojom.AnchorElementPointerEventForMLModelSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerEventForMLModel',
       packedSize: 24,
       fields: [
         { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'is_mouse', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_interaction_event_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_mouse', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'user_interaction_event_type', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -153,14 +157,14 @@ blink.mojom.AnchorElementPointerEventForMLModelSpec = {
 };
 
 // Struct: AnchorElementPointerDown
-blink.mojom.AnchorElementPointerDownSpec = {
+blink.mojom.mojom.AnchorElementPointerDownSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPointerDown',
       packedSize: 24,
       fields: [
-        { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'navigation_start_to_pointer_down', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'navigation_start_to_pointer_down', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -168,7 +172,7 @@ blink.mojom.AnchorElementPointerDownSpec = {
 };
 
 // Struct: AnchorElementPositionUpdate
-blink.mojom.AnchorElementPositionUpdateSpec = {
+blink.mojom.mojom.AnchorElementPositionUpdateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementPositionUpdate',
@@ -176,8 +180,8 @@ blink.mojom.AnchorElementPositionUpdateSpec = {
       fields: [
         { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'vertical_position_ratio', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'distance_from_pointer_down_ratio_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'distance_from_pointer_down_ratio_$value', originalFieldName: 'distance_from_pointer_down_ratio' } },
-        { name: 'distance_from_pointer_down_ratio_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'distance_from_pointer_down_ratio_$flag', originalFieldName: 'distance_from_pointer_down_ratio' } },
+        { name: 'distance_from_pointer_down_ratio_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'distance_from_pointer_down_ratio_$value', originalFieldName: 'distance_from_pointer_down_ratio' } },
+        { name: 'distance_from_pointer_down_ratio_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'distance_from_pointer_down_ratio_$flag', originalFieldName: 'distance_from_pointer_down_ratio' } },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -185,24 +189,24 @@ blink.mojom.AnchorElementPositionUpdateSpec = {
 };
 
 // Interface: AnchorElementMetricsHost
-blink.mojom.AnchorElementMetricsHost = {};
+blink.mojom.mojom.AnchorElementMetricsHost = {};
 
-blink.mojom.AnchorElementMetricsHostPendingReceiver = class {
+blink.mojom.mojom.AnchorElementMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AnchorElementMetricsHostRemote = class {
+blink.mojom.mojom.AnchorElementMetricsHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AnchorElementMetricsHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AnchorElementMetricsHostPendingReceiver,
+      blink.mojom.mojom.AnchorElementMetricsHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AnchorElementMetricsHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AnchorElementMetricsHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -214,7 +218,7 @@ blink.mojom.AnchorElementMetricsHostRemote = class {
   }
 };
 
-blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
+blink.mojom.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -223,7 +227,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec,
       null,
       [clicked]);
   }
@@ -232,7 +236,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec,
       null,
       [metrics, removed_elements]);
   }
@@ -241,7 +245,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec,
       null,
       [elements]);
   }
@@ -250,7 +254,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec,
       null,
       [elements]);
   }
@@ -259,7 +263,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec,
       null,
       [elements]);
   }
@@ -268,7 +272,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec,
       null,
       [pointer_over_event]);
   }
@@ -277,7 +281,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec,
       null,
       [hover_event]);
   }
@@ -286,7 +290,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec,
       null,
       [pointer_down_event]);
   }
@@ -295,7 +299,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec,
       null,
       [pointer_data]);
   }
@@ -304,7 +308,7 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec,
       null,
       [pointer_event]);
   }
@@ -313,15 +317,15 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec,
-      blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec,
+      blink.mojom.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.AnchorElementMetricsHost.getRemote = function() {
-  let remote = new blink.mojom.AnchorElementMetricsHostRemote();
+blink.mojom.mojom.AnchorElementMetricsHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.AnchorElementMetricsHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -331,7 +335,7 @@ blink.mojom.AnchorElementMetricsHost.getRemote = function() {
 };
 
 // ParamsSpec for ReportAnchorElementClick
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementClick_Params',
@@ -345,7 +349,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec = {
 };
 
 // ParamsSpec for ReportNewAnchorElements
-blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportNewAnchorElements_Params',
@@ -360,7 +364,7 @@ blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec = {
 };
 
 // ParamsSpec for ReportAnchorElementsEnteredViewport
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementsEnteredViewport_Params',
@@ -374,7 +378,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsS
 };
 
 // ParamsSpec for ReportAnchorElementsLeftViewport
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementsLeftViewport_Params',
@@ -388,7 +392,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec
 };
 
 // ParamsSpec for ReportAnchorElementsPositionUpdate
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementsPositionUpdate_Params',
@@ -402,7 +406,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSp
 };
 
 // ParamsSpec for ReportAnchorElementPointerOver
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerOver_Params',
@@ -416,7 +420,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec =
 };
 
 // ParamsSpec for ReportAnchorElementPointerOut
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerOut_Params',
@@ -430,7 +434,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec = 
 };
 
 // ParamsSpec for ReportAnchorElementPointerDown
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerDown_Params',
@@ -444,7 +448,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec =
 };
 
 // ParamsSpec for ReportAnchorElementPointerDataOnHoverTimerFired
-blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ReportAnchorElementPointerDataOnHoverTimerFired_Params',
@@ -458,7 +462,7 @@ blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerF
 };
 
 // ParamsSpec for ProcessPointerEventUsingMLModel
-blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ProcessPointerEventUsingMLModel_Params',
@@ -472,7 +476,7 @@ blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec 
 };
 
 // ParamsSpec for ShouldSkipUpdateDelays
-blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ShouldSkipUpdateDelays_Params',
@@ -484,7 +488,7 @@ blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec = {
   }
 };
 
-blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec = {
+blink.mojom.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AnchorElementMetricsHost.ShouldSkipUpdateDelays_ResponseParams',
@@ -498,6 +502,6 @@ blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-blink.mojom.AnchorElementMetricsHostPtr = blink.mojom.AnchorElementMetricsHostRemote;
-blink.mojom.AnchorElementMetricsHostRequest = blink.mojom.AnchorElementMetricsHostPendingReceiver;
+blink.mojom.mojom.AnchorElementMetricsHostPtr = blink.mojom.mojom.AnchorElementMetricsHostRemote;
+blink.mojom.mojom.AnchorElementMetricsHostRequest = blink.mojom.mojom.AnchorElementMetricsHostPendingReceiver;
 

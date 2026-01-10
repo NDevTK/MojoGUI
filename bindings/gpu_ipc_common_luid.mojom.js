@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: Luid
-gpu.mojom.LuidSpec = {
+gpu.mojom.mojom.LuidSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.Luid',

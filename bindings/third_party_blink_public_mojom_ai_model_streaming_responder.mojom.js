@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Enum: ModelStreamingResponseStatus
-blink.mojom.ModelStreamingResponseStatus = {
+blink.mojom.mojom.ModelStreamingResponseStatus = {
   kOngoing: 0,
   kComplete: 1,
   kErrorUnknown: 2,
@@ -28,10 +29,10 @@ blink.mojom.ModelStreamingResponseStatus = {
   kErrorInputTooLarge: 14,
   kErrorResponseLowQuality: 15,
 };
-blink.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ModelExecutionContextInfo
-blink.mojom.ModelExecutionContextInfoSpec = {
+blink.mojom.mojom.ModelExecutionContextInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ModelExecutionContextInfo',
@@ -45,24 +46,24 @@ blink.mojom.ModelExecutionContextInfoSpec = {
 };
 
 // Interface: ModelStreamingResponder
-blink.mojom.ModelStreamingResponder = {};
+blink.mojom.mojom.ModelStreamingResponder = {};
 
-blink.mojom.ModelStreamingResponderPendingReceiver = class {
+blink.mojom.mojom.ModelStreamingResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ModelStreamingResponderRemote = class {
+blink.mojom.mojom.ModelStreamingResponderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ModelStreamingResponder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ModelStreamingResponderPendingReceiver,
+      blink.mojom.mojom.ModelStreamingResponderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ModelStreamingResponderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ModelStreamingResponderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +75,7 @@ blink.mojom.ModelStreamingResponderRemote = class {
   }
 };
 
-blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
+blink.mojom.mojom.ModelStreamingResponderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,7 +84,7 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec,
+      blink.mojom.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec,
       null,
       [context_info]);
   }
@@ -92,7 +93,7 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ModelStreamingResponder_OnError_ParamsSpec,
+      blink.mojom.mojom.ModelStreamingResponder_OnError_ParamsSpec,
       null,
       [status, quota_error_info]);
   }
@@ -101,7 +102,7 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec,
+      blink.mojom.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec,
       null,
       [text]);
   }
@@ -110,15 +111,15 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec,
+      blink.mojom.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.ModelStreamingResponder.getRemote = function() {
-  let remote = new blink.mojom.ModelStreamingResponderRemote();
+blink.mojom.mojom.ModelStreamingResponder.getRemote = function() {
+  let remote = new blink.mojom.mojom.ModelStreamingResponderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -128,7 +129,7 @@ blink.mojom.ModelStreamingResponder.getRemote = function() {
 };
 
 // ParamsSpec for OnCompletion
-blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
+blink.mojom.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ModelStreamingResponder.OnCompletion_Params',
@@ -142,14 +143,14 @@ blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
+blink.mojom.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ModelStreamingResponder.OnError_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelStreamingResponseStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'quota_error_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ModelStreamingResponseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'quota_error_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaErrorInfoSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -157,7 +158,7 @@ blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = {
 };
 
 // ParamsSpec for OnStreaming
-blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
+blink.mojom.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ModelStreamingResponder.OnStreaming_Params',
@@ -171,7 +172,7 @@ blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = {
 };
 
 // ParamsSpec for OnQuotaOverflow
-blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = {
+blink.mojom.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ModelStreamingResponder.OnQuotaOverflow_Params',
@@ -184,6 +185,6 @@ blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ModelStreamingResponderPtr = blink.mojom.ModelStreamingResponderRemote;
-blink.mojom.ModelStreamingResponderRequest = blink.mojom.ModelStreamingResponderPendingReceiver;
+blink.mojom.mojom.ModelStreamingResponderPtr = blink.mojom.mojom.ModelStreamingResponderRemote;
+blink.mojom.mojom.ModelStreamingResponderRequest = blink.mojom.mojom.ModelStreamingResponderPendingReceiver;
 

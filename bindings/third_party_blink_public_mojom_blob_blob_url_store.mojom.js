@@ -7,27 +7,29 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Interface: BlobURLStore
-blink.mojom.BlobURLStore = {};
+blink.mojom.mojom.BlobURLStore = {};
 
-blink.mojom.BlobURLStorePendingReceiver = class {
+blink.mojom.mojom.BlobURLStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BlobURLStoreRemote = class {
+blink.mojom.mojom.BlobURLStoreRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BlobURLStore';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BlobURLStorePendingReceiver,
+      blink.mojom.mojom.BlobURLStorePendingReceiver,
       handle);
-    this.$ = new blink.mojom.BlobURLStoreRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BlobURLStoreRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ blink.mojom.BlobURLStoreRemote = class {
   }
 };
 
-blink.mojom.BlobURLStoreRemoteCallHandler = class {
+blink.mojom.mojom.BlobURLStoreRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BlobURLStore_Register_ParamsSpec,
+      blink.mojom.mojom.BlobURLStore_Register_ParamsSpec,
       null,
       [blob, url]);
   }
@@ -57,7 +59,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BlobURLStore_Revoke_ParamsSpec,
+      blink.mojom.mojom.BlobURLStore_Revoke_ParamsSpec,
       null,
       [url]);
   }
@@ -66,7 +68,7 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec,
+      blink.mojom.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec,
       null,
       [url, factory]);
   }
@@ -75,15 +77,15 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec,
+      blink.mojom.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec,
       null,
       [url, token, is_top_level_navigation]);
   }
 
 };
 
-blink.mojom.BlobURLStore.getRemote = function() {
-  let remote = new blink.mojom.BlobURLStoreRemote();
+blink.mojom.mojom.BlobURLStore.getRemote = function() {
+  let remote = new blink.mojom.mojom.BlobURLStoreRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,14 +95,14 @@ blink.mojom.BlobURLStore.getRemote = function() {
 };
 
 // ParamsSpec for Register
-blink.mojom.BlobURLStore_Register_ParamsSpec = {
+blink.mojom.mojom.BlobURLStore_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobURLStore.Register_Params',
       packedSize: 24,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -108,7 +110,7 @@ blink.mojom.BlobURLStore_Register_ParamsSpec = {
 };
 
 // ParamsSpec for Revoke
-blink.mojom.BlobURLStore_Revoke_ParamsSpec = {
+blink.mojom.mojom.BlobURLStore_Revoke_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobURLStore.Revoke_Params',
@@ -122,7 +124,7 @@ blink.mojom.BlobURLStore_Revoke_ParamsSpec = {
 };
 
 // ParamsSpec for ResolveAsURLLoaderFactory
-blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
+blink.mojom.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobURLStore.ResolveAsURLLoaderFactory_Params',
@@ -137,7 +139,7 @@ blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = {
 };
 
 // ParamsSpec for ResolveAsBlobURLToken
-blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
+blink.mojom.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobURLStore.ResolveAsBlobURLToken_Params',
@@ -153,29 +155,29 @@ blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.BlobURLStorePtr = blink.mojom.BlobURLStoreRemote;
-blink.mojom.BlobURLStoreRequest = blink.mojom.BlobURLStorePendingReceiver;
+blink.mojom.mojom.BlobURLStorePtr = blink.mojom.mojom.BlobURLStoreRemote;
+blink.mojom.mojom.BlobURLStoreRequest = blink.mojom.mojom.BlobURLStorePendingReceiver;
 
 
 // Interface: BlobURLToken
-blink.mojom.BlobURLToken = {};
+blink.mojom.mojom.BlobURLToken = {};
 
-blink.mojom.BlobURLTokenPendingReceiver = class {
+blink.mojom.mojom.BlobURLTokenPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BlobURLTokenRemote = class {
+blink.mojom.mojom.BlobURLTokenRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BlobURLToken';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BlobURLTokenPendingReceiver,
+      blink.mojom.mojom.BlobURLTokenPendingReceiver,
       handle);
-    this.$ = new blink.mojom.BlobURLTokenRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BlobURLTokenRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -187,7 +189,7 @@ blink.mojom.BlobURLTokenRemote = class {
   }
 };
 
-blink.mojom.BlobURLTokenRemoteCallHandler = class {
+blink.mojom.mojom.BlobURLTokenRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -196,7 +198,7 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BlobURLToken_Clone_ParamsSpec,
+      blink.mojom.mojom.BlobURLToken_Clone_ParamsSpec,
       null,
       [token]);
   }
@@ -205,15 +207,15 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BlobURLToken_GetToken_ParamsSpec,
-      blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
+      blink.mojom.mojom.BlobURLToken_GetToken_ParamsSpec,
+      blink.mojom.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.BlobURLToken.getRemote = function() {
-  let remote = new blink.mojom.BlobURLTokenRemote();
+blink.mojom.mojom.BlobURLToken.getRemote = function() {
+  let remote = new blink.mojom.mojom.BlobURLTokenRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -223,7 +225,7 @@ blink.mojom.BlobURLToken.getRemote = function() {
 };
 
 // ParamsSpec for Clone
-blink.mojom.BlobURLToken_Clone_ParamsSpec = {
+blink.mojom.mojom.BlobURLToken_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobURLToken.Clone_Params',
@@ -237,7 +239,7 @@ blink.mojom.BlobURLToken_Clone_ParamsSpec = {
 };
 
 // ParamsSpec for GetToken
-blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
+blink.mojom.mojom.BlobURLToken_GetToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobURLToken.GetToken_Params',
@@ -249,7 +251,7 @@ blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
   }
 };
 
-blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
+blink.mojom.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobURLToken.GetToken_ResponseParams',
@@ -263,6 +265,6 @@ blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.BlobURLTokenPtr = blink.mojom.BlobURLTokenRemote;
-blink.mojom.BlobURLTokenRequest = blink.mojom.BlobURLTokenPendingReceiver;
+blink.mojom.mojom.BlobURLTokenPtr = blink.mojom.mojom.BlobURLTokenRemote;
+blink.mojom.mojom.BlobURLTokenRequest = blink.mojom.mojom.BlobURLTokenPendingReceiver;
 

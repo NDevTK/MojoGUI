@@ -10,7 +10,7 @@ tabs.mojom = tabs.mojom || {};
 
 
 // Enum: TabAlertState
-tabs.mojom.TabAlertState = {
+tabs.mojom.mojom.TabAlertState = {
   kAudioMuting: 0,
   kAudioRecording: 1,
   kAudioPlaying: 2,
@@ -30,13 +30,13 @@ tabs.mojom.TabAlertState = {
   kVideoRecording: 16,
   kVrPresentingInHeadset: 17,
 };
-tabs.mojom.TabAlertStateSpec = { $: mojo.internal.Enum() };
+tabs.mojom.mojom.TabAlertStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabNetworkState
-tabs.mojom.TabNetworkState = {
+tabs.mojom.mojom.TabNetworkState = {
   kNone: 0,
   kWaiting: 1,
   kLoading: 2,
   kError: 3,
 };
-tabs.mojom.TabNetworkStateSpec = { $: mojo.internal.Enum() };
+tabs.mojom.mojom.TabNetworkStateSpec = { $: mojo.internal.Enum() };

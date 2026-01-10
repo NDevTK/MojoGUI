@@ -10,17 +10,17 @@ storage.mojom = storage.mojom || {};
 
 
 // Enum: FailClass
-storage.mojom.FailClass = {
+storage.mojom.mojom.FailClass = {
   NOTHING: 0,
   LEVELDB_ITERATOR: 1,
   LEVELDB_DIRECT_TRANSACTION: 2,
   LEVELDB_TRANSACTION: 3,
   LEVELDB_DATABASE: 4,
 };
-storage.mojom.FailClassSpec = { $: mojo.internal.Enum() };
+storage.mojom.mojom.FailClassSpec = { $: mojo.internal.Enum() };
 
 // Enum: FailMethod
-storage.mojom.FailMethod = {
+storage.mojom.mojom.FailMethod = {
   NOTHING: 0,
   COMMIT: 1,
   COMMIT_DISK_FULL: 2,
@@ -29,27 +29,27 @@ storage.mojom.FailMethod = {
   SEEK: 5,
   WRITE: 6,
 };
-storage.mojom.FailMethodSpec = { $: mojo.internal.Enum() };
+storage.mojom.mojom.FailMethodSpec = { $: mojo.internal.Enum() };
 
 // Interface: MockFailureInjector
-storage.mojom.MockFailureInjector = {};
+storage.mojom.mojom.MockFailureInjector = {};
 
-storage.mojom.MockFailureInjectorPendingReceiver = class {
+storage.mojom.mojom.MockFailureInjectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.MockFailureInjectorRemote = class {
+storage.mojom.mojom.MockFailureInjectorRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.MockFailureInjector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.MockFailureInjectorPendingReceiver,
+      storage.mojom.mojom.MockFailureInjectorPendingReceiver,
       handle);
-    this.$ = new storage.mojom.MockFailureInjectorRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.MockFailureInjectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +61,7 @@ storage.mojom.MockFailureInjectorRemote = class {
   }
 };
 
-storage.mojom.MockFailureInjectorRemoteCallHandler = class {
+storage.mojom.mojom.MockFailureInjectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,15 +70,15 @@ storage.mojom.MockFailureInjectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.MockFailureInjector_FailOperation_ParamsSpec,
+      storage.mojom.mojom.MockFailureInjector_FailOperation_ParamsSpec,
       null,
       [failure_class, failure_method, instance_num, call_num]);
   }
 
 };
 
-storage.mojom.MockFailureInjector.getRemote = function() {
-  let remote = new storage.mojom.MockFailureInjectorRemote();
+storage.mojom.mojom.MockFailureInjector.getRemote = function() {
+  let remote = new storage.mojom.mojom.MockFailureInjectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -88,7 +88,7 @@ storage.mojom.MockFailureInjector.getRemote = function() {
 };
 
 // ParamsSpec for FailOperation
-storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
+storage.mojom.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.MockFailureInjector.FailOperation_Params',
@@ -105,29 +105,29 @@ storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.MockFailureInjectorPtr = storage.mojom.MockFailureInjectorRemote;
-storage.mojom.MockFailureInjectorRequest = storage.mojom.MockFailureInjectorPendingReceiver;
+storage.mojom.mojom.MockFailureInjectorPtr = storage.mojom.mojom.MockFailureInjectorRemote;
+storage.mojom.mojom.MockFailureInjectorRequest = storage.mojom.mojom.MockFailureInjectorPendingReceiver;
 
 
 // Interface: IndexedDBControlTest
-storage.mojom.IndexedDBControlTest = {};
+storage.mojom.mojom.IndexedDBControlTest = {};
 
-storage.mojom.IndexedDBControlTestPendingReceiver = class {
+storage.mojom.mojom.IndexedDBControlTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.IndexedDBControlTestRemote = class {
+storage.mojom.mojom.IndexedDBControlTestRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.IndexedDBControlTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.IndexedDBControlTestPendingReceiver,
+      storage.mojom.mojom.IndexedDBControlTestPendingReceiver,
       handle);
-    this.$ = new storage.mojom.IndexedDBControlTestRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.IndexedDBControlTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -139,7 +139,7 @@ storage.mojom.IndexedDBControlTestRemote = class {
   }
 };
 
-storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
+storage.mojom.mojom.IndexedDBControlTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -148,8 +148,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec,
-      storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -157,8 +157,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec,
-      storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
       [bucket_locator, for_sqlite]);
   }
 
@@ -166,7 +166,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
       null,
       []);
   }
@@ -175,8 +175,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec,
-      storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
       [bucket_locator, database_id, blob_number]);
   }
 
@@ -184,7 +184,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
       null,
       [bucket_locator]);
   }
@@ -193,7 +193,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
       null,
       [bucket_locator]);
   }
@@ -202,8 +202,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec,
-      storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -211,7 +211,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec,
       null,
       [receiver]);
   }
@@ -220,15 +220,15 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
+      storage.mojom.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
       null,
       []);
   }
 
 };
 
-storage.mojom.IndexedDBControlTest.getRemote = function() {
-  let remote = new storage.mojom.IndexedDBControlTestRemote();
+storage.mojom.mojom.IndexedDBControlTest.getRemote = function() {
+  let remote = new storage.mojom.mojom.IndexedDBControlTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -238,7 +238,7 @@ storage.mojom.IndexedDBControlTest.getRemote = function() {
 };
 
 // ParamsSpec for GetBaseDataPathForTesting
-storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetBaseDataPathForTesting_Params',
@@ -250,7 +250,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
   }
 };
 
-storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetBaseDataPathForTesting_ResponseParams',
@@ -264,7 +264,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec 
 };
 
 // ParamsSpec for GetFilePathForTesting
-storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_Params',
@@ -278,7 +278,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
   }
 };
 
-storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_ResponseParams',
@@ -292,7 +292,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ResetCachesForTesting
-storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.ResetCachesForTesting_Params',
@@ -305,7 +305,7 @@ storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
 };
 
 // ParamsSpec for GetPathForBlobForTesting
-storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_Params',
@@ -320,7 +320,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
   }
 };
 
-storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_ResponseParams',
@@ -334,7 +334,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec =
 };
 
 // ParamsSpec for FlushBackingStoreForTesting
-storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.FlushBackingStoreForTesting_Params',
@@ -348,7 +348,7 @@ storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
 };
 
 // ParamsSpec for FlushBucketSequenceForTesting
-storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.FlushBucketSequenceForTesting_Params',
@@ -362,7 +362,7 @@ storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
 };
 
 // ParamsSpec for GetUsageForTesting
-storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetUsageForTesting_Params',
@@ -374,7 +374,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
   }
 };
 
-storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.GetUsageForTesting_ResponseParams',
@@ -388,7 +388,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BindMockFailureSingletonForTesting
-storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.BindMockFailureSingletonForTesting_Params',
@@ -402,7 +402,7 @@ storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec
 };
 
 // ParamsSpec for ForceInitializeFromFilesForTesting
-storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = {
+storage.mojom.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IndexedDBControlTest.ForceInitializeFromFilesForTesting_Params',
@@ -415,6 +415,6 @@ storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec
 };
 
 // Legacy compatibility
-storage.mojom.IndexedDBControlTestPtr = storage.mojom.IndexedDBControlTestRemote;
-storage.mojom.IndexedDBControlTestRequest = storage.mojom.IndexedDBControlTestPendingReceiver;
+storage.mojom.mojom.IndexedDBControlTestPtr = storage.mojom.mojom.IndexedDBControlTestRemote;
+storage.mojom.mojom.IndexedDBControlTestRequest = storage.mojom.mojom.IndexedDBControlTestPendingReceiver;
 

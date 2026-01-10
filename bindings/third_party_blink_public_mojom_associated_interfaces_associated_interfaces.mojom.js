@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AssociatedInterface
-blink.mojom.AssociatedInterface = {};
+blink.mojom.mojom.AssociatedInterface = {};
 
-blink.mojom.AssociatedInterfacePendingReceiver = class {
+blink.mojom.mojom.AssociatedInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AssociatedInterfaceRemote = class {
+blink.mojom.mojom.AssociatedInterfaceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AssociatedInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AssociatedInterfacePendingReceiver,
+      blink.mojom.mojom.AssociatedInterfacePendingReceiver,
       handle);
-    this.$ = new blink.mojom.AssociatedInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AssociatedInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ blink.mojom.AssociatedInterfaceRemote = class {
   }
 };
 
-blink.mojom.AssociatedInterfaceRemoteCallHandler = class {
+blink.mojom.mojom.AssociatedInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-blink.mojom.AssociatedInterface.getRemote = function() {
-  let remote = new blink.mojom.AssociatedInterfaceRemote();
+blink.mojom.mojom.AssociatedInterface.getRemote = function() {
+  let remote = new blink.mojom.mojom.AssociatedInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,29 +57,29 @@ blink.mojom.AssociatedInterface.getRemote = function() {
 };
 
 // Legacy compatibility
-blink.mojom.AssociatedInterfacePtr = blink.mojom.AssociatedInterfaceRemote;
-blink.mojom.AssociatedInterfaceRequest = blink.mojom.AssociatedInterfacePendingReceiver;
+blink.mojom.mojom.AssociatedInterfacePtr = blink.mojom.mojom.AssociatedInterfaceRemote;
+blink.mojom.mojom.AssociatedInterfaceRequest = blink.mojom.mojom.AssociatedInterfacePendingReceiver;
 
 
 // Interface: AssociatedInterfaceProvider
-blink.mojom.AssociatedInterfaceProvider = {};
+blink.mojom.mojom.AssociatedInterfaceProvider = {};
 
-blink.mojom.AssociatedInterfaceProviderPendingReceiver = class {
+blink.mojom.mojom.AssociatedInterfaceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AssociatedInterfaceProviderRemote = class {
+blink.mojom.mojom.AssociatedInterfaceProviderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AssociatedInterfaceProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AssociatedInterfaceProviderPendingReceiver,
+      blink.mojom.mojom.AssociatedInterfaceProviderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AssociatedInterfaceProviderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AssociatedInterfaceProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -91,7 +91,7 @@ blink.mojom.AssociatedInterfaceProviderRemote = class {
   }
 };
 
-blink.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {
+blink.mojom.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -100,15 +100,15 @@ blink.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec,
+      blink.mojom.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec,
       null,
       [name, receiver]);
   }
 
 };
 
-blink.mojom.AssociatedInterfaceProvider.getRemote = function() {
-  let remote = new blink.mojom.AssociatedInterfaceProviderRemote();
+blink.mojom.mojom.AssociatedInterfaceProvider.getRemote = function() {
+  let remote = new blink.mojom.mojom.AssociatedInterfaceProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -118,7 +118,7 @@ blink.mojom.AssociatedInterfaceProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetAssociatedInterface
-blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
+blink.mojom.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AssociatedInterfaceProvider.GetAssociatedInterface_Params',
@@ -133,6 +133,6 @@ blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.AssociatedInterfaceProviderPtr = blink.mojom.AssociatedInterfaceProviderRemote;
-blink.mojom.AssociatedInterfaceProviderRequest = blink.mojom.AssociatedInterfaceProviderPendingReceiver;
+blink.mojom.mojom.AssociatedInterfaceProviderPtr = blink.mojom.mojom.AssociatedInterfaceProviderRemote;
+blink.mojom.mojom.AssociatedInterfaceProviderRequest = blink.mojom.mojom.AssociatedInterfaceProviderPendingReceiver;
 

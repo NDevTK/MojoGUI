@@ -10,24 +10,24 @@ service_manager.mojom = service_manager.mojom || {};
 
 
 // Interface: ServiceControl
-service_manager.mojom.ServiceControl = {};
+service_manager.mojom.mojom.ServiceControl = {};
 
-service_manager.mojom.ServiceControlPendingReceiver = class {
+service_manager.mojom.mojom.ServiceControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-service_manager.mojom.ServiceControlRemote = class {
+service_manager.mojom.mojom.ServiceControlRemote = class {
   static get $interfaceName() {
     return 'service_manager.mojom.ServiceControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      service_manager.mojom.ServiceControlPendingReceiver,
+      service_manager.mojom.mojom.ServiceControlPendingReceiver,
       handle);
-    this.$ = new service_manager.mojom.ServiceControlRemoteCallHandler(this.proxy);
+    this.$ = new service_manager.mojom.mojom.ServiceControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ service_manager.mojom.ServiceControlRemote = class {
   }
 };
 
-service_manager.mojom.ServiceControlRemoteCallHandler = class {
+service_manager.mojom.mojom.ServiceControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ service_manager.mojom.ServiceControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec,
+      service_manager.mojom.mojom.ServiceControl_RequestQuit_ParamsSpec,
       null,
       []);
   }
 
 };
 
-service_manager.mojom.ServiceControl.getRemote = function() {
-  let remote = new service_manager.mojom.ServiceControlRemote();
+service_manager.mojom.mojom.ServiceControl.getRemote = function() {
+  let remote = new service_manager.mojom.mojom.ServiceControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ service_manager.mojom.ServiceControl.getRemote = function() {
 };
 
 // ParamsSpec for RequestQuit
-service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = {
+service_manager.mojom.mojom.ServiceControl_RequestQuit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.ServiceControl.RequestQuit_Params',
@@ -79,6 +79,6 @@ service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = {
 };
 
 // Legacy compatibility
-service_manager.mojom.ServiceControlPtr = service_manager.mojom.ServiceControlRemote;
-service_manager.mojom.ServiceControlRequest = service_manager.mojom.ServiceControlPendingReceiver;
+service_manager.mojom.mojom.ServiceControlPtr = service_manager.mojom.mojom.ServiceControlRemote;
+service_manager.mojom.mojom.ServiceControlRequest = service_manager.mojom.mojom.ServiceControlPendingReceiver;
 

@@ -10,9 +10,9 @@ device.mojom = device.mojom || {};
 
 
 // Enum: XRDeviceId
-device.mojom.XRDeviceId = {
+device.mojom.mojom.XRDeviceId = {
   WEB_TEST_DEVICE_ID: 0,
   FAKE_DEVICE_ID: 1,
   ORIENTATION_DEVICE_ID: 2,
 };
-device.mojom.XRDeviceIdSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRDeviceIdSpec = { $: mojo.internal.Enum() };

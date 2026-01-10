@@ -10,33 +10,33 @@ echo.mojom = echo.mojom || {};
 
 
 // Enum: LoadStatus
-echo.mojom.LoadStatus = {
+echo.mojom.mojom.LoadStatus = {
   kSuccess: 0,
   kFailedLoadLibrary: 1,
   kFailedGetProcAddress: 2,
   kFailedCallingDelayLoad: 3,
 };
-echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum() };
+echo.mojom.mojom.LoadStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: EchoService
-echo.mojom.EchoService = {};
+echo.mojom.mojom.EchoService = {};
 
-echo.mojom.EchoServicePendingReceiver = class {
+echo.mojom.mojom.EchoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-echo.mojom.EchoServiceRemote = class {
+echo.mojom.mojom.EchoServiceRemote = class {
   static get $interfaceName() {
     return 'echo.mojom.EchoService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      echo.mojom.EchoServicePendingReceiver,
+      echo.mojom.mojom.EchoServicePendingReceiver,
       handle);
-    this.$ = new echo.mojom.EchoServiceRemoteCallHandler(this.proxy);
+    this.$ = new echo.mojom.mojom.EchoServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +48,7 @@ echo.mojom.EchoServiceRemote = class {
   }
 };
 
-echo.mojom.EchoServiceRemoteCallHandler = class {
+echo.mojom.mojom.EchoServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,8 +57,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      echo.mojom.EchoService_EchoString_ParamsSpec,
-      echo.mojom.EchoService_EchoString_ResponseParamsSpec,
+      echo.mojom.mojom.EchoService_EchoString_ParamsSpec,
+      echo.mojom.mojom.EchoService_EchoString_ResponseParamsSpec,
       [input]);
   }
 
@@ -66,7 +66,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec,
+      echo.mojom.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec,
       null,
       [input, region]);
   }
@@ -75,7 +75,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      echo.mojom.EchoService_Quit_ParamsSpec,
+      echo.mojom.mojom.EchoService_Quit_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +84,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      echo.mojom.EchoService_Crash_ParamsSpec,
+      echo.mojom.mojom.EchoService_Crash_ParamsSpec,
       null,
       []);
   }
@@ -93,7 +93,7 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      echo.mojom.EchoService_DelayLoad_ParamsSpec,
+      echo.mojom.mojom.EchoService_DelayLoad_ParamsSpec,
       null,
       []);
   }
@@ -102,8 +102,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec,
-      echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec,
+      echo.mojom.mojom.EchoService_LoadNativeLibrary_ParamsSpec,
+      echo.mojom.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec,
       [library, call_winmm_delayload]);
   }
 
@@ -111,15 +111,15 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      echo.mojom.EchoService_DecryptEncrypt_ParamsSpec,
-      echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec,
+      echo.mojom.mojom.EchoService_DecryptEncrypt_ParamsSpec,
+      echo.mojom.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec,
       [encryptor, input]);
   }
 
 };
 
-echo.mojom.EchoService.getRemote = function() {
-  let remote = new echo.mojom.EchoServiceRemote();
+echo.mojom.mojom.EchoService.getRemote = function() {
+  let remote = new echo.mojom.mojom.EchoServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -129,7 +129,7 @@ echo.mojom.EchoService.getRemote = function() {
 };
 
 // ParamsSpec for EchoString
-echo.mojom.EchoService_EchoString_ParamsSpec = {
+echo.mojom.mojom.EchoService_EchoString_ParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.EchoString_Params',
@@ -142,7 +142,7 @@ echo.mojom.EchoService_EchoString_ParamsSpec = {
   }
 };
 
-echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
+echo.mojom.mojom.EchoService_EchoString_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.EchoString_ResponseParams',
@@ -156,7 +156,7 @@ echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringToSharedMemory
-echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
+echo.mojom.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.EchoStringToSharedMemory_Params',
@@ -171,7 +171,7 @@ echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = {
 };
 
 // ParamsSpec for Quit
-echo.mojom.EchoService_Quit_ParamsSpec = {
+echo.mojom.mojom.EchoService_Quit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.Quit_Params',
@@ -184,7 +184,7 @@ echo.mojom.EchoService_Quit_ParamsSpec = {
 };
 
 // ParamsSpec for Crash
-echo.mojom.EchoService_Crash_ParamsSpec = {
+echo.mojom.mojom.EchoService_Crash_ParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.Crash_Params',
@@ -197,7 +197,7 @@ echo.mojom.EchoService_Crash_ParamsSpec = {
 };
 
 // ParamsSpec for DelayLoad
-echo.mojom.EchoService_DelayLoad_ParamsSpec = {
+echo.mojom.mojom.EchoService_DelayLoad_ParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.DelayLoad_Params',
@@ -210,7 +210,7 @@ echo.mojom.EchoService_DelayLoad_ParamsSpec = {
 };
 
 // ParamsSpec for LoadNativeLibrary
-echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
+echo.mojom.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.LoadNativeLibrary_Params',
@@ -224,7 +224,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
   }
 };
 
-echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
+echo.mojom.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.LoadNativeLibrary_ResponseParams',
@@ -239,7 +239,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DecryptEncrypt
-echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
+echo.mojom.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.DecryptEncrypt_Params',
@@ -253,7 +253,7 @@ echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
   }
 };
 
-echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
+echo.mojom.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'echo.mojom.EchoService.DecryptEncrypt_ResponseParams',
@@ -267,6 +267,6 @@ echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-echo.mojom.EchoServicePtr = echo.mojom.EchoServiceRemote;
-echo.mojom.EchoServiceRequest = echo.mojom.EchoServicePendingReceiver;
+echo.mojom.mojom.EchoServicePtr = echo.mojom.mojom.EchoServiceRemote;
+echo.mojom.mojom.EchoServiceRequest = echo.mojom.mojom.EchoServicePendingReceiver;
 

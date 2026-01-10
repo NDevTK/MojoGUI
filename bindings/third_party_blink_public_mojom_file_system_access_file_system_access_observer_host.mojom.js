@@ -7,27 +7,30 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: FileSystemAccessObserverHost
-blink.mojom.FileSystemAccessObserverHost = {};
+blink.mojom.mojom.FileSystemAccessObserverHost = {};
 
-blink.mojom.FileSystemAccessObserverHostPendingReceiver = class {
+blink.mojom.mojom.FileSystemAccessObserverHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FileSystemAccessObserverHostRemote = class {
+blink.mojom.mojom.FileSystemAccessObserverHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessObserverHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FileSystemAccessObserverHostPendingReceiver,
+      blink.mojom.mojom.FileSystemAccessObserverHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FileSystemAccessObserverHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FileSystemAccessObserverHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +42,7 @@ blink.mojom.FileSystemAccessObserverHostRemote = class {
   }
 };
 
-blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
+blink.mojom.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +51,8 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec,
-      blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
       [token, is_recursive]);
   }
 
@@ -57,15 +60,15 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec,
       null,
       [token]);
   }
 
 };
 
-blink.mojom.FileSystemAccessObserverHost.getRemote = function() {
-  let remote = new blink.mojom.FileSystemAccessObserverHostRemote();
+blink.mojom.mojom.FileSystemAccessObserverHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.FileSystemAccessObserverHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +78,7 @@ blink.mojom.FileSystemAccessObserverHost.getRemote = function() {
 };
 
 // ParamsSpec for Observe
-blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessObserverHost.Observe_Params',
@@ -89,7 +92,7 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessObserverHost.Observe_ResponseParams',
@@ -104,7 +107,7 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Unobserve
-blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessObserverHost.Unobserve_Params',
@@ -118,6 +121,6 @@ blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.FileSystemAccessObserverHostPtr = blink.mojom.FileSystemAccessObserverHostRemote;
-blink.mojom.FileSystemAccessObserverHostRequest = blink.mojom.FileSystemAccessObserverHostPendingReceiver;
+blink.mojom.mojom.FileSystemAccessObserverHostPtr = blink.mojom.mojom.FileSystemAccessObserverHostRemote;
+blink.mojom.mojom.FileSystemAccessObserverHostRequest = blink.mojom.mojom.FileSystemAccessObserverHostPendingReceiver;
 

@@ -10,24 +10,24 @@ content.mojom = content.mojom || {};
 
 
 // Interface: FieldTrialRecorder
-content.mojom.FieldTrialRecorder = {};
+content.mojom.mojom.FieldTrialRecorder = {};
 
-content.mojom.FieldTrialRecorderPendingReceiver = class {
+content.mojom.mojom.FieldTrialRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.FieldTrialRecorderRemote = class {
+content.mojom.mojom.FieldTrialRecorderRemote = class {
   static get $interfaceName() {
     return 'content.mojom.FieldTrialRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.FieldTrialRecorderPendingReceiver,
+      content.mojom.mojom.FieldTrialRecorderPendingReceiver,
       handle);
-    this.$ = new content.mojom.FieldTrialRecorderRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.FieldTrialRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ content.mojom.FieldTrialRecorderRemote = class {
   }
 };
 
-content.mojom.FieldTrialRecorderRemoteCallHandler = class {
+content.mojom.mojom.FieldTrialRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ content.mojom.FieldTrialRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec,
+      content.mojom.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec,
       null,
       [trial_name]);
   }
 
 };
 
-content.mojom.FieldTrialRecorder.getRemote = function() {
-  let remote = new content.mojom.FieldTrialRecorderRemote();
+content.mojom.mojom.FieldTrialRecorder.getRemote = function() {
+  let remote = new content.mojom.mojom.FieldTrialRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ content.mojom.FieldTrialRecorder.getRemote = function() {
 };
 
 // ParamsSpec for FieldTrialActivated
-content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
+content.mojom.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.FieldTrialRecorder.FieldTrialActivated_Params',
@@ -80,6 +80,6 @@ content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.FieldTrialRecorderPtr = content.mojom.FieldTrialRecorderRemote;
-content.mojom.FieldTrialRecorderRequest = content.mojom.FieldTrialRecorderPendingReceiver;
+content.mojom.mojom.FieldTrialRecorderPtr = content.mojom.mojom.FieldTrialRecorderRemote;
+content.mojom.mojom.FieldTrialRecorderRequest = content.mojom.mojom.FieldTrialRecorderPendingReceiver;
 

@@ -7,35 +7,37 @@
 // Module namespace
 var side_panel = side_panel || {};
 side_panel.customize_chrome = side_panel.customize_chrome || {};
-side_panel.customize_chrome.mojom = side_panel.customize_chrome.mojom || {};
+side_panel.customize_chrome.customize_chrome.mojom = side_panel.customize_chrome.customize_chrome.mojom || {};
+var skia = skia || {};
+var url = url || {};
 
 
 // Enum: DescriptorDName
-side_panel.customize_chrome.mojom.DescriptorDName = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.DescriptorDName = {
   kYellow: 0,
 };
-side_panel.customize_chrome.mojom.DescriptorDNameSpec = { $: mojo.internal.Enum() };
+side_panel.customize_chrome.customize_chrome.mojom.mojom.DescriptorDNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: WallpaperSearchStatus
-side_panel.customize_chrome.mojom.WallpaperSearchStatus = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchStatus = {
   kOk: 0,
   kError: 1,
   kRequestThrottled: 2,
   kOffline: 3,
   kSignedOut: 4,
 };
-side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec = { $: mojo.internal.Enum() };
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserFeedback
-side_panel.customize_chrome.mojom.UserFeedback = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.UserFeedback = {
   kUnspecified: 0,
   kThumbsUp: 1,
   kThumbsDown: 2,
 };
-side_panel.customize_chrome.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+side_panel.customize_chrome.customize_chrome.mojom.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
 
 // Union: DescriptorDValue
-side_panel.customize_chrome.mojom.DescriptorDValueSpec = { $: mojo.internal.Union(
+side_panel.customize_chrome.customize_chrome.mojom.mojom.DescriptorDValueSpec = { $: mojo.internal.Union(
     'side_panel.customize_chrome.mojom.DescriptorDValue', {
       'color': {
         'ordinal': 0,
@@ -53,7 +55,7 @@ side_panel.customize_chrome.mojom.DescriptorDValueSpec = { $: mojo.internal.Unio
 };
 
 // Struct: KeyLabel
-side_panel.customize_chrome.mojom.KeyLabelSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.KeyLabelSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.KeyLabel',
@@ -68,7 +70,7 @@ side_panel.customize_chrome.mojom.KeyLabelSpec = {
 };
 
 // Struct: Group
-side_panel.customize_chrome.mojom.GroupSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.GroupSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Group',
@@ -83,7 +85,7 @@ side_panel.customize_chrome.mojom.GroupSpec = {
 };
 
 // Struct: DescriptorB
-side_panel.customize_chrome.mojom.DescriptorBSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.DescriptorBSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.DescriptorB',
@@ -99,7 +101,7 @@ side_panel.customize_chrome.mojom.DescriptorBSpec = {
 };
 
 // Struct: Descriptors
-side_panel.customize_chrome.mojom.DescriptorsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.DescriptorsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Descriptors',
@@ -115,7 +117,7 @@ side_panel.customize_chrome.mojom.DescriptorsSpec = {
 };
 
 // Struct: Inspiration
-side_panel.customize_chrome.mojom.InspirationSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.InspirationSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.Inspiration',
@@ -132,16 +134,16 @@ side_panel.customize_chrome.mojom.InspirationSpec = {
 };
 
 // Struct: InspirationDescriptors
-side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.InspirationDescriptorsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.InspirationDescriptors',
       packedSize: 48,
       fields: [
-        { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true, minVersion: 0 },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true, minVersion: 0 },
-        { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true, minVersion: 0 },
-        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorDValueSpec, nullable: true, minVersion: 0 },
+        { name: 'subject', packedOffset: 16, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true, minVersion: 0 },
+        { name: 'style', packedOffset: 24, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true, minVersion: 0 },
+        { name: 'mood', packedOffset: 32, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.KeyLabelSpec, nullable: true, minVersion: 0 },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorDValueSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -149,7 +151,7 @@ side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = {
 };
 
 // Struct: InspirationGroup
-side_panel.customize_chrome.mojom.InspirationGroupSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.InspirationGroupSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.InspirationGroup',
@@ -164,7 +166,7 @@ side_panel.customize_chrome.mojom.InspirationGroupSpec = {
 };
 
 // Struct: WallpaperSearchResult
-side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchResultSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchResult',
@@ -180,16 +182,16 @@ side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = {
 };
 
 // Struct: ResultDescriptors
-side_panel.customize_chrome.mojom.ResultDescriptorsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.ResultDescriptorsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.ResultDescriptors',
       packedSize: 48,
       fields: [
-        { name: 'subject', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'mood', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorDValueSpec, nullable: true, minVersion: 0 },
+        { name: 'subject', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'style', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'mood', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorDValueSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -197,24 +199,24 @@ side_panel.customize_chrome.mojom.ResultDescriptorsSpec = {
 };
 
 // Interface: WallpaperSearchHandlerFactory
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory = {};
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactory = {};
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -226,7 +228,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote = class {
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -235,15 +237,15 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
       null,
       [client, handler]);
   }
 
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = function() {
-  let remote = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote();
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactory.getRemote = function() {
+  let remote = new side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -253,7 +255,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = func
 };
 
 // ParamsSpec for CreateWallpaperSearchHandler
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.CreateWallpaperSearchHandler_Params',
@@ -268,29 +270,29 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperS
 };
 
 // Legacy compatibility
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote;
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRequest = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver;
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryPtr = side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryRemote;
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryRequest = side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerFactoryPendingReceiver;
 
 
 // Interface: WallpaperSearchHandler
-side_panel.customize_chrome.mojom.WallpaperSearchHandler = {};
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler = {};
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerRemote = class {
   static get $interfaceName() {
     return 'side_panel.customize_chrome.mojom.WallpaperSearchHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerPendingReceiver,
       handle);
-    this.$ = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -302,7 +304,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote = class {
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -311,8 +313,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
       []);
   }
 
@@ -320,8 +322,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
       []);
   }
 
@@ -329,8 +331,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
       [result_descriptors]);
   }
 
@@ -338,7 +340,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
       null,
       [result_ids, time]);
   }
@@ -347,7 +349,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
       null,
       [result_id, descriptors]);
   }
@@ -356,7 +358,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
       null,
       [id, background_url]);
   }
@@ -365,7 +367,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
       null,
       [result_id, time, descriptors]);
   }
@@ -374,7 +376,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
       null,
       []);
   }
@@ -383,7 +385,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
       null,
       [selected_option]);
   }
@@ -392,7 +394,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
       null,
       []);
   }
@@ -401,15 +403,15 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
       null,
       []);
   }
 
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() {
-  let remote = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote();
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler.getRemote = function() {
+  let remote = new side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -419,7 +421,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() 
 };
 
 // ParamsSpec for GetDescriptors
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetDescriptors_Params',
@@ -431,7 +433,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSp
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetDescriptors_ResponseParams',
@@ -445,7 +447,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_Response
 };
 
 // ParamsSpec for GetInspirations
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetInspirations_Params',
@@ -457,7 +459,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsS
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetInspirations_ResponseParams',
@@ -471,7 +473,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_Respons
 };
 
 // ParamsSpec for GetWallpaperSearchResults
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetWallpaperSearchResults_Params',
@@ -484,14 +486,14 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetWallpaperSearchResults_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(side_panel.customize_chrome.mojom.WallpaperSearchResultSpec, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.customize_chrome.mojom.WallpaperSearchResultSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -499,7 +501,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
 };
 
 // ParamsSpec for SetResultRenderTime
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetResultRenderTime_Params',
@@ -514,7 +516,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_Par
 };
 
 // ParamsSpec for SetBackgroundToHistoryImage
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetBackgroundToHistoryImage_Params',
@@ -529,7 +531,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryI
 };
 
 // ParamsSpec for SetBackgroundToInspirationImage
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetBackgroundToInspirationImage_Params',
@@ -544,7 +546,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirat
 };
 
 // ParamsSpec for SetBackgroundToWallpaperSearchResult
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetBackgroundToWallpaperSearchResult_Params',
@@ -560,7 +562,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpape
 };
 
 // ParamsSpec for UpdateHistory
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.UpdateHistory_Params',
@@ -573,7 +575,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpe
 };
 
 // ParamsSpec for SetUserFeedback
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.SetUserFeedback_Params',
@@ -587,7 +589,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsS
 };
 
 // ParamsSpec for OpenHelpArticle
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.OpenHelpArticle_Params',
@@ -600,7 +602,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsS
 };
 
 // ParamsSpec for LaunchHatsSurvey
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.LaunchHatsSurvey_Params',
@@ -613,29 +615,29 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_Params
 };
 
 // Legacy compatibility
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote;
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerRequest = side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver;
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerPtr = side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerRemote;
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerRequest = side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchHandlerPendingReceiver;
 
 
 // Interface: WallpaperSearchClient
-side_panel.customize_chrome.mojom.WallpaperSearchClient = {};
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClient = {};
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientRemote = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientRemote = class {
   static get $interfaceName() {
     return 'side_panel.customize_chrome.mojom.WallpaperSearchClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientPendingReceiver,
       handle);
-    this.$ = new side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler(this.proxy);
+    this.$ = new side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -647,7 +649,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemote = class {
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -656,15 +658,15 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
+      side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
       null,
       [history]);
   }
 
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
-  let remote = new side_panel.customize_chrome.mojom.WallpaperSearchClientRemote();
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClient.getRemote = function() {
+  let remote = new side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -674,7 +676,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
 };
 
 // ParamsSpec for SetHistory
-side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = {
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.WallpaperSearchClient.SetHistory_Params',
@@ -688,6 +690,6 @@ side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = 
 };
 
 // Legacy compatibility
-side_panel.customize_chrome.mojom.WallpaperSearchClientPtr = side_panel.customize_chrome.mojom.WallpaperSearchClientRemote;
-side_panel.customize_chrome.mojom.WallpaperSearchClientRequest = side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver;
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientPtr = side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientRemote;
+side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientRequest = side_panel.customize_chrome.customize_chrome.mojom.mojom.WallpaperSearchClientPendingReceiver;
 

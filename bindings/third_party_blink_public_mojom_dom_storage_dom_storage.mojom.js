@@ -7,27 +7,31 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: DomStorageProvider
-blink.mojom.DomStorageProvider = {};
+blink.mojom.mojom.DomStorageProvider = {};
 
-blink.mojom.DomStorageProviderPendingReceiver = class {
+blink.mojom.mojom.DomStorageProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DomStorageProviderRemote = class {
+blink.mojom.mojom.DomStorageProviderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DomStorageProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DomStorageProviderPendingReceiver,
+      blink.mojom.mojom.DomStorageProviderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.DomStorageProviderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.DomStorageProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +43,7 @@ blink.mojom.DomStorageProviderRemote = class {
   }
 };
 
-blink.mojom.DomStorageProviderRemoteCallHandler = class {
+blink.mojom.mojom.DomStorageProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +52,15 @@ blink.mojom.DomStorageProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec,
+      blink.mojom.mojom.DomStorageProvider_BindDomStorage_ParamsSpec,
       null,
       [receiver, client]);
   }
 
 };
 
-blink.mojom.DomStorageProvider.getRemote = function() {
-  let remote = new blink.mojom.DomStorageProviderRemote();
+blink.mojom.mojom.DomStorageProvider.getRemote = function() {
+  let remote = new blink.mojom.mojom.DomStorageProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +70,7 @@ blink.mojom.DomStorageProvider.getRemote = function() {
 };
 
 // ParamsSpec for BindDomStorage
-blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = {
+blink.mojom.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DomStorageProvider.BindDomStorage_Params',
@@ -81,29 +85,29 @@ blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.DomStorageProviderPtr = blink.mojom.DomStorageProviderRemote;
-blink.mojom.DomStorageProviderRequest = blink.mojom.DomStorageProviderPendingReceiver;
+blink.mojom.mojom.DomStorageProviderPtr = blink.mojom.mojom.DomStorageProviderRemote;
+blink.mojom.mojom.DomStorageProviderRequest = blink.mojom.mojom.DomStorageProviderPendingReceiver;
 
 
 // Interface: DomStorage
-blink.mojom.DomStorage = {};
+blink.mojom.mojom.DomStorage = {};
 
-blink.mojom.DomStoragePendingReceiver = class {
+blink.mojom.mojom.DomStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DomStorageRemote = class {
+blink.mojom.mojom.DomStorageRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DomStorage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DomStoragePendingReceiver,
+      blink.mojom.mojom.DomStoragePendingReceiver,
       handle);
-    this.$ = new blink.mojom.DomStorageRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.DomStorageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +119,7 @@ blink.mojom.DomStorageRemote = class {
   }
 };
 
-blink.mojom.DomStorageRemoteCallHandler = class {
+blink.mojom.mojom.DomStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,7 +128,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec,
+      blink.mojom.mojom.DomStorage_OpenLocalStorage_ParamsSpec,
       null,
       [storage_key, local_frame_token, area]);
   }
@@ -133,7 +137,7 @@ blink.mojom.DomStorageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec,
+      blink.mojom.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec,
       null,
       [namespace_id, receiver]);
   }
@@ -142,15 +146,15 @@ blink.mojom.DomStorageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec,
+      blink.mojom.mojom.DomStorage_BindSessionStorageArea_ParamsSpec,
       null,
       [storage_key, local_frame_token, namespace_id, session_namespace]);
   }
 
 };
 
-blink.mojom.DomStorage.getRemote = function() {
-  let remote = new blink.mojom.DomStorageRemote();
+blink.mojom.mojom.DomStorage.getRemote = function() {
+  let remote = new blink.mojom.mojom.DomStorageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -160,7 +164,7 @@ blink.mojom.DomStorage.getRemote = function() {
 };
 
 // ParamsSpec for OpenLocalStorage
-blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = {
+blink.mojom.mojom.DomStorage_OpenLocalStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DomStorage.OpenLocalStorage_Params',
@@ -176,7 +180,7 @@ blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = {
 };
 
 // ParamsSpec for BindSessionStorageNamespace
-blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = {
+blink.mojom.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DomStorage.BindSessionStorageNamespace_Params',
@@ -191,7 +195,7 @@ blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = {
 };
 
 // ParamsSpec for BindSessionStorageArea
-blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = {
+blink.mojom.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DomStorage.BindSessionStorageArea_Params',
@@ -208,29 +212,29 @@ blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.DomStoragePtr = blink.mojom.DomStorageRemote;
-blink.mojom.DomStorageRequest = blink.mojom.DomStoragePendingReceiver;
+blink.mojom.mojom.DomStoragePtr = blink.mojom.mojom.DomStorageRemote;
+blink.mojom.mojom.DomStorageRequest = blink.mojom.mojom.DomStoragePendingReceiver;
 
 
 // Interface: DomStorageClient
-blink.mojom.DomStorageClient = {};
+blink.mojom.mojom.DomStorageClient = {};
 
-blink.mojom.DomStorageClientPendingReceiver = class {
+blink.mojom.mojom.DomStorageClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DomStorageClientRemote = class {
+blink.mojom.mojom.DomStorageClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DomStorageClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DomStorageClientPendingReceiver,
+      blink.mojom.mojom.DomStorageClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.DomStorageClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.DomStorageClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -242,7 +246,7 @@ blink.mojom.DomStorageClientRemote = class {
   }
 };
 
-blink.mojom.DomStorageClientRemoteCallHandler = class {
+blink.mojom.mojom.DomStorageClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -251,7 +255,7 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec,
+      blink.mojom.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec,
       null,
       []);
   }
@@ -260,15 +264,15 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec,
+      blink.mojom.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.DomStorageClient.getRemote = function() {
-  let remote = new blink.mojom.DomStorageClientRemote();
+blink.mojom.mojom.DomStorageClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.DomStorageClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -278,7 +282,7 @@ blink.mojom.DomStorageClient.getRemote = function() {
 };
 
 // ParamsSpec for ResetSessionStorageConnections
-blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = {
+blink.mojom.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DomStorageClient.ResetSessionStorageConnections_Params',
@@ -291,7 +295,7 @@ blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = {
 };
 
 // ParamsSpec for ResetLocalStorageConnections
-blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = {
+blink.mojom.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DomStorageClient.ResetLocalStorageConnections_Params',
@@ -304,6 +308,6 @@ blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.DomStorageClientPtr = blink.mojom.DomStorageClientRemote;
-blink.mojom.DomStorageClientRequest = blink.mojom.DomStorageClientPendingReceiver;
+blink.mojom.mojom.DomStorageClientPtr = blink.mojom.mojom.DomStorageClientRemote;
+blink.mojom.mojom.DomStorageClientRequest = blink.mojom.mojom.DomStorageClientPendingReceiver;
 

@@ -10,8 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Enum: DefaultCredentials
-network.mojom.DefaultCredentials = {
+network.mojom.mojom.DefaultCredentials = {
   DISALLOW_DEFAULT_CREDENTIALS: 0,
   ALLOW_DEFAULT_CREDENTIALS: 1,
 };
-network.mojom.DefaultCredentialsSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DefaultCredentialsSpec = { $: mojo.internal.Enum() };

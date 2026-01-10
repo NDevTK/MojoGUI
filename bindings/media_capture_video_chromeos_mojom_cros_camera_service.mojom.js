@@ -10,7 +10,7 @@ cros.mojom = cros.mojom || {};
 
 
 // Enum: CameraClientType
-cros.mojom.CameraClientType = {
+cros.mojom.mojom.CameraClientType = {
   UNKNOWN: 0,
   TESTING: 1,
   CHROME: 2,
@@ -18,32 +18,32 @@ cros.mojom.CameraClientType = {
   PLUGINVM: 4,
   ASH_CHROME: 5,
 };
-cros.mojom.CameraClientTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.mojom.CameraClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraPrivacySwitchState
-cros.mojom.CameraPrivacySwitchState = {
+cros.mojom.mojom.CameraPrivacySwitchState = {
   UNKNOWN: 0,
   ON: 1,
   OFF: 2,
 };
-cros.mojom.CameraPrivacySwitchStateSpec = { $: mojo.internal.Enum() };
+cros.mojom.mojom.CameraPrivacySwitchStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraAutoFramingState
-cros.mojom.CameraAutoFramingState = {
+cros.mojom.mojom.CameraAutoFramingState = {
   ON_SINGLE: 0,
   ON_MULTI: 1,
 };
-cros.mojom.CameraAutoFramingStateSpec = { $: mojo.internal.Enum() };
+cros.mojom.mojom.CameraAutoFramingStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: KioskVisionError
-cros.mojom.KioskVisionError = {
+cros.mojom.mojom.KioskVisionError = {
   DLC_ERROR: 0,
   MODEL_ERROR: 1,
 };
-cros.mojom.KioskVisionErrorSpec = { $: mojo.internal.Enum() };
+cros.mojom.mojom.KioskVisionErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: KioskVisionDetection
-cros.mojom.KioskVisionDetectionSpec = {
+cros.mojom.mojom.KioskVisionDetectionSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionDetection',
@@ -58,16 +58,16 @@ cros.mojom.KioskVisionDetectionSpec = {
 };
 
 // Struct: KioskVisionTrack
-cros.mojom.KioskVisionTrackSpec = {
+cros.mojom.mojom.KioskVisionTrackSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionTrack',
       packedSize: 40,
       fields: [
-        { name: 'person_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'start_timestamp_in_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'end_timestamp_in_us', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'appearances', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'person_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'start_timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'end_timestamp_in_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'appearances', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -75,16 +75,16 @@ cros.mojom.KioskVisionTrackSpec = {
 };
 
 // Struct: KioskVisionAppearance
-cros.mojom.KioskVisionAppearanceSpec = {
+cros.mojom.mojom.KioskVisionAppearanceSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionAppearance',
       packedSize: 40,
       fields: [
         { name: 'timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'person_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'face', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.KioskVisionFaceDetectionSpec, nullable: true, minVersion: 0 },
-        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.KioskVisionBodyDetectionSpec, nullable: true, minVersion: 0 },
+        { name: 'person_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'face', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionFaceDetectionSpec, nullable: true, minVersion: 0 },
+        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.KioskVisionBodyDetectionSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -92,17 +92,17 @@ cros.mojom.KioskVisionAppearanceSpec = {
 };
 
 // Struct: KioskVisionFaceDetection
-cros.mojom.KioskVisionFaceDetectionSpec = {
+cros.mojom.mojom.KioskVisionFaceDetectionSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionFaceDetection',
       packedSize: 40,
       fields: [
         { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'roll', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'pan', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tilt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'box', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.KioskVisionBoundingBoxSpec, nullable: false, minVersion: 0 },
+        { name: 'roll', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'pan', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'tilt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionBoundingBoxSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -110,7 +110,7 @@ cros.mojom.KioskVisionFaceDetectionSpec = {
 };
 
 // Struct: KioskVisionBodyDetection
-cros.mojom.KioskVisionBodyDetectionSpec = {
+cros.mojom.mojom.KioskVisionBodyDetectionSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionBodyDetection',
@@ -125,7 +125,7 @@ cros.mojom.KioskVisionBodyDetectionSpec = {
 };
 
 // Struct: KioskVisionBoundingBox
-cros.mojom.KioskVisionBoundingBoxSpec = {
+cros.mojom.mojom.KioskVisionBoundingBoxSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionBoundingBox',
@@ -142,24 +142,24 @@ cros.mojom.KioskVisionBoundingBoxSpec = {
 };
 
 // Interface: KioskVisionObserver
-cros.mojom.KioskVisionObserver = {};
+cros.mojom.mojom.KioskVisionObserver = {};
 
-cros.mojom.KioskVisionObserverPendingReceiver = class {
+cros.mojom.mojom.KioskVisionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.KioskVisionObserverRemote = class {
+cros.mojom.mojom.KioskVisionObserverRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.KioskVisionObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.KioskVisionObserverPendingReceiver,
+      cros.mojom.mojom.KioskVisionObserverPendingReceiver,
       handle);
-    this.$ = new cros.mojom.KioskVisionObserverRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.mojom.KioskVisionObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -171,7 +171,7 @@ cros.mojom.KioskVisionObserverRemote = class {
   }
 };
 
-cros.mojom.KioskVisionObserverRemoteCallHandler = class {
+cros.mojom.mojom.KioskVisionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -180,7 +180,7 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec,
+      cros.mojom.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec,
       null,
       [detection]);
   }
@@ -189,7 +189,7 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec,
+      cros.mojom.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec,
       null,
       [track]);
   }
@@ -198,15 +198,15 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cros.mojom.KioskVisionObserver_OnError_ParamsSpec,
+      cros.mojom.mojom.KioskVisionObserver_OnError_ParamsSpec,
       null,
       [error]);
   }
 
 };
 
-cros.mojom.KioskVisionObserver.getRemote = function() {
-  let remote = new cros.mojom.KioskVisionObserverRemote();
+cros.mojom.mojom.KioskVisionObserver.getRemote = function() {
+  let remote = new cros.mojom.mojom.KioskVisionObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -216,7 +216,7 @@ cros.mojom.KioskVisionObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnFrameProcessed
-cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec = {
+cros.mojom.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionObserver.OnFrameProcessed_Params',
@@ -230,7 +230,7 @@ cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec = {
 };
 
 // ParamsSpec for OnTrackCompleted
-cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec = {
+cros.mojom.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionObserver.OnTrackCompleted_Params',
@@ -244,7 +244,7 @@ cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-cros.mojom.KioskVisionObserver_OnError_ParamsSpec = {
+cros.mojom.mojom.KioskVisionObserver_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.KioskVisionObserver.OnError_Params',
@@ -258,29 +258,29 @@ cros.mojom.KioskVisionObserver_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.KioskVisionObserverPtr = cros.mojom.KioskVisionObserverRemote;
-cros.mojom.KioskVisionObserverRequest = cros.mojom.KioskVisionObserverPendingReceiver;
+cros.mojom.mojom.KioskVisionObserverPtr = cros.mojom.mojom.KioskVisionObserverRemote;
+cros.mojom.mojom.KioskVisionObserverRequest = cros.mojom.mojom.KioskVisionObserverPendingReceiver;
 
 
 // Interface: CameraHalDispatcher
-cros.mojom.CameraHalDispatcher = {};
+cros.mojom.mojom.CameraHalDispatcher = {};
 
-cros.mojom.CameraHalDispatcherPendingReceiver = class {
+cros.mojom.mojom.CameraHalDispatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CameraHalDispatcherRemote = class {
+cros.mojom.mojom.CameraHalDispatcherRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CameraHalDispatcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CameraHalDispatcherPendingReceiver,
+      cros.mojom.mojom.CameraHalDispatcherPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CameraHalDispatcherRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.mojom.CameraHalDispatcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -292,7 +292,7 @@ cros.mojom.CameraHalDispatcherRemote = class {
   }
 };
 
-cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
+cros.mojom.mojom.CameraHalDispatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -301,15 +301,15 @@ cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec,
-      cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec,
+      cros.mojom.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec,
+      cros.mojom.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec,
       [client, type, auth_token]);
   }
 
 };
 
-cros.mojom.CameraHalDispatcher.getRemote = function() {
-  let remote = new cros.mojom.CameraHalDispatcherRemote();
+cros.mojom.mojom.CameraHalDispatcher.getRemote = function() {
+  let remote = new cros.mojom.mojom.CameraHalDispatcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -319,22 +319,22 @@ cros.mojom.CameraHalDispatcher.getRemote = function() {
 };
 
 // ParamsSpec for RegisterClientWithToken
-cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec = {
+cros.mojom.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraHalDispatcher.RegisterClientWithToken_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec = {
+cros.mojom.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraHalDispatcher.RegisterClientWithToken_ResponseParams',
@@ -348,29 +348,29 @@ cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.CameraHalDispatcherPtr = cros.mojom.CameraHalDispatcherRemote;
-cros.mojom.CameraHalDispatcherRequest = cros.mojom.CameraHalDispatcherPendingReceiver;
+cros.mojom.mojom.CameraHalDispatcherPtr = cros.mojom.mojom.CameraHalDispatcherRemote;
+cros.mojom.mojom.CameraHalDispatcherRequest = cros.mojom.mojom.CameraHalDispatcherPendingReceiver;
 
 
 // Interface: CrosCameraServiceObserver
-cros.mojom.CrosCameraServiceObserver = {};
+cros.mojom.mojom.CrosCameraServiceObserver = {};
 
-cros.mojom.CrosCameraServiceObserverPendingReceiver = class {
+cros.mojom.mojom.CrosCameraServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CrosCameraServiceObserverRemote = class {
+cros.mojom.mojom.CrosCameraServiceObserverRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosCameraServiceObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CrosCameraServiceObserverPendingReceiver,
+      cros.mojom.mojom.CrosCameraServiceObserverPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CrosCameraServiceObserverRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.mojom.CrosCameraServiceObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -382,7 +382,7 @@ cros.mojom.CrosCameraServiceObserverRemote = class {
   }
 };
 
-cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
+cros.mojom.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -391,7 +391,7 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec,
+      cros.mojom.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec,
       null,
       [camera_id, opened, type]);
   }
@@ -400,7 +400,7 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec,
+      cros.mojom.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec,
       null,
       [state, camera_id]);
   }
@@ -409,7 +409,7 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec,
+      cros.mojom.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec,
       null,
       [state]);
   }
@@ -418,7 +418,7 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec,
+      cros.mojom.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec,
       null,
       [config]);
   }
@@ -427,15 +427,15 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec,
+      cros.mojom.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-cros.mojom.CrosCameraServiceObserver.getRemote = function() {
-  let remote = new cros.mojom.CrosCameraServiceObserverRemote();
+cros.mojom.mojom.CrosCameraServiceObserver.getRemote = function() {
+  let remote = new cros.mojom.mojom.CrosCameraServiceObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -445,15 +445,15 @@ cros.mojom.CrosCameraServiceObserver.getRemote = function() {
 };
 
 // ParamsSpec for CameraDeviceActivityChange
-cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec = {
+cros.mojom.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraServiceObserver.CameraDeviceActivityChange_Params',
       packedSize: 24,
       fields: [
         { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'opened', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'opened', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -461,7 +461,7 @@ cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec = {
 };
 
 // ParamsSpec for CameraPrivacySwitchStateChange
-cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec = {
+cros.mojom.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraServiceObserver.CameraPrivacySwitchStateChange_Params',
@@ -476,7 +476,7 @@ cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec =
 };
 
 // ParamsSpec for CameraSWPrivacySwitchStateChange
-cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec = {
+cros.mojom.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraServiceObserver.CameraSWPrivacySwitchStateChange_Params',
@@ -490,7 +490,7 @@ cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec
 };
 
 // ParamsSpec for CameraEffectChange
-cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec = {
+cros.mojom.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraServiceObserver.CameraEffectChange_Params',
@@ -504,7 +504,7 @@ cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec = {
 };
 
 // ParamsSpec for AutoFramingStateChange
-cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec = {
+cros.mojom.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraServiceObserver.AutoFramingStateChange_Params',
@@ -518,29 +518,29 @@ cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.CrosCameraServiceObserverPtr = cros.mojom.CrosCameraServiceObserverRemote;
-cros.mojom.CrosCameraServiceObserverRequest = cros.mojom.CrosCameraServiceObserverPendingReceiver;
+cros.mojom.mojom.CrosCameraServiceObserverPtr = cros.mojom.mojom.CrosCameraServiceObserverRemote;
+cros.mojom.mojom.CrosCameraServiceObserverRequest = cros.mojom.mojom.CrosCameraServiceObserverPendingReceiver;
 
 
 // Interface: CrosCameraService
-cros.mojom.CrosCameraService = {};
+cros.mojom.mojom.CrosCameraService = {};
 
-cros.mojom.CrosCameraServicePendingReceiver = class {
+cros.mojom.mojom.CrosCameraServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CrosCameraServiceRemote = class {
+cros.mojom.mojom.CrosCameraServiceRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosCameraService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CrosCameraServicePendingReceiver,
+      cros.mojom.mojom.CrosCameraServicePendingReceiver,
       handle);
-    this.$ = new cros.mojom.CrosCameraServiceRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.mojom.CrosCameraServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -552,7 +552,7 @@ cros.mojom.CrosCameraServiceRemote = class {
   }
 };
 
-cros.mojom.CrosCameraServiceRemoteCallHandler = class {
+cros.mojom.mojom.CrosCameraServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -561,8 +561,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec,
-      cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec,
+      cros.mojom.mojom.CrosCameraService_GetCameraModule_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec,
       [type]);
   }
 
@@ -570,7 +570,7 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -579,7 +579,7 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec,
       null,
       [state]);
   }
@@ -588,8 +588,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec,
-      cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec,
+      cros.mojom.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec,
       []);
   }
 
@@ -597,7 +597,7 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec,
       null,
       [state]);
   }
@@ -606,8 +606,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec,
-      cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec,
+      cros.mojom.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec,
       []);
   }
 
@@ -615,8 +615,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec,
-      cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec,
+      cros.mojom.mojom.CrosCameraService_SetCameraEffect_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec,
       [config]);
   }
 
@@ -624,7 +624,7 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -633,15 +633,15 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec,
+      cros.mojom.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec,
       null,
       [dlc_path, observer]);
   }
 
 };
 
-cros.mojom.CrosCameraService.getRemote = function() {
-  let remote = new cros.mojom.CrosCameraServiceRemote();
+cros.mojom.mojom.CrosCameraService.getRemote = function() {
+  let remote = new cros.mojom.mojom.CrosCameraServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -651,7 +651,7 @@ cros.mojom.CrosCameraService.getRemote = function() {
 };
 
 // ParamsSpec for GetCameraModule
-cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_GetCameraModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.GetCameraModule_Params',
@@ -664,7 +664,7 @@ cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec = {
   }
 };
 
-cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec = {
+cros.mojom.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.GetCameraModule_ResponseParams',
@@ -678,7 +678,7 @@ cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetTracingEnabled
-cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.SetTracingEnabled_Params',
@@ -692,7 +692,7 @@ cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for SetAutoFramingState
-cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.SetAutoFramingState_Params',
@@ -706,7 +706,7 @@ cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec = {
 };
 
 // ParamsSpec for GetCameraSWPrivacySwitchState
-cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.GetCameraSWPrivacySwitchState_Params',
@@ -718,7 +718,7 @@ cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec = {
   }
 };
 
-cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec = {
+cros.mojom.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.GetCameraSWPrivacySwitchState_ResponseParams',
@@ -732,7 +732,7 @@ cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec = 
 };
 
 // ParamsSpec for SetCameraSWPrivacySwitchState
-cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.SetCameraSWPrivacySwitchState_Params',
@@ -746,7 +746,7 @@ cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec = {
 };
 
 // ParamsSpec for GetAutoFramingSupported
-cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.GetAutoFramingSupported_Params',
@@ -758,7 +758,7 @@ cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec = {
   }
 };
 
-cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec = {
+cros.mojom.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.GetAutoFramingSupported_ResponseParams',
@@ -772,7 +772,7 @@ cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetCameraEffect
-cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_SetCameraEffect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.SetCameraEffect_Params',
@@ -785,7 +785,7 @@ cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec = {
   }
 };
 
-cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec = {
+cros.mojom.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.SetCameraEffect_ResponseParams',
@@ -799,7 +799,7 @@ cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddCrosCameraServiceObserver
-cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.AddCrosCameraServiceObserver_Params',
@@ -813,7 +813,7 @@ cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec = {
 };
 
 // ParamsSpec for StartKioskVisionDetection
-cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = {
+cros.mojom.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosCameraService.StartKioskVisionDetection_Params',
@@ -828,6 +828,6 @@ cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.CrosCameraServicePtr = cros.mojom.CrosCameraServiceRemote;
-cros.mojom.CrosCameraServiceRequest = cros.mojom.CrosCameraServicePendingReceiver;
+cros.mojom.mojom.CrosCameraServicePtr = cros.mojom.mojom.CrosCameraServiceRemote;
+cros.mojom.mojom.CrosCameraServiceRequest = cros.mojom.mojom.CrosCameraServicePendingReceiver;
 

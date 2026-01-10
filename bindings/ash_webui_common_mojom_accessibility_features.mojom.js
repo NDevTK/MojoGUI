@@ -7,28 +7,28 @@
 // Module namespace
 var ash = ash || {};
 ash.common = ash.common || {};
-ash.common.mojom = ash.common.mojom || {};
+ash.common.common.mojom = ash.common.common.mojom || {};
 
 
 // Interface: ForceHiddenElementsVisibleObserver
-ash.common.mojom.ForceHiddenElementsVisibleObserver = {};
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserver = {};
 
-ash.common.mojom.ForceHiddenElementsVisibleObserverPendingReceiver = class {
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.common.mojom.ForceHiddenElementsVisibleObserverRemote = class {
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverRemote = class {
   static get $interfaceName() {
     return 'ash.common.mojom.ForceHiddenElementsVisibleObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.common.mojom.ForceHiddenElementsVisibleObserverPendingReceiver,
+      ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverPendingReceiver,
       handle);
-    this.$ = new ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRemote = class {
   }
 };
 
-ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec,
+      ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec,
       null,
       [forceVisible]);
   }
 
 };
 
-ash.common.mojom.ForceHiddenElementsVisibleObserver.getRemote = function() {
-  let remote = new ash.common.mojom.ForceHiddenElementsVisibleObserverRemote();
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserver.getRemote = function() {
+  let remote = new ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +67,7 @@ ash.common.mojom.ForceHiddenElementsVisibleObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnForceHiddenElementsVisibleChange
-ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec = {
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.ForceHiddenElementsVisibleObserver.OnForceHiddenElementsVisibleChange_Params',
@@ -81,29 +81,29 @@ ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisible
 };
 
 // Legacy compatibility
-ash.common.mojom.ForceHiddenElementsVisibleObserverPtr = ash.common.mojom.ForceHiddenElementsVisibleObserverRemote;
-ash.common.mojom.ForceHiddenElementsVisibleObserverRequest = ash.common.mojom.ForceHiddenElementsVisibleObserverPendingReceiver;
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverPtr = ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverRemote;
+ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverRequest = ash.common.common.mojom.mojom.ForceHiddenElementsVisibleObserverPendingReceiver;
 
 
 // Interface: AccessibilityFeatures
-ash.common.mojom.AccessibilityFeatures = {};
+ash.common.common.mojom.mojom.AccessibilityFeatures = {};
 
-ash.common.mojom.AccessibilityFeaturesPendingReceiver = class {
+ash.common.common.mojom.mojom.AccessibilityFeaturesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.common.mojom.AccessibilityFeaturesRemote = class {
+ash.common.common.mojom.mojom.AccessibilityFeaturesRemote = class {
   static get $interfaceName() {
     return 'ash.common.mojom.AccessibilityFeatures';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.common.mojom.AccessibilityFeaturesPendingReceiver,
+      ash.common.common.mojom.mojom.AccessibilityFeaturesPendingReceiver,
       handle);
-    this.$ = new ash.common.mojom.AccessibilityFeaturesRemoteCallHandler(this.proxy);
+    this.$ = new ash.common.common.mojom.mojom.AccessibilityFeaturesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +115,7 @@ ash.common.mojom.AccessibilityFeaturesRemote = class {
   }
 };
 
-ash.common.mojom.AccessibilityFeaturesRemoteCallHandler = class {
+ash.common.common.mojom.mojom.AccessibilityFeaturesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +124,15 @@ ash.common.mojom.AccessibilityFeaturesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec,
-      ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec,
+      ash.common.common.mojom.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec,
+      ash.common.common.mojom.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec,
       [observer]);
   }
 
 };
 
-ash.common.mojom.AccessibilityFeatures.getRemote = function() {
-  let remote = new ash.common.mojom.AccessibilityFeaturesRemote();
+ash.common.common.mojom.mojom.AccessibilityFeatures.getRemote = function() {
+  let remote = new ash.common.common.mojom.mojom.AccessibilityFeaturesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +142,7 @@ ash.common.mojom.AccessibilityFeatures.getRemote = function() {
 };
 
 // ParamsSpec for ObserveForceHiddenElementsVisible
-ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec = {
+ash.common.common.mojom.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.AccessibilityFeatures.ObserveForceHiddenElementsVisible_Params',
@@ -155,7 +155,7 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsS
   }
 };
 
-ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec = {
+ash.common.common.mojom.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.AccessibilityFeatures.ObserveForceHiddenElementsVisible_ResponseParams',
@@ -169,6 +169,6 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_Respons
 };
 
 // Legacy compatibility
-ash.common.mojom.AccessibilityFeaturesPtr = ash.common.mojom.AccessibilityFeaturesRemote;
-ash.common.mojom.AccessibilityFeaturesRequest = ash.common.mojom.AccessibilityFeaturesPendingReceiver;
+ash.common.common.mojom.mojom.AccessibilityFeaturesPtr = ash.common.common.mojom.mojom.AccessibilityFeaturesRemote;
+ash.common.common.mojom.mojom.AccessibilityFeaturesRequest = ash.common.common.mojom.mojom.AccessibilityFeaturesPendingReceiver;
 

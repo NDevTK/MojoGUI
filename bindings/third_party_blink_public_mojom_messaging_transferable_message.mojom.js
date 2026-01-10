@@ -7,10 +7,18 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Struct: TransferableMessage
-blink.mojom.TransferableMessageSpec = {
+blink.mojom.mojom.TransferableMessageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TransferableMessage',
@@ -22,8 +30,8 @@ blink.mojom.TransferableMessageSpec = {
         { name: 'array_buffer_contents_array', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerializedArrayBufferContentsSpec, false), nullable: false, minVersion: 0 },
         { name: 'image_bitmap_contents_array', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerializedStaticBitmapImageSpec, false), nullable: false, minVersion: 0 },
         { name: 'user_activation', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.UserActivationSnapshotSpec, nullable: true, minVersion: 0 },
-        { name: 'delegated_capability', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.DelegatedCapabilitySpec, nullable: false, minVersion: 0 },
-        { name: 'task_state_id', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.TaskAttributionIdSpec, nullable: true, minVersion: 0 },
+        { name: 'delegated_capability', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.DelegatedCapabilitySpec, nullable: false, minVersion: 0 },
+        { name: 'task_state_id', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.TaskAttributionIdSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }

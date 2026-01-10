@@ -10,24 +10,24 @@ content.mojom = content.mojom || {};
 
 
 // Interface: PowerMonitorTest
-content.mojom.PowerMonitorTest = {};
+content.mojom.mojom.PowerMonitorTest = {};
 
-content.mojom.PowerMonitorTestPendingReceiver = class {
+content.mojom.mojom.PowerMonitorTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.PowerMonitorTestRemote = class {
+content.mojom.mojom.PowerMonitorTestRemote = class {
   static get $interfaceName() {
     return 'content.mojom.PowerMonitorTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.PowerMonitorTestPendingReceiver,
+      content.mojom.mojom.PowerMonitorTestPendingReceiver,
       handle);
-    this.$ = new content.mojom.PowerMonitorTestRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.PowerMonitorTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ content.mojom.PowerMonitorTestRemote = class {
   }
 };
 
-content.mojom.PowerMonitorTestRemoteCallHandler = class {
+content.mojom.mojom.PowerMonitorTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ content.mojom.PowerMonitorTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec,
-      content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
+      content.mojom.mojom.PowerMonitorTest_QueryNextState_ParamsSpec,
+      content.mojom.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
       []);
   }
 
 };
 
-content.mojom.PowerMonitorTest.getRemote = function() {
-  let remote = new content.mojom.PowerMonitorTestRemote();
+content.mojom.mojom.PowerMonitorTest.getRemote = function() {
+  let remote = new content.mojom.mojom.PowerMonitorTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ content.mojom.PowerMonitorTest.getRemote = function() {
 };
 
 // ParamsSpec for QueryNextState
-content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
+content.mojom.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.PowerMonitorTest.QueryNextState_Params',
@@ -78,7 +78,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
   }
 };
 
-content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
+content.mojom.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.PowerMonitorTest.QueryNextState_ResponseParams',
@@ -92,6 +92,6 @@ content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.PowerMonitorTestPtr = content.mojom.PowerMonitorTestRemote;
-content.mojom.PowerMonitorTestRequest = content.mojom.PowerMonitorTestPendingReceiver;
+content.mojom.mojom.PowerMonitorTestPtr = content.mojom.mojom.PowerMonitorTestRemote;
+content.mojom.mojom.PowerMonitorTestRequest = content.mojom.mojom.PowerMonitorTestPendingReceiver;
 

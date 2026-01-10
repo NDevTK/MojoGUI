@@ -10,16 +10,16 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: InputEventResultSource
-blink.mojom.InputEventResultSource = {
+blink.mojom.mojom.InputEventResultSource = {
   kUnknown: 0,
   kCompositorThread: 1,
   kMainThread: 2,
   kBrowser: 3,
 };
-blink.mojom.InputEventResultSourceSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.InputEventResultSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventResultState
-blink.mojom.InputEventResultState = {
+blink.mojom.mojom.InputEventResultState = {
   kUnknown: 0,
   kConsumed: 1,
   kNotConsumed: 2,
@@ -28,4 +28,4 @@ blink.mojom.InputEventResultState = {
   kSetNonBlocking: 5,
   kSetNonBlockingDueToFling: 6,
 };
-blink.mojom.InputEventResultStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.InputEventResultStateSpec = { $: mojo.internal.Enum() };

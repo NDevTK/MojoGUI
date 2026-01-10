@@ -10,7 +10,7 @@ gl.mojom = gl.mojom || {};
 
 
 // Enum: GLImplementation
-gl.mojom.GLImplementation = {
+gl.mojom.mojom.GLImplementation = {
   kGLImplementationNone: 0,
   kGLImplementationEGLGLES2: 1,
   kGLImplementationMockGL: 2,
@@ -18,10 +18,10 @@ gl.mojom.GLImplementation = {
   kGLImplementationDisabled: 4,
   kGLImplementationEGLANGLE: 5,
 };
-gl.mojom.GLImplementationSpec = { $: mojo.internal.Enum() };
+gl.mojom.mojom.GLImplementationSpec = { $: mojo.internal.Enum() };
 
 // Enum: ANGLEImplementation
-gl.mojom.ANGLEImplementation = {
+gl.mojom.mojom.ANGLEImplementation = {
   kNone: 0,
   kD3D9: 1,
   kD3D11: 2,
@@ -34,10 +34,10 @@ gl.mojom.ANGLEImplementation = {
   kD3D11Warp: 9,
   kDefault: 10,
 };
-gl.mojom.ANGLEImplementationSpec = { $: mojo.internal.Enum() };
+gl.mojom.mojom.ANGLEImplementationSpec = { $: mojo.internal.Enum() };
 
 // Struct: GLImplementationParts
-gl.mojom.GLImplementationPartsSpec = {
+gl.mojom.mojom.GLImplementationPartsSpec = {
   $: {
     structSpec: {
       name: 'gl.mojom.GLImplementationParts',

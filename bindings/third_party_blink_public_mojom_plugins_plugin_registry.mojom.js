@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: PluginMimeType
-blink.mojom.PluginMimeTypeSpec = {
+blink.mojom.mojom.PluginMimeTypeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginMimeType',
@@ -26,7 +26,7 @@ blink.mojom.PluginMimeTypeSpec = {
 };
 
 // Struct: PluginInfo
-blink.mojom.PluginInfoSpec = {
+blink.mojom.mojom.PluginInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginInfo',
@@ -35,9 +35,9 @@ blink.mojom.PluginInfoSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'filename', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'background_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mime_types', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PluginMimeTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'may_use_external_handler', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'background_color', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'mime_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PluginMimeTypeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'may_use_external_handler', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -45,24 +45,24 @@ blink.mojom.PluginInfoSpec = {
 };
 
 // Interface: PluginRegistry
-blink.mojom.PluginRegistry = {};
+blink.mojom.mojom.PluginRegistry = {};
 
-blink.mojom.PluginRegistryPendingReceiver = class {
+blink.mojom.mojom.PluginRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PluginRegistryRemote = class {
+blink.mojom.mojom.PluginRegistryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PluginRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PluginRegistryPendingReceiver,
+      blink.mojom.mojom.PluginRegistryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.PluginRegistryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.PluginRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +74,7 @@ blink.mojom.PluginRegistryRemote = class {
   }
 };
 
-blink.mojom.PluginRegistryRemoteCallHandler = class {
+blink.mojom.mojom.PluginRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,15 +83,15 @@ blink.mojom.PluginRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PluginRegistry_GetPlugins_ParamsSpec,
-      blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
+      blink.mojom.mojom.PluginRegistry_GetPlugins_ParamsSpec,
+      blink.mojom.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.PluginRegistry.getRemote = function() {
-  let remote = new blink.mojom.PluginRegistryRemote();
+blink.mojom.mojom.PluginRegistry.getRemote = function() {
+  let remote = new blink.mojom.mojom.PluginRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -101,7 +101,7 @@ blink.mojom.PluginRegistry.getRemote = function() {
 };
 
 // ParamsSpec for GetPlugins
-blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
+blink.mojom.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginRegistry.GetPlugins_Params',
@@ -113,7 +113,7 @@ blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
   }
 };
 
-blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
+blink.mojom.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PluginRegistry.GetPlugins_ResponseParams',
@@ -127,6 +127,6 @@ blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.PluginRegistryPtr = blink.mojom.PluginRegistryRemote;
-blink.mojom.PluginRegistryRequest = blink.mojom.PluginRegistryPendingReceiver;
+blink.mojom.mojom.PluginRegistryPtr = blink.mojom.mojom.PluginRegistryRemote;
+blink.mojom.mojom.PluginRegistryRequest = blink.mojom.mojom.PluginRegistryPendingReceiver;
 

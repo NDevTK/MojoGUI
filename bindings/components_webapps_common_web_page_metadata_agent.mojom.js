@@ -10,24 +10,24 @@ webapps.mojom = webapps.mojom || {};
 
 
 // Interface: WebPageMetadataAgent
-webapps.mojom.WebPageMetadataAgent = {};
+webapps.mojom.mojom.WebPageMetadataAgent = {};
 
-webapps.mojom.WebPageMetadataAgentPendingReceiver = class {
+webapps.mojom.mojom.WebPageMetadataAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webapps.mojom.WebPageMetadataAgentRemote = class {
+webapps.mojom.mojom.WebPageMetadataAgentRemote = class {
   static get $interfaceName() {
     return 'webapps.mojom.WebPageMetadataAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webapps.mojom.WebPageMetadataAgentPendingReceiver,
+      webapps.mojom.mojom.WebPageMetadataAgentPendingReceiver,
       handle);
-    this.$ = new webapps.mojom.WebPageMetadataAgentRemoteCallHandler(this.proxy);
+    this.$ = new webapps.mojom.mojom.WebPageMetadataAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ webapps.mojom.WebPageMetadataAgentRemote = class {
   }
 };
 
-webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {
+webapps.mojom.mojom.WebPageMetadataAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec,
-      webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
+      webapps.mojom.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec,
+      webapps.mojom.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
       []);
   }
 
 };
 
-webapps.mojom.WebPageMetadataAgent.getRemote = function() {
-  let remote = new webapps.mojom.WebPageMetadataAgentRemote();
+webapps.mojom.mojom.WebPageMetadataAgent.getRemote = function() {
+  let remote = new webapps.mojom.mojom.WebPageMetadataAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ webapps.mojom.WebPageMetadataAgent.getRemote = function() {
 };
 
 // ParamsSpec for GetWebPageMetadata
-webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
+webapps.mojom.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageMetadataAgent.GetWebPageMetadata_Params',
@@ -78,7 +78,7 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = {
   }
 };
 
-webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
+webapps.mojom.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageMetadataAgent.GetWebPageMetadata_ResponseParams',
@@ -92,6 +92,6 @@ webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-webapps.mojom.WebPageMetadataAgentPtr = webapps.mojom.WebPageMetadataAgentRemote;
-webapps.mojom.WebPageMetadataAgentRequest = webapps.mojom.WebPageMetadataAgentPendingReceiver;
+webapps.mojom.mojom.WebPageMetadataAgentPtr = webapps.mojom.mojom.WebPageMetadataAgentRemote;
+webapps.mojom.mojom.WebPageMetadataAgentRequest = webapps.mojom.mojom.WebPageMetadataAgentPendingReceiver;
 

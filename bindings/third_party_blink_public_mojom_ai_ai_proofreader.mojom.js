@@ -7,19 +7,21 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Struct: AIProofreaderCreateOptions
-blink.mojom.AIProofreaderCreateOptionsSpec = {
+blink.mojom.mojom.AIProofreaderCreateOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIProofreaderCreateOptions',
       packedSize: 32,
       fields: [
-        { name: 'include_correction_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_correction_explanations', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'correction_explanation_language', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'expected_input_languages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'include_correction_types', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'include_correction_explanations', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'correction_explanation_language', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_input_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -27,24 +29,24 @@ blink.mojom.AIProofreaderCreateOptionsSpec = {
 };
 
 // Interface: AIProofreader
-blink.mojom.AIProofreader = {};
+blink.mojom.mojom.AIProofreader = {};
 
-blink.mojom.AIProofreaderPendingReceiver = class {
+blink.mojom.mojom.AIProofreaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AIProofreaderRemote = class {
+blink.mojom.mojom.AIProofreaderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AIProofreader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AIProofreaderPendingReceiver,
+      blink.mojom.mojom.AIProofreaderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AIProofreaderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AIProofreaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +58,7 @@ blink.mojom.AIProofreaderRemote = class {
   }
 };
 
-blink.mojom.AIProofreaderRemoteCallHandler = class {
+blink.mojom.mojom.AIProofreaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,7 +67,7 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AIProofreader_Proofread_ParamsSpec,
+      blink.mojom.mojom.AIProofreader_Proofread_ParamsSpec,
       null,
       [input, pending_responder]);
   }
@@ -74,15 +76,15 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec,
+      blink.mojom.mojom.AIProofreader_GetCorrectionType_ParamsSpec,
       null,
       [input, corrected_input, correction_instruction, pending_responder]);
   }
 
 };
 
-blink.mojom.AIProofreader.getRemote = function() {
-  let remote = new blink.mojom.AIProofreaderRemote();
+blink.mojom.mojom.AIProofreader.getRemote = function() {
+  let remote = new blink.mojom.mojom.AIProofreaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -92,7 +94,7 @@ blink.mojom.AIProofreader.getRemote = function() {
 };
 
 // ParamsSpec for Proofread
-blink.mojom.AIProofreader_Proofread_ParamsSpec = {
+blink.mojom.mojom.AIProofreader_Proofread_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIProofreader.Proofread_Params',
@@ -107,7 +109,7 @@ blink.mojom.AIProofreader_Proofread_ParamsSpec = {
 };
 
 // ParamsSpec for GetCorrectionType
-blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
+blink.mojom.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AIProofreader.GetCorrectionType_Params',
@@ -124,6 +126,6 @@ blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.AIProofreaderPtr = blink.mojom.AIProofreaderRemote;
-blink.mojom.AIProofreaderRequest = blink.mojom.AIProofreaderPendingReceiver;
+blink.mojom.mojom.AIProofreaderPtr = blink.mojom.mojom.AIProofreaderRemote;
+blink.mojom.mojom.AIProofreaderRequest = blink.mojom.mojom.AIProofreaderPendingReceiver;
 

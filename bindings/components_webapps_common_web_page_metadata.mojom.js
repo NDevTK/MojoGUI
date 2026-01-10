@@ -7,18 +7,19 @@
 // Module namespace
 var webapps = webapps || {};
 webapps.mojom = webapps.mojom || {};
+var url = url || {};
 
 
 // Enum: WebPageMobileCapable
-webapps.mojom.WebPageMobileCapable = {
+webapps.mojom.mojom.WebPageMobileCapable = {
   UNSPECIFIED: 0,
   ENABLED: 1,
   ENABLED_APPLE: 2,
 };
-webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };
+webapps.mojom.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebPageIconInfo
-webapps.mojom.WebPageIconInfoSpec = {
+webapps.mojom.mojom.WebPageIconInfoSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageIconInfo',
@@ -33,7 +34,7 @@ webapps.mojom.WebPageIconInfoSpec = {
 };
 
 // Struct: WebPageMetadata
-webapps.mojom.WebPageMetadataSpec = {
+webapps.mojom.mojom.WebPageMetadataSpec = {
   $: {
     structSpec: {
       name: 'webapps.mojom.WebPageMetadata',

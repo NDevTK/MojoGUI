@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: WindowOpenDisposition
-ui.mojom.WindowOpenDisposition = {
+ui.mojom.mojom.WindowOpenDisposition = {
   UNKNOWN: 0,
   CURRENT_TAB: 1,
   SINGLETON_TAB: 2,
@@ -24,10 +24,10 @@ ui.mojom.WindowOpenDisposition = {
   SWITCH_TO_TAB: 10,
   NEW_PICTURE_IN_PICTURE: 11,
 };
-ui.mojom.WindowOpenDispositionSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.WindowOpenDispositionSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClickModifiers
-ui.mojom.ClickModifiersSpec = {
+ui.mojom.mojom.ClickModifiersSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ClickModifiers',

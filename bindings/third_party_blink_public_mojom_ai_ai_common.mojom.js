@@ -9,19 +9,19 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-blink.mojom.kWritingAssistanceMaxInputTokenSize = 6000;
+blink.mojom.mojom.kWritingAssistanceMaxInputTokenSize = 6000;
 
 // Enum: AIManagerCreateClientError
-blink.mojom.AIManagerCreateClientError = {
+blink.mojom.mojom.AIManagerCreateClientError = {
   kUnableToCreateSession: 0,
   kUnableToCalculateTokenSize: 1,
   kInitialInputTooLarge: 2,
   kUnsupportedLanguage: 3,
 };
-blink.mojom.AIManagerCreateClientErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.AIManagerCreateClientErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: AILanguageCode
-blink.mojom.AILanguageCodeSpec = {
+blink.mojom.mojom.AILanguageCodeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AILanguageCode',
@@ -35,7 +35,7 @@ blink.mojom.AILanguageCodeSpec = {
 };
 
 // Struct: QuotaErrorInfo
-blink.mojom.QuotaErrorInfoSpec = {
+blink.mojom.mojom.QuotaErrorInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.QuotaErrorInfo',

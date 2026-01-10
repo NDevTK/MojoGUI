@@ -7,12 +7,18 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
-blink.mojom.kNavigation_ServiceWorkerSpec = "navigation:service_worker";
+blink.mojom.mojom.kNavigation_ServiceWorkerSpec = "navigation:service_worker";
 
 // Struct: ServiceWorkerProviderInfoForStartWorker
-blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec = {
+blink.mojom.mojom.ServiceWorkerProviderInfoForStartWorkerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerProviderInfoForStartWorker',

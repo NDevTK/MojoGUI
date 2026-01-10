@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: MediaFoundationCdmData
-media.mojom.MediaFoundationCdmDataSpec = {
+media.mojom.mojom.MediaFoundationCdmDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationCdmData',
@@ -26,24 +26,24 @@ media.mojom.MediaFoundationCdmDataSpec = {
 };
 
 // Interface: CdmDocumentService
-media.mojom.CdmDocumentService = {};
+media.mojom.mojom.CdmDocumentService = {};
 
-media.mojom.CdmDocumentServicePendingReceiver = class {
+media.mojom.mojom.CdmDocumentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.CdmDocumentServiceRemote = class {
+media.mojom.mojom.CdmDocumentServiceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmDocumentService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.CdmDocumentServicePendingReceiver,
+      media.mojom.mojom.CdmDocumentServicePendingReceiver,
       handle);
-    this.$ = new media.mojom.CdmDocumentServiceRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.CdmDocumentServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +55,7 @@ media.mojom.CdmDocumentServiceRemote = class {
   }
 };
 
-media.mojom.CdmDocumentServiceRemoteCallHandler = class {
+media.mojom.mojom.CdmDocumentServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,8 +64,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
-      media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
+      media.mojom.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
+      media.mojom.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
       [service_id, challenge]);
   }
 
@@ -73,8 +73,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
-      media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
+      media.mojom.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
+      media.mojom.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
       [version]);
   }
 
@@ -82,8 +82,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
-      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
+      media.mojom.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
+      media.mojom.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -91,8 +91,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
-      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
+      media.mojom.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
+      media.mojom.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
       []);
   }
 
@@ -100,7 +100,7 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
+      media.mojom.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
       [client_token]);
   }
@@ -109,15 +109,15 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
+      media.mojom.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
       [event, hresult]);
   }
 
 };
 
-media.mojom.CdmDocumentService.getRemote = function() {
-  let remote = new media.mojom.CdmDocumentServiceRemote();
+media.mojom.mojom.CdmDocumentService.getRemote = function() {
+  let remote = new media.mojom.mojom.CdmDocumentServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -127,7 +127,7 @@ media.mojom.CdmDocumentService.getRemote = function() {
 };
 
 // ParamsSpec for ChallengePlatform
-media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
+media.mojom.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.ChallengePlatform_Params',
@@ -141,16 +141,16 @@ media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
   }
 };
 
-media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
+media.mojom.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.ChallengePlatform_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'signed_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'signed_data_signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'platform_key_certificate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'signed_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'signed_data_signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'platform_key_certificate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -158,7 +158,7 @@ media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetStorageId
-media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
+media.mojom.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.GetStorageId_Params',
@@ -171,14 +171,14 @@ media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
   }
 };
 
-media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
+media.mojom.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.GetStorageId_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'storage_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'storage_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -186,7 +186,7 @@ media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsVerifiedAccessEnabled
-media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
+media.mojom.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.IsVerifiedAccessEnabled_Params',
@@ -198,7 +198,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
   }
 };
 
-media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
+media.mojom.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.IsVerifiedAccessEnabled_ResponseParams',
@@ -212,7 +212,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMediaFoundationCdmData
-media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
+media.mojom.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.GetMediaFoundationCdmData_Params',
@@ -224,7 +224,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
   }
 };
 
-media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
+media.mojom.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.GetMediaFoundationCdmData_ResponseParams',
@@ -238,7 +238,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetCdmClientToken
-media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
+media.mojom.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.SetCdmClientToken_Params',
@@ -252,7 +252,7 @@ media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = {
 };
 
 // ParamsSpec for OnCdmEvent
-media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
+media.mojom.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmDocumentService.OnCdmEvent_Params',
@@ -267,6 +267,6 @@ media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.CdmDocumentServicePtr = media.mojom.CdmDocumentServiceRemote;
-media.mojom.CdmDocumentServiceRequest = media.mojom.CdmDocumentServicePendingReceiver;
+media.mojom.mojom.CdmDocumentServicePtr = media.mojom.mojom.CdmDocumentServiceRemote;
+media.mojom.mojom.CdmDocumentServiceRequest = media.mojom.mojom.CdmDocumentServicePendingReceiver;
 

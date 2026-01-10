@@ -7,19 +7,19 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
+ash.cros_healthd.cros_healthd.mojom = ash.cros_healthd.cros_healthd.mojom || {};
 
 
 // Enum: Reason
-ash.cros_healthd.mojom.Reason = {
+ash.cros_healthd.cros_healthd.mojom.mojom.Reason = {
   kMojoDisconnectWithoutReason: 0,
   kUnexpected: 1,
   kUnsupported: 2,
 };
-ash.cros_healthd.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.cros_healthd.mojom.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: SupportStatus
-ash.cros_healthd.mojom.SupportStatusSpec = { $: mojo.internal.Union(
+ash.cros_healthd.cros_healthd.mojom.mojom.SupportStatusSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.SupportStatus', {
       'unmapped_union_field': {
         'ordinal': 0,
@@ -41,7 +41,7 @@ ash.cros_healthd.mojom.SupportStatusSpec = { $: mojo.internal.Union(
 };
 
 // Union: UnsupportedReason
-ash.cros_healthd.mojom.UnsupportedReasonSpec = { $: mojo.internal.Union(
+ash.cros_healthd.cros_healthd.mojom.mojom.UnsupportedReasonSpec = { $: mojo.internal.Union(
     'ash.cros_healthd.mojom.UnsupportedReason', {
       'unmapped_union_field': {
         'ordinal': 0,
@@ -51,7 +51,7 @@ ash.cros_healthd.mojom.UnsupportedReasonSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Exception
-ash.cros_healthd.mojom.ExceptionSpec = {
+ash.cros_healthd.cros_healthd.mojom.mojom.ExceptionSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.Exception',
@@ -65,7 +65,7 @@ ash.cros_healthd.mojom.ExceptionSpec = {
 };
 
 // Struct: Supported
-ash.cros_healthd.mojom.SupportedSpec = {
+ash.cros_healthd.cros_healthd.mojom.mojom.SupportedSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.Supported',
@@ -78,14 +78,14 @@ ash.cros_healthd.mojom.SupportedSpec = {
 };
 
 // Struct: Unsupported
-ash.cros_healthd.mojom.UnsupportedSpec = {
+ash.cros_healthd.cros_healthd.mojom.mojom.UnsupportedSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.Unsupported',
       packedSize: 32,
       fields: [
-        { name: 'debug_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.UnsupportedReasonSpec, nullable: true, minVersion: 0 },
+        { name: 'debug_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.UnsupportedReasonSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

@@ -10,7 +10,7 @@ ai.mojom = ai.mojom || {};
 
 
 // Union: SmartTabGroupingResponseResult
-ai.mojom.SmartTabGroupingResponseResultSpec = { $: mojo.internal.Union(
+ai.mojom.mojom.SmartTabGroupingResponseResultSpec = { $: mojo.internal.Union(
     'ai.mojom.SmartTabGroupingResponseResult', {
       'error': {
         'ordinal': 0,
@@ -24,24 +24,24 @@ ai.mojom.SmartTabGroupingResponseResultSpec = { $: mojo.internal.Union(
 };
 
 // Interface: SmartTabGroupingService
-ai.mojom.SmartTabGroupingService = {};
+ai.mojom.mojom.SmartTabGroupingService = {};
 
-ai.mojom.SmartTabGroupingServicePendingReceiver = class {
+ai.mojom.mojom.SmartTabGroupingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ai.mojom.SmartTabGroupingServiceRemote = class {
+ai.mojom.mojom.SmartTabGroupingServiceRemote = class {
   static get $interfaceName() {
     return 'ai.mojom.SmartTabGroupingService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ai.mojom.SmartTabGroupingServicePendingReceiver,
+      ai.mojom.mojom.SmartTabGroupingServicePendingReceiver,
       handle);
-    this.$ = new ai.mojom.SmartTabGroupingServiceRemoteCallHandler(this.proxy);
+    this.$ = new ai.mojom.mojom.SmartTabGroupingServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +53,7 @@ ai.mojom.SmartTabGroupingServiceRemote = class {
   }
 };
 
-ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class {
+ai.mojom.mojom.SmartTabGroupingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +62,15 @@ ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec,
-      ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec,
+      ai.mojom.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec,
+      ai.mojom.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec,
       []);
   }
 
 };
 
-ai.mojom.SmartTabGroupingService.getRemote = function() {
-  let remote = new ai.mojom.SmartTabGroupingServiceRemote();
+ai.mojom.mojom.SmartTabGroupingService.getRemote = function() {
+  let remote = new ai.mojom.mojom.SmartTabGroupingServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +80,7 @@ ai.mojom.SmartTabGroupingService.getRemote = function() {
 };
 
 // ParamsSpec for ExecuteSmartTabGroupingRequest
-ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
+ai.mojom.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.SmartTabGroupingService.ExecuteSmartTabGroupingRequest_Params',
@@ -92,7 +92,7 @@ ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
   }
 };
 
-ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = {
+ai.mojom.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ai.mojom.SmartTabGroupingService.ExecuteSmartTabGroupingRequest_ResponseParams',
@@ -106,6 +106,6 @@ ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSp
 };
 
 // Legacy compatibility
-ai.mojom.SmartTabGroupingServicePtr = ai.mojom.SmartTabGroupingServiceRemote;
-ai.mojom.SmartTabGroupingServiceRequest = ai.mojom.SmartTabGroupingServicePendingReceiver;
+ai.mojom.mojom.SmartTabGroupingServicePtr = ai.mojom.mojom.SmartTabGroupingServiceRemote;
+ai.mojom.mojom.SmartTabGroupingServiceRequest = ai.mojom.mojom.SmartTabGroupingServicePendingReceiver;
 

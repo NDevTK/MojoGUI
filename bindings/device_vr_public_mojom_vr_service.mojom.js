@@ -7,145 +7,152 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
-device.mojom.kNumComponentsPerPixel = 4;
+device.mojom.mojom.kNumComponentsPerPixel = 4;
 
 // Enum: XRHandedness
-device.mojom.XRHandedness = {
+device.mojom.mojom.XRHandedness = {
   NONE: 0,
   LEFT: 1,
   RIGHT: 2,
 };
-device.mojom.XRHandednessSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRHandednessSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRTargetRayMode
-device.mojom.XRTargetRayMode = {
+device.mojom.mojom.XRTargetRayMode = {
   GAZING: 0,
   POINTING: 1,
   TAPPING: 2,
 };
-device.mojom.XRTargetRayModeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRTargetRayModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRSessionFeatureRequestStatus
-device.mojom.XRSessionFeatureRequestStatus = {
+device.mojom.mojom.XRSessionFeatureRequestStatus = {
   kNotRequested: 0,
   kRequired: 1,
   kOptionalAccepted: 2,
   kOptionalRejected: 3,
 };
-device.mojom.XRSessionFeatureRequestStatusSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRSessionFeatureRequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: XREnvironmentBlendMode
-device.mojom.XREnvironmentBlendMode = {
+device.mojom.mojom.XREnvironmentBlendMode = {
   kOpaque: 0,
   kAlphaBlend: 1,
   kAdditive: 2,
 };
-device.mojom.XREnvironmentBlendModeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XREnvironmentBlendModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRInteractionMode
-device.mojom.XRInteractionMode = {
+device.mojom.mojom.XRInteractionMode = {
   kScreenSpace: 0,
   kWorldSpace: 1,
 };
-device.mojom.XRInteractionModeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRInteractionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XREye
-device.mojom.XREye = {
+device.mojom.mojom.XREye = {
   kNone: 0,
   kLeft: 1,
   kRight: 2,
 };
-device.mojom.XREyeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XREyeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRPresentationTransportMethod
-device.mojom.XRPresentationTransportMethod = {
+device.mojom.mojom.XRPresentationTransportMethod = {
   NONE: 0,
   SUBMIT_AS_TEXTURE_HANDLE: 1,
   SUBMIT_AS_MAILBOX_HOLDER: 2,
   DRAW_INTO_TEXTURE_MAILBOX: 3,
 };
-device.mojom.XRPresentationTransportMethodSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRPresentationTransportMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRReferenceSpaceType
-device.mojom.XRReferenceSpaceType = {
+device.mojom.mojom.XRReferenceSpaceType = {
   kViewer: 0,
   kLocal: 1,
   kLocalFloor: 2,
   kBoundedFloor: 3,
   kUnbounded: 4,
 };
-device.mojom.XRReferenceSpaceTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRReferenceSpaceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRInputSourceSpaceType
-device.mojom.XRInputSourceSpaceType = {
+device.mojom.mojom.XRInputSourceSpaceType = {
   kTargetRay: 0,
   kGrip: 1,
 };
-device.mojom.XRInputSourceSpaceTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRInputSourceSpaceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRPlaneOrientation
-device.mojom.XRPlaneOrientation = {
+device.mojom.mojom.XRPlaneOrientation = {
   UNKNOWN: 0,
   HORIZONTAL: 1,
   VERTICAL: 2,
 };
-device.mojom.XRPlaneOrientationSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRPlaneOrientationSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRSemanticLabel
-device.mojom.XRSemanticLabel = {
+device.mojom.mojom.XRSemanticLabel = {
   kOther: 0,
   kFloor: 1,
   kWall: 2,
   kCeiling: 3,
   kTable: 4,
 };
-device.mojom.XRSemanticLabelSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRSemanticLabelSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRLayerLayout
-device.mojom.XRLayerLayout = {
+device.mojom.mojom.XRLayerLayout = {
   kMono: 0,
   kStereo: 1,
   kStereoLeftRight: 2,
   kStereoTopBottom: 3,
 };
-device.mojom.XRLayerLayoutSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRLayerLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateCompositionLayerResult
-device.mojom.CreateCompositionLayerResult = {
+device.mojom.mojom.CreateCompositionLayerResult = {
   SUCCESS: 0,
   FAILURE: 1,
 };
-device.mojom.CreateCompositionLayerResultSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.CreateCompositionLayerResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: XrCompatibleResult
-device.mojom.XrCompatibleResult = {
+device.mojom.mojom.XrCompatibleResult = {
   kAlreadyCompatible: 0,
   kNoDeviceAvailable: 1,
   kWebXrFeaturePolicyBlocked: 2,
   kCompatibleAfterRestart: 3,
   kNotCompatibleAfterRestart: 4,
 };
-device.mojom.XrCompatibleResultSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XrCompatibleResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: EntityTypeForHitTest
-device.mojom.EntityTypeForHitTest = {
+device.mojom.mojom.EntityTypeForHitTest = {
   POINT: 0,
   PLANE: 1,
 };
-device.mojom.EntityTypeForHitTestSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.EntityTypeForHitTestSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRVisibilityState
-device.mojom.XRVisibilityState = {
+device.mojom.mojom.XRVisibilityState = {
   VISIBLE: 0,
   VISIBLE_BLURRED: 1,
   HIDDEN: 2,
 };
-device.mojom.XRVisibilityStateSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.XRVisibilityStateSpec = { $: mojo.internal.Enum() };
 
 // Union: XRNativeOriginInformation
-device.mojom.XRNativeOriginInformationSpec = { $: mojo.internal.Union(
+device.mojom.mojom.XRNativeOriginInformationSpec = { $: mojo.internal.Union(
     'device.mojom.XRNativeOriginInformation', {
       'input_source_space_info': {
         'ordinal': 0,
@@ -175,7 +182,7 @@ device.mojom.XRNativeOriginInformationSpec = { $: mojo.internal.Union(
 };
 
 // Union: XRDepthData
-device.mojom.XRDepthDataSpec = { $: mojo.internal.Union(
+device.mojom.mojom.XRDepthDataSpec = { $: mojo.internal.Union(
     'device.mojom.XRDepthData', {
       'data_still_valid': {
         'ordinal': 0,
@@ -189,7 +196,7 @@ device.mojom.XRDepthDataSpec = { $: mojo.internal.Union(
 };
 
 // Union: XRLayerSpecificData
-device.mojom.XRLayerSpecificDataSpec = { $: mojo.internal.Union(
+device.mojom.mojom.XRLayerSpecificDataSpec = { $: mojo.internal.Union(
     'device.mojom.XRLayerSpecificData', {
       'projection': {
         'ordinal': 0,
@@ -215,7 +222,7 @@ device.mojom.XRLayerSpecificDataSpec = { $: mojo.internal.Union(
 };
 
 // Union: RequestSessionResult
-device.mojom.RequestSessionResultSpec = { $: mojo.internal.Union(
+device.mojom.mojom.RequestSessionResultSpec = { $: mojo.internal.Union(
     'device.mojom.RequestSessionResult', {
       'success': {
         'ordinal': 0,
@@ -229,7 +236,7 @@ device.mojom.RequestSessionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: XRDepthConfig
-device.mojom.XRDepthConfigSpec = {
+device.mojom.mojom.XRDepthConfigSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDepthConfig',
@@ -245,17 +252,17 @@ device.mojom.XRDepthConfigSpec = {
 };
 
 // Struct: XRSessionDeviceConfig
-device.mojom.XRSessionDeviceConfigSpec = {
+device.mojom.mojom.XRSessionDeviceConfigSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSessionDeviceConfig',
       packedSize: 32,
       fields: [
-        { name: 'default_framebuffer_scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'views', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRViewSpec, false), nullable: false, minVersion: 0 },
-        { name: 'supports_viewport_scaling', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_anti_aliasing', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'depth_configuration', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRDepthConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'default_framebuffer_scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'views', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRViewSpec, false), nullable: false, minVersion: 0 },
+        { name: 'supports_viewport_scaling', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_anti_aliasing', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'depth_configuration', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDepthConfigSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -263,19 +270,19 @@ device.mojom.XRSessionDeviceConfigSpec = {
 };
 
 // Struct: XRSession
-device.mojom.XRSessionSpec = {
+device.mojom.mojom.XRSessionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSession',
       packedSize: 56,
       fields: [
-        { name: 'data_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'layer_manager', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'submit_frame_sink', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRPresentationConnectionSpec, nullable: true, minVersion: 0 },
-        { name: 'enabled_features', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'device_config', packedOffset: 32, packedBitOffset: 0, type: device.mojom.XRSessionDeviceConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'enviroment_blend_mode', packedOffset: 12, packedBitOffset: 0, type: device.mojom.XREnvironmentBlendModeSpec, nullable: false, minVersion: 0 },
+        { name: 'data_provider', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'layer_manager', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'submit_frame_sink', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRPresentationConnectionSpec, nullable: true, minVersion: 0 },
+        { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'device_config', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRSessionDeviceConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'enviroment_blend_mode', packedOffset: 36, packedBitOffset: 0, type: device.mojom.XREnvironmentBlendModeSpec, nullable: false, minVersion: 0 },
         { name: 'interaction_mode', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRInteractionModeSpec, nullable: false, minVersion: 0 },
         { name: 'wants_fullscreen', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
@@ -285,15 +292,15 @@ device.mojom.XRSessionSpec = {
 };
 
 // Struct: XRPresentationConnection
-device.mojom.XRPresentationConnectionSpec = {
+device.mojom.mojom.XRPresentationConnectionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationConnection',
       packedSize: 24,
       fields: [
-        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'transport_options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRPresentationTransportOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'transport_options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRPresentationTransportOptionsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -301,16 +308,16 @@ device.mojom.XRPresentationConnectionSpec = {
 };
 
 // Struct: XRInputSourceDescription
-device.mojom.XRInputSourceDescriptionSpec = {
+device.mojom.mojom.XRInputSourceDescriptionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRInputSourceDescription',
       packedSize: 32,
       fields: [
-        { name: 'target_ray_mode', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRTargetRayModeSpec, nullable: false, minVersion: 0 },
-        { name: 'handedness', packedOffset: 4, packedBitOffset: 0, type: device.mojom.XRHandednessSpec, nullable: false, minVersion: 0 },
-        { name: 'input_from_pointer', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
-        { name: 'profiles', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'target_ray_mode', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRTargetRayModeSpec, nullable: false, minVersion: 0 },
+        { name: 'handedness', packedOffset: 20, packedBitOffset: 0, type: device.mojom.XRHandednessSpec, nullable: false, minVersion: 0 },
+        { name: 'input_from_pointer', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
+        { name: 'profiles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -318,24 +325,24 @@ device.mojom.XRInputSourceDescriptionSpec = {
 };
 
 // Struct: XRInputSourceState
-device.mojom.XRInputSourceStateSpec = {
+device.mojom.mojom.XRInputSourceStateSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRInputSourceState',
       packedSize: 56,
       fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRInputSourceDescriptionSpec, nullable: true, minVersion: 0 },
-        { name: 'mojo_from_input', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
-        { name: 'emulated_position', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_auxiliary', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_input_pressed', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_input_clicked', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_squeeze_pressed', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_squeeze_clicked', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'gamepad', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: true, minVersion: 0 },
-        { name: 'overlay_pointer_position', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: true, minVersion: 0 },
-        { name: 'hand_tracking_data', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRHandTrackingDataSpec, nullable: true, minVersion: 0 },
+        { name: 'source_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRInputSourceDescriptionSpec, nullable: true, minVersion: 0 },
+        { name: 'mojo_from_input', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
+        { name: 'emulated_position', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_auxiliary', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'primary_input_pressed', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'primary_input_clicked', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'primary_squeeze_pressed', packedOffset: 44, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'primary_squeeze_clicked', packedOffset: 44, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'gamepad', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: true, minVersion: 0 },
+        { name: 'overlay_pointer_position', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: true, minVersion: 0 },
+        { name: 'hand_tracking_data', packedOffset: 32, packedBitOffset: 0, type: device.mojom.XRHandTrackingDataSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -343,7 +350,7 @@ device.mojom.XRInputSourceStateSpec = {
 };
 
 // Struct: VRFieldOfView
-device.mojom.VRFieldOfViewSpec = {
+device.mojom.mojom.VRFieldOfViewSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRFieldOfView',
@@ -360,7 +367,7 @@ device.mojom.VRFieldOfViewSpec = {
 };
 
 // Struct: VRPose
-device.mojom.VRPoseSpec = {
+device.mojom.mojom.VRPoseSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRPose',
@@ -376,7 +383,7 @@ device.mojom.VRPoseSpec = {
 };
 
 // Struct: Pose
-device.mojom.PoseSpec = {
+device.mojom.mojom.PoseSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Pose',
@@ -391,7 +398,7 @@ device.mojom.PoseSpec = {
 };
 
 // Struct: AnchorId
-device.mojom.AnchorIdSpec = {
+device.mojom.mojom.AnchorIdSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.AnchorId',
@@ -405,7 +412,7 @@ device.mojom.AnchorIdSpec = {
 };
 
 // Struct: HitTestSubscriptionId
-device.mojom.HitTestSubscriptionIdSpec = {
+device.mojom.mojom.HitTestSubscriptionIdSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.HitTestSubscriptionId',
@@ -419,7 +426,7 @@ device.mojom.HitTestSubscriptionIdSpec = {
 };
 
 // Struct: PlaneId
-device.mojom.PlaneIdSpec = {
+device.mojom.mojom.PlaneIdSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PlaneId',
@@ -433,7 +440,7 @@ device.mojom.PlaneIdSpec = {
 };
 
 // Struct: XrVisibilityMaskId
-device.mojom.XrVisibilityMaskIdSpec = {
+device.mojom.mojom.XrVisibilityMaskIdSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XrVisibilityMaskId',
@@ -447,7 +454,7 @@ device.mojom.XrVisibilityMaskIdSpec = {
 };
 
 // Struct: XRRay
-device.mojom.XRRaySpec = {
+device.mojom.mojom.XRRaySpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRay',
@@ -462,7 +469,7 @@ device.mojom.XRRaySpec = {
 };
 
 // Struct: XRHitResult
-device.mojom.XRHitResultSpec = {
+device.mojom.mojom.XRHitResultSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitResult',
@@ -477,7 +484,7 @@ device.mojom.XRHitResultSpec = {
 };
 
 // Struct: XRViewGeometry
-device.mojom.XRViewGeometrySpec = {
+device.mojom.mojom.XRViewGeometrySpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRViewGeometry',
@@ -492,7 +499,7 @@ device.mojom.XRViewGeometrySpec = {
 };
 
 // Struct: XRVisibilityMask
-device.mojom.XRVisibilityMaskSpec = {
+device.mojom.mojom.XRVisibilityMaskSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRVisibilityMask',
@@ -507,19 +514,19 @@ device.mojom.XRVisibilityMaskSpec = {
 };
 
 // Struct: XRView
-device.mojom.XRViewSpec = {
+device.mojom.mojom.XRViewSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRView',
       packedSize: 64,
       fields: [
-        { name: 'eye', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XREyeSpec, nullable: false, minVersion: 0 },
-        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRViewGeometrySpec, nullable: false, minVersion: 0 },
-        { name: 'viewport', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'depth_data', packedOffset: 24, packedBitOffset: 0, type: device.mojom.XRDepthDataSpec, nullable: true, minVersion: 0 },
-        { name: 'is_first_person_observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'visibility_mask', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRVisibilityMaskSpec, nullable: true, minVersion: 0 },
-        { name: 'visibility_mask_id', packedOffset: 48, packedBitOffset: 0, type: device.mojom.XrVisibilityMaskIdSpec, nullable: false, minVersion: 0 },
+        { name: 'eye', packedOffset: 48, packedBitOffset: 0, type: device.mojom.XREyeSpec, nullable: false, minVersion: 0 },
+        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRViewGeometrySpec, nullable: false, minVersion: 0 },
+        { name: 'viewport', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'depth_data', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRDepthDataSpec, nullable: true, minVersion: 0 },
+        { name: 'is_first_person_observer', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'visibility_mask', packedOffset: 32, packedBitOffset: 0, type: device.mojom.XRVisibilityMaskSpec, nullable: true, minVersion: 0 },
+        { name: 'visibility_mask_id', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XrVisibilityMaskIdSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -527,7 +534,7 @@ device.mojom.XRViewSpec = {
 };
 
 // Struct: VRStageParameters
-device.mojom.VRStageParametersSpec = {
+device.mojom.mojom.VRStageParametersSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRStageParameters',
@@ -542,7 +549,7 @@ device.mojom.VRStageParametersSpec = {
 };
 
 // Struct: XRPresentationTransportOptions
-device.mojom.XRPresentationTransportOptionsSpec = {
+device.mojom.mojom.XRPresentationTransportOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationTransportOptions',
@@ -559,7 +566,7 @@ device.mojom.XRPresentationTransportOptionsSpec = {
 };
 
 // Struct: XRInputSourceSpaceInfo
-device.mojom.XRInputSourceSpaceInfoSpec = {
+device.mojom.mojom.XRInputSourceSpaceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRInputSourceSpaceInfo',
@@ -574,7 +581,7 @@ device.mojom.XRInputSourceSpaceInfoSpec = {
 };
 
 // Struct: XRHandJointSpaceInfo
-device.mojom.XRHandJointSpaceInfoSpec = {
+device.mojom.mojom.XRHandJointSpaceInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHandJointSpaceInfo',
@@ -589,7 +596,7 @@ device.mojom.XRHandJointSpaceInfoSpec = {
 };
 
 // Struct: XRPlanePointData
-device.mojom.XRPlanePointDataSpec = {
+device.mojom.mojom.XRPlanePointDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPlanePointData',
@@ -604,17 +611,17 @@ device.mojom.XRPlanePointDataSpec = {
 };
 
 // Struct: XRPlaneData
-device.mojom.XRPlaneDataSpec = {
+device.mojom.mojom.XRPlaneDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPlaneData',
       packedSize: 40,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PlaneIdSpec, nullable: false, minVersion: 0 },
-        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRPlaneOrientationSpec, nullable: false, minVersion: 0 },
-        { name: 'mojo_from_plane', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PoseSpec, nullable: true, minVersion: 0 },
-        { name: 'semantic_label', packedOffset: 12, packedBitOffset: 0, type: device.mojom.XRSemanticLabelSpec, nullable: true, minVersion: 0 },
-        { name: 'polygon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRPlanePointDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'orientation', packedOffset: 24, packedBitOffset: 0, type: device.mojom.XRPlaneOrientationSpec, nullable: false, minVersion: 0 },
+        { name: 'mojo_from_plane', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PoseSpec, nullable: true, minVersion: 0 },
+        { name: 'semantic_label', packedOffset: 28, packedBitOffset: 0, type: device.mojom.XRSemanticLabelSpec, nullable: true, minVersion: 0 },
+        { name: 'polygon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRPlanePointDataSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -622,7 +629,7 @@ device.mojom.XRPlaneDataSpec = {
 };
 
 // Struct: XRPlaneDetectionData
-device.mojom.XRPlaneDetectionDataSpec = {
+device.mojom.mojom.XRPlaneDetectionDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPlaneDetectionData',
@@ -637,7 +644,7 @@ device.mojom.XRPlaneDetectionDataSpec = {
 };
 
 // Struct: XRAnchorData
-device.mojom.XRAnchorDataSpec = {
+device.mojom.mojom.XRAnchorDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRAnchorData',
@@ -652,7 +659,7 @@ device.mojom.XRAnchorDataSpec = {
 };
 
 // Struct: XRAnchorsData
-device.mojom.XRAnchorsDataSpec = {
+device.mojom.mojom.XRAnchorsDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRAnchorsData',
@@ -667,7 +674,7 @@ device.mojom.XRAnchorsDataSpec = {
 };
 
 // Struct: XRHitTestSubscriptionResultData
-device.mojom.XRHitTestSubscriptionResultDataSpec = {
+device.mojom.mojom.XRHitTestSubscriptionResultDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitTestSubscriptionResultData',
@@ -682,7 +689,7 @@ device.mojom.XRHitTestSubscriptionResultDataSpec = {
 };
 
 // Struct: XRHitTestTransientInputSubscriptionResultData
-device.mojom.XRHitTestTransientInputSubscriptionResultDataSpec = {
+device.mojom.mojom.XRHitTestTransientInputSubscriptionResultDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitTestTransientInputSubscriptionResultData',
@@ -697,7 +704,7 @@ device.mojom.XRHitTestTransientInputSubscriptionResultDataSpec = {
 };
 
 // Struct: XRHitTestSubscriptionResultsData
-device.mojom.XRHitTestSubscriptionResultsDataSpec = {
+device.mojom.mojom.XRHitTestSubscriptionResultsDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRHitTestSubscriptionResultsData',
@@ -712,7 +719,7 @@ device.mojom.XRHitTestSubscriptionResultsDataSpec = {
 };
 
 // Struct: RgbTupleF32
-device.mojom.RgbTupleF32Spec = {
+device.mojom.mojom.RgbTupleF32Spec = {
   $: {
     structSpec: {
       name: 'device.mojom.RgbTupleF32',
@@ -728,7 +735,7 @@ device.mojom.RgbTupleF32Spec = {
 };
 
 // Struct: XRSphericalHarmonics
-device.mojom.XRSphericalHarmonicsSpec = {
+device.mojom.mojom.XRSphericalHarmonicsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSphericalHarmonics',
@@ -742,20 +749,20 @@ device.mojom.XRSphericalHarmonicsSpec = {
 };
 
 // Struct: XRCubeMap
-device.mojom.XRCubeMapSpec = {
+device.mojom.mojom.XRCubeMapSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRCubeMap',
       packedSize: 72,
       fields: [
         { name: 'kNumComponentsPerPixel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'width_and_height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'positive_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'negative_x', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'positive_y', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'negative_y', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'positive_z', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'negative_z', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'width_and_height', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'positive_x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'negative_x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'positive_y', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'negative_y', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'positive_z', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'negative_z', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -763,7 +770,7 @@ device.mojom.XRCubeMapSpec = {
 };
 
 // Struct: XRLightProbe
-device.mojom.XRLightProbeSpec = {
+device.mojom.mojom.XRLightProbeSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLightProbe',
@@ -779,7 +786,7 @@ device.mojom.XRLightProbeSpec = {
 };
 
 // Struct: XRReflectionProbe
-device.mojom.XRReflectionProbeSpec = {
+device.mojom.mojom.XRReflectionProbeSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRReflectionProbe',
@@ -793,7 +800,7 @@ device.mojom.XRReflectionProbeSpec = {
 };
 
 // Struct: XRLightEstimationData
-device.mojom.XRLightEstimationDataSpec = {
+device.mojom.mojom.XRLightEstimationDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLightEstimationData',
@@ -808,7 +815,7 @@ device.mojom.XRLightEstimationDataSpec = {
 };
 
 // Struct: XRDepthDataStillValid
-device.mojom.XRDepthDataStillValidSpec = {
+device.mojom.mojom.XRDepthDataStillValidSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDepthDataStillValid',
@@ -821,7 +828,7 @@ device.mojom.XRDepthDataStillValidSpec = {
 };
 
 // Struct: XRDepthDataUpdated
-device.mojom.XRDepthDataUpdatedSpec = {
+device.mojom.mojom.XRDepthDataUpdatedSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRDepthDataUpdated',
@@ -830,8 +837,8 @@ device.mojom.XRDepthDataUpdatedSpec = {
         { name: 'pixel_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
         { name: 'norm_texture_from_norm_view', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
         { name: 'size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'raw_value_to_meters', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'view_geometry', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRViewGeometrySpec, nullable: true, minVersion: 0 },
+        { name: 'raw_value_to_meters', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'view_geometry', packedOffset: 32, packedBitOffset: 0, type: device.mojom.XRViewGeometrySpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -839,16 +846,16 @@ device.mojom.XRDepthDataUpdatedSpec = {
 };
 
 // Struct: XRTrackedImageData
-device.mojom.XRTrackedImageDataSpec = {
+device.mojom.mojom.XRTrackedImageDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRTrackedImageData',
       packedSize: 32,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mojo_from_image', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PoseSpec, nullable: false, minVersion: 0 },
-        { name: 'actively_tracked', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'width_in_meters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'mojo_from_image', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PoseSpec, nullable: false, minVersion: 0 },
+        { name: 'actively_tracked', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'width_in_meters', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -856,7 +863,7 @@ device.mojom.XRTrackedImageDataSpec = {
 };
 
 // Struct: XRTrackedImagesData
-device.mojom.XRTrackedImagesDataSpec = {
+device.mojom.mojom.XRTrackedImagesDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRTrackedImagesData',
@@ -871,7 +878,7 @@ device.mojom.XRTrackedImagesDataSpec = {
 };
 
 // Struct: LayerId
-device.mojom.LayerIdSpec = {
+device.mojom.mojom.LayerIdSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.LayerId',
@@ -885,7 +892,7 @@ device.mojom.LayerIdSpec = {
 };
 
 // Struct: XRProjectionLayerData
-device.mojom.XRProjectionLayerDataSpec = {
+device.mojom.mojom.XRProjectionLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRProjectionLayerData',
@@ -898,7 +905,7 @@ device.mojom.XRProjectionLayerDataSpec = {
 };
 
 // Struct: XRQuadLayerData
-device.mojom.XRQuadLayerDataSpec = {
+device.mojom.mojom.XRQuadLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRQuadLayerData',
@@ -914,7 +921,7 @@ device.mojom.XRQuadLayerDataSpec = {
 };
 
 // Struct: XRCylinderLayerData
-device.mojom.XRCylinderLayerDataSpec = {
+device.mojom.mojom.XRCylinderLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRCylinderLayerData',
@@ -931,7 +938,7 @@ device.mojom.XRCylinderLayerDataSpec = {
 };
 
 // Struct: XREquirectLayerData
-device.mojom.XREquirectLayerDataSpec = {
+device.mojom.mojom.XREquirectLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREquirectLayerData',
@@ -949,7 +956,7 @@ device.mojom.XREquirectLayerDataSpec = {
 };
 
 // Struct: XRCubeLayerData
-device.mojom.XRCubeLayerDataSpec = {
+device.mojom.mojom.XRCubeLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRCubeLayerData',
@@ -963,7 +970,7 @@ device.mojom.XRCubeLayerDataSpec = {
 };
 
 // Struct: XRLayerReadOnlyData
-device.mojom.XRLayerReadOnlyDataSpec = {
+device.mojom.mojom.XRLayerReadOnlyDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerReadOnlyData',
@@ -981,16 +988,16 @@ device.mojom.XRLayerReadOnlyDataSpec = {
 };
 
 // Struct: XRLayerMutableData
-device.mojom.XRLayerMutableDataSpec = {
+device.mojom.mojom.XRLayerMutableDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerMutableData',
       packedSize: 40,
       fields: [
-        { name: 'blend_texture_source_alpha', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'opacity', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'native_origin_information', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRNativeOriginInformationSpec, nullable: false, minVersion: 0 },
-        { name: 'layer_data', packedOffset: 24, packedBitOffset: 0, type: device.mojom.XRLayerSpecificDataSpec, nullable: false, minVersion: 0 },
+        { name: 'blend_texture_source_alpha', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'opacity', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'native_origin_information', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRNativeOriginInformationSpec, nullable: false, minVersion: 0 },
+        { name: 'layer_data', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRLayerSpecificDataSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -998,7 +1005,7 @@ device.mojom.XRLayerMutableDataSpec = {
 };
 
 // Struct: XRCompositionLayerData
-device.mojom.XRCompositionLayerDataSpec = {
+device.mojom.mojom.XRCompositionLayerDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRCompositionLayerData',
@@ -1013,7 +1020,7 @@ device.mojom.XRCompositionLayerDataSpec = {
 };
 
 // Struct: XRLayerFrameData
-device.mojom.XRLayerFrameDataSpec = {
+device.mojom.mojom.XRLayerFrameDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerFrameData',
@@ -1029,15 +1036,15 @@ device.mojom.XRLayerFrameDataSpec = {
 };
 
 // Struct: XRRenderInfo
-device.mojom.XRRenderInfoSpec = {
+device.mojom.mojom.XRRenderInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRRenderInfo',
       packedSize: 32,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'mojo_from_viewer', packedOffset: 8, packedBitOffset: 0, type: device.mojom.VRPoseSpec, nullable: true, minVersion: 0 },
-        { name: 'views', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRViewSpec, false), nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'mojo_from_viewer', packedOffset: 0, packedBitOffset: 0, type: device.mojom.VRPoseSpec, nullable: true, minVersion: 0 },
+        { name: 'views', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRViewSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -1045,7 +1052,7 @@ device.mojom.XRRenderInfoSpec = {
 };
 
 // Struct: XRFrameData
-device.mojom.XRFrameDataSpec = {
+device.mojom.mojom.XRFrameDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRFrameData',
@@ -1058,18 +1065,18 @@ device.mojom.XRFrameDataSpec = {
         { name: 'camera_image_buffer_shared_image', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: true, minVersion: 0 },
         { name: 'camera_image_buffer_sync_token', packedOffset: 40, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: true, minVersion: 0 },
         { name: 'camera_image_size', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
-        { name: 'mojo_space_reset', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mojo_from_floor', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
-        { name: 'input_state', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRInputSourceStateSpec, false), nullable: true, minVersion: 0 },
-        { name: 'stage_parameters_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stage_parameters', packedOffset: 80, packedBitOffset: 0, type: device.mojom.VRStageParametersSpec, nullable: true, minVersion: 0 },
-        { name: 'detected_planes_data', packedOffset: 88, packedBitOffset: 0, type: device.mojom.XRPlaneDetectionDataSpec, nullable: true, minVersion: 0 },
-        { name: 'anchors_data', packedOffset: 96, packedBitOffset: 0, type: device.mojom.XRAnchorsDataSpec, nullable: true, minVersion: 0 },
-        { name: 'composition_layers_data', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRLayerFrameDataSpec, false), nullable: true, minVersion: 0 },
-        { name: 'light_estimation_data', packedOffset: 112, packedBitOffset: 0, type: device.mojom.XRLightEstimationDataSpec, nullable: true, minVersion: 0 },
-        { name: 'hit_test_subscription_results', packedOffset: 120, packedBitOffset: 0, type: device.mojom.XRHitTestSubscriptionResultsDataSpec, nullable: true, minVersion: 0 },
-        { name: 'rendering_time_ratio', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tracked_images', packedOffset: 136, packedBitOffset: 0, type: device.mojom.XRTrackedImagesDataSpec, nullable: true, minVersion: 0 },
+        { name: 'mojo_space_reset', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mojo_from_floor', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
+        { name: 'input_state', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRInputSourceStateSpec, false), nullable: true, minVersion: 0 },
+        { name: 'stage_parameters_id', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'stage_parameters', packedOffset: 72, packedBitOffset: 0, type: device.mojom.VRStageParametersSpec, nullable: true, minVersion: 0 },
+        { name: 'detected_planes_data', packedOffset: 80, packedBitOffset: 0, type: device.mojom.XRPlaneDetectionDataSpec, nullable: true, minVersion: 0 },
+        { name: 'anchors_data', packedOffset: 88, packedBitOffset: 0, type: device.mojom.XRAnchorsDataSpec, nullable: true, minVersion: 0 },
+        { name: 'composition_layers_data', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRLayerFrameDataSpec, false), nullable: true, minVersion: 0 },
+        { name: 'light_estimation_data', packedOffset: 104, packedBitOffset: 0, type: device.mojom.XRLightEstimationDataSpec, nullable: true, minVersion: 0 },
+        { name: 'hit_test_subscription_results', packedOffset: 112, packedBitOffset: 0, type: device.mojom.XRHitTestSubscriptionResultsDataSpec, nullable: true, minVersion: 0 },
+        { name: 'rendering_time_ratio', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'tracked_images', packedOffset: 120, packedBitOffset: 0, type: device.mojom.XRTrackedImagesDataSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 152}]
     }
@@ -1077,7 +1084,7 @@ device.mojom.XRFrameDataSpec = {
 };
 
 // Struct: RequestSessionSuccess
-device.mojom.RequestSessionSuccessSpec = {
+device.mojom.mojom.RequestSessionSuccessSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.RequestSessionSuccess',
@@ -1094,15 +1101,15 @@ device.mojom.RequestSessionSuccessSpec = {
 };
 
 // Struct: XRFrameDataRequestOptions
-device.mojom.XRFrameDataRequestOptionsSpec = {
+device.mojom.mojom.XRFrameDataRequestOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRFrameDataRequestOptions',
       packedSize: 16,
       fields: [
-        { name: 'include_lighting_estimation_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'depth_active', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'stage_parameters_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'include_lighting_estimation_data', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'depth_active', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'stage_parameters_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1110,24 +1117,24 @@ device.mojom.XRFrameDataRequestOptionsSpec = {
 };
 
 // Interface: VRService
-device.mojom.VRService = {};
+device.mojom.mojom.VRService = {};
 
-device.mojom.VRServicePendingReceiver = class {
+device.mojom.mojom.VRServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.VRServiceRemote = class {
+device.mojom.mojom.VRServiceRemote = class {
   static get $interfaceName() {
     return 'device.mojom.VRService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.VRServicePendingReceiver,
+      device.mojom.mojom.VRServicePendingReceiver,
       handle);
-    this.$ = new device.mojom.VRServiceRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.VRServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1139,7 +1146,7 @@ device.mojom.VRServiceRemote = class {
   }
 };
 
-device.mojom.VRServiceRemoteCallHandler = class {
+device.mojom.mojom.VRServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1148,7 +1155,7 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VRService_SetClient_ParamsSpec,
+      device.mojom.mojom.VRService_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -1157,8 +1164,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.VRService_RequestSession_ParamsSpec,
-      device.mojom.VRService_RequestSession_ResponseParamsSpec,
+      device.mojom.mojom.VRService_RequestSession_ParamsSpec,
+      device.mojom.mojom.VRService_RequestSession_ResponseParamsSpec,
       [options]);
   }
 
@@ -1166,8 +1173,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.VRService_SupportsSession_ParamsSpec,
-      device.mojom.VRService_SupportsSession_ResponseParamsSpec,
+      device.mojom.mojom.VRService_SupportsSession_ParamsSpec,
+      device.mojom.mojom.VRService_SupportsSession_ResponseParamsSpec,
       [options]);
   }
 
@@ -1175,7 +1182,7 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.VRService_ExitPresent_ParamsSpec,
+      device.mojom.mojom.VRService_ExitPresent_ParamsSpec,
       null,
       []);
   }
@@ -1184,7 +1191,7 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.VRService_SetFramesThrottled_ParamsSpec,
+      device.mojom.mojom.VRService_SetFramesThrottled_ParamsSpec,
       null,
       [throttled]);
   }
@@ -1193,15 +1200,15 @@ device.mojom.VRServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.VRService_MakeXrCompatible_ParamsSpec,
-      device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
+      device.mojom.mojom.VRService_MakeXrCompatible_ParamsSpec,
+      device.mojom.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
       []);
   }
 
 };
 
-device.mojom.VRService.getRemote = function() {
-  let remote = new device.mojom.VRServiceRemote();
+device.mojom.mojom.VRService.getRemote = function() {
+  let remote = new device.mojom.mojom.VRServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1211,7 +1218,7 @@ device.mojom.VRService.getRemote = function() {
 };
 
 // ParamsSpec for SetClient
-device.mojom.VRService_SetClient_ParamsSpec = {
+device.mojom.mojom.VRService_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.SetClient_Params',
@@ -1225,7 +1232,7 @@ device.mojom.VRService_SetClient_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSession
-device.mojom.VRService_RequestSession_ParamsSpec = {
+device.mojom.mojom.VRService_RequestSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.RequestSession_Params',
@@ -1238,7 +1245,7 @@ device.mojom.VRService_RequestSession_ParamsSpec = {
   }
 };
 
-device.mojom.VRService_RequestSession_ResponseParamsSpec = {
+device.mojom.mojom.VRService_RequestSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.RequestSession_ResponseParams',
@@ -1252,7 +1259,7 @@ device.mojom.VRService_RequestSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SupportsSession
-device.mojom.VRService_SupportsSession_ParamsSpec = {
+device.mojom.mojom.VRService_SupportsSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.SupportsSession_Params',
@@ -1265,7 +1272,7 @@ device.mojom.VRService_SupportsSession_ParamsSpec = {
   }
 };
 
-device.mojom.VRService_SupportsSession_ResponseParamsSpec = {
+device.mojom.mojom.VRService_SupportsSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.SupportsSession_ResponseParams',
@@ -1279,7 +1286,7 @@ device.mojom.VRService_SupportsSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExitPresent
-device.mojom.VRService_ExitPresent_ParamsSpec = {
+device.mojom.mojom.VRService_ExitPresent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.ExitPresent_Params',
@@ -1292,7 +1299,7 @@ device.mojom.VRService_ExitPresent_ParamsSpec = {
 };
 
 // ParamsSpec for SetFramesThrottled
-device.mojom.VRService_SetFramesThrottled_ParamsSpec = {
+device.mojom.mojom.VRService_SetFramesThrottled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.SetFramesThrottled_Params',
@@ -1306,7 +1313,7 @@ device.mojom.VRService_SetFramesThrottled_ParamsSpec = {
 };
 
 // ParamsSpec for MakeXrCompatible
-device.mojom.VRService_MakeXrCompatible_ParamsSpec = {
+device.mojom.mojom.VRService_MakeXrCompatible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.MakeXrCompatible_Params',
@@ -1318,7 +1325,7 @@ device.mojom.VRService_MakeXrCompatible_ParamsSpec = {
   }
 };
 
-device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec = {
+device.mojom.mojom.VRService_MakeXrCompatible_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRService.MakeXrCompatible_ResponseParams',
@@ -1332,29 +1339,29 @@ device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.VRServicePtr = device.mojom.VRServiceRemote;
-device.mojom.VRServiceRequest = device.mojom.VRServicePendingReceiver;
+device.mojom.mojom.VRServicePtr = device.mojom.mojom.VRServiceRemote;
+device.mojom.mojom.VRServiceRequest = device.mojom.mojom.VRServicePendingReceiver;
 
 
 // Interface: XRSessionMetricsRecorder
-device.mojom.XRSessionMetricsRecorder = {};
+device.mojom.mojom.XRSessionMetricsRecorder = {};
 
-device.mojom.XRSessionMetricsRecorderPendingReceiver = class {
+device.mojom.mojom.XRSessionMetricsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.XRSessionMetricsRecorderRemote = class {
+device.mojom.mojom.XRSessionMetricsRecorderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRSessionMetricsRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.XRSessionMetricsRecorderPendingReceiver,
+      device.mojom.mojom.XRSessionMetricsRecorderPendingReceiver,
       handle);
-    this.$ = new device.mojom.XRSessionMetricsRecorderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.XRSessionMetricsRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1366,7 +1373,7 @@ device.mojom.XRSessionMetricsRecorderRemote = class {
   }
 };
 
-device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
+device.mojom.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1375,15 +1382,15 @@ device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
+      device.mojom.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
       null,
       [feature]);
   }
 
 };
 
-device.mojom.XRSessionMetricsRecorder.getRemote = function() {
-  let remote = new device.mojom.XRSessionMetricsRecorderRemote();
+device.mojom.mojom.XRSessionMetricsRecorder.getRemote = function() {
+  let remote = new device.mojom.mojom.XRSessionMetricsRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1393,7 +1400,7 @@ device.mojom.XRSessionMetricsRecorder.getRemote = function() {
 };
 
 // ParamsSpec for ReportFeatureUsed
-device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec = {
+device.mojom.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSessionMetricsRecorder.ReportFeatureUsed_Params',
@@ -1407,29 +1414,29 @@ device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.XRSessionMetricsRecorderPtr = device.mojom.XRSessionMetricsRecorderRemote;
-device.mojom.XRSessionMetricsRecorderRequest = device.mojom.XRSessionMetricsRecorderPendingReceiver;
+device.mojom.mojom.XRSessionMetricsRecorderPtr = device.mojom.mojom.XRSessionMetricsRecorderRemote;
+device.mojom.mojom.XRSessionMetricsRecorderRequest = device.mojom.mojom.XRSessionMetricsRecorderPendingReceiver;
 
 
 // Interface: VRServiceClient
-device.mojom.VRServiceClient = {};
+device.mojom.mojom.VRServiceClient = {};
 
-device.mojom.VRServiceClientPendingReceiver = class {
+device.mojom.mojom.VRServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.VRServiceClientRemote = class {
+device.mojom.mojom.VRServiceClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.VRServiceClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.VRServiceClientPendingReceiver,
+      device.mojom.mojom.VRServiceClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.VRServiceClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.VRServiceClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1441,7 +1448,7 @@ device.mojom.VRServiceClientRemote = class {
   }
 };
 
-device.mojom.VRServiceClientRemoteCallHandler = class {
+device.mojom.mojom.VRServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1450,15 +1457,15 @@ device.mojom.VRServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
+      device.mojom.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.VRServiceClient.getRemote = function() {
-  let remote = new device.mojom.VRServiceClientRemote();
+device.mojom.mojom.VRServiceClient.getRemote = function() {
+  let remote = new device.mojom.mojom.VRServiceClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1468,7 +1475,7 @@ device.mojom.VRServiceClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDeviceChanged
-device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec = {
+device.mojom.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VRServiceClient.OnDeviceChanged_Params',
@@ -1481,29 +1488,29 @@ device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.VRServiceClientPtr = device.mojom.VRServiceClientRemote;
-device.mojom.VRServiceClientRequest = device.mojom.VRServiceClientPendingReceiver;
+device.mojom.mojom.VRServiceClientPtr = device.mojom.mojom.VRServiceClientRemote;
+device.mojom.mojom.VRServiceClientRequest = device.mojom.mojom.VRServiceClientPendingReceiver;
 
 
 // Interface: XREnvironmentIntegrationProvider
-device.mojom.XREnvironmentIntegrationProvider = {};
+device.mojom.mojom.XREnvironmentIntegrationProvider = {};
 
-device.mojom.XREnvironmentIntegrationProviderPendingReceiver = class {
+device.mojom.mojom.XREnvironmentIntegrationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.XREnvironmentIntegrationProviderRemote = class {
+device.mojom.mojom.XREnvironmentIntegrationProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XREnvironmentIntegrationProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.XREnvironmentIntegrationProviderPendingReceiver,
+      device.mojom.mojom.XREnvironmentIntegrationProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.XREnvironmentIntegrationProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1515,7 +1522,7 @@ device.mojom.XREnvironmentIntegrationProviderRemote = class {
   }
 };
 
-device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
+device.mojom.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1524,8 +1531,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
       [native_origin_information, entity_types, ray]);
   }
 
@@ -1533,8 +1540,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
-      device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
       [profile_name, entity_types, ray]);
   }
 
@@ -1542,7 +1549,7 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
       null,
       [subscription_id]);
   }
@@ -1551,8 +1558,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
-      device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
       [native_origin_information, native_origin_from_anchor, plane_id]);
   }
 
@@ -1560,15 +1567,15 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
+      device.mojom.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
       null,
       [anchor_id]);
   }
 
 };
 
-device.mojom.XREnvironmentIntegrationProvider.getRemote = function() {
-  let remote = new device.mojom.XREnvironmentIntegrationProviderRemote();
+device.mojom.mojom.XREnvironmentIntegrationProvider.getRemote = function() {
+  let remote = new device.mojom.mojom.XREnvironmentIntegrationProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1578,7 +1585,7 @@ device.mojom.XREnvironmentIntegrationProvider.getRemote = function() {
 };
 
 // ParamsSpec for SubscribeToHitTest
-device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTest_Params',
@@ -1593,7 +1600,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec = {
   }
 };
 
-device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTest_ResponseParams',
@@ -1607,7 +1614,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsS
 };
 
 // ParamsSpec for SubscribeToHitTestForTransientInput
-device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTestForTransientInput_Params',
@@ -1622,7 +1629,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInpu
   }
 };
 
-device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTestForTransientInput_ResponseParams',
@@ -1636,7 +1643,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInpu
 };
 
 // ParamsSpec for UnsubscribeFromHitTest
-device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.UnsubscribeFromHitTest_Params',
@@ -1650,7 +1657,7 @@ device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec 
 };
 
 // ParamsSpec for CreateAnchor
-device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.CreateAnchor_Params',
@@ -1665,7 +1672,7 @@ device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec = {
   }
 };
 
-device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.CreateAnchor_ResponseParams',
@@ -1679,7 +1686,7 @@ device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec = 
 };
 
 // ParamsSpec for DetachAnchor
-device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec = {
+device.mojom.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XREnvironmentIntegrationProvider.DetachAnchor_Params',
@@ -1693,29 +1700,29 @@ device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.XREnvironmentIntegrationProviderPtr = device.mojom.XREnvironmentIntegrationProviderRemote;
-device.mojom.XREnvironmentIntegrationProviderRequest = device.mojom.XREnvironmentIntegrationProviderPendingReceiver;
+device.mojom.mojom.XREnvironmentIntegrationProviderPtr = device.mojom.mojom.XREnvironmentIntegrationProviderRemote;
+device.mojom.mojom.XREnvironmentIntegrationProviderRequest = device.mojom.mojom.XREnvironmentIntegrationProviderPendingReceiver;
 
 
 // Interface: XRFrameDataProvider
-device.mojom.XRFrameDataProvider = {};
+device.mojom.mojom.XRFrameDataProvider = {};
 
-device.mojom.XRFrameDataProviderPendingReceiver = class {
+device.mojom.mojom.XRFrameDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.XRFrameDataProviderRemote = class {
+device.mojom.mojom.XRFrameDataProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRFrameDataProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.XRFrameDataProviderPendingReceiver,
+      device.mojom.mojom.XRFrameDataProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.XRFrameDataProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.XRFrameDataProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1727,7 +1734,7 @@ device.mojom.XRFrameDataProviderRemote = class {
   }
 };
 
-device.mojom.XRFrameDataProviderRemoteCallHandler = class {
+device.mojom.mojom.XRFrameDataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1736,8 +1743,8 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
-      device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
+      device.mojom.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
+      device.mojom.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
       [options]);
   }
 
@@ -1745,15 +1752,15 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
+      device.mojom.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
       null,
       [environment_provider]);
   }
 
 };
 
-device.mojom.XRFrameDataProvider.getRemote = function() {
-  let remote = new device.mojom.XRFrameDataProviderRemote();
+device.mojom.mojom.XRFrameDataProvider.getRemote = function() {
+  let remote = new device.mojom.mojom.XRFrameDataProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1763,7 +1770,7 @@ device.mojom.XRFrameDataProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetFrameData
-device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec = {
+device.mojom.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRFrameDataProvider.GetFrameData_Params',
@@ -1776,7 +1783,7 @@ device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec = {
   }
 };
 
-device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec = {
+device.mojom.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRFrameDataProvider.GetFrameData_ResponseParams',
@@ -1790,7 +1797,7 @@ device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetEnvironmentIntegrationProvider
-device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec = {
+device.mojom.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRFrameDataProvider.GetEnvironmentIntegrationProvider_Params',
@@ -1804,29 +1811,29 @@ device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec = 
 };
 
 // Legacy compatibility
-device.mojom.XRFrameDataProviderPtr = device.mojom.XRFrameDataProviderRemote;
-device.mojom.XRFrameDataProviderRequest = device.mojom.XRFrameDataProviderPendingReceiver;
+device.mojom.mojom.XRFrameDataProviderPtr = device.mojom.mojom.XRFrameDataProviderRemote;
+device.mojom.mojom.XRFrameDataProviderRequest = device.mojom.mojom.XRFrameDataProviderPendingReceiver;
 
 
 // Interface: XRPresentationProvider
-device.mojom.XRPresentationProvider = {};
+device.mojom.mojom.XRPresentationProvider = {};
 
-device.mojom.XRPresentationProviderPendingReceiver = class {
+device.mojom.mojom.XRPresentationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.XRPresentationProviderRemote = class {
+device.mojom.mojom.XRPresentationProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRPresentationProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.XRPresentationProviderPendingReceiver,
+      device.mojom.mojom.XRPresentationProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.XRPresentationProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.XRPresentationProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1838,7 +1845,7 @@ device.mojom.XRPresentationProviderRemote = class {
   }
 };
 
-device.mojom.XRPresentationProviderRemoteCallHandler = class {
+device.mojom.mojom.XRPresentationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1847,7 +1854,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
+      device.mojom.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
       null,
       [frame_id, left_bounds, right_bounds, source_size]);
   }
@@ -1856,7 +1863,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
+      device.mojom.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
       null,
       [frame_id, sync_token]);
   }
@@ -1865,7 +1872,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
+      device.mojom.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
       null,
       [frame_id, time_waited]);
   }
@@ -1874,7 +1881,7 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
+      device.mojom.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
       null,
       [frame_id, texture, sync_token]);
   }
@@ -1883,15 +1890,15 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
+      device.mojom.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
       null,
       [frame_id, layer_ids, sync_token, time_waited]);
   }
 
 };
 
-device.mojom.XRPresentationProvider.getRemote = function() {
-  let remote = new device.mojom.XRPresentationProviderRemote();
+device.mojom.mojom.XRPresentationProvider.getRemote = function() {
+  let remote = new device.mojom.mojom.XRPresentationProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1901,16 +1908,16 @@ device.mojom.XRPresentationProvider.getRemote = function() {
 };
 
 // ParamsSpec for UpdateLayerBounds
-device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec = {
+device.mojom.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationProvider.UpdateLayerBounds_Params',
       packedSize: 40,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'left_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'right_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'source_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'left_bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'right_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'source_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -1918,14 +1925,14 @@ device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec = {
 };
 
 // ParamsSpec for SubmitFrameMissing
-device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec = {
+device.mojom.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationProvider.SubmitFrameMissing_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1933,14 +1940,14 @@ device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec = {
 };
 
 // ParamsSpec for SubmitFrame
-device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec = {
+device.mojom.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationProvider.SubmitFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'time_waited', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'time_waited', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1948,15 +1955,15 @@ device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec = {
 };
 
 // ParamsSpec for SubmitFrameWithTextureHandle
-device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec = {
+device.mojom.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationProvider.SubmitFrameWithTextureHandle_Params',
       packedSize: 32,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'texture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'texture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -1964,16 +1971,16 @@ device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec = {
 };
 
 // ParamsSpec for SubmitFrameDrawnIntoTexture
-device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec = {
+device.mojom.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationProvider.SubmitFrameDrawnIntoTexture_Params',
       packedSize: 40,
       fields: [
-        { name: 'frame_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'layer_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.LayerIdSpec, false), nullable: false, minVersion: 0 },
-        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'time_waited', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
+        { name: 'layer_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.LayerIdSpec, false), nullable: false, minVersion: 0 },
+        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'time_waited', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -1981,29 +1988,29 @@ device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.XRPresentationProviderPtr = device.mojom.XRPresentationProviderRemote;
-device.mojom.XRPresentationProviderRequest = device.mojom.XRPresentationProviderPendingReceiver;
+device.mojom.mojom.XRPresentationProviderPtr = device.mojom.mojom.XRPresentationProviderRemote;
+device.mojom.mojom.XRPresentationProviderRequest = device.mojom.mojom.XRPresentationProviderPendingReceiver;
 
 
 // Interface: XRPresentationClient
-device.mojom.XRPresentationClient = {};
+device.mojom.mojom.XRPresentationClient = {};
 
-device.mojom.XRPresentationClientPendingReceiver = class {
+device.mojom.mojom.XRPresentationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.XRPresentationClientRemote = class {
+device.mojom.mojom.XRPresentationClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRPresentationClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.XRPresentationClientPendingReceiver,
+      device.mojom.mojom.XRPresentationClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.XRPresentationClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.XRPresentationClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2015,7 +2022,7 @@ device.mojom.XRPresentationClientRemote = class {
   }
 };
 
-device.mojom.XRPresentationClientRemoteCallHandler = class {
+device.mojom.mojom.XRPresentationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2024,7 +2031,7 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
+      device.mojom.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
       null,
       [success]);
   }
@@ -2033,7 +2040,7 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
+      device.mojom.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
       null,
       []);
   }
@@ -2042,15 +2049,15 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
+      device.mojom.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
       null,
       [gpu_fence_handle]);
   }
 
 };
 
-device.mojom.XRPresentationClient.getRemote = function() {
-  let remote = new device.mojom.XRPresentationClientRemote();
+device.mojom.mojom.XRPresentationClient.getRemote = function() {
+  let remote = new device.mojom.mojom.XRPresentationClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2060,7 +2067,7 @@ device.mojom.XRPresentationClient.getRemote = function() {
 };
 
 // ParamsSpec for OnSubmitFrameTransferred
-device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec = {
+device.mojom.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationClient.OnSubmitFrameTransferred_Params',
@@ -2074,7 +2081,7 @@ device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec = {
 };
 
 // ParamsSpec for OnSubmitFrameRendered
-device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec = {
+device.mojom.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationClient.OnSubmitFrameRendered_Params',
@@ -2087,7 +2094,7 @@ device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec = {
 };
 
 // ParamsSpec for OnSubmitFrameGpuFence
-device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec = {
+device.mojom.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationClient.OnSubmitFrameGpuFence_Params',
@@ -2101,29 +2108,29 @@ device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.XRPresentationClientPtr = device.mojom.XRPresentationClientRemote;
-device.mojom.XRPresentationClientRequest = device.mojom.XRPresentationClientPendingReceiver;
+device.mojom.mojom.XRPresentationClientPtr = device.mojom.mojom.XRPresentationClientRemote;
+device.mojom.mojom.XRPresentationClientRequest = device.mojom.mojom.XRPresentationClientPendingReceiver;
 
 
 // Interface: XRSessionClient
-device.mojom.XRSessionClient = {};
+device.mojom.mojom.XRSessionClient = {};
 
-device.mojom.XRSessionClientPendingReceiver = class {
+device.mojom.mojom.XRSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.XRSessionClientRemote = class {
+device.mojom.mojom.XRSessionClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRSessionClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.XRSessionClientPendingReceiver,
+      device.mojom.mojom.XRSessionClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.XRSessionClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.XRSessionClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2135,7 +2142,7 @@ device.mojom.XRSessionClientRemote = class {
   }
 };
 
-device.mojom.XRSessionClientRemoteCallHandler = class {
+device.mojom.mojom.XRSessionClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2144,7 +2151,7 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
+      device.mojom.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
       null,
       []);
   }
@@ -2153,15 +2160,15 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
+      device.mojom.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
       null,
       [visibility_state]);
   }
 
 };
 
-device.mojom.XRSessionClient.getRemote = function() {
-  let remote = new device.mojom.XRSessionClientRemote();
+device.mojom.mojom.XRSessionClient.getRemote = function() {
+  let remote = new device.mojom.mojom.XRSessionClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2171,7 +2178,7 @@ device.mojom.XRSessionClient.getRemote = function() {
 };
 
 // ParamsSpec for OnExitPresent
-device.mojom.XRSessionClient_OnExitPresent_ParamsSpec = {
+device.mojom.mojom.XRSessionClient_OnExitPresent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSessionClient.OnExitPresent_Params',
@@ -2184,7 +2191,7 @@ device.mojom.XRSessionClient_OnExitPresent_ParamsSpec = {
 };
 
 // ParamsSpec for OnVisibilityStateChanged
-device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec = {
+device.mojom.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSessionClient.OnVisibilityStateChanged_Params',
@@ -2198,29 +2205,29 @@ device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.XRSessionClientPtr = device.mojom.XRSessionClientRemote;
-device.mojom.XRSessionClientRequest = device.mojom.XRSessionClientPendingReceiver;
+device.mojom.mojom.XRSessionClientPtr = device.mojom.mojom.XRSessionClientRemote;
+device.mojom.mojom.XRSessionClientRequest = device.mojom.mojom.XRSessionClientPendingReceiver;
 
 
 // Interface: XRLayerManager
-device.mojom.XRLayerManager = {};
+device.mojom.mojom.XRLayerManager = {};
 
-device.mojom.XRLayerManagerPendingReceiver = class {
+device.mojom.mojom.XRLayerManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.XRLayerManagerRemote = class {
+device.mojom.mojom.XRLayerManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.XRLayerManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.XRLayerManagerPendingReceiver,
+      device.mojom.mojom.XRLayerManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.XRLayerManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.XRLayerManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2232,7 +2239,7 @@ device.mojom.XRLayerManagerRemote = class {
   }
 };
 
-device.mojom.XRLayerManagerRemoteCallHandler = class {
+device.mojom.mojom.XRLayerManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2241,8 +2248,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
-      device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
+      device.mojom.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
+      device.mojom.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
       [create_data]);
   }
 
@@ -2250,7 +2257,7 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
+      device.mojom.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
       null,
       [layer_id]);
   }
@@ -2259,7 +2266,7 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
+      device.mojom.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
       null,
       [layer_id, update_data]);
   }
@@ -2268,15 +2275,15 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
+      device.mojom.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
       null,
       [layer_ids]);
   }
 
 };
 
-device.mojom.XRLayerManager.getRemote = function() {
-  let remote = new device.mojom.XRLayerManagerRemote();
+device.mojom.mojom.XRLayerManager.getRemote = function() {
+  let remote = new device.mojom.mojom.XRLayerManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2286,7 +2293,7 @@ device.mojom.XRLayerManager.getRemote = function() {
 };
 
 // ParamsSpec for CreateCompositionLayer
-device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec = {
+device.mojom.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerManager.CreateCompositionLayer_Params',
@@ -2299,7 +2306,7 @@ device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec = {
   }
 };
 
-device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec = {
+device.mojom.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerManager.CreateCompositionLayer_ResponseParams',
@@ -2313,7 +2320,7 @@ device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DestroyCompositionLayer
-device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec = {
+device.mojom.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerManager.DestroyCompositionLayer_Params',
@@ -2327,7 +2334,7 @@ device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateCompositionLayer
-device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec = {
+device.mojom.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerManager.UpdateCompositionLayer_Params',
@@ -2342,7 +2349,7 @@ device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec = {
 };
 
 // ParamsSpec for SetEnabledCompositionLayers
-device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec = {
+device.mojom.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRLayerManager.SetEnabledCompositionLayers_Params',
@@ -2356,29 +2363,29 @@ device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.XRLayerManagerPtr = device.mojom.XRLayerManagerRemote;
-device.mojom.XRLayerManagerRequest = device.mojom.XRLayerManagerPendingReceiver;
+device.mojom.mojom.XRLayerManagerPtr = device.mojom.mojom.XRLayerManagerRemote;
+device.mojom.mojom.XRLayerManagerRequest = device.mojom.mojom.XRLayerManagerPendingReceiver;
 
 
 // Interface: WebXrInternalsRendererListener
-device.mojom.WebXrInternalsRendererListener = {};
+device.mojom.mojom.WebXrInternalsRendererListener = {};
 
-device.mojom.WebXrInternalsRendererListenerPendingReceiver = class {
+device.mojom.mojom.WebXrInternalsRendererListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.WebXrInternalsRendererListenerRemote = class {
+device.mojom.mojom.WebXrInternalsRendererListenerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.WebXrInternalsRendererListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.WebXrInternalsRendererListenerPendingReceiver,
+      device.mojom.mojom.WebXrInternalsRendererListenerPendingReceiver,
       handle);
-    this.$ = new device.mojom.WebXrInternalsRendererListenerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.WebXrInternalsRendererListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2390,7 +2397,7 @@ device.mojom.WebXrInternalsRendererListenerRemote = class {
   }
 };
 
-device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
+device.mojom.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2399,7 +2406,7 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
+      device.mojom.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
       null,
       [xrframe_statistics]);
   }
@@ -2408,15 +2415,15 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
+      device.mojom.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
       null,
       [xrlogging_statistics]);
   }
 
 };
 
-device.mojom.WebXrInternalsRendererListener.getRemote = function() {
-  let remote = new device.mojom.WebXrInternalsRendererListenerRemote();
+device.mojom.mojom.WebXrInternalsRendererListener.getRemote = function() {
+  let remote = new device.mojom.mojom.WebXrInternalsRendererListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2426,7 +2433,7 @@ device.mojom.WebXrInternalsRendererListener.getRemote = function() {
 };
 
 // ParamsSpec for OnFrameData
-device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec = {
+device.mojom.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WebXrInternalsRendererListener.OnFrameData_Params',
@@ -2440,7 +2447,7 @@ device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec = {
 };
 
 // ParamsSpec for OnConsoleLog
-device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec = {
+device.mojom.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.WebXrInternalsRendererListener.OnConsoleLog_Params',
@@ -2454,6 +2461,6 @@ device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.WebXrInternalsRendererListenerPtr = device.mojom.WebXrInternalsRendererListenerRemote;
-device.mojom.WebXrInternalsRendererListenerRequest = device.mojom.WebXrInternalsRendererListenerPendingReceiver;
+device.mojom.mojom.WebXrInternalsRendererListenerPtr = device.mojom.mojom.WebXrInternalsRendererListenerRemote;
+device.mojom.mojom.WebXrInternalsRendererListenerRequest = device.mojom.mojom.WebXrInternalsRendererListenerPendingReceiver;
 

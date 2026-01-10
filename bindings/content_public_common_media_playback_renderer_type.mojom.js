@@ -10,9 +10,9 @@ content.mojom = content.mojom || {};
 
 
 // Enum: RendererType
-content.mojom.RendererType = {
+content.mojom.mojom.RendererType = {
   DEFAULT_RENDERER: 0,
   MOJO_RENDERER: 1,
   REMOTING_RENDERER: 2,
 };
-content.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
+content.mojom.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };

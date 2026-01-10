@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Interface: TimeZoneMonitor
-device.mojom.TimeZoneMonitor = {};
+device.mojom.mojom.TimeZoneMonitor = {};
 
-device.mojom.TimeZoneMonitorPendingReceiver = class {
+device.mojom.mojom.TimeZoneMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.TimeZoneMonitorRemote = class {
+device.mojom.mojom.TimeZoneMonitorRemote = class {
   static get $interfaceName() {
     return 'device.mojom.TimeZoneMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.TimeZoneMonitorPendingReceiver,
+      device.mojom.mojom.TimeZoneMonitorPendingReceiver,
       handle);
-    this.$ = new device.mojom.TimeZoneMonitorRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.TimeZoneMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ device.mojom.TimeZoneMonitorRemote = class {
   }
 };
 
-device.mojom.TimeZoneMonitorRemoteCallHandler = class {
+device.mojom.mojom.TimeZoneMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ device.mojom.TimeZoneMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.TimeZoneMonitor_AddClient_ParamsSpec,
+      device.mojom.mojom.TimeZoneMonitor_AddClient_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-device.mojom.TimeZoneMonitor.getRemote = function() {
-  let remote = new device.mojom.TimeZoneMonitorRemote();
+device.mojom.mojom.TimeZoneMonitor.getRemote = function() {
+  let remote = new device.mojom.mojom.TimeZoneMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ device.mojom.TimeZoneMonitor.getRemote = function() {
 };
 
 // ParamsSpec for AddClient
-device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
+device.mojom.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.TimeZoneMonitor.AddClient_Params',
@@ -80,29 +80,29 @@ device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.TimeZoneMonitorPtr = device.mojom.TimeZoneMonitorRemote;
-device.mojom.TimeZoneMonitorRequest = device.mojom.TimeZoneMonitorPendingReceiver;
+device.mojom.mojom.TimeZoneMonitorPtr = device.mojom.mojom.TimeZoneMonitorRemote;
+device.mojom.mojom.TimeZoneMonitorRequest = device.mojom.mojom.TimeZoneMonitorPendingReceiver;
 
 
 // Interface: TimeZoneMonitorClient
-device.mojom.TimeZoneMonitorClient = {};
+device.mojom.mojom.TimeZoneMonitorClient = {};
 
-device.mojom.TimeZoneMonitorClientPendingReceiver = class {
+device.mojom.mojom.TimeZoneMonitorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.TimeZoneMonitorClientRemote = class {
+device.mojom.mojom.TimeZoneMonitorClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.TimeZoneMonitorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.TimeZoneMonitorClientPendingReceiver,
+      device.mojom.mojom.TimeZoneMonitorClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.TimeZoneMonitorClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.TimeZoneMonitorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ device.mojom.TimeZoneMonitorClientRemote = class {
   }
 };
 
-device.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
+device.mojom.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,15 +123,15 @@ device.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec,
+      device.mojom.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec,
       null,
       [tz_info]);
   }
 
 };
 
-device.mojom.TimeZoneMonitorClient.getRemote = function() {
-  let remote = new device.mojom.TimeZoneMonitorClientRemote();
+device.mojom.mojom.TimeZoneMonitorClient.getRemote = function() {
+  let remote = new device.mojom.mojom.TimeZoneMonitorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -141,7 +141,7 @@ device.mojom.TimeZoneMonitorClient.getRemote = function() {
 };
 
 // ParamsSpec for OnTimeZoneChange
-device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
+device.mojom.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.TimeZoneMonitorClient.OnTimeZoneChange_Params',
@@ -155,6 +155,6 @@ device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.TimeZoneMonitorClientPtr = device.mojom.TimeZoneMonitorClientRemote;
-device.mojom.TimeZoneMonitorClientRequest = device.mojom.TimeZoneMonitorClientPendingReceiver;
+device.mojom.mojom.TimeZoneMonitorClientPtr = device.mojom.mojom.TimeZoneMonitorClientRemote;
+device.mojom.mojom.TimeZoneMonitorClientRequest = device.mojom.mojom.TimeZoneMonitorClientPendingReceiver;
 

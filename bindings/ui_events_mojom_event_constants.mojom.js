@@ -9,59 +9,59 @@ var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
 
-ui.mojom.kEventFlagNone = 0x00000;
+ui.mojom.mojom.kEventFlagNone = 0x00000;
 
-ui.mojom.kEventFlagIsSynthesized = 0x00001;
+ui.mojom.mojom.kEventFlagIsSynthesized = 0x00001;
 
-ui.mojom.kEventFlagShiftDown = 0x00002;
+ui.mojom.mojom.kEventFlagShiftDown = 0x00002;
 
-ui.mojom.kEventFlagControlDown = 0x00004;
+ui.mojom.mojom.kEventFlagControlDown = 0x00004;
 
-ui.mojom.kEventFlagAltDown = 0x00008;
+ui.mojom.mojom.kEventFlagAltDown = 0x00008;
 
-ui.mojom.kEventFlagCommandDown = 0x00010;
+ui.mojom.mojom.kEventFlagCommandDown = 0x00010;
 
-ui.mojom.kEventFlagFunctionDown = 0x00020;
+ui.mojom.mojom.kEventFlagFunctionDown = 0x00020;
 
-ui.mojom.kEventFlagAltgrDown = 0x00040;
+ui.mojom.mojom.kEventFlagAltgrDown = 0x00040;
 
-ui.mojom.kEventFlagMod3Down = 0x00080;
+ui.mojom.mojom.kEventFlagMod3Down = 0x00080;
 
-ui.mojom.kEventFlagNumLockOn = 0x00100;
+ui.mojom.mojom.kEventFlagNumLockOn = 0x00100;
 
-ui.mojom.kEventFlagCapsLockOn = 0x00200;
+ui.mojom.mojom.kEventFlagCapsLockOn = 0x00200;
 
-ui.mojom.kEventFlagScrollLockOn = 0x00400;
+ui.mojom.mojom.kEventFlagScrollLockOn = 0x00400;
 
-ui.mojom.kEventFlagLeftMouseButton = 0x00800;
+ui.mojom.mojom.kEventFlagLeftMouseButton = 0x00800;
 
-ui.mojom.kEventFlagMiddleMouseButton = 0x01000;
+ui.mojom.mojom.kEventFlagMiddleMouseButton = 0x01000;
 
-ui.mojom.kEventFlagRightMouseButton = 0x02000;
+ui.mojom.mojom.kEventFlagRightMouseButton = 0x02000;
 
-ui.mojom.kEventFlagBackMouseButton = 0x04000;
+ui.mojom.mojom.kEventFlagBackMouseButton = 0x04000;
 
-ui.mojom.kEventFlagForwardMouseButton = 0x08000;
+ui.mojom.mojom.kEventFlagForwardMouseButton = 0x08000;
 
-ui.mojom.kMouseEventFlagIsDoubleClick = 0x10000;
+ui.mojom.mojom.kMouseEventFlagIsDoubleClick = 0x10000;
 
-ui.mojom.kMouseEventFlagIsTripleClick = 0x20000;
+ui.mojom.mojom.kMouseEventFlagIsTripleClick = 0x20000;
 
-ui.mojom.kMouseEventFlagIsNonClient = 0x40000;
+ui.mojom.mojom.kMouseEventFlagIsNonClient = 0x40000;
 
-ui.mojom.kKeyEventFlagIMEFabricatedKey = 0x10000;
+ui.mojom.mojom.kKeyEventFlagIMEFabricatedKey = 0x10000;
 
-ui.mojom.kKeyEventFlagIsRepeat = 0x20000;
+ui.mojom.mojom.kKeyEventFlagIsRepeat = 0x20000;
 
 // Enum: AcceleratorPhase
-ui.mojom.AcceleratorPhase = {
+ui.mojom.mojom.AcceleratorPhase = {
   PRE_TARGET: 0,
   POST_TARGET: 1,
 };
-ui.mojom.AcceleratorPhaseSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.AcceleratorPhaseSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventType
-ui.mojom.EventType = {
+ui.mojom.mojom.EventType = {
   UNKNOWN: 0,
   KEY_PRESSED: 1,
   KEY_RELEASED: 2,
@@ -87,19 +87,19 @@ ui.mojom.EventType = {
   TOUCH_MOVED: 22,
   TOUCH_CANCELLED: 23,
 };
-ui.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollEventPhase
-ui.mojom.ScrollEventPhase = {
+ui.mojom.mojom.ScrollEventPhase = {
   kNone: 0,
   kBegan: 1,
   kUpdate: 2,
   kEnd: 3,
 };
-ui.mojom.ScrollEventPhaseSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.ScrollEventPhaseSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventMomentumPhase
-ui.mojom.EventMomentumPhase = {
+ui.mojom.mojom.EventMomentumPhase = {
   NONE: 0,
   BEGAN: 1,
   MAY_BEGIN: 2,
@@ -107,12 +107,12 @@ ui.mojom.EventMomentumPhase = {
   END: 4,
   BLOCKED: 5,
 };
-ui.mojom.EventMomentumPhaseSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.EventMomentumPhaseSpec = { $: mojo.internal.Enum() };
 
 // Enum: GestureDeviceType
-ui.mojom.GestureDeviceType = {
+ui.mojom.mojom.GestureDeviceType = {
   DEVICE_UNKNOWN: 0,
   DEVICE_TOUCHPAD: 1,
   DEVICE_TOUCHSCREEN: 2,
 };
-ui.mojom.GestureDeviceTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.GestureDeviceTypeSpec = { $: mojo.internal.Enum() };

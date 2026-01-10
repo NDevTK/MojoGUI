@@ -7,27 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Interface: ManifestUrlChangeObserver
-blink.mojom.ManifestUrlChangeObserver = {};
+blink.mojom.mojom.ManifestUrlChangeObserver = {};
 
-blink.mojom.ManifestUrlChangeObserverPendingReceiver = class {
+blink.mojom.mojom.ManifestUrlChangeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ManifestUrlChangeObserverRemote = class {
+blink.mojom.mojom.ManifestUrlChangeObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ManifestUrlChangeObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ManifestUrlChangeObserverPendingReceiver,
+      blink.mojom.mojom.ManifestUrlChangeObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ManifestUrlChangeObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ManifestUrlChangeObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ blink.mojom.ManifestUrlChangeObserverRemote = class {
   }
 };
 
-blink.mojom.ManifestUrlChangeObserverRemoteCallHandler = class {
+blink.mojom.mojom.ManifestUrlChangeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ blink.mojom.ManifestUrlChangeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec,
+      blink.mojom.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec,
       null,
       [manifest_url]);
   }
 
 };
 
-blink.mojom.ManifestUrlChangeObserver.getRemote = function() {
-  let remote = new blink.mojom.ManifestUrlChangeObserverRemote();
+blink.mojom.mojom.ManifestUrlChangeObserver.getRemote = function() {
+  let remote = new blink.mojom.mojom.ManifestUrlChangeObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ blink.mojom.ManifestUrlChangeObserver.getRemote = function() {
 };
 
 // ParamsSpec for ManifestUrlChanged
-blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
+blink.mojom.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestUrlChangeObserver.ManifestUrlChanged_Params',
@@ -80,6 +81,6 @@ blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ManifestUrlChangeObserverPtr = blink.mojom.ManifestUrlChangeObserverRemote;
-blink.mojom.ManifestUrlChangeObserverRequest = blink.mojom.ManifestUrlChangeObserverPendingReceiver;
+blink.mojom.mojom.ManifestUrlChangeObserverPtr = blink.mojom.mojom.ManifestUrlChangeObserverRemote;
+blink.mojom.mojom.ManifestUrlChangeObserverRequest = blink.mojom.mojom.ManifestUrlChangeObserverPendingReceiver;
 

@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Struct: Point
-gfx.mojom.PointSpec = {
+gfx.mojom.mojom.PointSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Point',
@@ -25,7 +25,7 @@ gfx.mojom.PointSpec = {
 };
 
 // Struct: PointF
-gfx.mojom.PointFSpec = {
+gfx.mojom.mojom.PointFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.PointF',
@@ -40,7 +40,7 @@ gfx.mojom.PointFSpec = {
 };
 
 // Struct: Point3F
-gfx.mojom.Point3FSpec = {
+gfx.mojom.mojom.Point3FSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Point3F',
@@ -56,7 +56,7 @@ gfx.mojom.Point3FSpec = {
 };
 
 // Struct: Size
-gfx.mojom.SizeSpec = {
+gfx.mojom.mojom.SizeSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Size',
@@ -71,7 +71,7 @@ gfx.mojom.SizeSpec = {
 };
 
 // Struct: SizeF
-gfx.mojom.SizeFSpec = {
+gfx.mojom.mojom.SizeFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.SizeF',
@@ -86,7 +86,7 @@ gfx.mojom.SizeFSpec = {
 };
 
 // Struct: Rect
-gfx.mojom.RectSpec = {
+gfx.mojom.mojom.RectSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Rect',
@@ -103,7 +103,7 @@ gfx.mojom.RectSpec = {
 };
 
 // Struct: RectF
-gfx.mojom.RectFSpec = {
+gfx.mojom.mojom.RectFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.RectF',
@@ -120,7 +120,7 @@ gfx.mojom.RectFSpec = {
 };
 
 // Struct: Insets
-gfx.mojom.InsetsSpec = {
+gfx.mojom.mojom.InsetsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Insets',
@@ -137,7 +137,7 @@ gfx.mojom.InsetsSpec = {
 };
 
 // Struct: InsetsF
-gfx.mojom.InsetsFSpec = {
+gfx.mojom.mojom.InsetsFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.InsetsF',
@@ -154,7 +154,7 @@ gfx.mojom.InsetsFSpec = {
 };
 
 // Struct: Vector2d
-gfx.mojom.Vector2dSpec = {
+gfx.mojom.mojom.Vector2dSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Vector2d',
@@ -169,7 +169,7 @@ gfx.mojom.Vector2dSpec = {
 };
 
 // Struct: Vector2dF
-gfx.mojom.Vector2dFSpec = {
+gfx.mojom.mojom.Vector2dFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Vector2dF',
@@ -184,7 +184,7 @@ gfx.mojom.Vector2dFSpec = {
 };
 
 // Struct: Vector3dF
-gfx.mojom.Vector3dFSpec = {
+gfx.mojom.mojom.Vector3dFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Vector3dF',
@@ -200,7 +200,7 @@ gfx.mojom.Vector3dFSpec = {
 };
 
 // Struct: Quaternion
-gfx.mojom.QuaternionSpec = {
+gfx.mojom.mojom.QuaternionSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.Quaternion',
@@ -217,7 +217,7 @@ gfx.mojom.QuaternionSpec = {
 };
 
 // Struct: QuadF
-gfx.mojom.QuadFSpec = {
+gfx.mojom.mojom.QuadFSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.QuadF',
@@ -234,7 +234,7 @@ gfx.mojom.QuadFSpec = {
 };
 
 // Struct: AxisTransform2d
-gfx.mojom.AxisTransform2dSpec = {
+gfx.mojom.mojom.AxisTransform2dSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.AxisTransform2d',

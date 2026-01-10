@@ -7,28 +7,28 @@
 // Module namespace
 var ash = ash || {};
 ash.file_manager = ash.file_manager || {};
-ash.file_manager.mojom = ash.file_manager.mojom || {};
+ash.file_manager.file_manager.mojom = ash.file_manager.file_manager.mojom || {};
 
 
 // Interface: PageHandlerFactory
-ash.file_manager.mojom.PageHandlerFactory = {};
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactory = {};
 
-ash.file_manager.mojom.PageHandlerFactoryPendingReceiver = class {
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.file_manager.mojom.PageHandlerFactoryRemote = class {
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.file_manager.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.file_manager.mojom.PageHandlerFactoryPendingReceiver,
+      ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ash.file_manager.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.file_manager.file_manager.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-ash.file_manager.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.file_manager.mojom.PageHandlerFactoryRemote();
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +67,7 @@ ash.file_manager.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.file_manager.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -82,29 +82,29 @@ ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.file_manager.mojom.PageHandlerFactoryPtr = ash.file_manager.mojom.PageHandlerFactoryRemote;
-ash.file_manager.mojom.PageHandlerFactoryRequest = ash.file_manager.mojom.PageHandlerFactoryPendingReceiver;
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryPtr = ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryRemote;
+ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryRequest = ash.file_manager.file_manager.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.file_manager.mojom.PageHandler = {};
+ash.file_manager.file_manager.mojom.mojom.PageHandler = {};
 
-ash.file_manager.mojom.PageHandlerPendingReceiver = class {
+ash.file_manager.file_manager.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.file_manager.mojom.PageHandlerRemote = class {
+ash.file_manager.file_manager.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.file_manager.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.file_manager.mojom.PageHandlerPendingReceiver,
+      ash.file_manager.file_manager.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.file_manager.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.file_manager.file_manager.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -116,15 +116,15 @@ ash.file_manager.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.file_manager.mojom.PageHandlerRemoteCallHandler = class {
+ash.file_manager.file_manager.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-ash.file_manager.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.file_manager.mojom.PageHandlerRemote();
+ash.file_manager.file_manager.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.file_manager.file_manager.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -134,29 +134,29 @@ ash.file_manager.mojom.PageHandler.getRemote = function() {
 };
 
 // Legacy compatibility
-ash.file_manager.mojom.PageHandlerPtr = ash.file_manager.mojom.PageHandlerRemote;
-ash.file_manager.mojom.PageHandlerRequest = ash.file_manager.mojom.PageHandlerPendingReceiver;
+ash.file_manager.file_manager.mojom.mojom.PageHandlerPtr = ash.file_manager.file_manager.mojom.mojom.PageHandlerRemote;
+ash.file_manager.file_manager.mojom.mojom.PageHandlerRequest = ash.file_manager.file_manager.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.file_manager.mojom.Page = {};
+ash.file_manager.file_manager.mojom.mojom.Page = {};
 
-ash.file_manager.mojom.PagePendingReceiver = class {
+ash.file_manager.file_manager.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.file_manager.mojom.PageRemote = class {
+ash.file_manager.file_manager.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'ash.file_manager.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.file_manager.mojom.PagePendingReceiver,
+      ash.file_manager.file_manager.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new ash.file_manager.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new ash.file_manager.file_manager.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -168,15 +168,15 @@ ash.file_manager.mojom.PageRemote = class {
   }
 };
 
-ash.file_manager.mojom.PageRemoteCallHandler = class {
+ash.file_manager.file_manager.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-ash.file_manager.mojom.Page.getRemote = function() {
-  let remote = new ash.file_manager.mojom.PageRemote();
+ash.file_manager.file_manager.mojom.mojom.Page.getRemote = function() {
+  let remote = new ash.file_manager.file_manager.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -186,6 +186,6 @@ ash.file_manager.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-ash.file_manager.mojom.PagePtr = ash.file_manager.mojom.PageRemote;
-ash.file_manager.mojom.PageRequest = ash.file_manager.mojom.PagePendingReceiver;
+ash.file_manager.file_manager.mojom.mojom.PagePtr = ash.file_manager.file_manager.mojom.mojom.PageRemote;
+ash.file_manager.file_manager.mojom.mojom.PageRequest = ash.file_manager.file_manager.mojom.mojom.PagePendingReceiver;
 

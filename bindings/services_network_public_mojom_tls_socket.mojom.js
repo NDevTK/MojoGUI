@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: TLSClientSocketOptions
-network.mojom.TLSClientSocketOptionsSpec = {
+network.mojom.mojom.TLSClientSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TLSClientSocketOptions',
@@ -27,24 +27,24 @@ network.mojom.TLSClientSocketOptionsSpec = {
 };
 
 // Interface: TLSClientSocket
-network.mojom.TLSClientSocket = {};
+network.mojom.mojom.TLSClientSocket = {};
 
-network.mojom.TLSClientSocketPendingReceiver = class {
+network.mojom.mojom.TLSClientSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.TLSClientSocketRemote = class {
+network.mojom.mojom.TLSClientSocketRemote = class {
   static get $interfaceName() {
     return 'network.mojom.TLSClientSocket';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.TLSClientSocketPendingReceiver,
+      network.mojom.mojom.TLSClientSocketPendingReceiver,
       handle);
-    this.$ = new network.mojom.TLSClientSocketRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.TLSClientSocketRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,15 +56,15 @@ network.mojom.TLSClientSocketRemote = class {
   }
 };
 
-network.mojom.TLSClientSocketRemoteCallHandler = class {
+network.mojom.mojom.TLSClientSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-network.mojom.TLSClientSocket.getRemote = function() {
-  let remote = new network.mojom.TLSClientSocketRemote();
+network.mojom.mojom.TLSClientSocket.getRemote = function() {
+  let remote = new network.mojom.mojom.TLSClientSocketRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -74,6 +74,6 @@ network.mojom.TLSClientSocket.getRemote = function() {
 };
 
 // Legacy compatibility
-network.mojom.TLSClientSocketPtr = network.mojom.TLSClientSocketRemote;
-network.mojom.TLSClientSocketRequest = network.mojom.TLSClientSocketPendingReceiver;
+network.mojom.mojom.TLSClientSocketPtr = network.mojom.mojom.TLSClientSocketRemote;
+network.mojom.mojom.TLSClientSocketRequest = network.mojom.mojom.TLSClientSocketPendingReceiver;
 

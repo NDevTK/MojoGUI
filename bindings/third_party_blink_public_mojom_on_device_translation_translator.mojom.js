@@ -7,27 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Interface: Translator
-blink.mojom.Translator = {};
+blink.mojom.mojom.Translator = {};
 
-blink.mojom.TranslatorPendingReceiver = class {
+blink.mojom.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.TranslatorRemote = class {
+blink.mojom.mojom.TranslatorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.Translator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.TranslatorPendingReceiver,
+      blink.mojom.mojom.TranslatorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.TranslatorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.TranslatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ blink.mojom.TranslatorRemote = class {
   }
 };
 
-blink.mojom.TranslatorRemoteCallHandler = class {
+blink.mojom.mojom.TranslatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +49,7 @@ blink.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.Translator_Translate_ParamsSpec,
+      blink.mojom.mojom.Translator_Translate_ParamsSpec,
       null,
       [input, pending_responder]);
   }
@@ -57,15 +58,15 @@ blink.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.Translator_TranslateStreaming_ParamsSpec,
+      blink.mojom.mojom.Translator_TranslateStreaming_ParamsSpec,
       null,
       [input, pending_responder]);
   }
 
 };
 
-blink.mojom.Translator.getRemote = function() {
-  let remote = new blink.mojom.TranslatorRemote();
+blink.mojom.mojom.Translator.getRemote = function() {
+  let remote = new blink.mojom.mojom.TranslatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +76,7 @@ blink.mojom.Translator.getRemote = function() {
 };
 
 // ParamsSpec for Translate
-blink.mojom.Translator_Translate_ParamsSpec = {
+blink.mojom.mojom.Translator_Translate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Translator.Translate_Params',
@@ -90,7 +91,7 @@ blink.mojom.Translator_Translate_ParamsSpec = {
 };
 
 // ParamsSpec for TranslateStreaming
-blink.mojom.Translator_TranslateStreaming_ParamsSpec = {
+blink.mojom.mojom.Translator_TranslateStreaming_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Translator.TranslateStreaming_Params',
@@ -105,6 +106,6 @@ blink.mojom.Translator_TranslateStreaming_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.TranslatorPtr = blink.mojom.TranslatorRemote;
-blink.mojom.TranslatorRequest = blink.mojom.TranslatorPendingReceiver;
+blink.mojom.mojom.TranslatorPtr = blink.mojom.mojom.TranslatorRemote;
+blink.mojom.mojom.TranslatorRequest = blink.mojom.mojom.TranslatorPendingReceiver;
 

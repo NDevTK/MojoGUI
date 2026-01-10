@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Union: TestUnion
-content.mojom.TestUnionSpec = { $: mojo.internal.Union(
+content.mojom.mojom.TestUnionSpec = { $: mojo.internal.Union(
     'content.mojom.TestUnion', {
       'bool_value': {
         'ordinal': 0,
@@ -28,7 +28,7 @@ content.mojom.TestUnionSpec = { $: mojo.internal.Union(
 };
 
 // Union: NestedUnion
-content.mojom.NestedUnionSpec = { $: mojo.internal.Union(
+content.mojom.mojom.NestedUnionSpec = { $: mojo.internal.Union(
     'content.mojom.NestedUnion', {
       'int8_value': {
         'ordinal': 0,
@@ -42,24 +42,24 @@ content.mojom.NestedUnionSpec = { $: mojo.internal.Union(
 };
 
 // Interface: MojoEcho
-content.mojom.MojoEcho = {};
+content.mojom.mojom.MojoEcho = {};
 
-content.mojom.MojoEchoPendingReceiver = class {
+content.mojom.mojom.MojoEchoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.MojoEchoRemote = class {
+content.mojom.mojom.MojoEchoRemote = class {
   static get $interfaceName() {
     return 'content.mojom.MojoEcho';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.MojoEchoPendingReceiver,
+      content.mojom.mojom.MojoEchoPendingReceiver,
       handle);
-    this.$ = new content.mojom.MojoEchoRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.MojoEchoRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -71,7 +71,7 @@ content.mojom.MojoEchoRemote = class {
   }
 };
 
-content.mojom.MojoEchoRemoteCallHandler = class {
+content.mojom.mojom.MojoEchoRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -80,8 +80,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -89,8 +89,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -98,8 +98,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -107,8 +107,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -116,8 +116,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -125,8 +125,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -134,7 +134,7 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec,
       null,
       [test_union]);
   }
@@ -143,8 +143,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -152,8 +152,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -161,8 +161,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -170,8 +170,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec,
       []);
   }
 
@@ -179,8 +179,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -188,8 +188,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -197,8 +197,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -206,8 +206,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -215,8 +215,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -224,8 +224,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -233,8 +233,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -242,8 +242,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -251,8 +251,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -260,7 +260,7 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec,
       null,
       [test_union]);
   }
@@ -269,8 +269,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -278,8 +278,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -287,8 +287,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec,
       [test_union]);
   }
 
@@ -296,8 +296,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec,
       []);
   }
 
@@ -305,8 +305,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -314,8 +314,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -323,8 +323,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec,
-      content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec,
       [value]);
   }
 
@@ -332,15 +332,15 @@ content.mojom.MojoEchoRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      content.mojom.MojoEcho_EchoBoolArray_ParamsSpec,
-      content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolArray_ParamsSpec,
+      content.mojom.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec,
       [values]);
   }
 
 };
 
-content.mojom.MojoEcho.getRemote = function() {
-  let remote = new content.mojom.MojoEchoRemote();
+content.mojom.mojom.MojoEcho.getRemote = function() {
+  let remote = new content.mojom.mojom.MojoEchoRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -350,7 +350,7 @@ content.mojom.MojoEcho.getRemote = function() {
 };
 
 // ParamsSpec for EchoBoolFromUnion
-content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromUnion_Params',
@@ -363,7 +363,7 @@ content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromUnion_ResponseParams',
@@ -377,7 +377,7 @@ content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoInt32FromUnion
-content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32FromUnion_Params',
@@ -390,7 +390,7 @@ content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32FromUnion_ResponseParams',
@@ -404,7 +404,7 @@ content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringFromUnion
-content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromUnion_Params',
@@ -417,7 +417,7 @@ content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromUnion_ResponseParams',
@@ -431,7 +431,7 @@ content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolAsUnion
-content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsUnion_Params',
@@ -444,7 +444,7 @@ content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsUnion_ResponseParams',
@@ -458,7 +458,7 @@ content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoInt32AsUnion
-content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32AsUnion_Params',
@@ -471,7 +471,7 @@ content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32AsUnion_ResponseParams',
@@ -485,7 +485,7 @@ content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringAsUnion
-content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsUnion_Params',
@@ -498,7 +498,7 @@ content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsUnion_ResponseParams',
@@ -512,7 +512,7 @@ content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoNullFromOptionalUnion
-content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoNullFromOptionalUnion_Params',
@@ -526,7 +526,7 @@ content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolFromOptionalUnion
-content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromOptionalUnion_Params',
@@ -539,7 +539,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromOptionalUnion_ResponseParams',
@@ -553,7 +553,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoInt32FromOptionalUnion
-content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32FromOptionalUnion_Params',
@@ -566,7 +566,7 @@ content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32FromOptionalUnion_ResponseParams',
@@ -580,7 +580,7 @@ content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringFromOptionalUnion
-content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromOptionalUnion_Params',
@@ -593,7 +593,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromOptionalUnion_ResponseParams',
@@ -607,7 +607,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoNullAsOptionalUnion
-content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoNullAsOptionalUnion_Params',
@@ -619,7 +619,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoNullAsOptionalUnion_ResponseParams',
@@ -633,7 +633,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolAsOptionalUnion
-content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsOptionalUnion_Params',
@@ -646,7 +646,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsOptionalUnion_ResponseParams',
@@ -660,7 +660,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoInt32AsOptionalUnion
-content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32AsOptionalUnion_Params',
@@ -673,7 +673,7 @@ content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt32AsOptionalUnion_ResponseParams',
@@ -687,7 +687,7 @@ content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringAsOptionalUnion
-content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsOptionalUnion_Params',
@@ -700,7 +700,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsOptionalUnion_ResponseParams',
@@ -714,7 +714,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoInt8FromNestedUnion
-content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8FromNestedUnion_Params',
@@ -727,7 +727,7 @@ content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8FromNestedUnion_ResponseParams',
@@ -741,7 +741,7 @@ content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolFromNestedUnion
-content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromNestedUnion_Params',
@@ -754,7 +754,7 @@ content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromNestedUnion_ResponseParams',
@@ -768,7 +768,7 @@ content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringFromNestedUnion
-content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromNestedUnion_Params',
@@ -781,7 +781,7 @@ content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromNestedUnion_ResponseParams',
@@ -795,7 +795,7 @@ content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoInt8AsNestedUnion
-content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8AsNestedUnion_Params',
@@ -808,7 +808,7 @@ content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8AsNestedUnion_ResponseParams',
@@ -822,7 +822,7 @@ content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolAsNestedUnion
-content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsNestedUnion_Params',
@@ -835,7 +835,7 @@ content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsNestedUnion_ResponseParams',
@@ -849,7 +849,7 @@ content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringAsNestedUnion
-content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsNestedUnion_Params',
@@ -862,7 +862,7 @@ content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsNestedUnion_ResponseParams',
@@ -876,7 +876,7 @@ content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoNullFromOptionalNestedUnion
-content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoNullFromOptionalNestedUnion_Params',
@@ -890,7 +890,7 @@ content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec = {
 };
 
 // ParamsSpec for EchoInt8FromOptionalNestedUnion
-content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8FromOptionalNestedUnion_Params',
@@ -903,7 +903,7 @@ content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8FromOptionalNestedUnion_ResponseParams',
@@ -917,7 +917,7 @@ content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolFromOptionalNestedUnion
-content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromOptionalNestedUnion_Params',
@@ -930,7 +930,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolFromOptionalNestedUnion_ResponseParams',
@@ -944,7 +944,7 @@ content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringFromOptionalNestedUnion
-content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromOptionalNestedUnion_Params',
@@ -957,7 +957,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringFromOptionalNestedUnion_ResponseParams',
@@ -971,7 +971,7 @@ content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoNullAsOptionalNestedUnion
-content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoNullAsOptionalNestedUnion_Params',
@@ -983,7 +983,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoNullAsOptionalNestedUnion_ResponseParams',
@@ -997,7 +997,7 @@ content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoInt8AsOptionalNestedUnion
-content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8AsOptionalNestedUnion_Params',
@@ -1010,7 +1010,7 @@ content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoInt8AsOptionalNestedUnion_ResponseParams',
@@ -1024,7 +1024,7 @@ content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolAsOptionalNestedUnion
-content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsOptionalNestedUnion_Params',
@@ -1037,7 +1037,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolAsOptionalNestedUnion_ResponseParams',
@@ -1051,7 +1051,7 @@ content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoStringAsOptionalNestedUnion
-content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsOptionalNestedUnion_Params',
@@ -1064,7 +1064,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoStringAsOptionalNestedUnion_ResponseParams',
@@ -1078,7 +1078,7 @@ content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoBoolArray
-content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolArray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolArray_Params',
@@ -1091,7 +1091,7 @@ content.mojom.MojoEcho_EchoBoolArray_ParamsSpec = {
   }
 };
 
-content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = {
+content.mojom.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MojoEcho.EchoBoolArray_ResponseParams',
@@ -1105,6 +1105,6 @@ content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.MojoEchoPtr = content.mojom.MojoEchoRemote;
-content.mojom.MojoEchoRequest = content.mojom.MojoEchoPendingReceiver;
+content.mojom.mojom.MojoEchoPtr = content.mojom.mojom.MojoEchoRemote;
+content.mojom.mojom.MojoEchoRequest = content.mojom.mojom.MojoEchoPendingReceiver;
 

@@ -10,16 +10,16 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: Modifier
-blink.mojom.Modifier = {
+blink.mojom.mojom.Modifier = {
   kZeroOrMore: 0,
   kOptional: 1,
   kOneOrMore: 2,
   kNone: 3,
 };
-blink.mojom.ModifierSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ModifierSpec = { $: mojo.internal.Enum() };
 
 // Union: PatternTemplate
-blink.mojom.PatternTemplateSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.PatternTemplateSpec = { $: mojo.internal.Union(
     'blink.mojom.PatternTemplate', {
       'fixed': {
         'ordinal': 0,
@@ -37,7 +37,7 @@ blink.mojom.PatternTemplateSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SafeUrlPattern
-blink.mojom.SafeUrlPatternSpec = {
+blink.mojom.mojom.SafeUrlPatternSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SafeUrlPattern',
@@ -59,7 +59,7 @@ blink.mojom.SafeUrlPatternSpec = {
 };
 
 // Struct: FixedPattern
-blink.mojom.FixedPatternSpec = {
+blink.mojom.mojom.FixedPatternSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FixedPattern',
@@ -73,7 +73,7 @@ blink.mojom.FixedPatternSpec = {
 };
 
 // Struct: WildcardPattern
-blink.mojom.WildcardPatternSpec = {
+blink.mojom.mojom.WildcardPatternSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WildcardPattern',
@@ -90,7 +90,7 @@ blink.mojom.WildcardPatternSpec = {
 };
 
 // Struct: SafeUrlPatternPart
-blink.mojom.SafeUrlPatternPartSpec = {
+blink.mojom.mojom.SafeUrlPatternPartSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SafeUrlPatternPart',
@@ -105,7 +105,7 @@ blink.mojom.SafeUrlPatternPartSpec = {
 };
 
 // Struct: SafeUrlPatternOptions
-blink.mojom.SafeUrlPatternOptionsSpec = {
+blink.mojom.mojom.SafeUrlPatternOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SafeUrlPatternOptions',

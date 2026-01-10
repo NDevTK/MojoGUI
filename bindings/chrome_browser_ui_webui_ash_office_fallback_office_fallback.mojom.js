@@ -7,37 +7,37 @@
 // Module namespace
 var ash = ash || {};
 ash.office_fallback = ash.office_fallback || {};
-ash.office_fallback.mojom = ash.office_fallback.mojom || {};
+ash.office_fallback.office_fallback.mojom = ash.office_fallback.office_fallback.mojom || {};
 
 
 // Enum: DialogChoice
-ash.office_fallback.mojom.DialogChoice = {
+ash.office_fallback.office_fallback.mojom.mojom.DialogChoice = {
   kCancel: 0,
   kOk: 1,
   kQuickOffice: 2,
   kTryAgain: 3,
 };
-ash.office_fallback.mojom.DialogChoiceSpec = { $: mojo.internal.Enum() };
+ash.office_fallback.office_fallback.mojom.mojom.DialogChoiceSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-ash.office_fallback.mojom.PageHandlerFactory = {};
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactory = {};
 
-ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver = class {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.office_fallback.mojom.PageHandlerFactoryRemote = class {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.office_fallback.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver,
+      ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +49,7 @@ ash.office_fallback.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,15 +58,15 @@ ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-ash.office_fallback.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.office_fallback.mojom.PageHandlerFactoryRemote();
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +76,7 @@ ash.office_fallback.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.office_fallback.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -90,29 +90,29 @@ ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.office_fallback.mojom.PageHandlerFactoryPtr = ash.office_fallback.mojom.PageHandlerFactoryRemote;
-ash.office_fallback.mojom.PageHandlerFactoryRequest = ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver;
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryPtr = ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryRemote;
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryRequest = ash.office_fallback.office_fallback.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.office_fallback.mojom.PageHandler = {};
+ash.office_fallback.office_fallback.mojom.mojom.PageHandler = {};
 
-ash.office_fallback.mojom.PageHandlerPendingReceiver = class {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.office_fallback.mojom.PageHandlerRemote = class {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.office_fallback.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.office_fallback.mojom.PageHandlerPendingReceiver,
+      ash.office_fallback.office_fallback.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.office_fallback.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.office_fallback.office_fallback.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -124,7 +124,7 @@ ash.office_fallback.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -133,15 +133,15 @@ ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.office_fallback.mojom.PageHandler_Close_ParamsSpec,
+      ash.office_fallback.office_fallback.mojom.mojom.PageHandler_Close_ParamsSpec,
       null,
       [choice]);
   }
 
 };
 
-ash.office_fallback.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.office_fallback.mojom.PageHandlerRemote();
+ash.office_fallback.office_fallback.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.office_fallback.office_fallback.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -151,7 +151,7 @@ ash.office_fallback.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for Close
-ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
+ash.office_fallback.office_fallback.mojom.mojom.PageHandler_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.office_fallback.mojom.PageHandler.Close_Params',
@@ -165,6 +165,6 @@ ash.office_fallback.mojom.PageHandler_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.office_fallback.mojom.PageHandlerPtr = ash.office_fallback.mojom.PageHandlerRemote;
-ash.office_fallback.mojom.PageHandlerRequest = ash.office_fallback.mojom.PageHandlerPendingReceiver;
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerPtr = ash.office_fallback.office_fallback.mojom.mojom.PageHandlerRemote;
+ash.office_fallback.office_fallback.mojom.mojom.PageHandlerRequest = ash.office_fallback.office_fallback.mojom.mojom.PageHandlerPendingReceiver;
 

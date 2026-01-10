@@ -7,27 +7,27 @@
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
-ash.diagnostics.mojom = ash.diagnostics.mojom || {};
+ash.diagnostics.diagnostics.mojom = ash.diagnostics.diagnostics.mojom || {};
 
 
 // Enum: ExternalPowerSource
-ash.diagnostics.mojom.ExternalPowerSource = {
+ash.diagnostics.diagnostics.mojom.mojom.ExternalPowerSource = {
   kAc: 0,
   kUsb: 1,
   kDisconnected: 2,
 };
-ash.diagnostics.mojom.ExternalPowerSourceSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.diagnostics.mojom.mojom.ExternalPowerSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: BatteryState
-ash.diagnostics.mojom.BatteryState = {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryState = {
   kCharging: 0,
   kDischarging: 1,
   kFull: 2,
 };
-ash.diagnostics.mojom.BatteryStateSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.diagnostics.mojom.mojom.BatteryStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: DeviceCapabilities
-ash.diagnostics.mojom.DeviceCapabilitiesSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.DeviceCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.DeviceCapabilities',
@@ -41,7 +41,7 @@ ash.diagnostics.mojom.DeviceCapabilitiesSpec = {
 };
 
 // Struct: VersionInfo
-ash.diagnostics.mojom.VersionInfoSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.VersionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.VersionInfo',
@@ -56,7 +56,7 @@ ash.diagnostics.mojom.VersionInfoSpec = {
 };
 
 // Struct: SystemInfo
-ash.diagnostics.mojom.SystemInfoSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemInfo',
@@ -65,11 +65,11 @@ ash.diagnostics.mojom.SystemInfoSpec = {
         { name: 'board_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'marketing_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'cpu_model_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'total_memory_kib', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'cpu_threads_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'cpu_max_clock_speed_khz', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'version_info', packedOffset: 40, packedBitOffset: 0, type: ash.diagnostics.mojom.VersionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'device_capabilities', packedOffset: 48, packedBitOffset: 0, type: ash.diagnostics.mojom.DeviceCapabilitiesSpec, nullable: false, minVersion: 0 },
+        { name: 'total_memory_kib', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'cpu_threads_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'cpu_max_clock_speed_khz', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'version_info', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.VersionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'device_capabilities', packedOffset: 32, packedBitOffset: 0, type: ash.diagnostics.mojom.DeviceCapabilitiesSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -77,7 +77,7 @@ ash.diagnostics.mojom.SystemInfoSpec = {
 };
 
 // Struct: BatteryInfo
-ash.diagnostics.mojom.BatteryInfoSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryInfo',
@@ -92,7 +92,7 @@ ash.diagnostics.mojom.BatteryInfoSpec = {
 };
 
 // Struct: BatteryChargeStatus
-ash.diagnostics.mojom.BatteryChargeStatusSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryChargeStatus',
@@ -110,7 +110,7 @@ ash.diagnostics.mojom.BatteryChargeStatusSpec = {
 };
 
 // Struct: BatteryHealth
-ash.diagnostics.mojom.BatteryHealthSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryHealth',
@@ -127,7 +127,7 @@ ash.diagnostics.mojom.BatteryHealthSpec = {
 };
 
 // Struct: MemoryUsage
-ash.diagnostics.mojom.MemoryUsageSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.MemoryUsage',
@@ -143,17 +143,17 @@ ash.diagnostics.mojom.MemoryUsageSpec = {
 };
 
 // Struct: CpuUsage
-ash.diagnostics.mojom.CpuUsageSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.CpuUsage',
       packedSize: 24,
       fields: [
-        { name: 'percent_usage_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'percent_usage_system', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'percent_usage_free', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'percent_usage_user', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'percent_usage_system', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'percent_usage_free', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
         { name: 'average_cpu_temp_celsius', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'scaling_current_frequency_khz', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'scaling_current_frequency_khz', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -161,24 +161,24 @@ ash.diagnostics.mojom.CpuUsageSpec = {
 };
 
 // Interface: BatteryChargeStatusObserver
-ash.diagnostics.mojom.BatteryChargeStatusObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserver = {};
 
-ash.diagnostics.mojom.BatteryChargeStatusObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.BatteryChargeStatusObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.BatteryChargeStatusObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.BatteryChargeStatusObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -190,7 +190,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -199,15 +199,15 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec,
       null,
       [battery_charge_status]);
   }
 
 };
 
-ash.diagnostics.mojom.BatteryChargeStatusObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.BatteryChargeStatusObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -217,7 +217,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnBatteryChargeStatusUpdated
-ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryChargeStatusObserver.OnBatteryChargeStatusUpdated_Params',
@@ -231,29 +231,29 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_P
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.BatteryChargeStatusObserverPtr = ash.diagnostics.mojom.BatteryChargeStatusObserverRemote;
-ash.diagnostics.mojom.BatteryChargeStatusObserverRequest = ash.diagnostics.mojom.BatteryChargeStatusObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.BatteryChargeStatusObserverPendingReceiver;
 
 
 // Interface: BatteryHealthObserver
-ash.diagnostics.mojom.BatteryHealthObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserver = {};
 
-ash.diagnostics.mojom.BatteryHealthObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.BatteryHealthObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.BatteryHealthObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.BatteryHealthObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -265,7 +265,7 @@ ash.diagnostics.mojom.BatteryHealthObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -274,15 +274,15 @@ ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec,
       null,
       [battery_health]);
   }
 
 };
 
-ash.diagnostics.mojom.BatteryHealthObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.BatteryHealthObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -292,7 +292,7 @@ ash.diagnostics.mojom.BatteryHealthObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnBatteryHealthUpdated
-ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.BatteryHealthObserver.OnBatteryHealthUpdated_Params',
@@ -306,29 +306,29 @@ ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = 
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.BatteryHealthObserverPtr = ash.diagnostics.mojom.BatteryHealthObserverRemote;
-ash.diagnostics.mojom.BatteryHealthObserverRequest = ash.diagnostics.mojom.BatteryHealthObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.BatteryHealthObserverPendingReceiver;
 
 
 // Interface: MemoryUsageObserver
-ash.diagnostics.mojom.MemoryUsageObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserver = {};
 
-ash.diagnostics.mojom.MemoryUsageObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.MemoryUsageObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.MemoryUsageObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.MemoryUsageObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -340,7 +340,7 @@ ash.diagnostics.mojom.MemoryUsageObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -349,15 +349,15 @@ ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec,
       null,
       [memory_usage]);
   }
 
 };
 
-ash.diagnostics.mojom.MemoryUsageObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.MemoryUsageObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -367,7 +367,7 @@ ash.diagnostics.mojom.MemoryUsageObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnMemoryUsageUpdated
-ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.MemoryUsageObserver.OnMemoryUsageUpdated_Params',
@@ -381,29 +381,29 @@ ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.MemoryUsageObserverPtr = ash.diagnostics.mojom.MemoryUsageObserverRemote;
-ash.diagnostics.mojom.MemoryUsageObserverRequest = ash.diagnostics.mojom.MemoryUsageObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.MemoryUsageObserverPendingReceiver;
 
 
 // Interface: CpuUsageObserver
-ash.diagnostics.mojom.CpuUsageObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserver = {};
 
-ash.diagnostics.mojom.CpuUsageObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.CpuUsageObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.CpuUsageObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.CpuUsageObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -415,7 +415,7 @@ ash.diagnostics.mojom.CpuUsageObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -424,15 +424,15 @@ ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec,
       null,
       [cpu_usage]);
   }
 
 };
 
-ash.diagnostics.mojom.CpuUsageObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.CpuUsageObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -442,7 +442,7 @@ ash.diagnostics.mojom.CpuUsageObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnCpuUsageUpdated
-ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.CpuUsageObserver.OnCpuUsageUpdated_Params',
@@ -456,29 +456,29 @@ ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.CpuUsageObserverPtr = ash.diagnostics.mojom.CpuUsageObserverRemote;
-ash.diagnostics.mojom.CpuUsageObserverRequest = ash.diagnostics.mojom.CpuUsageObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.CpuUsageObserverPendingReceiver;
 
 
 // Interface: SystemDataProvider
-ash.diagnostics.mojom.SystemDataProvider = {};
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider = {};
 
-ash.diagnostics.mojom.SystemDataProviderPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.SystemDataProviderRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.SystemDataProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.SystemDataProviderPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -490,7 +490,7 @@ ash.diagnostics.mojom.SystemDataProviderRemote = class {
   }
 };
 
-ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -499,8 +499,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec,
-      ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
       []);
   }
 
@@ -508,8 +508,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec,
-      ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
       []);
   }
 
@@ -517,7 +517,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec,
       null,
       [observer]);
   }
@@ -526,7 +526,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec,
       null,
       [observer]);
   }
@@ -535,7 +535,7 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec,
       null,
       [observer]);
   }
@@ -544,15 +544,15 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.diagnostics.mojom.SystemDataProvider.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.SystemDataProviderRemote();
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -562,7 +562,7 @@ ash.diagnostics.mojom.SystemDataProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetSystemInfo
-ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetSystemInfo_Params',
@@ -574,7 +574,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = {
   }
 };
 
-ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetSystemInfo_ResponseParams',
@@ -588,7 +588,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetBatteryInfo
-ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetBatteryInfo_Params',
@@ -600,7 +600,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = {
   }
 };
 
-ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.GetBatteryInfo_ResponseParams',
@@ -614,7 +614,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ObserveBatteryChargeStatus
-ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryChargeStatus_Params',
@@ -628,7 +628,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec =
 };
 
 // ParamsSpec for ObserveBatteryHealth
-ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryHealth_Params',
@@ -642,7 +642,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = {
 };
 
 // ParamsSpec for ObserveMemoryUsage
-ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveMemoryUsage_Params',
@@ -656,7 +656,7 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = {
 };
 
 // ParamsSpec for ObserveCpuUsage
-ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveCpuUsage_Params',
@@ -670,6 +670,6 @@ ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.SystemDataProviderPtr = ash.diagnostics.mojom.SystemDataProviderRemote;
-ash.diagnostics.mojom.SystemDataProviderRequest = ash.diagnostics.mojom.SystemDataProviderPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderPtr = ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderRemote;
+ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderRequest = ash.diagnostics.diagnostics.mojom.mojom.SystemDataProviderPendingReceiver;
 

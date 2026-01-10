@@ -7,10 +7,11 @@
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
+var blink = blink || {};
 
 
 // Struct: PaymentHandlerMethodData
-payments.mojom.PaymentHandlerMethodDataSpec = {
+payments.mojom.mojom.PaymentHandlerMethodDataSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerMethodData',
@@ -25,7 +26,7 @@ payments.mojom.PaymentHandlerMethodDataSpec = {
 };
 
 // Struct: PaymentHandlerModifier
-payments.mojom.PaymentHandlerModifierSpec = {
+payments.mojom.mojom.PaymentHandlerModifierSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerModifier',
@@ -40,7 +41,7 @@ payments.mojom.PaymentHandlerModifierSpec = {
 };
 
 // Struct: PaymentRequestDetailsUpdate
-payments.mojom.PaymentRequestDetailsUpdateSpec = {
+payments.mojom.mojom.PaymentRequestDetailsUpdateSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentRequestDetailsUpdate',
@@ -59,24 +60,24 @@ payments.mojom.PaymentRequestDetailsUpdateSpec = {
 };
 
 // Interface: PaymentHandlerHost
-payments.mojom.PaymentHandlerHost = {};
+payments.mojom.mojom.PaymentHandlerHost = {};
 
-payments.mojom.PaymentHandlerHostPendingReceiver = class {
+payments.mojom.mojom.PaymentHandlerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-payments.mojom.PaymentHandlerHostRemote = class {
+payments.mojom.mojom.PaymentHandlerHostRemote = class {
   static get $interfaceName() {
     return 'payments.mojom.PaymentHandlerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      payments.mojom.PaymentHandlerHostPendingReceiver,
+      payments.mojom.mojom.PaymentHandlerHostPendingReceiver,
       handle);
-    this.$ = new payments.mojom.PaymentHandlerHostRemoteCallHandler(this.proxy);
+    this.$ = new payments.mojom.mojom.PaymentHandlerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -88,7 +89,7 @@ payments.mojom.PaymentHandlerHostRemote = class {
   }
 };
 
-payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
+payments.mojom.mojom.PaymentHandlerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -97,8 +98,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec,
-      payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
+      payments.mojom.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec,
+      payments.mojom.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
       [method_data]);
   }
 
@@ -106,8 +107,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec,
-      payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
+      payments.mojom.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec,
+      payments.mojom.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
       [shipping_option_id]);
   }
 
@@ -115,15 +116,15 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec,
-      payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
+      payments.mojom.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec,
+      payments.mojom.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
       [shipping_address]);
   }
 
 };
 
-payments.mojom.PaymentHandlerHost.getRemote = function() {
-  let remote = new payments.mojom.PaymentHandlerHostRemote();
+payments.mojom.mojom.PaymentHandlerHost.getRemote = function() {
+  let remote = new payments.mojom.mojom.PaymentHandlerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -133,7 +134,7 @@ payments.mojom.PaymentHandlerHost.getRemote = function() {
 };
 
 // ParamsSpec for ChangePaymentMethod
-payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
+payments.mojom.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_Params',
@@ -146,7 +147,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = {
   }
 };
 
-payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
+payments.mojom.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerHost.ChangePaymentMethod_ResponseParams',
@@ -160,7 +161,7 @@ payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ChangeShippingOption
-payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
+payments.mojom.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerHost.ChangeShippingOption_Params',
@@ -173,7 +174,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = {
   }
 };
 
-payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
+payments.mojom.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerHost.ChangeShippingOption_ResponseParams',
@@ -187,7 +188,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ChangeShippingAddress
-payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
+payments.mojom.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_Params',
@@ -200,7 +201,7 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = {
   }
 };
 
-payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
+payments.mojom.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'payments.mojom.PaymentHandlerHost.ChangeShippingAddress_ResponseParams',
@@ -214,6 +215,6 @@ payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-payments.mojom.PaymentHandlerHostPtr = payments.mojom.PaymentHandlerHostRemote;
-payments.mojom.PaymentHandlerHostRequest = payments.mojom.PaymentHandlerHostPendingReceiver;
+payments.mojom.mojom.PaymentHandlerHostPtr = payments.mojom.mojom.PaymentHandlerHostRemote;
+payments.mojom.mojom.PaymentHandlerHostRequest = payments.mojom.mojom.PaymentHandlerHostPendingReceiver;
 

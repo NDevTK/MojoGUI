@@ -10,24 +10,24 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoDecodeStatsRecorder
-media.mojom.VideoDecodeStatsRecorder = {};
+media.mojom.mojom.VideoDecodeStatsRecorder = {};
 
-media.mojom.VideoDecodeStatsRecorderPendingReceiver = class {
+media.mojom.mojom.VideoDecodeStatsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.VideoDecodeStatsRecorderRemote = class {
+media.mojom.mojom.VideoDecodeStatsRecorderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.VideoDecodeStatsRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.VideoDecodeStatsRecorderPendingReceiver,
+      media.mojom.mojom.VideoDecodeStatsRecorderPendingReceiver,
       handle);
-    this.$ = new media.mojom.VideoDecodeStatsRecorderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.VideoDecodeStatsRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ media.mojom.VideoDecodeStatsRecorderRemote = class {
   }
 };
 
-media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
+media.mojom.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec,
+      media.mojom.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec,
       null,
       [features]);
   }
@@ -57,15 +57,15 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec,
+      media.mojom.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec,
       null,
       [targets]);
   }
 
 };
 
-media.mojom.VideoDecodeStatsRecorder.getRemote = function() {
-  let remote = new media.mojom.VideoDecodeStatsRecorderRemote();
+media.mojom.mojom.VideoDecodeStatsRecorder.getRemote = function() {
+  let remote = new media.mojom.mojom.VideoDecodeStatsRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ media.mojom.VideoDecodeStatsRecorder.getRemote = function() {
 };
 
 // ParamsSpec for StartNewRecord
-media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
+media.mojom.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecodeStatsRecorder.StartNewRecord_Params',
@@ -89,7 +89,7 @@ media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateRecord
-media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
+media.mojom.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecodeStatsRecorder.UpdateRecord_Params',
@@ -103,6 +103,6 @@ media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.VideoDecodeStatsRecorderPtr = media.mojom.VideoDecodeStatsRecorderRemote;
-media.mojom.VideoDecodeStatsRecorderRequest = media.mojom.VideoDecodeStatsRecorderPendingReceiver;
+media.mojom.mojom.VideoDecodeStatsRecorderPtr = media.mojom.mojom.VideoDecodeStatsRecorderRemote;
+media.mojom.mojom.VideoDecodeStatsRecorderRequest = media.mojom.mojom.VideoDecodeStatsRecorderPendingReceiver;
 

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: DocumentPolicyFeature
-blink.mojom.DocumentPolicyFeature = {
+blink.mojom.mojom.DocumentPolicyFeature = {
   kDefault: 0,
   kForceLoadAtTop: 1,
   kJSProfiling: 2,
@@ -19,4 +19,4 @@ blink.mojom.DocumentPolicyFeature = {
   kExpectNoLinkedResources: 5,
   kNetworkEfficiencyGuardrails: 6,
 };
-blink.mojom.DocumentPolicyFeatureSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.DocumentPolicyFeatureSpec = { $: mojo.internal.Enum() };

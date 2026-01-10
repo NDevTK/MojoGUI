@@ -10,24 +10,24 @@ media.mojom = media.mojom || {};
 
 
 // Interface: VideoDecoderFactoryProcess
-media.mojom.VideoDecoderFactoryProcess = {};
+media.mojom.mojom.VideoDecoderFactoryProcess = {};
 
-media.mojom.VideoDecoderFactoryProcessPendingReceiver = class {
+media.mojom.mojom.VideoDecoderFactoryProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.VideoDecoderFactoryProcessRemote = class {
+media.mojom.mojom.VideoDecoderFactoryProcessRemote = class {
   static get $interfaceName() {
     return 'media.mojom.VideoDecoderFactoryProcess';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.VideoDecoderFactoryProcessPendingReceiver,
+      media.mojom.mojom.VideoDecoderFactoryProcessPendingReceiver,
       handle);
-    this.$ = new media.mojom.VideoDecoderFactoryProcessRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.VideoDecoderFactoryProcessRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ media.mojom.VideoDecoderFactoryProcessRemote = class {
   }
 };
 
-media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
+media.mojom.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec,
+      media.mojom.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec,
       null,
       [gpu_feature_info, receiver, gpu_remote]);
   }
 
 };
 
-media.mojom.VideoDecoderFactoryProcess.getRemote = function() {
-  let remote = new media.mojom.VideoDecoderFactoryProcessRemote();
+media.mojom.mojom.VideoDecoderFactoryProcess.getRemote = function() {
+  let remote = new media.mojom.mojom.VideoDecoderFactoryProcessRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ media.mojom.VideoDecoderFactoryProcess.getRemote = function() {
 };
 
 // ParamsSpec for InitializeVideoDecoderFactory
-media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec = {
+media.mojom.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecoderFactoryProcess.InitializeVideoDecoderFactory_Params',
@@ -82,6 +82,6 @@ media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec 
 };
 
 // Legacy compatibility
-media.mojom.VideoDecoderFactoryProcessPtr = media.mojom.VideoDecoderFactoryProcessRemote;
-media.mojom.VideoDecoderFactoryProcessRequest = media.mojom.VideoDecoderFactoryProcessPendingReceiver;
+media.mojom.mojom.VideoDecoderFactoryProcessPtr = media.mojom.mojom.VideoDecoderFactoryProcessRemote;
+media.mojom.mojom.VideoDecoderFactoryProcessRequest = media.mojom.mojom.VideoDecoderFactoryProcessPendingReceiver;
 

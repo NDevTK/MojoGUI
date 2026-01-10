@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DiskAllocator
-blink.mojom.DiskAllocator = {};
+blink.mojom.mojom.DiskAllocator = {};
 
-blink.mojom.DiskAllocatorPendingReceiver = class {
+blink.mojom.mojom.DiskAllocatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DiskAllocatorRemote = class {
+blink.mojom.mojom.DiskAllocatorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DiskAllocator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DiskAllocatorPendingReceiver,
+      blink.mojom.mojom.DiskAllocatorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.DiskAllocatorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.DiskAllocatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.DiskAllocatorRemote = class {
   }
 };
 
-blink.mojom.DiskAllocatorRemoteCallHandler = class {
+blink.mojom.mojom.DiskAllocatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.DiskAllocatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec,
+      blink.mojom.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec,
       null,
       [file]);
   }
 
 };
 
-blink.mojom.DiskAllocator.getRemote = function() {
-  let remote = new blink.mojom.DiskAllocatorRemote();
+blink.mojom.mojom.DiskAllocator.getRemote = function() {
+  let remote = new blink.mojom.mojom.DiskAllocatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.DiskAllocator.getRemote = function() {
 };
 
 // ParamsSpec for ProvideTemporaryFile
-blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
+blink.mojom.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DiskAllocator.ProvideTemporaryFile_Params',
@@ -80,6 +80,6 @@ blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.DiskAllocatorPtr = blink.mojom.DiskAllocatorRemote;
-blink.mojom.DiskAllocatorRequest = blink.mojom.DiskAllocatorPendingReceiver;
+blink.mojom.mojom.DiskAllocatorPtr = blink.mojom.mojom.DiskAllocatorRemote;
+blink.mojom.mojom.DiskAllocatorRequest = blink.mojom.mojom.DiskAllocatorPendingReceiver;
 

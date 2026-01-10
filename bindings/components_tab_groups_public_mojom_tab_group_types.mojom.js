@@ -10,7 +10,7 @@ tab_groups.mojom = tab_groups.mojom || {};
 
 
 // Enum: Color
-tab_groups.mojom.Color = {
+tab_groups.mojom.mojom.Color = {
   kBlue: 0,
   kRed: 1,
   kYellow: 2,
@@ -20,4 +20,4 @@ tab_groups.mojom.Color = {
   kCyan: 6,
   kOrange: 7,
 };
-tab_groups.mojom.ColorSpec = { $: mojo.internal.Enum() };
+tab_groups.mojom.mojom.ColorSpec = { $: mojo.internal.Enum() };

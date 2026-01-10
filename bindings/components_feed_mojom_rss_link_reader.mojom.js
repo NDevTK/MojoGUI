@@ -7,10 +7,11 @@
 // Module namespace
 var feed = feed || {};
 feed.mojom = feed.mojom || {};
+var url = url || {};
 
 
 // Struct: RssLinks
-feed.mojom.RssLinksSpec = {
+feed.mojom.mojom.RssLinksSpec = {
   $: {
     structSpec: {
       name: 'feed.mojom.RssLinks',
@@ -25,24 +26,24 @@ feed.mojom.RssLinksSpec = {
 };
 
 // Interface: RssLinkReader
-feed.mojom.RssLinkReader = {};
+feed.mojom.mojom.RssLinkReader = {};
 
-feed.mojom.RssLinkReaderPendingReceiver = class {
+feed.mojom.mojom.RssLinkReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-feed.mojom.RssLinkReaderRemote = class {
+feed.mojom.mojom.RssLinkReaderRemote = class {
   static get $interfaceName() {
     return 'feed.mojom.RssLinkReader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      feed.mojom.RssLinkReaderPendingReceiver,
+      feed.mojom.mojom.RssLinkReaderPendingReceiver,
       handle);
-    this.$ = new feed.mojom.RssLinkReaderRemoteCallHandler(this.proxy);
+    this.$ = new feed.mojom.mojom.RssLinkReaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +55,7 @@ feed.mojom.RssLinkReaderRemote = class {
   }
 };
 
-feed.mojom.RssLinkReaderRemoteCallHandler = class {
+feed.mojom.mojom.RssLinkReaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,15 +64,15 @@ feed.mojom.RssLinkReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec,
-      feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
+      feed.mojom.mojom.RssLinkReader_GetRssLinks_ParamsSpec,
+      feed.mojom.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
       []);
   }
 
 };
 
-feed.mojom.RssLinkReader.getRemote = function() {
-  let remote = new feed.mojom.RssLinkReaderRemote();
+feed.mojom.mojom.RssLinkReader.getRemote = function() {
+  let remote = new feed.mojom.mojom.RssLinkReaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -81,7 +82,7 @@ feed.mojom.RssLinkReader.getRemote = function() {
 };
 
 // ParamsSpec for GetRssLinks
-feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
+feed.mojom.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'feed.mojom.RssLinkReader.GetRssLinks_Params',
@@ -93,7 +94,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
   }
 };
 
-feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
+feed.mojom.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'feed.mojom.RssLinkReader.GetRssLinks_ResponseParams',
@@ -107,6 +108,6 @@ feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-feed.mojom.RssLinkReaderPtr = feed.mojom.RssLinkReaderRemote;
-feed.mojom.RssLinkReaderRequest = feed.mojom.RssLinkReaderPendingReceiver;
+feed.mojom.mojom.RssLinkReaderPtr = feed.mojom.mojom.RssLinkReaderRemote;
+feed.mojom.mojom.RssLinkReaderRequest = feed.mojom.mojom.RssLinkReaderPendingReceiver;
 

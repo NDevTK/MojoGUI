@@ -10,24 +10,24 @@ web_app.mojom = web_app.mojom || {};
 
 
 // Interface: WebAppShortcutCopier
-web_app.mojom.WebAppShortcutCopier = {};
+web_app.mojom.mojom.WebAppShortcutCopier = {};
 
-web_app.mojom.WebAppShortcutCopierPendingReceiver = class {
+web_app.mojom.mojom.WebAppShortcutCopierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-web_app.mojom.WebAppShortcutCopierRemote = class {
+web_app.mojom.mojom.WebAppShortcutCopierRemote = class {
   static get $interfaceName() {
     return 'web_app.mojom.WebAppShortcutCopier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      web_app.mojom.WebAppShortcutCopierPendingReceiver,
+      web_app.mojom.mojom.WebAppShortcutCopierPendingReceiver,
       handle);
-    this.$ = new web_app.mojom.WebAppShortcutCopierRemoteCallHandler(this.proxy);
+    this.$ = new web_app.mojom.mojom.WebAppShortcutCopierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ web_app.mojom.WebAppShortcutCopierRemote = class {
   }
 };
 
-web_app.mojom.WebAppShortcutCopierRemoteCallHandler = class {
+web_app.mojom.mojom.WebAppShortcutCopierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ web_app.mojom.WebAppShortcutCopierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec,
-      web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec,
+      web_app.mojom.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec,
+      web_app.mojom.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec,
       [source_path, destination_path]);
   }
 
 };
 
-web_app.mojom.WebAppShortcutCopier.getRemote = function() {
-  let remote = new web_app.mojom.WebAppShortcutCopierRemote();
+web_app.mojom.mojom.WebAppShortcutCopier.getRemote = function() {
+  let remote = new web_app.mojom.mojom.WebAppShortcutCopierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ web_app.mojom.WebAppShortcutCopier.getRemote = function() {
 };
 
 // ParamsSpec for CopyWebAppShortcut
-web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
+web_app.mojom.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_app.mojom.WebAppShortcutCopier.CopyWebAppShortcut_Params',
@@ -80,7 +80,7 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
   }
 };
 
-web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
+web_app.mojom.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'web_app.mojom.WebAppShortcutCopier.CopyWebAppShortcut_ResponseParams',
@@ -94,6 +94,6 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-web_app.mojom.WebAppShortcutCopierPtr = web_app.mojom.WebAppShortcutCopierRemote;
-web_app.mojom.WebAppShortcutCopierRequest = web_app.mojom.WebAppShortcutCopierPendingReceiver;
+web_app.mojom.mojom.WebAppShortcutCopierPtr = web_app.mojom.mojom.WebAppShortcutCopierRemote;
+web_app.mojom.mojom.WebAppShortcutCopierRequest = web_app.mojom.mojom.WebAppShortcutCopierPendingReceiver;
 

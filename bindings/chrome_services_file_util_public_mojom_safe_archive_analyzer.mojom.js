@@ -10,7 +10,7 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Struct: ObfuscatedFileUtilHeaderData
-chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = {
+chrome.mojom.mojom.ObfuscatedFileUtilHeaderDataSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ObfuscatedFileUtilHeaderData',
@@ -25,24 +25,24 @@ chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = {
 };
 
 // Interface: SafeArchiveAnalyzer
-chrome.mojom.SafeArchiveAnalyzer = {};
+chrome.mojom.mojom.SafeArchiveAnalyzer = {};
 
-chrome.mojom.SafeArchiveAnalyzerPendingReceiver = class {
+chrome.mojom.mojom.SafeArchiveAnalyzerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzerRemote = class {
+chrome.mojom.mojom.SafeArchiveAnalyzerRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.SafeArchiveAnalyzer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.SafeArchiveAnalyzerPendingReceiver,
+      chrome.mojom.mojom.SafeArchiveAnalyzerPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.SafeArchiveAnalyzerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ chrome.mojom.SafeArchiveAnalyzerRemote = class {
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
+chrome.mojom.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +63,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec,
       [zip_file, password, temp_file_getter]);
   }
 
@@ -72,8 +72,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec,
       [dmg_file, temp_file_getter]);
   }
 
@@ -81,8 +81,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec,
       [rar_file, password, temp_file_getter]);
   }
 
@@ -90,8 +90,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec,
       [seven_zip_file, temp_file_getter]);
   }
 
@@ -99,8 +99,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec,
       [zip_file, password, header_data, temp_file_getter]);
   }
 
@@ -108,15 +108,15 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec,
-      chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec,
+      chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec,
       [rar_file, password, header_data, temp_file_getter]);
   }
 
 };
 
-chrome.mojom.SafeArchiveAnalyzer.getRemote = function() {
-  let remote = new chrome.mojom.SafeArchiveAnalyzerRemote();
+chrome.mojom.mojom.SafeArchiveAnalyzer.getRemote = function() {
+  let remote = new chrome.mojom.mojom.SafeArchiveAnalyzerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -126,7 +126,7 @@ chrome.mojom.SafeArchiveAnalyzer.getRemote = function() {
 };
 
 // ParamsSpec for AnalyzeZipFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_Params',
@@ -141,7 +141,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_ResponseParams',
@@ -155,7 +155,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AnalyzeDmgFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_Params',
@@ -169,7 +169,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_ResponseParams',
@@ -183,7 +183,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AnalyzeRarFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_Params',
@@ -198,7 +198,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_ResponseParams',
@@ -212,7 +212,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AnalyzeSevenZipFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_Params',
@@ -226,7 +226,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_ResponseParams',
@@ -240,7 +240,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AnalyzeObfuscatedZipFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_Params',
@@ -256,7 +256,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_ResponseParams',
@@ -270,7 +270,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AnalyzeObfuscatedRarFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_Params',
@@ -286,7 +286,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
+chrome.mojom.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_ResponseParams',
@@ -300,29 +300,29 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.SafeArchiveAnalyzerPtr = chrome.mojom.SafeArchiveAnalyzerRemote;
-chrome.mojom.SafeArchiveAnalyzerRequest = chrome.mojom.SafeArchiveAnalyzerPendingReceiver;
+chrome.mojom.mojom.SafeArchiveAnalyzerPtr = chrome.mojom.mojom.SafeArchiveAnalyzerRemote;
+chrome.mojom.mojom.SafeArchiveAnalyzerRequest = chrome.mojom.mojom.SafeArchiveAnalyzerPendingReceiver;
 
 
 // Interface: TemporaryFileGetter
-chrome.mojom.TemporaryFileGetter = {};
+chrome.mojom.mojom.TemporaryFileGetter = {};
 
-chrome.mojom.TemporaryFileGetterPendingReceiver = class {
+chrome.mojom.mojom.TemporaryFileGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.TemporaryFileGetterRemote = class {
+chrome.mojom.mojom.TemporaryFileGetterRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.TemporaryFileGetter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.TemporaryFileGetterPendingReceiver,
+      chrome.mojom.mojom.TemporaryFileGetterPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.TemporaryFileGetterRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.TemporaryFileGetterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -334,7 +334,7 @@ chrome.mojom.TemporaryFileGetterRemote = class {
   }
 };
 
-chrome.mojom.TemporaryFileGetterRemoteCallHandler = class {
+chrome.mojom.mojom.TemporaryFileGetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -343,15 +343,15 @@ chrome.mojom.TemporaryFileGetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec,
-      chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec,
+      chrome.mojom.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec,
+      chrome.mojom.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec,
       []);
   }
 
 };
 
-chrome.mojom.TemporaryFileGetter.getRemote = function() {
-  let remote = new chrome.mojom.TemporaryFileGetterRemote();
+chrome.mojom.mojom.TemporaryFileGetter.getRemote = function() {
+  let remote = new chrome.mojom.mojom.TemporaryFileGetterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -361,7 +361,7 @@ chrome.mojom.TemporaryFileGetter.getRemote = function() {
 };
 
 // ParamsSpec for RequestTemporaryFile
-chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
+chrome.mojom.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.TemporaryFileGetter.RequestTemporaryFile_Params',
@@ -373,7 +373,7 @@ chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
   }
 };
 
-chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
+chrome.mojom.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.TemporaryFileGetter.RequestTemporaryFile_ResponseParams',
@@ -387,6 +387,6 @@ chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.TemporaryFileGetterPtr = chrome.mojom.TemporaryFileGetterRemote;
-chrome.mojom.TemporaryFileGetterRequest = chrome.mojom.TemporaryFileGetterPendingReceiver;
+chrome.mojom.mojom.TemporaryFileGetterPtr = chrome.mojom.mojom.TemporaryFileGetterRemote;
+chrome.mojom.mojom.TemporaryFileGetterRequest = chrome.mojom.mojom.TemporaryFileGetterPendingReceiver;
 

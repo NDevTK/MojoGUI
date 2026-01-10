@@ -10,15 +10,15 @@ omnibox.mojom = omnibox.mojom || {};
 
 
 // Enum: NavigationPredictor
-omnibox.mojom.NavigationPredictor = {
+omnibox.mojom.mojom.NavigationPredictor = {
   kMouseDown: 0,
   kUpOrDownArrowButton: 1,
   kTouchDown: 2,
 };
-omnibox.mojom.NavigationPredictorSpec = { $: mojo.internal.Enum() };
+omnibox.mojom.mojom.NavigationPredictorSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageClassification
-omnibox.mojom.PageClassification = {
+omnibox.mojom.mojom.PageClassification = {
   INVALID_SPEC: 0,
   NTP: 1,
   BLANK: 2,
@@ -45,4 +45,4 @@ omnibox.mojom.PageClassification = {
   SEARCH_RESULT_PAGE_ON_CCT: 23,
   OTHER_ON_CCT: 24,
 };
-omnibox.mojom.PageClassificationSpec = { $: mojo.internal.Enum() };
+omnibox.mojom.mojom.PageClassificationSpec = { $: mojo.internal.Enum() };

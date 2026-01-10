@@ -7,43 +7,46 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
+var url = url || {};
 
 
-blink.mojom.kMaxInterestGroupSize = 1048576;
+blink.mojom.mojom.kMaxInterestGroupSize = 1048576;
 
-blink.mojom.kMaxAllowedReportingOrigins = 10;
+blink.mojom.mojom.kMaxAllowedReportingOrigins = 10;
 
 // Enum: ExecutionMode
-blink.mojom.ExecutionMode = {
+blink.mojom.mojom.ExecutionMode = {
   kGroupedByOriginMode: 0,
   kFrozenContext: 1,
 };
-blink.mojom.ExecutionModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ExecutionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TrustedBiddingSignalsSlotSizeMode
-blink.mojom.TrustedBiddingSignalsSlotSizeMode = {
+blink.mojom.mojom.TrustedBiddingSignalsSlotSizeMode = {
   kSlotSize: 0,
   kAllSlotsRequestedSizes: 1,
 };
-blink.mojom.TrustedBiddingSignalsSlotSizeModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.TrustedBiddingSignalsSlotSizeModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BuyerReportType
-blink.mojom.BuyerReportType = {
+blink.mojom.mojom.BuyerReportType = {
   kInterestGroupCount: 0,
   kBidCount: 1,
   kTotalGenerateBidLatency: 2,
   kTotalSignalsFetchLatency: 3,
 };
-blink.mojom.BuyerReportTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.BuyerReportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RealTimeReportingType
-blink.mojom.RealTimeReportingType = {
+blink.mojom.mojom.RealTimeReportingType = {
   kDefaultLocalReporting: 0,
 };
-blink.mojom.RealTimeReportingTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.RealTimeReportingTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: AuctionAdConfigMaybePromiseJson
-blink.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseJson', {
       'promise': {
         'ordinal': 0,
@@ -58,7 +61,7 @@ blink.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: mojo.internal.Union(
 };
 
 // Union: AuctionAdConfigMaybePromisePerBuyerSignals
-blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignals', {
       'promise': {
         'ordinal': 0,
@@ -73,7 +76,7 @@ blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: mojo.internal.
 };
 
 // Union: AuctionAdConfigMaybePromiseBuyerTimeouts
-blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeouts', {
       'promise': {
         'ordinal': 0,
@@ -87,7 +90,7 @@ blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: mojo.internal.Un
 };
 
 // Union: AuctionAdConfigMaybePromiseBuyerCurrencies
-blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrencies', {
       'promise': {
         'ordinal': 0,
@@ -101,7 +104,7 @@ blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = { $: mojo.internal.
 };
 
 // Union: AuctionAdConfigMaybePromiseDirectFromSellerSignals
-blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignals', {
       'promise': {
         'ordinal': 0,
@@ -116,7 +119,7 @@ blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = { $: mojo.i
 };
 
 // Union: AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacements
-blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacements', {
       'promise': {
         'ordinal': 0,
@@ -130,7 +133,7 @@ blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec = { $
 };
 
 // Union: AdAuctionRequestOrError
-blink.mojom.AdAuctionRequestOrErrorSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AdAuctionRequestOrErrorSpec = { $: mojo.internal.Union(
     'blink.mojom.AdAuctionRequestOrError', {
       'request': {
         'ordinal': 0,
@@ -144,7 +147,7 @@ blink.mojom.AdAuctionRequestOrErrorSpec = { $: mojo.internal.Union(
 };
 
 // Struct: InterestGroupAd
-blink.mojom.InterestGroupAdSpec = {
+blink.mojom.mojom.InterestGroupAdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InterestGroupAd',
@@ -166,7 +169,7 @@ blink.mojom.InterestGroupAdSpec = {
 };
 
 // Struct: SellerCapabilities
-blink.mojom.SellerCapabilitiesSpec = {
+blink.mojom.mojom.SellerCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SellerCapabilities',
@@ -181,7 +184,7 @@ blink.mojom.SellerCapabilitiesSpec = {
 };
 
 // Struct: AuctionServerRequestFlags
-blink.mojom.AuctionServerRequestFlagsSpec = {
+blink.mojom.mojom.AuctionServerRequestFlagsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionServerRequestFlags',
@@ -197,7 +200,7 @@ blink.mojom.AuctionServerRequestFlagsSpec = {
 };
 
 // Struct: AdKeywordReplacement
-blink.mojom.AdKeywordReplacementSpec = {
+blink.mojom.mojom.AdKeywordReplacementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdKeywordReplacement',
@@ -212,7 +215,7 @@ blink.mojom.AdKeywordReplacementSpec = {
 };
 
 // Struct: InterestGroup
-blink.mojom.InterestGroupSpec = {
+blink.mojom.mojom.InterestGroupSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InterestGroup',
@@ -226,7 +229,7 @@ blink.mojom.InterestGroupSpec = {
 };
 
 // Struct: PreviousWin
-blink.mojom.PreviousWinSpec = {
+blink.mojom.mojom.PreviousWinSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PreviousWin',
@@ -241,7 +244,7 @@ blink.mojom.PreviousWinSpec = {
 };
 
 // Struct: ViewOrClickCounts
-blink.mojom.ViewOrClickCountsSpec = {
+blink.mojom.mojom.ViewOrClickCountsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewOrClickCounts',
@@ -259,7 +262,7 @@ blink.mojom.ViewOrClickCountsSpec = {
 };
 
 // Struct: ViewAndClickCounts
-blink.mojom.ViewAndClickCountsSpec = {
+blink.mojom.mojom.ViewAndClickCountsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ViewAndClickCounts',
@@ -274,17 +277,17 @@ blink.mojom.ViewAndClickCountsSpec = {
 };
 
 // Struct: BiddingBrowserSignals
-blink.mojom.BiddingBrowserSignalsSpec = {
+blink.mojom.mojom.BiddingBrowserSignalsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BiddingBrowserSignals',
       packedSize: 40,
       fields: [
-        { name: 'join_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bid_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'prev_wins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PreviousWinSpec, false), nullable: false, minVersion: 0 },
-        { name: 'for_debugging_only_in_cooldown_or_lockout', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'view_and_click_counts', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ViewAndClickCountsSpec, nullable: false, minVersion: 0 },
+        { name: 'join_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bid_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'prev_wins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PreviousWinSpec, false), nullable: false, minVersion: 0 },
+        { name: 'for_debugging_only_in_cooldown_or_lockout', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'view_and_click_counts', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewAndClickCountsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -292,7 +295,7 @@ blink.mojom.BiddingBrowserSignalsSpec = {
 };
 
 // Struct: StorageInterestGroup
-blink.mojom.StorageInterestGroupSpec = {
+blink.mojom.mojom.StorageInterestGroupSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StorageInterestGroup',
@@ -312,7 +315,7 @@ blink.mojom.StorageInterestGroupSpec = {
 };
 
 // Struct: DirectFromSellerSignalsSubresource
-blink.mojom.DirectFromSellerSignalsSubresourceSpec = {
+blink.mojom.mojom.DirectFromSellerSignalsSubresourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectFromSellerSignalsSubresource',
@@ -327,7 +330,7 @@ blink.mojom.DirectFromSellerSignalsSubresourceSpec = {
 };
 
 // Struct: DirectFromSellerSignals
-blink.mojom.DirectFromSellerSignalsSpec = {
+blink.mojom.mojom.DirectFromSellerSignalsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DirectFromSellerSignals',
@@ -344,7 +347,7 @@ blink.mojom.DirectFromSellerSignalsSpec = {
 };
 
 // Struct: AuctionAdConfigBuyerTimeouts
-blink.mojom.AuctionAdConfigBuyerTimeoutsSpec = {
+blink.mojom.mojom.AuctionAdConfigBuyerTimeoutsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigBuyerTimeouts',
@@ -359,7 +362,7 @@ blink.mojom.AuctionAdConfigBuyerTimeoutsSpec = {
 };
 
 // Struct: AdCurrency
-blink.mojom.AdCurrencySpec = {
+blink.mojom.mojom.AdCurrencySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdCurrency',
@@ -373,7 +376,7 @@ blink.mojom.AdCurrencySpec = {
 };
 
 // Struct: AuctionAdConfigBuyerCurrencies
-blink.mojom.AuctionAdConfigBuyerCurrenciesSpec = {
+blink.mojom.mojom.AuctionAdConfigBuyerCurrenciesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigBuyerCurrencies',
@@ -388,7 +391,7 @@ blink.mojom.AuctionAdConfigBuyerCurrenciesSpec = {
 };
 
 // Struct: AuctionAdServerResponseConfig
-blink.mojom.AuctionAdServerResponseConfigSpec = {
+blink.mojom.mojom.AuctionAdServerResponseConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdServerResponseConfig',
@@ -402,15 +405,15 @@ blink.mojom.AuctionAdServerResponseConfigSpec = {
 };
 
 // Struct: AuctionReportBuyerDebugModeConfig
-blink.mojom.AuctionReportBuyerDebugModeConfigSpec = {
+blink.mojom.mojom.AuctionReportBuyerDebugModeConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionReportBuyerDebugModeConfig',
       packedSize: 24,
       fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'debug_key_$flag', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'debug_key_$value', originalFieldName: 'debug_key' } },
-        { name: 'debug_key_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'debug_key_$flag', originalFieldName: 'debug_key' } },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'debug_key_$flag', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'debug_key_$value', originalFieldName: 'debug_key' } },
+        { name: 'debug_key_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'debug_key_$flag', originalFieldName: 'debug_key' } },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -418,7 +421,7 @@ blink.mojom.AuctionReportBuyerDebugModeConfigSpec = {
 };
 
 // Struct: AuctionReportBuyersConfig
-blink.mojom.AuctionReportBuyersConfigSpec = {
+blink.mojom.mojom.AuctionReportBuyersConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionReportBuyersConfig',
@@ -433,7 +436,7 @@ blink.mojom.AuctionReportBuyersConfigSpec = {
 };
 
 // Struct: AuctionAdConfigNonSharedParams
-blink.mojom.AuctionAdConfigNonSharedParamsSpec = {
+blink.mojom.mojom.AuctionAdConfigNonSharedParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfigNonSharedParams',
@@ -447,28 +450,28 @@ blink.mojom.AuctionAdConfigNonSharedParamsSpec = {
 };
 
 // Struct: AuctionAdConfig
-blink.mojom.AuctionAdConfigSpec = {
+blink.mojom.mojom.AuctionAdConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionAdConfig',
       packedSize: 88,
       fields: [
-        { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'server_response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AuctionAdServerResponseConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'decision_logic_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'trusted_scoring_signals_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'auction_ad_config_non_shared_params', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigNonSharedParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'direct_from_seller_signals', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec, nullable: false, minVersion: 0 },
-        { name: 'expects_direct_from_seller_signals_header_ad_slot', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'seller_experiment_group_id_$flag', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'seller_experiment_group_id_$value', originalFieldName: 'seller_experiment_group_id' } },
-        { name: 'seller_experiment_group_id_$value', packedOffset: 58, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'seller_experiment_group_id_$flag', originalFieldName: 'seller_experiment_group_id' } },
-        { name: 'all_buyer_experiment_group_id_$flag', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'all_buyer_experiment_group_id_$value', originalFieldName: 'all_buyer_experiment_group_id' } },
-        { name: 'all_buyer_experiment_group_id_$value', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'all_buyer_experiment_group_id_$flag', originalFieldName: 'all_buyer_experiment_group_id' } },
-        { name: 'per_buyer_experiment_group_ids', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'expects_additional_bids', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'aggregation_coordinator_origin', packedOffset: 72, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'send_creative_scanning_metadata_$flag', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'send_creative_scanning_metadata_$value', originalFieldName: 'send_creative_scanning_metadata' } },
-        { name: 'send_creative_scanning_metadata_$value', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'send_creative_scanning_metadata_$flag', originalFieldName: 'send_creative_scanning_metadata' } },
+        { name: 'seller', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'server_response', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AuctionAdServerResponseConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'decision_logic_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'trusted_scoring_signals_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'auction_ad_config_non_shared_params', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigNonSharedParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'direct_from_seller_signals', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec, nullable: false, minVersion: 0 },
+        { name: 'expects_direct_from_seller_signals_header_ad_slot', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'seller_experiment_group_id_$flag', packedOffset: 76, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'seller_experiment_group_id_$value', originalFieldName: 'seller_experiment_group_id' } },
+        { name: 'seller_experiment_group_id_$value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'seller_experiment_group_id_$flag', originalFieldName: 'seller_experiment_group_id' } },
+        { name: 'all_buyer_experiment_group_id_$flag', packedOffset: 76, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'all_buyer_experiment_group_id_$value', originalFieldName: 'all_buyer_experiment_group_id' } },
+        { name: 'all_buyer_experiment_group_id_$value', packedOffset: 74, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'all_buyer_experiment_group_id_$flag', originalFieldName: 'all_buyer_experiment_group_id' } },
+        { name: 'per_buyer_experiment_group_ids', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'expects_additional_bids', packedOffset: 76, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'aggregation_coordinator_origin', packedOffset: 64, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
+        { name: 'send_creative_scanning_metadata_$flag', packedOffset: 76, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'send_creative_scanning_metadata_$value', originalFieldName: 'send_creative_scanning_metadata' } },
+        { name: 'send_creative_scanning_metadata_$value', packedOffset: 76, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'send_creative_scanning_metadata_$flag', originalFieldName: 'send_creative_scanning_metadata' } },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -476,14 +479,14 @@ blink.mojom.AuctionAdConfigSpec = {
 };
 
 // Struct: AuctionDataBuyerConfig
-blink.mojom.AuctionDataBuyerConfigSpec = {
+blink.mojom.mojom.AuctionDataBuyerConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionDataBuyerConfig',
       packedSize: 16,
       fields: [
-        { name: 'target_size_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'target_size_$value', originalFieldName: 'target_size' } },
-        { name: 'target_size_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'target_size_$flag', originalFieldName: 'target_size' } },
+        { name: 'target_size_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'target_size_$value', originalFieldName: 'target_size' } },
+        { name: 'target_size_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'target_size_$flag', originalFieldName: 'target_size' } },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -491,15 +494,15 @@ blink.mojom.AuctionDataBuyerConfigSpec = {
 };
 
 // Struct: AuctionDataConfig
-blink.mojom.AuctionDataConfigSpec = {
+blink.mojom.mojom.AuctionDataConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AuctionDataConfig',
       packedSize: 24,
       fields: [
         { name: 'per_buyer_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, blink.mojom.AuctionDataBuyerConfigSpec, false), nullable: false, minVersion: 0 },
-        { name: 'request_size_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'request_size_$value', originalFieldName: 'request_size' } },
-        { name: 'request_size_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'request_size_$flag', originalFieldName: 'request_size' } },
+        { name: 'request_size_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'request_size_$value', originalFieldName: 'request_size' } },
+        { name: 'request_size_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'request_size_$flag', originalFieldName: 'request_size' } },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -507,14 +510,14 @@ blink.mojom.AuctionDataConfigSpec = {
 };
 
 // Struct: AdAuctionPerSellerRequest
-blink.mojom.AdAuctionPerSellerRequestSpec = {
+blink.mojom.mojom.AdAuctionPerSellerRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionPerSellerRequest',
       packedSize: 32,
       fields: [
-        { name: 'seller', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AdAuctionRequestOrErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'seller', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AdAuctionRequestOrErrorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

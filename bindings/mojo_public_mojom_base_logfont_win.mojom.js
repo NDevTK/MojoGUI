@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: LOGFONT
-mojo_base.mojom.LOGFONTSpec = {
+mojo_base.mojom.mojom.LOGFONTSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.LOGFONT',

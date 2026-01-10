@@ -7,20 +7,21 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.printing = chromeos.printing || {};
-chromeos.printing.printing_manager = chromeos.printing.printing_manager || {};
-chromeos.printing.printing_manager.mojom = chromeos.printing.printing_manager.mojom || {};
+chromeos.printing.printing.printing_manager = chromeos.printing.printing.printing_manager || {};
+chromeos.printing.printing.printing_manager.printing_manager.mojom = chromeos.printing.printing.printing_manager.printing_manager.mojom || {};
+var url = url || {};
 
 
 // Enum: PrintJobCompletionStatus
-chromeos.printing.printing_manager.mojom.PrintJobCompletionStatus = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobCompletionStatus = {
   kFailed: 0,
   kCanceled: 1,
   kPrinted: 2,
 };
-chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec = { $: mojo.internal.Enum() };
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobCompletionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrinterErrorCode
-chromeos.printing.printing_manager.mojom.PrinterErrorCode = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrinterErrorCode = {
   kNoError: 0,
   kPaperJam: 1,
   kOutOfPaper: 2,
@@ -35,24 +36,24 @@ chromeos.printing.printing_manager.mojom.PrinterErrorCode = {
   kClientUnauthorized: 11,
   kExpiredCertificate: 12,
 };
-chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec = { $: mojo.internal.Enum() };
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrinterErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActivePrintJobState
-chromeos.printing.printing_manager.mojom.ActivePrintJobState = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.ActivePrintJobState = {
   kStarted: 0,
   kDocumentDone: 1,
 };
-chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec = { $: mojo.internal.Enum() };
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.ActivePrintJobStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: LaunchSource
-chromeos.printing.printing_manager.mojom.LaunchSource = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.LaunchSource = {
   kEmptyStateButton: 0,
   kHeaderButton: 1,
 };
-chromeos.printing.printing_manager.mojom.LaunchSourceSpec = { $: mojo.internal.Enum() };
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.LaunchSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: CompletedPrintJobInfo
-chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.CompletedPrintJobInfoSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.CompletedPrintJobInfo',
@@ -66,7 +67,7 @@ chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec = {
 };
 
 // Struct: ActivePrintJobInfo
-chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.ActivePrintJobInfoSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.ActivePrintJobInfo',
@@ -81,7 +82,7 @@ chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec = {
 };
 
 // Struct: PrintJobInfo
-chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobInfoSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintJobInfo',
@@ -90,13 +91,13 @@ chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'creation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'number_of_pages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'printer_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'printer_name', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'printer_uri', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'printer_error_code', packedOffset: 28, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'completed_info', packedOffset: 56, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'active_print_job_info', packedOffset: 64, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'number_of_pages', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'printer_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'printer_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'printer_uri', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'printer_error_code', packedOffset: 68, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'completed_info', packedOffset: 48, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'active_print_job_info', packedOffset: 56, packedBitOffset: 0, type: chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -104,24 +105,24 @@ chromeos.printing.printing_manager.mojom.PrintJobInfoSpec = {
 };
 
 // Interface: PrintJobsObserver
-chromeos.printing.printing_manager.mojom.PrintJobsObserver = {};
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserver = {};
 
-chromeos.printing.printing_manager.mojom.PrintJobsObserverPendingReceiver = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverRemote = class {
   static get $interfaceName() {
     return 'chromeos.printing.printing_manager.mojom.PrintJobsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.printing.printing_manager.mojom.PrintJobsObserverPendingReceiver,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverPendingReceiver,
       handle);
-    this.$ = new chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -133,7 +134,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote = class {
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -142,7 +143,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec,
       null,
       []);
   }
@@ -151,15 +152,15 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = cl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec,
       null,
       [print_job]);
   }
 
 };
 
-chromeos.printing.printing_manager.mojom.PrintJobsObserver.getRemote = function() {
-  let remote = new chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote();
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserver.getRemote = function() {
+  let remote = new chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,7 +170,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver.getRemote = function(
 };
 
 // ParamsSpec for OnAllPrintJobsDeleted
-chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintJobsObserver.OnAllPrintJobsDeleted_Params',
@@ -182,7 +183,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted
 };
 
 // ParamsSpec for OnPrintJobUpdate
-chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintJobsObserver.OnPrintJobUpdate_Params',
@@ -196,29 +197,29 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_Para
 };
 
 // Legacy compatibility
-chromeos.printing.printing_manager.mojom.PrintJobsObserverPtr = chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote;
-chromeos.printing.printing_manager.mojom.PrintJobsObserverRequest = chromeos.printing.printing_manager.mojom.PrintJobsObserverPendingReceiver;
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverPtr = chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverRemote;
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverRequest = chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintJobsObserverPendingReceiver;
 
 
 // Interface: PrintingMetadataProvider
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider = {};
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider = {};
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPendingReceiver = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderRemote = class {
   static get $interfaceName() {
     return 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPendingReceiver,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderPendingReceiver,
       handle);
-    this.$ = new chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -230,7 +231,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote = class 
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandler = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -239,7 +240,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec,
       null,
       [observer]);
   }
@@ -248,8 +249,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec,
       []);
   }
 
@@ -257,8 +258,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec,
       []);
   }
 
@@ -266,8 +267,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec,
       [id]);
   }
 
@@ -275,8 +276,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec,
       []);
   }
 
@@ -284,15 +285,15 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec,
-      chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec,
       []);
   }
 
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.getRemote = function() {
-  let remote = new chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote();
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider.getRemote = function() {
+  let remote = new chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -302,7 +303,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.getRemote = fu
 };
 
 // ParamsSpec for ObservePrintJobs
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.ObservePrintJobs_Params',
@@ -316,7 +317,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJo
 };
 
 // ParamsSpec for GetPrintJobs
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetPrintJobs_Params',
@@ -328,7 +329,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_P
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetPrintJobs_ResponseParams',
@@ -342,7 +343,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_R
 };
 
 // ParamsSpec for DeleteAllPrintJobs
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.DeleteAllPrintJobs_Params',
@@ -354,7 +355,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrint
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.DeleteAllPrintJobs_ResponseParams',
@@ -368,7 +369,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrint
 };
 
 // ParamsSpec for CancelPrintJob
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.CancelPrintJob_Params',
@@ -381,7 +382,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.CancelPrintJob_ResponseParams',
@@ -395,7 +396,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob
 };
 
 // ParamsSpec for GetDeletePrintJobHistoryAllowedByPolicy
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetDeletePrintJobHistoryAllowedByPolicy_Params',
@@ -407,7 +408,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrint
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetDeletePrintJobHistoryAllowedByPolicy_ResponseParams',
@@ -421,7 +422,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrint
 };
 
 // ParamsSpec for GetPrintJobHistoryExpirationPeriod
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetPrintJobHistoryExpirationPeriod_Params',
@@ -433,7 +434,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHis
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.GetPrintJobHistoryExpirationPeriod_ResponseParams',
@@ -448,29 +449,29 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHis
 };
 
 // Legacy compatibility
-chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPtr = chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote;
-chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRequest = chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPendingReceiver;
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderPtr = chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderRemote;
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderRequest = chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintingMetadataProviderPendingReceiver;
 
 
 // Interface: PrintManagementHandler
-chromeos.printing.printing_manager.mojom.PrintManagementHandler = {};
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandler = {};
 
-chromeos.printing.printing_manager.mojom.PrintManagementHandlerPendingReceiver = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerRemote = class {
   static get $interfaceName() {
     return 'chromeos.printing.printing_manager.mojom.PrintManagementHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.printing.printing_manager.mojom.PrintManagementHandlerPendingReceiver,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerPendingReceiver,
       handle);
-    this.$ = new chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -482,7 +483,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote = class {
   }
 };
 
-chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler = class {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -491,7 +492,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec,
       null,
       [source]);
   }
@@ -500,15 +501,15 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec,
+      chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec,
       null,
       [duration]);
   }
 
 };
 
-chromeos.printing.printing_manager.mojom.PrintManagementHandler.getRemote = function() {
-  let remote = new chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote();
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandler.getRemote = function() {
+  let remote = new chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -518,7 +519,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler.getRemote = func
 };
 
 // ParamsSpec for LaunchPrinterSettings
-chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintManagementHandler.LaunchPrinterSettings_Params',
@@ -532,7 +533,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSet
 };
 
 // ParamsSpec for RecordGetPrintJobsRequestDuration
-chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec = {
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.printing.printing_manager.mojom.PrintManagementHandler.RecordGetPrintJobsRequestDuration_Params',
@@ -546,6 +547,6 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJo
 };
 
 // Legacy compatibility
-chromeos.printing.printing_manager.mojom.PrintManagementHandlerPtr = chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote;
-chromeos.printing.printing_manager.mojom.PrintManagementHandlerRequest = chromeos.printing.printing_manager.mojom.PrintManagementHandlerPendingReceiver;
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerPtr = chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerRemote;
+chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerRequest = chromeos.printing.printing.printing_manager.printing_manager.mojom.mojom.PrintManagementHandlerPendingReceiver;
 

@@ -7,10 +7,11 @@
 // Module namespace
 var chrome_urls = chrome_urls || {};
 chrome_urls.mojom = chrome_urls.mojom || {};
+var url = url || {};
 
 
 // Struct: WebuiUrlInfo
-chrome_urls.mojom.WebuiUrlInfoSpec = {
+chrome_urls.mojom.mojom.WebuiUrlInfoSpec = {
   $: {
     structSpec: {
       name: 'chrome_urls.mojom.WebuiUrlInfo',
@@ -26,7 +27,7 @@ chrome_urls.mojom.WebuiUrlInfoSpec = {
 };
 
 // Struct: ChromeUrlsData
-chrome_urls.mojom.ChromeUrlsDataSpec = {
+chrome_urls.mojom.mojom.ChromeUrlsDataSpec = {
   $: {
     structSpec: {
       name: 'chrome_urls.mojom.ChromeUrlsData',
@@ -42,24 +43,24 @@ chrome_urls.mojom.ChromeUrlsDataSpec = {
 };
 
 // Interface: PageHandlerFactory
-chrome_urls.mojom.PageHandlerFactory = {};
+chrome_urls.mojom.mojom.PageHandlerFactory = {};
 
-chrome_urls.mojom.PageHandlerFactoryPendingReceiver = class {
+chrome_urls.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome_urls.mojom.PageHandlerFactoryRemote = class {
+chrome_urls.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'chrome_urls.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome_urls.mojom.PageHandlerFactoryPendingReceiver,
+      chrome_urls.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new chrome_urls.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -71,7 +72,7 @@ chrome_urls.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
+chrome_urls.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -80,15 +81,15 @@ chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      chrome_urls.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-chrome_urls.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new chrome_urls.mojom.PageHandlerFactoryRemote();
+chrome_urls.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new chrome_urls.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -98,7 +99,7 @@ chrome_urls.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+chrome_urls.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome_urls.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -113,29 +114,29 @@ chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome_urls.mojom.PageHandlerFactoryPtr = chrome_urls.mojom.PageHandlerFactoryRemote;
-chrome_urls.mojom.PageHandlerFactoryRequest = chrome_urls.mojom.PageHandlerFactoryPendingReceiver;
+chrome_urls.mojom.mojom.PageHandlerFactoryPtr = chrome_urls.mojom.mojom.PageHandlerFactoryRemote;
+chrome_urls.mojom.mojom.PageHandlerFactoryRequest = chrome_urls.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-chrome_urls.mojom.PageHandler = {};
+chrome_urls.mojom.mojom.PageHandler = {};
 
-chrome_urls.mojom.PageHandlerPendingReceiver = class {
+chrome_urls.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome_urls.mojom.PageHandlerRemote = class {
+chrome_urls.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'chrome_urls.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome_urls.mojom.PageHandlerPendingReceiver,
+      chrome_urls.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new chrome_urls.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new chrome_urls.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -147,7 +148,7 @@ chrome_urls.mojom.PageHandlerRemote = class {
   }
 };
 
-chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
+chrome_urls.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -156,8 +157,8 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec,
-      chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec,
+      chrome_urls.mojom.mojom.PageHandler_GetUrls_ParamsSpec,
+      chrome_urls.mojom.mojom.PageHandler_GetUrls_ResponseParamsSpec,
       []);
   }
 
@@ -165,15 +166,15 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
+      chrome_urls.mojom.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-chrome_urls.mojom.PageHandler.getRemote = function() {
-  let remote = new chrome_urls.mojom.PageHandlerRemote();
+chrome_urls.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new chrome_urls.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -183,7 +184,7 @@ chrome_urls.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetUrls
-chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
+chrome_urls.mojom.mojom.PageHandler_GetUrls_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome_urls.mojom.PageHandler.GetUrls_Params',
@@ -195,7 +196,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
   }
 };
 
-chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
+chrome_urls.mojom.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome_urls.mojom.PageHandler.GetUrls_ResponseParams',
@@ -209,7 +210,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetDebugPagesEnabled
-chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
+chrome_urls.mojom.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome_urls.mojom.PageHandler.SetDebugPagesEnabled_Params',
@@ -223,29 +224,29 @@ chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome_urls.mojom.PageHandlerPtr = chrome_urls.mojom.PageHandlerRemote;
-chrome_urls.mojom.PageHandlerRequest = chrome_urls.mojom.PageHandlerPendingReceiver;
+chrome_urls.mojom.mojom.PageHandlerPtr = chrome_urls.mojom.mojom.PageHandlerRemote;
+chrome_urls.mojom.mojom.PageHandlerRequest = chrome_urls.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-chrome_urls.mojom.Page = {};
+chrome_urls.mojom.mojom.Page = {};
 
-chrome_urls.mojom.PagePendingReceiver = class {
+chrome_urls.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome_urls.mojom.PageRemote = class {
+chrome_urls.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'chrome_urls.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome_urls.mojom.PagePendingReceiver,
+      chrome_urls.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new chrome_urls.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new chrome_urls.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -257,15 +258,15 @@ chrome_urls.mojom.PageRemote = class {
   }
 };
 
-chrome_urls.mojom.PageRemoteCallHandler = class {
+chrome_urls.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-chrome_urls.mojom.Page.getRemote = function() {
-  let remote = new chrome_urls.mojom.PageRemote();
+chrome_urls.mojom.mojom.Page.getRemote = function() {
+  let remote = new chrome_urls.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -275,6 +276,6 @@ chrome_urls.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-chrome_urls.mojom.PagePtr = chrome_urls.mojom.PageRemote;
-chrome_urls.mojom.PageRequest = chrome_urls.mojom.PagePendingReceiver;
+chrome_urls.mojom.mojom.PagePtr = chrome_urls.mojom.mojom.PageRemote;
+chrome_urls.mojom.mojom.PageRequest = chrome_urls.mojom.mojom.PagePendingReceiver;
 

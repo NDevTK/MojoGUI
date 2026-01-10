@@ -10,15 +10,15 @@ network.mojom = network.mojom || {};
 
 
 // Enum: LogType
-network.mojom.LogType = {
+network.mojom.mojom.LogType = {
   kUnspecified: 0,
   kRFC6962: 1,
   kStaticCTAPI: 2,
 };
-network.mojom.LogTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.LogTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PreviousOperatorEntry
-network.mojom.PreviousOperatorEntrySpec = {
+network.mojom.mojom.PreviousOperatorEntrySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PreviousOperatorEntry',
@@ -33,7 +33,7 @@ network.mojom.PreviousOperatorEntrySpec = {
 };
 
 // Struct: CTLogInfo
-network.mojom.CTLogInfoSpec = {
+network.mojom.mojom.CTLogInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CTLogInfo',

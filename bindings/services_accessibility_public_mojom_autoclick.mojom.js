@@ -7,27 +7,29 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: Autoclick
-ax.mojom.Autoclick = {};
+ax.mojom.mojom.Autoclick = {};
 
-ax.mojom.AutoclickPendingReceiver = class {
+ax.mojom.mojom.AutoclickPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.AutoclickRemote = class {
+ax.mojom.mojom.AutoclickRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.Autoclick';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.AutoclickPendingReceiver,
+      ax.mojom.mojom.AutoclickPendingReceiver,
       handle);
-    this.$ = new ax.mojom.AutoclickRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.AutoclickRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ ax.mojom.AutoclickRemote = class {
   }
 };
 
-ax.mojom.AutoclickRemoteCallHandler = class {
+ax.mojom.mojom.AutoclickRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +50,15 @@ ax.mojom.AutoclickRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec,
+      ax.mojom.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec,
       null,
       [point]);
   }
 
 };
 
-ax.mojom.Autoclick.getRemote = function() {
-  let remote = new ax.mojom.AutoclickRemote();
+ax.mojom.mojom.Autoclick.getRemote = function() {
+  let remote = new ax.mojom.mojom.AutoclickRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +68,7 @@ ax.mojom.Autoclick.getRemote = function() {
 };
 
 // ParamsSpec for RequestScrollableBoundsForPoint
-ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
+ax.mojom.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Autoclick.RequestScrollableBoundsForPoint_Params',
@@ -80,29 +82,29 @@ ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.AutoclickPtr = ax.mojom.AutoclickRemote;
-ax.mojom.AutoclickRequest = ax.mojom.AutoclickPendingReceiver;
+ax.mojom.mojom.AutoclickPtr = ax.mojom.mojom.AutoclickRemote;
+ax.mojom.mojom.AutoclickRequest = ax.mojom.mojom.AutoclickPendingReceiver;
 
 
 // Interface: AutoclickClient
-ax.mojom.AutoclickClient = {};
+ax.mojom.mojom.AutoclickClient = {};
 
-ax.mojom.AutoclickClientPendingReceiver = class {
+ax.mojom.mojom.AutoclickClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.AutoclickClientRemote = class {
+ax.mojom.mojom.AutoclickClientRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.AutoclickClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.AutoclickClientPendingReceiver,
+      ax.mojom.mojom.AutoclickClientPendingReceiver,
       handle);
-    this.$ = new ax.mojom.AutoclickClientRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.AutoclickClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +116,7 @@ ax.mojom.AutoclickClientRemote = class {
   }
 };
 
-ax.mojom.AutoclickClientRemoteCallHandler = class {
+ax.mojom.mojom.AutoclickClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,7 +125,7 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec,
+      ax.mojom.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec,
       null,
       [bounds]);
   }
@@ -132,15 +134,15 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec,
-      ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
+      ax.mojom.mojom.AutoclickClient_BindAutoclick_ParamsSpec,
+      ax.mojom.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
       []);
   }
 
 };
 
-ax.mojom.AutoclickClient.getRemote = function() {
-  let remote = new ax.mojom.AutoclickClientRemote();
+ax.mojom.mojom.AutoclickClient.getRemote = function() {
+  let remote = new ax.mojom.mojom.AutoclickClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -150,7 +152,7 @@ ax.mojom.AutoclickClient.getRemote = function() {
 };
 
 // ParamsSpec for HandleScrollableBoundsForPointFound
-ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
+ax.mojom.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutoclickClient.HandleScrollableBoundsForPointFound_Params',
@@ -164,7 +166,7 @@ ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
 };
 
 // ParamsSpec for BindAutoclick
-ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
+ax.mojom.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutoclickClient.BindAutoclick_Params',
@@ -176,7 +178,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
   }
 };
 
-ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
+ax.mojom.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutoclickClient.BindAutoclick_ResponseParams',
@@ -190,6 +192,6 @@ ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.AutoclickClientPtr = ax.mojom.AutoclickClientRemote;
-ax.mojom.AutoclickClientRequest = ax.mojom.AutoclickClientPendingReceiver;
+ax.mojom.mojom.AutoclickClientPtr = ax.mojom.mojom.AutoclickClientRemote;
+ax.mojom.mojom.AutoclickClientRequest = ax.mojom.mojom.AutoclickClientPendingReceiver;
 

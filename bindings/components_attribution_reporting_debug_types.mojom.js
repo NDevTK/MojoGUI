@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Enum: DebugDataType
-attribution_reporting.mojom.DebugDataType = {
+attribution_reporting.mojom.mojom.DebugDataType = {
   kSourceDestinationLimit: 0,
   kSourceNoised: 1,
   kSourceStorageLimit: 2,
@@ -52,4 +52,4 @@ attribution_reporting.mojom.DebugDataType = {
   kSourceMaxEventStatesLimit: 38,
   kTriggerAggregateInsufficientNamedBudget: 39,
 };
-attribution_reporting.mojom.DebugDataTypeSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.mojom.DebugDataTypeSpec = { $: mojo.internal.Enum() };

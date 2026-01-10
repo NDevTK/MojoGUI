@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: SessionStorageNamespace
-blink.mojom.SessionStorageNamespace = {};
+blink.mojom.mojom.SessionStorageNamespace = {};
 
-blink.mojom.SessionStorageNamespacePendingReceiver = class {
+blink.mojom.mojom.SessionStorageNamespacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SessionStorageNamespaceRemote = class {
+blink.mojom.mojom.SessionStorageNamespaceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SessionStorageNamespace';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SessionStorageNamespacePendingReceiver,
+      blink.mojom.mojom.SessionStorageNamespacePendingReceiver,
       handle);
-    this.$ = new blink.mojom.SessionStorageNamespaceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SessionStorageNamespaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.SessionStorageNamespaceRemote = class {
   }
 };
 
-blink.mojom.SessionStorageNamespaceRemoteCallHandler = class {
+blink.mojom.mojom.SessionStorageNamespaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.SessionStorageNamespaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SessionStorageNamespace_Clone_ParamsSpec,
+      blink.mojom.mojom.SessionStorageNamespace_Clone_ParamsSpec,
       null,
       [clone_to_namespace]);
   }
 
 };
 
-blink.mojom.SessionStorageNamespace.getRemote = function() {
-  let remote = new blink.mojom.SessionStorageNamespaceRemote();
+blink.mojom.mojom.SessionStorageNamespace.getRemote = function() {
+  let remote = new blink.mojom.mojom.SessionStorageNamespaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.SessionStorageNamespace.getRemote = function() {
 };
 
 // ParamsSpec for Clone
-blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
+blink.mojom.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SessionStorageNamespace.Clone_Params',
@@ -80,6 +80,6 @@ blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SessionStorageNamespacePtr = blink.mojom.SessionStorageNamespaceRemote;
-blink.mojom.SessionStorageNamespaceRequest = blink.mojom.SessionStorageNamespacePendingReceiver;
+blink.mojom.mojom.SessionStorageNamespacePtr = blink.mojom.mojom.SessionStorageNamespaceRemote;
+blink.mojom.mojom.SessionStorageNamespaceRequest = blink.mojom.mojom.SessionStorageNamespacePendingReceiver;
 

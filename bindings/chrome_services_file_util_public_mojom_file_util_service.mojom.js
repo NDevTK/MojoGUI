@@ -10,24 +10,24 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: FileUtilService
-chrome.mojom.FileUtilService = {};
+chrome.mojom.mojom.FileUtilService = {};
 
-chrome.mojom.FileUtilServicePendingReceiver = class {
+chrome.mojom.mojom.FileUtilServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.FileUtilServiceRemote = class {
+chrome.mojom.mojom.FileUtilServiceRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.FileUtilService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.FileUtilServicePendingReceiver,
+      chrome.mojom.mojom.FileUtilServicePendingReceiver,
       handle);
-    this.$ = new chrome.mojom.FileUtilServiceRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.FileUtilServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chrome.mojom.FileUtilServiceRemote = class {
   }
 };
 
-chrome.mojom.FileUtilServiceRemoteCallHandler = class {
+chrome.mojom.mojom.FileUtilServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec,
+      chrome.mojom.mojom.FileUtilService_BindZipFileCreator_ParamsSpec,
       null,
       [receiver]);
   }
@@ -57,7 +57,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec,
+      chrome.mojom.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec,
       null,
       [receiver]);
   }
@@ -66,7 +66,7 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec,
+      chrome.mojom.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec,
       null,
       [receiver]);
   }
@@ -75,15 +75,15 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec,
+      chrome.mojom.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-chrome.mojom.FileUtilService.getRemote = function() {
-  let remote = new chrome.mojom.FileUtilServiceRemote();
+chrome.mojom.mojom.FileUtilService.getRemote = function() {
+  let remote = new chrome.mojom.mojom.FileUtilServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +93,7 @@ chrome.mojom.FileUtilService.getRemote = function() {
 };
 
 // ParamsSpec for BindZipFileCreator
-chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = {
+chrome.mojom.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.FileUtilService.BindZipFileCreator_Params',
@@ -107,7 +107,7 @@ chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec = {
 };
 
 // ParamsSpec for BindSafeArchiveAnalyzer
-chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = {
+chrome.mojom.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.FileUtilService.BindSafeArchiveAnalyzer_Params',
@@ -121,7 +121,7 @@ chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = {
 };
 
 // ParamsSpec for BindSingleFileTarFileExtractor
-chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = {
+chrome.mojom.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.FileUtilService.BindSingleFileTarFileExtractor_Params',
@@ -135,7 +135,7 @@ chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = {
 };
 
 // ParamsSpec for BindSingleFileTarXzFileExtractor
-chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = {
+chrome.mojom.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.FileUtilService.BindSingleFileTarXzFileExtractor_Params',
@@ -149,6 +149,6 @@ chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.FileUtilServicePtr = chrome.mojom.FileUtilServiceRemote;
-chrome.mojom.FileUtilServiceRequest = chrome.mojom.FileUtilServicePendingReceiver;
+chrome.mojom.mojom.FileUtilServicePtr = chrome.mojom.mojom.FileUtilServiceRemote;
+chrome.mojom.mojom.FileUtilServiceRequest = chrome.mojom.mojom.FileUtilServicePendingReceiver;
 

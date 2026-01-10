@@ -9,31 +9,31 @@ var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
 
-arc.mojom.kUnknownPower = 127;
+arc.mojom.mojom.kUnknownPower = 127;
 
 // Enum: BluetoothAdapterState
-arc.mojom.BluetoothAdapterState = {
+arc.mojom.mojom.BluetoothAdapterState = {
   OFF: 0,
   ON: 1,
 };
-arc.mojom.BluetoothAdapterStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothAdapterStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothDiscoveryState
-arc.mojom.BluetoothDiscoveryState = {
+arc.mojom.mojom.BluetoothDiscoveryState = {
   STOPPED: 0,
   STARTED: 1,
 };
-arc.mojom.BluetoothDiscoveryStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothDiscoveryStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothAclState
-arc.mojom.BluetoothAclState = {
+arc.mojom.mojom.BluetoothAclState = {
   CONNECTED: 0,
   DISCONNECTED: 1,
 };
-arc.mojom.BluetoothAclStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothAclStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothStatus
-arc.mojom.BluetoothStatus = {
+arc.mojom.mojom.BluetoothStatus = {
   SUCCESS: 0,
   FAIL: 1,
   NOT_READY: 2,
@@ -47,10 +47,10 @@ arc.mojom.BluetoothStatus = {
   RMT_DEV_DOWN: 10,
   AUTH_REJECTED: 11,
 };
-arc.mojom.BluetoothStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothPropertyType
-arc.mojom.BluetoothPropertyType = {
+arc.mojom.mojom.BluetoothPropertyType = {
   ALL: 0,
   BDNAME: 1,
   BDADDR: 2,
@@ -67,34 +67,34 @@ arc.mojom.BluetoothPropertyType = {
   LOCAL_LE_FEATURES: 13,
   REMOTE_DEVICE_TIMESTAMP: 14,
 };
-arc.mojom.BluetoothPropertyTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothPropertyTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothScanMode
-arc.mojom.BluetoothScanMode = {
+arc.mojom.mojom.BluetoothScanMode = {
   NONE: 0,
   CONNECTABLE: 1,
   CONNECTABLE_DISCOVERABLE: 2,
 };
-arc.mojom.BluetoothScanModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothScanModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothDeviceType
-arc.mojom.BluetoothDeviceType = {
+arc.mojom.mojom.BluetoothDeviceType = {
   BREDR: 0,
   BLE: 1,
   DUAL: 2,
 };
-arc.mojom.BluetoothDeviceTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothBondState
-arc.mojom.BluetoothBondState = {
+arc.mojom.mojom.BluetoothBondState = {
   NONE: 0,
   BONDING: 1,
   BONDED: 2,
 };
-arc.mojom.BluetoothBondStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothBondStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothGattStatus
-arc.mojom.BluetoothGattStatus = {
+arc.mojom.mojom.BluetoothGattStatus = {
   GATT_SUCCESS: 0,
   GATT_READ_NOT_PERMITTED: 1,
   GATT_WRITE_NOT_PERMITTED: 2,
@@ -106,18 +106,18 @@ arc.mojom.BluetoothGattStatus = {
   GATT_CONNECTION_CONGESTED: 8,
   GATT_FAILURE: 9,
 };
-arc.mojom.BluetoothGattStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothGattStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothAdvertisementType
-arc.mojom.BluetoothAdvertisementType = {
+arc.mojom.mojom.BluetoothAdvertisementType = {
   ADV_TYPE_CONNECTABLE: 0,
   ADV_TYPE_SCANNABLE: 1,
   ADV_TYPE_NON_CONNECTABLE: 2,
 };
-arc.mojom.BluetoothAdvertisementTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothAdvertisementTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothAdvertisingDataType
-arc.mojom.BluetoothAdvertisingDataType = {
+arc.mojom.mojom.BluetoothAdvertisingDataType = {
   DATA_TYPE_FLAGS: 0,
   DATA_TYPE_SERVICE_UUIDS_16_BIT_COMPLETE: 1,
   DATA_TYPE_SERVICE_UUIDS_128_BIT_COMPLETE: 2,
@@ -126,20 +126,20 @@ arc.mojom.BluetoothAdvertisingDataType = {
   DATA_TYPE_SERVICE_DATA: 5,
   DATA_TYPE_MANUFACTURER_SPECIFIC_DATA: 6,
 };
-arc.mojom.BluetoothAdvertisingDataTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothAdvertisingDataTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothGattDBAttributeType
-arc.mojom.BluetoothGattDBAttributeType = {
+arc.mojom.mojom.BluetoothGattDBAttributeType = {
   BTGATT_DB_PRIMARY_SERVICE: 0,
   BTGATT_DB_SECONDARY_SERVICE: 1,
   BTGATT_DB_INCLUDED_SERVICE: 2,
   BTGATT_DB_CHARACTERISTIC: 3,
   BTGATT_DB_DESCRIPTOR: 4,
 };
-arc.mojom.BluetoothGattDBAttributeTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothGattDBAttributeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothSdpAttributeType
-arc.mojom.BluetoothSdpAttributeType = {
+arc.mojom.mojom.BluetoothSdpAttributeType = {
   NULLTYPE: 0,
   UINT: 1,
   INT: 2,
@@ -149,17 +149,17 @@ arc.mojom.BluetoothSdpAttributeType = {
   SEQUENCE: 6,
   URL: 7,
 };
-arc.mojom.BluetoothSdpAttributeTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothSdpAttributeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothSocketType
-arc.mojom.BluetoothSocketType = {
+arc.mojom.mojom.BluetoothSocketType = {
   TYPE_RFCOMM: 0,
   TYPE_L2CAP_LE: 1,
 };
-arc.mojom.BluetoothSocketTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.BluetoothSocketTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: BluetoothProperty
-arc.mojom.BluetoothPropertySpec = { $: mojo.internal.Union(
+arc.mojom.mojom.BluetoothPropertySpec = { $: mojo.internal.Union(
     'arc.mojom.BluetoothProperty', {
       'bdname': {
         'ordinal': 0,
@@ -217,7 +217,7 @@ arc.mojom.BluetoothPropertySpec = { $: mojo.internal.Union(
 };
 
 // Union: BluetoothAdvertisingData
-arc.mojom.BluetoothAdvertisingDataSpec = { $: mojo.internal.Union(
+arc.mojom.mojom.BluetoothAdvertisingDataSpec = { $: mojo.internal.Union(
     'arc.mojom.BluetoothAdvertisingData', {
       'flags': {
         'ordinal': 0,
@@ -255,7 +255,7 @@ arc.mojom.BluetoothAdvertisingDataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: BluetoothAddress
-arc.mojom.BluetoothAddressSpec = {
+arc.mojom.mojom.BluetoothAddressSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothAddress',
@@ -269,7 +269,7 @@ arc.mojom.BluetoothAddressSpec = {
 };
 
 // Struct: BluetoothUUID
-arc.mojom.BluetoothUUIDSpec = {
+arc.mojom.mojom.BluetoothUUIDSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothUUID',
@@ -283,15 +283,15 @@ arc.mojom.BluetoothUUIDSpec = {
 };
 
 // Struct: BluetoothServiceRecord
-arc.mojom.BluetoothServiceRecordSpec = {
+arc.mojom.mojom.BluetoothServiceRecordSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothServiceRecord',
       packedSize: 32,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
-        { name: 'channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'channel', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -299,21 +299,21 @@ arc.mojom.BluetoothServiceRecordSpec = {
 };
 
 // Struct: BluetoothLocalLEFeatures
-arc.mojom.BluetoothLocalLEFeaturesSpec = {
+arc.mojom.mojom.BluetoothLocalLEFeaturesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothLocalLEFeatures',
       packedSize: 24,
       fields: [
         { name: 'version_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'local_privacy_enabled', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'max_adv_instance', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'rpa_offload_supported', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'max_irk_list_size', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'max_adv_filter_supported', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'activity_energy_info_supported', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'scan_result_storage_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'total_trackable_advertisers', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'local_privacy_enabled', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'max_adv_instance', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'rpa_offload_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'max_irk_list_size', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'max_adv_filter_supported', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'activity_energy_info_supported', packedOffset: 11, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'scan_result_storage_size', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'total_trackable_advertisers', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
         { name: 'extended_scan_support', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'debug_logging_supported', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
@@ -323,7 +323,7 @@ arc.mojom.BluetoothLocalLEFeaturesSpec = {
 };
 
 // Struct: BluetoothRemoteVersion
-arc.mojom.BluetoothRemoteVersionSpec = {
+arc.mojom.mojom.BluetoothRemoteVersionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothRemoteVersion',
@@ -339,15 +339,15 @@ arc.mojom.BluetoothRemoteVersionSpec = {
 };
 
 // Struct: BluetoothGattID
-arc.mojom.BluetoothGattIDSpec = {
+arc.mojom.mojom.BluetoothGattIDSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothGattID',
       packedSize: 24,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
-        { name: 'deprecated_inst_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'instance_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 19 },
+        { name: 'deprecated_inst_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 19 },
       ],
       versions: [{version: 0, packedSize: 24}, {version: 19, packedSize: 24}]
     }
@@ -355,7 +355,7 @@ arc.mojom.BluetoothGattIDSpec = {
 };
 
 // Struct: BluetoothGattServiceID
-arc.mojom.BluetoothGattServiceIDSpec = {
+arc.mojom.mojom.BluetoothGattServiceIDSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothGattServiceID',
@@ -370,14 +370,14 @@ arc.mojom.BluetoothGattServiceIDSpec = {
 };
 
 // Struct: BluetoothGattValue
-arc.mojom.BluetoothGattValueSpec = {
+arc.mojom.mojom.BluetoothGattValueSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothGattValue',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothGattStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothGattStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -385,14 +385,14 @@ arc.mojom.BluetoothGattValueSpec = {
 };
 
 // Struct: BluetoothServiceData
-arc.mojom.BluetoothServiceDataSpec = {
+arc.mojom.mojom.BluetoothServiceDataSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothServiceData',
       packedSize: 24,
       fields: [
-        { name: 'uuid_16bit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'uuid_16bit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -400,15 +400,15 @@ arc.mojom.BluetoothServiceDataSpec = {
 };
 
 // Struct: BluetoothAdvertisement
-arc.mojom.BluetoothAdvertisementSpec = {
+arc.mojom.mojom.BluetoothAdvertisementSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothAdvertisement',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAdvertisementTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'include_tx_power', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothAdvertisingDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAdvertisementTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'include_tx_power', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothAdvertisingDataSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -416,20 +416,20 @@ arc.mojom.BluetoothAdvertisementSpec = {
 };
 
 // Struct: BluetoothGattDBElement
-arc.mojom.BluetoothGattDBElementSpec = {
+arc.mojom.mojom.BluetoothGattDBElementSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothGattDBElement',
       packedSize: 32,
       fields: [
-        { name: 'deprecated_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.BluetoothGattDBAttributeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'attribute_handle', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'start_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'end_handle', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'properties', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'element_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 19 },
+        { name: 'deprecated_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothGattDBAttributeTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'attribute_handle', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'start_handle', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'end_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'properties', packedOffset: 21, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'element_id', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 19 },
       ],
       versions: [{version: 0, packedSize: 32}, {version: 19, packedSize: 32}]
     }
@@ -437,25 +437,25 @@ arc.mojom.BluetoothGattDBElementSpec = {
 };
 
 // Struct: BluetoothSdpAttribute
-arc.mojom.BluetoothSdpAttributeSpec = {
+arc.mojom.mojom.BluetoothSdpAttributeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothSdpAttribute',
       packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothSdpAttributeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'type_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sequence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothSdpAttributeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'deprecated_json_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 14 },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.BluetoothSdpAttributeTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'type_size', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sequence', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothSdpAttributeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'deprecated_json_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 14 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 14, packedSize: 48}]
+      versions: [{version: 0, packedSize: 48}, {version: 14, packedSize: 48}]
     }
   }
 };
 
 // Struct: BluetoothSdpRecord
-arc.mojom.BluetoothSdpRecordSpec = {
+arc.mojom.mojom.BluetoothSdpRecordSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothSdpRecord',
@@ -469,7 +469,7 @@ arc.mojom.BluetoothSdpRecordSpec = {
 };
 
 // Struct: BluetoothCreateSdpRecordResult
-arc.mojom.BluetoothCreateSdpRecordResultSpec = {
+arc.mojom.mojom.BluetoothCreateSdpRecordResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothCreateSdpRecordResult',
@@ -484,15 +484,15 @@ arc.mojom.BluetoothCreateSdpRecordResultSpec = {
 };
 
 // Struct: BluetoothRfcommConnection
-arc.mojom.BluetoothRfcommConnectionSpec = {
+arc.mojom.mojom.BluetoothRfcommConnectionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothRfcommConnection',
       packedSize: 24,
       fields: [
-        { name: 'sock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'addr', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'channel', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'channel', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -500,7 +500,7 @@ arc.mojom.BluetoothRfcommConnectionSpec = {
 };
 
 // Struct: BluetoothSocketFlags
-arc.mojom.BluetoothSocketFlagsSpec = {
+arc.mojom.mojom.BluetoothSocketFlagsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothSocketFlags',
@@ -517,15 +517,15 @@ arc.mojom.BluetoothSocketFlagsSpec = {
 };
 
 // Struct: BluetoothSocketConnection
-arc.mojom.BluetoothSocketConnectionSpec = {
+arc.mojom.mojom.BluetoothSocketConnectionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothSocketConnection',
       packedSize: 24,
       fields: [
-        { name: 'sock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'addr', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sock', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -533,24 +533,24 @@ arc.mojom.BluetoothSocketConnectionSpec = {
 };
 
 // Interface: RfcommListeningSocketClient
-arc.mojom.RfcommListeningSocketClient = {};
+arc.mojom.mojom.RfcommListeningSocketClient = {};
 
-arc.mojom.RfcommListeningSocketClientPendingReceiver = class {
+arc.mojom.mojom.RfcommListeningSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.RfcommListeningSocketClientRemote = class {
+arc.mojom.mojom.RfcommListeningSocketClientRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.RfcommListeningSocketClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.RfcommListeningSocketClientPendingReceiver,
+      arc.mojom.mojom.RfcommListeningSocketClientPendingReceiver,
       handle);
-    this.$ = new arc.mojom.RfcommListeningSocketClientRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.RfcommListeningSocketClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -562,7 +562,7 @@ arc.mojom.RfcommListeningSocketClientRemote = class {
   }
 };
 
-arc.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
+arc.mojom.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -571,15 +571,15 @@ arc.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec,
+      arc.mojom.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec,
       null,
       [connection]);
   }
 
 };
 
-arc.mojom.RfcommListeningSocketClient.getRemote = function() {
-  let remote = new arc.mojom.RfcommListeningSocketClientRemote();
+arc.mojom.mojom.RfcommListeningSocketClient.getRemote = function() {
+  let remote = new arc.mojom.mojom.RfcommListeningSocketClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -589,7 +589,7 @@ arc.mojom.RfcommListeningSocketClient.getRemote = function() {
 };
 
 // ParamsSpec for OnAccepted
-arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec = {
+arc.mojom.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RfcommListeningSocketClient.OnAccepted_Params',
@@ -603,29 +603,29 @@ arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.RfcommListeningSocketClientPtr = arc.mojom.RfcommListeningSocketClientRemote;
-arc.mojom.RfcommListeningSocketClientRequest = arc.mojom.RfcommListeningSocketClientPendingReceiver;
+arc.mojom.mojom.RfcommListeningSocketClientPtr = arc.mojom.mojom.RfcommListeningSocketClientRemote;
+arc.mojom.mojom.RfcommListeningSocketClientRequest = arc.mojom.mojom.RfcommListeningSocketClientPendingReceiver;
 
 
 // Interface: RfcommConnectingSocketClient
-arc.mojom.RfcommConnectingSocketClient = {};
+arc.mojom.mojom.RfcommConnectingSocketClient = {};
 
-arc.mojom.RfcommConnectingSocketClientPendingReceiver = class {
+arc.mojom.mojom.RfcommConnectingSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.RfcommConnectingSocketClientRemote = class {
+arc.mojom.mojom.RfcommConnectingSocketClientRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.RfcommConnectingSocketClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.RfcommConnectingSocketClientPendingReceiver,
+      arc.mojom.mojom.RfcommConnectingSocketClientPendingReceiver,
       handle);
-    this.$ = new arc.mojom.RfcommConnectingSocketClientRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.RfcommConnectingSocketClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -637,7 +637,7 @@ arc.mojom.RfcommConnectingSocketClientRemote = class {
   }
 };
 
-arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
+arc.mojom.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -646,7 +646,7 @@ arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec,
+      arc.mojom.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec,
       null,
       [connection]);
   }
@@ -655,15 +655,15 @@ arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec,
+      arc.mojom.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.RfcommConnectingSocketClient.getRemote = function() {
-  let remote = new arc.mojom.RfcommConnectingSocketClientRemote();
+arc.mojom.mojom.RfcommConnectingSocketClient.getRemote = function() {
+  let remote = new arc.mojom.mojom.RfcommConnectingSocketClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -673,7 +673,7 @@ arc.mojom.RfcommConnectingSocketClient.getRemote = function() {
 };
 
 // ParamsSpec for OnConnected
-arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec = {
+arc.mojom.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RfcommConnectingSocketClient.OnConnected_Params',
@@ -687,7 +687,7 @@ arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnectFailed
-arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec = {
+arc.mojom.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RfcommConnectingSocketClient.OnConnectFailed_Params',
@@ -700,29 +700,29 @@ arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.RfcommConnectingSocketClientPtr = arc.mojom.RfcommConnectingSocketClientRemote;
-arc.mojom.RfcommConnectingSocketClientRequest = arc.mojom.RfcommConnectingSocketClientPendingReceiver;
+arc.mojom.mojom.RfcommConnectingSocketClientPtr = arc.mojom.mojom.RfcommConnectingSocketClientRemote;
+arc.mojom.mojom.RfcommConnectingSocketClientRequest = arc.mojom.mojom.RfcommConnectingSocketClientPendingReceiver;
 
 
 // Interface: BluetoothListenSocketClient
-arc.mojom.BluetoothListenSocketClient = {};
+arc.mojom.mojom.BluetoothListenSocketClient = {};
 
-arc.mojom.BluetoothListenSocketClientPendingReceiver = class {
+arc.mojom.mojom.BluetoothListenSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.BluetoothListenSocketClientRemote = class {
+arc.mojom.mojom.BluetoothListenSocketClientRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.BluetoothListenSocketClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.BluetoothListenSocketClientPendingReceiver,
+      arc.mojom.mojom.BluetoothListenSocketClientPendingReceiver,
       handle);
-    this.$ = new arc.mojom.BluetoothListenSocketClientRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.BluetoothListenSocketClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -734,7 +734,7 @@ arc.mojom.BluetoothListenSocketClientRemote = class {
   }
 };
 
-arc.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
+arc.mojom.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -743,15 +743,15 @@ arc.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec,
+      arc.mojom.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec,
       null,
       [connection]);
   }
 
 };
 
-arc.mojom.BluetoothListenSocketClient.getRemote = function() {
-  let remote = new arc.mojom.BluetoothListenSocketClientRemote();
+arc.mojom.mojom.BluetoothListenSocketClient.getRemote = function() {
+  let remote = new arc.mojom.mojom.BluetoothListenSocketClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -761,7 +761,7 @@ arc.mojom.BluetoothListenSocketClient.getRemote = function() {
 };
 
 // ParamsSpec for OnAccepted
-arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec = {
+arc.mojom.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothListenSocketClient.OnAccepted_Params',
@@ -775,29 +775,29 @@ arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.BluetoothListenSocketClientPtr = arc.mojom.BluetoothListenSocketClientRemote;
-arc.mojom.BluetoothListenSocketClientRequest = arc.mojom.BluetoothListenSocketClientPendingReceiver;
+arc.mojom.mojom.BluetoothListenSocketClientPtr = arc.mojom.mojom.BluetoothListenSocketClientRemote;
+arc.mojom.mojom.BluetoothListenSocketClientRequest = arc.mojom.mojom.BluetoothListenSocketClientPendingReceiver;
 
 
 // Interface: BluetoothConnectSocketClient
-arc.mojom.BluetoothConnectSocketClient = {};
+arc.mojom.mojom.BluetoothConnectSocketClient = {};
 
-arc.mojom.BluetoothConnectSocketClientPendingReceiver = class {
+arc.mojom.mojom.BluetoothConnectSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.BluetoothConnectSocketClientRemote = class {
+arc.mojom.mojom.BluetoothConnectSocketClientRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.BluetoothConnectSocketClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.BluetoothConnectSocketClientPendingReceiver,
+      arc.mojom.mojom.BluetoothConnectSocketClientPendingReceiver,
       handle);
-    this.$ = new arc.mojom.BluetoothConnectSocketClientRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.BluetoothConnectSocketClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -809,7 +809,7 @@ arc.mojom.BluetoothConnectSocketClientRemote = class {
   }
 };
 
-arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
+arc.mojom.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -818,7 +818,7 @@ arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec,
+      arc.mojom.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec,
       null,
       [connection]);
   }
@@ -827,15 +827,15 @@ arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec,
+      arc.mojom.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.BluetoothConnectSocketClient.getRemote = function() {
-  let remote = new arc.mojom.BluetoothConnectSocketClientRemote();
+arc.mojom.mojom.BluetoothConnectSocketClient.getRemote = function() {
+  let remote = new arc.mojom.mojom.BluetoothConnectSocketClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -845,7 +845,7 @@ arc.mojom.BluetoothConnectSocketClient.getRemote = function() {
 };
 
 // ParamsSpec for OnConnected
-arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec = {
+arc.mojom.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothConnectSocketClient.OnConnected_Params',
@@ -859,7 +859,7 @@ arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnectFailed
-arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec = {
+arc.mojom.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothConnectSocketClient.OnConnectFailed_Params',
@@ -872,29 +872,29 @@ arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.BluetoothConnectSocketClientPtr = arc.mojom.BluetoothConnectSocketClientRemote;
-arc.mojom.BluetoothConnectSocketClientRequest = arc.mojom.BluetoothConnectSocketClientPendingReceiver;
+arc.mojom.mojom.BluetoothConnectSocketClientPtr = arc.mojom.mojom.BluetoothConnectSocketClientRemote;
+arc.mojom.mojom.BluetoothConnectSocketClientRequest = arc.mojom.mojom.BluetoothConnectSocketClientPendingReceiver;
 
 
 // Interface: BluetoothHost
-arc.mojom.BluetoothHost = {};
+arc.mojom.mojom.BluetoothHost = {};
 
-arc.mojom.BluetoothHostPendingReceiver = class {
+arc.mojom.mojom.BluetoothHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.BluetoothHostRemote = class {
+arc.mojom.mojom.BluetoothHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.BluetoothHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.BluetoothHostPendingReceiver,
+      arc.mojom.mojom.BluetoothHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.BluetoothHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.BluetoothHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -906,7 +906,7 @@ arc.mojom.BluetoothHostRemote = class {
   }
 };
 
-arc.mojom.BluetoothHostRemoteCallHandler = class {
+arc.mojom.mojom.BluetoothHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -915,8 +915,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec,
-      arc.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_EnableAdapter_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec,
       []);
   }
 
@@ -924,8 +924,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec,
-      arc.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DisableAdapter_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec,
       []);
   }
 
@@ -933,7 +933,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec,
       null,
       [type]);
   }
@@ -942,7 +942,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec,
       null,
       [property]);
   }
@@ -951,7 +951,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_StartDiscovery_ParamsSpec,
       null,
       []);
   }
@@ -960,7 +960,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_CancelDiscovery_ParamsSpec,
       null,
       []);
   }
@@ -969,7 +969,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.BluetoothHost_CreateBond_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_CreateBond_ParamsSpec,
       null,
       [addr, transport]);
   }
@@ -978,7 +978,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.BluetoothHost_RemoveBond_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_RemoveBond_ParamsSpec,
       null,
       [addr]);
   }
@@ -987,7 +987,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.BluetoothHost_CancelBond_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_CancelBond_ParamsSpec,
       null,
       [addr]);
   }
@@ -996,8 +996,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec,
-      arc.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_GetConnectionState_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec,
       [addr]);
   }
 
@@ -1005,7 +1005,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.BluetoothHost_StartLEScan_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_StartLEScan_ParamsSpec,
       null,
       []);
   }
@@ -1014,7 +1014,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.BluetoothHost_StopLEScan_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_StopLEScan_ParamsSpec,
       null,
       []);
   }
@@ -1023,7 +1023,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec,
       null,
       [remote_addr]);
   }
@@ -1032,7 +1032,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec,
       null,
       [remote_addr]);
   }
@@ -1041,7 +1041,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      arc.mojom.BluetoothHost_SearchService_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_SearchService_ParamsSpec,
       null,
       [remote_addr]);
   }
@@ -1050,7 +1050,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.BluetoothHost_GetGattDB_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_GetGattDB_ParamsSpec,
       null,
       [remote_addr]);
   }
@@ -1059,8 +1059,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec,
-      arc.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec,
       [remote_addr, service_id, char_id]);
   }
 
@@ -1068,8 +1068,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec,
-      arc.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec,
       [remote_addr, service_id, char_id, value, prepare]);
   }
 
@@ -1077,8 +1077,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec,
-      arc.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec,
       [remote_addr, service_id, char_id, desc_id]);
   }
 
@@ -1086,8 +1086,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec,
-      arc.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec,
       [remote_addr, service_id, char_id, desc_id, value]);
   }
 
@@ -1095,8 +1095,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec,
-      arc.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ExecuteWrite_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec,
       [remote_addr, execute]);
   }
 
@@ -1104,8 +1104,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec,
-      arc.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec,
       [remote_addr, service_id, char_id]);
   }
 
@@ -1113,8 +1113,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec,
-      arc.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec,
       [remote_addr, service_id, char_id]);
   }
 
@@ -1122,8 +1122,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec,
-      arc.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec,
       [remote_addr]);
   }
 
@@ -1131,8 +1131,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      arc.mojom.BluetoothHost_AddService_ParamsSpec,
-      arc.mojom.BluetoothHost_AddService_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_AddService_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_AddService_ResponseParamsSpec,
       [service_id, num_handles]);
   }
 
@@ -1140,8 +1140,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec,
-      arc.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_AddCharacteristic_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec,
       [service_handle, uuid, properties, permissions]);
   }
 
@@ -1149,8 +1149,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec,
-      arc.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_AddDescriptor_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec,
       [service_handle, uuid, permissions]);
   }
 
@@ -1158,8 +1158,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      arc.mojom.BluetoothHost_StartService_ParamsSpec,
-      arc.mojom.BluetoothHost_StartService_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_StartService_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_StartService_ResponseParamsSpec,
       [service_handle]);
   }
 
@@ -1167,8 +1167,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      arc.mojom.BluetoothHost_StopService_ParamsSpec,
-      arc.mojom.BluetoothHost_StopService_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_StopService_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_StopService_ResponseParamsSpec,
       [service_handle]);
   }
 
@@ -1176,8 +1176,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      arc.mojom.BluetoothHost_DeleteService_ParamsSpec,
-      arc.mojom.BluetoothHost_DeleteService_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DeleteService_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DeleteService_ResponseParamsSpec,
       [service_handle]);
   }
 
@@ -1185,8 +1185,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      arc.mojom.BluetoothHost_SendIndication_ParamsSpec,
-      arc.mojom.BluetoothHost_SendIndication_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_SendIndication_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_SendIndication_ResponseParamsSpec,
       [attribute_handle, address, confirm, value]);
   }
 
@@ -1194,7 +1194,7 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_GetSdpRecords_ParamsSpec,
       null,
       [remote_addr, target_uuid]);
   }
@@ -1203,8 +1203,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec,
-      arc.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec,
       [record]);
   }
 
@@ -1212,8 +1212,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec,
-      arc.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec,
       [service_handle]);
   }
 
@@ -1221,8 +1221,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec,
-      arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec,
       []);
   }
 
@@ -1230,8 +1230,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec,
-      arc.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec,
       [adv_handle, adv]);
   }
 
@@ -1239,8 +1239,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec,
-      arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec,
       [adv_handle]);
   }
 
@@ -1248,8 +1248,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec,
-      arc.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec,
       [adv_handle]);
   }
 
@@ -1257,8 +1257,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec,
-      arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec,
       [sock_type, sock_flags, port]);
   }
 
@@ -1266,15 +1266,15 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec,
-      arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec,
+      arc.mojom.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec,
       [sock_type, sock_flags, remote_addr, remote_port]);
   }
 
 };
 
-arc.mojom.BluetoothHost.getRemote = function() {
-  let remote = new arc.mojom.BluetoothHostRemote();
+arc.mojom.mojom.BluetoothHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.BluetoothHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1284,7 +1284,7 @@ arc.mojom.BluetoothHost.getRemote = function() {
 };
 
 // ParamsSpec for EnableAdapter
-arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_EnableAdapter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.EnableAdapter_Params',
@@ -1296,7 +1296,7 @@ arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.EnableAdapter_ResponseParams',
@@ -1310,7 +1310,7 @@ arc.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DisableAdapter
-arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DisableAdapter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DisableAdapter_Params',
@@ -1322,7 +1322,7 @@ arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DisableAdapter_ResponseParams',
@@ -1336,7 +1336,7 @@ arc.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAdapterProperty
-arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.GetAdapterProperty_Params',
@@ -1350,7 +1350,7 @@ arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec = {
 };
 
 // ParamsSpec for SetAdapterProperty
-arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.SetAdapterProperty_Params',
@@ -1364,7 +1364,7 @@ arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec = {
 };
 
 // ParamsSpec for StartDiscovery
-arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_StartDiscovery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.StartDiscovery_Params',
@@ -1377,7 +1377,7 @@ arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec = {
 };
 
 // ParamsSpec for CancelDiscovery
-arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_CancelDiscovery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.CancelDiscovery_Params',
@@ -1390,7 +1390,7 @@ arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec = {
 };
 
 // ParamsSpec for CreateBond
-arc.mojom.BluetoothHost_CreateBond_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_CreateBond_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.CreateBond_Params',
@@ -1405,7 +1405,7 @@ arc.mojom.BluetoothHost_CreateBond_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveBond
-arc.mojom.BluetoothHost_RemoveBond_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_RemoveBond_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.RemoveBond_Params',
@@ -1419,7 +1419,7 @@ arc.mojom.BluetoothHost_RemoveBond_ParamsSpec = {
 };
 
 // ParamsSpec for CancelBond
-arc.mojom.BluetoothHost_CancelBond_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_CancelBond_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.CancelBond_Params',
@@ -1433,7 +1433,7 @@ arc.mojom.BluetoothHost_CancelBond_ParamsSpec = {
 };
 
 // ParamsSpec for GetConnectionState
-arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_GetConnectionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.GetConnectionState_Params',
@@ -1446,7 +1446,7 @@ arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.GetConnectionState_ResponseParams',
@@ -1460,7 +1460,7 @@ arc.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartLEScan
-arc.mojom.BluetoothHost_StartLEScan_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_StartLEScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.StartLEScan_Params',
@@ -1473,7 +1473,7 @@ arc.mojom.BluetoothHost_StartLEScan_ParamsSpec = {
 };
 
 // ParamsSpec for StopLEScan
-arc.mojom.BluetoothHost_StopLEScan_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_StopLEScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.StopLEScan_Params',
@@ -1486,7 +1486,7 @@ arc.mojom.BluetoothHost_StopLEScan_ParamsSpec = {
 };
 
 // ParamsSpec for ConnectLEDevice
-arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ConnectLEDevice_Params',
@@ -1500,7 +1500,7 @@ arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec = {
 };
 
 // ParamsSpec for DisconnectLEDevice
-arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DisconnectLEDevice_Params',
@@ -1514,7 +1514,7 @@ arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec = {
 };
 
 // ParamsSpec for SearchService
-arc.mojom.BluetoothHost_SearchService_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_SearchService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.SearchService_Params',
@@ -1528,7 +1528,7 @@ arc.mojom.BluetoothHost_SearchService_ParamsSpec = {
 };
 
 // ParamsSpec for GetGattDB
-arc.mojom.BluetoothHost_GetGattDB_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_GetGattDB_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.GetGattDB_Params',
@@ -1542,7 +1542,7 @@ arc.mojom.BluetoothHost_GetGattDB_ParamsSpec = {
 };
 
 // ParamsSpec for ReadGattCharacteristic
-arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReadGattCharacteristic_Params',
@@ -1557,7 +1557,7 @@ arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReadGattCharacteristic_ResponseParams',
@@ -1571,7 +1571,7 @@ arc.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WriteGattCharacteristic
-arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.WriteGattCharacteristic_Params',
@@ -1588,7 +1588,7 @@ arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.WriteGattCharacteristic_ResponseParams',
@@ -1602,7 +1602,7 @@ arc.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadGattDescriptor
-arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReadGattDescriptor_Params',
@@ -1618,7 +1618,7 @@ arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReadGattDescriptor_ResponseParams',
@@ -1632,7 +1632,7 @@ arc.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WriteGattDescriptor
-arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.WriteGattDescriptor_Params',
@@ -1649,7 +1649,7 @@ arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.WriteGattDescriptor_ResponseParams',
@@ -1663,7 +1663,7 @@ arc.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExecuteWrite
-arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ExecuteWrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ExecuteWrite_Params',
@@ -1677,7 +1677,7 @@ arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ExecuteWrite_ResponseParams',
@@ -1691,7 +1691,7 @@ arc.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterForGattNotification
-arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.RegisterForGattNotification_Params',
@@ -1706,7 +1706,7 @@ arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.RegisterForGattNotification_ResponseParams',
@@ -1720,7 +1720,7 @@ arc.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeregisterForGattNotification
-arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DeregisterForGattNotification_Params',
@@ -1735,7 +1735,7 @@ arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DeregisterForGattNotification_ResponseParams',
@@ -1749,7 +1749,7 @@ arc.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadRemoteRssi
-arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReadRemoteRssi_Params',
@@ -1762,7 +1762,7 @@ arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReadRemoteRssi_ResponseParams',
@@ -1776,7 +1776,7 @@ arc.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddService
-arc.mojom.BluetoothHost_AddService_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_AddService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.AddService_Params',
@@ -1790,7 +1790,7 @@ arc.mojom.BluetoothHost_AddService_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_AddService_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_AddService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.AddService_ResponseParams',
@@ -1804,15 +1804,15 @@ arc.mojom.BluetoothHost_AddService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddCharacteristic
-arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_AddCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.AddCharacteristic_Params',
       packedSize: 32,
       fields: [
-        { name: 'service_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
-        { name: 'properties', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'service_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
+        { name: 'properties', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'permissions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
@@ -1820,7 +1820,7 @@ arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.AddCharacteristic_ResponseParams',
@@ -1834,22 +1834,22 @@ arc.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddDescriptor
-arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_AddDescriptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.AddDescriptor_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
-        { name: 'permissions', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'service_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
+        { name: 'permissions', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.AddDescriptor_ResponseParams',
@@ -1863,7 +1863,7 @@ arc.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartService
-arc.mojom.BluetoothHost_StartService_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_StartService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.StartService_Params',
@@ -1876,7 +1876,7 @@ arc.mojom.BluetoothHost_StartService_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_StartService_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_StartService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.StartService_ResponseParams',
@@ -1890,7 +1890,7 @@ arc.mojom.BluetoothHost_StartService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StopService
-arc.mojom.BluetoothHost_StopService_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_StopService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.StopService_Params',
@@ -1903,7 +1903,7 @@ arc.mojom.BluetoothHost_StopService_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_StopService_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_StopService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.StopService_ResponseParams',
@@ -1917,7 +1917,7 @@ arc.mojom.BluetoothHost_StopService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteService
-arc.mojom.BluetoothHost_DeleteService_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DeleteService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DeleteService_Params',
@@ -1930,7 +1930,7 @@ arc.mojom.BluetoothHost_DeleteService_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_DeleteService_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DeleteService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DeleteService_ResponseParams',
@@ -1944,23 +1944,23 @@ arc.mojom.BluetoothHost_DeleteService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SendIndication
-arc.mojom.BluetoothHost_SendIndication_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_SendIndication_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.SendIndication_Params',
       packedSize: 32,
       fields: [
-        { name: 'attribute_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'confirm', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'attribute_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'confirm', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.BluetoothHost_SendIndication_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_SendIndication_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.SendIndication_ResponseParams',
@@ -1974,7 +1974,7 @@ arc.mojom.BluetoothHost_SendIndication_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSdpRecords
-arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_GetSdpRecords_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.GetSdpRecords_Params',
@@ -1989,7 +1989,7 @@ arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec = {
 };
 
 // ParamsSpec for CreateSdpRecord
-arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.CreateSdpRecord_Params',
@@ -2002,7 +2002,7 @@ arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.CreateSdpRecord_ResponseParams',
@@ -2016,7 +2016,7 @@ arc.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveSdpRecord
-arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.RemoveSdpRecord_Params',
@@ -2029,7 +2029,7 @@ arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.RemoveSdpRecord_ResponseParams',
@@ -2043,7 +2043,7 @@ arc.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReserveAdvertisementHandle
-arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReserveAdvertisementHandle_Params',
@@ -2055,7 +2055,7 @@ arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReserveAdvertisementHandle_ResponseParams',
@@ -2070,21 +2070,21 @@ arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EnableAdvertisement
-arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.EnableAdvertisement_Params',
       packedSize: 24,
       fields: [
-        { name: 'adv_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'adv', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAdvertisementSpec, nullable: false, minVersion: 0 },
+        { name: 'adv_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'adv', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAdvertisementSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.EnableAdvertisement_ResponseParams',
@@ -2098,7 +2098,7 @@ arc.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReleaseAdvertisementHandle
-arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReleaseAdvertisementHandle_Params',
@@ -2111,7 +2111,7 @@ arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.ReleaseAdvertisementHandle_ResponseParams',
@@ -2125,7 +2125,7 @@ arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DisableAdvertisement
-arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DisableAdvertisement_Params',
@@ -2138,7 +2138,7 @@ arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.DisableAdvertisement_ResponseParams',
@@ -2152,22 +2152,22 @@ arc.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BluetoothSocketListen
-arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.BluetoothSocketListen_Params',
       packedSize: 24,
       fields: [
-        { name: 'sock_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothSocketTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'sock_flags', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothSocketFlagsSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sock_type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothSocketTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'sock_flags', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothSocketFlagsSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.BluetoothSocketListen_ResponseParams',
@@ -2183,23 +2183,23 @@ arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BluetoothSocketConnect
-arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec = {
+arc.mojom.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.BluetoothSocketConnect_Params',
       packedSize: 32,
       fields: [
-        { name: 'sock_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothSocketTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'sock_flags', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothSocketFlagsSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_addr', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_port', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sock_type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.BluetoothSocketTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'sock_flags', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothSocketFlagsSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_addr', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_port', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothHost.BluetoothSocketConnect_ResponseParams',
@@ -2214,29 +2214,29 @@ arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.BluetoothHostPtr = arc.mojom.BluetoothHostRemote;
-arc.mojom.BluetoothHostRequest = arc.mojom.BluetoothHostPendingReceiver;
+arc.mojom.mojom.BluetoothHostPtr = arc.mojom.mojom.BluetoothHostRemote;
+arc.mojom.mojom.BluetoothHostRequest = arc.mojom.mojom.BluetoothHostPendingReceiver;
 
 
 // Interface: BluetoothInstance
-arc.mojom.BluetoothInstance = {};
+arc.mojom.mojom.BluetoothInstance = {};
 
-arc.mojom.BluetoothInstancePendingReceiver = class {
+arc.mojom.mojom.BluetoothInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.BluetoothInstanceRemote = class {
+arc.mojom.mojom.BluetoothInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.BluetoothInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.BluetoothInstancePendingReceiver,
+      arc.mojom.mojom.BluetoothInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.BluetoothInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.BluetoothInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2248,7 +2248,7 @@ arc.mojom.BluetoothInstanceRemote = class {
   }
 };
 
-arc.mojom.BluetoothInstanceRemoteCallHandler = class {
+arc.mojom.mojom.BluetoothInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2257,7 +2257,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      arc.mojom.BluetoothInstance_Init_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -2266,7 +2266,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec,
       null,
       [status, properties]);
   }
@@ -2275,7 +2275,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec,
       null,
       [properties]);
   }
@@ -2284,7 +2284,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec,
       null,
       [remote_addr, properties]);
   }
@@ -2293,7 +2293,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -2302,7 +2302,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec,
       null,
       [status, remote_addr, state]);
   }
@@ -2311,7 +2311,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec,
       null,
       [remote_addr, device_type, connected]);
   }
@@ -2320,7 +2320,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec,
       null,
       [addr, rssi, eir]);
   }
@@ -2329,7 +2329,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec,
       null,
       [remote_addr, connected]);
   }
@@ -2338,7 +2338,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec,
       null,
       [old_addr, new_addr]);
   }
@@ -2347,7 +2347,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec,
       null,
       [remote_addr, status]);
   }
@@ -2356,7 +2356,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec,
       null,
       [remote_addr, db]);
   }
@@ -2365,7 +2365,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnGattNotify_ParamsSpec,
       null,
       [remote_addr, service_id, char_id, is_notify, value]);
   }
@@ -2374,7 +2374,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec,
       null,
       [remote_addr]);
   }
@@ -2383,8 +2383,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec,
-      arc.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_RequestGattRead_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec,
       [address, attribute_handle, offset, is_long, attribute_type]);
   }
 
@@ -2392,8 +2392,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec,
-      arc.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec,
       [address, attribute_handle, offset, value, attribute_type, is_prepare]);
   }
 
@@ -2401,8 +2401,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec,
-      arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec,
       [address, execute]);
   }
 
@@ -2410,7 +2410,7 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec,
       null,
       [remote_addr, mtu]);
   }
@@ -2419,15 +2419,15 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec,
+      arc.mojom.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec,
       null,
       [status, remote_addr, target_uuid, records]);
   }
 
 };
 
-arc.mojom.BluetoothInstance.getRemote = function() {
-  let remote = new arc.mojom.BluetoothInstanceRemote();
+arc.mojom.mojom.BluetoothInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.BluetoothInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2437,7 +2437,7 @@ arc.mojom.BluetoothInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.BluetoothInstance_Init_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.Init_Params',
@@ -2451,14 +2451,14 @@ arc.mojom.BluetoothInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for OnAdapterProperties
-arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnAdapterProperties_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothPropertySpec, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothPropertySpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -2466,7 +2466,7 @@ arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceFound
-arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnDeviceFound_Params',
@@ -2480,7 +2480,7 @@ arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec = {
 };
 
 // ParamsSpec for OnDevicePropertiesChanged
-arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnDevicePropertiesChanged_Params',
@@ -2495,7 +2495,7 @@ arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnDiscoveryStateChanged
-arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnDiscoveryStateChanged_Params',
@@ -2509,15 +2509,15 @@ arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnBondStateChanged
-arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnBondStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_addr', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.BluetoothBondStateSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.BluetoothBondStateSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -2525,7 +2525,7 @@ arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnectionStateChanged
-arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnConnectionStateChanged_Params',
@@ -2541,15 +2541,15 @@ arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnLEDeviceFound
-arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnLEDeviceFound_Params',
       packedSize: 32,
       fields: [
         { name: 'addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'rssi', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'eir', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'rssi', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'eir', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -2557,7 +2557,7 @@ arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec = {
 };
 
 // ParamsSpec for OnLEConnectionStateChange
-arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnLEConnectionStateChange_Params',
@@ -2572,7 +2572,7 @@ arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnLEDeviceAddressChange
-arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnLEDeviceAddressChange_Params',
@@ -2587,7 +2587,7 @@ arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnSearchComplete
-arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnSearchComplete_Params',
@@ -2602,7 +2602,7 @@ arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec = {
 };
 
 // ParamsSpec for OnGetGattDB
-arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnGetGattDB_Params',
@@ -2617,7 +2617,7 @@ arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec = {
 };
 
 // ParamsSpec for OnGattNotify
-arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnGattNotify_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnGattNotify_Params',
@@ -2626,8 +2626,8 @@ arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec = {
         { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
         { name: 'service_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothGattServiceIDSpec, nullable: false, minVersion: 0 },
         { name: 'char_id', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.BluetoothGattIDSpec, nullable: false, minVersion: 0 },
-        { name: 'is_notify', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'is_notify', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -2635,7 +2635,7 @@ arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec = {
 };
 
 // ParamsSpec for OnServiceChanged
-arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnServiceChanged_Params',
@@ -2649,7 +2649,7 @@ arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec = {
 };
 
 // ParamsSpec for RequestGattRead
-arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_RequestGattRead_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.RequestGattRead_Params',
@@ -2658,22 +2658,22 @@ arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec = {
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
         { name: 'attribute_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_long', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'attribute_type', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.BluetoothGattDBAttributeTypeSpec, nullable: false, minVersion: 9 },
+        { name: 'is_long', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'attribute_type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.BluetoothGattDBAttributeTypeSpec, nullable: false, minVersion: 9 },
       ],
       versions: [{version: 0, packedSize: 32}, {version: 9, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.RequestGattRead_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothGattStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothGattStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -2681,16 +2681,16 @@ arc.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestGattWrite
-arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.RequestGattWrite_Params',
       packedSize: 40,
       fields: [
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'attribute_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'attribute_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'attribute_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.BluetoothGattDBAttributeTypeSpec, nullable: false, minVersion: 9 },
         { name: 'is_prepare', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 12 },
       ],
@@ -2699,7 +2699,7 @@ arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.RequestGattWrite_ResponseParams',
@@ -2713,7 +2713,7 @@ arc.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestGattExecuteWrite
-arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.RequestGattExecuteWrite_Params',
@@ -2727,7 +2727,7 @@ arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec = {
   }
 };
 
-arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.RequestGattExecuteWrite_ResponseParams',
@@ -2741,7 +2741,7 @@ arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnMTUReceived
-arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnMTUReceived_Params',
@@ -2756,16 +2756,16 @@ arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec = {
 };
 
 // ParamsSpec for OnGetSdpRecords
-arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec = {
+arc.mojom.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BluetoothInstance.OnGetSdpRecords_Params',
       packedSize: 40,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_addr', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'target_uuid', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
-        { name: 'records', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothSdpRecordSpec, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.BluetoothStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_addr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BluetoothAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'target_uuid', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BluetoothUUIDSpec, nullable: false, minVersion: 0 },
+        { name: 'records', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BluetoothSdpRecordSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -2773,6 +2773,6 @@ arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.BluetoothInstancePtr = arc.mojom.BluetoothInstanceRemote;
-arc.mojom.BluetoothInstanceRequest = arc.mojom.BluetoothInstancePendingReceiver;
+arc.mojom.mojom.BluetoothInstancePtr = arc.mojom.mojom.BluetoothInstanceRemote;
+arc.mojom.mojom.BluetoothInstanceRequest = arc.mojom.mojom.BluetoothInstancePendingReceiver;
 

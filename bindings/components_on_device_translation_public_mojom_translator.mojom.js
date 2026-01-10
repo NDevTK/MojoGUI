@@ -10,24 +10,24 @@ on_device_translation.mojom = on_device_translation.mojom || {};
 
 
 // Interface: Translator
-on_device_translation.mojom.Translator = {};
+on_device_translation.mojom.mojom.Translator = {};
 
-on_device_translation.mojom.TranslatorPendingReceiver = class {
+on_device_translation.mojom.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_translation.mojom.TranslatorRemote = class {
+on_device_translation.mojom.mojom.TranslatorRemote = class {
   static get $interfaceName() {
     return 'on_device_translation.mojom.Translator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_translation.mojom.TranslatorPendingReceiver,
+      on_device_translation.mojom.mojom.TranslatorPendingReceiver,
       handle);
-    this.$ = new on_device_translation.mojom.TranslatorRemoteCallHandler(this.proxy);
+    this.$ = new on_device_translation.mojom.mojom.TranslatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ on_device_translation.mojom.TranslatorRemote = class {
   }
 };
 
-on_device_translation.mojom.TranslatorRemoteCallHandler = class {
+on_device_translation.mojom.mojom.TranslatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation.mojom.Translator_Translate_ParamsSpec,
-      on_device_translation.mojom.Translator_Translate_ResponseParamsSpec,
+      on_device_translation.mojom.mojom.Translator_Translate_ParamsSpec,
+      on_device_translation.mojom.mojom.Translator_Translate_ResponseParamsSpec,
       [input]);
   }
 
@@ -57,15 +57,15 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation.mojom.Translator_SplitSentences_ParamsSpec,
-      on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec,
+      on_device_translation.mojom.mojom.Translator_SplitSentences_ParamsSpec,
+      on_device_translation.mojom.mojom.Translator_SplitSentences_ResponseParamsSpec,
       [input]);
   }
 
 };
 
-on_device_translation.mojom.Translator.getRemote = function() {
-  let remote = new on_device_translation.mojom.TranslatorRemote();
+on_device_translation.mojom.mojom.Translator.getRemote = function() {
+  let remote = new on_device_translation.mojom.mojom.TranslatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ on_device_translation.mojom.Translator.getRemote = function() {
 };
 
 // ParamsSpec for Translate
-on_device_translation.mojom.Translator_Translate_ParamsSpec = {
+on_device_translation.mojom.mojom.Translator_Translate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.Translator.Translate_Params',
@@ -88,7 +88,7 @@ on_device_translation.mojom.Translator_Translate_ParamsSpec = {
   }
 };
 
-on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
+on_device_translation.mojom.mojom.Translator_Translate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.Translator.Translate_ResponseParams',
@@ -102,7 +102,7 @@ on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SplitSentences
-on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
+on_device_translation.mojom.mojom.Translator_SplitSentences_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.Translator.SplitSentences_Params',
@@ -115,7 +115,7 @@ on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
   }
 };
 
-on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
+on_device_translation.mojom.mojom.Translator_SplitSentences_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.Translator.SplitSentences_ResponseParams',
@@ -129,6 +129,6 @@ on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-on_device_translation.mojom.TranslatorPtr = on_device_translation.mojom.TranslatorRemote;
-on_device_translation.mojom.TranslatorRequest = on_device_translation.mojom.TranslatorPendingReceiver;
+on_device_translation.mojom.mojom.TranslatorPtr = on_device_translation.mojom.mojom.TranslatorRemote;
+on_device_translation.mojom.mojom.TranslatorRequest = on_device_translation.mojom.mojom.TranslatorPendingReceiver;
 

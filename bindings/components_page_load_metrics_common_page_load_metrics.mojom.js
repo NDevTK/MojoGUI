@@ -7,18 +7,22 @@
 // Module namespace
 var page_load_metrics = page_load_metrics || {};
 page_load_metrics.mojom = page_load_metrics.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: CacheType
-page_load_metrics.mojom.CacheType = {
+page_load_metrics.mojom.mojom.CacheType = {
   kNotCached: 0,
   kHttp: 1,
   kMemory: 2,
 };
-page_load_metrics.mojom.CacheTypeSpec = { $: mojo.internal.Enum() };
+page_load_metrics.mojom.mojom.CacheTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DocumentTiming
-page_load_metrics.mojom.DocumentTimingSpec = {
+page_load_metrics.mojom.mojom.DocumentTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.DocumentTiming',
@@ -33,7 +37,7 @@ page_load_metrics.mojom.DocumentTimingSpec = {
 };
 
 // Struct: LcpResourceLoadTimings
-page_load_metrics.mojom.LcpResourceLoadTimingsSpec = {
+page_load_metrics.mojom.mojom.LcpResourceLoadTimingsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LcpResourceLoadTimings',
@@ -49,7 +53,7 @@ page_load_metrics.mojom.LcpResourceLoadTimingsSpec = {
 };
 
 // Struct: LargestContentfulPaintTiming
-page_load_metrics.mojom.LargestContentfulPaintTimingSpec = {
+page_load_metrics.mojom.mojom.LargestContentfulPaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LargestContentfulPaintTiming',
@@ -62,8 +66,8 @@ page_load_metrics.mojom.LargestContentfulPaintTimingSpec = {
         { name: 'resource_load_timings', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.LcpResourceLoadTimingsSpec, nullable: false, minVersion: 0 },
         { name: 'type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'image_bpp', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'image_request_priority_valid', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'image_request_priority_value', packedOffset: 60, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'image_request_priority_valid', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'image_request_priority_value', packedOffset: 56, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -71,7 +75,7 @@ page_load_metrics.mojom.LargestContentfulPaintTimingSpec = {
 };
 
 // Struct: PaintTiming
-page_load_metrics.mojom.PaintTimingSpec = {
+page_load_metrics.mojom.mojom.PaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PaintTiming',
@@ -92,7 +96,7 @@ page_load_metrics.mojom.PaintTimingSpec = {
 };
 
 // Struct: MonotonicPaintTiming
-page_load_metrics.mojom.MonotonicPaintTimingSpec = {
+page_load_metrics.mojom.mojom.MonotonicPaintTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.MonotonicPaintTiming',
@@ -107,7 +111,7 @@ page_load_metrics.mojom.MonotonicPaintTimingSpec = {
 };
 
 // Struct: ParseTiming
-page_load_metrics.mojom.ParseTimingSpec = {
+page_load_metrics.mojom.mojom.ParseTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ParseTiming',
@@ -126,7 +130,7 @@ page_load_metrics.mojom.ParseTimingSpec = {
 };
 
 // Struct: InteractiveTiming
-page_load_metrics.mojom.InteractiveTimingSpec = {
+page_load_metrics.mojom.mojom.InteractiveTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.InteractiveTiming',
@@ -143,7 +147,7 @@ page_load_metrics.mojom.InteractiveTimingSpec = {
 };
 
 // Struct: CustomUserTimingMark
-page_load_metrics.mojom.CustomUserTimingMarkSpec = {
+page_load_metrics.mojom.mojom.CustomUserTimingMarkSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.CustomUserTimingMark',
@@ -158,7 +162,7 @@ page_load_metrics.mojom.CustomUserTimingMarkSpec = {
 };
 
 // Struct: DomainLookupTiming
-page_load_metrics.mojom.DomainLookupTimingSpec = {
+page_load_metrics.mojom.mojom.DomainLookupTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.DomainLookupTiming',
@@ -173,7 +177,7 @@ page_load_metrics.mojom.DomainLookupTimingSpec = {
 };
 
 // Struct: PageLoadTiming
-page_load_metrics.mojom.PageLoadTimingSpec = {
+page_load_metrics.mojom.mojom.PageLoadTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadTiming',
@@ -202,17 +206,17 @@ page_load_metrics.mojom.PageLoadTimingSpec = {
 };
 
 // Struct: FrameMetadata
-page_load_metrics.mojom.FrameMetadataSpec = {
+page_load_metrics.mojom.mojom.FrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.FrameMetadata',
       packedSize: 48,
       fields: [
-        { name: 'behavior_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'main_frame_intersection_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'main_frame_viewport_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'main_frame_ad_rects', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-        { name: 'framework_detection_result', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.JavaScriptFrameworkDetectionResultSpec, nullable: false, minVersion: 0 },
+        { name: 'behavior_flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'main_frame_intersection_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
+        { name: 'main_frame_viewport_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
+        { name: 'main_frame_ad_rects', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'framework_detection_result', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.JavaScriptFrameworkDetectionResultSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -220,15 +224,15 @@ page_load_metrics.mojom.FrameMetadataSpec = {
 };
 
 // Struct: SubresourceLoadMetrics
-page_load_metrics.mojom.SubresourceLoadMetricsSpec = {
+page_load_metrics.mojom.mojom.SubresourceLoadMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.SubresourceLoadMetrics',
       packedSize: 24,
       fields: [
-        { name: 'number_of_subresources_loaded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'number_of_subresource_loads_handled_by_service_worker', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'service_worker_subresource_load_metrics', packedOffset: 8, packedBitOffset: 0, type: page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec, nullable: true, minVersion: 0 },
+        { name: 'number_of_subresources_loaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'number_of_subresource_loads_handled_by_service_worker', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'service_worker_subresource_load_metrics', packedOffset: 0, packedBitOffset: 0, type: page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -236,49 +240,49 @@ page_load_metrics.mojom.SubresourceLoadMetricsSpec = {
 };
 
 // Struct: ServiceWorkerSubresourceLoadMetrics
-page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
+page_load_metrics.mojom.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetrics',
       packedSize: 48,
       fields: [
-        { name: 'image_handled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'image_fallback', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'css_handled', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'css_fallback', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'script_handled', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'script_fallback', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'font_handled', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'font_fallback', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'raw_handled', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'raw_fallback', packedOffset: 1, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'svg_handled', packedOffset: 1, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'svg_fallback', packedOffset: 1, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'xsl_handled', packedOffset: 1, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'xsl_fallback', packedOffset: 1, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'link_prefetch_handled', packedOffset: 1, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'link_prefetch_fallback', packedOffset: 1, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'text_track_handled', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'text_track_fallback', packedOffset: 2, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_handled', packedOffset: 2, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_fallback', packedOffset: 2, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'video_handled', packedOffset: 2, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'video_fallback', packedOffset: 2, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'manifest_handled', packedOffset: 2, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'manifest_fallback', packedOffset: 2, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'speculation_rules_handled', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'speculation_rules_fallback', packedOffset: 3, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mock_handled', packedOffset: 3, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mock_fallback', packedOffset: 3, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'dictionary_handled', packedOffset: 3, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'dictionary_fallback', packedOffset: 3, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'matched_cache_router_source_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'matched_fetch_event_router_source_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'matched_network_router_source_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'matched_race_network_and_fetch_router_source_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'matched_race_network_and_cache_router_source_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'total_router_evaluation_time_for_subresources', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'total_cache_lookup_time_for_subresources', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'image_handled', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'image_fallback', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'css_handled', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'css_fallback', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'script_handled', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'script_fallback', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'font_handled', packedOffset: 36, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'font_fallback', packedOffset: 36, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'raw_handled', packedOffset: 37, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'raw_fallback', packedOffset: 37, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'svg_handled', packedOffset: 37, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'svg_fallback', packedOffset: 37, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'xsl_handled', packedOffset: 37, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'xsl_fallback', packedOffset: 37, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'link_prefetch_handled', packedOffset: 37, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'link_prefetch_fallback', packedOffset: 37, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'text_track_handled', packedOffset: 38, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'text_track_fallback', packedOffset: 38, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'audio_handled', packedOffset: 38, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'audio_fallback', packedOffset: 38, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'video_handled', packedOffset: 38, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'video_fallback', packedOffset: 38, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'manifest_handled', packedOffset: 38, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'manifest_fallback', packedOffset: 38, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'speculation_rules_handled', packedOffset: 39, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'speculation_rules_fallback', packedOffset: 39, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mock_handled', packedOffset: 39, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mock_fallback', packedOffset: 39, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'dictionary_handled', packedOffset: 39, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'dictionary_fallback', packedOffset: 39, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'matched_cache_router_source_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'matched_fetch_event_router_source_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'matched_network_router_source_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'matched_race_network_and_fetch_router_source_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'matched_race_network_and_cache_router_source_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'total_router_evaluation_time_for_subresources', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'total_cache_lookup_time_for_subresources', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -286,25 +290,25 @@ page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = {
 };
 
 // Struct: ResourceDataUpdate
-page_load_metrics.mojom.ResourceDataUpdateSpec = {
+page_load_metrics.mojom.mojom.ResourceDataUpdateSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.ResourceDataUpdate',
       packedSize: 64,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'delta_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'received_data_length', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'encoded_body_length', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'decoded_body_length', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'is_complete', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reported_as_ad_resource', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_main_frame_resource', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cache_type', packedOffset: 40, packedBitOffset: 0, type: page_load_metrics.mojom.CacheTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_primary_frame_resource', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_secure_scheme', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'proxy_used', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'delta_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
+        { name: 'received_data_length', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
+        { name: 'encoded_body_length', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
+        { name: 'decoded_body_length', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
+        { name: 'is_complete', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reported_as_ad_resource', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_main_frame_resource', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'cache_type', packedOffset: 44, packedBitOffset: 0, type: page_load_metrics.mojom.CacheTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_primary_frame_resource', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mime_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_secure_scheme', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'proxy_used', packedOffset: 48, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -312,7 +316,7 @@ page_load_metrics.mojom.ResourceDataUpdateSpec = {
 };
 
 // Struct: LayoutShift
-page_load_metrics.mojom.LayoutShiftSpec = {
+page_load_metrics.mojom.mojom.LayoutShiftSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.LayoutShift',
@@ -327,15 +331,15 @@ page_load_metrics.mojom.LayoutShiftSpec = {
 };
 
 // Struct: FrameRenderDataUpdate
-page_load_metrics.mojom.FrameRenderDataUpdateSpec = {
+page_load_metrics.mojom.mojom.FrameRenderDataUpdateSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.FrameRenderDataUpdate',
       packedSize: 24,
       fields: [
-        { name: 'layout_shift_delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'layout_shift_delta_before_input_or_scroll', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'new_layout_shifts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(page_load_metrics.mojom.LayoutShiftSpec, false), nullable: false, minVersion: 0 },
+        { name: 'layout_shift_delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'layout_shift_delta_before_input_or_scroll', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'new_layout_shifts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(page_load_metrics.mojom.LayoutShiftSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -343,7 +347,7 @@ page_load_metrics.mojom.FrameRenderDataUpdateSpec = {
 };
 
 // Struct: CpuTiming
-page_load_metrics.mojom.CpuTimingSpec = {
+page_load_metrics.mojom.mojom.CpuTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.CpuTiming',
@@ -357,7 +361,7 @@ page_load_metrics.mojom.CpuTimingSpec = {
 };
 
 // Struct: InputTiming
-page_load_metrics.mojom.InputTimingSpec = {
+page_load_metrics.mojom.mojom.InputTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.InputTiming',
@@ -371,7 +375,7 @@ page_load_metrics.mojom.InputTimingSpec = {
 };
 
 // Struct: UserInteractionLatency
-page_load_metrics.mojom.UserInteractionLatencySpec = {
+page_load_metrics.mojom.mojom.UserInteractionLatencySpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.UserInteractionLatency',
@@ -387,7 +391,7 @@ page_load_metrics.mojom.UserInteractionLatencySpec = {
 };
 
 // Struct: BackForwardCacheTiming
-page_load_metrics.mojom.BackForwardCacheTimingSpec = {
+page_load_metrics.mojom.mojom.BackForwardCacheTimingSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.BackForwardCacheTiming',
@@ -403,7 +407,7 @@ page_load_metrics.mojom.BackForwardCacheTimingSpec = {
 };
 
 // Struct: SoftNavigationMetrics
-page_load_metrics.mojom.SoftNavigationMetricsSpec = {
+page_load_metrics.mojom.mojom.SoftNavigationMetricsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.SoftNavigationMetrics',
@@ -411,9 +415,9 @@ page_load_metrics.mojom.SoftNavigationMetricsSpec = {
       fields: [
         { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'same_document_metrics_token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'largest_contentful_paint', packedOffset: 32, packedBitOffset: 0, type: page_load_metrics.mojom.LargestContentfulPaintTimingSpec, nullable: false, minVersion: 0 },
+        { name: 'navigation_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'same_document_metrics_token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'largest_contentful_paint', packedOffset: 24, packedBitOffset: 0, type: page_load_metrics.mojom.LargestContentfulPaintTimingSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -421,24 +425,24 @@ page_load_metrics.mojom.SoftNavigationMetricsSpec = {
 };
 
 // Interface: PageLoadMetrics
-page_load_metrics.mojom.PageLoadMetrics = {};
+page_load_metrics.mojom.mojom.PageLoadMetrics = {};
 
-page_load_metrics.mojom.PageLoadMetricsPendingReceiver = class {
+page_load_metrics.mojom.mojom.PageLoadMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-page_load_metrics.mojom.PageLoadMetricsRemote = class {
+page_load_metrics.mojom.mojom.PageLoadMetricsRemote = class {
   static get $interfaceName() {
     return 'page_load_metrics.mojom.PageLoadMetrics';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      page_load_metrics.mojom.PageLoadMetricsPendingReceiver,
+      page_load_metrics.mojom.mojom.PageLoadMetricsPendingReceiver,
       handle);
-    this.$ = new page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler(this.proxy);
+    this.$ = new page_load_metrics.mojom.mojom.PageLoadMetricsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -450,7 +454,7 @@ page_load_metrics.mojom.PageLoadMetricsRemote = class {
   }
 };
 
-page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
+page_load_metrics.mojom.mojom.PageLoadMetricsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -459,7 +463,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
+      page_load_metrics.mojom.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
       [page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics]);
   }
@@ -468,7 +472,7 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
+      page_load_metrics.mojom.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
       null,
       [dropped_frames_memory]);
   }
@@ -477,15 +481,15 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
+      page_load_metrics.mojom.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
       [custom_user_timing]);
   }
 
 };
 
-page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
-  let remote = new page_load_metrics.mojom.PageLoadMetricsRemote();
+page_load_metrics.mojom.mojom.PageLoadMetrics.getRemote = function() {
+  let remote = new page_load_metrics.mojom.mojom.PageLoadMetricsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -495,7 +499,7 @@ page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
 };
 
 // ParamsSpec for UpdateTiming
-page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
+page_load_metrics.mojom.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadMetrics.UpdateTiming_Params',
@@ -517,7 +521,7 @@ page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = {
 };
 
 // ParamsSpec for SetUpSharedMemoryForDroppedFrames
-page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = {
+page_load_metrics.mojom.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadMetrics.SetUpSharedMemoryForDroppedFrames_Params',
@@ -531,7 +535,7 @@ page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params
 };
 
 // ParamsSpec for AddCustomUserTiming
-page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
+page_load_metrics.mojom.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
   $: {
     structSpec: {
       name: 'page_load_metrics.mojom.PageLoadMetrics.AddCustomUserTiming_Params',
@@ -545,6 +549,6 @@ page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = {
 };
 
 // Legacy compatibility
-page_load_metrics.mojom.PageLoadMetricsPtr = page_load_metrics.mojom.PageLoadMetricsRemote;
-page_load_metrics.mojom.PageLoadMetricsRequest = page_load_metrics.mojom.PageLoadMetricsPendingReceiver;
+page_load_metrics.mojom.mojom.PageLoadMetricsPtr = page_load_metrics.mojom.mojom.PageLoadMetricsRemote;
+page_load_metrics.mojom.mojom.PageLoadMetricsRequest = page_load_metrics.mojom.mojom.PageLoadMetricsPendingReceiver;
 

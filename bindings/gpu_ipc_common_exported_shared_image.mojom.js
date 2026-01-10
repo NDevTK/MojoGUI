@@ -7,10 +7,12 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: SharedImageExportResult
-gpu.mojom.SharedImageExportResultSpec = {
+gpu.mojom.mojom.SharedImageExportResultSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImageExportResult',
@@ -24,7 +26,7 @@ gpu.mojom.SharedImageExportResultSpec = {
 };
 
 // Struct: ExportedSharedImage
-gpu.mojom.ExportedSharedImageSpec = {
+gpu.mojom.mojom.ExportedSharedImageSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.ExportedSharedImage',

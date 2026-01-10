@@ -7,35 +7,36 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
-blink.mojom.kAutoplayFlagNone = 0x00000;
+blink.mojom.mojom.kAutoplayFlagNone = 0x00000;
 
-blink.mojom.kAutoplayFlagHighMediaEngagement = 0x00001;
+blink.mojom.mojom.kAutoplayFlagHighMediaEngagement = 0x00001;
 
-blink.mojom.kAutoplayFlagForceAllow = 0x00002;
+blink.mojom.mojom.kAutoplayFlagForceAllow = 0x00002;
 
-blink.mojom.kAutoplayFlagUserException = 0x00004;
+blink.mojom.mojom.kAutoplayFlagUserException = 0x00004;
 
 // Interface: AutoplayConfigurationClient
-blink.mojom.AutoplayConfigurationClient = {};
+blink.mojom.mojom.AutoplayConfigurationClient = {};
 
-blink.mojom.AutoplayConfigurationClientPendingReceiver = class {
+blink.mojom.mojom.AutoplayConfigurationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AutoplayConfigurationClientRemote = class {
+blink.mojom.mojom.AutoplayConfigurationClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AutoplayConfigurationClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AutoplayConfigurationClientPendingReceiver,
+      blink.mojom.mojom.AutoplayConfigurationClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AutoplayConfigurationClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AutoplayConfigurationClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +48,7 @@ blink.mojom.AutoplayConfigurationClientRemote = class {
   }
 };
 
-blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
+blink.mojom.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,15 +57,15 @@ blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec,
+      blink.mojom.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec,
       null,
       [origin, flags]);
   }
 
 };
 
-blink.mojom.AutoplayConfigurationClient.getRemote = function() {
-  let remote = new blink.mojom.AutoplayConfigurationClientRemote();
+blink.mojom.mojom.AutoplayConfigurationClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.AutoplayConfigurationClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -74,7 +75,7 @@ blink.mojom.AutoplayConfigurationClient.getRemote = function() {
 };
 
 // ParamsSpec for AddAutoplayFlags
-blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
+blink.mojom.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AutoplayConfigurationClient.AddAutoplayFlags_Params',
@@ -89,6 +90,6 @@ blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.AutoplayConfigurationClientPtr = blink.mojom.AutoplayConfigurationClientRemote;
-blink.mojom.AutoplayConfigurationClientRequest = blink.mojom.AutoplayConfigurationClientPendingReceiver;
+blink.mojom.mojom.AutoplayConfigurationClientPtr = blink.mojom.mojom.AutoplayConfigurationClientRemote;
+blink.mojom.mojom.AutoplayConfigurationClientRequest = blink.mojom.mojom.AutoplayConfigurationClientPendingReceiver;
 

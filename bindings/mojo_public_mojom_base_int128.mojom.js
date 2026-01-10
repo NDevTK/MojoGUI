@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: Int128
-mojo_base.mojom.Int128Spec = {
+mojo_base.mojom.mojom.Int128Spec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Int128',
@@ -25,7 +25,7 @@ mojo_base.mojom.Int128Spec = {
 };
 
 // Struct: Uint128
-mojo_base.mojom.Uint128Spec = {
+mojo_base.mojom.mojom.Uint128Spec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Uint128',

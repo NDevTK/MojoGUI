@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Struct: SamlUserSessionProperties
-crosapi.mojom.SamlUserSessionPropertiesSpec = {
+crosapi.mojom.mojom.SamlUserSessionPropertiesSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SamlUserSessionProperties',
@@ -27,24 +27,24 @@ crosapi.mojom.SamlUserSessionPropertiesSpec = {
 };
 
 // Interface: ExternalLogoutRequestObserver
-crosapi.mojom.ExternalLogoutRequestObserver = {};
+crosapi.mojom.mojom.ExternalLogoutRequestObserver = {};
 
-crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver = class {
+crosapi.mojom.mojom.ExternalLogoutRequestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.ExternalLogoutRequestObserverRemote = class {
+crosapi.mojom.mojom.ExternalLogoutRequestObserverRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.ExternalLogoutRequestObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver,
+      crosapi.mojom.mojom.ExternalLogoutRequestObserverPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.ExternalLogoutRequestObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +56,7 @@ crosapi.mojom.ExternalLogoutRequestObserverRemote = class {
   }
 };
 
-crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHandler = class {
+crosapi.mojom.mojom.ExternalLogoutRequestObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,15 +65,15 @@ crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec,
+      crosapi.mojom.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec,
       null,
       []);
   }
 
 };
 
-crosapi.mojom.ExternalLogoutRequestObserver.getRemote = function() {
-  let remote = new crosapi.mojom.ExternalLogoutRequestObserverRemote();
+crosapi.mojom.mojom.ExternalLogoutRequestObserver.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.ExternalLogoutRequestObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +83,7 @@ crosapi.mojom.ExternalLogoutRequestObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnRequestExternalLogout
-crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = {
+crosapi.mojom.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ExternalLogoutRequestObserver.OnRequestExternalLogout_Params',
@@ -96,29 +96,29 @@ crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec =
 };
 
 // Legacy compatibility
-crosapi.mojom.ExternalLogoutRequestObserverPtr = crosapi.mojom.ExternalLogoutRequestObserverRemote;
-crosapi.mojom.ExternalLogoutRequestObserverRequest = crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver;
+crosapi.mojom.mojom.ExternalLogoutRequestObserverPtr = crosapi.mojom.mojom.ExternalLogoutRequestObserverRemote;
+crosapi.mojom.mojom.ExternalLogoutRequestObserverRequest = crosapi.mojom.mojom.ExternalLogoutRequestObserverPendingReceiver;
 
 
 // Interface: Login
-crosapi.mojom.Login = {};
+crosapi.mojom.mojom.Login = {};
 
-crosapi.mojom.LoginPendingReceiver = class {
+crosapi.mojom.mojom.LoginPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.LoginRemote = class {
+crosapi.mojom.mojom.LoginRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.Login';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.LoginPendingReceiver,
+      crosapi.mojom.mojom.LoginPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.LoginRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.LoginRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,7 +130,7 @@ crosapi.mojom.LoginRemote = class {
   }
 };
 
-crosapi.mojom.LoginRemoteCallHandler = class {
+crosapi.mojom.mojom.LoginRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -139,7 +139,7 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec,
+      crosapi.mojom.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -148,7 +148,7 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec,
+      crosapi.mojom.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec,
       null,
       []);
   }
@@ -157,8 +157,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.Login_REMOVED_0_ParamsSpec,
-      crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_0_ParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_0_ResponseParamsSpec,
       [password]);
   }
 
@@ -166,8 +166,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      crosapi.mojom.Login_REMOVED_4_ParamsSpec,
-      crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_4_ParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_4_ResponseParamsSpec,
       [password]);
   }
 
@@ -175,8 +175,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      crosapi.mojom.Login_REMOVED_5_ParamsSpec,
-      crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_5_ParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_5_ResponseParamsSpec,
       [password]);
   }
 
@@ -184,8 +184,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      crosapi.mojom.Login_REMOVED_6_ParamsSpec,
-      crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_6_ParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_6_ResponseParamsSpec,
       [password]);
   }
 
@@ -193,8 +193,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      crosapi.mojom.Login_REMOVED_7_ParamsSpec,
-      crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_7_ParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_7_ResponseParamsSpec,
       [password]);
   }
 
@@ -202,8 +202,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      crosapi.mojom.Login_REMOVED_10_ParamsSpec,
-      crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_10_ParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_10_ResponseParamsSpec,
       [properties]);
   }
 
@@ -211,15 +211,15 @@ crosapi.mojom.LoginRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      crosapi.mojom.Login_REMOVED_12_ParamsSpec,
-      crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_12_ParamsSpec,
+      crosapi.mojom.mojom.Login_REMOVED_12_ResponseParamsSpec,
       [password]);
   }
 
 };
 
-crosapi.mojom.Login.getRemote = function() {
-  let remote = new crosapi.mojom.LoginRemote();
+crosapi.mojom.mojom.Login.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.LoginRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +229,7 @@ crosapi.mojom.Login.getRemote = function() {
 };
 
 // ParamsSpec for AddExternalLogoutRequestObserver
-crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = {
+crosapi.mojom.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.AddExternalLogoutRequestObserver_Params',
@@ -243,7 +243,7 @@ crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyOnExternalLogoutDone
-crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = {
+crosapi.mojom.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.NotifyOnExternalLogoutDone_Params',
@@ -256,7 +256,7 @@ crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = {
 };
 
 // ParamsSpec for REMOVED_0
-crosapi.mojom.Login_REMOVED_0_ParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_0_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_0_Params',
@@ -269,7 +269,7 @@ crosapi.mojom.Login_REMOVED_0_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_0_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_0_ResponseParams',
@@ -283,7 +283,7 @@ crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec = {
 };
 
 // ParamsSpec for REMOVED_4
-crosapi.mojom.Login_REMOVED_4_ParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_4_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_4_Params',
@@ -296,7 +296,7 @@ crosapi.mojom.Login_REMOVED_4_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_4_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_4_ResponseParams',
@@ -310,7 +310,7 @@ crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec = {
 };
 
 // ParamsSpec for REMOVED_5
-crosapi.mojom.Login_REMOVED_5_ParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_5_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_5_Params',
@@ -323,7 +323,7 @@ crosapi.mojom.Login_REMOVED_5_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_5_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_5_ResponseParams',
@@ -337,7 +337,7 @@ crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec = {
 };
 
 // ParamsSpec for REMOVED_6
-crosapi.mojom.Login_REMOVED_6_ParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_6_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_6_Params',
@@ -350,7 +350,7 @@ crosapi.mojom.Login_REMOVED_6_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_6_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_6_ResponseParams',
@@ -364,7 +364,7 @@ crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec = {
 };
 
 // ParamsSpec for REMOVED_7
-crosapi.mojom.Login_REMOVED_7_ParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_7_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_7_Params',
@@ -377,7 +377,7 @@ crosapi.mojom.Login_REMOVED_7_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_7_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_7_ResponseParams',
@@ -391,7 +391,7 @@ crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec = {
 };
 
 // ParamsSpec for REMOVED_10
-crosapi.mojom.Login_REMOVED_10_ParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_10_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_10_Params',
@@ -404,7 +404,7 @@ crosapi.mojom.Login_REMOVED_10_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_10_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_10_ResponseParams',
@@ -418,7 +418,7 @@ crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec = {
 };
 
 // ParamsSpec for REMOVED_12
-crosapi.mojom.Login_REMOVED_12_ParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_12_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_12_Params',
@@ -431,7 +431,7 @@ crosapi.mojom.Login_REMOVED_12_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec = {
+crosapi.mojom.mojom.Login_REMOVED_12_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Login.REMOVED_12_ResponseParams',
@@ -445,6 +445,6 @@ crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.LoginPtr = crosapi.mojom.LoginRemote;
-crosapi.mojom.LoginRequest = crosapi.mojom.LoginPendingReceiver;
+crosapi.mojom.mojom.LoginPtr = crosapi.mojom.mojom.LoginRemote;
+crosapi.mojom.mojom.LoginRequest = crosapi.mojom.mojom.LoginPendingReceiver;
 

@@ -10,32 +10,32 @@ search_engine_choice.mojom = search_engine_choice.mojom || {};
 
 
 // Enum: ScrollState
-search_engine_choice.mojom.ScrollState = {
+search_engine_choice.mojom.mojom.ScrollState = {
   kAtTheBottom: 0,
   kAtTheBottomWithErrorMargin: 1,
   kNotAtTheBottom: 2,
 };
-search_engine_choice.mojom.ScrollStateSpec = { $: mojo.internal.Enum() };
+search_engine_choice.mojom.mojom.ScrollStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-search_engine_choice.mojom.PageHandlerFactory = {};
+search_engine_choice.mojom.mojom.PageHandlerFactory = {};
 
-search_engine_choice.mojom.PageHandlerFactoryPendingReceiver = class {
+search_engine_choice.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-search_engine_choice.mojom.PageHandlerFactoryRemote = class {
+search_engine_choice.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'search_engine_choice.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      search_engine_choice.mojom.PageHandlerFactoryPendingReceiver,
+      search_engine_choice.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new search_engine_choice.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +47,7 @@ search_engine_choice.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
+search_engine_choice.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,15 +56,15 @@ search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      search_engine_choice.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-search_engine_choice.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new search_engine_choice.mojom.PageHandlerFactoryRemote();
+search_engine_choice.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new search_engine_choice.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -74,7 +74,7 @@ search_engine_choice.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+search_engine_choice.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search_engine_choice.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -88,29 +88,29 @@ search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-search_engine_choice.mojom.PageHandlerFactoryPtr = search_engine_choice.mojom.PageHandlerFactoryRemote;
-search_engine_choice.mojom.PageHandlerFactoryRequest = search_engine_choice.mojom.PageHandlerFactoryPendingReceiver;
+search_engine_choice.mojom.mojom.PageHandlerFactoryPtr = search_engine_choice.mojom.mojom.PageHandlerFactoryRemote;
+search_engine_choice.mojom.mojom.PageHandlerFactoryRequest = search_engine_choice.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-search_engine_choice.mojom.PageHandler = {};
+search_engine_choice.mojom.mojom.PageHandler = {};
 
-search_engine_choice.mojom.PageHandlerPendingReceiver = class {
+search_engine_choice.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-search_engine_choice.mojom.PageHandlerRemote = class {
+search_engine_choice.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'search_engine_choice.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      search_engine_choice.mojom.PageHandlerPendingReceiver,
+      search_engine_choice.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new search_engine_choice.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new search_engine_choice.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -122,7 +122,7 @@ search_engine_choice.mojom.PageHandlerRemote = class {
   }
 };
 
-search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
+search_engine_choice.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -131,7 +131,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec,
+      search_engine_choice.mojom.mojom.PageHandler_DisplayDialog_ParamsSpec,
       null,
       []);
   }
@@ -140,7 +140,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec,
+      search_engine_choice.mojom.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec,
       null,
       [prepopulate_id, save_guest_mode_selection]);
   }
@@ -149,7 +149,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec,
+      search_engine_choice.mojom.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec,
       null,
       []);
   }
@@ -158,7 +158,7 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec,
+      search_engine_choice.mojom.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec,
       null,
       []);
   }
@@ -167,15 +167,15 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec,
+      search_engine_choice.mojom.mojom.PageHandler_RecordScrollState_ParamsSpec,
       null,
       [scroll_state]);
   }
 
 };
 
-search_engine_choice.mojom.PageHandler.getRemote = function() {
-  let remote = new search_engine_choice.mojom.PageHandlerRemote();
+search_engine_choice.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new search_engine_choice.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -185,7 +185,7 @@ search_engine_choice.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for DisplayDialog
-search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = {
+search_engine_choice.mojom.mojom.PageHandler_DisplayDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search_engine_choice.mojom.PageHandler.DisplayDialog_Params',
@@ -198,7 +198,7 @@ search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec = {
 };
 
 // ParamsSpec for HandleSearchEngineChoiceSelected
-search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec = {
+search_engine_choice.mojom.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search_engine_choice.mojom.PageHandler.HandleSearchEngineChoiceSelected_Params',
@@ -213,7 +213,7 @@ search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSp
 };
 
 // ParamsSpec for HandleLearnMoreLinkClicked
-search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
+search_engine_choice.mojom.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search_engine_choice.mojom.PageHandler.HandleLearnMoreLinkClicked_Params',
@@ -226,7 +226,7 @@ search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec = {
 };
 
 // ParamsSpec for HandleMoreButtonClicked
-search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
+search_engine_choice.mojom.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search_engine_choice.mojom.PageHandler.HandleMoreButtonClicked_Params',
@@ -239,7 +239,7 @@ search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec = {
 };
 
 // ParamsSpec for RecordScrollState
-search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
+search_engine_choice.mojom.mojom.PageHandler_RecordScrollState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search_engine_choice.mojom.PageHandler.RecordScrollState_Params',
@@ -253,6 +253,6 @@ search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec = {
 };
 
 // Legacy compatibility
-search_engine_choice.mojom.PageHandlerPtr = search_engine_choice.mojom.PageHandlerRemote;
-search_engine_choice.mojom.PageHandlerRequest = search_engine_choice.mojom.PageHandlerPendingReceiver;
+search_engine_choice.mojom.mojom.PageHandlerPtr = search_engine_choice.mojom.mojom.PageHandlerRemote;
+search_engine_choice.mojom.mojom.PageHandlerRequest = search_engine_choice.mojom.mojom.PageHandlerPendingReceiver;
 

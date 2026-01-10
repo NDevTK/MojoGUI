@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: HostResolverEndpointResult
-network.mojom.HostResolverEndpointResultSpec = {
+network.mojom.mojom.HostResolverEndpointResultSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HostResolverEndpointResult',

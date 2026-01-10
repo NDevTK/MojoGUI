@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: FirstPartySetsAccessDelegateParams
-network.mojom.FirstPartySetsAccessDelegateParamsSpec = {
+network.mojom.mojom.FirstPartySetsAccessDelegateParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsAccessDelegateParams',
@@ -24,7 +24,7 @@ network.mojom.FirstPartySetsAccessDelegateParamsSpec = {
 };
 
 // Struct: FirstPartySetsReadyEvent
-network.mojom.FirstPartySetsReadyEventSpec = {
+network.mojom.mojom.FirstPartySetsReadyEventSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsReadyEvent',
@@ -39,24 +39,24 @@ network.mojom.FirstPartySetsReadyEventSpec = {
 };
 
 // Interface: FirstPartySetsAccessDelegate
-network.mojom.FirstPartySetsAccessDelegate = {};
+network.mojom.mojom.FirstPartySetsAccessDelegate = {};
 
-network.mojom.FirstPartySetsAccessDelegatePendingReceiver = class {
+network.mojom.mojom.FirstPartySetsAccessDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.FirstPartySetsAccessDelegateRemote = class {
+network.mojom.mojom.FirstPartySetsAccessDelegateRemote = class {
   static get $interfaceName() {
     return 'network.mojom.FirstPartySetsAccessDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.FirstPartySetsAccessDelegatePendingReceiver,
+      network.mojom.mojom.FirstPartySetsAccessDelegatePendingReceiver,
       handle);
-    this.$ = new network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.FirstPartySetsAccessDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -68,7 +68,7 @@ network.mojom.FirstPartySetsAccessDelegateRemote = class {
   }
 };
 
-network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
+network.mojom.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -77,7 +77,7 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec,
+      network.mojom.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec,
       null,
       [ready_event]);
   }
@@ -86,15 +86,15 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec,
+      network.mojom.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-network.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
-  let remote = new network.mojom.FirstPartySetsAccessDelegateRemote();
+network.mojom.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
+  let remote = new network.mojom.mojom.FirstPartySetsAccessDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -104,7 +104,7 @@ network.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
 };
 
 // ParamsSpec for NotifyReady
-network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
+network.mojom.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsAccessDelegate.NotifyReady_Params',
@@ -118,7 +118,7 @@ network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = {
 };
 
 // ParamsSpec for SetEnabled
-network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
+network.mojom.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.FirstPartySetsAccessDelegate.SetEnabled_Params',
@@ -132,6 +132,6 @@ network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.FirstPartySetsAccessDelegatePtr = network.mojom.FirstPartySetsAccessDelegateRemote;
-network.mojom.FirstPartySetsAccessDelegateRequest = network.mojom.FirstPartySetsAccessDelegatePendingReceiver;
+network.mojom.mojom.FirstPartySetsAccessDelegatePtr = network.mojom.mojom.FirstPartySetsAccessDelegateRemote;
+network.mojom.mojom.FirstPartySetsAccessDelegateRequest = network.mojom.mojom.FirstPartySetsAccessDelegatePendingReceiver;
 

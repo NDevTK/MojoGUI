@@ -10,22 +10,22 @@ service_manager.mojom = service_manager.mojom || {};
 
 
 // Enum: ConnectResult
-service_manager.mojom.ConnectResult = {
+service_manager.mojom.mojom.ConnectResult = {
   SUCCEEDED: 0,
   INVALID_ARGUMENT: 1,
   ACCESS_DENIED: 2,
 };
-service_manager.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
+service_manager.mojom.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: BindInterfacePriority
-service_manager.mojom.BindInterfacePriority = {
+service_manager.mojom.mojom.BindInterfacePriority = {
   kImportant: 0,
   kBestEffort: 1,
 };
-service_manager.mojom.BindInterfacePrioritySpec = { $: mojo.internal.Enum() };
+service_manager.mojom.mojom.BindInterfacePrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: Identity
-service_manager.mojom.IdentitySpec = {
+service_manager.mojom.mojom.IdentitySpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Identity',
@@ -42,7 +42,7 @@ service_manager.mojom.IdentitySpec = {
 };
 
 // Struct: ServiceInfo
-service_manager.mojom.ServiceInfoSpec = {
+service_manager.mojom.mojom.ServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.ServiceInfo',
@@ -56,24 +56,24 @@ service_manager.mojom.ServiceInfoSpec = {
 };
 
 // Interface: ProcessMetadata
-service_manager.mojom.ProcessMetadata = {};
+service_manager.mojom.mojom.ProcessMetadata = {};
 
-service_manager.mojom.ProcessMetadataPendingReceiver = class {
+service_manager.mojom.mojom.ProcessMetadataPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-service_manager.mojom.ProcessMetadataRemote = class {
+service_manager.mojom.mojom.ProcessMetadataRemote = class {
   static get $interfaceName() {
     return 'service_manager.mojom.ProcessMetadata';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      service_manager.mojom.ProcessMetadataPendingReceiver,
+      service_manager.mojom.mojom.ProcessMetadataPendingReceiver,
       handle);
-    this.$ = new service_manager.mojom.ProcessMetadataRemoteCallHandler(this.proxy);
+    this.$ = new service_manager.mojom.mojom.ProcessMetadataRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +85,7 @@ service_manager.mojom.ProcessMetadataRemote = class {
   }
 };
 
-service_manager.mojom.ProcessMetadataRemoteCallHandler = class {
+service_manager.mojom.mojom.ProcessMetadataRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,15 +94,15 @@ service_manager.mojom.ProcessMetadataRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec,
+      service_manager.mojom.mojom.ProcessMetadata_SetPID_ParamsSpec,
       null,
       [pid]);
   }
 
 };
 
-service_manager.mojom.ProcessMetadata.getRemote = function() {
-  let remote = new service_manager.mojom.ProcessMetadataRemote();
+service_manager.mojom.mojom.ProcessMetadata.getRemote = function() {
+  let remote = new service_manager.mojom.mojom.ProcessMetadataRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -112,7 +112,7 @@ service_manager.mojom.ProcessMetadata.getRemote = function() {
 };
 
 // ParamsSpec for SetPID
-service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
+service_manager.mojom.mojom.ProcessMetadata_SetPID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.ProcessMetadata.SetPID_Params',
@@ -126,29 +126,29 @@ service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
 };
 
 // Legacy compatibility
-service_manager.mojom.ProcessMetadataPtr = service_manager.mojom.ProcessMetadataRemote;
-service_manager.mojom.ProcessMetadataRequest = service_manager.mojom.ProcessMetadataPendingReceiver;
+service_manager.mojom.mojom.ProcessMetadataPtr = service_manager.mojom.mojom.ProcessMetadataRemote;
+service_manager.mojom.mojom.ProcessMetadataRequest = service_manager.mojom.mojom.ProcessMetadataPendingReceiver;
 
 
 // Interface: Connector
-service_manager.mojom.Connector = {};
+service_manager.mojom.mojom.Connector = {};
 
-service_manager.mojom.ConnectorPendingReceiver = class {
+service_manager.mojom.mojom.ConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-service_manager.mojom.ConnectorRemote = class {
+service_manager.mojom.mojom.ConnectorRemote = class {
   static get $interfaceName() {
     return 'service_manager.mojom.Connector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      service_manager.mojom.ConnectorPendingReceiver,
+      service_manager.mojom.mojom.ConnectorPendingReceiver,
       handle);
-    this.$ = new service_manager.mojom.ConnectorRemoteCallHandler(this.proxy);
+    this.$ = new service_manager.mojom.mojom.ConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -160,7 +160,7 @@ service_manager.mojom.ConnectorRemote = class {
   }
 };
 
-service_manager.mojom.ConnectorRemoteCallHandler = class {
+service_manager.mojom.mojom.ConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -169,8 +169,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.Connector_BindInterface_ParamsSpec,
-      service_manager.mojom.Connector_BindInterface_ResponseParamsSpec,
+      service_manager.mojom.mojom.Connector_BindInterface_ParamsSpec,
+      service_manager.mojom.mojom.Connector_BindInterface_ResponseParamsSpec,
       [filter, interface_name, interface_pipe, priority]);
   }
 
@@ -178,8 +178,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      service_manager.mojom.Connector_QueryService_ParamsSpec,
-      service_manager.mojom.Connector_QueryService_ResponseParamsSpec,
+      service_manager.mojom.mojom.Connector_QueryService_ParamsSpec,
+      service_manager.mojom.mojom.Connector_QueryService_ResponseParamsSpec,
       [service_name]);
   }
 
@@ -187,8 +187,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      service_manager.mojom.Connector_WarmService_ParamsSpec,
-      service_manager.mojom.Connector_WarmService_ResponseParamsSpec,
+      service_manager.mojom.mojom.Connector_WarmService_ParamsSpec,
+      service_manager.mojom.mojom.Connector_WarmService_ResponseParamsSpec,
       [filter]);
   }
 
@@ -196,8 +196,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec,
-      service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec,
+      service_manager.mojom.mojom.Connector_RegisterServiceInstance_ParamsSpec,
+      service_manager.mojom.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec,
       [identity, service, metadata_receiver]);
   }
 
@@ -205,15 +205,15 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      service_manager.mojom.Connector_Clone_ParamsSpec,
+      service_manager.mojom.mojom.Connector_Clone_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-service_manager.mojom.Connector.getRemote = function() {
-  let remote = new service_manager.mojom.ConnectorRemote();
+service_manager.mojom.mojom.Connector.getRemote = function() {
+  let remote = new service_manager.mojom.mojom.ConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -223,7 +223,7 @@ service_manager.mojom.Connector.getRemote = function() {
 };
 
 // ParamsSpec for BindInterface
-service_manager.mojom.Connector_BindInterface_ParamsSpec = {
+service_manager.mojom.mojom.Connector_BindInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.BindInterface_Params',
@@ -239,14 +239,14 @@ service_manager.mojom.Connector_BindInterface_ParamsSpec = {
   }
 };
 
-service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
+service_manager.mojom.mojom.Connector_BindInterface_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.BindInterface_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -254,7 +254,7 @@ service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
 };
 
 // ParamsSpec for QueryService
-service_manager.mojom.Connector_QueryService_ParamsSpec = {
+service_manager.mojom.mojom.Connector_QueryService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.QueryService_Params',
@@ -267,7 +267,7 @@ service_manager.mojom.Connector_QueryService_ParamsSpec = {
   }
 };
 
-service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
+service_manager.mojom.mojom.Connector_QueryService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.QueryService_ResponseParams',
@@ -281,7 +281,7 @@ service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WarmService
-service_manager.mojom.Connector_WarmService_ParamsSpec = {
+service_manager.mojom.mojom.Connector_WarmService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.WarmService_Params',
@@ -294,14 +294,14 @@ service_manager.mojom.Connector_WarmService_ParamsSpec = {
   }
 };
 
-service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
+service_manager.mojom.mojom.Connector_WarmService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.WarmService_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -309,7 +309,7 @@ service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterServiceInstance
-service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
+service_manager.mojom.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.RegisterServiceInstance_Params',
@@ -324,7 +324,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
   }
 };
 
-service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
+service_manager.mojom.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.RegisterServiceInstance_ResponseParams',
@@ -338,7 +338,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Clone
-service_manager.mojom.Connector_Clone_ParamsSpec = {
+service_manager.mojom.mojom.Connector_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Connector.Clone_Params',
@@ -352,6 +352,6 @@ service_manager.mojom.Connector_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-service_manager.mojom.ConnectorPtr = service_manager.mojom.ConnectorRemote;
-service_manager.mojom.ConnectorRequest = service_manager.mojom.ConnectorPendingReceiver;
+service_manager.mojom.mojom.ConnectorPtr = service_manager.mojom.mojom.ConnectorRemote;
+service_manager.mojom.mojom.ConnectorRequest = service_manager.mojom.mojom.ConnectorPendingReceiver;
 

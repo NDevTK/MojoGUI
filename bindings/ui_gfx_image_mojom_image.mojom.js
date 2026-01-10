@@ -7,10 +7,11 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var skia = skia || {};
 
 
 // Struct: ImageSkiaRep
-gfx.mojom.ImageSkiaRepSpec = {
+gfx.mojom.mojom.ImageSkiaRepSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageSkiaRep',
@@ -25,7 +26,7 @@ gfx.mojom.ImageSkiaRepSpec = {
 };
 
 // Struct: ImageSkia
-gfx.mojom.ImageSkiaSpec = {
+gfx.mojom.mojom.ImageSkiaSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.ImageSkia',

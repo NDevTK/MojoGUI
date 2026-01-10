@@ -10,7 +10,7 @@ smbfs.mojom = smbfs.mojom || {};
 
 
 // Struct: FilePath
-smbfs.mojom.FilePathSpec = {
+smbfs.mojom.mojom.FilePathSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.FilePath',

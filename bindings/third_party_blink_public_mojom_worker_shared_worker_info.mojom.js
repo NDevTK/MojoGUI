@@ -7,17 +7,20 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Enum: SharedWorkerSameSiteCookies
-blink.mojom.SharedWorkerSameSiteCookies = {
+blink.mojom.mojom.SharedWorkerSameSiteCookies = {
   kAll: 0,
   kNone: 1,
 };
-blink.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.internal.Enum() };
 
 // Struct: SharedWorkerInfo
-blink.mojom.SharedWorkerInfoSpec = {
+blink.mojom.mojom.SharedWorkerInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerInfo',

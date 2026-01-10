@@ -10,24 +10,24 @@ audio.mojom = audio.mojom || {};
 
 
 // Interface: MlModelManager
-audio.mojom.MlModelManager = {};
+audio.mojom.mojom.MlModelManager = {};
 
-audio.mojom.MlModelManagerPendingReceiver = class {
+audio.mojom.mojom.MlModelManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.MlModelManagerRemote = class {
+audio.mojom.mojom.MlModelManagerRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.MlModelManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.MlModelManagerPendingReceiver,
+      audio.mojom.mojom.MlModelManagerPendingReceiver,
       handle);
-    this.$ = new audio.mojom.MlModelManagerRemoteCallHandler(this.proxy);
+    this.$ = new audio.mojom.mojom.MlModelManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ audio.mojom.MlModelManagerRemote = class {
   }
 };
 
-audio.mojom.MlModelManagerRemoteCallHandler = class {
+audio.mojom.mojom.MlModelManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec,
+      audio.mojom.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec,
       null,
       [tflite_file]);
   }
@@ -57,15 +57,15 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec,
+      audio.mojom.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec,
       null,
       []);
   }
 
 };
 
-audio.mojom.MlModelManager.getRemote = function() {
-  let remote = new audio.mojom.MlModelManagerRemote();
+audio.mojom.mojom.MlModelManager.getRemote = function() {
+  let remote = new audio.mojom.mojom.MlModelManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ audio.mojom.MlModelManager.getRemote = function() {
 };
 
 // ParamsSpec for SetResidualEchoEstimationModel
-audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
+audio.mojom.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.MlModelManager.SetResidualEchoEstimationModel_Params',
@@ -89,7 +89,7 @@ audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
 };
 
 // ParamsSpec for StopServingResidualEchoEstimationModel
-audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
+audio.mojom.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.MlModelManager.StopServingResidualEchoEstimationModel_Params',
@@ -102,6 +102,6 @@ audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
 };
 
 // Legacy compatibility
-audio.mojom.MlModelManagerPtr = audio.mojom.MlModelManagerRemote;
-audio.mojom.MlModelManagerRequest = audio.mojom.MlModelManagerPendingReceiver;
+audio.mojom.mojom.MlModelManagerPtr = audio.mojom.mojom.MlModelManagerRemote;
+audio.mojom.mojom.MlModelManagerRequest = audio.mojom.mojom.MlModelManagerPendingReceiver;
 

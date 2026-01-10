@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Union: GpuMemoryBufferPlatformHandle
-gfx.mojom.GpuMemoryBufferPlatformHandleSpec = { $: mojo.internal.Union(
+gfx.mojom.mojom.GpuMemoryBufferPlatformHandleSpec = { $: mojo.internal.Union(
     'gfx.mojom.GpuMemoryBufferPlatformHandle', {
       'shared_memory_handle': {
         'ordinal': 0,
@@ -36,16 +36,16 @@ gfx.mojom.GpuMemoryBufferPlatformHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: NativePixmapPlane
-gfx.mojom.NativePixmapPlaneSpec = {
+gfx.mojom.mojom.NativePixmapPlaneSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.NativePixmapPlane',
       packedSize: 40,
       fields: [
-        { name: 'stride', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'buffer_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'stride', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -53,7 +53,7 @@ gfx.mojom.NativePixmapPlaneSpec = {
 };
 
 // Struct: NativePixmapHandle
-gfx.mojom.NativePixmapHandleSpec = {
+gfx.mojom.mojom.NativePixmapHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.NativePixmapHandle',
@@ -61,10 +61,10 @@ gfx.mojom.NativePixmapHandleSpec = {
       fields: [
         { name: 'planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.NativePixmapPlaneSpec, false), nullable: false, minVersion: 0 },
         { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'supports_zero_copy_webgpu_import', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'buffer_collection_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'buffer_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'ram_coherency', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'supports_zero_copy_webgpu_import', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'buffer_collection_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'buffer_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'ram_coherency', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -72,7 +72,7 @@ gfx.mojom.NativePixmapHandleSpec = {
 };
 
 // Struct: AHardwareBufferHandle
-gfx.mojom.AHardwareBufferHandleSpec = {
+gfx.mojom.mojom.AHardwareBufferHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.AHardwareBufferHandle',
@@ -87,7 +87,7 @@ gfx.mojom.AHardwareBufferHandleSpec = {
 };
 
 // Struct: DXGIHandleToken
-gfx.mojom.DXGIHandleTokenSpec = {
+gfx.mojom.mojom.DXGIHandleTokenSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DXGIHandleToken',
@@ -101,7 +101,7 @@ gfx.mojom.DXGIHandleTokenSpec = {
 };
 
 // Struct: DXGIHandle
-gfx.mojom.DXGIHandleSpec = {
+gfx.mojom.mojom.DXGIHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DXGIHandle',
@@ -117,7 +117,7 @@ gfx.mojom.DXGIHandleSpec = {
 };
 
 // Struct: IOSurfaceHandle
-gfx.mojom.IOSurfaceHandleSpec = {
+gfx.mojom.mojom.IOSurfaceHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.IOSurfaceHandle',

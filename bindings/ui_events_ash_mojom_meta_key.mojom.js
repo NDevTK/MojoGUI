@@ -10,11 +10,11 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: MetaKey
-ui.mojom.MetaKey = {
+ui.mojom.mojom.MetaKey = {
   kSearch: 0,
   kLauncher: 1,
   kLauncherRefresh: 2,
   kExternalMeta: 3,
   kCommand: 4,
 };
-ui.mojom.MetaKeySpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.MetaKeySpec = { $: mojo.internal.Enum() };

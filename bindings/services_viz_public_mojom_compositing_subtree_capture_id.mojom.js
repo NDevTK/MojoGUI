@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: SubtreeCaptureId
-viz.mojom.SubtreeCaptureIdSpec = {
+viz.mojom.mojom.SubtreeCaptureIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SubtreeCaptureId',

@@ -7,27 +7,29 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Interface: FencedFrameOwnerHost
-blink.mojom.FencedFrameOwnerHost = {};
+blink.mojom.mojom.FencedFrameOwnerHost = {};
 
-blink.mojom.FencedFrameOwnerHostPendingReceiver = class {
+blink.mojom.mojom.FencedFrameOwnerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FencedFrameOwnerHostRemote = class {
+blink.mojom.mojom.FencedFrameOwnerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FencedFrameOwnerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FencedFrameOwnerHostPendingReceiver,
+      blink.mojom.mojom.FencedFrameOwnerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FencedFrameOwnerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FencedFrameOwnerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ blink.mojom.FencedFrameOwnerHostRemote = class {
   }
 };
 
-blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
+blink.mojom.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
+      blink.mojom.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
       null,
       [url, navigation_start_time, embedder_shared_storage_context]);
   }
@@ -57,15 +59,15 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec,
+      blink.mojom.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec,
       null,
       [frame_policy]);
   }
 
 };
 
-blink.mojom.FencedFrameOwnerHost.getRemote = function() {
-  let remote = new blink.mojom.FencedFrameOwnerHostRemote();
+blink.mojom.mojom.FencedFrameOwnerHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.FencedFrameOwnerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +77,7 @@ blink.mojom.FencedFrameOwnerHost.getRemote = function() {
 };
 
 // ParamsSpec for Navigate
-blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
+blink.mojom.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FencedFrameOwnerHost.Navigate_Params',
@@ -91,7 +93,7 @@ blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
 };
 
 // ParamsSpec for DidChangeFramePolicy
-blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
+blink.mojom.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FencedFrameOwnerHost.DidChangeFramePolicy_Params',
@@ -105,6 +107,6 @@ blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.FencedFrameOwnerHostPtr = blink.mojom.FencedFrameOwnerHostRemote;
-blink.mojom.FencedFrameOwnerHostRequest = blink.mojom.FencedFrameOwnerHostPendingReceiver;
+blink.mojom.mojom.FencedFrameOwnerHostPtr = blink.mojom.mojom.FencedFrameOwnerHostRemote;
+blink.mojom.mojom.FencedFrameOwnerHostRequest = blink.mojom.mojom.FencedFrameOwnerHostPendingReceiver;
 

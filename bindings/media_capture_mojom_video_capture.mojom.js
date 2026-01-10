@@ -10,17 +10,17 @@ media.mojom = media.mojom || {};
 
 
 // Enum: VideoCaptureState
-media.mojom.VideoCaptureState = {
+media.mojom.mojom.VideoCaptureState = {
   STARTED: 0,
   PAUSED: 1,
   RESUMED: 2,
   STOPPED: 3,
   ENDED: 4,
 };
-media.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum() };
 
 // Union: VideoCaptureResult
-media.mojom.VideoCaptureResultSpec = { $: mojo.internal.Union(
+media.mojom.mojom.VideoCaptureResultSpec = { $: mojo.internal.Union(
     'media.mojom.VideoCaptureResult', {
       'state': {
         'ordinal': 0,
@@ -34,24 +34,24 @@ media.mojom.VideoCaptureResultSpec = { $: mojo.internal.Union(
 };
 
 // Interface: VideoCaptureObserver
-media.mojom.VideoCaptureObserver = {};
+media.mojom.mojom.VideoCaptureObserver = {};
 
-media.mojom.VideoCaptureObserverPendingReceiver = class {
+media.mojom.mojom.VideoCaptureObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.VideoCaptureObserverRemote = class {
+media.mojom.mojom.VideoCaptureObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.VideoCaptureObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.VideoCaptureObserverPendingReceiver,
+      media.mojom.mojom.VideoCaptureObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.VideoCaptureObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.VideoCaptureObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -63,7 +63,7 @@ media.mojom.VideoCaptureObserverRemote = class {
   }
 };
 
-media.mojom.VideoCaptureObserverRemoteCallHandler = class {
+media.mojom.mojom.VideoCaptureObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -72,7 +72,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec,
+      media.mojom.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec,
       null,
       [result]);
   }
@@ -81,7 +81,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec,
+      media.mojom.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec,
       null,
       [buffer_id, buffer_handle]);
   }
@@ -90,7 +90,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec,
+      media.mojom.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec,
       null,
       [buffer]);
   }
@@ -99,7 +99,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec,
+      media.mojom.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec,
       null,
       [buffer_id]);
   }
@@ -108,7 +108,7 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec,
+      media.mojom.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec,
       null,
       [reason]);
   }
@@ -117,15 +117,15 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec,
+      media.mojom.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec,
       null,
       [capture_version]);
   }
 
 };
 
-media.mojom.VideoCaptureObserver.getRemote = function() {
-  let remote = new media.mojom.VideoCaptureObserverRemote();
+media.mojom.mojom.VideoCaptureObserver.getRemote = function() {
+  let remote = new media.mojom.mojom.VideoCaptureObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -135,7 +135,7 @@ media.mojom.VideoCaptureObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnStateChanged
-media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
+media.mojom.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnStateChanged_Params',
@@ -149,14 +149,14 @@ media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnNewBuffer
-media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
+media.mojom.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnNewBuffer_Params',
       packedSize: 32,
       fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'buffer_handle', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -164,7 +164,7 @@ media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for OnBufferReady
-media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
+media.mojom.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnBufferReady_Params',
@@ -178,7 +178,7 @@ media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = {
 };
 
 // ParamsSpec for OnBufferDestroyed
-media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
+media.mojom.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnBufferDestroyed_Params',
@@ -192,7 +192,7 @@ media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = {
 };
 
 // ParamsSpec for OnFrameDropped
-media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
+media.mojom.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnFrameDropped_Params',
@@ -206,7 +206,7 @@ media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = {
 };
 
 // ParamsSpec for OnNewCaptureVersion
-media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
+media.mojom.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureObserver.OnNewCaptureVersion_Params',
@@ -220,29 +220,29 @@ media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.VideoCaptureObserverPtr = media.mojom.VideoCaptureObserverRemote;
-media.mojom.VideoCaptureObserverRequest = media.mojom.VideoCaptureObserverPendingReceiver;
+media.mojom.mojom.VideoCaptureObserverPtr = media.mojom.mojom.VideoCaptureObserverRemote;
+media.mojom.mojom.VideoCaptureObserverRequest = media.mojom.mojom.VideoCaptureObserverPendingReceiver;
 
 
 // Interface: VideoCaptureHost
-media.mojom.VideoCaptureHost = {};
+media.mojom.mojom.VideoCaptureHost = {};
 
-media.mojom.VideoCaptureHostPendingReceiver = class {
+media.mojom.mojom.VideoCaptureHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.VideoCaptureHostRemote = class {
+media.mojom.mojom.VideoCaptureHostRemote = class {
   static get $interfaceName() {
     return 'media.mojom.VideoCaptureHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.VideoCaptureHostPendingReceiver,
+      media.mojom.mojom.VideoCaptureHostPendingReceiver,
       handle);
-    this.$ = new media.mojom.VideoCaptureHostRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.VideoCaptureHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -254,7 +254,7 @@ media.mojom.VideoCaptureHostRemote = class {
   }
 };
 
-media.mojom.VideoCaptureHostRemoteCallHandler = class {
+media.mojom.mojom.VideoCaptureHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -263,7 +263,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.VideoCaptureHost_Start_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_Start_ParamsSpec,
       null,
       [device_id, session_id, params, observer]);
   }
@@ -272,7 +272,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.VideoCaptureHost_Stop_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_Stop_ParamsSpec,
       null,
       [device_id]);
   }
@@ -281,7 +281,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.VideoCaptureHost_Pause_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_Pause_ParamsSpec,
       null,
       [device_id]);
   }
@@ -290,7 +290,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.VideoCaptureHost_Resume_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_Resume_ParamsSpec,
       null,
       [device_id, session_id, params]);
   }
@@ -299,7 +299,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec,
       null,
       [device_id]);
   }
@@ -308,7 +308,7 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec,
       null,
       [device_id, buffer_id, feedback]);
   }
@@ -317,8 +317,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec,
-      media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
       [device_id, session_id]);
   }
 
@@ -326,8 +326,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec,
-      media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
       [device_id, session_id]);
   }
 
@@ -335,15 +335,15 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.VideoCaptureHost_OnLog_ParamsSpec,
+      media.mojom.mojom.VideoCaptureHost_OnLog_ParamsSpec,
       null,
       [device_id, message]);
   }
 
 };
 
-media.mojom.VideoCaptureHost.getRemote = function() {
-  let remote = new media.mojom.VideoCaptureHostRemote();
+media.mojom.mojom.VideoCaptureHost.getRemote = function() {
+  let remote = new media.mojom.mojom.VideoCaptureHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -353,7 +353,7 @@ media.mojom.VideoCaptureHost.getRemote = function() {
 };
 
 // ParamsSpec for Start
-media.mojom.VideoCaptureHost_Start_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.Start_Params',
@@ -370,7 +370,7 @@ media.mojom.VideoCaptureHost_Start_ParamsSpec = {
 };
 
 // ParamsSpec for Stop
-media.mojom.VideoCaptureHost_Stop_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.Stop_Params',
@@ -384,7 +384,7 @@ media.mojom.VideoCaptureHost_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-media.mojom.VideoCaptureHost_Pause_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.Pause_Params',
@@ -398,7 +398,7 @@ media.mojom.VideoCaptureHost_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-media.mojom.VideoCaptureHost_Resume_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.Resume_Params',
@@ -414,7 +414,7 @@ media.mojom.VideoCaptureHost_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for RequestRefreshFrame
-media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.RequestRefreshFrame_Params',
@@ -428,15 +428,15 @@ media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = {
 };
 
 // ParamsSpec for ReleaseBuffer
-media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.ReleaseBuffer_Params',
       packedSize: 32,
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'feedback', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'feedback', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -444,7 +444,7 @@ media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for GetDeviceSupportedFormats
-media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.GetDeviceSupportedFormats_Params',
@@ -458,7 +458,7 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
   }
 };
 
-media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.GetDeviceSupportedFormats_ResponseParams',
@@ -472,7 +472,7 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDeviceFormatsInUse
-media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.GetDeviceFormatsInUse_Params',
@@ -486,7 +486,7 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
   }
 };
 
-media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.GetDeviceFormatsInUse_ResponseParams',
@@ -500,7 +500,7 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnLog
-media.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
+media.mojom.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureHost.OnLog_Params',
@@ -515,6 +515,6 @@ media.mojom.VideoCaptureHost_OnLog_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.VideoCaptureHostPtr = media.mojom.VideoCaptureHostRemote;
-media.mojom.VideoCaptureHostRequest = media.mojom.VideoCaptureHostPendingReceiver;
+media.mojom.mojom.VideoCaptureHostPtr = media.mojom.mojom.VideoCaptureHostRemote;
+media.mojom.mojom.VideoCaptureHostRequest = media.mojom.mojom.VideoCaptureHostPendingReceiver;
 

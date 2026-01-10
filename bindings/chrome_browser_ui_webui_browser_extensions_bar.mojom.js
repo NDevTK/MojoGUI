@@ -7,10 +7,12 @@
 // Module namespace
 var extensions_bar = extensions_bar || {};
 extensions_bar.mojom = extensions_bar.mojom || {};
+var url = url || {};
+var ui = ui || {};
 
 
 // Struct: ExtensionActionInfo
-extensions_bar.mojom.ExtensionActionInfoSpec = {
+extensions_bar.mojom.mojom.ExtensionActionInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.ExtensionActionInfo',
@@ -19,8 +21,8 @@ extensions_bar.mojom.ExtensionActionInfoSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'accessible_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'tooltip', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_visible', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'data_url_for_icon', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'is_visible', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'data_url_for_icon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -28,24 +30,24 @@ extensions_bar.mojom.ExtensionActionInfoSpec = {
 };
 
 // Interface: PageHandlerFactory
-extensions_bar.mojom.PageHandlerFactory = {};
+extensions_bar.mojom.mojom.PageHandlerFactory = {};
 
-extensions_bar.mojom.PageHandlerFactoryPendingReceiver = class {
+extensions_bar.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions_bar.mojom.PageHandlerFactoryRemote = class {
+extensions_bar.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'extensions_bar.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions_bar.mojom.PageHandlerFactoryPendingReceiver,
+      extensions_bar.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new extensions_bar.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +59,7 @@ extensions_bar.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
+extensions_bar.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,15 +68,15 @@ extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      extensions_bar.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-extensions_bar.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new extensions_bar.mojom.PageHandlerFactoryRemote();
+extensions_bar.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new extensions_bar.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +86,7 @@ extensions_bar.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+extensions_bar.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -99,29 +101,29 @@ extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions_bar.mojom.PageHandlerFactoryPtr = extensions_bar.mojom.PageHandlerFactoryRemote;
-extensions_bar.mojom.PageHandlerFactoryRequest = extensions_bar.mojom.PageHandlerFactoryPendingReceiver;
+extensions_bar.mojom.mojom.PageHandlerFactoryPtr = extensions_bar.mojom.mojom.PageHandlerFactoryRemote;
+extensions_bar.mojom.mojom.PageHandlerFactoryRequest = extensions_bar.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-extensions_bar.mojom.PageHandler = {};
+extensions_bar.mojom.mojom.PageHandler = {};
 
-extensions_bar.mojom.PageHandlerPendingReceiver = class {
+extensions_bar.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions_bar.mojom.PageHandlerRemote = class {
+extensions_bar.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'extensions_bar.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions_bar.mojom.PageHandlerPendingReceiver,
+      extensions_bar.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new extensions_bar.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new extensions_bar.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -133,7 +135,7 @@ extensions_bar.mojom.PageHandlerRemote = class {
   }
 };
 
-extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
+extensions_bar.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -142,7 +144,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec,
+      extensions_bar.mojom.mojom.PageHandler_ExecuteUserAction_ParamsSpec,
       null,
       [id]);
   }
@@ -151,7 +153,7 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
+      extensions_bar.mojom.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
       [source, id]);
   }
@@ -160,15 +162,15 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec,
+      extensions_bar.mojom.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec,
       null,
       []);
   }
 
 };
 
-extensions_bar.mojom.PageHandler.getRemote = function() {
-  let remote = new extensions_bar.mojom.PageHandlerRemote();
+extensions_bar.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new extensions_bar.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -178,7 +180,7 @@ extensions_bar.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ExecuteUserAction
-extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
+extensions_bar.mojom.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.PageHandler.ExecuteUserAction_Params',
@@ -192,14 +194,14 @@ extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
 };
 
 // ParamsSpec for ShowContextMenu
-extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
+extensions_bar.mojom.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.PageHandler.ShowContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -207,7 +209,7 @@ extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleExtensionsMenuFromWebUI
-extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
+extensions_bar.mojom.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.PageHandler.ToggleExtensionsMenuFromWebUI_Params',
@@ -220,29 +222,29 @@ extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions_bar.mojom.PageHandlerPtr = extensions_bar.mojom.PageHandlerRemote;
-extensions_bar.mojom.PageHandlerRequest = extensions_bar.mojom.PageHandlerPendingReceiver;
+extensions_bar.mojom.mojom.PageHandlerPtr = extensions_bar.mojom.mojom.PageHandlerRemote;
+extensions_bar.mojom.mojom.PageHandlerRequest = extensions_bar.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-extensions_bar.mojom.Page = {};
+extensions_bar.mojom.mojom.Page = {};
 
-extensions_bar.mojom.PagePendingReceiver = class {
+extensions_bar.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions_bar.mojom.PageRemote = class {
+extensions_bar.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'extensions_bar.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions_bar.mojom.PagePendingReceiver,
+      extensions_bar.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new extensions_bar.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new extensions_bar.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -254,7 +256,7 @@ extensions_bar.mojom.PageRemote = class {
   }
 };
 
-extensions_bar.mojom.PageRemoteCallHandler = class {
+extensions_bar.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -263,7 +265,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec,
+      extensions_bar.mojom.mojom.Page_ActionsAddedOrUpdated_ParamsSpec,
       null,
       [actions]);
   }
@@ -272,7 +274,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions_bar.mojom.Page_ActionRemoved_ParamsSpec,
+      extensions_bar.mojom.mojom.Page_ActionRemoved_ParamsSpec,
       null,
       [id]);
   }
@@ -281,15 +283,15 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec,
+      extensions_bar.mojom.mojom.Page_ActionPoppedOut_ParamsSpec,
       null,
       []);
   }
 
 };
 
-extensions_bar.mojom.Page.getRemote = function() {
-  let remote = new extensions_bar.mojom.PageRemote();
+extensions_bar.mojom.mojom.Page.getRemote = function() {
+  let remote = new extensions_bar.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -299,7 +301,7 @@ extensions_bar.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for ActionsAddedOrUpdated
-extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
+extensions_bar.mojom.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.Page.ActionsAddedOrUpdated_Params',
@@ -313,7 +315,7 @@ extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for ActionRemoved
-extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
+extensions_bar.mojom.mojom.Page_ActionRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.Page.ActionRemoved_Params',
@@ -327,7 +329,7 @@ extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
 };
 
 // ParamsSpec for ActionPoppedOut
-extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
+extensions_bar.mojom.mojom.Page_ActionPoppedOut_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions_bar.mojom.Page.ActionPoppedOut_Params',
@@ -340,6 +342,6 @@ extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions_bar.mojom.PagePtr = extensions_bar.mojom.PageRemote;
-extensions_bar.mojom.PageRequest = extensions_bar.mojom.PagePendingReceiver;
+extensions_bar.mojom.mojom.PagePtr = extensions_bar.mojom.mojom.PageRemote;
+extensions_bar.mojom.mojom.PageRequest = extensions_bar.mojom.mojom.PagePendingReceiver;
 

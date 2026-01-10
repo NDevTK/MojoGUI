@@ -10,7 +10,7 @@ audio.mojom = audio.mojom || {};
 
 
 // Struct: AudioDeviceDescription
-audio.mojom.AudioDeviceDescriptionSpec = {
+audio.mojom.mojom.AudioDeviceDescriptionSpec = {
   $: {
     structSpec: {
       name: 'audio.mojom.AudioDeviceDescription',

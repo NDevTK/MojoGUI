@@ -10,15 +10,15 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Enum: GpuDiskCacheType
-gpu.mojom.GpuDiskCacheType = {
+gpu.mojom.mojom.GpuDiskCacheType = {
   kGlShaders: 0,
   kDawnWebGPU: 1,
   kDawnGraphite: 2,
 };
-gpu.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: GpuDiskCacheHandle
-gpu.mojom.GpuDiskCacheHandleSpec = { $: mojo.internal.Union(
+gpu.mojom.mojom.GpuDiskCacheHandleSpec = { $: mojo.internal.Union(
     'gpu.mojom.GpuDiskCacheHandle', {
       'gl_shader_handle': {
         'ordinal': 0,
@@ -36,7 +36,7 @@ gpu.mojom.GpuDiskCacheHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: GpuDiskCacheGlShaderHandle
-gpu.mojom.GpuDiskCacheGlShaderHandleSpec = {
+gpu.mojom.mojom.GpuDiskCacheGlShaderHandleSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuDiskCacheGlShaderHandle',
@@ -50,7 +50,7 @@ gpu.mojom.GpuDiskCacheGlShaderHandleSpec = {
 };
 
 // Struct: GpuDiskCacheDawnWebGPUHandle
-gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = {
+gpu.mojom.mojom.GpuDiskCacheDawnWebGPUHandleSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuDiskCacheDawnWebGPUHandle',
@@ -64,7 +64,7 @@ gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = {
 };
 
 // Struct: GpuDiskCacheDawnGraphiteHandle
-gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = {
+gpu.mojom.mojom.GpuDiskCacheDawnGraphiteHandleSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuDiskCacheDawnGraphiteHandle',

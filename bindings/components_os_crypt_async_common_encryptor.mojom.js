@@ -10,14 +10,14 @@ os_crypt_async.mojom = os_crypt_async.mojom || {};
 
 
 // Struct: Key
-os_crypt_async.mojom.KeySpec = {
+os_crypt_async.mojom.mojom.KeySpec = {
   $: {
     structSpec: {
       name: 'os_crypt_async.mojom.Key',
       packedSize: 24,
       fields: [
-        { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.AlgorithmSpec, nullable: false, minVersion: 0 },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: os_crypt_async.mojom.AlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,7 +25,7 @@ os_crypt_async.mojom.KeySpec = {
 };
 
 // Struct: Encryptor
-os_crypt_async.mojom.EncryptorSpec = {
+os_crypt_async.mojom.mojom.EncryptorSpec = {
   $: {
     structSpec: {
       name: 'os_crypt_async.mojom.Encryptor',

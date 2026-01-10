@@ -7,18 +7,19 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Enum: Mode
-blink.mojom.Mode = {
+blink.mojom.mojom.Mode = {
   DEFAULT: 0,
   EAGER: 1,
   LAZY: 2,
 };
-blink.mojom.ModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PerContextV8MemoryUsage
-blink.mojom.PerContextV8MemoryUsageSpec = {
+blink.mojom.mojom.PerContextV8MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerContextV8MemoryUsage',
@@ -34,7 +35,7 @@ blink.mojom.PerContextV8MemoryUsageSpec = {
 };
 
 // Struct: PerContextCanvasMemoryUsage
-blink.mojom.PerContextCanvasMemoryUsageSpec = {
+blink.mojom.mojom.PerContextCanvasMemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerContextCanvasMemoryUsage',
@@ -49,7 +50,7 @@ blink.mojom.PerContextCanvasMemoryUsageSpec = {
 };
 
 // Struct: PerIsolateV8MemoryUsage
-blink.mojom.PerIsolateV8MemoryUsageSpec = {
+blink.mojom.mojom.PerIsolateV8MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerIsolateV8MemoryUsage',
@@ -68,7 +69,7 @@ blink.mojom.PerIsolateV8MemoryUsageSpec = {
 };
 
 // Struct: PerProcessV8MemoryUsage
-blink.mojom.PerProcessV8MemoryUsageSpec = {
+blink.mojom.mojom.PerProcessV8MemoryUsageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PerProcessV8MemoryUsage',
@@ -82,24 +83,24 @@ blink.mojom.PerProcessV8MemoryUsageSpec = {
 };
 
 // Interface: V8DetailedMemoryReporter
-blink.mojom.V8DetailedMemoryReporter = {};
+blink.mojom.mojom.V8DetailedMemoryReporter = {};
 
-blink.mojom.V8DetailedMemoryReporterPendingReceiver = class {
+blink.mojom.mojom.V8DetailedMemoryReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.V8DetailedMemoryReporterRemote = class {
+blink.mojom.mojom.V8DetailedMemoryReporterRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.V8DetailedMemoryReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.V8DetailedMemoryReporterPendingReceiver,
+      blink.mojom.mojom.V8DetailedMemoryReporterPendingReceiver,
       handle);
-    this.$ = new blink.mojom.V8DetailedMemoryReporterRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.V8DetailedMemoryReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -111,7 +112,7 @@ blink.mojom.V8DetailedMemoryReporterRemote = class {
   }
 };
 
-blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
+blink.mojom.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -120,15 +121,15 @@ blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec,
-      blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
+      blink.mojom.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec,
+      blink.mojom.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
       [mode]);
   }
 
 };
 
-blink.mojom.V8DetailedMemoryReporter.getRemote = function() {
-  let remote = new blink.mojom.V8DetailedMemoryReporterRemote();
+blink.mojom.mojom.V8DetailedMemoryReporter.getRemote = function() {
+  let remote = new blink.mojom.mojom.V8DetailedMemoryReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -138,7 +139,7 @@ blink.mojom.V8DetailedMemoryReporter.getRemote = function() {
 };
 
 // ParamsSpec for GetV8MemoryUsage
-blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
+blink.mojom.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_Params',
@@ -151,7 +152,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
   }
 };
 
-blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
+blink.mojom.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_ResponseParams',
@@ -165,6 +166,6 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.V8DetailedMemoryReporterPtr = blink.mojom.V8DetailedMemoryReporterRemote;
-blink.mojom.V8DetailedMemoryReporterRequest = blink.mojom.V8DetailedMemoryReporterPendingReceiver;
+blink.mojom.mojom.V8DetailedMemoryReporterPtr = blink.mojom.mojom.V8DetailedMemoryReporterRemote;
+blink.mojom.mojom.V8DetailedMemoryReporterRequest = blink.mojom.mojom.V8DetailedMemoryReporterPendingReceiver;
 

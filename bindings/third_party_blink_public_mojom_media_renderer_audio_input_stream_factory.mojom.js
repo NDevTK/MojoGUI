@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: RendererAudioInputStreamFactory
-blink.mojom.RendererAudioInputStreamFactory = {};
+blink.mojom.mojom.RendererAudioInputStreamFactory = {};
 
-blink.mojom.RendererAudioInputStreamFactoryPendingReceiver = class {
+blink.mojom.mojom.RendererAudioInputStreamFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RendererAudioInputStreamFactoryRemote = class {
+blink.mojom.mojom.RendererAudioInputStreamFactoryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RendererAudioInputStreamFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RendererAudioInputStreamFactoryPendingReceiver,
+      blink.mojom.mojom.RendererAudioInputStreamFactoryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RendererAudioInputStreamFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.RendererAudioInputStreamFactoryRemote = class {
   }
 };
 
-blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
+blink.mojom.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec,
+      blink.mojom.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec,
       null,
       [client, session_id, params, automatic_gain_control, shared_memory_count, processing_config]);
   }
@@ -57,15 +57,15 @@ blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
+      blink.mojom.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
       [input_stream_id, output_device_id]);
   }
 
 };
 
-blink.mojom.RendererAudioInputStreamFactory.getRemote = function() {
-  let remote = new blink.mojom.RendererAudioInputStreamFactoryRemote();
+blink.mojom.mojom.RendererAudioInputStreamFactory.getRemote = function() {
+  let remote = new blink.mojom.mojom.RendererAudioInputStreamFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,18 +75,18 @@ blink.mojom.RendererAudioInputStreamFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateStream
-blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
+blink.mojom.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererAudioInputStreamFactory.CreateStream_Params',
       packedSize: 48,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'automatic_gain_control', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'processing_config', packedOffset: 32, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'automatic_gain_control', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'processing_config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -94,7 +94,7 @@ blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
 };
 
 // ParamsSpec for AssociateInputAndOutputForAec
-blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
+blink.mojom.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererAudioInputStreamFactory.AssociateInputAndOutputForAec_Params',
@@ -109,29 +109,29 @@ blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_Params
 };
 
 // Legacy compatibility
-blink.mojom.RendererAudioInputStreamFactoryPtr = blink.mojom.RendererAudioInputStreamFactoryRemote;
-blink.mojom.RendererAudioInputStreamFactoryRequest = blink.mojom.RendererAudioInputStreamFactoryPendingReceiver;
+blink.mojom.mojom.RendererAudioInputStreamFactoryPtr = blink.mojom.mojom.RendererAudioInputStreamFactoryRemote;
+blink.mojom.mojom.RendererAudioInputStreamFactoryRequest = blink.mojom.mojom.RendererAudioInputStreamFactoryPendingReceiver;
 
 
 // Interface: RendererAudioInputStreamFactoryClient
-blink.mojom.RendererAudioInputStreamFactoryClient = {};
+blink.mojom.mojom.RendererAudioInputStreamFactoryClient = {};
 
-blink.mojom.RendererAudioInputStreamFactoryClientPendingReceiver = class {
+blink.mojom.mojom.RendererAudioInputStreamFactoryClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RendererAudioInputStreamFactoryClientRemote = class {
+blink.mojom.mojom.RendererAudioInputStreamFactoryClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RendererAudioInputStreamFactoryClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RendererAudioInputStreamFactoryClientPendingReceiver,
+      blink.mojom.mojom.RendererAudioInputStreamFactoryClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -143,7 +143,7 @@ blink.mojom.RendererAudioInputStreamFactoryClientRemote = class {
   }
 };
 
-blink.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler = class {
+blink.mojom.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -152,15 +152,15 @@ blink.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec,
+      blink.mojom.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec,
       null,
       [stream, client_request, data_pipe, initially_muted, stream_id]);
   }
 
 };
 
-blink.mojom.RendererAudioInputStreamFactoryClient.getRemote = function() {
-  let remote = new blink.mojom.RendererAudioInputStreamFactoryClientRemote();
+blink.mojom.mojom.RendererAudioInputStreamFactoryClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.RendererAudioInputStreamFactoryClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -170,17 +170,17 @@ blink.mojom.RendererAudioInputStreamFactoryClient.getRemote = function() {
 };
 
 // ParamsSpec for StreamCreated
-blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
+blink.mojom.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererAudioInputStreamFactoryClient.StreamCreated_Params',
       packedSize: 40,
       fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_request', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
-        { name: 'initially_muted', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_request', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
+        { name: 'initially_muted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -188,6 +188,6 @@ blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RendererAudioInputStreamFactoryClientPtr = blink.mojom.RendererAudioInputStreamFactoryClientRemote;
-blink.mojom.RendererAudioInputStreamFactoryClientRequest = blink.mojom.RendererAudioInputStreamFactoryClientPendingReceiver;
+blink.mojom.mojom.RendererAudioInputStreamFactoryClientPtr = blink.mojom.mojom.RendererAudioInputStreamFactoryClientRemote;
+blink.mojom.mojom.RendererAudioInputStreamFactoryClientRequest = blink.mojom.mojom.RendererAudioInputStreamFactoryClientPendingReceiver;
 

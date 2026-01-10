@@ -10,24 +10,24 @@ content_settings.mojom = content_settings.mojom || {};
 
 
 // Interface: ContentSettingsAgent
-content_settings.mojom.ContentSettingsAgent = {};
+content_settings.mojom.mojom.ContentSettingsAgent = {};
 
-content_settings.mojom.ContentSettingsAgentPendingReceiver = class {
+content_settings.mojom.mojom.ContentSettingsAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content_settings.mojom.ContentSettingsAgentRemote = class {
+content_settings.mojom.mojom.ContentSettingsAgentRemote = class {
   static get $interfaceName() {
     return 'content_settings.mojom.ContentSettingsAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content_settings.mojom.ContentSettingsAgentPendingReceiver,
+      content_settings.mojom.mojom.ContentSettingsAgentPendingReceiver,
       handle);
-    this.$ = new content_settings.mojom.ContentSettingsAgentRemoteCallHandler(this.proxy);
+    this.$ = new content_settings.mojom.mojom.ContentSettingsAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ content_settings.mojom.ContentSettingsAgentRemote = class {
   }
 };
 
-content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
+content_settings.mojom.mojom.ContentSettingsAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec,
+      content_settings.mojom.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec,
       null,
       []);
   }
@@ -57,15 +57,15 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec,
+      content_settings.mojom.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec,
       null,
       [renderer_settings]);
   }
 
 };
 
-content_settings.mojom.ContentSettingsAgent.getRemote = function() {
-  let remote = new content_settings.mojom.ContentSettingsAgentRemote();
+content_settings.mojom.mojom.ContentSettingsAgent.getRemote = function() {
+  let remote = new content_settings.mojom.mojom.ContentSettingsAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ content_settings.mojom.ContentSettingsAgent.getRemote = function() {
 };
 
 // ParamsSpec for SetAllowRunningInsecureContent
-content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec = {
+content_settings.mojom.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.ContentSettingsAgent.SetAllowRunningInsecureContent_Params',
@@ -88,7 +88,7 @@ content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Param
 };
 
 // ParamsSpec for SendRendererContentSettingRules
-content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec = {
+content_settings.mojom.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.ContentSettingsAgent.SendRendererContentSettingRules_Params',
@@ -102,6 +102,6 @@ content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Para
 };
 
 // Legacy compatibility
-content_settings.mojom.ContentSettingsAgentPtr = content_settings.mojom.ContentSettingsAgentRemote;
-content_settings.mojom.ContentSettingsAgentRequest = content_settings.mojom.ContentSettingsAgentPendingReceiver;
+content_settings.mojom.mojom.ContentSettingsAgentPtr = content_settings.mojom.mojom.ContentSettingsAgentRemote;
+content_settings.mojom.mojom.ContentSettingsAgentRequest = content_settings.mojom.mojom.ContentSettingsAgentPendingReceiver;
 

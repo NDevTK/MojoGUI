@@ -7,10 +7,13 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Union: TileContents
-viz.mojom.TileContentsSpec = { $: mojo.internal.Union(
+viz.mojom.mojom.TileContentsSpec = { $: mojo.internal.Union(
     'viz.mojom.TileContents', {
       'missing_reason': {
         'ordinal': 0,
@@ -28,7 +31,7 @@ viz.mojom.TileContentsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TileResource
-viz.mojom.TileResourceSpec = {
+viz.mojom.mojom.TileResourceSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TileResource',
@@ -43,16 +46,16 @@ viz.mojom.TileResourceSpec = {
 };
 
 // Struct: Tile
-viz.mojom.TileSpec = {
+viz.mojom.mojom.TileSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tile',
       packedSize: 40,
       fields: [
-        { name: 'column_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'row_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'update_damage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'contents', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.TileContentsSpec, nullable: false, minVersion: 0 },
+        { name: 'column_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'row_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'update_damage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TileContentsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -60,7 +63,7 @@ viz.mojom.TileSpec = {
 };
 
 // Struct: Tiling
-viz.mojom.TilingSpec = {
+viz.mojom.mojom.TilingSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tiling',

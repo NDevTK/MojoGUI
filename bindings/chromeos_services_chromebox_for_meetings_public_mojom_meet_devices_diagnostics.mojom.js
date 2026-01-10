@@ -7,28 +7,28 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
-chromeos.cfm.mojom = chromeos.cfm.mojom || {};
+chromeos.cfm.cfm.mojom = chromeos.cfm.cfm.mojom || {};
 
 
 // Interface: MeetDevicesDiagnostics
-chromeos.cfm.mojom.MeetDevicesDiagnostics = {};
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics = {};
 
-chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver = class {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote = class {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsRemote = class {
   static get $interfaceName() {
     return 'chromeos.cfm.mojom.MeetDevicesDiagnostics';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsPendingReceiver,
       handle);
-    this.$ = new chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote = class {
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +49,8 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec,
-      chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec,
       []);
   }
 
@@ -58,15 +58,15 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec,
-      chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec,
       [pid]);
   }
 
 };
 
-chromeos.cfm.mojom.MeetDevicesDiagnostics.getRemote = function() {
-  let remote = new chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote();
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics.getRemote = function() {
+  let remote = new chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +76,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnostics.getRemote = function() {
 };
 
 // ParamsSpec for GetCrosHealthdTelemetry
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdTelemetry_Params',
@@ -88,7 +88,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdTelemetry_ResponseParams',
@@ -102,7 +102,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParams
 };
 
 // ParamsSpec for GetCrosHealthdProcessInfo
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdProcessInfo_Params',
@@ -115,7 +115,7 @@ chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec =
   }
 };
 
-chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.MeetDevicesDiagnostics.GetCrosHealthdProcessInfo_ResponseParams',
@@ -129,6 +129,6 @@ chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponsePara
 };
 
 // Legacy compatibility
-chromeos.cfm.mojom.MeetDevicesDiagnosticsPtr = chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote;
-chromeos.cfm.mojom.MeetDevicesDiagnosticsRequest = chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver;
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsPtr = chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsRemote;
+chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsRequest = chromeos.cfm.cfm.mojom.mojom.MeetDevicesDiagnosticsPendingReceiver;
 

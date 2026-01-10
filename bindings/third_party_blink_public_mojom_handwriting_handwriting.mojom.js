@@ -7,32 +7,34 @@
 // Module namespace
 var handwriting = handwriting || {};
 handwriting.mojom = handwriting.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: HandwritingRecognitionType
-handwriting.mojom.HandwritingRecognitionType = {
+handwriting.mojom.mojom.HandwritingRecognitionType = {
   kText: 0,
 };
-handwriting.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum() };
+handwriting.mojom.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HandwritingInputType
-handwriting.mojom.HandwritingInputType = {
+handwriting.mojom.mojom.HandwritingInputType = {
   kMouse: 0,
   kStylus: 1,
   kTouch: 2,
 };
-handwriting.mojom.HandwritingInputTypeSpec = { $: mojo.internal.Enum() };
+handwriting.mojom.mojom.HandwritingInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateHandwritingRecognizerResult
-handwriting.mojom.CreateHandwritingRecognizerResult = {
+handwriting.mojom.mojom.CreateHandwritingRecognizerResult = {
   kOk: 0,
   kError: 1,
   kNotSupported: 2,
 };
-handwriting.mojom.CreateHandwritingRecognizerResultSpec = { $: mojo.internal.Enum() };
+handwriting.mojom.mojom.CreateHandwritingRecognizerResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: HandwritingPoint
-handwriting.mojom.HandwritingPointSpec = {
+handwriting.mojom.mojom.HandwritingPointSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingPoint',
@@ -47,7 +49,7 @@ handwriting.mojom.HandwritingPointSpec = {
 };
 
 // Struct: HandwritingStroke
-handwriting.mojom.HandwritingStrokeSpec = {
+handwriting.mojom.mojom.HandwritingStrokeSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingStroke',
@@ -61,7 +63,7 @@ handwriting.mojom.HandwritingStrokeSpec = {
 };
 
 // Struct: HandwritingDrawingSegment
-handwriting.mojom.HandwritingDrawingSegmentSpec = {
+handwriting.mojom.mojom.HandwritingDrawingSegmentSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingDrawingSegment',
@@ -77,16 +79,16 @@ handwriting.mojom.HandwritingDrawingSegmentSpec = {
 };
 
 // Struct: HandwritingSegment
-handwriting.mojom.HandwritingSegmentSpec = {
+handwriting.mojom.mojom.HandwritingSegmentSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingSegment',
       packedSize: 32,
       fields: [
         { name: 'grapheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'begin_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'drawing_segments', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingDrawingSegmentSpec, false), nullable: false, minVersion: 0 },
+        { name: 'begin_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'drawing_segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingDrawingSegmentSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -94,7 +96,7 @@ handwriting.mojom.HandwritingSegmentSpec = {
 };
 
 // Struct: HandwritingPrediction
-handwriting.mojom.HandwritingPredictionSpec = {
+handwriting.mojom.mojom.HandwritingPredictionSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingPrediction',
@@ -109,7 +111,7 @@ handwriting.mojom.HandwritingPredictionSpec = {
 };
 
 // Struct: HandwritingHints
-handwriting.mojom.HandwritingHintsSpec = {
+handwriting.mojom.mojom.HandwritingHintsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingHints',
@@ -126,7 +128,7 @@ handwriting.mojom.HandwritingHintsSpec = {
 };
 
 // Struct: HandwritingHintsQueryResult
-handwriting.mojom.HandwritingHintsQueryResultSpec = {
+handwriting.mojom.mojom.HandwritingHintsQueryResultSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingHintsQueryResult',
@@ -143,15 +145,15 @@ handwriting.mojom.HandwritingHintsQueryResultSpec = {
 };
 
 // Struct: QueryHandwritingRecognizerResult
-handwriting.mojom.QueryHandwritingRecognizerResultSpec = {
+handwriting.mojom.mojom.QueryHandwritingRecognizerResultSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.QueryHandwritingRecognizerResult',
       packedSize: 24,
       fields: [
-        { name: 'text_alternatives', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'text_segmentation', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsQueryResultSpec, nullable: false, minVersion: 0 },
+        { name: 'text_alternatives', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'text_segmentation', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hints', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsQueryResultSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -159,7 +161,7 @@ handwriting.mojom.QueryHandwritingRecognizerResultSpec = {
 };
 
 // Struct: HandwritingModelConstraint
-handwriting.mojom.HandwritingModelConstraintSpec = {
+handwriting.mojom.mojom.HandwritingModelConstraintSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingModelConstraint',
@@ -173,24 +175,24 @@ handwriting.mojom.HandwritingModelConstraintSpec = {
 };
 
 // Interface: HandwritingRecognizer
-handwriting.mojom.HandwritingRecognizer = {};
+handwriting.mojom.mojom.HandwritingRecognizer = {};
 
-handwriting.mojom.HandwritingRecognizerPendingReceiver = class {
+handwriting.mojom.mojom.HandwritingRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-handwriting.mojom.HandwritingRecognizerRemote = class {
+handwriting.mojom.mojom.HandwritingRecognizerRemote = class {
   static get $interfaceName() {
     return 'handwriting.mojom.HandwritingRecognizer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      handwriting.mojom.HandwritingRecognizerPendingReceiver,
+      handwriting.mojom.mojom.HandwritingRecognizerPendingReceiver,
       handle);
-    this.$ = new handwriting.mojom.HandwritingRecognizerRemoteCallHandler(this.proxy);
+    this.$ = new handwriting.mojom.mojom.HandwritingRecognizerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -202,7 +204,7 @@ handwriting.mojom.HandwritingRecognizerRemote = class {
   }
 };
 
-handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
+handwriting.mojom.mojom.HandwritingRecognizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -211,15 +213,15 @@ handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
-      handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
+      handwriting.mojom.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
+      handwriting.mojom.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
       [strokes, hints]);
   }
 
 };
 
-handwriting.mojom.HandwritingRecognizer.getRemote = function() {
-  let remote = new handwriting.mojom.HandwritingRecognizerRemote();
+handwriting.mojom.mojom.HandwritingRecognizer.getRemote = function() {
+  let remote = new handwriting.mojom.mojom.HandwritingRecognizerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +231,7 @@ handwriting.mojom.HandwritingRecognizer.getRemote = function() {
 };
 
 // ParamsSpec for GetPrediction
-handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
+handwriting.mojom.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingRecognizer.GetPrediction_Params',
@@ -243,7 +245,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
   }
 };
 
-handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
+handwriting.mojom.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingRecognizer.GetPrediction_ResponseParams',
@@ -257,29 +259,29 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-handwriting.mojom.HandwritingRecognizerPtr = handwriting.mojom.HandwritingRecognizerRemote;
-handwriting.mojom.HandwritingRecognizerRequest = handwriting.mojom.HandwritingRecognizerPendingReceiver;
+handwriting.mojom.mojom.HandwritingRecognizerPtr = handwriting.mojom.mojom.HandwritingRecognizerRemote;
+handwriting.mojom.mojom.HandwritingRecognizerRequest = handwriting.mojom.mojom.HandwritingRecognizerPendingReceiver;
 
 
 // Interface: HandwritingRecognitionService
-handwriting.mojom.HandwritingRecognitionService = {};
+handwriting.mojom.mojom.HandwritingRecognitionService = {};
 
-handwriting.mojom.HandwritingRecognitionServicePendingReceiver = class {
+handwriting.mojom.mojom.HandwritingRecognitionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-handwriting.mojom.HandwritingRecognitionServiceRemote = class {
+handwriting.mojom.mojom.HandwritingRecognitionServiceRemote = class {
   static get $interfaceName() {
     return 'handwriting.mojom.HandwritingRecognitionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      handwriting.mojom.HandwritingRecognitionServicePendingReceiver,
+      handwriting.mojom.mojom.HandwritingRecognitionServicePendingReceiver,
       handle);
-    this.$ = new handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler(this.proxy);
+    this.$ = new handwriting.mojom.mojom.HandwritingRecognitionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -291,7 +293,7 @@ handwriting.mojom.HandwritingRecognitionServiceRemote = class {
   }
 };
 
-handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
+handwriting.mojom.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -300,8 +302,8 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec,
-      handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
+      handwriting.mojom.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec,
+      handwriting.mojom.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
       [constraint]);
   }
 
@@ -309,15 +311,15 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec,
-      handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
+      handwriting.mojom.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec,
+      handwriting.mojom.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
       [constraint]);
   }
 
 };
 
-handwriting.mojom.HandwritingRecognitionService.getRemote = function() {
-  let remote = new handwriting.mojom.HandwritingRecognitionServiceRemote();
+handwriting.mojom.mojom.HandwritingRecognitionService.getRemote = function() {
+  let remote = new handwriting.mojom.mojom.HandwritingRecognitionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -327,7 +329,7 @@ handwriting.mojom.HandwritingRecognitionService.getRemote = function() {
 };
 
 // ParamsSpec for CreateHandwritingRecognizer
-handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = {
+handwriting.mojom.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_Params',
@@ -340,7 +342,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Para
   }
 };
 
-handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = {
+handwriting.mojom.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_ResponseParams',
@@ -355,7 +357,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Resp
 };
 
 // ParamsSpec for QueryHandwritingRecognizer
-handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = {
+handwriting.mojom.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_Params',
@@ -368,7 +370,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Param
   }
 };
 
-handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = {
+handwriting.mojom.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_ResponseParams',
@@ -382,6 +384,6 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Respo
 };
 
 // Legacy compatibility
-handwriting.mojom.HandwritingRecognitionServicePtr = handwriting.mojom.HandwritingRecognitionServiceRemote;
-handwriting.mojom.HandwritingRecognitionServiceRequest = handwriting.mojom.HandwritingRecognitionServicePendingReceiver;
+handwriting.mojom.mojom.HandwritingRecognitionServicePtr = handwriting.mojom.mojom.HandwritingRecognitionServiceRemote;
+handwriting.mojom.mojom.HandwritingRecognitionServiceRequest = handwriting.mojom.mojom.HandwritingRecognitionServicePendingReceiver;
 

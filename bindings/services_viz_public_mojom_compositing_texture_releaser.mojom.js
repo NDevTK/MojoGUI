@@ -10,24 +10,24 @@ viz.mojom = viz.mojom || {};
 
 
 // Interface: TextureReleaser
-viz.mojom.TextureReleaser = {};
+viz.mojom.mojom.TextureReleaser = {};
 
-viz.mojom.TextureReleaserPendingReceiver = class {
+viz.mojom.mojom.TextureReleaserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.TextureReleaserRemote = class {
+viz.mojom.mojom.TextureReleaserRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.TextureReleaser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.TextureReleaserPendingReceiver,
+      viz.mojom.mojom.TextureReleaserPendingReceiver,
       handle);
-    this.$ = new viz.mojom.TextureReleaserRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.TextureReleaserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ viz.mojom.TextureReleaserRemote = class {
   }
 };
 
-viz.mojom.TextureReleaserRemoteCallHandler = class {
+viz.mojom.mojom.TextureReleaserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ viz.mojom.TextureReleaserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.TextureReleaser_Release_ParamsSpec,
+      viz.mojom.mojom.TextureReleaser_Release_ParamsSpec,
       null,
       [sync_token, is_lost]);
   }
 
 };
 
-viz.mojom.TextureReleaser.getRemote = function() {
-  let remote = new viz.mojom.TextureReleaserRemote();
+viz.mojom.mojom.TextureReleaser.getRemote = function() {
+  let remote = new viz.mojom.mojom.TextureReleaserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ viz.mojom.TextureReleaser.getRemote = function() {
 };
 
 // ParamsSpec for Release
-viz.mojom.TextureReleaser_Release_ParamsSpec = {
+viz.mojom.mojom.TextureReleaser_Release_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TextureReleaser.Release_Params',
@@ -81,6 +81,6 @@ viz.mojom.TextureReleaser_Release_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.TextureReleaserPtr = viz.mojom.TextureReleaserRemote;
-viz.mojom.TextureReleaserRequest = viz.mojom.TextureReleaserPendingReceiver;
+viz.mojom.mojom.TextureReleaserPtr = viz.mojom.mojom.TextureReleaserRemote;
+viz.mojom.mojom.TextureReleaserRequest = viz.mojom.mojom.TextureReleaserPendingReceiver;
 

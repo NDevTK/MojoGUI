@@ -7,18 +7,22 @@
 // Module namespace
 var input = input || {};
 input.mojom = input.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var ui = ui || {};
 
 
 // Struct: RenderInputRouterConfig
-input.mojom.RenderInputRouterConfigSpec = {
+input.mojom.mojom.RenderInputRouterConfigSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterConfig',
       packedSize: 24,
       fields: [
-        { name: 'rir_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'grouping_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'force_enable_zoom', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'rir_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'grouping_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'force_enable_zoom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -26,7 +30,7 @@ input.mojom.RenderInputRouterConfigSpec = {
 };
 
 // Struct: TouchTransferState
-input.mojom.TouchTransferStateSpec = {
+input.mojom.mojom.TouchTransferStateSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.TouchTransferState',
@@ -34,10 +38,10 @@ input.mojom.TouchTransferStateSpec = {
       fields: [
         { name: 'down_time_ms', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
         { name: 'root_widget_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'web_contents_y_offset_pix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'dip_scale', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'browser_would_have_handled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'down_event', packedOffset: 32, packedBitOffset: 0, type: ui.mojom.CachedMotionEventAndroidSpec, nullable: true, minVersion: 0 },
+        { name: 'web_contents_y_offset_pix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'dip_scale', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'browser_would_have_handled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'down_event', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.CachedMotionEventAndroidSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -45,24 +49,24 @@ input.mojom.TouchTransferStateSpec = {
 };
 
 // Interface: RenderInputRouterDelegate
-input.mojom.RenderInputRouterDelegate = {};
+input.mojom.mojom.RenderInputRouterDelegate = {};
 
-input.mojom.RenderInputRouterDelegatePendingReceiver = class {
+input.mojom.mojom.RenderInputRouterDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-input.mojom.RenderInputRouterDelegateRemote = class {
+input.mojom.mojom.RenderInputRouterDelegateRemote = class {
   static get $interfaceName() {
     return 'input.mojom.RenderInputRouterDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      input.mojom.RenderInputRouterDelegatePendingReceiver,
+      input.mojom.mojom.RenderInputRouterDelegatePendingReceiver,
       handle);
-    this.$ = new input.mojom.RenderInputRouterDelegateRemoteCallHandler(this.proxy);
+    this.$ = new input.mojom.mojom.RenderInputRouterDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +78,7 @@ input.mojom.RenderInputRouterDelegateRemote = class {
   }
 };
 
-input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
+input.mojom.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,7 +87,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec,
       null,
       [state]);
   }
@@ -92,7 +96,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec,
       null,
       [force_enable_zoom, frame_sink_id]);
   }
@@ -101,7 +105,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -110,7 +114,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec,
       null,
       [frame_sink_id]);
   }
@@ -119,7 +123,7 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec,
       null,
       [frame_sink_id, is_hidden]);
   }
@@ -128,15 +132,15 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec,
       null,
       [root_widget_frame_sink_id]);
   }
 
 };
 
-input.mojom.RenderInputRouterDelegate.getRemote = function() {
-  let remote = new input.mojom.RenderInputRouterDelegateRemote();
+input.mojom.mojom.RenderInputRouterDelegate.getRemote = function() {
+  let remote = new input.mojom.mojom.RenderInputRouterDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -146,7 +150,7 @@ input.mojom.RenderInputRouterDelegate.getRemote = function() {
 };
 
 // ParamsSpec for StateOnTouchTransfer
-input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegate.StateOnTouchTransfer_Params',
@@ -160,14 +164,14 @@ input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = {
 };
 
 // ParamsSpec for ForceEnableZoomStateChanged
-input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegate.ForceEnableZoomStateChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'force_enable_zoom', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'force_enable_zoom', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -175,7 +179,7 @@ input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for StopFlingingOnViz
-input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegate.StopFlingingOnViz_Params',
@@ -189,7 +193,7 @@ input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = {
 };
 
 // ParamsSpec for RestartInputEventAckTimeoutIfNecessary
-input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegate.RestartInputEventAckTimeoutIfNecessary_Params',
@@ -203,7 +207,7 @@ input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Par
 };
 
 // ParamsSpec for NotifyVisibilityChanged
-input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegate.NotifyVisibilityChanged_Params',
@@ -218,7 +222,7 @@ input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = {
 };
 
 // ParamsSpec for ResetGestureDetection
-input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegate.ResetGestureDetection_Params',
@@ -232,29 +236,29 @@ input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = {
 };
 
 // Legacy compatibility
-input.mojom.RenderInputRouterDelegatePtr = input.mojom.RenderInputRouterDelegateRemote;
-input.mojom.RenderInputRouterDelegateRequest = input.mojom.RenderInputRouterDelegatePendingReceiver;
+input.mojom.mojom.RenderInputRouterDelegatePtr = input.mojom.mojom.RenderInputRouterDelegateRemote;
+input.mojom.mojom.RenderInputRouterDelegateRequest = input.mojom.mojom.RenderInputRouterDelegatePendingReceiver;
 
 
 // Interface: RenderInputRouterDelegateClient
-input.mojom.RenderInputRouterDelegateClient = {};
+input.mojom.mojom.RenderInputRouterDelegateClient = {};
 
-input.mojom.RenderInputRouterDelegateClientPendingReceiver = class {
+input.mojom.mojom.RenderInputRouterDelegateClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-input.mojom.RenderInputRouterDelegateClientRemote = class {
+input.mojom.mojom.RenderInputRouterDelegateClientRemote = class {
   static get $interfaceName() {
     return 'input.mojom.RenderInputRouterDelegateClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      input.mojom.RenderInputRouterDelegateClientPendingReceiver,
+      input.mojom.mojom.RenderInputRouterDelegateClientPendingReceiver,
       handle);
-    this.$ = new input.mojom.RenderInputRouterDelegateClientRemoteCallHandler(this.proxy);
+    this.$ = new input.mojom.mojom.RenderInputRouterDelegateClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -266,7 +270,7 @@ input.mojom.RenderInputRouterDelegateClientRemote = class {
   }
 };
 
-input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
+input.mojom.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -275,7 +279,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec,
       null,
       [event, dispatched_to_renderer]);
   }
@@ -284,7 +288,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec,
       null,
       [ack_source, ack_result, event]);
   }
@@ -293,7 +297,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec,
       null,
       []);
   }
@@ -302,7 +306,7 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec,
       null,
       [overscroll]);
   }
@@ -311,15 +315,15 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec,
+      input.mojom.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec,
       null,
       [is_responsive, ack_timeout_ts]);
   }
 
 };
 
-input.mojom.RenderInputRouterDelegateClient.getRemote = function() {
-  let remote = new input.mojom.RenderInputRouterDelegateClientRemote();
+input.mojom.mojom.RenderInputRouterDelegateClient.getRemote = function() {
+  let remote = new input.mojom.mojom.RenderInputRouterDelegateClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -329,7 +333,7 @@ input.mojom.RenderInputRouterDelegateClient.getRemote = function() {
 };
 
 // ParamsSpec for NotifyObserversOfInputEvent
-input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegateClient.NotifyObserversOfInputEvent_Params',
@@ -344,15 +348,15 @@ input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSp
 };
 
 // ParamsSpec for NotifyObserversOfInputEventAcks
-input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegateClient.NotifyObserversOfInputEventAcks_Params',
       packedSize: 24,
       fields: [
-        { name: 'ack_source', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InputEventResultSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'ack_result', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.InputEventResultStateSpec, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
+        { name: 'ack_source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InputEventResultSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'ack_result', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.InputEventResultStateSpec, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EventSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -360,7 +364,7 @@ input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Para
 };
 
 // ParamsSpec for OnInvalidInputEventSource
-input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegateClient.OnInvalidInputEventSource_Params',
@@ -373,7 +377,7 @@ input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec
 };
 
 // ParamsSpec for StateOnOverscrollTransfer
-input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegateClient.StateOnOverscrollTransfer_Params',
@@ -387,14 +391,14 @@ input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec
 };
 
 // ParamsSpec for RendererInputResponsivenessChanged
-input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = {
+input.mojom.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterDelegateClient.RendererInputResponsivenessChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'is_responsive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ack_timeout_ts', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'is_responsive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ack_timeout_ts', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -402,6 +406,6 @@ input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_P
 };
 
 // Legacy compatibility
-input.mojom.RenderInputRouterDelegateClientPtr = input.mojom.RenderInputRouterDelegateClientRemote;
-input.mojom.RenderInputRouterDelegateClientRequest = input.mojom.RenderInputRouterDelegateClientPendingReceiver;
+input.mojom.mojom.RenderInputRouterDelegateClientPtr = input.mojom.mojom.RenderInputRouterDelegateClientRemote;
+input.mojom.mojom.RenderInputRouterDelegateClientRequest = input.mojom.mojom.RenderInputRouterDelegateClientPendingReceiver;
 

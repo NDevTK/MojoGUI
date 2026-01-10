@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: ReportBodyElement
-blink.mojom.ReportBodyElementSpec = {
+blink.mojom.mojom.ReportBodyElementSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ReportBodyElement',
@@ -25,7 +26,7 @@ blink.mojom.ReportBodyElementSpec = {
 };
 
 // Struct: ReportBody
-blink.mojom.ReportBodySpec = {
+blink.mojom.mojom.ReportBodySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ReportBody',
@@ -39,7 +40,7 @@ blink.mojom.ReportBodySpec = {
 };
 
 // Struct: Report
-blink.mojom.ReportSpec = {
+blink.mojom.mojom.ReportSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Report',
@@ -55,24 +56,24 @@ blink.mojom.ReportSpec = {
 };
 
 // Interface: ReportingObserver
-blink.mojom.ReportingObserver = {};
+blink.mojom.mojom.ReportingObserver = {};
 
-blink.mojom.ReportingObserverPendingReceiver = class {
+blink.mojom.mojom.ReportingObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ReportingObserverRemote = class {
+blink.mojom.mojom.ReportingObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ReportingObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ReportingObserverPendingReceiver,
+      blink.mojom.mojom.ReportingObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ReportingObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ReportingObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -84,7 +85,7 @@ blink.mojom.ReportingObserverRemote = class {
   }
 };
 
-blink.mojom.ReportingObserverRemoteCallHandler = class {
+blink.mojom.mojom.ReportingObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -93,15 +94,15 @@ blink.mojom.ReportingObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ReportingObserver_Notify_ParamsSpec,
+      blink.mojom.mojom.ReportingObserver_Notify_ParamsSpec,
       null,
       [report]);
   }
 
 };
 
-blink.mojom.ReportingObserver.getRemote = function() {
-  let remote = new blink.mojom.ReportingObserverRemote();
+blink.mojom.mojom.ReportingObserver.getRemote = function() {
+  let remote = new blink.mojom.mojom.ReportingObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -111,7 +112,7 @@ blink.mojom.ReportingObserver.getRemote = function() {
 };
 
 // ParamsSpec for Notify
-blink.mojom.ReportingObserver_Notify_ParamsSpec = {
+blink.mojom.mojom.ReportingObserver_Notify_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ReportingObserver.Notify_Params',
@@ -125,6 +126,6 @@ blink.mojom.ReportingObserver_Notify_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ReportingObserverPtr = blink.mojom.ReportingObserverRemote;
-blink.mojom.ReportingObserverRequest = blink.mojom.ReportingObserverPendingReceiver;
+blink.mojom.mojom.ReportingObserverPtr = blink.mojom.mojom.ReportingObserverRemote;
+blink.mojom.mojom.ReportingObserverRequest = blink.mojom.mojom.ReportingObserverPendingReceiver;
 

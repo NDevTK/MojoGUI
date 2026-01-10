@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
-ash.diagnostics.mojom = ash.diagnostics.mojom || {};
+ash.diagnostics.diagnostics.mojom = ash.diagnostics.diagnostics.mojom || {};
 
 
 // Enum: RoutineType
-ash.diagnostics.mojom.RoutineType = {
+ash.diagnostics.diagnostics.mojom.mojom.RoutineType = {
   kBatteryCharge: 0,
   kBatteryDischarge: 1,
   kCpuCache: 2,
@@ -34,19 +34,19 @@ ash.diagnostics.mojom.RoutineType = {
   kArcPing: 19,
   kArcDnsResolution: 20,
 };
-ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.diagnostics.mojom.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StandardRoutineResult
-ash.diagnostics.mojom.StandardRoutineResult = {
+ash.diagnostics.diagnostics.mojom.mojom.StandardRoutineResult = {
   kTestPassed: 0,
   kTestFailed: 1,
   kExecutionError: 2,
   kUnableToRun: 3,
 };
-ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.diagnostics.mojom.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
 
 // Union: RoutineResult
-ash.diagnostics.mojom.RoutineResultSpec = { $: mojo.internal.Union(
+ash.diagnostics.diagnostics.mojom.mojom.RoutineResultSpec = { $: mojo.internal.Union(
     'ash.diagnostics.mojom.RoutineResult', {
       'simple_result': {
         'ordinal': 0,
@@ -60,15 +60,15 @@ ash.diagnostics.mojom.RoutineResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: PowerRoutineResult
-ash.diagnostics.mojom.PowerRoutineResultSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.PowerRoutineResultSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.PowerRoutineResult',
       packedSize: 24,
       fields: [
-        { name: 'simple_result', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.StandardRoutineResultSpec, nullable: false, minVersion: 0 },
-        { name: 'percent_change', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'time_elapsed_seconds', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'simple_result', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.StandardRoutineResultSpec, nullable: false, minVersion: 0 },
+        { name: 'percent_change', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'time_elapsed_seconds', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -76,14 +76,14 @@ ash.diagnostics.mojom.PowerRoutineResultSpec = {
 };
 
 // Struct: RoutineResultInfo
-ash.diagnostics.mojom.RoutineResultInfoSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.RoutineResultInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.RoutineResultInfo',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -91,24 +91,24 @@ ash.diagnostics.mojom.RoutineResultInfoSpec = {
 };
 
 // Interface: RoutineRunner
-ash.diagnostics.mojom.RoutineRunner = {};
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunner = {};
 
-ash.diagnostics.mojom.RoutineRunnerPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.RoutineRunnerRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.RoutineRunner';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.RoutineRunnerPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -120,7 +120,7 @@ ash.diagnostics.mojom.RoutineRunnerRemote = class {
   }
 };
 
-ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -129,15 +129,15 @@ ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
       null,
       [info]);
   }
 
 };
 
-ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.RoutineRunnerRemote();
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunner.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -147,7 +147,7 @@ ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
 };
 
 // ParamsSpec for OnRoutineResult
-ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.RoutineRunner.OnRoutineResult_Params',
@@ -161,29 +161,29 @@ ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.RoutineRunnerPtr = ash.diagnostics.mojom.RoutineRunnerRemote;
-ash.diagnostics.mojom.RoutineRunnerRequest = ash.diagnostics.mojom.RoutineRunnerPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerPtr = ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerRemote;
+ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerRequest = ash.diagnostics.diagnostics.mojom.mojom.RoutineRunnerPendingReceiver;
 
 
 // Interface: SystemRoutineController
-ash.diagnostics.mojom.SystemRoutineController = {};
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController = {};
 
-ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.SystemRoutineControllerRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.SystemRoutineController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -195,7 +195,7 @@ ash.diagnostics.mojom.SystemRoutineControllerRemote = class {
   }
 };
 
-ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -204,8 +204,8 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
-      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
       []);
   }
 
@@ -213,15 +213,15 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
       null,
       [type, runner]);
   }
 
 };
 
-ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.SystemRoutineControllerRemote();
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -231,7 +231,7 @@ ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
 };
 
 // ParamsSpec for GetSupportedRoutines
-ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemRoutineController.GetSupportedRoutines_Params',
@@ -243,7 +243,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = 
   }
 };
 
-ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemRoutineController.GetSupportedRoutines_ResponseParams',
@@ -257,7 +257,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParam
 };
 
 // ParamsSpec for RunRoutine
-ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemRoutineController.RunRoutine_Params',
@@ -272,6 +272,6 @@ ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.SystemRoutineControllerPtr = ash.diagnostics.mojom.SystemRoutineControllerRemote;
-ash.diagnostics.mojom.SystemRoutineControllerRequest = ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerPtr = ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerRemote;
+ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerRequest = ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineControllerPendingReceiver;
 

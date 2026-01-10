@@ -10,24 +10,24 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: StructuredHeadersParser
-data_decoder.mojom.StructuredHeadersParser = {};
+data_decoder.mojom.mojom.StructuredHeadersParser = {};
 
-data_decoder.mojom.StructuredHeadersParserPendingReceiver = class {
+data_decoder.mojom.mojom.StructuredHeadersParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-data_decoder.mojom.StructuredHeadersParserRemote = class {
+data_decoder.mojom.mojom.StructuredHeadersParserRemote = class {
   static get $interfaceName() {
     return 'data_decoder.mojom.StructuredHeadersParser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      data_decoder.mojom.StructuredHeadersParserPendingReceiver,
+      data_decoder.mojom.mojom.StructuredHeadersParserPendingReceiver,
       handle);
-    this.$ = new data_decoder.mojom.StructuredHeadersParserRemoteCallHandler(this.proxy);
+    this.$ = new data_decoder.mojom.mojom.StructuredHeadersParserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ data_decoder.mojom.StructuredHeadersParserRemote = class {
   }
 };
 
-data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
+data_decoder.mojom.mojom.StructuredHeadersParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec,
-      data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec,
+      data_decoder.mojom.mojom.StructuredHeadersParser_ParseItem_ParamsSpec,
+      data_decoder.mojom.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec,
       [header]);
   }
 
@@ -57,8 +57,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec,
-      data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec,
+      data_decoder.mojom.mojom.StructuredHeadersParser_ParseList_ParamsSpec,
+      data_decoder.mojom.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec,
       [header]);
   }
 
@@ -66,15 +66,15 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec,
-      data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec,
+      data_decoder.mojom.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec,
+      data_decoder.mojom.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec,
       [header]);
   }
 
 };
 
-data_decoder.mojom.StructuredHeadersParser.getRemote = function() {
-  let remote = new data_decoder.mojom.StructuredHeadersParserRemote();
+data_decoder.mojom.mojom.StructuredHeadersParser.getRemote = function() {
+  let remote = new data_decoder.mojom.mojom.StructuredHeadersParserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ data_decoder.mojom.StructuredHeadersParser.getRemote = function() {
 };
 
 // ParamsSpec for ParseItem
-data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = {
+data_decoder.mojom.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.StructuredHeadersParser.ParseItem_Params',
@@ -97,7 +97,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = {
   }
 };
 
-data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = {
+data_decoder.mojom.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.StructuredHeadersParser.ParseItem_ResponseParams',
@@ -111,7 +111,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ParseList
-data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = {
+data_decoder.mojom.mojom.StructuredHeadersParser_ParseList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.StructuredHeadersParser.ParseList_Params',
@@ -124,7 +124,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = {
   }
 };
 
-data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = {
+data_decoder.mojom.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.StructuredHeadersParser.ParseList_ResponseParams',
@@ -138,7 +138,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ParseDictionary
-data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = {
+data_decoder.mojom.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.StructuredHeadersParser.ParseDictionary_Params',
@@ -151,7 +151,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = {
   }
 };
 
-data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = {
+data_decoder.mojom.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.StructuredHeadersParser.ParseDictionary_ResponseParams',
@@ -165,6 +165,6 @@ data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-data_decoder.mojom.StructuredHeadersParserPtr = data_decoder.mojom.StructuredHeadersParserRemote;
-data_decoder.mojom.StructuredHeadersParserRequest = data_decoder.mojom.StructuredHeadersParserPendingReceiver;
+data_decoder.mojom.mojom.StructuredHeadersParserPtr = data_decoder.mojom.mojom.StructuredHeadersParserRemote;
+data_decoder.mojom.mojom.StructuredHeadersParserRequest = data_decoder.mojom.mojom.StructuredHeadersParserPendingReceiver;
 

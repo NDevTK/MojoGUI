@@ -7,10 +7,11 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Struct: OriginWithPossibleWildcards
-network.mojom.OriginWithPossibleWildcardsSpec = {
+network.mojom.mojom.OriginWithPossibleWildcardsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.OriginWithPossibleWildcards',
@@ -28,18 +29,18 @@ network.mojom.OriginWithPossibleWildcardsSpec = {
 };
 
 // Struct: ParsedPermissionsPolicyDeclaration
-network.mojom.ParsedPermissionsPolicyDeclarationSpec = {
+network.mojom.mojom.ParsedPermissionsPolicyDeclarationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ParsedPermissionsPolicyDeclaration',
       packedSize: 40,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: network.mojom.PermissionsPolicyFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'allowed_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.OriginWithPossibleWildcardsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'self_if_matches', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'matches_all_origins', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'matches_opaque_src', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reporting_endpoint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'feature', packedOffset: 24, packedBitOffset: 0, type: network.mojom.PermissionsPolicyFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'allowed_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.OriginWithPossibleWildcardsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'self_if_matches', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
+        { name: 'matches_all_origins', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'matches_opaque_src', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reporting_endpoint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -47,16 +48,16 @@ network.mojom.ParsedPermissionsPolicyDeclarationSpec = {
 };
 
 // Struct: PermissionsPolicy
-network.mojom.PermissionsPolicySpec = {
+network.mojom.mojom.PermissionsPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.PermissionsPolicy',
       packedSize: 40,
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'headerless', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'declarations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'inherited_policies', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'headerless', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'declarations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
+        { name: 'inherited_policies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

@@ -7,29 +7,50 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var url = url || {};
+var url = url || {};
 
 
-blink.mojom.kPushEventTimeoutSeconds = 90;
+blink.mojom.mojom.kPushEventTimeoutSeconds = 90;
 
-blink.mojom.kServiceWorkerDefaultIdleDelayInSeconds = 30;
+blink.mojom.mojom.kServiceWorkerDefaultIdleDelayInSeconds = 30;
 
 // Enum: FocusError
-blink.mojom.FocusError = {
+blink.mojom.mojom.FocusError = {
   CLIENT_NOT_FOUND: 0,
   CLIENT_INACTIVE: 1,
 };
-blink.mojom.FocusErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.FocusErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchHandlerExistence
-blink.mojom.FetchHandlerExistence = {
+blink.mojom.mojom.FetchHandlerExistence = {
   UNKNOWN: 0,
   EXISTS: 1,
   DOES_NOT_EXIST: 2,
 };
-blink.mojom.FetchHandlerExistenceSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.FetchHandlerExistenceSpec = { $: mojo.internal.Enum() };
 
 // Union: FocusResult
-blink.mojom.FocusResultSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.FocusResultSpec = { $: mojo.internal.Union(
     'blink.mojom.FocusResult', {
       'client': {
         'ordinal': 0,
@@ -43,7 +64,7 @@ blink.mojom.FocusResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ExtendableMessageEvent
-blink.mojom.ExtendableMessageEventSpec = {
+blink.mojom.mojom.ExtendableMessageEventSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ExtendableMessageEvent',
@@ -60,24 +81,24 @@ blink.mojom.ExtendableMessageEventSpec = {
 };
 
 // Interface: ServiceWorkerHost
-blink.mojom.ServiceWorkerHost = {};
+blink.mojom.mojom.ServiceWorkerHost = {};
 
-blink.mojom.ServiceWorkerHostPendingReceiver = class {
+blink.mojom.mojom.ServiceWorkerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ServiceWorkerHostRemote = class {
+blink.mojom.mojom.ServiceWorkerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ServiceWorkerHostPendingReceiver,
+      blink.mojom.mojom.ServiceWorkerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ServiceWorkerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ServiceWorkerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -89,7 +110,7 @@ blink.mojom.ServiceWorkerHostRemote = class {
   }
 };
 
-blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
+blink.mojom.mojom.ServiceWorkerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -98,7 +119,7 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec,
       null,
       [url, data]);
   }
@@ -107,7 +128,7 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec,
       null,
       [url]);
   }
@@ -116,8 +137,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_GetClients_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec,
       [options]);
   }
 
@@ -125,8 +146,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_GetClient_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec,
       [client_uuid]);
   }
 
@@ -134,8 +155,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec,
       [url]);
   }
 
@@ -143,8 +164,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec,
       [url]);
   }
 
@@ -152,7 +173,7 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec,
       null,
       [client_uuid, message]);
   }
@@ -161,8 +182,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_FocusClient_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec,
       [client_uuid]);
   }
 
@@ -170,8 +191,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec,
       [client_uuid, url]);
   }
 
@@ -179,8 +200,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec,
       []);
   }
 
@@ -188,8 +209,8 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec,
       []);
   }
 
@@ -197,15 +218,15 @@ blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec,
-      blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec,
       [rules]);
   }
 
 };
 
-blink.mojom.ServiceWorkerHost.getRemote = function() {
-  let remote = new blink.mojom.ServiceWorkerHostRemote();
+blink.mojom.mojom.ServiceWorkerHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.ServiceWorkerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -215,7 +236,7 @@ blink.mojom.ServiceWorkerHost.getRemote = function() {
 };
 
 // ParamsSpec for SetCachedMetadata
-blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.SetCachedMetadata_Params',
@@ -230,7 +251,7 @@ blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec = {
 };
 
 // ParamsSpec for ClearCachedMetadata
-blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.ClearCachedMetadata_Params',
@@ -244,7 +265,7 @@ blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec = {
 };
 
 // ParamsSpec for GetClients
-blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.GetClients_Params',
@@ -257,7 +278,7 @@ blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.GetClients_ResponseParams',
@@ -271,7 +292,7 @@ blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetClient
-blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.GetClient_Params',
@@ -284,7 +305,7 @@ blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.GetClient_ResponseParams',
@@ -298,7 +319,7 @@ blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenNewTab
-blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.OpenNewTab_Params',
@@ -311,15 +332,15 @@ blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.OpenNewTab_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -327,7 +348,7 @@ blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenPaymentHandlerWindow
-blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.OpenPaymentHandlerWindow_Params',
@@ -340,15 +361,15 @@ blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.OpenPaymentHandlerWindow_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -356,7 +377,7 @@ blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PostMessageToClient
-blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.PostMessageToClient_Params',
@@ -371,7 +392,7 @@ blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec = {
 };
 
 // ParamsSpec for FocusClient
-blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.FocusClient_Params',
@@ -384,7 +405,7 @@ blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.FocusClient_ResponseParams',
@@ -398,7 +419,7 @@ blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for NavigateClient
-blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.NavigateClient_Params',
@@ -412,15 +433,15 @@ blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.NavigateClient_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -428,7 +449,7 @@ blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SkipWaiting
-blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.SkipWaiting_Params',
@@ -440,7 +461,7 @@ blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.SkipWaiting_ResponseParams',
@@ -454,7 +475,7 @@ blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ClaimClients
-blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.ClaimClients_Params',
@@ -466,14 +487,14 @@ blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.ClaimClients_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'error_msg', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -481,7 +502,7 @@ blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddRoutes
-blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.AddRoutes_Params',
@@ -494,7 +515,7 @@ blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerHost.AddRoutes_ResponseParams',
@@ -508,29 +529,29 @@ blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ServiceWorkerHostPtr = blink.mojom.ServiceWorkerHostRemote;
-blink.mojom.ServiceWorkerHostRequest = blink.mojom.ServiceWorkerHostPendingReceiver;
+blink.mojom.mojom.ServiceWorkerHostPtr = blink.mojom.mojom.ServiceWorkerHostRemote;
+blink.mojom.mojom.ServiceWorkerHostRequest = blink.mojom.mojom.ServiceWorkerHostPendingReceiver;
 
 
 // Interface: ServiceWorker
-blink.mojom.ServiceWorker = {};
+blink.mojom.mojom.ServiceWorker = {};
 
-blink.mojom.ServiceWorkerPendingReceiver = class {
+blink.mojom.mojom.ServiceWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ServiceWorkerRemote = class {
+blink.mojom.mojom.ServiceWorkerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ServiceWorkerPendingReceiver,
+      blink.mojom.mojom.ServiceWorkerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ServiceWorkerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ServiceWorkerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -542,7 +563,7 @@ blink.mojom.ServiceWorkerRemote = class {
   }
 };
 
-blink.mojom.ServiceWorkerRemoteCallHandler = class {
+blink.mojom.mojom.ServiceWorkerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -551,7 +572,7 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec,
       null,
       [service_worker_host, associated_interfaces_to_browser, associated_interfaces_from_browser, registration_info, service_worker_info, fetch_handler_existence, ancestor_frame_type, storage_key]);
   }
@@ -560,8 +581,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec,
       []);
   }
 
@@ -569,8 +590,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec,
       []);
   }
 
@@ -578,8 +599,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec,
       [registration]);
   }
 
@@ -587,8 +608,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec,
       [registration]);
   }
 
@@ -596,8 +617,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec,
       [registration]);
   }
 
@@ -605,8 +626,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec,
       [registration]);
   }
 
@@ -614,8 +635,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec,
       [change]);
   }
 
@@ -623,8 +644,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec,
       [params, response_callback]);
   }
 
@@ -632,8 +653,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec,
       [notification_id, notification_data, action_index, reply]);
   }
 
@@ -641,8 +662,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec,
       [notification_id, notification_data]);
   }
 
@@ -650,8 +671,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec,
       [payload]);
   }
 
@@ -659,8 +680,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec,
       [payload]);
   }
 
@@ -668,8 +689,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec,
       [old_subscription, new_subscription]);
   }
 
@@ -677,8 +698,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec,
       [tag, last_chance, timeout]);
   }
 
@@ -686,8 +707,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec,
       [tag, timeout]);
   }
 
@@ -695,8 +716,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec,
       [result_of_abort_payment]);
   }
 
@@ -704,8 +725,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec,
       [event_data, result_of_can_make_payment]);
   }
 
@@ -713,8 +734,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec,
       [request_data, response_callback]);
   }
 
@@ -722,8 +743,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec,
       [event]);
   }
 
@@ -731,8 +752,8 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec,
-      blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec,
       [id]);
   }
 
@@ -740,7 +761,7 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      blink.mojom.ServiceWorker_Ping_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_Ping_ParamsSpec,
       null,
       []);
   }
@@ -749,7 +770,7 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_SetIdleDelay_ParamsSpec,
       null,
       [delay]);
   }
@@ -758,7 +779,7 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_AddKeepAlive_ParamsSpec,
       null,
       []);
   }
@@ -767,7 +788,7 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec,
       null,
       []);
   }
@@ -776,7 +797,7 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec,
       null,
       [level, message]);
   }
@@ -785,15 +806,15 @@ blink.mojom.ServiceWorkerRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec,
-      blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec,
+      blink.mojom.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec,
+      blink.mojom.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec,
       [javascript, wants_result]);
   }
 
 };
 
-blink.mojom.ServiceWorker.getRemote = function() {
-  let remote = new blink.mojom.ServiceWorkerRemote();
+blink.mojom.mojom.ServiceWorker.getRemote = function() {
+  let remote = new blink.mojom.mojom.ServiceWorkerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -803,20 +824,20 @@ blink.mojom.ServiceWorker.getRemote = function() {
 };
 
 // ParamsSpec for InitializeGlobalScope
-blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.InitializeGlobalScope_Params',
       packedSize: 56,
       fields: [
-        { name: 'service_worker_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_to_browser', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_from_browser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'registration_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_handler_existence', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false, minVersion: 0 },
-        { name: 'ancestor_frame_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'associated_interfaces_to_browser', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'associated_interfaces_from_browser', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'fetch_handler_existence', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false, minVersion: 0 },
+        { name: 'ancestor_frame_type', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'storage_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -824,7 +845,7 @@ blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
 };
 
 // ParamsSpec for DispatchInstallEvent
-blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchInstallEvent_Params',
@@ -836,7 +857,7 @@ blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchInstallEvent_ResponseParams',
@@ -851,7 +872,7 @@ blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchActivateEvent
-blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchActivateEvent_Params',
@@ -863,7 +884,7 @@ blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchActivateEvent_ResponseParams',
@@ -877,7 +898,7 @@ blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchBackgroundFetchAbortEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchAbortEvent_Params',
@@ -890,7 +911,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchAbortEvent_ResponseParams',
@@ -904,7 +925,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec =
 };
 
 // ParamsSpec for DispatchBackgroundFetchClickEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchClickEvent_Params',
@@ -917,7 +938,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchClickEvent_ResponseParams',
@@ -931,7 +952,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec =
 };
 
 // ParamsSpec for DispatchBackgroundFetchFailEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchFailEvent_Params',
@@ -944,7 +965,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchFailEvent_ResponseParams',
@@ -958,7 +979,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = 
 };
 
 // ParamsSpec for DispatchBackgroundFetchSuccessEvent
-blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchSuccessEvent_Params',
@@ -971,7 +992,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchSuccessEvent_ResponseParams',
@@ -985,7 +1006,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec
 };
 
 // ParamsSpec for DispatchCookieChangeEvent
-blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchCookieChangeEvent_Params',
@@ -998,7 +1019,7 @@ blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchCookieChangeEvent_ResponseParams',
@@ -1012,7 +1033,7 @@ blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchFetchEventForMainResource
-blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchFetchEventForMainResource_Params',
@@ -1026,7 +1047,7 @@ blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchFetchEventForMainResource_ResponseParams',
@@ -1040,7 +1061,7 @@ blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec =
 };
 
 // ParamsSpec for DispatchNotificationClickEvent
-blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationClickEvent_Params',
@@ -1048,15 +1069,15 @@ blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
       fields: [
         { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'action_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reply', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'action_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationClickEvent_ResponseParams',
@@ -1070,7 +1091,7 @@ blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchNotificationCloseEvent
-blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationCloseEvent_Params',
@@ -1084,7 +1105,7 @@ blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchNotificationCloseEvent_ResponseParams',
@@ -1098,7 +1119,7 @@ blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchPushEvent
-blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPushEvent_Params',
@@ -1111,7 +1132,7 @@ blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPushEvent_ResponseParams',
@@ -1125,7 +1146,7 @@ blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchPushEventRecordingNetworkRequests
-blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPushEventRecordingNetworkRequests_Params',
@@ -1138,14 +1159,14 @@ blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec =
   }
 };
 
-blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPushEventRecordingNetworkRequests_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'requested_urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'requested_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1153,7 +1174,7 @@ blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponsePara
 };
 
 // ParamsSpec for DispatchPushSubscriptionChangeEvent
-blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPushSubscriptionChangeEvent_Params',
@@ -1167,7 +1188,7 @@ blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPushSubscriptionChangeEvent_ResponseParams',
@@ -1181,22 +1202,22 @@ blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec
 };
 
 // ParamsSpec for DispatchSyncEvent
-blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchSyncEvent_Params',
       packedSize: 32,
       fields: [
         { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'last_chance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'last_chance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'timeout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchSyncEvent_ResponseParams',
@@ -1210,7 +1231,7 @@ blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchPeriodicSyncEvent
-blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPeriodicSyncEvent_Params',
@@ -1224,7 +1245,7 @@ blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPeriodicSyncEvent_ResponseParams',
@@ -1238,7 +1259,7 @@ blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchAbortPaymentEvent
-blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_Params',
@@ -1251,7 +1272,7 @@ blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_ResponseParams',
@@ -1265,7 +1286,7 @@ blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchCanMakePaymentEvent
-blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchCanMakePaymentEvent_Params',
@@ -1279,7 +1300,7 @@ blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchCanMakePaymentEvent_ResponseParams',
@@ -1293,7 +1314,7 @@ blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchPaymentRequestEvent
-blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPaymentRequestEvent_Params',
@@ -1307,7 +1328,7 @@ blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchPaymentRequestEvent_ResponseParams',
@@ -1321,7 +1342,7 @@ blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchExtendableMessageEvent
-blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchExtendableMessageEvent_Params',
@@ -1334,7 +1355,7 @@ blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchExtendableMessageEvent_ResponseParams',
@@ -1348,7 +1369,7 @@ blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DispatchContentDeleteEvent
-blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchContentDeleteEvent_Params',
@@ -1361,7 +1382,7 @@ blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.DispatchContentDeleteEvent_ResponseParams',
@@ -1375,7 +1396,7 @@ blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Ping
-blink.mojom.ServiceWorker_Ping_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_Ping_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.Ping_Params',
@@ -1388,7 +1409,7 @@ blink.mojom.ServiceWorker_Ping_ParamsSpec = {
 };
 
 // ParamsSpec for SetIdleDelay
-blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.SetIdleDelay_Params',
@@ -1402,7 +1423,7 @@ blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec = {
 };
 
 // ParamsSpec for AddKeepAlive
-blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.AddKeepAlive_Params',
@@ -1415,7 +1436,7 @@ blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec = {
 };
 
 // ParamsSpec for ClearKeepAlive
-blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.ClearKeepAlive_Params',
@@ -1428,14 +1449,14 @@ blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec = {
 };
 
 // ParamsSpec for AddMessageToConsole
-blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.AddMessageToConsole_Params',
       packedSize: 24,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ConsoleMessageLevelSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1443,7 +1464,7 @@ blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteScriptForTest
-blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
+blink.mojom.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.ExecuteScriptForTest_Params',
@@ -1457,7 +1478,7 @@ blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
   }
 };
 
-blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
+blink.mojom.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.ExecuteScriptForTest_ResponseParams',
@@ -1472,6 +1493,6 @@ blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ServiceWorkerPtr = blink.mojom.ServiceWorkerRemote;
-blink.mojom.ServiceWorkerRequest = blink.mojom.ServiceWorkerPendingReceiver;
+blink.mojom.mojom.ServiceWorkerPtr = blink.mojom.mojom.ServiceWorkerRemote;
+blink.mojom.mojom.ServiceWorkerRequest = blink.mojom.mojom.ServiceWorkerPendingReceiver;
 

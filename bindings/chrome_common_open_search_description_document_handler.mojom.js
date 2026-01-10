@@ -7,27 +7,28 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var url = url || {};
 
 
 // Interface: OpenSearchDescriptionDocumentHandler
-chrome.mojom.OpenSearchDescriptionDocumentHandler = {};
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler = {};
 
-chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver = class {
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote = class {
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.OpenSearchDescriptionDocumentHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver,
+      chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote = class {
   }
 };
 
-chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
+      chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
       null,
       [page_url, osdd_url]);
   }
 
 };
 
-chrome.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
-  let remote = new chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote();
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
+  let remote = new chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
 };
 
 // ParamsSpec for PageHasOpenSearchDescriptionDocument
-chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = {
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.OpenSearchDescriptionDocumentHandler.PageHasOpenSearchDescriptionDocument_Params',
@@ -81,6 +82,6 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDo
 };
 
 // Legacy compatibility
-chrome.mojom.OpenSearchDescriptionDocumentHandlerPtr = chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote;
-chrome.mojom.OpenSearchDescriptionDocumentHandlerRequest = chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver;
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPtr = chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRemote;
+chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerRequest = chrome.mojom.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver;
 

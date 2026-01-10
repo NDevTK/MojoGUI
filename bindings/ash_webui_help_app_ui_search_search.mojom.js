@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.help_app = ash.help_app || {};
-ash.help_app.mojom = ash.help_app.mojom || {};
+ash.help_app.help_app.mojom = ash.help_app.help_app.mojom || {};
 
 
 // Struct: SearchResult
-ash.help_app.mojom.SearchResultSpec = {
+ash.help_app.help_app.mojom.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.SearchResult',
@@ -30,7 +30,7 @@ ash.help_app.mojom.SearchResultSpec = {
 };
 
 // Struct: SearchConcept
-ash.help_app.mojom.SearchConceptSpec = {
+ash.help_app.help_app.mojom.mojom.SearchConceptSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.SearchConcept',
@@ -50,24 +50,24 @@ ash.help_app.mojom.SearchConceptSpec = {
 };
 
 // Interface: SearchResultsObserver
-ash.help_app.mojom.SearchResultsObserver = {};
+ash.help_app.help_app.mojom.mojom.SearchResultsObserver = {};
 
-ash.help_app.mojom.SearchResultsObserverPendingReceiver = class {
+ash.help_app.help_app.mojom.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.help_app.mojom.SearchResultsObserverRemote = class {
+ash.help_app.help_app.mojom.mojom.SearchResultsObserverRemote = class {
   static get $interfaceName() {
     return 'ash.help_app.mojom.SearchResultsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.help_app.mojom.SearchResultsObserverPendingReceiver,
+      ash.help_app.help_app.mojom.mojom.SearchResultsObserverPendingReceiver,
       handle);
-    this.$ = new ash.help_app.mojom.SearchResultsObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.help_app.help_app.mojom.mojom.SearchResultsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -79,7 +79,7 @@ ash.help_app.mojom.SearchResultsObserverRemote = class {
   }
 };
 
-ash.help_app.mojom.SearchResultsObserverRemoteCallHandler = class {
+ash.help_app.help_app.mojom.mojom.SearchResultsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -88,15 +88,15 @@ ash.help_app.mojom.SearchResultsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec,
+      ash.help_app.help_app.mojom.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.help_app.mojom.SearchResultsObserver.getRemote = function() {
-  let remote = new ash.help_app.mojom.SearchResultsObserverRemote();
+ash.help_app.help_app.mojom.mojom.SearchResultsObserver.getRemote = function() {
+  let remote = new ash.help_app.help_app.mojom.mojom.SearchResultsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -106,7 +106,7 @@ ash.help_app.mojom.SearchResultsObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnSearchResultAvailabilityChanged
-ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec = {
+ash.help_app.help_app.mojom.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.SearchResultsObserver.OnSearchResultAvailabilityChanged_Params',
@@ -119,29 +119,29 @@ ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_Param
 };
 
 // Legacy compatibility
-ash.help_app.mojom.SearchResultsObserverPtr = ash.help_app.mojom.SearchResultsObserverRemote;
-ash.help_app.mojom.SearchResultsObserverRequest = ash.help_app.mojom.SearchResultsObserverPendingReceiver;
+ash.help_app.help_app.mojom.mojom.SearchResultsObserverPtr = ash.help_app.help_app.mojom.mojom.SearchResultsObserverRemote;
+ash.help_app.help_app.mojom.mojom.SearchResultsObserverRequest = ash.help_app.help_app.mojom.mojom.SearchResultsObserverPendingReceiver;
 
 
 // Interface: SearchHandler
-ash.help_app.mojom.SearchHandler = {};
+ash.help_app.help_app.mojom.mojom.SearchHandler = {};
 
-ash.help_app.mojom.SearchHandlerPendingReceiver = class {
+ash.help_app.help_app.mojom.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.help_app.mojom.SearchHandlerRemote = class {
+ash.help_app.help_app.mojom.mojom.SearchHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.help_app.mojom.SearchHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.help_app.mojom.SearchHandlerPendingReceiver,
+      ash.help_app.help_app.mojom.mojom.SearchHandlerPendingReceiver,
       handle);
-    this.$ = new ash.help_app.mojom.SearchHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.help_app.help_app.mojom.mojom.SearchHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -153,7 +153,7 @@ ash.help_app.mojom.SearchHandlerRemote = class {
   }
 };
 
-ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
+ash.help_app.help_app.mojom.mojom.SearchHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -162,8 +162,8 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.help_app.mojom.SearchHandler_Search_ParamsSpec,
-      ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec,
+      ash.help_app.help_app.mojom.mojom.SearchHandler_Search_ParamsSpec,
+      ash.help_app.help_app.mojom.mojom.SearchHandler_Search_ResponseParamsSpec,
       [query, max_num_results]);
   }
 
@@ -171,7 +171,7 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.help_app.mojom.SearchHandler_Update_ParamsSpec,
+      ash.help_app.help_app.mojom.mojom.SearchHandler_Update_ParamsSpec,
       null,
       [concepts]);
   }
@@ -180,15 +180,15 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.help_app.mojom.SearchHandler_Observe_ParamsSpec,
+      ash.help_app.help_app.mojom.mojom.SearchHandler_Observe_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.help_app.mojom.SearchHandler.getRemote = function() {
-  let remote = new ash.help_app.mojom.SearchHandlerRemote();
+ash.help_app.help_app.mojom.mojom.SearchHandler.getRemote = function() {
+  let remote = new ash.help_app.help_app.mojom.mojom.SearchHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -198,7 +198,7 @@ ash.help_app.mojom.SearchHandler.getRemote = function() {
 };
 
 // ParamsSpec for Search
-ash.help_app.mojom.SearchHandler_Search_ParamsSpec = {
+ash.help_app.help_app.mojom.mojom.SearchHandler_Search_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.SearchHandler.Search_Params',
@@ -212,7 +212,7 @@ ash.help_app.mojom.SearchHandler_Search_ParamsSpec = {
   }
 };
 
-ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
+ash.help_app.help_app.mojom.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.SearchHandler.Search_ResponseParams',
@@ -226,7 +226,7 @@ ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Update
-ash.help_app.mojom.SearchHandler_Update_ParamsSpec = {
+ash.help_app.help_app.mojom.mojom.SearchHandler_Update_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.SearchHandler.Update_Params',
@@ -240,7 +240,7 @@ ash.help_app.mojom.SearchHandler_Update_ParamsSpec = {
 };
 
 // ParamsSpec for Observe
-ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = {
+ash.help_app.help_app.mojom.mojom.SearchHandler_Observe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.help_app.mojom.SearchHandler.Observe_Params',
@@ -254,6 +254,6 @@ ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.help_app.mojom.SearchHandlerPtr = ash.help_app.mojom.SearchHandlerRemote;
-ash.help_app.mojom.SearchHandlerRequest = ash.help_app.mojom.SearchHandlerPendingReceiver;
+ash.help_app.help_app.mojom.mojom.SearchHandlerPtr = ash.help_app.help_app.mojom.mojom.SearchHandlerRemote;
+ash.help_app.help_app.mojom.mojom.SearchHandlerRequest = ash.help_app.help_app.mojom.mojom.SearchHandlerPendingReceiver;
 

@@ -7,10 +7,11 @@
 // Module namespace
 var history_embeddings = history_embeddings || {};
 history_embeddings.mojom = history_embeddings.mojom || {};
+var url = url || {};
 
 
 // Enum: AnswerStatus
-history_embeddings.mojom.AnswerStatus = {
+history_embeddings.mojom.mojom.AnswerStatus = {
   kUnspecified: 0,
   kLoading: 1,
   kSuccess: 2,
@@ -20,18 +21,18 @@ history_embeddings.mojom.AnswerStatus = {
   kExecutionCanceled: 6,
   kFiltered: 7,
 };
-history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum() };
+history_embeddings.mojom.mojom.AnswerStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserFeedback
-history_embeddings.mojom.UserFeedback = {
+history_embeddings.mojom.mojom.UserFeedback = {
   kUserFeedbackUnspecified: 0,
   kUserFeedbackNegative: 1,
   kUserFeedbackPositive: 2,
 };
-history_embeddings.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+history_embeddings.mojom.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
 
 // Struct: AnswerData
-history_embeddings.mojom.AnswerDataSpec = {
+history_embeddings.mojom.mojom.AnswerDataSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.AnswerData',
@@ -45,7 +46,7 @@ history_embeddings.mojom.AnswerDataSpec = {
 };
 
 // Struct: SearchResultItem
-history_embeddings.mojom.SearchResultItemSpec = {
+history_embeddings.mojom.mojom.SearchResultItemSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.SearchResultItem',
@@ -67,7 +68,7 @@ history_embeddings.mojom.SearchResultItemSpec = {
 };
 
 // Struct: SearchQuery
-history_embeddings.mojom.SearchQuerySpec = {
+history_embeddings.mojom.mojom.SearchQuerySpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.SearchQuery',
@@ -82,16 +83,16 @@ history_embeddings.mojom.SearchQuerySpec = {
 };
 
 // Struct: SearchResult
-history_embeddings.mojom.SearchResultSpec = {
+history_embeddings.mojom.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.SearchResult',
       packedSize: 40,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'answer_status', packedOffset: 8, packedBitOffset: 0, type: history_embeddings.mojom.AnswerStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'answer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'items', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(history_embeddings.mojom.SearchResultItemSpec, false), nullable: false, minVersion: 0 },
+        { name: 'answer_status', packedOffset: 24, packedBitOffset: 0, type: history_embeddings.mojom.AnswerStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'answer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'items', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(history_embeddings.mojom.SearchResultItemSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -99,24 +100,24 @@ history_embeddings.mojom.SearchResultSpec = {
 };
 
 // Interface: PageHandler
-history_embeddings.mojom.PageHandler = {};
+history_embeddings.mojom.mojom.PageHandler = {};
 
-history_embeddings.mojom.PageHandlerPendingReceiver = class {
+history_embeddings.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_embeddings.mojom.PageHandlerRemote = class {
+history_embeddings.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'history_embeddings.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_embeddings.mojom.PageHandlerPendingReceiver,
+      history_embeddings.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new history_embeddings.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new history_embeddings.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -128,7 +129,7 @@ history_embeddings.mojom.PageHandlerRemote = class {
   }
 };
 
-history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
+history_embeddings.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -137,7 +138,7 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_embeddings.mojom.PageHandler_SetPage_ParamsSpec,
+      history_embeddings.mojom.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
@@ -146,7 +147,7 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_embeddings.mojom.PageHandler_Search_ParamsSpec,
+      history_embeddings.mojom.mojom.PageHandler_Search_ParamsSpec,
       null,
       [query]);
   }
@@ -155,7 +156,7 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec,
+      history_embeddings.mojom.mojom.PageHandler_SendQualityLog_ParamsSpec,
       null,
       [selected_indices, num_entered_chars]);
   }
@@ -164,7 +165,7 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec,
+      history_embeddings.mojom.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec,
       null,
       [nonEmptyResults, userClickedResult, answerShown, answerCitationClicked, otherHistoryResultClicked, queryWordCount]);
   }
@@ -173,7 +174,7 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec,
+      history_embeddings.mojom.mojom.PageHandler_SetUserFeedback_ParamsSpec,
       null,
       [feedback]);
   }
@@ -182,7 +183,7 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec,
+      history_embeddings.mojom.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec,
       null,
       []);
   }
@@ -191,15 +192,15 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec,
+      history_embeddings.mojom.mojom.PageHandler_OpenSettingsPage_ParamsSpec,
       null,
       []);
   }
 
 };
 
-history_embeddings.mojom.PageHandler.getRemote = function() {
-  let remote = new history_embeddings.mojom.PageHandlerRemote();
+history_embeddings.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new history_embeddings.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -209,7 +210,7 @@ history_embeddings.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for SetPage
-history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
+history_embeddings.mojom.mojom.PageHandler_SetPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.SetPage_Params',
@@ -223,7 +224,7 @@ history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = {
 };
 
 // ParamsSpec for Search
-history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
+history_embeddings.mojom.mojom.PageHandler_Search_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.Search_Params',
@@ -237,7 +238,7 @@ history_embeddings.mojom.PageHandler_Search_ParamsSpec = {
 };
 
 // ParamsSpec for SendQualityLog
-history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
+history_embeddings.mojom.mojom.PageHandler_SendQualityLog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.SendQualityLog_Params',
@@ -252,18 +253,18 @@ history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = {
 };
 
 // ParamsSpec for RecordSearchResultsMetrics
-history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
+history_embeddings.mojom.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.RecordSearchResultsMetrics_Params',
       packedSize: 16,
       fields: [
-        { name: 'nonEmptyResults', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'userClickedResult', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'answerShown', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'answerCitationClicked', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'otherHistoryResultClicked', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'queryWordCount', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'nonEmptyResults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'userClickedResult', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'answerShown', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'answerCitationClicked', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'otherHistoryResultClicked', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'queryWordCount', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -271,7 +272,7 @@ history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = {
 };
 
 // ParamsSpec for SetUserFeedback
-history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
+history_embeddings.mojom.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.SetUserFeedback_Params',
@@ -285,7 +286,7 @@ history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
 };
 
 // ParamsSpec for MaybeShowFeaturePromo
-history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
+history_embeddings.mojom.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.MaybeShowFeaturePromo_Params',
@@ -298,7 +299,7 @@ history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = {
 };
 
 // ParamsSpec for OpenSettingsPage
-history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
+history_embeddings.mojom.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.PageHandler.OpenSettingsPage_Params',
@@ -311,29 +312,29 @@ history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = {
 };
 
 // Legacy compatibility
-history_embeddings.mojom.PageHandlerPtr = history_embeddings.mojom.PageHandlerRemote;
-history_embeddings.mojom.PageHandlerRequest = history_embeddings.mojom.PageHandlerPendingReceiver;
+history_embeddings.mojom.mojom.PageHandlerPtr = history_embeddings.mojom.mojom.PageHandlerRemote;
+history_embeddings.mojom.mojom.PageHandlerRequest = history_embeddings.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-history_embeddings.mojom.Page = {};
+history_embeddings.mojom.mojom.Page = {};
 
-history_embeddings.mojom.PagePendingReceiver = class {
+history_embeddings.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_embeddings.mojom.PageRemote = class {
+history_embeddings.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'history_embeddings.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_embeddings.mojom.PagePendingReceiver,
+      history_embeddings.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new history_embeddings.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new history_embeddings.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -345,7 +346,7 @@ history_embeddings.mojom.PageRemote = class {
   }
 };
 
-history_embeddings.mojom.PageRemoteCallHandler = class {
+history_embeddings.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -354,15 +355,15 @@ history_embeddings.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec,
+      history_embeddings.mojom.mojom.Page_SearchResultChanged_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-history_embeddings.mojom.Page.getRemote = function() {
-  let remote = new history_embeddings.mojom.PageRemote();
+history_embeddings.mojom.mojom.Page.getRemote = function() {
+  let remote = new history_embeddings.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -372,7 +373,7 @@ history_embeddings.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for SearchResultChanged
-history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
+history_embeddings.mojom.mojom.Page_SearchResultChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_embeddings.mojom.Page.SearchResultChanged_Params',
@@ -386,6 +387,6 @@ history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-history_embeddings.mojom.PagePtr = history_embeddings.mojom.PageRemote;
-history_embeddings.mojom.PageRequest = history_embeddings.mojom.PagePendingReceiver;
+history_embeddings.mojom.mojom.PagePtr = history_embeddings.mojom.mojom.PageRemote;
+history_embeddings.mojom.mojom.PageRequest = history_embeddings.mojom.mojom.PagePendingReceiver;
 

@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: Code
-mojo_base.mojom.Code = {
+mojo_base.mojom.mojom.Code = {
   kCancelled: 0,
   kUnknown: 1,
   kInvalidArgument: 2,
@@ -28,17 +28,17 @@ mojo_base.mojom.Code = {
   kDataLoss: 14,
   kUnauthenticated: 15,
 };
-mojo_base.mojom.CodeSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.mojom.CodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Error
-mojo_base.mojom.ErrorSpec = {
+mojo_base.mojom.mojom.ErrorSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Error',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.CodeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.CodeSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

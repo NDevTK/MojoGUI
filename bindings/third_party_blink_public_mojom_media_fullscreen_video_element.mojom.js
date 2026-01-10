@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FullscreenVideoElementHandler
-blink.mojom.FullscreenVideoElementHandler = {};
+blink.mojom.mojom.FullscreenVideoElementHandler = {};
 
-blink.mojom.FullscreenVideoElementHandlerPendingReceiver = class {
+blink.mojom.mojom.FullscreenVideoElementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FullscreenVideoElementHandlerRemote = class {
+blink.mojom.mojom.FullscreenVideoElementHandlerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FullscreenVideoElementHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FullscreenVideoElementHandlerPendingReceiver,
+      blink.mojom.mojom.FullscreenVideoElementHandlerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FullscreenVideoElementHandlerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FullscreenVideoElementHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.FullscreenVideoElementHandlerRemote = class {
   }
 };
 
-blink.mojom.FullscreenVideoElementHandlerRemoteCallHandler = class {
+blink.mojom.mojom.FullscreenVideoElementHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.FullscreenVideoElementHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec,
+      blink.mojom.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.FullscreenVideoElementHandler.getRemote = function() {
-  let remote = new blink.mojom.FullscreenVideoElementHandlerRemote();
+blink.mojom.mojom.FullscreenVideoElementHandler.getRemote = function() {
+  let remote = new blink.mojom.mojom.FullscreenVideoElementHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.FullscreenVideoElementHandler.getRemote = function() {
 };
 
 // ParamsSpec for RequestFullscreenVideoElement
-blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec = {
+blink.mojom.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FullscreenVideoElementHandler.RequestFullscreenVideoElement_Params',
@@ -79,6 +79,6 @@ blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSp
 };
 
 // Legacy compatibility
-blink.mojom.FullscreenVideoElementHandlerPtr = blink.mojom.FullscreenVideoElementHandlerRemote;
-blink.mojom.FullscreenVideoElementHandlerRequest = blink.mojom.FullscreenVideoElementHandlerPendingReceiver;
+blink.mojom.mojom.FullscreenVideoElementHandlerPtr = blink.mojom.mojom.FullscreenVideoElementHandlerRemote;
+blink.mojom.mojom.FullscreenVideoElementHandlerRequest = blink.mojom.mojom.FullscreenVideoElementHandlerPendingReceiver;
 

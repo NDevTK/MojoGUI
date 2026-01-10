@@ -7,34 +7,35 @@
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
-ash.settings.mojom = ash.settings.mojom || {};
+ash.settings.settings.mojom = ash.settings.settings.mojom || {};
+var ui = ui || {};
 
 
 // Enum: SearchResultType
-ash.settings.mojom.SearchResultType = {
+ash.settings.settings.mojom.mojom.SearchResultType = {
   kSection: 0,
   kSubpage: 1,
   kSetting: 2,
 };
-ash.settings.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
+ash.settings.settings.mojom.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SearchResultDefaultRank
-ash.settings.mojom.SearchResultDefaultRank = {
+ash.settings.settings.mojom.mojom.SearchResultDefaultRank = {
   kHigh: 0,
   kMedium: 1,
   kLow: 2,
 };
-ash.settings.mojom.SearchResultDefaultRankSpec = { $: mojo.internal.Enum() };
+ash.settings.settings.mojom.mojom.SearchResultDefaultRankSpec = { $: mojo.internal.Enum() };
 
 // Enum: ParentResultBehavior
-ash.settings.mojom.ParentResultBehavior = {
+ash.settings.settings.mojom.mojom.ParentResultBehavior = {
   kAllowParentResults: 0,
   kDoNotIncludeParentResults: 1,
 };
-ash.settings.mojom.ParentResultBehaviorSpec = { $: mojo.internal.Enum() };
+ash.settings.settings.mojom.mojom.ParentResultBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Union: SearchResultIdentifier
-ash.settings.mojom.SearchResultIdentifierSpec = { $: mojo.internal.Union(
+ash.settings.settings.mojom.mojom.SearchResultIdentifierSpec = { $: mojo.internal.Union(
     'ash.settings.mojom.SearchResultIdentifier', {
       'section': {
         'ordinal': 0,
@@ -52,22 +53,22 @@ ash.settings.mojom.SearchResultIdentifierSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SearchResult
-ash.settings.mojom.SearchResultSpec = {
+ash.settings.settings.mojom.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.SearchResult',
       packedSize: 80,
       fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'canonical_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url_path_with_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIconSpec, nullable: false, minVersion: 0 },
-        { name: 'relevance_score', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'settings_page_hierarchy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-        { name: 'default_rank', packedOffset: 28, packedBitOffset: 0, type: ash.settings.mojom.SearchResultDefaultRankSpec, nullable: false, minVersion: 0 },
-        { name: 'was_generated_from_text_match', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 52, packedBitOffset: 0, type: ash.settings.mojom.SearchResultTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIdentifierSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'canonical_text', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url_path_with_parameters', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 56, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIconSpec, nullable: false, minVersion: 0 },
+        { name: 'relevance_score', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'settings_page_hierarchy', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
+        { name: 'default_rank', packedOffset: 60, packedBitOffset: 0, type: ash.settings.mojom.SearchResultDefaultRankSpec, nullable: false, minVersion: 0 },
+        { name: 'was_generated_from_text_match', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: ash.settings.mojom.SearchResultTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIdentifierSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -75,24 +76,24 @@ ash.settings.mojom.SearchResultSpec = {
 };
 
 // Interface: SearchResultsObserver
-ash.settings.mojom.SearchResultsObserver = {};
+ash.settings.settings.mojom.mojom.SearchResultsObserver = {};
 
-ash.settings.mojom.SearchResultsObserverPendingReceiver = class {
+ash.settings.settings.mojom.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.mojom.SearchResultsObserverRemote = class {
+ash.settings.settings.mojom.mojom.SearchResultsObserverRemote = class {
   static get $interfaceName() {
     return 'ash.settings.mojom.SearchResultsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.mojom.SearchResultsObserverPendingReceiver,
+      ash.settings.settings.mojom.mojom.SearchResultsObserverPendingReceiver,
       handle);
-    this.$ = new ash.settings.mojom.SearchResultsObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.settings.mojom.mojom.SearchResultsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -104,7 +105,7 @@ ash.settings.mojom.SearchResultsObserverRemote = class {
   }
 };
 
-ash.settings.mojom.SearchResultsObserverRemoteCallHandler = class {
+ash.settings.settings.mojom.mojom.SearchResultsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -113,15 +114,15 @@ ash.settings.mojom.SearchResultsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
+      ash.settings.settings.mojom.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.settings.mojom.SearchResultsObserver.getRemote = function() {
-  let remote = new ash.settings.mojom.SearchResultsObserverRemote();
+ash.settings.settings.mojom.mojom.SearchResultsObserver.getRemote = function() {
+  let remote = new ash.settings.settings.mojom.mojom.SearchResultsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -131,7 +132,7 @@ ash.settings.mojom.SearchResultsObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnSearchResultsChanged
-ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
+ash.settings.settings.mojom.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.SearchResultsObserver.OnSearchResultsChanged_Params',
@@ -144,29 +145,29 @@ ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.settings.mojom.SearchResultsObserverPtr = ash.settings.mojom.SearchResultsObserverRemote;
-ash.settings.mojom.SearchResultsObserverRequest = ash.settings.mojom.SearchResultsObserverPendingReceiver;
+ash.settings.settings.mojom.mojom.SearchResultsObserverPtr = ash.settings.settings.mojom.mojom.SearchResultsObserverRemote;
+ash.settings.settings.mojom.mojom.SearchResultsObserverRequest = ash.settings.settings.mojom.mojom.SearchResultsObserverPendingReceiver;
 
 
 // Interface: SearchHandler
-ash.settings.mojom.SearchHandler = {};
+ash.settings.settings.mojom.mojom.SearchHandler = {};
 
-ash.settings.mojom.SearchHandlerPendingReceiver = class {
+ash.settings.settings.mojom.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.mojom.SearchHandlerRemote = class {
+ash.settings.settings.mojom.mojom.SearchHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.settings.mojom.SearchHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.mojom.SearchHandlerPendingReceiver,
+      ash.settings.settings.mojom.mojom.SearchHandlerPendingReceiver,
       handle);
-    this.$ = new ash.settings.mojom.SearchHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.settings.mojom.mojom.SearchHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -178,7 +179,7 @@ ash.settings.mojom.SearchHandlerRemote = class {
   }
 };
 
-ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
+ash.settings.settings.mojom.mojom.SearchHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -187,8 +188,8 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.mojom.SearchHandler_Search_ParamsSpec,
-      ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec,
+      ash.settings.settings.mojom.mojom.SearchHandler_Search_ParamsSpec,
+      ash.settings.settings.mojom.mojom.SearchHandler_Search_ResponseParamsSpec,
       [query, max_num_results, parent_result_behavior]);
   }
 
@@ -196,15 +197,15 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.settings.mojom.SearchHandler_Observe_ParamsSpec,
+      ash.settings.settings.mojom.mojom.SearchHandler_Observe_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-ash.settings.mojom.SearchHandler.getRemote = function() {
-  let remote = new ash.settings.mojom.SearchHandlerRemote();
+ash.settings.settings.mojom.mojom.SearchHandler.getRemote = function() {
+  let remote = new ash.settings.settings.mojom.mojom.SearchHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -214,7 +215,7 @@ ash.settings.mojom.SearchHandler.getRemote = function() {
 };
 
 // ParamsSpec for Search
-ash.settings.mojom.SearchHandler_Search_ParamsSpec = {
+ash.settings.settings.mojom.mojom.SearchHandler_Search_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.SearchHandler.Search_Params',
@@ -229,7 +230,7 @@ ash.settings.mojom.SearchHandler_Search_ParamsSpec = {
   }
 };
 
-ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec = {
+ash.settings.settings.mojom.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.SearchHandler.Search_ResponseParams',
@@ -243,7 +244,7 @@ ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Observe
-ash.settings.mojom.SearchHandler_Observe_ParamsSpec = {
+ash.settings.settings.mojom.mojom.SearchHandler_Observe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.SearchHandler.Observe_Params',
@@ -257,6 +258,6 @@ ash.settings.mojom.SearchHandler_Observe_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.settings.mojom.SearchHandlerPtr = ash.settings.mojom.SearchHandlerRemote;
-ash.settings.mojom.SearchHandlerRequest = ash.settings.mojom.SearchHandlerPendingReceiver;
+ash.settings.settings.mojom.mojom.SearchHandlerPtr = ash.settings.settings.mojom.mojom.SearchHandlerRemote;
+ash.settings.settings.mojom.mojom.SearchHandlerRequest = ash.settings.settings.mojom.mojom.SearchHandlerPendingReceiver;
 

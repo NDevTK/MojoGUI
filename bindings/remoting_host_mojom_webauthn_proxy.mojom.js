@@ -10,7 +10,7 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Union: WebAuthnCreateResponse
-remoting.mojom.WebAuthnCreateResponseSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.WebAuthnCreateResponseSpec = { $: mojo.internal.Union(
     'remoting.mojom.WebAuthnCreateResponse', {
       'error_details': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ remoting.mojom.WebAuthnCreateResponseSpec = { $: mojo.internal.Union(
 };
 
 // Union: WebAuthnGetResponse
-remoting.mojom.WebAuthnGetResponseSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.WebAuthnGetResponseSpec = { $: mojo.internal.Union(
     'remoting.mojom.WebAuthnGetResponse', {
       'error_details': {
         'ordinal': 0,
@@ -38,7 +38,7 @@ remoting.mojom.WebAuthnGetResponseSpec = { $: mojo.internal.Union(
 };
 
 // Struct: WebAuthnExceptionDetails
-remoting.mojom.WebAuthnExceptionDetailsSpec = {
+remoting.mojom.mojom.WebAuthnExceptionDetailsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnExceptionDetails',
@@ -53,24 +53,24 @@ remoting.mojom.WebAuthnExceptionDetailsSpec = {
 };
 
 // Interface: WebAuthnRequestCanceller
-remoting.mojom.WebAuthnRequestCanceller = {};
+remoting.mojom.mojom.WebAuthnRequestCanceller = {};
 
-remoting.mojom.WebAuthnRequestCancellerPendingReceiver = class {
+remoting.mojom.mojom.WebAuthnRequestCancellerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.WebAuthnRequestCancellerRemote = class {
+remoting.mojom.mojom.WebAuthnRequestCancellerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.WebAuthnRequestCanceller';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.WebAuthnRequestCancellerPendingReceiver,
+      remoting.mojom.mojom.WebAuthnRequestCancellerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.WebAuthnRequestCancellerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -82,7 +82,7 @@ remoting.mojom.WebAuthnRequestCancellerRemote = class {
   }
 };
 
-remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
+remoting.mojom.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -91,15 +91,15 @@ remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec,
-      remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
+      remoting.mojom.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec,
+      remoting.mojom.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
       []);
   }
 
 };
 
-remoting.mojom.WebAuthnRequestCanceller.getRemote = function() {
-  let remote = new remoting.mojom.WebAuthnRequestCancellerRemote();
+remoting.mojom.mojom.WebAuthnRequestCanceller.getRemote = function() {
+  let remote = new remoting.mojom.mojom.WebAuthnRequestCancellerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -109,7 +109,7 @@ remoting.mojom.WebAuthnRequestCanceller.getRemote = function() {
 };
 
 // ParamsSpec for Cancel
-remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
+remoting.mojom.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnRequestCanceller.Cancel_Params',
@@ -121,7 +121,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
   }
 };
 
-remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
+remoting.mojom.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnRequestCanceller.Cancel_ResponseParams',
@@ -135,29 +135,29 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.WebAuthnRequestCancellerPtr = remoting.mojom.WebAuthnRequestCancellerRemote;
-remoting.mojom.WebAuthnRequestCancellerRequest = remoting.mojom.WebAuthnRequestCancellerPendingReceiver;
+remoting.mojom.mojom.WebAuthnRequestCancellerPtr = remoting.mojom.mojom.WebAuthnRequestCancellerRemote;
+remoting.mojom.mojom.WebAuthnRequestCancellerRequest = remoting.mojom.mojom.WebAuthnRequestCancellerPendingReceiver;
 
 
 // Interface: WebAuthnProxy
-remoting.mojom.WebAuthnProxy = {};
+remoting.mojom.mojom.WebAuthnProxy = {};
 
-remoting.mojom.WebAuthnProxyPendingReceiver = class {
+remoting.mojom.mojom.WebAuthnProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.WebAuthnProxyRemote = class {
+remoting.mojom.mojom.WebAuthnProxyRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.WebAuthnProxy';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.WebAuthnProxyPendingReceiver,
+      remoting.mojom.mojom.WebAuthnProxyPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.WebAuthnProxyRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.WebAuthnProxyRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -169,7 +169,7 @@ remoting.mojom.WebAuthnProxyRemote = class {
   }
 };
 
-remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
+remoting.mojom.mojom.WebAuthnProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -178,8 +178,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
-      remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
+      remoting.mojom.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
+      remoting.mojom.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -187,8 +187,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.WebAuthnProxy_Create_ParamsSpec,
-      remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
+      remoting.mojom.mojom.WebAuthnProxy_Create_ParamsSpec,
+      remoting.mojom.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
       [request_data, request_canceller]);
   }
 
@@ -196,15 +196,15 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.WebAuthnProxy_Get_ParamsSpec,
-      remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
+      remoting.mojom.mojom.WebAuthnProxy_Get_ParamsSpec,
+      remoting.mojom.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
       [request_data, request_canceller]);
   }
 
 };
 
-remoting.mojom.WebAuthnProxy.getRemote = function() {
-  let remote = new remoting.mojom.WebAuthnProxyRemote();
+remoting.mojom.mojom.WebAuthnProxy.getRemote = function() {
+  let remote = new remoting.mojom.mojom.WebAuthnProxyRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -214,7 +214,7 @@ remoting.mojom.WebAuthnProxy.getRemote = function() {
 };
 
 // ParamsSpec for IsUserVerifyingPlatformAuthenticatorAvailable
-remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
+remoting.mojom.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnProxy.IsUserVerifyingPlatformAuthenticatorAvailable_Params',
@@ -226,7 +226,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Param
   }
 };
 
-remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
+remoting.mojom.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnProxy.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
@@ -240,7 +240,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Respo
 };
 
 // ParamsSpec for Create
-remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
+remoting.mojom.mojom.WebAuthnProxy_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnProxy.Create_Params',
@@ -254,7 +254,7 @@ remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
   }
 };
 
-remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
+remoting.mojom.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnProxy.Create_ResponseParams',
@@ -268,7 +268,7 @@ remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Get
-remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
+remoting.mojom.mojom.WebAuthnProxy_Get_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnProxy.Get_Params',
@@ -282,7 +282,7 @@ remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
   }
 };
 
-remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
+remoting.mojom.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WebAuthnProxy.Get_ResponseParams',
@@ -296,6 +296,6 @@ remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.WebAuthnProxyPtr = remoting.mojom.WebAuthnProxyRemote;
-remoting.mojom.WebAuthnProxyRequest = remoting.mojom.WebAuthnProxyPendingReceiver;
+remoting.mojom.mojom.WebAuthnProxyPtr = remoting.mojom.mojom.WebAuthnProxyRemote;
+remoting.mojom.mojom.WebAuthnProxyRequest = remoting.mojom.mojom.WebAuthnProxyPendingReceiver;
 

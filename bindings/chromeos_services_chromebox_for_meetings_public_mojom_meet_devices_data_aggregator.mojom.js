@@ -7,17 +7,17 @@
 // Module namespace
 var ash = ash || {};
 ash.cfm = ash.cfm || {};
-ash.cfm.mojom = ash.cfm.mojom || {};
+ash.cfm.cfm.mojom = ash.cfm.cfm.mojom || {};
 
 
 // Enum: FilterType
-ash.cfm.mojom.FilterType = {
+ash.cfm.cfm.mojom.mojom.FilterType = {
   CHANGE: 0,
 };
-ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
+ash.cfm.cfm.mojom.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DataFilter
-ash.cfm.mojom.DataFilterSpec = {
+ash.cfm.cfm.mojom.mojom.DataFilterSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataFilter',
@@ -31,24 +31,24 @@ ash.cfm.mojom.DataFilterSpec = {
 };
 
 // Interface: DataWatchDog
-ash.cfm.mojom.DataWatchDog = {};
+ash.cfm.cfm.mojom.mojom.DataWatchDog = {};
 
-ash.cfm.mojom.DataWatchDogPendingReceiver = class {
+ash.cfm.cfm.mojom.mojom.DataWatchDogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cfm.mojom.DataWatchDogRemote = class {
+ash.cfm.cfm.mojom.mojom.DataWatchDogRemote = class {
   static get $interfaceName() {
     return 'ash.cfm.mojom.DataWatchDog';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cfm.mojom.DataWatchDogPendingReceiver,
+      ash.cfm.cfm.mojom.mojom.DataWatchDogPendingReceiver,
       handle);
-    this.$ = new ash.cfm.mojom.DataWatchDogRemoteCallHandler(this.proxy);
+    this.$ = new ash.cfm.cfm.mojom.mojom.DataWatchDogRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +60,7 @@ ash.cfm.mojom.DataWatchDogRemote = class {
   }
 };
 
-ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
+ash.cfm.cfm.mojom.mojom.DataWatchDogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,15 +69,15 @@ ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataWatchDog_OnNotify_ParamsSpec,
       null,
       [data]);
   }
 
 };
 
-ash.cfm.mojom.DataWatchDog.getRemote = function() {
-  let remote = new ash.cfm.mojom.DataWatchDogRemote();
+ash.cfm.cfm.mojom.mojom.DataWatchDog.getRemote = function() {
+  let remote = new ash.cfm.cfm.mojom.mojom.DataWatchDogRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -87,7 +87,7 @@ ash.cfm.mojom.DataWatchDog.getRemote = function() {
 };
 
 // ParamsSpec for OnNotify
-ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataWatchDog_OnNotify_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataWatchDog.OnNotify_Params',
@@ -101,29 +101,29 @@ ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cfm.mojom.DataWatchDogPtr = ash.cfm.mojom.DataWatchDogRemote;
-ash.cfm.mojom.DataWatchDogRequest = ash.cfm.mojom.DataWatchDogPendingReceiver;
+ash.cfm.cfm.mojom.mojom.DataWatchDogPtr = ash.cfm.cfm.mojom.mojom.DataWatchDogRemote;
+ash.cfm.cfm.mojom.mojom.DataWatchDogRequest = ash.cfm.cfm.mojom.mojom.DataWatchDogPendingReceiver;
 
 
 // Interface: DataSource
-ash.cfm.mojom.DataSource = {};
+ash.cfm.cfm.mojom.mojom.DataSource = {};
 
-ash.cfm.mojom.DataSourcePendingReceiver = class {
+ash.cfm.cfm.mojom.mojom.DataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cfm.mojom.DataSourceRemote = class {
+ash.cfm.cfm.mojom.mojom.DataSourceRemote = class {
   static get $interfaceName() {
     return 'ash.cfm.mojom.DataSource';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cfm.mojom.DataSourcePendingReceiver,
+      ash.cfm.cfm.mojom.mojom.DataSourcePendingReceiver,
       handle);
-    this.$ = new ash.cfm.mojom.DataSourceRemoteCallHandler(this.proxy);
+    this.$ = new ash.cfm.cfm.mojom.mojom.DataSourceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -135,7 +135,7 @@ ash.cfm.mojom.DataSourceRemote = class {
   }
 };
 
-ash.cfm.mojom.DataSourceRemoteCallHandler = class {
+ash.cfm.cfm.mojom.mojom.DataSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -144,8 +144,8 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cfm.mojom.DataSource_Fetch_ParamsSpec,
-      ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataSource_Fetch_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataSource_Fetch_ResponseParamsSpec,
       []);
   }
 
@@ -153,8 +153,8 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec,
-      ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataSource_AddWatchDog_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataSource_AddWatchDog_ResponseParamsSpec,
       [filter, watch_dog]);
   }
 
@@ -162,15 +162,15 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cfm.mojom.DataSource_Flush_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataSource_Flush_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.cfm.mojom.DataSource.getRemote = function() {
-  let remote = new ash.cfm.mojom.DataSourceRemote();
+ash.cfm.cfm.mojom.mojom.DataSource.getRemote = function() {
+  let remote = new ash.cfm.cfm.mojom.mojom.DataSourceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -180,7 +180,7 @@ ash.cfm.mojom.DataSource.getRemote = function() {
 };
 
 // ParamsSpec for Fetch
-ash.cfm.mojom.DataSource_Fetch_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataSource_Fetch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataSource.Fetch_Params',
@@ -192,7 +192,7 @@ ash.cfm.mojom.DataSource_Fetch_ParamsSpec = {
   }
 };
 
-ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataSource_Fetch_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataSource.Fetch_ResponseParams',
@@ -206,7 +206,7 @@ ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddWatchDog
-ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataSource_AddWatchDog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataSource.AddWatchDog_Params',
@@ -220,7 +220,7 @@ ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = {
   }
 };
 
-ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataSource_AddWatchDog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataSource.AddWatchDog_ResponseParams',
@@ -234,7 +234,7 @@ ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Flush
-ash.cfm.mojom.DataSource_Flush_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataSource_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataSource.Flush_Params',
@@ -247,29 +247,29 @@ ash.cfm.mojom.DataSource_Flush_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cfm.mojom.DataSourcePtr = ash.cfm.mojom.DataSourceRemote;
-ash.cfm.mojom.DataSourceRequest = ash.cfm.mojom.DataSourcePendingReceiver;
+ash.cfm.cfm.mojom.mojom.DataSourcePtr = ash.cfm.cfm.mojom.mojom.DataSourceRemote;
+ash.cfm.cfm.mojom.mojom.DataSourceRequest = ash.cfm.cfm.mojom.mojom.DataSourcePendingReceiver;
 
 
 // Interface: DataAggregator
-ash.cfm.mojom.DataAggregator = {};
+ash.cfm.cfm.mojom.mojom.DataAggregator = {};
 
-ash.cfm.mojom.DataAggregatorPendingReceiver = class {
+ash.cfm.cfm.mojom.mojom.DataAggregatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cfm.mojom.DataAggregatorRemote = class {
+ash.cfm.cfm.mojom.mojom.DataAggregatorRemote = class {
   static get $interfaceName() {
     return 'ash.cfm.mojom.DataAggregator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cfm.mojom.DataAggregatorPendingReceiver,
+      ash.cfm.cfm.mojom.mojom.DataAggregatorPendingReceiver,
       handle);
-    this.$ = new ash.cfm.mojom.DataAggregatorRemoteCallHandler(this.proxy);
+    this.$ = new ash.cfm.cfm.mojom.mojom.DataAggregatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -281,7 +281,7 @@ ash.cfm.mojom.DataAggregatorRemote = class {
   }
 };
 
-ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
+ash.cfm.cfm.mojom.mojom.DataAggregatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -290,8 +290,8 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec,
-      ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataAggregator_GetDataSourceNames_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec,
       []);
   }
 
@@ -299,8 +299,8 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec,
-      ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataAggregator_AddDataSource_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataAggregator_AddDataSource_ResponseParamsSpec,
       [source_name, data_source]);
   }
 
@@ -308,15 +308,15 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec,
-      ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataAggregator_AddWatchDog_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec,
       [source_name, filter, watch_dog]);
   }
 
 };
 
-ash.cfm.mojom.DataAggregator.getRemote = function() {
-  let remote = new ash.cfm.mojom.DataAggregatorRemote();
+ash.cfm.cfm.mojom.mojom.DataAggregator.getRemote = function() {
+  let remote = new ash.cfm.cfm.mojom.mojom.DataAggregatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -326,7 +326,7 @@ ash.cfm.mojom.DataAggregator.getRemote = function() {
 };
 
 // ParamsSpec for GetDataSourceNames
-ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataAggregator.GetDataSourceNames_Params',
@@ -338,7 +338,7 @@ ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = {
   }
 };
 
-ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataAggregator.GetDataSourceNames_ResponseParams',
@@ -352,7 +352,7 @@ ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddDataSource
-ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataAggregator_AddDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataAggregator.AddDataSource_Params',
@@ -366,7 +366,7 @@ ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = {
   }
 };
 
-ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataAggregator.AddDataSource_ResponseParams',
@@ -380,7 +380,7 @@ ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddWatchDog
-ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataAggregator.AddWatchDog_Params',
@@ -395,7 +395,7 @@ ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
   }
 };
 
-ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = {
+ash.cfm.cfm.mojom.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.DataAggregator.AddWatchDog_ResponseParams',
@@ -409,6 +409,6 @@ ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cfm.mojom.DataAggregatorPtr = ash.cfm.mojom.DataAggregatorRemote;
-ash.cfm.mojom.DataAggregatorRequest = ash.cfm.mojom.DataAggregatorPendingReceiver;
+ash.cfm.cfm.mojom.mojom.DataAggregatorPtr = ash.cfm.cfm.mojom.mojom.DataAggregatorRemote;
+ash.cfm.cfm.mojom.mojom.DataAggregatorRequest = ash.cfm.cfm.mojom.mojom.DataAggregatorPendingReceiver;
 

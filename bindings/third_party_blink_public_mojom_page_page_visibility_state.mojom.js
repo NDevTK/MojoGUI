@@ -10,9 +10,9 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: PageVisibilityState
-blink.mojom.PageVisibilityState = {
+blink.mojom.mojom.PageVisibilityState = {
   kVisible: 0,
   kHidden: 1,
   kHiddenButPainting: 2,
 };
-blink.mojom.PageVisibilityStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PageVisibilityStateSpec = { $: mojo.internal.Enum() };

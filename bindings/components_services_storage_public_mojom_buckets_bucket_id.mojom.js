@@ -10,7 +10,7 @@ storage.mojom = storage.mojom || {};
 
 
 // Struct: BucketId
-storage.mojom.BucketIdSpec = {
+storage.mojom.mojom.BucketIdSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketId',

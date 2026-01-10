@@ -9,29 +9,29 @@ var printing = printing || {};
 printing.mojom = printing.mojom || {};
 
 
-printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kPdfConversion;
+printing.mojom.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kPdfConversion;
 
-printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kUtility;
+printing.mojom.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kUtility;
 
 // Interface: PrintingService
-printing.mojom.PrintingService = {};
+printing.mojom.mojom.PrintingService = {};
 
-printing.mojom.PrintingServicePendingReceiver = class {
+printing.mojom.mojom.PrintingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PrintingServiceRemote = class {
+printing.mojom.mojom.PrintingServiceRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PrintingService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PrintingServicePendingReceiver,
+      printing.mojom.mojom.PrintingServicePendingReceiver,
       handle);
-    this.$ = new printing.mojom.PrintingServiceRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PrintingServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -43,7 +43,7 @@ printing.mojom.PrintingServiceRemote = class {
   }
 };
 
-printing.mojom.PrintingServiceRemoteCallHandler = class {
+printing.mojom.mojom.PrintingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -52,7 +52,7 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec,
+      printing.mojom.mojom.PrintingService_BindPdfNupConverter_ParamsSpec,
       null,
       [receiver]);
   }
@@ -61,7 +61,7 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec,
+      printing.mojom.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec,
       null,
       [receiver]);
   }
@@ -70,7 +70,7 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec,
+      printing.mojom.mojom.PrintingService_BindPdfFlattener_ParamsSpec,
       null,
       [receiver]);
   }
@@ -79,15 +79,15 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec,
+      printing.mojom.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-printing.mojom.PrintingService.getRemote = function() {
-  let remote = new printing.mojom.PrintingServiceRemote();
+printing.mojom.mojom.PrintingService.getRemote = function() {
+  let remote = new printing.mojom.mojom.PrintingServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +97,7 @@ printing.mojom.PrintingService.getRemote = function() {
 };
 
 // ParamsSpec for BindPdfNupConverter
-printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
+printing.mojom.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintingService.BindPdfNupConverter_Params',
@@ -111,7 +111,7 @@ printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
 };
 
 // ParamsSpec for BindPdfToPwgRasterConverter
-printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
+printing.mojom.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintingService.BindPdfToPwgRasterConverter_Params',
@@ -125,7 +125,7 @@ printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
 };
 
 // ParamsSpec for BindPdfFlattener
-printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
+printing.mojom.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintingService.BindPdfFlattener_Params',
@@ -139,7 +139,7 @@ printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
 };
 
 // ParamsSpec for BindPdfToEmfConverterFactory
-printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
+printing.mojom.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintingService.BindPdfToEmfConverterFactory_Params',
@@ -153,6 +153,6 @@ printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PrintingServicePtr = printing.mojom.PrintingServiceRemote;
-printing.mojom.PrintingServiceRequest = printing.mojom.PrintingServicePendingReceiver;
+printing.mojom.mojom.PrintingServicePtr = printing.mojom.mojom.PrintingServiceRemote;
+printing.mojom.mojom.PrintingServiceRequest = printing.mojom.mojom.PrintingServicePendingReceiver;
 

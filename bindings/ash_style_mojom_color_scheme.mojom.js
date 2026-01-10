@@ -7,15 +7,15 @@
 // Module namespace
 var ash = ash || {};
 ash.style = ash.style || {};
-ash.style.mojom = ash.style.mojom || {};
+ash.style.style.mojom = ash.style.style.mojom || {};
 
 
 // Enum: ColorScheme
-ash.style.mojom.ColorScheme = {
+ash.style.style.mojom.mojom.ColorScheme = {
   kStatic: 0,
   kTonalSpot: 1,
   kNeutral: 2,
   kExpressive: 3,
   kVibrant: 4,
 };
-ash.style.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };
+ash.style.style.mojom.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };

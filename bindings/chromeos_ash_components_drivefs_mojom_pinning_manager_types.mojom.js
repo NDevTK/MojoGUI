@@ -7,11 +7,11 @@
 // Module namespace
 var drivefs = drivefs || {};
 drivefs.pinning_manager_types = drivefs.pinning_manager_types || {};
-drivefs.pinning_manager_types.mojom = drivefs.pinning_manager_types.mojom || {};
+drivefs.pinning_manager_types.pinning_manager_types.mojom = drivefs.pinning_manager_types.pinning_manager_types.mojom || {};
 
 
 // Enum: Stage
-drivefs.pinning_manager_types.mojom.Stage = {
+drivefs.pinning_manager_types.pinning_manager_types.mojom.mojom.Stage = {
   kStopped: 0,
   kPausedOffline: 1,
   kPausedBatterySaver: 2,
@@ -24,4 +24,4 @@ drivefs.pinning_manager_types.mojom.Stage = {
   kCannotListFiles: 9,
   kCannotEnableDocsOffline: 10,
 };
-drivefs.pinning_manager_types.mojom.StageSpec = { $: mojo.internal.Enum() };
+drivefs.pinning_manager_types.pinning_manager_types.mojom.mojom.StageSpec = { $: mojo.internal.Enum() };

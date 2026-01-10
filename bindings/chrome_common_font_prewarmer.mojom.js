@@ -10,24 +10,24 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: FontPrewarmer
-chrome.mojom.FontPrewarmer = {};
+chrome.mojom.mojom.FontPrewarmer = {};
 
-chrome.mojom.FontPrewarmerPendingReceiver = class {
+chrome.mojom.mojom.FontPrewarmerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.FontPrewarmerRemote = class {
+chrome.mojom.mojom.FontPrewarmerRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.FontPrewarmer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.FontPrewarmerPendingReceiver,
+      chrome.mojom.mojom.FontPrewarmerPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.FontPrewarmerRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.FontPrewarmerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chrome.mojom.FontPrewarmerRemote = class {
   }
 };
 
-chrome.mojom.FontPrewarmerRemoteCallHandler = class {
+chrome.mojom.mojom.FontPrewarmerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ chrome.mojom.FontPrewarmerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
+      chrome.mojom.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
       null,
       [font_names]);
   }
 
 };
 
-chrome.mojom.FontPrewarmer.getRemote = function() {
-  let remote = new chrome.mojom.FontPrewarmerRemote();
+chrome.mojom.mojom.FontPrewarmer.getRemote = function() {
+  let remote = new chrome.mojom.mojom.FontPrewarmerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ chrome.mojom.FontPrewarmer.getRemote = function() {
 };
 
 // ParamsSpec for PrewarmFonts
-chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = {
+chrome.mojom.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.FontPrewarmer.PrewarmFonts_Params',
@@ -80,29 +80,29 @@ chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.FontPrewarmerPtr = chrome.mojom.FontPrewarmerRemote;
-chrome.mojom.FontPrewarmerRequest = chrome.mojom.FontPrewarmerPendingReceiver;
+chrome.mojom.mojom.FontPrewarmerPtr = chrome.mojom.mojom.FontPrewarmerRemote;
+chrome.mojom.mojom.FontPrewarmerRequest = chrome.mojom.mojom.FontPrewarmerPendingReceiver;
 
 
 // Interface: RenderFrameFontFamilyAccessor
-chrome.mojom.RenderFrameFontFamilyAccessor = {};
+chrome.mojom.mojom.RenderFrameFontFamilyAccessor = {};
 
-chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver = class {
+chrome.mojom.mojom.RenderFrameFontFamilyAccessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessorRemote = class {
+chrome.mojom.mojom.RenderFrameFontFamilyAccessorRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.RenderFrameFontFamilyAccessor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver,
+      chrome.mojom.mojom.RenderFrameFontFamilyAccessorPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemote = class {
   }
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
+chrome.mojom.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,15 +123,15 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
-      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
+      chrome.mojom.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
+      chrome.mojom.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
       []);
   }
 
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
-  let remote = new chrome.mojom.RenderFrameFontFamilyAccessorRemote();
+chrome.mojom.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
+  let remote = new chrome.mojom.mojom.RenderFrameFontFamilyAccessorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -141,7 +141,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
 };
 
 // ParamsSpec for GetFontFamilyNames
-chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = {
+chrome.mojom.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RenderFrameFontFamilyAccessor.GetFontFamilyNames_Params',
@@ -153,7 +153,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = {
   }
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = {
+chrome.mojom.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RenderFrameFontFamilyAccessor.GetFontFamilyNames_ResponseParams',
@@ -167,6 +167,6 @@ chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec
 };
 
 // Legacy compatibility
-chrome.mojom.RenderFrameFontFamilyAccessorPtr = chrome.mojom.RenderFrameFontFamilyAccessorRemote;
-chrome.mojom.RenderFrameFontFamilyAccessorRequest = chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver;
+chrome.mojom.mojom.RenderFrameFontFamilyAccessorPtr = chrome.mojom.mojom.RenderFrameFontFamilyAccessorRemote;
+chrome.mojom.mojom.RenderFrameFontFamilyAccessorRequest = chrome.mojom.mojom.RenderFrameFontFamilyAccessorPendingReceiver;
 

@@ -7,28 +7,28 @@
 // Module namespace
 var ntp = ntp || {};
 ntp.authentication = ntp.authentication || {};
-ntp.authentication.mojom = ntp.authentication.mojom || {};
+ntp.authentication.authentication.mojom = ntp.authentication.authentication.mojom || {};
 
 
 // Interface: MicrosoftAuthPageHandler
-ntp.authentication.mojom.MicrosoftAuthPageHandler = {};
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler = {};
 
-ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver = class {
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote = class {
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerRemote = class {
   static get $interfaceName() {
     return 'ntp.authentication.mojom.MicrosoftAuthPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver,
+      ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerPendingReceiver,
       handle);
-    this.$ = new ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote = class {
   }
 };
 
-ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,7 +49,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec,
+      ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -58,7 +58,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec,
+      ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }
@@ -67,15 +67,15 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec,
-      ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec,
+      ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec,
+      ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec,
       []);
   }
 
 };
 
-ntp.authentication.mojom.MicrosoftAuthPageHandler.getRemote = function() {
-  let remote = new ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote();
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler.getRemote = function() {
+  let remote = new ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -85,7 +85,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for DismissModule
-ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = {
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.DismissModule_Params',
@@ -98,7 +98,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = {
 };
 
 // ParamsSpec for RestoreModule
-ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = {
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.RestoreModule_Params',
@@ -111,7 +111,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = {
 };
 
 // ParamsSpec for ShouldShowModule
-ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = {
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.ShouldShowModule_Params',
@@ -123,7 +123,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = 
   }
 };
 
-ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec = {
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.ShouldShowModule_ResponseParams',
@@ -137,6 +137,6 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParam
 };
 
 // Legacy compatibility
-ntp.authentication.mojom.MicrosoftAuthPageHandlerPtr = ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote;
-ntp.authentication.mojom.MicrosoftAuthPageHandlerRequest = ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver;
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerPtr = ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerRemote;
+ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerRequest = ntp.authentication.authentication.mojom.mojom.MicrosoftAuthPageHandlerPendingReceiver;
 

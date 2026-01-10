@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.multidevice = ash.multidevice || {};
-ash.multidevice.mojom = ash.multidevice.mojom || {};
+ash.multidevice.multidevice.mojom = ash.multidevice.multidevice.mojom || {};
 
 
 // Enum: SoftwareFeature
-ash.multidevice.mojom.SoftwareFeature = {
+ash.multidevice.multidevice.mojom.mojom.SoftwareFeature = {
   BETTER_TOGETHER_HOST: 0,
   BETTER_TOGETHER_CLIENT: 1,
   EASY_UNLOCK_HOST: 2,
@@ -29,18 +29,18 @@ ash.multidevice.mojom.SoftwareFeature = {
   PHONE_HUB_CAMERA_ROLL_HOST: 14,
   PHONE_HUB_CAMERA_ROLL_CLIENT: 15,
 };
-ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum() };
+ash.multidevice.multidevice.mojom.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: SoftwareFeatureState
-ash.multidevice.mojom.SoftwareFeatureState = {
+ash.multidevice.multidevice.mojom.mojom.SoftwareFeatureState = {
   kNotSupported: 0,
   kSupported: 1,
   kEnabled: 2,
 };
-ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum() };
+ash.multidevice.multidevice.mojom.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: BeaconSeed
-ash.multidevice.mojom.BeaconSeedSpec = {
+ash.multidevice.multidevice.mojom.mojom.BeaconSeedSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice.mojom.BeaconSeed',
@@ -56,7 +56,7 @@ ash.multidevice.mojom.BeaconSeedSpec = {
 };
 
 // Struct: RemoteDevice
-ash.multidevice.mojom.RemoteDeviceSpec = {
+ash.multidevice.multidevice.mojom.mojom.RemoteDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice.mojom.RemoteDevice',

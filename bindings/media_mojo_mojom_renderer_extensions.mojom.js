@@ -7,10 +7,14 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: FrameTextureInfo
-media.mojom.FrameTextureInfoSpec = {
+media.mojom.mojom.FrameTextureInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FrameTextureInfo',
@@ -25,7 +29,7 @@ media.mojom.FrameTextureInfoSpec = {
 };
 
 // Struct: FramePoolInitializationParameters
-media.mojom.FramePoolInitializationParametersSpec = {
+media.mojom.mojom.FramePoolInitializationParametersSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FramePoolInitializationParameters',
@@ -40,24 +44,24 @@ media.mojom.FramePoolInitializationParametersSpec = {
 };
 
 // Interface: FlingingRendererClientExtension
-media.mojom.FlingingRendererClientExtension = {};
+media.mojom.mojom.FlingingRendererClientExtension = {};
 
-media.mojom.FlingingRendererClientExtensionPendingReceiver = class {
+media.mojom.mojom.FlingingRendererClientExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.FlingingRendererClientExtensionRemote = class {
+media.mojom.mojom.FlingingRendererClientExtensionRemote = class {
   static get $interfaceName() {
     return 'media.mojom.FlingingRendererClientExtension';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.FlingingRendererClientExtensionPendingReceiver,
+      media.mojom.mojom.FlingingRendererClientExtensionPendingReceiver,
       handle);
-    this.$ = new media.mojom.FlingingRendererClientExtensionRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.FlingingRendererClientExtensionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +73,7 @@ media.mojom.FlingingRendererClientExtensionRemote = class {
   }
 };
 
-media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
+media.mojom.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,15 +82,15 @@ media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec,
+      media.mojom.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-media.mojom.FlingingRendererClientExtension.getRemote = function() {
-  let remote = new media.mojom.FlingingRendererClientExtensionRemote();
+media.mojom.mojom.FlingingRendererClientExtension.getRemote = function() {
+  let remote = new media.mojom.mojom.FlingingRendererClientExtensionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -96,7 +100,7 @@ media.mojom.FlingingRendererClientExtension.getRemote = function() {
 };
 
 // ParamsSpec for OnRemotePlayStateChange
-media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = {
+media.mojom.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.FlingingRendererClientExtension.OnRemotePlayStateChange_Params',
@@ -110,29 +114,29 @@ media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec =
 };
 
 // Legacy compatibility
-media.mojom.FlingingRendererClientExtensionPtr = media.mojom.FlingingRendererClientExtensionRemote;
-media.mojom.FlingingRendererClientExtensionRequest = media.mojom.FlingingRendererClientExtensionPendingReceiver;
+media.mojom.mojom.FlingingRendererClientExtensionPtr = media.mojom.mojom.FlingingRendererClientExtensionRemote;
+media.mojom.mojom.FlingingRendererClientExtensionRequest = media.mojom.mojom.FlingingRendererClientExtensionPendingReceiver;
 
 
 // Interface: MediaFoundationRendererExtension
-media.mojom.MediaFoundationRendererExtension = {};
+media.mojom.mojom.MediaFoundationRendererExtension = {};
 
-media.mojom.MediaFoundationRendererExtensionPendingReceiver = class {
+media.mojom.mojom.MediaFoundationRendererExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaFoundationRendererExtensionRemote = class {
+media.mojom.mojom.MediaFoundationRendererExtensionRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaFoundationRendererExtension';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaFoundationRendererExtensionPendingReceiver,
+      media.mojom.mojom.MediaFoundationRendererExtensionPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaFoundationRendererExtensionRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaFoundationRendererExtensionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -144,7 +148,7 @@ media.mojom.MediaFoundationRendererExtensionRemote = class {
   }
 };
 
-media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
+media.mojom.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -153,8 +157,8 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec,
-      media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
+      media.mojom.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec,
+      media.mojom.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
       []);
   }
 
@@ -162,7 +166,7 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec,
+      media.mojom.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -171,15 +175,15 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec,
-      media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
+      media.mojom.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec,
+      media.mojom.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
       [rect]);
   }
 
 };
 
-media.mojom.MediaFoundationRendererExtension.getRemote = function() {
-  let remote = new media.mojom.MediaFoundationRendererExtensionRemote();
+media.mojom.mojom.MediaFoundationRendererExtension.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaFoundationRendererExtensionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -189,7 +193,7 @@ media.mojom.MediaFoundationRendererExtension.getRemote = function() {
 };
 
 // ParamsSpec for GetDCOMPSurface
-media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
+media.mojom.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_Params',
@@ -201,7 +205,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
   }
 };
 
-media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = {
+media.mojom.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_ResponseParams',
@@ -216,7 +220,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec 
 };
 
 // ParamsSpec for SetVideoStreamEnabled
-media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = {
+media.mojom.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationRendererExtension.SetVideoStreamEnabled_Params',
@@ -230,7 +234,7 @@ media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = 
 };
 
 // ParamsSpec for SetOutputRect
-media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
+media.mojom.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_Params',
@@ -243,7 +247,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
   }
 };
 
-media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = {
+media.mojom.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_ResponseParams',
@@ -257,29 +261,29 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-media.mojom.MediaFoundationRendererExtensionPtr = media.mojom.MediaFoundationRendererExtensionRemote;
-media.mojom.MediaFoundationRendererExtensionRequest = media.mojom.MediaFoundationRendererExtensionPendingReceiver;
+media.mojom.mojom.MediaFoundationRendererExtensionPtr = media.mojom.mojom.MediaFoundationRendererExtensionRemote;
+media.mojom.mojom.MediaFoundationRendererExtensionRequest = media.mojom.mojom.MediaFoundationRendererExtensionPendingReceiver;
 
 
 // Interface: MediaFoundationRendererObserver
-media.mojom.MediaFoundationRendererObserver = {};
+media.mojom.mojom.MediaFoundationRendererObserver = {};
 
-media.mojom.MediaFoundationRendererObserverPendingReceiver = class {
+media.mojom.mojom.MediaFoundationRendererObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaFoundationRendererObserverRemote = class {
+media.mojom.mojom.MediaFoundationRendererObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaFoundationRendererObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaFoundationRendererObserverPendingReceiver,
+      media.mojom.mojom.MediaFoundationRendererObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaFoundationRendererObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaFoundationRendererObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -291,15 +295,15 @@ media.mojom.MediaFoundationRendererObserverRemote = class {
   }
 };
 
-media.mojom.MediaFoundationRendererObserverRemoteCallHandler = class {
+media.mojom.mojom.MediaFoundationRendererObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-media.mojom.MediaFoundationRendererObserver.getRemote = function() {
-  let remote = new media.mojom.MediaFoundationRendererObserverRemote();
+media.mojom.mojom.MediaFoundationRendererObserver.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaFoundationRendererObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -309,29 +313,29 @@ media.mojom.MediaFoundationRendererObserver.getRemote = function() {
 };
 
 // Legacy compatibility
-media.mojom.MediaFoundationRendererObserverPtr = media.mojom.MediaFoundationRendererObserverRemote;
-media.mojom.MediaFoundationRendererObserverRequest = media.mojom.MediaFoundationRendererObserverPendingReceiver;
+media.mojom.mojom.MediaFoundationRendererObserverPtr = media.mojom.mojom.MediaFoundationRendererObserverRemote;
+media.mojom.mojom.MediaFoundationRendererObserverRequest = media.mojom.mojom.MediaFoundationRendererObserverPendingReceiver;
 
 
 // Interface: MediaFoundationRendererNotifier
-media.mojom.MediaFoundationRendererNotifier = {};
+media.mojom.mojom.MediaFoundationRendererNotifier = {};
 
-media.mojom.MediaFoundationRendererNotifierPendingReceiver = class {
+media.mojom.mojom.MediaFoundationRendererNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaFoundationRendererNotifierRemote = class {
+media.mojom.mojom.MediaFoundationRendererNotifierRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaFoundationRendererNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaFoundationRendererNotifierPendingReceiver,
+      media.mojom.mojom.MediaFoundationRendererNotifierPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaFoundationRendererNotifierRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaFoundationRendererNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -343,7 +347,7 @@ media.mojom.MediaFoundationRendererNotifierRemote = class {
   }
 };
 
-media.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
+media.mojom.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -352,15 +356,15 @@ media.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec,
+      media.mojom.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-media.mojom.MediaFoundationRendererNotifier.getRemote = function() {
-  let remote = new media.mojom.MediaFoundationRendererNotifierRemote();
+media.mojom.mojom.MediaFoundationRendererNotifier.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaFoundationRendererNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -370,7 +374,7 @@ media.mojom.MediaFoundationRendererNotifier.getRemote = function() {
 };
 
 // ParamsSpec for MediaFoundationRendererCreated
-media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = {
+media.mojom.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationRendererNotifier.MediaFoundationRendererCreated_Params',
@@ -384,6 +388,6 @@ media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Param
 };
 
 // Legacy compatibility
-media.mojom.MediaFoundationRendererNotifierPtr = media.mojom.MediaFoundationRendererNotifierRemote;
-media.mojom.MediaFoundationRendererNotifierRequest = media.mojom.MediaFoundationRendererNotifierPendingReceiver;
+media.mojom.mojom.MediaFoundationRendererNotifierPtr = media.mojom.mojom.MediaFoundationRendererNotifierRemote;
+media.mojom.mojom.MediaFoundationRendererNotifierRequest = media.mojom.mojom.MediaFoundationRendererNotifierPendingReceiver;
 

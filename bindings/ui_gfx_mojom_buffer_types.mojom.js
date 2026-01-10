@@ -7,10 +7,12 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: BufferFormat
-gfx.mojom.BufferFormat = {
+gfx.mojom.mojom.BufferFormat = {
   R_8: 0,
   R_16: 1,
   RG_88: 2,
@@ -29,10 +31,10 @@ gfx.mojom.BufferFormat = {
   YUVA_420_TRIPLANAR: 15,
   P010: 16,
 };
-gfx.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
+gfx.mojom.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: BufferUsage
-gfx.mojom.BufferUsage = {
+gfx.mojom.mojom.BufferUsage = {
   GPU_READ: 0,
   SCANOUT: 1,
   SCANOUT_CAMERA_READ_WRITE: 2,
@@ -46,10 +48,10 @@ gfx.mojom.BufferUsage = {
   VEA_READ_CAMERA_AND_CPU_READ_WRITE: 10,
   SCANOUT_FRONT_RENDERING: 11,
 };
-gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
+gfx.mojom.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuMemoryBufferId
-gfx.mojom.GpuMemoryBufferIdSpec = {
+gfx.mojom.mojom.GpuMemoryBufferIdSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.GpuMemoryBufferId',
@@ -63,15 +65,15 @@ gfx.mojom.GpuMemoryBufferIdSpec = {
 };
 
 // Struct: GpuMemoryBufferHandle
-gfx.mojom.GpuMemoryBufferHandleSpec = {
+gfx.mojom.mojom.GpuMemoryBufferHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.GpuMemoryBufferHandle',
       packedSize: 32,
       fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'platform_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferPlatformHandleSpec, nullable: true, minVersion: 0 },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'stride', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'platform_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferPlatformHandleSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

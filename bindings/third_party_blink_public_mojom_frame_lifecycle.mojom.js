@@ -10,17 +10,17 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: FrameVisibility
-blink.mojom.FrameVisibility = {
+blink.mojom.mojom.FrameVisibility = {
   kRenderedOutOfViewport: 0,
   kRenderedInViewport: 1,
   kNotRendered: 2,
 };
-blink.mojom.FrameVisibilitySpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.FrameVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: FrameLifecycleState
-blink.mojom.FrameLifecycleState = {
+blink.mojom.mojom.FrameLifecycleState = {
   kRunning: 0,
   kPaused: 1,
   kFrozen: 2,
 };
-blink.mojom.FrameLifecycleStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.FrameLifecycleStateSpec = { $: mojo.internal.Enum() };

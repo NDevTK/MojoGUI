@@ -6,6 +6,8 @@
 
 // Module namespace
 var mojom = mojom || {};
+var url = url || {};
+var url = url || {};
 
 
 // Union: InstallIsolatedWebAppResult
@@ -88,10 +90,10 @@ mojom.IwaDevModeAppInfoSpec = {
       name: 'mojom.IwaDevModeAppInfo',
       packedSize: 64,
       fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'web_bundle_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'location', packedOffset: 24, packedBitOffset: 0, type: mojom.IwaDevModeLocationSpec, nullable: false, minVersion: 0 },
+        { name: 'app_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'web_bundle_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojom.IwaDevModeLocationSpec, nullable: false, minVersion: 0 },
         { name: 'installed_version', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'update_info', packedOffset: 48, packedBitOffset: 0, type: mojom.UpdateInfoSpec, nullable: true, minVersion: 0 },
       ],
@@ -653,8 +655,8 @@ mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec = {
       name: 'mojom.WebAppInternalsHandler.SetAllowDowngradesForIsolatedWebApp_Params',
       packedSize: 24,
       fields: [
-        { name: 'allow_downgrades', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'allow_downgrades', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

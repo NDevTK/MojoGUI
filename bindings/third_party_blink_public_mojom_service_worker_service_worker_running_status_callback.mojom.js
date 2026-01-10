@@ -7,27 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Interface: ServiceWorkerRunningStatusCallback
-blink.mojom.ServiceWorkerRunningStatusCallback = {};
+blink.mojom.mojom.ServiceWorkerRunningStatusCallback = {};
 
-blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver = class {
+blink.mojom.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ServiceWorkerRunningStatusCallbackRemote = class {
+blink.mojom.mojom.ServiceWorkerRunningStatusCallbackRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerRunningStatusCallback';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver,
+      blink.mojom.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ blink.mojom.ServiceWorkerRunningStatusCallbackRemote = class {
   }
 };
 
-blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {
+blink.mojom.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-blink.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
-  let remote = new blink.mojom.ServiceWorkerRunningStatusCallbackRemote();
+blink.mojom.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
+  let remote = new blink.mojom.mojom.ServiceWorkerRunningStatusCallbackRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ blink.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
 };
 
 // ParamsSpec for OnStatusChanged
-blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRunningStatusCallback.OnStatusChanged_Params',
@@ -80,6 +81,6 @@ blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ServiceWorkerRunningStatusCallbackPtr = blink.mojom.ServiceWorkerRunningStatusCallbackRemote;
-blink.mojom.ServiceWorkerRunningStatusCallbackRequest = blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver;
+blink.mojom.mojom.ServiceWorkerRunningStatusCallbackPtr = blink.mojom.mojom.ServiceWorkerRunningStatusCallbackRemote;
+blink.mojom.mojom.ServiceWorkerRunningStatusCallbackRequest = blink.mojom.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver;
 

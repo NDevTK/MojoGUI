@@ -10,24 +10,24 @@ test.mojom = test.mojom || {};
 
 
 // Interface: Foo
-test.mojom.Foo = {};
+test.mojom.mojom.Foo = {};
 
-test.mojom.FooPendingReceiver = class {
+test.mojom.mojom.FooPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-test.mojom.FooRemote = class {
+test.mojom.mojom.FooRemote = class {
   static get $interfaceName() {
     return 'test.mojom.Foo';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      test.mojom.FooPendingReceiver,
+      test.mojom.mojom.FooPendingReceiver,
       handle);
-    this.$ = new test.mojom.FooRemoteCallHandler(this.proxy);
+    this.$ = new test.mojom.mojom.FooRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ test.mojom.FooRemote = class {
   }
 };
 
-test.mojom.FooRemoteCallHandler = class {
+test.mojom.mojom.FooRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ test.mojom.FooRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.Foo_GetFoo_ParamsSpec,
-      test.mojom.Foo_GetFoo_ResponseParamsSpec,
+      test.mojom.mojom.Foo_GetFoo_ParamsSpec,
+      test.mojom.mojom.Foo_GetFoo_ResponseParamsSpec,
       []);
   }
 
 };
 
-test.mojom.Foo.getRemote = function() {
-  let remote = new test.mojom.FooRemote();
+test.mojom.mojom.Foo.getRemote = function() {
+  let remote = new test.mojom.mojom.FooRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ test.mojom.Foo.getRemote = function() {
 };
 
 // ParamsSpec for GetFoo
-test.mojom.Foo_GetFoo_ParamsSpec = {
+test.mojom.mojom.Foo_GetFoo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'test.mojom.Foo.GetFoo_Params',
@@ -78,7 +78,7 @@ test.mojom.Foo_GetFoo_ParamsSpec = {
   }
 };
 
-test.mojom.Foo_GetFoo_ResponseParamsSpec = {
+test.mojom.mojom.Foo_GetFoo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'test.mojom.Foo.GetFoo_ResponseParams',
@@ -92,29 +92,29 @@ test.mojom.Foo_GetFoo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-test.mojom.FooPtr = test.mojom.FooRemote;
-test.mojom.FooRequest = test.mojom.FooPendingReceiver;
+test.mojom.mojom.FooPtr = test.mojom.mojom.FooRemote;
+test.mojom.mojom.FooRequest = test.mojom.mojom.FooPendingReceiver;
 
 
 // Interface: Bar
-test.mojom.Bar = {};
+test.mojom.mojom.Bar = {};
 
-test.mojom.BarPendingReceiver = class {
+test.mojom.mojom.BarPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-test.mojom.BarRemote = class {
+test.mojom.mojom.BarRemote = class {
   static get $interfaceName() {
     return 'test.mojom.Bar';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      test.mojom.BarPendingReceiver,
+      test.mojom.mojom.BarPendingReceiver,
       handle);
-    this.$ = new test.mojom.BarRemoteCallHandler(this.proxy);
+    this.$ = new test.mojom.mojom.BarRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -126,7 +126,7 @@ test.mojom.BarRemote = class {
   }
 };
 
-test.mojom.BarRemoteCallHandler = class {
+test.mojom.mojom.BarRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -135,15 +135,15 @@ test.mojom.BarRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.Bar_GetBar_ParamsSpec,
-      test.mojom.Bar_GetBar_ResponseParamsSpec,
+      test.mojom.mojom.Bar_GetBar_ParamsSpec,
+      test.mojom.mojom.Bar_GetBar_ResponseParamsSpec,
       []);
   }
 
 };
 
-test.mojom.Bar.getRemote = function() {
-  let remote = new test.mojom.BarRemote();
+test.mojom.mojom.Bar.getRemote = function() {
+  let remote = new test.mojom.mojom.BarRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -153,7 +153,7 @@ test.mojom.Bar.getRemote = function() {
 };
 
 // ParamsSpec for GetBar
-test.mojom.Bar_GetBar_ParamsSpec = {
+test.mojom.mojom.Bar_GetBar_ParamsSpec = {
   $: {
     structSpec: {
       name: 'test.mojom.Bar.GetBar_Params',
@@ -165,7 +165,7 @@ test.mojom.Bar_GetBar_ParamsSpec = {
   }
 };
 
-test.mojom.Bar_GetBar_ResponseParamsSpec = {
+test.mojom.mojom.Bar_GetBar_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'test.mojom.Bar.GetBar_ResponseParams',
@@ -179,29 +179,29 @@ test.mojom.Bar_GetBar_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-test.mojom.BarPtr = test.mojom.BarRemote;
-test.mojom.BarRequest = test.mojom.BarPendingReceiver;
+test.mojom.mojom.BarPtr = test.mojom.mojom.BarRemote;
+test.mojom.mojom.BarRequest = test.mojom.mojom.BarPendingReceiver;
 
 
 // Interface: Baz
-test.mojom.Baz = {};
+test.mojom.mojom.Baz = {};
 
-test.mojom.BazPendingReceiver = class {
+test.mojom.mojom.BazPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-test.mojom.BazRemote = class {
+test.mojom.mojom.BazRemote = class {
   static get $interfaceName() {
     return 'test.mojom.Baz';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      test.mojom.BazPendingReceiver,
+      test.mojom.mojom.BazPendingReceiver,
       handle);
-    this.$ = new test.mojom.BazRemoteCallHandler(this.proxy);
+    this.$ = new test.mojom.mojom.BazRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -213,7 +213,7 @@ test.mojom.BazRemote = class {
   }
 };
 
-test.mojom.BazRemoteCallHandler = class {
+test.mojom.mojom.BazRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -222,15 +222,15 @@ test.mojom.BazRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.Baz_GetBaz_ParamsSpec,
-      test.mojom.Baz_GetBaz_ResponseParamsSpec,
+      test.mojom.mojom.Baz_GetBaz_ParamsSpec,
+      test.mojom.mojom.Baz_GetBaz_ResponseParamsSpec,
       []);
   }
 
 };
 
-test.mojom.Baz.getRemote = function() {
-  let remote = new test.mojom.BazRemote();
+test.mojom.mojom.Baz.getRemote = function() {
+  let remote = new test.mojom.mojom.BazRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -240,7 +240,7 @@ test.mojom.Baz.getRemote = function() {
 };
 
 // ParamsSpec for GetBaz
-test.mojom.Baz_GetBaz_ParamsSpec = {
+test.mojom.mojom.Baz_GetBaz_ParamsSpec = {
   $: {
     structSpec: {
       name: 'test.mojom.Baz.GetBaz_Params',
@@ -252,7 +252,7 @@ test.mojom.Baz_GetBaz_ParamsSpec = {
   }
 };
 
-test.mojom.Baz_GetBaz_ResponseParamsSpec = {
+test.mojom.mojom.Baz_GetBaz_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'test.mojom.Baz.GetBaz_ResponseParams',
@@ -266,6 +266,6 @@ test.mojom.Baz_GetBaz_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-test.mojom.BazPtr = test.mojom.BazRemote;
-test.mojom.BazRequest = test.mojom.BazPendingReceiver;
+test.mojom.mojom.BazPtr = test.mojom.mojom.BazRemote;
+test.mojom.mojom.BazRequest = test.mojom.mojom.BazPendingReceiver;
 

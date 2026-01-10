@@ -7,28 +7,28 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.metrics = chromecast.metrics || {};
-chromecast.metrics.mojom = chromecast.metrics.mojom || {};
+chromecast.metrics.metrics.mojom = chromecast.metrics.metrics.mojom || {};
 
 
 // Interface: MetricsHelper
-chromecast.metrics.mojom.MetricsHelper = {};
+chromecast.metrics.metrics.mojom.mojom.MetricsHelper = {};
 
-chromecast.metrics.mojom.MetricsHelperPendingReceiver = class {
+chromecast.metrics.metrics.mojom.mojom.MetricsHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.metrics.mojom.MetricsHelperRemote = class {
+chromecast.metrics.metrics.mojom.mojom.MetricsHelperRemote = class {
   static get $interfaceName() {
     return 'chromecast.metrics.mojom.MetricsHelper';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.metrics.mojom.MetricsHelperPendingReceiver,
+      chromecast.metrics.metrics.mojom.mojom.MetricsHelperPendingReceiver,
       handle);
-    this.$ = new chromecast.metrics.mojom.MetricsHelperRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.metrics.metrics.mojom.mojom.MetricsHelperRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ chromecast.metrics.mojom.MetricsHelperRemote = class {
   }
 };
 
-chromecast.metrics.mojom.MetricsHelperRemoteCallHandler = class {
+chromecast.metrics.metrics.mojom.mojom.MetricsHelperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ chromecast.metrics.mojom.MetricsHelperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec,
+      chromecast.metrics.metrics.mojom.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec,
       null,
       [app_id, session_id, sdk_version, event]);
   }
 
 };
 
-chromecast.metrics.mojom.MetricsHelper.getRemote = function() {
-  let remote = new chromecast.metrics.mojom.MetricsHelperRemote();
+chromecast.metrics.metrics.mojom.mojom.MetricsHelper.getRemote = function() {
+  let remote = new chromecast.metrics.metrics.mojom.mojom.MetricsHelperRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +67,7 @@ chromecast.metrics.mojom.MetricsHelper.getRemote = function() {
 };
 
 // ParamsSpec for RecordApplicationEvent
-chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = {
+chromecast.metrics.metrics.mojom.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.metrics.mojom.MetricsHelper.RecordApplicationEvent_Params',
@@ -84,6 +84,6 @@ chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.metrics.mojom.MetricsHelperPtr = chromecast.metrics.mojom.MetricsHelperRemote;
-chromecast.metrics.mojom.MetricsHelperRequest = chromecast.metrics.mojom.MetricsHelperPendingReceiver;
+chromecast.metrics.metrics.mojom.mojom.MetricsHelperPtr = chromecast.metrics.metrics.mojom.mojom.MetricsHelperRemote;
+chromecast.metrics.metrics.mojom.mojom.MetricsHelperRequest = chromecast.metrics.metrics.mojom.mojom.MetricsHelperPendingReceiver;
 

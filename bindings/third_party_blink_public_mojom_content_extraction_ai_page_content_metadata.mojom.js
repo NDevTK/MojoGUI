@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: MetaTag
-blink.mojom.MetaTagSpec = {
+blink.mojom.mojom.MetaTagSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MetaTag',
@@ -25,7 +26,7 @@ blink.mojom.MetaTagSpec = {
 };
 
 // Struct: FrameMetadata
-blink.mojom.FrameMetadataSpec = {
+blink.mojom.mojom.FrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameMetadata',
@@ -40,7 +41,7 @@ blink.mojom.FrameMetadataSpec = {
 };
 
 // Struct: PageMetadata
-blink.mojom.PageMetadataSpec = {
+blink.mojom.mojom.PageMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PageMetadata',

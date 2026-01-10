@@ -7,27 +7,29 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: RouteProvider
-content.mojom.RouteProvider = {};
+content.mojom.mojom.RouteProvider = {};
 
-content.mojom.RouteProviderPendingReceiver = class {
+content.mojom.mojom.RouteProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.RouteProviderRemote = class {
+content.mojom.mojom.RouteProviderRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RouteProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.RouteProviderPendingReceiver,
+      content.mojom.mojom.RouteProviderPendingReceiver,
       handle);
-    this.$ = new content.mojom.RouteProviderRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.RouteProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ content.mojom.RouteProviderRemote = class {
   }
 };
 
-content.mojom.RouteProviderRemoteCallHandler = class {
+content.mojom.mojom.RouteProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +50,15 @@ content.mojom.RouteProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RouteProvider_GetRoute_ParamsSpec,
+      content.mojom.mojom.RouteProvider_GetRoute_ParamsSpec,
       null,
       [frame_token, receiver]);
   }
 
 };
 
-content.mojom.RouteProvider.getRemote = function() {
-  let remote = new content.mojom.RouteProviderRemote();
+content.mojom.mojom.RouteProvider.getRemote = function() {
+  let remote = new content.mojom.mojom.RouteProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +68,7 @@ content.mojom.RouteProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetRoute
-content.mojom.RouteProvider_GetRoute_ParamsSpec = {
+content.mojom.mojom.RouteProvider_GetRoute_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RouteProvider.GetRoute_Params',
@@ -81,6 +83,6 @@ content.mojom.RouteProvider_GetRoute_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.RouteProviderPtr = content.mojom.RouteProviderRemote;
-content.mojom.RouteProviderRequest = content.mojom.RouteProviderPendingReceiver;
+content.mojom.mojom.RouteProviderPtr = content.mojom.mojom.RouteProviderRemote;
+content.mojom.mojom.RouteProviderRequest = content.mojom.mojom.RouteProviderPendingReceiver;
 

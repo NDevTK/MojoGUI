@@ -10,48 +10,48 @@ device.mojom = device.mojom || {};
 
 
 // Enum: GamepadMapping
-device.mojom.GamepadMapping = {
+device.mojom.mojom.GamepadMapping = {
   GamepadMappingNone: 0,
   GamepadMappingStandard: 1,
   GamepadMappingXRStandard: 2,
 };
-device.mojom.GamepadMappingSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.GamepadMappingSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHand
-device.mojom.GamepadHand = {
+device.mojom.mojom.GamepadHand = {
   GamepadHandNone: 0,
   GamepadHandLeft: 1,
   GamepadHandRight: 2,
 };
-device.mojom.GamepadHandSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.GamepadHandSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHapticActuatorType
-device.mojom.GamepadHapticActuatorType = {
+device.mojom.mojom.GamepadHapticActuatorType = {
   GamepadHapticActuatorTypeVibration: 0,
   GamepadHapticActuatorTypeDualRumble: 1,
   GamepadHapticActuatorTypeTriggerRumble: 2,
 };
-device.mojom.GamepadHapticActuatorTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.GamepadHapticActuatorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHapticEffectType
-device.mojom.GamepadHapticEffectType = {
+device.mojom.mojom.GamepadHapticEffectType = {
   GamepadHapticEffectTypeDualRumble: 0,
   GamepadHapticEffectTypeTriggerRumble: 1,
 };
-device.mojom.GamepadHapticEffectTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.GamepadHapticEffectTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHapticsResult
-device.mojom.GamepadHapticsResult = {
+device.mojom.mojom.GamepadHapticsResult = {
   GamepadHapticsResultError: 0,
   GamepadHapticsResultComplete: 1,
   GamepadHapticsResultPreempted: 2,
   GamepadHapticsResultInvalidParameter: 3,
   GamepadHapticsResultNotSupported: 4,
 };
-device.mojom.GamepadHapticsResultSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.GamepadHapticsResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: GamepadQuaternion
-device.mojom.GamepadQuaternionSpec = {
+device.mojom.mojom.GamepadQuaternionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadQuaternion',
@@ -68,7 +68,7 @@ device.mojom.GamepadQuaternionSpec = {
 };
 
 // Struct: GamepadVector
-device.mojom.GamepadVectorSpec = {
+device.mojom.mojom.GamepadVectorSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadVector',
@@ -84,15 +84,15 @@ device.mojom.GamepadVectorSpec = {
 };
 
 // Struct: GamepadButton
-device.mojom.GamepadButtonSpec = {
+device.mojom.mojom.GamepadButtonSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadButton',
       packedSize: 24,
       fields: [
-        { name: 'pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'touched', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'pressed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'touched', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -100,19 +100,19 @@ device.mojom.GamepadButtonSpec = {
 };
 
 // Struct: GamepadTouch
-device.mojom.GamepadTouchSpec = {
+device.mojom.mojom.GamepadTouchSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadTouch',
       packedSize: 40,
       fields: [
-        { name: 'touch_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'surface_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'surface_height', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'surface_width', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'has_surface_dimensions', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'touch_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'surface_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'surface_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'surface_width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'has_surface_dimensions', packedOffset: 29, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -120,7 +120,7 @@ device.mojom.GamepadTouchSpec = {
 };
 
 // Struct: GamepadPose
-device.mojom.GamepadPoseSpec = {
+device.mojom.mojom.GamepadPoseSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadPose',
@@ -139,7 +139,7 @@ device.mojom.GamepadPoseSpec = {
 };
 
 // Struct: GamepadHapticActuator
-device.mojom.GamepadHapticActuatorSpec = {
+device.mojom.mojom.GamepadHapticActuatorSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadHapticActuator',
@@ -153,23 +153,23 @@ device.mojom.GamepadHapticActuatorSpec = {
 };
 
 // Struct: Gamepad
-device.mojom.GamepadSpec = {
+device.mojom.mojom.GamepadSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Gamepad',
       packedSize: 80,
       fields: [
-        { name: 'connected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'axes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
-        { name: 'buttons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.GamepadButtonSpec, false), nullable: false, minVersion: 0 },
-        { name: 'vibration_actuator', packedOffset: 40, packedBitOffset: 0, type: device.mojom.GamepadHapticActuatorSpec, nullable: true, minVersion: 0 },
-        { name: 'mapping', packedOffset: 4, packedBitOffset: 0, type: device.mojom.GamepadMappingSpec, nullable: false, minVersion: 0 },
-        { name: 'pose', packedOffset: 48, packedBitOffset: 0, type: device.mojom.GamepadPoseSpec, nullable: true, minVersion: 0 },
-        { name: 'hand', packedOffset: 56, packedBitOffset: 0, type: device.mojom.GamepadHandSpec, nullable: false, minVersion: 0 },
-        { name: 'touch_events', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.GamepadTouchSpec, false), nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'connected', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'axes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
+        { name: 'buttons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.GamepadButtonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'vibration_actuator', packedOffset: 32, packedBitOffset: 0, type: device.mojom.GamepadHapticActuatorSpec, nullable: true, minVersion: 0 },
+        { name: 'mapping', packedOffset: 56, packedBitOffset: 0, type: device.mojom.GamepadMappingSpec, nullable: false, minVersion: 0 },
+        { name: 'pose', packedOffset: 40, packedBitOffset: 0, type: device.mojom.GamepadPoseSpec, nullable: true, minVersion: 0 },
+        { name: 'hand', packedOffset: 60, packedBitOffset: 0, type: device.mojom.GamepadHandSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_events', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.GamepadTouchSpec, false), nullable: false, minVersion: 0 },
+        { name: 'display_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -177,7 +177,7 @@ device.mojom.GamepadSpec = {
 };
 
 // Struct: GamepadEffectParameters
-device.mojom.GamepadEffectParametersSpec = {
+device.mojom.mojom.GamepadEffectParametersSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadEffectParameters',
@@ -196,24 +196,24 @@ device.mojom.GamepadEffectParametersSpec = {
 };
 
 // Interface: GamepadObserver
-device.mojom.GamepadObserver = {};
+device.mojom.mojom.GamepadObserver = {};
 
-device.mojom.GamepadObserverPendingReceiver = class {
+device.mojom.mojom.GamepadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.GamepadObserverRemote = class {
+device.mojom.mojom.GamepadObserverRemote = class {
   static get $interfaceName() {
     return 'device.mojom.GamepadObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.GamepadObserverPendingReceiver,
+      device.mojom.mojom.GamepadObserverPendingReceiver,
       handle);
-    this.$ = new device.mojom.GamepadObserverRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.GamepadObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -225,7 +225,7 @@ device.mojom.GamepadObserverRemote = class {
   }
 };
 
-device.mojom.GamepadObserverRemoteCallHandler = class {
+device.mojom.mojom.GamepadObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -234,7 +234,7 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GamepadObserver_GamepadConnected_ParamsSpec,
+      device.mojom.mojom.GamepadObserver_GamepadConnected_ParamsSpec,
       null,
       [index, gamepad]);
   }
@@ -243,7 +243,7 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec,
+      device.mojom.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec,
       null,
       [index, gamepad]);
   }
@@ -252,15 +252,15 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec,
+      device.mojom.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec,
       null,
       [index, gamepad]);
   }
 
 };
 
-device.mojom.GamepadObserver.getRemote = function() {
-  let remote = new device.mojom.GamepadObserverRemote();
+device.mojom.mojom.GamepadObserver.getRemote = function() {
+  let remote = new device.mojom.mojom.GamepadObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -270,14 +270,14 @@ device.mojom.GamepadObserver.getRemote = function() {
 };
 
 // ParamsSpec for GamepadConnected
-device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
+device.mojom.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadObserver.GamepadConnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'gamepad', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -285,14 +285,14 @@ device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
 };
 
 // ParamsSpec for GamepadDisconnected
-device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
+device.mojom.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadObserver.GamepadDisconnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'gamepad', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -300,14 +300,14 @@ device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
 };
 
 // ParamsSpec for GamepadRawInputChanged
-device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
+device.mojom.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadObserver.GamepadRawInputChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'gamepad', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -315,29 +315,29 @@ device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.GamepadObserverPtr = device.mojom.GamepadObserverRemote;
-device.mojom.GamepadObserverRequest = device.mojom.GamepadObserverPendingReceiver;
+device.mojom.mojom.GamepadObserverPtr = device.mojom.mojom.GamepadObserverRemote;
+device.mojom.mojom.GamepadObserverRequest = device.mojom.mojom.GamepadObserverPendingReceiver;
 
 
 // Interface: GamepadMonitor
-device.mojom.GamepadMonitor = {};
+device.mojom.mojom.GamepadMonitor = {};
 
-device.mojom.GamepadMonitorPendingReceiver = class {
+device.mojom.mojom.GamepadMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.GamepadMonitorRemote = class {
+device.mojom.mojom.GamepadMonitorRemote = class {
   static get $interfaceName() {
     return 'device.mojom.GamepadMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.GamepadMonitorPendingReceiver,
+      device.mojom.mojom.GamepadMonitorPendingReceiver,
       handle);
-    this.$ = new device.mojom.GamepadMonitorRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.GamepadMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -349,7 +349,7 @@ device.mojom.GamepadMonitorRemote = class {
   }
 };
 
-device.mojom.GamepadMonitorRemoteCallHandler = class {
+device.mojom.mojom.GamepadMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -358,8 +358,8 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec,
-      device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
+      device.mojom.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec,
+      device.mojom.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
       []);
   }
 
@@ -367,7 +367,7 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec,
+      device.mojom.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec,
       null,
       []);
   }
@@ -376,15 +376,15 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.GamepadMonitor_SetObserver_ParamsSpec,
+      device.mojom.mojom.GamepadMonitor_SetObserver_ParamsSpec,
       null,
       [gamepad_observer]);
   }
 
 };
 
-device.mojom.GamepadMonitor.getRemote = function() {
-  let remote = new device.mojom.GamepadMonitorRemote();
+device.mojom.mojom.GamepadMonitor.getRemote = function() {
+  let remote = new device.mojom.mojom.GamepadMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -394,7 +394,7 @@ device.mojom.GamepadMonitor.getRemote = function() {
 };
 
 // ParamsSpec for GamepadStartPolling
-device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
+device.mojom.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadMonitor.GamepadStartPolling_Params',
@@ -406,7 +406,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
   }
 };
 
-device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
+device.mojom.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadMonitor.GamepadStartPolling_ResponseParams',
@@ -420,7 +420,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GamepadStopPolling
-device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
+device.mojom.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadMonitor.GamepadStopPolling_Params',
@@ -433,7 +433,7 @@ device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
 };
 
 // ParamsSpec for SetObserver
-device.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
+device.mojom.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadMonitor.SetObserver_Params',
@@ -447,29 +447,29 @@ device.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.GamepadMonitorPtr = device.mojom.GamepadMonitorRemote;
-device.mojom.GamepadMonitorRequest = device.mojom.GamepadMonitorPendingReceiver;
+device.mojom.mojom.GamepadMonitorPtr = device.mojom.mojom.GamepadMonitorRemote;
+device.mojom.mojom.GamepadMonitorRequest = device.mojom.mojom.GamepadMonitorPendingReceiver;
 
 
 // Interface: GamepadHapticsManager
-device.mojom.GamepadHapticsManager = {};
+device.mojom.mojom.GamepadHapticsManager = {};
 
-device.mojom.GamepadHapticsManagerPendingReceiver = class {
+device.mojom.mojom.GamepadHapticsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.GamepadHapticsManagerRemote = class {
+device.mojom.mojom.GamepadHapticsManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.GamepadHapticsManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.GamepadHapticsManagerPendingReceiver,
+      device.mojom.mojom.GamepadHapticsManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.GamepadHapticsManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.GamepadHapticsManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -481,7 +481,7 @@ device.mojom.GamepadHapticsManagerRemote = class {
   }
 };
 
-device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
+device.mojom.mojom.GamepadHapticsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -490,8 +490,8 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec,
-      device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
+      device.mojom.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec,
+      device.mojom.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
       [pad_index, type, params]);
   }
 
@@ -499,15 +499,15 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec,
-      device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
+      device.mojom.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec,
+      device.mojom.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
       [pad_index]);
   }
 
 };
 
-device.mojom.GamepadHapticsManager.getRemote = function() {
-  let remote = new device.mojom.GamepadHapticsManagerRemote();
+device.mojom.mojom.GamepadHapticsManager.getRemote = function() {
+  let remote = new device.mojom.mojom.GamepadHapticsManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -517,22 +517,22 @@ device.mojom.GamepadHapticsManager.getRemote = function() {
 };
 
 // ParamsSpec for PlayVibrationEffectOnce
-device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
+device.mojom.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadHapticsManager.PlayVibrationEffectOnce_Params',
       packedSize: 24,
       fields: [
-        { name: 'pad_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: device.mojom.GamepadHapticEffectTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadEffectParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'pad_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: device.mojom.GamepadHapticEffectTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadEffectParametersSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = {
+device.mojom.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadHapticsManager.PlayVibrationEffectOnce_ResponseParams',
@@ -546,7 +546,7 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = 
 };
 
 // ParamsSpec for ResetVibrationActuator
-device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
+device.mojom.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadHapticsManager.ResetVibrationActuator_Params',
@@ -559,7 +559,7 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
   }
 };
 
-device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
+device.mojom.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadHapticsManager.ResetVibrationActuator_ResponseParams',
@@ -573,6 +573,6 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.GamepadHapticsManagerPtr = device.mojom.GamepadHapticsManagerRemote;
-device.mojom.GamepadHapticsManagerRequest = device.mojom.GamepadHapticsManagerPendingReceiver;
+device.mojom.mojom.GamepadHapticsManagerPtr = device.mojom.mojom.GamepadHapticsManagerRemote;
+device.mojom.mojom.GamepadHapticsManagerRequest = device.mojom.mojom.GamepadHapticsManagerPendingReceiver;
 

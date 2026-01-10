@@ -10,19 +10,19 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: SerialPortInfo
-blink.mojom.SerialPortInfoSpec = {
+blink.mojom.mojom.SerialPortInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialPortInfo',
       packedSize: 32,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'usb_vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'has_usb_vendor_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'usb_product_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'has_usb_product_id', packedOffset: 10, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bluetooth_service_class_id', packedOffset: 16, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
-        { name: 'connected', packedOffset: 10, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'usb_vendor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_usb_vendor_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'usb_product_id', packedOffset: 18, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_usb_product_id', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bluetooth_service_class_id', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
+        { name: 'connected', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -30,17 +30,17 @@ blink.mojom.SerialPortInfoSpec = {
 };
 
 // Struct: SerialPortFilter
-blink.mojom.SerialPortFilterSpec = {
+blink.mojom.mojom.SerialPortFilterSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialPortFilter',
       packedSize: 24,
       fields: [
-        { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'has_vendor_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'product_id', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'has_product_id', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bluetooth_service_class_id', packedOffset: 8, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'has_vendor_id', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_product_id', packedOffset: 14, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bluetooth_service_class_id', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -48,24 +48,24 @@ blink.mojom.SerialPortFilterSpec = {
 };
 
 // Interface: SerialService
-blink.mojom.SerialService = {};
+blink.mojom.mojom.SerialService = {};
 
-blink.mojom.SerialServicePendingReceiver = class {
+blink.mojom.mojom.SerialServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SerialServiceRemote = class {
+blink.mojom.mojom.SerialServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SerialService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SerialServicePendingReceiver,
+      blink.mojom.mojom.SerialServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.SerialServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SerialServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -77,7 +77,7 @@ blink.mojom.SerialServiceRemote = class {
   }
 };
 
-blink.mojom.SerialServiceRemoteCallHandler = class {
+blink.mojom.mojom.SerialServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -86,7 +86,7 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SerialService_SetClient_ParamsSpec,
+      blink.mojom.mojom.SerialService_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -95,8 +95,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SerialService_GetPorts_ParamsSpec,
-      blink.mojom.SerialService_GetPorts_ResponseParamsSpec,
+      blink.mojom.mojom.SerialService_GetPorts_ParamsSpec,
+      blink.mojom.mojom.SerialService_GetPorts_ResponseParamsSpec,
       []);
   }
 
@@ -104,8 +104,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SerialService_RequestPort_ParamsSpec,
-      blink.mojom.SerialService_RequestPort_ResponseParamsSpec,
+      blink.mojom.mojom.SerialService_RequestPort_ParamsSpec,
+      blink.mojom.mojom.SerialService_RequestPort_ResponseParamsSpec,
       [filters, allowed_bluetooth_service_class_ids]);
   }
 
@@ -113,8 +113,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SerialService_OpenPort_ParamsSpec,
-      blink.mojom.SerialService_OpenPort_ResponseParamsSpec,
+      blink.mojom.mojom.SerialService_OpenPort_ParamsSpec,
+      blink.mojom.mojom.SerialService_OpenPort_ResponseParamsSpec,
       [token, options, client]);
   }
 
@@ -122,15 +122,15 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SerialService_ForgetPort_ParamsSpec,
+      blink.mojom.mojom.SerialService_ForgetPort_ParamsSpec,
       null,
       [token]);
   }
 
 };
 
-blink.mojom.SerialService.getRemote = function() {
-  let remote = new blink.mojom.SerialServiceRemote();
+blink.mojom.mojom.SerialService.getRemote = function() {
+  let remote = new blink.mojom.mojom.SerialServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -140,7 +140,7 @@ blink.mojom.SerialService.getRemote = function() {
 };
 
 // ParamsSpec for SetClient
-blink.mojom.SerialService_SetClient_ParamsSpec = {
+blink.mojom.mojom.SerialService_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.SetClient_Params',
@@ -154,7 +154,7 @@ blink.mojom.SerialService_SetClient_ParamsSpec = {
 };
 
 // ParamsSpec for GetPorts
-blink.mojom.SerialService_GetPorts_ParamsSpec = {
+blink.mojom.mojom.SerialService_GetPorts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.GetPorts_Params',
@@ -166,7 +166,7 @@ blink.mojom.SerialService_GetPorts_ParamsSpec = {
   }
 };
 
-blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
+blink.mojom.mojom.SerialService_GetPorts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.GetPorts_ResponseParams',
@@ -180,7 +180,7 @@ blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestPort
-blink.mojom.SerialService_RequestPort_ParamsSpec = {
+blink.mojom.mojom.SerialService_RequestPort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.RequestPort_Params',
@@ -194,7 +194,7 @@ blink.mojom.SerialService_RequestPort_ParamsSpec = {
   }
 };
 
-blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
+blink.mojom.mojom.SerialService_RequestPort_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.RequestPort_ResponseParams',
@@ -208,7 +208,7 @@ blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenPort
-blink.mojom.SerialService_OpenPort_ParamsSpec = {
+blink.mojom.mojom.SerialService_OpenPort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.OpenPort_Params',
@@ -223,7 +223,7 @@ blink.mojom.SerialService_OpenPort_ParamsSpec = {
   }
 };
 
-blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
+blink.mojom.mojom.SerialService_OpenPort_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.OpenPort_ResponseParams',
@@ -237,7 +237,7 @@ blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ForgetPort
-blink.mojom.SerialService_ForgetPort_ParamsSpec = {
+blink.mojom.mojom.SerialService_ForgetPort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialService.ForgetPort_Params',
@@ -251,29 +251,29 @@ blink.mojom.SerialService_ForgetPort_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SerialServicePtr = blink.mojom.SerialServiceRemote;
-blink.mojom.SerialServiceRequest = blink.mojom.SerialServicePendingReceiver;
+blink.mojom.mojom.SerialServicePtr = blink.mojom.mojom.SerialServiceRemote;
+blink.mojom.mojom.SerialServiceRequest = blink.mojom.mojom.SerialServicePendingReceiver;
 
 
 // Interface: SerialServiceClient
-blink.mojom.SerialServiceClient = {};
+blink.mojom.mojom.SerialServiceClient = {};
 
-blink.mojom.SerialServiceClientPendingReceiver = class {
+blink.mojom.mojom.SerialServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SerialServiceClientRemote = class {
+blink.mojom.mojom.SerialServiceClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SerialServiceClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SerialServiceClientPendingReceiver,
+      blink.mojom.mojom.SerialServiceClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SerialServiceClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SerialServiceClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -285,7 +285,7 @@ blink.mojom.SerialServiceClientRemote = class {
   }
 };
 
-blink.mojom.SerialServiceClientRemoteCallHandler = class {
+blink.mojom.mojom.SerialServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -294,15 +294,15 @@ blink.mojom.SerialServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec,
+      blink.mojom.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
       [port_info]);
   }
 
 };
 
-blink.mojom.SerialServiceClient.getRemote = function() {
-  let remote = new blink.mojom.SerialServiceClientRemote();
+blink.mojom.mojom.SerialServiceClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.SerialServiceClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -312,7 +312,7 @@ blink.mojom.SerialServiceClient.getRemote = function() {
 };
 
 // ParamsSpec for OnPortConnectedStateChanged
-blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
+blink.mojom.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SerialServiceClient.OnPortConnectedStateChanged_Params',
@@ -326,6 +326,6 @@ blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SerialServiceClientPtr = blink.mojom.SerialServiceClientRemote;
-blink.mojom.SerialServiceClientRequest = blink.mojom.SerialServiceClientPendingReceiver;
+blink.mojom.mojom.SerialServiceClientPtr = blink.mojom.mojom.SerialServiceClientRemote;
+blink.mojom.mojom.SerialServiceClientRequest = blink.mojom.mojom.SerialServiceClientPendingReceiver;
 

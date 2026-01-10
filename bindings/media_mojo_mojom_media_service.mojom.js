@@ -9,31 +9,31 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
-media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+media.mojom.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kNoSandbox;
 
-media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kGpu;
+media.mojom.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kGpu;
 
-media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kService;
+media.mojom.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kService;
 
 // Interface: MediaService
-media.mojom.MediaService = {};
+media.mojom.mojom.MediaService = {};
 
-media.mojom.MediaServicePendingReceiver = class {
+media.mojom.mojom.MediaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaServiceRemote = class {
+media.mojom.mojom.MediaServiceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaServicePendingReceiver,
+      media.mojom.mojom.MediaServicePendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaServiceRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -45,7 +45,7 @@ media.mojom.MediaServiceRemote = class {
   }
 };
 
-media.mojom.MediaServiceRemoteCallHandler = class {
+media.mojom.mojom.MediaServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -54,15 +54,15 @@ media.mojom.MediaServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec,
+      media.mojom.mojom.MediaService_CreateInterfaceFactory_ParamsSpec,
       null,
       [factory, frame_interfaces]);
   }
 
 };
 
-media.mojom.MediaService.getRemote = function() {
-  let remote = new media.mojom.MediaServiceRemote();
+media.mojom.mojom.MediaService.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -72,7 +72,7 @@ media.mojom.MediaService.getRemote = function() {
 };
 
 // ParamsSpec for CreateInterfaceFactory
-media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
+media.mojom.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaService.CreateInterfaceFactory_Params',
@@ -87,6 +87,6 @@ media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaServicePtr = media.mojom.MediaServiceRemote;
-media.mojom.MediaServiceRequest = media.mojom.MediaServicePendingReceiver;
+media.mojom.mojom.MediaServicePtr = media.mojom.mojom.MediaServiceRemote;
+media.mojom.mojom.MediaServiceRequest = media.mojom.mojom.MediaServicePendingReceiver;
 

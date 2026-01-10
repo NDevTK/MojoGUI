@@ -10,24 +10,24 @@ media.mojom = media.mojom || {};
 
 
 // Interface: GpuInfoObserver
-media.mojom.GpuInfoObserver = {};
+media.mojom.mojom.GpuInfoObserver = {};
 
-media.mojom.GpuInfoObserverPendingReceiver = class {
+media.mojom.mojom.GpuInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.GpuInfoObserverRemote = class {
+media.mojom.mojom.GpuInfoObserverRemote = class {
   static get $interfaceName() {
     return 'media.mojom.GpuInfoObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.GpuInfoObserverPendingReceiver,
+      media.mojom.mojom.GpuInfoObserverPendingReceiver,
       handle);
-    this.$ = new media.mojom.GpuInfoObserverRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.GpuInfoObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ media.mojom.GpuInfoObserverRemote = class {
   }
 };
 
-media.mojom.GpuInfoObserverRemoteCallHandler = class {
+media.mojom.mojom.GpuInfoObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ media.mojom.GpuInfoObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec,
+      media.mojom.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec,
       null,
       [gpu_info]);
   }
 
 };
 
-media.mojom.GpuInfoObserver.getRemote = function() {
-  let remote = new media.mojom.GpuInfoObserverRemote();
+media.mojom.mojom.GpuInfoObserver.getRemote = function() {
+  let remote = new media.mojom.mojom.GpuInfoObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ media.mojom.GpuInfoObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnGpuInfoUpdate
-media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
+media.mojom.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.GpuInfoObserver.OnGpuInfoUpdate_Params',
@@ -80,29 +80,29 @@ media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.GpuInfoObserverPtr = media.mojom.GpuInfoObserverRemote;
-media.mojom.GpuInfoObserverRequest = media.mojom.GpuInfoObserverPendingReceiver;
+media.mojom.mojom.GpuInfoObserverPtr = media.mojom.mojom.GpuInfoObserverRemote;
+media.mojom.mojom.GpuInfoObserverRequest = media.mojom.mojom.GpuInfoObserverPendingReceiver;
 
 
 // Interface: MediaFoundationService
-media.mojom.MediaFoundationService = {};
+media.mojom.mojom.MediaFoundationService = {};
 
-media.mojom.MediaFoundationServicePendingReceiver = class {
+media.mojom.mojom.MediaFoundationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaFoundationServiceRemote = class {
+media.mojom.mojom.MediaFoundationServiceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaFoundationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaFoundationServicePendingReceiver,
+      media.mojom.mojom.MediaFoundationServicePendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaFoundationServiceRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaFoundationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ media.mojom.MediaFoundationServiceRemote = class {
   }
 };
 
-media.mojom.MediaFoundationServiceRemoteCallHandler = class {
+media.mojom.mojom.MediaFoundationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,8 +123,8 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec,
-      media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec,
+      media.mojom.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec,
+      media.mojom.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec,
       [key_system]);
   }
 
@@ -132,15 +132,15 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec,
+      media.mojom.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec,
       null,
       [factory, frame_interfaces]);
   }
 
 };
 
-media.mojom.MediaFoundationService.getRemote = function() {
-  let remote = new media.mojom.MediaFoundationServiceRemote();
+media.mojom.mojom.MediaFoundationService.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaFoundationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -150,7 +150,7 @@ media.mojom.MediaFoundationService.getRemote = function() {
 };
 
 // ParamsSpec for IsKeySystemSupported
-media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
+media.mojom.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_Params',
@@ -163,14 +163,14 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
   }
 };
 
-media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
+media.mojom.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'key_system_capability', packedOffset: 8, packedBitOffset: 0, type: media.mojom.KeySystemCapabilitySpec, nullable: false, minVersion: 0 },
+        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'key_system_capability', packedOffset: 0, packedBitOffset: 0, type: media.mojom.KeySystemCapabilitySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -178,7 +178,7 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateInterfaceFactory
-media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
+media.mojom.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationService.CreateInterfaceFactory_Params',
@@ -193,29 +193,29 @@ media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaFoundationServicePtr = media.mojom.MediaFoundationServiceRemote;
-media.mojom.MediaFoundationServiceRequest = media.mojom.MediaFoundationServicePendingReceiver;
+media.mojom.mojom.MediaFoundationServicePtr = media.mojom.mojom.MediaFoundationServiceRemote;
+media.mojom.mojom.MediaFoundationServiceRequest = media.mojom.mojom.MediaFoundationServicePendingReceiver;
 
 
 // Interface: MediaFoundationServiceBroker
-media.mojom.MediaFoundationServiceBroker = {};
+media.mojom.mojom.MediaFoundationServiceBroker = {};
 
-media.mojom.MediaFoundationServiceBrokerPendingReceiver = class {
+media.mojom.mojom.MediaFoundationServiceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaFoundationServiceBrokerRemote = class {
+media.mojom.mojom.MediaFoundationServiceBrokerRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaFoundationServiceBroker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaFoundationServiceBrokerPendingReceiver,
+      media.mojom.mojom.MediaFoundationServiceBrokerPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaFoundationServiceBrokerRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaFoundationServiceBrokerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -227,7 +227,7 @@ media.mojom.MediaFoundationServiceBrokerRemote = class {
   }
 };
 
-media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
+media.mojom.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -236,8 +236,8 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec,
-      media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec,
+      media.mojom.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec,
+      media.mojom.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec,
       [gpu_info]);
   }
 
@@ -245,15 +245,15 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec,
+      media.mojom.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec,
       null,
       [cdm_path, receiver]);
   }
 
 };
 
-media.mojom.MediaFoundationServiceBroker.getRemote = function() {
-  let remote = new media.mojom.MediaFoundationServiceBrokerRemote();
+media.mojom.mojom.MediaFoundationServiceBroker.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaFoundationServiceBrokerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -263,7 +263,7 @@ media.mojom.MediaFoundationServiceBroker.getRemote = function() {
 };
 
 // ParamsSpec for UpdateGpuInfo
-media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
+media.mojom.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_Params',
@@ -276,7 +276,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
   }
 };
 
-media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
+media.mojom.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_ResponseParams',
@@ -290,7 +290,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetService
-media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
+media.mojom.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationServiceBroker.GetService_Params',
@@ -305,6 +305,6 @@ media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaFoundationServiceBrokerPtr = media.mojom.MediaFoundationServiceBrokerRemote;
-media.mojom.MediaFoundationServiceBrokerRequest = media.mojom.MediaFoundationServiceBrokerPendingReceiver;
+media.mojom.mojom.MediaFoundationServiceBrokerPtr = media.mojom.mojom.MediaFoundationServiceBrokerRemote;
+media.mojom.mojom.MediaFoundationServiceBrokerRequest = media.mojom.mojom.MediaFoundationServiceBrokerPendingReceiver;
 

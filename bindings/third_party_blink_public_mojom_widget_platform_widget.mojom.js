@@ -7,27 +7,35 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var ui = ui || {};
+var ui = ui || {};
 
 
 // Interface: WidgetCompositor
-blink.mojom.WidgetCompositor = {};
+blink.mojom.mojom.WidgetCompositor = {};
 
-blink.mojom.WidgetCompositorPendingReceiver = class {
+blink.mojom.mojom.WidgetCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WidgetCompositorRemote = class {
+blink.mojom.mojom.WidgetCompositorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WidgetCompositor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WidgetCompositorPendingReceiver,
+      blink.mojom.mojom.WidgetCompositorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WidgetCompositorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WidgetCompositorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +47,7 @@ blink.mojom.WidgetCompositorRemote = class {
   }
 };
 
-blink.mojom.WidgetCompositorRemoteCallHandler = class {
+blink.mojom.mojom.WidgetCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +56,15 @@ blink.mojom.WidgetCompositorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec,
+      blink.mojom.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.WidgetCompositor.getRemote = function() {
-  let remote = new blink.mojom.WidgetCompositorRemote();
+blink.mojom.mojom.WidgetCompositor.getRemote = function() {
+  let remote = new blink.mojom.mojom.WidgetCompositorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +74,7 @@ blink.mojom.WidgetCompositor.getRemote = function() {
 };
 
 // ParamsSpec for VisualStateRequest
-blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = {
+blink.mojom.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetCompositor.VisualStateRequest_Params',
@@ -79,29 +87,29 @@ blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WidgetCompositorPtr = blink.mojom.WidgetCompositorRemote;
-blink.mojom.WidgetCompositorRequest = blink.mojom.WidgetCompositorPendingReceiver;
+blink.mojom.mojom.WidgetCompositorPtr = blink.mojom.mojom.WidgetCompositorRemote;
+blink.mojom.mojom.WidgetCompositorRequest = blink.mojom.mojom.WidgetCompositorPendingReceiver;
 
 
 // Interface: WidgetHost
-blink.mojom.WidgetHost = {};
+blink.mojom.mojom.WidgetHost = {};
 
-blink.mojom.WidgetHostPendingReceiver = class {
+blink.mojom.mojom.WidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WidgetHostRemote = class {
+blink.mojom.mojom.WidgetHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WidgetHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WidgetHostPendingReceiver,
+      blink.mojom.mojom.WidgetHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WidgetHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WidgetHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -113,7 +121,7 @@ blink.mojom.WidgetHostRemote = class {
   }
 };
 
-blink.mojom.WidgetHostRemoteCallHandler = class {
+blink.mojom.mojom.WidgetHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -122,7 +130,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WidgetHost_SetCursor_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_SetCursor_ParamsSpec,
       null,
       [cursor]);
   }
@@ -131,7 +139,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec,
       null,
       [tooltip_text, text_direction_hint]);
   }
@@ -140,7 +148,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec,
       null,
       [tooltip_text, text_direction_hint, bounds]);
   }
@@ -149,7 +157,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec,
       null,
       []);
   }
@@ -158,7 +166,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_TextInputStateChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -167,7 +175,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec,
       null,
       [anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first]);
   }
@@ -176,7 +184,7 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_CreateFrameSink_ParamsSpec,
       null,
       [compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client]);
   }
@@ -185,15 +193,15 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec,
+      blink.mojom.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec,
       null,
       [render_frame_metadata_observer_client_receiver, render_frame_metadata_observer]);
   }
 
 };
 
-blink.mojom.WidgetHost.getRemote = function() {
-  let remote = new blink.mojom.WidgetHostRemote();
+blink.mojom.mojom.WidgetHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.WidgetHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -203,7 +211,7 @@ blink.mojom.WidgetHost.getRemote = function() {
 };
 
 // ParamsSpec for SetCursor
-blink.mojom.WidgetHost_SetCursor_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_SetCursor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.SetCursor_Params',
@@ -217,7 +225,7 @@ blink.mojom.WidgetHost_SetCursor_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateTooltipUnderCursor
-blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.UpdateTooltipUnderCursor_Params',
@@ -232,15 +240,15 @@ blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateTooltipFromKeyboard
-blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.UpdateTooltipFromKeyboard_Params',
       packedSize: 32,
       fields: [
         { name: 'tooltip_text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'text_direction_hint', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'text_direction_hint', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -248,7 +256,7 @@ blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = {
 };
 
 // ParamsSpec for ClearKeyboardTriggeredTooltip
-blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.ClearKeyboardTriggeredTooltip_Params',
@@ -261,7 +269,7 @@ blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = {
 };
 
 // ParamsSpec for TextInputStateChanged
-blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.TextInputStateChanged_Params',
@@ -275,17 +283,17 @@ blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for SelectionBoundsChanged
-blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.SelectionBoundsChanged_Params',
       packedSize: 48,
       fields: [
         { name: 'anchor_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'anchor_dir', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'focus_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'focus_dir', packedOffset: 12, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'bounding_box_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'anchor_dir', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'focus_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'focus_dir', packedOffset: 28, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'bounding_box_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
         { name: 'is_anchor_first', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
@@ -294,7 +302,7 @@ blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for CreateFrameSink
-blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.CreateFrameSink_Params',
@@ -310,7 +318,7 @@ blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterRenderFrameMetadataObserver
-blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
+blink.mojom.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.RegisterRenderFrameMetadataObserver_Params',
@@ -325,29 +333,29 @@ blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WidgetHostPtr = blink.mojom.WidgetHostRemote;
-blink.mojom.WidgetHostRequest = blink.mojom.WidgetHostPendingReceiver;
+blink.mojom.mojom.WidgetHostPtr = blink.mojom.mojom.WidgetHostRemote;
+blink.mojom.mojom.WidgetHostRequest = blink.mojom.mojom.WidgetHostPendingReceiver;
 
 
 // Interface: Widget
-blink.mojom.Widget = {};
+blink.mojom.mojom.Widget = {};
 
-blink.mojom.WidgetPendingReceiver = class {
+blink.mojom.mojom.WidgetPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WidgetRemote = class {
+blink.mojom.mojom.WidgetRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.Widget';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WidgetPendingReceiver,
+      blink.mojom.mojom.WidgetPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WidgetRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WidgetRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -359,7 +367,7 @@ blink.mojom.WidgetRemote = class {
   }
 };
 
-blink.mojom.WidgetRemoteCallHandler = class {
+blink.mojom.mojom.WidgetRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -368,7 +376,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.Widget_ForceRedraw_ParamsSpec,
+      blink.mojom.mojom.Widget_ForceRedraw_ParamsSpec,
       null,
       []);
   }
@@ -377,7 +385,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.Widget_UpdateVisualProperties_ParamsSpec,
+      blink.mojom.mojom.Widget_UpdateVisualProperties_ParamsSpec,
       null,
       [visual_properties]);
   }
@@ -386,7 +394,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.Widget_UpdateScreenRects_ParamsSpec,
+      blink.mojom.mojom.Widget_UpdateScreenRects_ParamsSpec,
       null,
       [widget_screen_rect, window_screen_rect]);
   }
@@ -395,7 +403,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.Widget_WasHidden_ParamsSpec,
+      blink.mojom.mojom.Widget_WasHidden_ParamsSpec,
       null,
       []);
   }
@@ -404,7 +412,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.Widget_WasShown_ParamsSpec,
+      blink.mojom.mojom.Widget_WasShown_ParamsSpec,
       null,
       [was_evicted, record_tab_switch_time_request]);
   }
@@ -413,7 +421,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec,
+      blink.mojom.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec,
       null,
       [visible_time_request]);
   }
@@ -422,7 +430,7 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec,
+      blink.mojom.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec,
       null,
       []);
   }
@@ -431,15 +439,15 @@ blink.mojom.WidgetRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec,
+      blink.mojom.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec,
       null,
       [browser_client]);
   }
 
 };
 
-blink.mojom.Widget.getRemote = function() {
-  let remote = new blink.mojom.WidgetRemote();
+blink.mojom.mojom.Widget.getRemote = function() {
+  let remote = new blink.mojom.mojom.WidgetRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -449,7 +457,7 @@ blink.mojom.Widget.getRemote = function() {
 };
 
 // ParamsSpec for ForceRedraw
-blink.mojom.Widget_ForceRedraw_ParamsSpec = {
+blink.mojom.mojom.Widget_ForceRedraw_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.ForceRedraw_Params',
@@ -462,7 +470,7 @@ blink.mojom.Widget_ForceRedraw_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateVisualProperties
-blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = {
+blink.mojom.mojom.Widget_UpdateVisualProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.UpdateVisualProperties_Params',
@@ -476,7 +484,7 @@ blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateScreenRects
-blink.mojom.Widget_UpdateScreenRects_ParamsSpec = {
+blink.mojom.mojom.Widget_UpdateScreenRects_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.UpdateScreenRects_Params',
@@ -491,7 +499,7 @@ blink.mojom.Widget_UpdateScreenRects_ParamsSpec = {
 };
 
 // ParamsSpec for WasHidden
-blink.mojom.Widget_WasHidden_ParamsSpec = {
+blink.mojom.mojom.Widget_WasHidden_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.WasHidden_Params',
@@ -504,14 +512,14 @@ blink.mojom.Widget_WasHidden_ParamsSpec = {
 };
 
 // ParamsSpec for WasShown
-blink.mojom.Widget_WasShown_ParamsSpec = {
+blink.mojom.mojom.Widget_WasShown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.WasShown_Params',
       packedSize: 24,
       fields: [
-        { name: 'was_evicted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'record_tab_switch_time_request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RecordContentToVisibleTimeRequestSpec, nullable: true, minVersion: 0 },
+        { name: 'was_evicted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'record_tab_switch_time_request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RecordContentToVisibleTimeRequestSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -519,7 +527,7 @@ blink.mojom.Widget_WasShown_ParamsSpec = {
 };
 
 // ParamsSpec for RequestSuccessfulPresentationTimeForNextFrame
-blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = {
+blink.mojom.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.RequestSuccessfulPresentationTimeForNextFrame_Params',
@@ -533,7 +541,7 @@ blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = {
 };
 
 // ParamsSpec for CancelSuccessfulPresentationTimeRequest
-blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = {
+blink.mojom.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.CancelSuccessfulPresentationTimeRequest_Params',
@@ -546,7 +554,7 @@ blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = {
 };
 
 // ParamsSpec for SetupBrowserRenderInputRouterConnections
-blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = {
+blink.mojom.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Widget.SetupBrowserRenderInputRouterConnections_Params',
@@ -560,29 +568,29 @@ blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WidgetPtr = blink.mojom.WidgetRemote;
-blink.mojom.WidgetRequest = blink.mojom.WidgetPendingReceiver;
+blink.mojom.mojom.WidgetPtr = blink.mojom.mojom.WidgetRemote;
+blink.mojom.mojom.WidgetRequest = blink.mojom.mojom.WidgetPendingReceiver;
 
 
 // Interface: RenderInputRouterClient
-blink.mojom.RenderInputRouterClient = {};
+blink.mojom.mojom.RenderInputRouterClient = {};
 
-blink.mojom.RenderInputRouterClientPendingReceiver = class {
+blink.mojom.mojom.RenderInputRouterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RenderInputRouterClientRemote = class {
+blink.mojom.mojom.RenderInputRouterClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RenderInputRouterClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RenderInputRouterClientPendingReceiver,
+      blink.mojom.mojom.RenderInputRouterClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.RenderInputRouterClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RenderInputRouterClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -594,7 +602,7 @@ blink.mojom.RenderInputRouterClientRemote = class {
   }
 };
 
-blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
+blink.mojom.mojom.RenderInputRouterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -603,7 +611,7 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec,
+      blink.mojom.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec,
       null,
       [request, host, from_viz]);
   }
@@ -612,7 +620,7 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec,
+      blink.mojom.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec,
       null,
       [source_type, location]);
   }
@@ -621,15 +629,15 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec,
+      blink.mojom.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec,
       null,
       [host]);
   }
 
 };
 
-blink.mojom.RenderInputRouterClient.getRemote = function() {
-  let remote = new blink.mojom.RenderInputRouterClientRemote();
+blink.mojom.mojom.RenderInputRouterClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.RenderInputRouterClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -639,7 +647,7 @@ blink.mojom.RenderInputRouterClient.getRemote = function() {
 };
 
 // ParamsSpec for GetWidgetInputHandler
-blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
+blink.mojom.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderInputRouterClient.GetWidgetInputHandler_Params',
@@ -655,14 +663,14 @@ blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
 };
 
 // ParamsSpec for ShowContextMenu
-blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = {
+blink.mojom.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderInputRouterClient.ShowContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'source_type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'source_type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -670,7 +678,7 @@ blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = {
 };
 
 // ParamsSpec for BindInputTargetClient
-blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = {
+blink.mojom.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderInputRouterClient.BindInputTargetClient_Params',
@@ -684,6 +692,6 @@ blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RenderInputRouterClientPtr = blink.mojom.RenderInputRouterClientRemote;
-blink.mojom.RenderInputRouterClientRequest = blink.mojom.RenderInputRouterClientPendingReceiver;
+blink.mojom.mojom.RenderInputRouterClientPtr = blink.mojom.mojom.RenderInputRouterClientRemote;
+blink.mojom.mojom.RenderInputRouterClientRequest = blink.mojom.mojom.RenderInputRouterClientPendingReceiver;
 

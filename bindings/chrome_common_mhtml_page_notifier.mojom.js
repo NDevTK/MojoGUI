@@ -7,27 +7,29 @@
 // Module namespace
 var offline_pages = offline_pages || {};
 offline_pages.mojom = offline_pages.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Interface: MhtmlPageNotifier
-offline_pages.mojom.MhtmlPageNotifier = {};
+offline_pages.mojom.mojom.MhtmlPageNotifier = {};
 
-offline_pages.mojom.MhtmlPageNotifierPendingReceiver = class {
+offline_pages.mojom.mojom.MhtmlPageNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-offline_pages.mojom.MhtmlPageNotifierRemote = class {
+offline_pages.mojom.mojom.MhtmlPageNotifierRemote = class {
   static get $interfaceName() {
     return 'offline_pages.mojom.MhtmlPageNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      offline_pages.mojom.MhtmlPageNotifierPendingReceiver,
+      offline_pages.mojom.mojom.MhtmlPageNotifierPendingReceiver,
       handle);
-    this.$ = new offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler(this.proxy);
+    this.$ = new offline_pages.mojom.mojom.MhtmlPageNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ offline_pages.mojom.MhtmlPageNotifierRemote = class {
   }
 };
 
-offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = class {
+offline_pages.mojom.mojom.MhtmlPageNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +50,15 @@ offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec,
+      offline_pages.mojom.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec,
       null,
       [load_result, url, date]);
   }
 
 };
 
-offline_pages.mojom.MhtmlPageNotifier.getRemote = function() {
-  let remote = new offline_pages.mojom.MhtmlPageNotifierRemote();
+offline_pages.mojom.mojom.MhtmlPageNotifier.getRemote = function() {
+  let remote = new offline_pages.mojom.mojom.MhtmlPageNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,15 +68,15 @@ offline_pages.mojom.MhtmlPageNotifier.getRemote = function() {
 };
 
 // ParamsSpec for NotifyMhtmlPageLoadAttempted
-offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = {
+offline_pages.mojom.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'offline_pages.mojom.MhtmlPageNotifier.NotifyMhtmlPageLoadAttempted_Params',
       packedSize: 32,
       fields: [
-        { name: 'load_result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MHTMLLoadResultSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'date', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'load_result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MHTMLLoadResultSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'date', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -82,6 +84,6 @@ offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = 
 };
 
 // Legacy compatibility
-offline_pages.mojom.MhtmlPageNotifierPtr = offline_pages.mojom.MhtmlPageNotifierRemote;
-offline_pages.mojom.MhtmlPageNotifierRequest = offline_pages.mojom.MhtmlPageNotifierPendingReceiver;
+offline_pages.mojom.mojom.MhtmlPageNotifierPtr = offline_pages.mojom.mojom.MhtmlPageNotifierRemote;
+offline_pages.mojom.mojom.MhtmlPageNotifierRequest = offline_pages.mojom.mojom.MhtmlPageNotifierPendingReceiver;
 

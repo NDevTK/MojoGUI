@@ -7,28 +7,32 @@
 // Module namespace
 var ash = ash || {};
 ash.screens_factory = ash.screens_factory || {};
-ash.screens_factory.mojom = ash.screens_factory.mojom || {};
+ash.screens_factory.screens_factory.mojom = ash.screens_factory.screens_factory.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
 
 
 // Interface: ScreensFactory
-ash.screens_factory.mojom.ScreensFactory = {};
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory = {};
 
-ash.screens_factory.mojom.ScreensFactoryPendingReceiver = class {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.screens_factory.mojom.ScreensFactoryRemote = class {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.screens_factory.mojom.ScreensFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.screens_factory.mojom.ScreensFactoryPendingReceiver,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryPendingReceiver,
       handle);
-    this.$ = new ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +44,7 @@ ash.screens_factory.mojom.ScreensFactoryRemote = class {
   }
 };
 
-ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +53,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec,
-      ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec,
       [handler]);
   }
 
@@ -58,7 +62,7 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec,
       null,
       [handler]);
   }
@@ -67,8 +71,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec,
-      ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec,
       [handler]);
   }
 
@@ -76,7 +80,7 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec,
       null,
       [handler]);
   }
@@ -85,8 +89,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec,
-      ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec,
       [handler]);
   }
 
@@ -94,7 +98,7 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec,
       null,
       [handler]);
   }
@@ -103,7 +107,7 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec,
       null,
       [handler]);
   }
@@ -112,8 +116,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec,
-      ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec,
       [handler]);
   }
 
@@ -121,7 +125,7 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec,
       null,
       [handler]);
   }
@@ -130,8 +134,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec,
-      ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec,
       [handler]);
   }
 
@@ -139,8 +143,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec,
-      ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec,
       [handler]);
   }
 
@@ -148,15 +152,15 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec,
+      ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-ash.screens_factory.mojom.ScreensFactory.getRemote = function() {
-  let remote = new ash.screens_factory.mojom.ScreensFactoryRemote();
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory.getRemote = function() {
+  let remote = new ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -166,7 +170,7 @@ ash.screens_factory.mojom.ScreensFactory.getRemote = function() {
 };
 
 // ParamsSpec for EstablishAiIntroScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAiIntroScreenPipe_Params',
@@ -179,7 +183,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec =
   }
 };
 
-ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAiIntroScreenPipe_ResponseParams',
@@ -193,7 +197,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponsePara
 };
 
 // ParamsSpec for EstablishAppDownloadingScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAppDownloadingScreenPipe_Params',
@@ -207,7 +211,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_Param
 };
 
 // ParamsSpec for EstablishDrivePinningScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishDrivePinningScreenPipe_Params',
@@ -220,7 +224,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsS
   }
 };
 
-ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishDrivePinningScreenPipe_ResponseParams',
@@ -234,7 +238,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_Respons
 };
 
 // ParamsSpec for EstablishFjordStationSetupScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishFjordStationSetupScreenPipe_Params',
@@ -248,7 +252,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_Pa
 };
 
 // ParamsSpec for EstablishGaiaInfoScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGaiaInfoScreenPipe_Params',
@@ -261,7 +265,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec 
   }
 };
 
-ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGaiaInfoScreenPipe_ResponseParams',
@@ -275,7 +279,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponsePar
 };
 
 // ParamsSpec for EstablishGestureNavigationScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGestureNavigationScreenPipe_Params',
@@ -289,7 +293,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_Pa
 };
 
 // ParamsSpec for EstablishGeminiIntroScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGeminiIntroScreenPipe_Params',
@@ -303,7 +307,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSp
 };
 
 // ParamsSpec for EstablishConsumerUpdateScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishConsumerUpdateScreenPipe_Params',
@@ -316,7 +320,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_Param
   }
 };
 
-ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishConsumerUpdateScreenPipe_ResponseParams',
@@ -330,7 +334,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_Respo
 };
 
 // ParamsSpec for EstablishPackagedLicenseScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishPackagedLicenseScreenPipe_Params',
@@ -344,7 +348,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_Para
 };
 
 // ParamsSpec for EstablishArcVmDataMigrationScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishArcVmDataMigrationScreenPipe_Params',
@@ -357,7 +361,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_P
   }
 };
 
-ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishArcVmDataMigrationScreenPipe_ResponseParams',
@@ -371,7 +375,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_R
 };
 
 // ParamsSpec for EstablishEncryptionMigrationScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishEncryptionMigrationScreenPipe_Params',
@@ -384,7 +388,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_
   }
 };
 
-ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishEncryptionMigrationScreenPipe_ResponseParams',
@@ -398,7 +402,7 @@ ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_
 };
 
 // ParamsSpec for EstablishLocalDataLossWarningScreenPipe
-ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec = {
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishLocalDataLossWarningScreenPipe_Params',
@@ -412,6 +416,6 @@ ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe
 };
 
 // Legacy compatibility
-ash.screens_factory.mojom.ScreensFactoryPtr = ash.screens_factory.mojom.ScreensFactoryRemote;
-ash.screens_factory.mojom.ScreensFactoryRequest = ash.screens_factory.mojom.ScreensFactoryPendingReceiver;
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryPtr = ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryRemote;
+ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryRequest = ash.screens_factory.screens_factory.mojom.mojom.ScreensFactoryPendingReceiver;
 

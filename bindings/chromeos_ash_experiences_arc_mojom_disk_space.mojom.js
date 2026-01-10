@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Struct: ApplicationsSize
-arc.mojom.ApplicationsSizeSpec = {
+arc.mojom.mojom.ApplicationsSizeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ApplicationsSize',
@@ -26,7 +26,7 @@ arc.mojom.ApplicationsSizeSpec = {
 };
 
 // Struct: DiskSpace
-arc.mojom.DiskSpaceSpec = {
+arc.mojom.mojom.DiskSpaceSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpace',
@@ -40,7 +40,7 @@ arc.mojom.DiskSpaceSpec = {
 };
 
 // Struct: QuotaSpaces
-arc.mojom.QuotaSpacesSpec = {
+arc.mojom.mojom.QuotaSpacesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.QuotaSpaces',
@@ -56,24 +56,24 @@ arc.mojom.QuotaSpacesSpec = {
 };
 
 // Interface: DiskSpaceHost
-arc.mojom.DiskSpaceHost = {};
+arc.mojom.mojom.DiskSpaceHost = {};
 
-arc.mojom.DiskSpaceHostPendingReceiver = class {
+arc.mojom.mojom.DiskSpaceHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.DiskSpaceHostRemote = class {
+arc.mojom.mojom.DiskSpaceHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.DiskSpaceHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.DiskSpaceHostPendingReceiver,
+      arc.mojom.mojom.DiskSpaceHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.DiskSpaceHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.DiskSpaceHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +85,7 @@ arc.mojom.DiskSpaceHostRemote = class {
   }
 };
 
-arc.mojom.DiskSpaceHostRemoteCallHandler = class {
+arc.mojom.mojom.DiskSpaceHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,8 +94,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec,
-      arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec,
       []);
   }
 
@@ -103,8 +103,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec,
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec,
       [uid]);
   }
 
@@ -112,8 +112,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec,
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec,
       [gid]);
   }
 
@@ -121,8 +121,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec,
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec,
       [project_id]);
   }
 
@@ -130,8 +130,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec,
-      arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec,
       [uids, gids, project_ids]);
   }
 
@@ -139,15 +139,15 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec,
-      arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.DiskSpaceHost.getRemote = function() {
-  let remote = new arc.mojom.DiskSpaceHostRemote();
+arc.mojom.mojom.DiskSpaceHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.DiskSpaceHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -157,7 +157,7 @@ arc.mojom.DiskSpaceHost.getRemote = function() {
 };
 
 // ParamsSpec for IsQuotaSupported
-arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.IsQuotaSupported_Params',
@@ -169,7 +169,7 @@ arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = {
   }
 };
 
-arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.IsQuotaSupported_ResponseParams',
@@ -183,7 +183,7 @@ arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetQuotaCurrentSpaceForUid
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForUid_Params',
@@ -196,7 +196,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec = {
   }
 };
 
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForUid_ResponseParams',
@@ -210,7 +210,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetQuotaCurrentSpaceForGid
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForGid_Params',
@@ -223,7 +223,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec = {
   }
 };
 
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForGid_ResponseParams',
@@ -237,7 +237,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetQuotaCurrentSpaceForProjectId
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForProjectId_Params',
@@ -250,7 +250,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec = {
   }
 };
 
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForProjectId_ResponseParams',
@@ -264,7 +264,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetQuotaCurrentSpacesForIds
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpacesForIds_Params',
@@ -279,7 +279,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec = {
   }
 };
 
-arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpacesForIds_ResponseParams',
@@ -293,7 +293,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetFreeDiskSpace
-arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetFreeDiskSpace_Params',
@@ -305,7 +305,7 @@ arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = {
   }
 };
 
-arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = {
+arc.mojom.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceHost.GetFreeDiskSpace_ResponseParams',
@@ -319,29 +319,29 @@ arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.DiskSpaceHostPtr = arc.mojom.DiskSpaceHostRemote;
-arc.mojom.DiskSpaceHostRequest = arc.mojom.DiskSpaceHostPendingReceiver;
+arc.mojom.mojom.DiskSpaceHostPtr = arc.mojom.mojom.DiskSpaceHostRemote;
+arc.mojom.mojom.DiskSpaceHostRequest = arc.mojom.mojom.DiskSpaceHostPendingReceiver;
 
 
 // Interface: DiskSpaceInstance
-arc.mojom.DiskSpaceInstance = {};
+arc.mojom.mojom.DiskSpaceInstance = {};
 
-arc.mojom.DiskSpaceInstancePendingReceiver = class {
+arc.mojom.mojom.DiskSpaceInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.DiskSpaceInstanceRemote = class {
+arc.mojom.mojom.DiskSpaceInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.DiskSpaceInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.DiskSpaceInstancePendingReceiver,
+      arc.mojom.mojom.DiskSpaceInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.DiskSpaceInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.DiskSpaceInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -353,7 +353,7 @@ arc.mojom.DiskSpaceInstanceRemote = class {
   }
 };
 
-arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
+arc.mojom.mojom.DiskSpaceInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -362,7 +362,7 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.DiskSpaceInstance_Init_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -371,8 +371,8 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec,
-      arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec,
+      arc.mojom.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec,
       []);
   }
 
@@ -380,15 +380,15 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec,
+      arc.mojom.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec,
       null,
       [free_space_bytes]);
   }
 
 };
 
-arc.mojom.DiskSpaceInstance.getRemote = function() {
-  let remote = new arc.mojom.DiskSpaceInstanceRemote();
+arc.mojom.mojom.DiskSpaceInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.DiskSpaceInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -398,7 +398,7 @@ arc.mojom.DiskSpaceInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.DiskSpaceInstance_Init_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceInstance.Init_Params',
@@ -412,7 +412,7 @@ arc.mojom.DiskSpaceInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for GetApplicationsSize
-arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceInstance.GetApplicationsSize_Params',
@@ -424,14 +424,14 @@ arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec = {
   }
 };
 
-arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec = {
+arc.mojom.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceInstance.GetApplicationsSize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'applications_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ApplicationsSizeSpec, nullable: true, minVersion: 0 },
+        { name: 'succeeded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'applications_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ApplicationsSizeSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -439,7 +439,7 @@ arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ResizeStorageBalloon
-arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec = {
+arc.mojom.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.DiskSpaceInstance.ResizeStorageBalloon_Params',
@@ -453,6 +453,6 @@ arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.DiskSpaceInstancePtr = arc.mojom.DiskSpaceInstanceRemote;
-arc.mojom.DiskSpaceInstanceRequest = arc.mojom.DiskSpaceInstancePendingReceiver;
+arc.mojom.mojom.DiskSpaceInstancePtr = arc.mojom.mojom.DiskSpaceInstanceRemote;
+arc.mojom.mojom.DiskSpaceInstanceRequest = arc.mojom.mojom.DiskSpaceInstancePendingReceiver;
 

@@ -7,10 +7,11 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Union: TrustTokenAccessDetails
-network.mojom.TrustTokenAccessDetailsSpec = { $: mojo.internal.Union(
+network.mojom.mojom.TrustTokenAccessDetailsSpec = { $: mojo.internal.Union(
     'network.mojom.TrustTokenAccessDetails', {
       'issuance': {
         'ordinal': 0,
@@ -28,7 +29,7 @@ network.mojom.TrustTokenAccessDetailsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TrustTokenIssuanceDetails
-network.mojom.TrustTokenIssuanceDetailsSpec = {
+network.mojom.mojom.TrustTokenIssuanceDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenIssuanceDetails',
@@ -44,7 +45,7 @@ network.mojom.TrustTokenIssuanceDetailsSpec = {
 };
 
 // Struct: TrustTokenRedemptionDetails
-network.mojom.TrustTokenRedemptionDetailsSpec = {
+network.mojom.mojom.TrustTokenRedemptionDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenRedemptionDetails',
@@ -60,7 +61,7 @@ network.mojom.TrustTokenRedemptionDetailsSpec = {
 };
 
 // Struct: TrustTokenSigningDetails
-network.mojom.TrustTokenSigningDetailsSpec = {
+network.mojom.mojom.TrustTokenSigningDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenSigningDetails',
@@ -75,24 +76,24 @@ network.mojom.TrustTokenSigningDetailsSpec = {
 };
 
 // Interface: TrustTokenAccessObserver
-network.mojom.TrustTokenAccessObserver = {};
+network.mojom.mojom.TrustTokenAccessObserver = {};
 
-network.mojom.TrustTokenAccessObserverPendingReceiver = class {
+network.mojom.mojom.TrustTokenAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.TrustTokenAccessObserverRemote = class {
+network.mojom.mojom.TrustTokenAccessObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.TrustTokenAccessObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.TrustTokenAccessObserverPendingReceiver,
+      network.mojom.mojom.TrustTokenAccessObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.TrustTokenAccessObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.TrustTokenAccessObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -104,7 +105,7 @@ network.mojom.TrustTokenAccessObserverRemote = class {
   }
 };
 
-network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
+network.mojom.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -113,7 +114,7 @@ network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec,
+      network.mojom.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec,
       null,
       [details]);
   }
@@ -122,15 +123,15 @@ network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec,
+      network.mojom.mojom.TrustTokenAccessObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-network.mojom.TrustTokenAccessObserver.getRemote = function() {
-  let remote = new network.mojom.TrustTokenAccessObserverRemote();
+network.mojom.mojom.TrustTokenAccessObserver.getRemote = function() {
+  let remote = new network.mojom.mojom.TrustTokenAccessObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -140,7 +141,7 @@ network.mojom.TrustTokenAccessObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnTrustTokensAccessed
-network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
+network.mojom.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenAccessObserver.OnTrustTokensAccessed_Params',
@@ -154,7 +155,7 @@ network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec = {
 };
 
 // ParamsSpec for Clone
-network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
+network.mojom.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TrustTokenAccessObserver.Clone_Params',
@@ -168,6 +169,6 @@ network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.TrustTokenAccessObserverPtr = network.mojom.TrustTokenAccessObserverRemote;
-network.mojom.TrustTokenAccessObserverRequest = network.mojom.TrustTokenAccessObserverPendingReceiver;
+network.mojom.mojom.TrustTokenAccessObserverPtr = network.mojom.mojom.TrustTokenAccessObserverRemote;
+network.mojom.mojom.TrustTokenAccessObserverRequest = network.mojom.mojom.TrustTokenAccessObserverPendingReceiver;
 

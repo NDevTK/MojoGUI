@@ -7,10 +7,11 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
 
 
 // Union: AXTreeID
-ax.mojom.AXTreeIDSpec = { $: mojo.internal.Union(
+ax.mojom.mojom.AXTreeIDSpec = { $: mojo.internal.Union(
     'ax.mojom.AXTreeID', {
       'unknown': {
         'ordinal': 0,

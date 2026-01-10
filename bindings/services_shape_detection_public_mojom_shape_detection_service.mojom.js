@@ -9,31 +9,31 @@ var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
 
 
-shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kShapeDetection;
+shape_detection.mojom.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kShapeDetection;
 
-shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kUtility;
+shape_detection.mojom.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kUtility;
 
-shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kGpu;
+shape_detection.mojom.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kGpu;
 
 // Interface: ShapeDetectionService
-shape_detection.mojom.ShapeDetectionService = {};
+shape_detection.mojom.mojom.ShapeDetectionService = {};
 
-shape_detection.mojom.ShapeDetectionServicePendingReceiver = class {
+shape_detection.mojom.mojom.ShapeDetectionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-shape_detection.mojom.ShapeDetectionServiceRemote = class {
+shape_detection.mojom.mojom.ShapeDetectionServiceRemote = class {
   static get $interfaceName() {
     return 'shape_detection.mojom.ShapeDetectionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      shape_detection.mojom.ShapeDetectionServicePendingReceiver,
+      shape_detection.mojom.mojom.ShapeDetectionServicePendingReceiver,
       handle);
-    this.$ = new shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler(this.proxy);
+    this.$ = new shape_detection.mojom.mojom.ShapeDetectionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -45,7 +45,7 @@ shape_detection.mojom.ShapeDetectionServiceRemote = class {
   }
 };
 
-shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
+shape_detection.mojom.mojom.ShapeDetectionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -54,7 +54,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec,
+      shape_detection.mojom.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -63,7 +63,7 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec,
+      shape_detection.mojom.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec,
       null,
       [receiver]);
   }
@@ -72,15 +72,15 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec,
+      shape_detection.mojom.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-shape_detection.mojom.ShapeDetectionService.getRemote = function() {
-  let remote = new shape_detection.mojom.ShapeDetectionServiceRemote();
+shape_detection.mojom.mojom.ShapeDetectionService.getRemote = function() {
+  let remote = new shape_detection.mojom.mojom.ShapeDetectionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +90,7 @@ shape_detection.mojom.ShapeDetectionService.getRemote = function() {
 };
 
 // ParamsSpec for BindBarcodeDetectionProvider
-shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = {
+shape_detection.mojom.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.ShapeDetectionService.BindBarcodeDetectionProvider_Params',
@@ -104,7 +104,7 @@ shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsS
 };
 
 // ParamsSpec for BindFaceDetectionProvider
-shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = {
+shape_detection.mojom.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.ShapeDetectionService.BindFaceDetectionProvider_Params',
@@ -118,7 +118,7 @@ shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec
 };
 
 // ParamsSpec for BindTextDetection
-shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
+shape_detection.mojom.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.ShapeDetectionService.BindTextDetection_Params',
@@ -132,6 +132,6 @@ shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
 };
 
 // Legacy compatibility
-shape_detection.mojom.ShapeDetectionServicePtr = shape_detection.mojom.ShapeDetectionServiceRemote;
-shape_detection.mojom.ShapeDetectionServiceRequest = shape_detection.mojom.ShapeDetectionServicePendingReceiver;
+shape_detection.mojom.mojom.ShapeDetectionServicePtr = shape_detection.mojom.mojom.ShapeDetectionServiceRemote;
+shape_detection.mojom.mojom.ShapeDetectionServiceRequest = shape_detection.mojom.mojom.ShapeDetectionServicePendingReceiver;
 

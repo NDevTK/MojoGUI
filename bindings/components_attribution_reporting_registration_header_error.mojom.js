@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Union: RegistrationHeaderErrorDetails
-attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = { $: mojo.internal.Union(
+attribution_reporting.mojom.mojom.RegistrationHeaderErrorDetailsSpec = { $: mojo.internal.Union(
     'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {
       'source_error': {
         'ordinal': 0,
@@ -32,14 +32,14 @@ attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = { $: mojo.inter
 };
 
 // Struct: RegistrationHeaderError
-attribution_reporting.mojom.RegistrationHeaderErrorSpec = {
+attribution_reporting.mojom.mojom.RegistrationHeaderErrorSpec = {
   $: {
     structSpec: {
       name: 'attribution_reporting.mojom.RegistrationHeaderError',
       packedSize: 32,
       fields: [
-        { name: 'header_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'header_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error_details', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

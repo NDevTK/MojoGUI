@@ -10,24 +10,24 @@ metrics.mojom = metrics.mojom || {};
 
 
 // Interface: CallStackProfileCollectorTest
-metrics.mojom.CallStackProfileCollectorTest = {};
+metrics.mojom.mojom.CallStackProfileCollectorTest = {};
 
-metrics.mojom.CallStackProfileCollectorTestPendingReceiver = class {
+metrics.mojom.mojom.CallStackProfileCollectorTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics.mojom.CallStackProfileCollectorTestRemote = class {
+metrics.mojom.mojom.CallStackProfileCollectorTestRemote = class {
   static get $interfaceName() {
     return 'metrics.mojom.CallStackProfileCollectorTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics.mojom.CallStackProfileCollectorTestPendingReceiver,
+      metrics.mojom.mojom.CallStackProfileCollectorTestPendingReceiver,
       handle);
-    this.$ = new metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler(this.proxy);
+    this.$ = new metrics.mojom.mojom.CallStackProfileCollectorTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ metrics.mojom.CallStackProfileCollectorTestRemote = class {
   }
 };
 
-metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
+metrics.mojom.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec,
-      metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec,
+      metrics.mojom.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec,
+      metrics.mojom.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec,
       [in]);
   }
 
 };
 
-metrics.mojom.CallStackProfileCollectorTest.getRemote = function() {
-  let remote = new metrics.mojom.CallStackProfileCollectorTestRemote();
+metrics.mojom.mojom.CallStackProfileCollectorTest.getRemote = function() {
+  let remote = new metrics.mojom.mojom.CallStackProfileCollectorTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ metrics.mojom.CallStackProfileCollectorTest.getRemote = function() {
 };
 
 // ParamsSpec for BounceSampledProfile
-metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
+metrics.mojom.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.mojom.CallStackProfileCollectorTest.BounceSampledProfile_Params',
@@ -79,7 +79,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
   }
 };
 
-metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec = {
+metrics.mojom.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.mojom.CallStackProfileCollectorTest.BounceSampledProfile_ResponseParams',
@@ -93,6 +93,6 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsS
 };
 
 // Legacy compatibility
-metrics.mojom.CallStackProfileCollectorTestPtr = metrics.mojom.CallStackProfileCollectorTestRemote;
-metrics.mojom.CallStackProfileCollectorTestRequest = metrics.mojom.CallStackProfileCollectorTestPendingReceiver;
+metrics.mojom.mojom.CallStackProfileCollectorTestPtr = metrics.mojom.mojom.CallStackProfileCollectorTestRemote;
+metrics.mojom.mojom.CallStackProfileCollectorTestRequest = metrics.mojom.mojom.CallStackProfileCollectorTestPendingReceiver;
 

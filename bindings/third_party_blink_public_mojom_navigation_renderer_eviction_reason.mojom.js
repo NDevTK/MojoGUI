@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: RendererEvictionReason
-blink.mojom.RendererEvictionReason = {
+blink.mojom.mojom.RendererEvictionReason = {
   kJavaScriptExecution: 0,
   kNetworkRequestDatapipeDrainedAsBytesConsumer: 1,
   kNetworkRequestRedirected: 2,
@@ -19,4 +19,4 @@ blink.mojom.RendererEvictionReason = {
   kBroadcastChannelOnMessage: 5,
   kSharedWorkerMessage: 6,
 };
-blink.mojom.RendererEvictionReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.RendererEvictionReasonSpec = { $: mojo.internal.Enum() };

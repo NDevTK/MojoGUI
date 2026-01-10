@@ -7,27 +7,29 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: FrameSinkManagerTestApi
-viz.mojom.FrameSinkManagerTestApi = {};
+viz.mojom.mojom.FrameSinkManagerTestApi = {};
 
-viz.mojom.FrameSinkManagerTestApiPendingReceiver = class {
+viz.mojom.mojom.FrameSinkManagerTestApiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.FrameSinkManagerTestApiRemote = class {
+viz.mojom.mojom.FrameSinkManagerTestApiRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinkManagerTestApi';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.FrameSinkManagerTestApiPendingReceiver,
+      viz.mojom.mojom.FrameSinkManagerTestApiPendingReceiver,
       handle);
-    this.$ = new viz.mojom.FrameSinkManagerTestApiRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.FrameSinkManagerTestApiRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ viz.mojom.FrameSinkManagerTestApiRemote = class {
   }
 };
 
-viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
+viz.mojom.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +50,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec,
-      viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +59,7 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec,
       null,
       [result_size]);
   }
@@ -66,8 +68,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec,
-      viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
       [frame_sink_id]);
   }
 
@@ -75,15 +77,15 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec,
+      viz.mojom.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec,
       null,
       [frame_sink_id]);
   }
 
 };
 
-viz.mojom.FrameSinkManagerTestApi.getRemote = function() {
-  let remote = new viz.mojom.FrameSinkManagerTestApiRemote();
+viz.mojom.mojom.FrameSinkManagerTestApi.getRemote = function() {
+  let remote = new viz.mojom.mojom.FrameSinkManagerTestApiRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +95,7 @@ viz.mojom.FrameSinkManagerTestApi.getRemote = function() {
 };
 
 // ParamsSpec for HasUnclaimedViewTransitionResources
-viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerTestApi.HasUnclaimedViewTransitionResources_Params',
@@ -105,7 +107,7 @@ viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec
   }
 };
 
-viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerTestApi.HasUnclaimedViewTransitionResources_ResponseParams',
@@ -119,7 +121,7 @@ viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponsePa
 };
 
 // ParamsSpec for SetSameDocNavigationScreenshotSize
-viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerTestApi.SetSameDocNavigationScreenshotSize_Params',
@@ -133,7 +135,7 @@ viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec 
 };
 
 // ParamsSpec for GetForceEnableZoomState
-viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerTestApi.GetForceEnableZoomState_Params',
@@ -146,7 +148,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec = {
   }
 };
 
-viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerTestApi.GetForceEnableZoomState_ResponseParams',
@@ -160,7 +162,7 @@ viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitForSurfaceAnimationManager
-viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerTestApi.WaitForSurfaceAnimationManager_Params',
@@ -174,6 +176,6 @@ viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.FrameSinkManagerTestApiPtr = viz.mojom.FrameSinkManagerTestApiRemote;
-viz.mojom.FrameSinkManagerTestApiRequest = viz.mojom.FrameSinkManagerTestApiPendingReceiver;
+viz.mojom.mojom.FrameSinkManagerTestApiPtr = viz.mojom.mojom.FrameSinkManagerTestApiRemote;
+viz.mojom.mojom.FrameSinkManagerTestApiRequest = viz.mojom.mojom.FrameSinkManagerTestApiPendingReceiver;
 

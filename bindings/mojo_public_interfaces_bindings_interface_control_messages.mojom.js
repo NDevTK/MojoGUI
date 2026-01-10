@@ -9,12 +9,12 @@ var mojo = mojo || {};
 mojo.interface_control = mojo.interface_control || {};
 
 
-mojo.interface_control.kRunMessageId = 0xFFFFFFFF;
+mojo.interface_control.interface_control.kRunMessageId = 0xFFFFFFFF;
 
-mojo.interface_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
+mojo.interface_control.interface_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
 
 // Union: RunInput
-mojo.interface_control.RunInputSpec = { $: mojo.internal.Union(
+mojo.interface_control.interface_control.RunInputSpec = { $: mojo.internal.Union(
     'mojo.interface_control.RunInput', {
       'query_version': {
         'ordinal': 0,
@@ -28,7 +28,7 @@ mojo.interface_control.RunInputSpec = { $: mojo.internal.Union(
 };
 
 // Union: RunOutput
-mojo.interface_control.RunOutputSpec = { $: mojo.internal.Union(
+mojo.interface_control.interface_control.RunOutputSpec = { $: mojo.internal.Union(
     'mojo.interface_control.RunOutput', {
       'query_version_result': {
         'ordinal': 0,
@@ -38,7 +38,7 @@ mojo.interface_control.RunOutputSpec = { $: mojo.internal.Union(
 };
 
 // Union: RunOrClosePipeInput
-mojo.interface_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
+mojo.interface_control.interface_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
     'mojo.interface_control.RunOrClosePipeInput', {
       'require_version': {
         'ordinal': 0,
@@ -60,7 +60,7 @@ mojo.interface_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
 };
 
 // Struct: RunMessageParams
-mojo.interface_control.RunMessageParamsSpec = {
+mojo.interface_control.interface_control.RunMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.RunMessageParams',
@@ -74,7 +74,7 @@ mojo.interface_control.RunMessageParamsSpec = {
 };
 
 // Struct: RunResponseMessageParams
-mojo.interface_control.RunResponseMessageParamsSpec = {
+mojo.interface_control.interface_control.RunResponseMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.RunResponseMessageParams',
@@ -88,7 +88,7 @@ mojo.interface_control.RunResponseMessageParamsSpec = {
 };
 
 // Struct: QueryVersion
-mojo.interface_control.QueryVersionSpec = {
+mojo.interface_control.interface_control.QueryVersionSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.QueryVersion',
@@ -101,7 +101,7 @@ mojo.interface_control.QueryVersionSpec = {
 };
 
 // Struct: QueryVersionResult
-mojo.interface_control.QueryVersionResultSpec = {
+mojo.interface_control.interface_control.QueryVersionResultSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.QueryVersionResult',
@@ -115,7 +115,7 @@ mojo.interface_control.QueryVersionResultSpec = {
 };
 
 // Struct: FlushForTesting
-mojo.interface_control.FlushForTestingSpec = {
+mojo.interface_control.interface_control.FlushForTestingSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.FlushForTesting',
@@ -128,7 +128,7 @@ mojo.interface_control.FlushForTestingSpec = {
 };
 
 // Struct: RunOrClosePipeMessageParams
-mojo.interface_control.RunOrClosePipeMessageParamsSpec = {
+mojo.interface_control.interface_control.RunOrClosePipeMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.RunOrClosePipeMessageParams',
@@ -142,7 +142,7 @@ mojo.interface_control.RunOrClosePipeMessageParamsSpec = {
 };
 
 // Struct: RequireVersion
-mojo.interface_control.RequireVersionSpec = {
+mojo.interface_control.interface_control.RequireVersionSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.RequireVersion',
@@ -156,7 +156,7 @@ mojo.interface_control.RequireVersionSpec = {
 };
 
 // Struct: EnableIdleTracking
-mojo.interface_control.EnableIdleTrackingSpec = {
+mojo.interface_control.interface_control.EnableIdleTrackingSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.EnableIdleTracking',
@@ -170,7 +170,7 @@ mojo.interface_control.EnableIdleTrackingSpec = {
 };
 
 // Struct: MessageAck
-mojo.interface_control.MessageAckSpec = {
+mojo.interface_control.interface_control.MessageAckSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.MessageAck',
@@ -183,7 +183,7 @@ mojo.interface_control.MessageAckSpec = {
 };
 
 // Struct: NotifyIdle
-mojo.interface_control.NotifyIdleSpec = {
+mojo.interface_control.interface_control.NotifyIdleSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.NotifyIdle',

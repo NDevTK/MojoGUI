@@ -10,14 +10,14 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Struct: URLPattern
-extensions.mojom.URLPatternSpec = {
+extensions.mojom.mojom.URLPatternSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.URLPattern',
       packedSize: 24,
       fields: [
-        { name: 'valid_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'valid_schemes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,7 +25,7 @@ extensions.mojom.URLPatternSpec = {
 };
 
 // Struct: URLPatternSet
-extensions.mojom.URLPatternSetSpec = {
+extensions.mojom.mojom.URLPatternSetSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.URLPatternSet',

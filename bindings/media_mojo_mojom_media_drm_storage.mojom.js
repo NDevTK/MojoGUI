@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: SessionData
-media.mojom.SessionDataSpec = {
+media.mojom.mojom.SessionDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SessionData',
@@ -27,24 +27,24 @@ media.mojom.SessionDataSpec = {
 };
 
 // Interface: MediaDrmStorage
-media.mojom.MediaDrmStorage = {};
+media.mojom.mojom.MediaDrmStorage = {};
 
-media.mojom.MediaDrmStoragePendingReceiver = class {
+media.mojom.mojom.MediaDrmStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaDrmStorageRemote = class {
+media.mojom.mojom.MediaDrmStorageRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaDrmStorage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaDrmStoragePendingReceiver,
+      media.mojom.mojom.MediaDrmStoragePendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaDrmStorageRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaDrmStorageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +56,7 @@ media.mojom.MediaDrmStorageRemote = class {
   }
 };
 
-media.mojom.MediaDrmStorageRemoteCallHandler = class {
+media.mojom.mojom.MediaDrmStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,8 +65,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaDrmStorage_Initialize_ParamsSpec,
-      media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_Initialize_ParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec,
       []);
   }
 
@@ -74,8 +74,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec,
-      media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec,
       []);
   }
 
@@ -83,8 +83,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec,
-      media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec,
       [session_id, session_data]);
   }
 
@@ -92,8 +92,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec,
-      media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec,
       [session_id]);
   }
 
@@ -101,15 +101,15 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec,
-      media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec,
+      media.mojom.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec,
       [session_id]);
   }
 
 };
 
-media.mojom.MediaDrmStorage.getRemote = function() {
-  let remote = new media.mojom.MediaDrmStorageRemote();
+media.mojom.mojom.MediaDrmStorage.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaDrmStorageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +119,7 @@ media.mojom.MediaDrmStorage.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-media.mojom.MediaDrmStorage_Initialize_ParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.Initialize_Params',
@@ -131,14 +131,14 @@ media.mojom.MediaDrmStorage_Initialize_ParamsSpec = {
   }
 };
 
-media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.Initialize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'origin_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'origin_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -146,7 +146,7 @@ media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnProvisioned
-media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.OnProvisioned_Params',
@@ -158,7 +158,7 @@ media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = {
   }
 };
 
-media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.OnProvisioned_ResponseParams',
@@ -172,7 +172,7 @@ media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SavePersistentSession
-media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.SavePersistentSession_Params',
@@ -186,7 +186,7 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
   }
 };
 
-media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.SavePersistentSession_ResponseParams',
@@ -200,7 +200,7 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadPersistentSession
-media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.LoadPersistentSession_Params',
@@ -213,7 +213,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
   }
 };
 
-media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.LoadPersistentSession_ResponseParams',
@@ -227,7 +227,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemovePersistentSession
-media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.RemovePersistentSession_Params',
@@ -240,7 +240,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
   }
 };
 
-media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
+media.mojom.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaDrmStorage.RemovePersistentSession_ResponseParams',
@@ -254,6 +254,6 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaDrmStoragePtr = media.mojom.MediaDrmStorageRemote;
-media.mojom.MediaDrmStorageRequest = media.mojom.MediaDrmStoragePendingReceiver;
+media.mojom.mojom.MediaDrmStoragePtr = media.mojom.mojom.MediaDrmStorageRemote;
+media.mojom.mojom.MediaDrmStorageRequest = media.mojom.mojom.MediaDrmStoragePendingReceiver;
 

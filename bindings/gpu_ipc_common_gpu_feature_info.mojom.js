@@ -7,10 +7,12 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: GpuFeatureStatus
-gpu.mojom.GpuFeatureStatus = {
+gpu.mojom.mojom.GpuFeatureStatus = {
   Enabled: 0,
   Blocklisted: 1,
   Disabled: 2,
@@ -18,10 +20,10 @@ gpu.mojom.GpuFeatureStatus = {
   Undefined: 4,
   Max: 5,
 };
-gpu.mojom.GpuFeatureStatusSpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.GpuFeatureStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuFeatureInfo
-gpu.mojom.GpuFeatureInfoSpec = {
+gpu.mojom.mojom.GpuFeatureInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuFeatureInfo',

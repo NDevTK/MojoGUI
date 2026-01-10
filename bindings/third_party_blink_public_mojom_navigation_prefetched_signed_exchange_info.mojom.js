@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: SHA256HashValue
-blink.mojom.SHA256HashValueSpec = {
+blink.mojom.mojom.SHA256HashValueSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SHA256HashValue',
@@ -24,7 +25,7 @@ blink.mojom.SHA256HashValueSpec = {
 };
 
 // Struct: PrefetchedSignedExchangeInfo
-blink.mojom.PrefetchedSignedExchangeInfoSpec = {
+blink.mojom.mojom.PrefetchedSignedExchangeInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrefetchedSignedExchangeInfo',

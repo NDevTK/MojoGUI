@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ScriptType
-blink.mojom.ScriptType = {
+blink.mojom.mojom.ScriptType = {
   kClassic: 0,
   kModule: 1,
 };
-blink.mojom.ScriptTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ScriptTypeSpec = { $: mojo.internal.Enum() };

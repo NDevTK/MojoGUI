@@ -7,18 +7,21 @@
 // Module namespace
 var tenor = tenor || {};
 tenor.mojom = tenor.mojom || {};
+var url = url || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: Status
-tenor.mojom.Status = {
+tenor.mojom.mojom.Status = {
   kHttpOk: 0,
   kNetError: 1,
   kHttpError: 2,
 };
-tenor.mojom.StatusSpec = { $: mojo.internal.Enum() };
+tenor.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GifUrls
-tenor.mojom.GifUrlsSpec = {
+tenor.mojom.mojom.GifUrlsSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.GifUrls',
@@ -34,7 +37,7 @@ tenor.mojom.GifUrlsSpec = {
 };
 
 // Struct: GifResponse
-tenor.mojom.GifResponseSpec = {
+tenor.mojom.mojom.GifResponseSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.GifResponse',
@@ -52,7 +55,7 @@ tenor.mojom.GifResponseSpec = {
 };
 
 // Struct: PaginatedGifResponses
-tenor.mojom.PaginatedGifResponsesSpec = {
+tenor.mojom.mojom.PaginatedGifResponsesSpec = {
   $: {
     structSpec: {
       name: 'tenor.mojom.PaginatedGifResponses',

@@ -10,24 +10,24 @@ lens.mojom = lens.mojom || {};
 
 
 // Interface: LensGhostLoaderPageHandlerFactory
-lens.mojom.LensGhostLoaderPageHandlerFactory = {};
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactory = {};
 
-lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver = class {
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensGhostLoaderPageHandlerFactoryRemote = class {
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensGhostLoaderPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver,
+      lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRemote = class {
   }
 };
 
-lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec,
+      lens.mojom.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec,
       null,
       [page]);
   }
 
 };
 
-lens.mojom.LensGhostLoaderPageHandlerFactory.getRemote = function() {
-  let remote = new lens.mojom.LensGhostLoaderPageHandlerFactoryRemote();
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactory.getRemote = function() {
+  let remote = new lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateGhostLoaderPage
-lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = {
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensGhostLoaderPageHandlerFactory.CreateGhostLoaderPage_Params',
@@ -80,29 +80,29 @@ lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = 
 };
 
 // Legacy compatibility
-lens.mojom.LensGhostLoaderPageHandlerFactoryPtr = lens.mojom.LensGhostLoaderPageHandlerFactoryRemote;
-lens.mojom.LensGhostLoaderPageHandlerFactoryRequest = lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver;
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryPtr = lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryRemote;
+lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryRequest = lens.mojom.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver;
 
 
 // Interface: LensGhostLoaderPage
-lens.mojom.LensGhostLoaderPage = {};
+lens.mojom.mojom.LensGhostLoaderPage = {};
 
-lens.mojom.LensGhostLoaderPagePendingReceiver = class {
+lens.mojom.mojom.LensGhostLoaderPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensGhostLoaderPageRemote = class {
+lens.mojom.mojom.LensGhostLoaderPageRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensGhostLoaderPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensGhostLoaderPagePendingReceiver,
+      lens.mojom.mojom.LensGhostLoaderPagePendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensGhostLoaderPageRemoteCallHandler(this.proxy);
+    this.$ = new lens.mojom.mojom.LensGhostLoaderPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ lens.mojom.LensGhostLoaderPageRemote = class {
   }
 };
 
-lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
+lens.mojom.mojom.LensGhostLoaderPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,15 +123,15 @@ lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec,
+      lens.mojom.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec,
       null,
       []);
   }
 
 };
 
-lens.mojom.LensGhostLoaderPage.getRemote = function() {
-  let remote = new lens.mojom.LensGhostLoaderPageRemote();
+lens.mojom.mojom.LensGhostLoaderPage.getRemote = function() {
+  let remote = new lens.mojom.mojom.LensGhostLoaderPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -141,7 +141,7 @@ lens.mojom.LensGhostLoaderPage.getRemote = function() {
 };
 
 // ParamsSpec for ShowErrorState
-lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
+lens.mojom.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LensGhostLoaderPage.ShowErrorState_Params',
@@ -154,6 +154,6 @@ lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = {
 };
 
 // Legacy compatibility
-lens.mojom.LensGhostLoaderPagePtr = lens.mojom.LensGhostLoaderPageRemote;
-lens.mojom.LensGhostLoaderPageRequest = lens.mojom.LensGhostLoaderPagePendingReceiver;
+lens.mojom.mojom.LensGhostLoaderPagePtr = lens.mojom.mojom.LensGhostLoaderPageRemote;
+lens.mojom.mojom.LensGhostLoaderPageRequest = lens.mojom.mojom.LensGhostLoaderPagePendingReceiver;
 

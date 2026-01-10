@@ -7,10 +7,13 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Struct: SharedFile
-blink.mojom.SharedFileSpec = {
+blink.mojom.mojom.SharedFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedFile',
@@ -25,24 +28,24 @@ blink.mojom.SharedFileSpec = {
 };
 
 // Interface: ShareService
-blink.mojom.ShareService = {};
+blink.mojom.mojom.ShareService = {};
 
-blink.mojom.ShareServicePendingReceiver = class {
+blink.mojom.mojom.ShareServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ShareServiceRemote = class {
+blink.mojom.mojom.ShareServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ShareService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ShareServicePendingReceiver,
+      blink.mojom.mojom.ShareServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.ShareServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ShareServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +57,7 @@ blink.mojom.ShareServiceRemote = class {
   }
 };
 
-blink.mojom.ShareServiceRemoteCallHandler = class {
+blink.mojom.mojom.ShareServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,15 +66,15 @@ blink.mojom.ShareServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ShareService_Share_ParamsSpec,
-      blink.mojom.ShareService_Share_ResponseParamsSpec,
+      blink.mojom.mojom.ShareService_Share_ParamsSpec,
+      blink.mojom.mojom.ShareService_Share_ResponseParamsSpec,
       [title, text, url, files]);
   }
 
 };
 
-blink.mojom.ShareService.getRemote = function() {
-  let remote = new blink.mojom.ShareServiceRemote();
+blink.mojom.mojom.ShareService.getRemote = function() {
+  let remote = new blink.mojom.mojom.ShareServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -81,7 +84,7 @@ blink.mojom.ShareService.getRemote = function() {
 };
 
 // ParamsSpec for Share
-blink.mojom.ShareService_Share_ParamsSpec = {
+blink.mojom.mojom.ShareService_Share_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ShareService.Share_Params',
@@ -97,7 +100,7 @@ blink.mojom.ShareService_Share_ParamsSpec = {
   }
 };
 
-blink.mojom.ShareService_Share_ResponseParamsSpec = {
+blink.mojom.mojom.ShareService_Share_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ShareService.Share_ResponseParams',
@@ -111,6 +114,6 @@ blink.mojom.ShareService_Share_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ShareServicePtr = blink.mojom.ShareServiceRemote;
-blink.mojom.ShareServiceRequest = blink.mojom.ShareServicePendingReceiver;
+blink.mojom.mojom.ShareServicePtr = blink.mojom.mojom.ShareServiceRemote;
+blink.mojom.mojom.ShareServiceRequest = blink.mojom.mojom.ShareServicePendingReceiver;
 

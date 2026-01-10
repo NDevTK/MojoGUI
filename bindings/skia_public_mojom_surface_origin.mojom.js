@@ -10,8 +10,8 @@ skia.mojom = skia.mojom || {};
 
 
 // Enum: SurfaceOrigin
-skia.mojom.SurfaceOrigin = {
+skia.mojom.mojom.SurfaceOrigin = {
   kTopLeft: 0,
   kBottomLeft: 1,
 };
-skia.mojom.SurfaceOriginSpec = { $: mojo.internal.Enum() };
+skia.mojom.mojom.SurfaceOriginSpec = { $: mojo.internal.Enum() };

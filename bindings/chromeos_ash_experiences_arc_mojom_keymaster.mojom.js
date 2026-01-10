@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: KeyPurpose
-arc.mojom.KeyPurpose = {
+arc.mojom.mojom.KeyPurpose = {
   ENCRYPT: 0,
   DECRYPT: 1,
   SIGN: 2,
@@ -18,18 +18,18 @@ arc.mojom.KeyPurpose = {
   DERIVE_KEY: 4,
   WRAP_KEY: 5,
 };
-arc.mojom.KeyPurposeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.KeyPurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeyFormat
-arc.mojom.KeyFormat = {
+arc.mojom.mojom.KeyFormat = {
   X509: 0,
   PKCS8: 1,
   RAW: 2,
 };
-arc.mojom.KeyFormatSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.KeyFormatSpec = { $: mojo.internal.Enum() };
 
 // Union: IntegerKeyParam
-arc.mojom.IntegerKeyParamSpec = { $: mojo.internal.Union(
+arc.mojom.mojom.IntegerKeyParamSpec = { $: mojo.internal.Union(
     'arc.mojom.IntegerKeyParam', {
       'boolean_value': {
         'ordinal': 0,
@@ -55,14 +55,14 @@ arc.mojom.IntegerKeyParamSpec = { $: mojo.internal.Union(
 };
 
 // Struct: KeyParameter
-arc.mojom.KeyParameterSpec = {
+arc.mojom.mojom.KeyParameterSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeyParameter',
       packedSize: 32,
       fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'param', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.IntegerKeyParamSpec, nullable: false, minVersion: 0 },
+        { name: 'tag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IntegerKeyParamSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -70,7 +70,7 @@ arc.mojom.KeyParameterSpec = {
 };
 
 // Struct: KeyCharacteristics
-arc.mojom.KeyCharacteristicsSpec = {
+arc.mojom.mojom.KeyCharacteristicsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeyCharacteristics',
@@ -85,7 +85,7 @@ arc.mojom.KeyCharacteristicsSpec = {
 };
 
 // Struct: GetKeyCharacteristicsRequest
-arc.mojom.GetKeyCharacteristicsRequestSpec = {
+arc.mojom.mojom.GetKeyCharacteristicsRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.GetKeyCharacteristicsRequest',
@@ -101,7 +101,7 @@ arc.mojom.GetKeyCharacteristicsRequestSpec = {
 };
 
 // Struct: GetKeyCharacteristicsResult
-arc.mojom.GetKeyCharacteristicsResultSpec = {
+arc.mojom.mojom.GetKeyCharacteristicsResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.GetKeyCharacteristicsResult',
@@ -116,7 +116,7 @@ arc.mojom.GetKeyCharacteristicsResultSpec = {
 };
 
 // Struct: GenerateKeyResult
-arc.mojom.GenerateKeyResultSpec = {
+arc.mojom.mojom.GenerateKeyResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.GenerateKeyResult',
@@ -132,15 +132,15 @@ arc.mojom.GenerateKeyResultSpec = {
 };
 
 // Struct: ImportKeyRequest
-arc.mojom.ImportKeyRequestSpec = {
+arc.mojom.mojom.ImportKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ImportKeyRequest',
       packedSize: 32,
       fields: [
         { name: 'key_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
-        { name: 'key_format', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_format', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -148,7 +148,7 @@ arc.mojom.ImportKeyRequestSpec = {
 };
 
 // Struct: ImportKeyResult
-arc.mojom.ImportKeyResultSpec = {
+arc.mojom.mojom.ImportKeyResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ImportKeyResult',
@@ -164,16 +164,16 @@ arc.mojom.ImportKeyResultSpec = {
 };
 
 // Struct: ExportKeyRequest
-arc.mojom.ExportKeyRequestSpec = {
+arc.mojom.mojom.ExportKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ExportKeyRequest',
       packedSize: 40,
       fields: [
-        { name: 'key_format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'app_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_format', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.KeyFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'app_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -181,7 +181,7 @@ arc.mojom.ExportKeyRequestSpec = {
 };
 
 // Struct: ExportKeyResult
-arc.mojom.ExportKeyResultSpec = {
+arc.mojom.mojom.ExportKeyResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ExportKeyResult',
@@ -196,7 +196,7 @@ arc.mojom.ExportKeyResultSpec = {
 };
 
 // Struct: AttestKeyRequest
-arc.mojom.AttestKeyRequestSpec = {
+arc.mojom.mojom.AttestKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AttestKeyRequest',
@@ -211,7 +211,7 @@ arc.mojom.AttestKeyRequestSpec = {
 };
 
 // Struct: AttestKeyResult
-arc.mojom.AttestKeyResultSpec = {
+arc.mojom.mojom.AttestKeyResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AttestKeyResult',
@@ -226,7 +226,7 @@ arc.mojom.AttestKeyResultSpec = {
 };
 
 // Struct: UpgradeKeyRequest
-arc.mojom.UpgradeKeyRequestSpec = {
+arc.mojom.mojom.UpgradeKeyRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UpgradeKeyRequest',
@@ -241,7 +241,7 @@ arc.mojom.UpgradeKeyRequestSpec = {
 };
 
 // Struct: UpgradeKeyResult
-arc.mojom.UpgradeKeyResultSpec = {
+arc.mojom.mojom.UpgradeKeyResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UpgradeKeyResult',
@@ -256,15 +256,15 @@ arc.mojom.UpgradeKeyResultSpec = {
 };
 
 // Struct: BeginRequest
-arc.mojom.BeginRequestSpec = {
+arc.mojom.mojom.BeginRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BeginRequest',
       packedSize: 32,
       fields: [
-        { name: 'purpose', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.KeyPurposeSpec, nullable: false, minVersion: 0 },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'in_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'purpose', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.KeyPurposeSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'in_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -272,7 +272,7 @@ arc.mojom.BeginRequestSpec = {
 };
 
 // Struct: BeginResult
-arc.mojom.BeginResultSpec = {
+arc.mojom.mojom.BeginResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BeginResult',
@@ -288,7 +288,7 @@ arc.mojom.BeginResultSpec = {
 };
 
 // Struct: UpdateRequest
-arc.mojom.UpdateRequestSpec = {
+arc.mojom.mojom.UpdateRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UpdateRequest',
@@ -304,16 +304,16 @@ arc.mojom.UpdateRequestSpec = {
 };
 
 // Struct: UpdateResult
-arc.mojom.UpdateResultSpec = {
+arc.mojom.mojom.UpdateResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UpdateResult',
       packedSize: 32,
       fields: [
-        { name: 'input_consumed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'out_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
-        { name: 'output', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'input_consumed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'out_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -321,7 +321,7 @@ arc.mojom.UpdateResultSpec = {
 };
 
 // Struct: FinishRequest
-arc.mojom.FinishRequestSpec = {
+arc.mojom.mojom.FinishRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.FinishRequest',
@@ -338,7 +338,7 @@ arc.mojom.FinishRequestSpec = {
 };
 
 // Struct: FinishResult
-arc.mojom.FinishResultSpec = {
+arc.mojom.mojom.FinishResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.FinishResult',
@@ -354,24 +354,24 @@ arc.mojom.FinishResultSpec = {
 };
 
 // Interface: KeymasterHost
-arc.mojom.KeymasterHost = {};
+arc.mojom.mojom.KeymasterHost = {};
 
-arc.mojom.KeymasterHostPendingReceiver = class {
+arc.mojom.mojom.KeymasterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.KeymasterHostRemote = class {
+arc.mojom.mojom.KeymasterHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.KeymasterHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.KeymasterHostPendingReceiver,
+      arc.mojom.mojom.KeymasterHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.KeymasterHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.KeymasterHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -383,7 +383,7 @@ arc.mojom.KeymasterHostRemote = class {
   }
 };
 
-arc.mojom.KeymasterHostRemoteCallHandler = class {
+arc.mojom.mojom.KeymasterHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -392,15 +392,15 @@ arc.mojom.KeymasterHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.KeymasterHost_GetServer_ParamsSpec,
-      arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterHost_GetServer_ParamsSpec,
+      arc.mojom.mojom.KeymasterHost_GetServer_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.KeymasterHost.getRemote = function() {
-  let remote = new arc.mojom.KeymasterHostRemote();
+arc.mojom.mojom.KeymasterHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.KeymasterHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -410,7 +410,7 @@ arc.mojom.KeymasterHost.getRemote = function() {
 };
 
 // ParamsSpec for GetServer
-arc.mojom.KeymasterHost_GetServer_ParamsSpec = {
+arc.mojom.mojom.KeymasterHost_GetServer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterHost.GetServer_Params',
@@ -422,7 +422,7 @@ arc.mojom.KeymasterHost_GetServer_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterHost_GetServer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterHost.GetServer_ResponseParams',
@@ -436,29 +436,29 @@ arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.KeymasterHostPtr = arc.mojom.KeymasterHostRemote;
-arc.mojom.KeymasterHostRequest = arc.mojom.KeymasterHostPendingReceiver;
+arc.mojom.mojom.KeymasterHostPtr = arc.mojom.mojom.KeymasterHostRemote;
+arc.mojom.mojom.KeymasterHostRequest = arc.mojom.mojom.KeymasterHostPendingReceiver;
 
 
 // Interface: KeymasterInstance
-arc.mojom.KeymasterInstance = {};
+arc.mojom.mojom.KeymasterInstance = {};
 
-arc.mojom.KeymasterInstancePendingReceiver = class {
+arc.mojom.mojom.KeymasterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.KeymasterInstanceRemote = class {
+arc.mojom.mojom.KeymasterInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.KeymasterInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.KeymasterInstancePendingReceiver,
+      arc.mojom.mojom.KeymasterInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.KeymasterInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.KeymasterInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -470,7 +470,7 @@ arc.mojom.KeymasterInstanceRemote = class {
   }
 };
 
-arc.mojom.KeymasterInstanceRemoteCallHandler = class {
+arc.mojom.mojom.KeymasterInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -479,15 +479,15 @@ arc.mojom.KeymasterInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.KeymasterInstance_Init_ParamsSpec,
+      arc.mojom.mojom.KeymasterInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.KeymasterInstance.getRemote = function() {
-  let remote = new arc.mojom.KeymasterInstanceRemote();
+arc.mojom.mojom.KeymasterInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.KeymasterInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -497,7 +497,7 @@ arc.mojom.KeymasterInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.KeymasterInstance_Init_ParamsSpec = {
+arc.mojom.mojom.KeymasterInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterInstance.Init_Params',
@@ -511,29 +511,29 @@ arc.mojom.KeymasterInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.KeymasterInstancePtr = arc.mojom.KeymasterInstanceRemote;
-arc.mojom.KeymasterInstanceRequest = arc.mojom.KeymasterInstancePendingReceiver;
+arc.mojom.mojom.KeymasterInstancePtr = arc.mojom.mojom.KeymasterInstanceRemote;
+arc.mojom.mojom.KeymasterInstanceRequest = arc.mojom.mojom.KeymasterInstancePendingReceiver;
 
 
 // Interface: KeymasterServer
-arc.mojom.KeymasterServer = {};
+arc.mojom.mojom.KeymasterServer = {};
 
-arc.mojom.KeymasterServerPendingReceiver = class {
+arc.mojom.mojom.KeymasterServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.KeymasterServerRemote = class {
+arc.mojom.mojom.KeymasterServerRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.KeymasterServer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.KeymasterServerPendingReceiver,
+      arc.mojom.mojom.KeymasterServerPendingReceiver,
       handle);
-    this.$ = new arc.mojom.KeymasterServerRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.KeymasterServerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -545,7 +545,7 @@ arc.mojom.KeymasterServerRemote = class {
   }
 };
 
-arc.mojom.KeymasterServerRemoteCallHandler = class {
+arc.mojom.mojom.KeymasterServerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -554,7 +554,7 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_SetSystemVersion_ParamsSpec,
       null,
       [os_version, os_patchlevel]);
   }
@@ -563,8 +563,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec,
-      arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_AddRngEntropy_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec,
       [data]);
   }
 
@@ -572,8 +572,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec,
-      arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec,
       [request]);
   }
 
@@ -581,8 +581,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.KeymasterServer_GenerateKey_ParamsSpec,
-      arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_GenerateKey_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec,
       [key_params]);
   }
 
@@ -590,8 +590,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.KeymasterServer_ImportKey_ParamsSpec,
-      arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_ImportKey_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_ImportKey_ResponseParamsSpec,
       [request]);
   }
 
@@ -599,8 +599,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.KeymasterServer_ExportKey_ParamsSpec,
-      arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_ExportKey_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_ExportKey_ResponseParamsSpec,
       [request]);
   }
 
@@ -608,8 +608,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.KeymasterServer_AttestKey_ParamsSpec,
-      arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_AttestKey_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_AttestKey_ResponseParamsSpec,
       [request]);
   }
 
@@ -617,8 +617,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec,
-      arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_UpgradeKey_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec,
       [request]);
   }
 
@@ -626,8 +626,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.KeymasterServer_DeleteKey_ParamsSpec,
-      arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_DeleteKey_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec,
       [key_blob]);
   }
 
@@ -635,8 +635,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec,
-      arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec,
       []);
   }
 
@@ -644,8 +644,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.KeymasterServer_Begin_ParamsSpec,
-      arc.mojom.KeymasterServer_Begin_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Begin_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Begin_ResponseParamsSpec,
       [request]);
   }
 
@@ -653,8 +653,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.KeymasterServer_Update_ParamsSpec,
-      arc.mojom.KeymasterServer_Update_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Update_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Update_ResponseParamsSpec,
       [request]);
   }
 
@@ -662,8 +662,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.KeymasterServer_Finish_ParamsSpec,
-      arc.mojom.KeymasterServer_Finish_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Finish_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Finish_ResponseParamsSpec,
       [request]);
   }
 
@@ -671,15 +671,15 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.KeymasterServer_Abort_ParamsSpec,
-      arc.mojom.KeymasterServer_Abort_ResponseParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Abort_ParamsSpec,
+      arc.mojom.mojom.KeymasterServer_Abort_ResponseParamsSpec,
       [op_handle]);
   }
 
 };
 
-arc.mojom.KeymasterServer.getRemote = function() {
-  let remote = new arc.mojom.KeymasterServerRemote();
+arc.mojom.mojom.KeymasterServer.getRemote = function() {
+  let remote = new arc.mojom.mojom.KeymasterServerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -689,7 +689,7 @@ arc.mojom.KeymasterServer.getRemote = function() {
 };
 
 // ParamsSpec for SetSystemVersion
-arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_SetSystemVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.SetSystemVersion_Params',
@@ -704,7 +704,7 @@ arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec = {
 };
 
 // ParamsSpec for AddRngEntropy
-arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_AddRngEntropy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.AddRngEntropy_Params',
@@ -717,7 +717,7 @@ arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.AddRngEntropy_ResponseParams',
@@ -731,7 +731,7 @@ arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetKeyCharacteristics
-arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.GetKeyCharacteristics_Params',
@@ -744,7 +744,7 @@ arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.GetKeyCharacteristics_ResponseParams',
@@ -758,7 +758,7 @@ arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenerateKey
-arc.mojom.KeymasterServer_GenerateKey_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_GenerateKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.GenerateKey_Params',
@@ -771,7 +771,7 @@ arc.mojom.KeymasterServer_GenerateKey_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.GenerateKey_ResponseParams',
@@ -785,7 +785,7 @@ arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ImportKey
-arc.mojom.KeymasterServer_ImportKey_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_ImportKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.ImportKey_Params',
@@ -798,7 +798,7 @@ arc.mojom.KeymasterServer_ImportKey_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_ImportKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.ImportKey_ResponseParams',
@@ -812,7 +812,7 @@ arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExportKey
-arc.mojom.KeymasterServer_ExportKey_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_ExportKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.ExportKey_Params',
@@ -825,7 +825,7 @@ arc.mojom.KeymasterServer_ExportKey_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_ExportKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.ExportKey_ResponseParams',
@@ -839,7 +839,7 @@ arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AttestKey
-arc.mojom.KeymasterServer_AttestKey_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_AttestKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.AttestKey_Params',
@@ -852,7 +852,7 @@ arc.mojom.KeymasterServer_AttestKey_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_AttestKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.AttestKey_ResponseParams',
@@ -866,7 +866,7 @@ arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpgradeKey
-arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_UpgradeKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.UpgradeKey_Params',
@@ -879,7 +879,7 @@ arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.UpgradeKey_ResponseParams',
@@ -893,7 +893,7 @@ arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteKey
-arc.mojom.KeymasterServer_DeleteKey_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_DeleteKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.DeleteKey_Params',
@@ -906,7 +906,7 @@ arc.mojom.KeymasterServer_DeleteKey_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.DeleteKey_ResponseParams',
@@ -920,7 +920,7 @@ arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteAllKeys
-arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.DeleteAllKeys_Params',
@@ -932,7 +932,7 @@ arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.DeleteAllKeys_ResponseParams',
@@ -946,7 +946,7 @@ arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Begin
-arc.mojom.KeymasterServer_Begin_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Begin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Begin_Params',
@@ -959,7 +959,7 @@ arc.mojom.KeymasterServer_Begin_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_Begin_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Begin_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Begin_ResponseParams',
@@ -973,7 +973,7 @@ arc.mojom.KeymasterServer_Begin_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Update
-arc.mojom.KeymasterServer_Update_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Update_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Update_Params',
@@ -986,7 +986,7 @@ arc.mojom.KeymasterServer_Update_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_Update_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Update_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Update_ResponseParams',
@@ -1000,7 +1000,7 @@ arc.mojom.KeymasterServer_Update_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Finish
-arc.mojom.KeymasterServer_Finish_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Finish_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Finish_Params',
@@ -1013,7 +1013,7 @@ arc.mojom.KeymasterServer_Finish_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_Finish_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Finish_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Finish_ResponseParams',
@@ -1027,7 +1027,7 @@ arc.mojom.KeymasterServer_Finish_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Abort
-arc.mojom.KeymasterServer_Abort_ParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Abort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Abort_Params',
@@ -1040,7 +1040,7 @@ arc.mojom.KeymasterServer_Abort_ParamsSpec = {
   }
 };
 
-arc.mojom.KeymasterServer_Abort_ResponseParamsSpec = {
+arc.mojom.mojom.KeymasterServer_Abort_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KeymasterServer.Abort_ResponseParams',
@@ -1054,6 +1054,6 @@ arc.mojom.KeymasterServer_Abort_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.KeymasterServerPtr = arc.mojom.KeymasterServerRemote;
-arc.mojom.KeymasterServerRequest = arc.mojom.KeymasterServerPendingReceiver;
+arc.mojom.mojom.KeymasterServerPtr = arc.mojom.mojom.KeymasterServerRemote;
+arc.mojom.mojom.KeymasterServerRequest = arc.mojom.mojom.KeymasterServerPendingReceiver;
 

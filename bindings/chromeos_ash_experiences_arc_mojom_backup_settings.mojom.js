@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: BackupSettingsInstance
-arc.mojom.BackupSettingsInstance = {};
+arc.mojom.mojom.BackupSettingsInstance = {};
 
-arc.mojom.BackupSettingsInstancePendingReceiver = class {
+arc.mojom.mojom.BackupSettingsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.BackupSettingsInstanceRemote = class {
+arc.mojom.mojom.BackupSettingsInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.BackupSettingsInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.BackupSettingsInstancePendingReceiver,
+      arc.mojom.mojom.BackupSettingsInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.BackupSettingsInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.BackupSettingsInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.BackupSettingsInstanceRemote = class {
   }
 };
 
-arc.mojom.BackupSettingsInstanceRemoteCallHandler = class {
+arc.mojom.mojom.BackupSettingsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ arc.mojom.BackupSettingsInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec,
+      arc.mojom.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec,
       null,
       [enabled, managed]);
   }
 
 };
 
-arc.mojom.BackupSettingsInstance.getRemote = function() {
-  let remote = new arc.mojom.BackupSettingsInstanceRemote();
+arc.mojom.mojom.BackupSettingsInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.BackupSettingsInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ arc.mojom.BackupSettingsInstance.getRemote = function() {
 };
 
 // ParamsSpec for SetBackupEnabled
-arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = {
+arc.mojom.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BackupSettingsInstance.SetBackupEnabled_Params',
@@ -81,6 +81,6 @@ arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.BackupSettingsInstancePtr = arc.mojom.BackupSettingsInstanceRemote;
-arc.mojom.BackupSettingsInstanceRequest = arc.mojom.BackupSettingsInstancePendingReceiver;
+arc.mojom.mojom.BackupSettingsInstancePtr = arc.mojom.mojom.BackupSettingsInstanceRemote;
+arc.mojom.mojom.BackupSettingsInstanceRequest = arc.mojom.mojom.BackupSettingsInstancePendingReceiver;
 

@@ -10,7 +10,7 @@ webxr.mojom = webxr.mojom || {};
 
 
 // Struct: DeviceInfo
-webxr.mojom.DeviceInfoSpec = {
+webxr.mojom.mojom.DeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.DeviceInfo',
@@ -27,7 +27,7 @@ webxr.mojom.DeviceInfoSpec = {
 };
 
 // Struct: SessionRequestedRecord
-webxr.mojom.SessionRequestedRecordSpec = {
+webxr.mojom.mojom.SessionRequestedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionRequestedRecord',
@@ -42,17 +42,17 @@ webxr.mojom.SessionRequestedRecordSpec = {
 };
 
 // Struct: SessionRejectedRecord
-webxr.mojom.SessionRejectedRecordSpec = {
+webxr.mojom.mojom.SessionRejectedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionRejectedRecord',
       packedSize: 48,
       fields: [
         { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'failure_reason', packedOffset: 8, packedBitOffset: 0, type: device.mojom.RequestSessionErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'rejected_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'failure_reason_description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'rejected_features', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'failure_reason', packedOffset: 32, packedBitOffset: 0, type: device.mojom.RequestSessionErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'rejected_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'failure_reason_description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rejected_features', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -60,15 +60,15 @@ webxr.mojom.SessionRejectedRecordSpec = {
 };
 
 // Struct: SessionStartedRecord
-webxr.mojom.SessionStartedRecordSpec = {
+webxr.mojom.mojom.SessionStartedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionStartedRecord',
       packedSize: 32,
       fields: [
         { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'started_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'started_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -76,7 +76,7 @@ webxr.mojom.SessionStartedRecordSpec = {
 };
 
 // Struct: SessionStoppedRecord
-webxr.mojom.SessionStoppedRecordSpec = {
+webxr.mojom.mojom.SessionStoppedRecordSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.SessionStoppedRecord',
@@ -91,15 +91,15 @@ webxr.mojom.SessionStoppedRecordSpec = {
 };
 
 // Struct: RuntimeInfo
-webxr.mojom.RuntimeInfoSpec = {
+webxr.mojom.mojom.RuntimeInfoSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.RuntimeInfo',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'supported_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_ar_blend_mode_supported', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: device.mojom.XRDeviceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_ar_blend_mode_supported', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -107,24 +107,24 @@ webxr.mojom.RuntimeInfoSpec = {
 };
 
 // Interface: WebXrInternalsHandler
-webxr.mojom.WebXrInternalsHandler = {};
+webxr.mojom.mojom.WebXrInternalsHandler = {};
 
-webxr.mojom.WebXrInternalsHandlerPendingReceiver = class {
+webxr.mojom.mojom.WebXrInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webxr.mojom.WebXrInternalsHandlerRemote = class {
+webxr.mojom.mojom.WebXrInternalsHandlerRemote = class {
   static get $interfaceName() {
     return 'webxr.mojom.WebXrInternalsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webxr.mojom.WebXrInternalsHandlerPendingReceiver,
+      webxr.mojom.mojom.WebXrInternalsHandlerPendingReceiver,
       handle);
-    this.$ = new webxr.mojom.WebXrInternalsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new webxr.mojom.mojom.WebXrInternalsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -136,7 +136,7 @@ webxr.mojom.WebXrInternalsHandlerRemote = class {
   }
 };
 
-webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
+webxr.mojom.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -145,8 +145,8 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec,
-      webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
+      webxr.mojom.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec,
+      webxr.mojom.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
       []);
   }
 
@@ -154,8 +154,8 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec,
-      webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
+      webxr.mojom.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec,
+      webxr.mojom.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
       []);
   }
 
@@ -163,15 +163,15 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec,
+      webxr.mojom.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-webxr.mojom.WebXrInternalsHandler.getRemote = function() {
-  let remote = new webxr.mojom.WebXrInternalsHandlerRemote();
+webxr.mojom.mojom.WebXrInternalsHandler.getRemote = function() {
+  let remote = new webxr.mojom.mojom.WebXrInternalsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -181,7 +181,7 @@ webxr.mojom.WebXrInternalsHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetDeviceInfo
-webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
+webxr.mojom.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.WebXrInternalsHandler.GetDeviceInfo_Params',
@@ -193,7 +193,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
   }
 };
 
-webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
+webxr.mojom.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.WebXrInternalsHandler.GetDeviceInfo_ResponseParams',
@@ -207,7 +207,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetActiveRuntimes
-webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
+webxr.mojom.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.WebXrInternalsHandler.GetActiveRuntimes_Params',
@@ -219,7 +219,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
   }
 };
 
-webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
+webxr.mojom.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.WebXrInternalsHandler.GetActiveRuntimes_ResponseParams',
@@ -233,7 +233,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SubscribeToEvents
-webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
+webxr.mojom.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.WebXrInternalsHandler.SubscribeToEvents_Params',
@@ -247,29 +247,29 @@ webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
 };
 
 // Legacy compatibility
-webxr.mojom.WebXrInternalsHandlerPtr = webxr.mojom.WebXrInternalsHandlerRemote;
-webxr.mojom.WebXrInternalsHandlerRequest = webxr.mojom.WebXrInternalsHandlerPendingReceiver;
+webxr.mojom.mojom.WebXrInternalsHandlerPtr = webxr.mojom.mojom.WebXrInternalsHandlerRemote;
+webxr.mojom.mojom.WebXrInternalsHandlerRequest = webxr.mojom.mojom.WebXrInternalsHandlerPendingReceiver;
 
 
 // Interface: XRInternalsSessionListener
-webxr.mojom.XRInternalsSessionListener = {};
+webxr.mojom.mojom.XRInternalsSessionListener = {};
 
-webxr.mojom.XRInternalsSessionListenerPendingReceiver = class {
+webxr.mojom.mojom.XRInternalsSessionListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-webxr.mojom.XRInternalsSessionListenerRemote = class {
+webxr.mojom.mojom.XRInternalsSessionListenerRemote = class {
   static get $interfaceName() {
     return 'webxr.mojom.XRInternalsSessionListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      webxr.mojom.XRInternalsSessionListenerPendingReceiver,
+      webxr.mojom.mojom.XRInternalsSessionListenerPendingReceiver,
       handle);
-    this.$ = new webxr.mojom.XRInternalsSessionListenerRemoteCallHandler(this.proxy);
+    this.$ = new webxr.mojom.mojom.XRInternalsSessionListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -281,7 +281,7 @@ webxr.mojom.XRInternalsSessionListenerRemote = class {
   }
 };
 
-webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
+webxr.mojom.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -290,7 +290,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec,
       null,
       [session_requested_record]);
   }
@@ -299,7 +299,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec,
       null,
       [session_rejected_record]);
   }
@@ -308,7 +308,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec,
       null,
       [session_started_record]);
   }
@@ -317,7 +317,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec,
       null,
       [session_stopped_record]);
   }
@@ -326,7 +326,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec,
       null,
       [runtime_added_record]);
   }
@@ -335,7 +335,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec,
       null,
       [device_id]);
   }
@@ -344,7 +344,7 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec,
       null,
       [xrframe_statistics]);
   }
@@ -353,15 +353,15 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec,
+      webxr.mojom.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec,
       null,
       [xrlogging_statistics]);
   }
 
 };
 
-webxr.mojom.XRInternalsSessionListener.getRemote = function() {
-  let remote = new webxr.mojom.XRInternalsSessionListenerRemote();
+webxr.mojom.mojom.XRInternalsSessionListener.getRemote = function() {
+  let remote = new webxr.mojom.mojom.XRInternalsSessionListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -371,7 +371,7 @@ webxr.mojom.XRInternalsSessionListener.getRemote = function() {
 };
 
 // ParamsSpec for LogXrSessionRequested
-webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionRequested_Params',
@@ -385,7 +385,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = {
 };
 
 // ParamsSpec for LogXrSessionRejected
-webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionRejected_Params',
@@ -399,7 +399,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = {
 };
 
 // ParamsSpec for LogXrSessionStarted
-webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionStarted_Params',
@@ -413,7 +413,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = {
 };
 
 // ParamsSpec for LogXrSessionStopped
-webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrSessionStopped_Params',
@@ -427,7 +427,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = {
 };
 
 // ParamsSpec for LogXrRuntimeAdded
-webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrRuntimeAdded_Params',
@@ -441,7 +441,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = {
 };
 
 // ParamsSpec for LogXrRuntimeRemoved
-webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogXrRuntimeRemoved_Params',
@@ -455,7 +455,7 @@ webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = {
 };
 
 // ParamsSpec for LogFrameData
-webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogFrameData_Params',
@@ -469,7 +469,7 @@ webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = {
 };
 
 // ParamsSpec for LogConsoleMessages
-webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
+webxr.mojom.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webxr.mojom.XRInternalsSessionListener.LogConsoleMessages_Params',
@@ -483,6 +483,6 @@ webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = {
 };
 
 // Legacy compatibility
-webxr.mojom.XRInternalsSessionListenerPtr = webxr.mojom.XRInternalsSessionListenerRemote;
-webxr.mojom.XRInternalsSessionListenerRequest = webxr.mojom.XRInternalsSessionListenerPendingReceiver;
+webxr.mojom.mojom.XRInternalsSessionListenerPtr = webxr.mojom.mojom.XRInternalsSessionListenerRemote;
+webxr.mojom.mojom.XRInternalsSessionListenerRequest = webxr.mojom.mojom.XRInternalsSessionListenerPendingReceiver;
 

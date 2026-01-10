@@ -10,7 +10,7 @@ browser_command.mojom = browser_command.mojom || {};
 
 
 // Enum: Command
-browser_command.mojom.Command = {
+browser_command.mojom.mojom.Command = {
   kUnknownCommand: 0,
   kOpenSafetyCheck: 1,
   kOpenSafeBrowsingEnhancedProtectionSettings: 2,
@@ -32,10 +32,10 @@ browser_command.mojom.Command = {
   kOpenSplitView: 18,
   kOpenAutofillSettings: 19,
 };
-browser_command.mojom.CommandSpec = { $: mojo.internal.Enum() };
+browser_command.mojom.mojom.CommandSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClickInfo
-browser_command.mojom.ClickInfoSpec = {
+browser_command.mojom.mojom.ClickInfoSpec = {
   $: {
     structSpec: {
       name: 'browser_command.mojom.ClickInfo',
@@ -53,24 +53,24 @@ browser_command.mojom.ClickInfoSpec = {
 };
 
 // Interface: CommandHandlerFactory
-browser_command.mojom.CommandHandlerFactory = {};
+browser_command.mojom.mojom.CommandHandlerFactory = {};
 
-browser_command.mojom.CommandHandlerFactoryPendingReceiver = class {
+browser_command.mojom.mojom.CommandHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-browser_command.mojom.CommandHandlerFactoryRemote = class {
+browser_command.mojom.mojom.CommandHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'browser_command.mojom.CommandHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      browser_command.mojom.CommandHandlerFactoryPendingReceiver,
+      browser_command.mojom.mojom.CommandHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new browser_command.mojom.CommandHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new browser_command.mojom.mojom.CommandHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -82,7 +82,7 @@ browser_command.mojom.CommandHandlerFactoryRemote = class {
   }
 };
 
-browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
+browser_command.mojom.mojom.CommandHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -91,15 +91,15 @@ browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec,
+      browser_command.mojom.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-browser_command.mojom.CommandHandlerFactory.getRemote = function() {
-  let remote = new browser_command.mojom.CommandHandlerFactoryRemote();
+browser_command.mojom.mojom.CommandHandlerFactory.getRemote = function() {
+  let remote = new browser_command.mojom.mojom.CommandHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -109,7 +109,7 @@ browser_command.mojom.CommandHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateBrowserCommandHandler
-browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = {
+browser_command.mojom.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'browser_command.mojom.CommandHandlerFactory.CreateBrowserCommandHandler_Params',
@@ -123,29 +123,29 @@ browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSp
 };
 
 // Legacy compatibility
-browser_command.mojom.CommandHandlerFactoryPtr = browser_command.mojom.CommandHandlerFactoryRemote;
-browser_command.mojom.CommandHandlerFactoryRequest = browser_command.mojom.CommandHandlerFactoryPendingReceiver;
+browser_command.mojom.mojom.CommandHandlerFactoryPtr = browser_command.mojom.mojom.CommandHandlerFactoryRemote;
+browser_command.mojom.mojom.CommandHandlerFactoryRequest = browser_command.mojom.mojom.CommandHandlerFactoryPendingReceiver;
 
 
 // Interface: CommandHandler
-browser_command.mojom.CommandHandler = {};
+browser_command.mojom.mojom.CommandHandler = {};
 
-browser_command.mojom.CommandHandlerPendingReceiver = class {
+browser_command.mojom.mojom.CommandHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-browser_command.mojom.CommandHandlerRemote = class {
+browser_command.mojom.mojom.CommandHandlerRemote = class {
   static get $interfaceName() {
     return 'browser_command.mojom.CommandHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      browser_command.mojom.CommandHandlerPendingReceiver,
+      browser_command.mojom.mojom.CommandHandlerPendingReceiver,
       handle);
-    this.$ = new browser_command.mojom.CommandHandlerRemoteCallHandler(this.proxy);
+    this.$ = new browser_command.mojom.mojom.CommandHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -157,7 +157,7 @@ browser_command.mojom.CommandHandlerRemote = class {
   }
 };
 
-browser_command.mojom.CommandHandlerRemoteCallHandler = class {
+browser_command.mojom.mojom.CommandHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -166,8 +166,8 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec,
-      browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
+      browser_command.mojom.mojom.CommandHandler_CanExecuteCommand_ParamsSpec,
+      browser_command.mojom.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
       [command_id]);
   }
 
@@ -175,15 +175,15 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec,
-      browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
+      browser_command.mojom.mojom.CommandHandler_ExecuteCommand_ParamsSpec,
+      browser_command.mojom.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
       [command_id, click_info]);
   }
 
 };
 
-browser_command.mojom.CommandHandler.getRemote = function() {
-  let remote = new browser_command.mojom.CommandHandlerRemote();
+browser_command.mojom.mojom.CommandHandler.getRemote = function() {
+  let remote = new browser_command.mojom.mojom.CommandHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -193,7 +193,7 @@ browser_command.mojom.CommandHandler.getRemote = function() {
 };
 
 // ParamsSpec for CanExecuteCommand
-browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
+browser_command.mojom.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_Params',
@@ -206,7 +206,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
   }
 };
 
-browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
+browser_command.mojom.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_ResponseParams',
@@ -220,21 +220,21 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExecuteCommand
-browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
+browser_command.mojom.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
   $: {
     structSpec: {
       name: 'browser_command.mojom.CommandHandler.ExecuteCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
-        { name: 'click_info', packedOffset: 8, packedBitOffset: 0, type: browser_command.mojom.ClickInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
+        { name: 'click_info', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.ClickInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
+browser_command.mojom.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'browser_command.mojom.CommandHandler.ExecuteCommand_ResponseParams',
@@ -248,6 +248,6 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-browser_command.mojom.CommandHandlerPtr = browser_command.mojom.CommandHandlerRemote;
-browser_command.mojom.CommandHandlerRequest = browser_command.mojom.CommandHandlerPendingReceiver;
+browser_command.mojom.mojom.CommandHandlerPtr = browser_command.mojom.mojom.CommandHandlerRemote;
+browser_command.mojom.mojom.CommandHandlerRequest = browser_command.mojom.mojom.CommandHandlerPendingReceiver;
 

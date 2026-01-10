@@ -7,20 +7,21 @@
 // Module namespace
 var suggest_internals = suggest_internals || {};
 suggest_internals.mojom = suggest_internals.mojom || {};
+var url = url || {};
 
 
 // Enum: RequestStatus
-suggest_internals.mojom.RequestStatus = {
+suggest_internals.mojom.mojom.RequestStatus = {
   kHardcoded: 0,
   kCreated: 1,
   kSent: 2,
   kSucceeded: 3,
   kFailed: 4,
 };
-suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum() };
+suggest_internals.mojom.mojom.RequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: Request
-suggest_internals.mojom.RequestSpec = {
+suggest_internals.mojom.mojom.RequestSpec = {
   $: {
     structSpec: {
       name: 'suggest_internals.mojom.Request',
@@ -29,10 +30,10 @@ suggest_internals.mojom.RequestSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: suggest_internals.mojom.RequestStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'end_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 48, packedBitOffset: 0, type: suggest_internals.mojom.RequestStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'start_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'end_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -40,24 +41,24 @@ suggest_internals.mojom.RequestSpec = {
 };
 
 // Interface: PageHandler
-suggest_internals.mojom.PageHandler = {};
+suggest_internals.mojom.mojom.PageHandler = {};
 
-suggest_internals.mojom.PageHandlerPendingReceiver = class {
+suggest_internals.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-suggest_internals.mojom.PageHandlerRemote = class {
+suggest_internals.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'suggest_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      suggest_internals.mojom.PageHandlerPendingReceiver,
+      suggest_internals.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new suggest_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new suggest_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +70,7 @@ suggest_internals.mojom.PageHandlerRemote = class {
   }
 };
 
-suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
+suggest_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,7 +79,7 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      suggest_internals.mojom.PageHandler_SetPage_ParamsSpec,
+      suggest_internals.mojom.mojom.PageHandler_SetPage_ParamsSpec,
       null,
       [page]);
   }
@@ -87,15 +88,15 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec,
-      suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
+      suggest_internals.mojom.mojom.PageHandler_HardcodeResponse_ParamsSpec,
+      suggest_internals.mojom.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
       [response, delay]);
   }
 
 };
 
-suggest_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new suggest_internals.mojom.PageHandlerRemote();
+suggest_internals.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new suggest_internals.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -105,7 +106,7 @@ suggest_internals.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for SetPage
-suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
+suggest_internals.mojom.mojom.PageHandler_SetPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'suggest_internals.mojom.PageHandler.SetPage_Params',
@@ -119,7 +120,7 @@ suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = {
 };
 
 // ParamsSpec for HardcodeResponse
-suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
+suggest_internals.mojom.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_Params',
@@ -133,7 +134,7 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
   }
 };
 
-suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
+suggest_internals.mojom.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_ResponseParams',
@@ -147,29 +148,29 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-suggest_internals.mojom.PageHandlerPtr = suggest_internals.mojom.PageHandlerRemote;
-suggest_internals.mojom.PageHandlerRequest = suggest_internals.mojom.PageHandlerPendingReceiver;
+suggest_internals.mojom.mojom.PageHandlerPtr = suggest_internals.mojom.mojom.PageHandlerRemote;
+suggest_internals.mojom.mojom.PageHandlerRequest = suggest_internals.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-suggest_internals.mojom.Page = {};
+suggest_internals.mojom.mojom.Page = {};
 
-suggest_internals.mojom.PagePendingReceiver = class {
+suggest_internals.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-suggest_internals.mojom.PageRemote = class {
+suggest_internals.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'suggest_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      suggest_internals.mojom.PagePendingReceiver,
+      suggest_internals.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new suggest_internals.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new suggest_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -181,7 +182,7 @@ suggest_internals.mojom.PageRemote = class {
   }
 };
 
-suggest_internals.mojom.PageRemoteCallHandler = class {
+suggest_internals.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -190,7 +191,7 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec,
+      suggest_internals.mojom.mojom.Page_OnRequestCreated_ParamsSpec,
       null,
       [request]);
   }
@@ -199,7 +200,7 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec,
+      suggest_internals.mojom.mojom.Page_OnRequestStarted_ParamsSpec,
       null,
       [request]);
   }
@@ -208,15 +209,15 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec,
+      suggest_internals.mojom.mojom.Page_OnRequestCompleted_ParamsSpec,
       null,
       [request]);
   }
 
 };
 
-suggest_internals.mojom.Page.getRemote = function() {
-  let remote = new suggest_internals.mojom.PageRemote();
+suggest_internals.mojom.mojom.Page.getRemote = function() {
+  let remote = new suggest_internals.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -226,7 +227,7 @@ suggest_internals.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnRequestCreated
-suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
+suggest_internals.mojom.mojom.Page_OnRequestCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'suggest_internals.mojom.Page.OnRequestCreated_Params',
@@ -240,7 +241,7 @@ suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = {
 };
 
 // ParamsSpec for OnRequestStarted
-suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
+suggest_internals.mojom.mojom.Page_OnRequestStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'suggest_internals.mojom.Page.OnRequestStarted_Params',
@@ -254,7 +255,7 @@ suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnRequestCompleted
-suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
+suggest_internals.mojom.mojom.Page_OnRequestCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'suggest_internals.mojom.Page.OnRequestCompleted_Params',
@@ -268,6 +269,6 @@ suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-suggest_internals.mojom.PagePtr = suggest_internals.mojom.PageRemote;
-suggest_internals.mojom.PageRequest = suggest_internals.mojom.PagePendingReceiver;
+suggest_internals.mojom.mojom.PagePtr = suggest_internals.mojom.mojom.PageRemote;
+suggest_internals.mojom.mojom.PageRequest = suggest_internals.mojom.mojom.PagePendingReceiver;
 

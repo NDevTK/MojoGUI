@@ -7,11 +7,12 @@
 // Module namespace
 var ntp = ntp || {};
 ntp.calendar = ntp.calendar || {};
-ntp.calendar.mojom = ntp.calendar.mojom || {};
+ntp.calendar.calendar.mojom = ntp.calendar.calendar.mojom || {};
+var url = url || {};
 
 
 // Struct: Attachment
-ntp.calendar.mojom.AttachmentSpec = {
+ntp.calendar.calendar.mojom.mojom.AttachmentSpec = {
   $: {
     structSpec: {
       name: 'ntp.calendar.mojom.Attachment',
@@ -27,7 +28,7 @@ ntp.calendar.mojom.AttachmentSpec = {
 };
 
 // Struct: CalendarEvent
-ntp.calendar.mojom.CalendarEventSpec = {
+ntp.calendar.calendar.mojom.mojom.CalendarEventSpec = {
   $: {
     structSpec: {
       name: 'ntp.calendar.mojom.CalendarEvent',

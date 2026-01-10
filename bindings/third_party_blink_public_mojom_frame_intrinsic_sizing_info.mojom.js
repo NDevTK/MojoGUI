@@ -7,10 +7,12 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: IntrinsicSizingInfo
-blink.mojom.IntrinsicSizingInfoSpec = {
+blink.mojom.mojom.IntrinsicSizingInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IntrinsicSizingInfo',

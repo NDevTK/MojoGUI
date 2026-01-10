@@ -10,24 +10,24 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: MessageCallback
-chromecast.mojom.MessageCallback = {};
+chromecast.mojom.mojom.MessageCallback = {};
 
-chromecast.mojom.MessageCallbackPendingReceiver = class {
+chromecast.mojom.mojom.MessageCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.MessageCallbackRemote = class {
+chromecast.mojom.mojom.MessageCallbackRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.MessageCallback';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.MessageCallbackPendingReceiver,
+      chromecast.mojom.mojom.MessageCallbackPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.MessageCallbackRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.MessageCallbackRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chromecast.mojom.MessageCallbackRemote = class {
   }
 };
 
-chromecast.mojom.MessageCallbackRemoteCallHandler = class {
+chromecast.mojom.mojom.MessageCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ chromecast.mojom.MessageCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.MessageCallback_OnMessage_ParamsSpec,
+      chromecast.mojom.mojom.MessageCallback_OnMessage_ParamsSpec,
       null,
       [list]);
   }
 
 };
 
-chromecast.mojom.MessageCallback.getRemote = function() {
-  let remote = new chromecast.mojom.MessageCallbackRemote();
+chromecast.mojom.mojom.MessageCallback.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.MessageCallbackRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ chromecast.mojom.MessageCallback.getRemote = function() {
 };
 
 // ParamsSpec for OnMessage
-chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
+chromecast.mojom.mojom.MessageCallback_OnMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.MessageCallback.OnMessage_Params',
@@ -80,29 +80,29 @@ chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.MessageCallbackPtr = chromecast.mojom.MessageCallbackRemote;
-chromecast.mojom.MessageCallbackRequest = chromecast.mojom.MessageCallbackPendingReceiver;
+chromecast.mojom.mojom.MessageCallbackPtr = chromecast.mojom.mojom.MessageCallbackRemote;
+chromecast.mojom.mojom.MessageCallbackRequest = chromecast.mojom.mojom.MessageCallbackPendingReceiver;
 
 
 // Interface: WebUi
-chromecast.mojom.WebUi = {};
+chromecast.mojom.mojom.WebUi = {};
 
-chromecast.mojom.WebUiPendingReceiver = class {
+chromecast.mojom.mojom.WebUiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.WebUiRemote = class {
+chromecast.mojom.mojom.WebUiRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.WebUi';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.WebUiPendingReceiver,
+      chromecast.mojom.mojom.WebUiPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.WebUiRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.WebUiRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ chromecast.mojom.WebUiRemote = class {
   }
 };
 
-chromecast.mojom.WebUiRemoteCallHandler = class {
+chromecast.mojom.mojom.WebUiRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,7 +123,7 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec,
+      chromecast.mojom.mojom.WebUi_RegisterMessageCallback_ParamsSpec,
       null,
       [message, cb]);
   }
@@ -132,15 +132,15 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec,
+      chromecast.mojom.mojom.WebUi_CallJavascriptFunction_ParamsSpec,
       null,
       [function, args]);
   }
 
 };
 
-chromecast.mojom.WebUi.getRemote = function() {
-  let remote = new chromecast.mojom.WebUiRemote();
+chromecast.mojom.mojom.WebUi.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.WebUiRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -150,7 +150,7 @@ chromecast.mojom.WebUi.getRemote = function() {
 };
 
 // ParamsSpec for RegisterMessageCallback
-chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
+chromecast.mojom.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.WebUi.RegisterMessageCallback_Params',
@@ -165,7 +165,7 @@ chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
 };
 
 // ParamsSpec for CallJavascriptFunction
-chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
+chromecast.mojom.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.WebUi.CallJavascriptFunction_Params',
@@ -180,29 +180,29 @@ chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.WebUiPtr = chromecast.mojom.WebUiRemote;
-chromecast.mojom.WebUiRequest = chromecast.mojom.WebUiPendingReceiver;
+chromecast.mojom.mojom.WebUiPtr = chromecast.mojom.mojom.WebUiRemote;
+chromecast.mojom.mojom.WebUiRequest = chromecast.mojom.mojom.WebUiPendingReceiver;
 
 
 // Interface: Resources
-chromecast.mojom.Resources = {};
+chromecast.mojom.mojom.Resources = {};
 
-chromecast.mojom.ResourcesPendingReceiver = class {
+chromecast.mojom.mojom.ResourcesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.ResourcesRemote = class {
+chromecast.mojom.mojom.ResourcesRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.Resources';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.ResourcesPendingReceiver,
+      chromecast.mojom.mojom.ResourcesPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.ResourcesRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.ResourcesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -214,7 +214,7 @@ chromecast.mojom.ResourcesRemote = class {
   }
 };
 
-chromecast.mojom.ResourcesRemoteCallHandler = class {
+chromecast.mojom.mojom.ResourcesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -223,15 +223,15 @@ chromecast.mojom.ResourcesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec,
-      chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
+      chromecast.mojom.mojom.Resources_RequestResourceBytes_ParamsSpec,
+      chromecast.mojom.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-chromecast.mojom.Resources.getRemote = function() {
-  let remote = new chromecast.mojom.ResourcesRemote();
+chromecast.mojom.mojom.Resources.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.ResourcesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -241,7 +241,7 @@ chromecast.mojom.Resources.getRemote = function() {
 };
 
 // ParamsSpec for RequestResourceBytes
-chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
+chromecast.mojom.mojom.Resources_RequestResourceBytes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.Resources.RequestResourceBytes_Params',
@@ -254,7 +254,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
   }
 };
 
-chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
+chromecast.mojom.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.Resources.RequestResourceBytes_ResponseParams',
@@ -268,29 +268,29 @@ chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.ResourcesPtr = chromecast.mojom.ResourcesRemote;
-chromecast.mojom.ResourcesRequest = chromecast.mojom.ResourcesPendingReceiver;
+chromecast.mojom.mojom.ResourcesPtr = chromecast.mojom.mojom.ResourcesRemote;
+chromecast.mojom.mojom.ResourcesRequest = chromecast.mojom.mojom.ResourcesPendingReceiver;
 
 
 // Interface: WebUiClient
-chromecast.mojom.WebUiClient = {};
+chromecast.mojom.mojom.WebUiClient = {};
 
-chromecast.mojom.WebUiClientPendingReceiver = class {
+chromecast.mojom.mojom.WebUiClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.WebUiClientRemote = class {
+chromecast.mojom.mojom.WebUiClientRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.WebUiClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.WebUiClientPendingReceiver,
+      chromecast.mojom.mojom.WebUiClientPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.WebUiClientRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.WebUiClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -302,7 +302,7 @@ chromecast.mojom.WebUiClientRemote = class {
   }
 };
 
-chromecast.mojom.WebUiClientRemoteCallHandler = class {
+chromecast.mojom.mojom.WebUiClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -311,7 +311,7 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.WebUiClient_CreateController_ParamsSpec,
+      chromecast.mojom.mojom.WebUiClient_CreateController_ParamsSpec,
       null,
       [host, web_ui, resources]);
   }
@@ -320,15 +320,15 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.WebUiClient_CreateResources_ParamsSpec,
+      chromecast.mojom.mojom.WebUiClient_CreateResources_ParamsSpec,
       null,
       [host, resources]);
   }
 
 };
 
-chromecast.mojom.WebUiClient.getRemote = function() {
-  let remote = new chromecast.mojom.WebUiClientRemote();
+chromecast.mojom.mojom.WebUiClient.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.WebUiClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -338,7 +338,7 @@ chromecast.mojom.WebUiClient.getRemote = function() {
 };
 
 // ParamsSpec for CreateController
-chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
+chromecast.mojom.mojom.WebUiClient_CreateController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.WebUiClient.CreateController_Params',
@@ -354,7 +354,7 @@ chromecast.mojom.WebUiClient_CreateController_ParamsSpec = {
 };
 
 // ParamsSpec for CreateResources
-chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
+chromecast.mojom.mojom.WebUiClient_CreateResources_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.WebUiClient.CreateResources_Params',
@@ -369,6 +369,6 @@ chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.WebUiClientPtr = chromecast.mojom.WebUiClientRemote;
-chromecast.mojom.WebUiClientRequest = chromecast.mojom.WebUiClientPendingReceiver;
+chromecast.mojom.mojom.WebUiClientPtr = chromecast.mojom.mojom.WebUiClientRemote;
+chromecast.mojom.mojom.WebUiClientRequest = chromecast.mojom.mojom.WebUiClientPendingReceiver;
 

@@ -7,44 +7,46 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Enum: SpeculationAction
-blink.mojom.SpeculationAction = {
+blink.mojom.mojom.SpeculationAction = {
   kPrefetch: 0,
   kPrerenderUntilScript: 1,
   kPrerender: 2,
 };
-blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SpeculationActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationTargetHint
-blink.mojom.SpeculationTargetHint = {
+blink.mojom.mojom.SpeculationTargetHint = {
   kNoHint: 0,
   kBlank: 1,
   kSelf: 2,
 };
-blink.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationEagerness
-blink.mojom.SpeculationEagerness = {
+blink.mojom.mojom.SpeculationEagerness = {
   kConservative: 0,
   kModerate: 1,
   kImmediate: 2,
   kEager: 3,
 };
-blink.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationInjectionType
-blink.mojom.SpeculationInjectionType = {
+blink.mojom.mojom.SpeculationInjectionType = {
   kNone: 0,
   kMainWorldScript: 1,
   kIsolatedWorldScript: 2,
   kAutoSpeculationRules: 3,
 };
-blink.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeculationCandidate
-blink.mojom.SpeculationCandidateSpec = {
+blink.mojom.mojom.SpeculationCandidateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeculationCandidate',
@@ -53,13 +55,13 @@ blink.mojom.SpeculationCandidateSpec = {
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
         { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false, minVersion: 0 },
         { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false, minVersion: 0 },
-        { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'target_browsing_context_name_hint', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false, minVersion: 0 },
-        { name: 'eagerness', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false, minVersion: 0 },
-        { name: 'no_vary_search_hint', packedOffset: 48, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true, minVersion: 0 },
-        { name: 'injection_type', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'tags', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'form_submission', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'target_browsing_context_name_hint', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false, minVersion: 0 },
+        { name: 'eagerness', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false, minVersion: 0 },
+        { name: 'no_vary_search_hint', packedOffset: 40, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true, minVersion: 0 },
+        { name: 'injection_type', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'tags', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'form_submission', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -67,24 +69,24 @@ blink.mojom.SpeculationCandidateSpec = {
 };
 
 // Interface: SpeculationHost
-blink.mojom.SpeculationHost = {};
+blink.mojom.mojom.SpeculationHost = {};
 
-blink.mojom.SpeculationHostPendingReceiver = class {
+blink.mojom.mojom.SpeculationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SpeculationHostRemote = class {
+blink.mojom.mojom.SpeculationHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SpeculationHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SpeculationHostPendingReceiver,
+      blink.mojom.mojom.SpeculationHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SpeculationHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SpeculationHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -96,7 +98,7 @@ blink.mojom.SpeculationHostRemote = class {
   }
 };
 
-blink.mojom.SpeculationHostRemoteCallHandler = class {
+blink.mojom.mojom.SpeculationHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -105,7 +107,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec,
+      blink.mojom.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec,
       null,
       [candidates, enable_cross_origin_prerender_iframes]);
   }
@@ -114,7 +116,7 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec,
+      blink.mojom.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec,
       null,
       []);
   }
@@ -123,15 +125,15 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec,
+      blink.mojom.mojom.SpeculationHost_InitiatePreview_ParamsSpec,
       null,
       [url]);
   }
 
 };
 
-blink.mojom.SpeculationHost.getRemote = function() {
-  let remote = new blink.mojom.SpeculationHostRemote();
+blink.mojom.mojom.SpeculationHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.SpeculationHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -141,7 +143,7 @@ blink.mojom.SpeculationHost.getRemote = function() {
 };
 
 // ParamsSpec for UpdateSpeculationCandidates
-blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
+blink.mojom.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeculationHost.UpdateSpeculationCandidates_Params',
@@ -156,7 +158,7 @@ blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
 };
 
 // ParamsSpec for OnLCPPredicted
-blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
+blink.mojom.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeculationHost.OnLCPPredicted_Params',
@@ -169,7 +171,7 @@ blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
 };
 
 // ParamsSpec for InitiatePreview
-blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
+blink.mojom.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeculationHost.InitiatePreview_Params',
@@ -183,6 +185,6 @@ blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SpeculationHostPtr = blink.mojom.SpeculationHostRemote;
-blink.mojom.SpeculationHostRequest = blink.mojom.SpeculationHostPendingReceiver;
+blink.mojom.mojom.SpeculationHostPtr = blink.mojom.mojom.SpeculationHostRemote;
+blink.mojom.mojom.SpeculationHostRequest = blink.mojom.mojom.SpeculationHostPendingReceiver;
 

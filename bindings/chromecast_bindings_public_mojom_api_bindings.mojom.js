@@ -7,10 +7,11 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var blink = blink || {};
 
 
 // Struct: ApiBinding
-chromecast.mojom.ApiBindingSpec = {
+chromecast.mojom.mojom.ApiBindingSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ApiBinding',
@@ -24,24 +25,24 @@ chromecast.mojom.ApiBindingSpec = {
 };
 
 // Interface: ApiBindings
-chromecast.mojom.ApiBindings = {};
+chromecast.mojom.mojom.ApiBindings = {};
 
-chromecast.mojom.ApiBindingsPendingReceiver = class {
+chromecast.mojom.mojom.ApiBindingsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.ApiBindingsRemote = class {
+chromecast.mojom.mojom.ApiBindingsRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.ApiBindings';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.ApiBindingsPendingReceiver,
+      chromecast.mojom.mojom.ApiBindingsPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.ApiBindingsRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.ApiBindingsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +54,7 @@ chromecast.mojom.ApiBindingsRemote = class {
   }
 };
 
-chromecast.mojom.ApiBindingsRemoteCallHandler = class {
+chromecast.mojom.mojom.ApiBindingsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,8 +63,8 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ApiBindings_GetAll_ParamsSpec,
-      chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec,
+      chromecast.mojom.mojom.ApiBindings_GetAll_ParamsSpec,
+      chromecast.mojom.mojom.ApiBindings_GetAll_ResponseParamsSpec,
       []);
   }
 
@@ -71,15 +72,15 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.ApiBindings_Connect_ParamsSpec,
+      chromecast.mojom.mojom.ApiBindings_Connect_ParamsSpec,
       null,
       [port_name, port]);
   }
 
 };
 
-chromecast.mojom.ApiBindings.getRemote = function() {
-  let remote = new chromecast.mojom.ApiBindingsRemote();
+chromecast.mojom.mojom.ApiBindings.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.ApiBindingsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,7 +90,7 @@ chromecast.mojom.ApiBindings.getRemote = function() {
 };
 
 // ParamsSpec for GetAll
-chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
+chromecast.mojom.mojom.ApiBindings_GetAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ApiBindings.GetAll_Params',
@@ -101,7 +102,7 @@ chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
   }
 };
 
-chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
+chromecast.mojom.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ApiBindings.GetAll_ResponseParams',
@@ -115,7 +116,7 @@ chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Connect
-chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
+chromecast.mojom.mojom.ApiBindings_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ApiBindings.Connect_Params',
@@ -130,6 +131,6 @@ chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.ApiBindingsPtr = chromecast.mojom.ApiBindingsRemote;
-chromecast.mojom.ApiBindingsRequest = chromecast.mojom.ApiBindingsPendingReceiver;
+chromecast.mojom.mojom.ApiBindingsPtr = chromecast.mojom.mojom.ApiBindingsRemote;
+chromecast.mojom.mojom.ApiBindingsRequest = chromecast.mojom.mojom.ApiBindingsPendingReceiver;
 

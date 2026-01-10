@@ -7,10 +7,22 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var blink = blink || {};
 
 
 // Struct: HitTestResponse
-blink.mojom.HitTestResponseSpec = {
+blink.mojom.mojom.HitTestResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.HitTestResponse',
@@ -27,24 +39,24 @@ blink.mojom.HitTestResponseSpec = {
 };
 
 // Interface: RenderAccessibilityHost
-blink.mojom.RenderAccessibilityHost = {};
+blink.mojom.mojom.RenderAccessibilityHost = {};
 
-blink.mojom.RenderAccessibilityHostPendingReceiver = class {
+blink.mojom.mojom.RenderAccessibilityHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RenderAccessibilityHostRemote = class {
+blink.mojom.mojom.RenderAccessibilityHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RenderAccessibilityHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RenderAccessibilityHostPendingReceiver,
+      blink.mojom.mojom.RenderAccessibilityHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.RenderAccessibilityHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RenderAccessibilityHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +68,7 @@ blink.mojom.RenderAccessibilityHostRemote = class {
   }
 };
 
-blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
+blink.mojom.mojom.RenderAccessibilityHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,7 +77,7 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
+      blink.mojom.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
       null,
       [events_and_updates, location_and_scroll_updates, reset_token]);
   }
@@ -74,15 +86,15 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
+      blink.mojom.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
       null,
       [changes, reset_token]);
   }
 
 };
 
-blink.mojom.RenderAccessibilityHost.getRemote = function() {
-  let remote = new blink.mojom.RenderAccessibilityHostRemote();
+blink.mojom.mojom.RenderAccessibilityHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.RenderAccessibilityHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -92,7 +104,7 @@ blink.mojom.RenderAccessibilityHost.getRemote = function() {
 };
 
 // ParamsSpec for HandleAXEvents
-blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
+blink.mojom.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibilityHost.HandleAXEvents_Params',
@@ -108,7 +120,7 @@ blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = {
 };
 
 // ParamsSpec for HandleAXLocationChanges
-blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
+blink.mojom.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibilityHost.HandleAXLocationChanges_Params',
@@ -123,29 +135,29 @@ blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RenderAccessibilityHostPtr = blink.mojom.RenderAccessibilityHostRemote;
-blink.mojom.RenderAccessibilityHostRequest = blink.mojom.RenderAccessibilityHostPendingReceiver;
+blink.mojom.mojom.RenderAccessibilityHostPtr = blink.mojom.mojom.RenderAccessibilityHostRemote;
+blink.mojom.mojom.RenderAccessibilityHostRequest = blink.mojom.mojom.RenderAccessibilityHostPendingReceiver;
 
 
 // Interface: RenderAccessibility
-blink.mojom.RenderAccessibility = {};
+blink.mojom.mojom.RenderAccessibility = {};
 
-blink.mojom.RenderAccessibilityPendingReceiver = class {
+blink.mojom.mojom.RenderAccessibilityPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RenderAccessibilityRemote = class {
+blink.mojom.mojom.RenderAccessibilityRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RenderAccessibility';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RenderAccessibilityPendingReceiver,
+      blink.mojom.mojom.RenderAccessibilityPendingReceiver,
       handle);
-    this.$ = new blink.mojom.RenderAccessibilityRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RenderAccessibilityRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -157,7 +169,7 @@ blink.mojom.RenderAccessibilityRemote = class {
   }
 };
 
-blink.mojom.RenderAccessibilityRemoteCallHandler = class {
+blink.mojom.mojom.RenderAccessibilityRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -166,7 +178,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RenderAccessibility_SetMode_ParamsSpec,
+      blink.mojom.mojom.RenderAccessibility_SetMode_ParamsSpec,
       null,
       [ax_mode, reset_token]);
   }
@@ -175,7 +187,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RenderAccessibility_FatalError_ParamsSpec,
+      blink.mojom.mojom.RenderAccessibility_FatalError_ParamsSpec,
       null,
       []);
   }
@@ -184,8 +196,8 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RenderAccessibility_HitTest_ParamsSpec,
-      blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
+      blink.mojom.mojom.RenderAccessibility_HitTest_ParamsSpec,
+      blink.mojom.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
       [point, event_to_fire, request_id]);
   }
 
@@ -193,7 +205,7 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RenderAccessibility_PerformAction_ParamsSpec,
+      blink.mojom.mojom.RenderAccessibility_PerformAction_ParamsSpec,
       null,
       [action_data]);
   }
@@ -202,15 +214,15 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.RenderAccessibility_Reset_ParamsSpec,
+      blink.mojom.mojom.RenderAccessibility_Reset_ParamsSpec,
       null,
       [reset_token]);
   }
 
 };
 
-blink.mojom.RenderAccessibility.getRemote = function() {
-  let remote = new blink.mojom.RenderAccessibilityRemote();
+blink.mojom.mojom.RenderAccessibility.getRemote = function() {
+  let remote = new blink.mojom.mojom.RenderAccessibilityRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -220,7 +232,7 @@ blink.mojom.RenderAccessibility.getRemote = function() {
 };
 
 // ParamsSpec for SetMode
-blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
+blink.mojom.mojom.RenderAccessibility_SetMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.SetMode_Params',
@@ -235,7 +247,7 @@ blink.mojom.RenderAccessibility_SetMode_ParamsSpec = {
 };
 
 // ParamsSpec for FatalError
-blink.mojom.RenderAccessibility_FatalError_ParamsSpec = {
+blink.mojom.mojom.RenderAccessibility_FatalError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.FatalError_Params',
@@ -248,7 +260,7 @@ blink.mojom.RenderAccessibility_FatalError_ParamsSpec = {
 };
 
 // ParamsSpec for HitTest
-blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
+blink.mojom.mojom.RenderAccessibility_HitTest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.HitTest_Params',
@@ -263,7 +275,7 @@ blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
   }
 };
 
-blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
+blink.mojom.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.HitTest_ResponseParams',
@@ -277,7 +289,7 @@ blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PerformAction
-blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
+blink.mojom.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.PerformAction_Params',
@@ -291,7 +303,7 @@ blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = {
 };
 
 // ParamsSpec for Reset
-blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
+blink.mojom.mojom.RenderAccessibility_Reset_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderAccessibility.Reset_Params',
@@ -305,6 +317,6 @@ blink.mojom.RenderAccessibility_Reset_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RenderAccessibilityPtr = blink.mojom.RenderAccessibilityRemote;
-blink.mojom.RenderAccessibilityRequest = blink.mojom.RenderAccessibilityPendingReceiver;
+blink.mojom.mojom.RenderAccessibilityPtr = blink.mojom.mojom.RenderAccessibilityRemote;
+blink.mojom.mojom.RenderAccessibilityRequest = blink.mojom.mojom.RenderAccessibilityPendingReceiver;
 

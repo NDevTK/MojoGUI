@@ -7,39 +7,39 @@
 // Module namespace
 var ash = ash || {};
 ash.quick_pair = ash.quick_pair || {};
-ash.quick_pair.mojom = ash.quick_pair.mojom || {};
+ash.quick_pair.quick_pair.mojom = ash.quick_pair.quick_pair.mojom || {};
 
 
 // Enum: MessageType
-ash.quick_pair.mojom.MessageType = {
+ash.quick_pair.quick_pair.mojom.mojom.MessageType = {
   kKeyBasedPairingRequest: 0,
   kKeyBasedPairingResponse: 1,
   kSeekersPasskey: 2,
   kProvidersPasskey: 3,
 };
-ash.quick_pair.mojom.MessageTypeSpec = { $: mojo.internal.Enum() };
+ash.quick_pair.quick_pair.mojom.mojom.MessageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Acknowledgement
-ash.quick_pair.mojom.Acknowledgement = {
+ash.quick_pair.quick_pair.mojom.mojom.Acknowledgement = {
   kAck: 0,
   kNotSupportedNak: 1,
   kDeviceBusyNak: 2,
   kNotAllowedDueToCurrentStateNak: 3,
 };
-ash.quick_pair.mojom.AcknowledgementSpec = { $: mojo.internal.Enum() };
+ash.quick_pair.quick_pair.mojom.mojom.AcknowledgementSpec = { $: mojo.internal.Enum() };
 
 // Enum: MessageGroup
-ash.quick_pair.mojom.MessageGroup = {
+ash.quick_pair.quick_pair.mojom.mojom.MessageGroup = {
   kBluetoothEvent: 0,
   kCompanionAppEvent: 1,
   kDeviceInformationEvent: 2,
   kDeviceActionEvent: 3,
   kAcknowledgementEvent: 4,
 };
-ash.quick_pair.mojom.MessageGroupSpec = { $: mojo.internal.Enum() };
+ash.quick_pair.quick_pair.mojom.mojom.MessageGroupSpec = { $: mojo.internal.Enum() };
 
 // Union: MessageStreamMessage
-ash.quick_pair.mojom.MessageStreamMessageSpec = { $: mojo.internal.Union(
+ash.quick_pair.quick_pair.mojom.mojom.MessageStreamMessageSpec = { $: mojo.internal.Union(
     'ash.quick_pair.mojom.MessageStreamMessage', {
       'model_id': {
         'ordinal': 0,
@@ -85,20 +85,20 @@ ash.quick_pair.mojom.MessageStreamMessageSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DecryptedResponse
-ash.quick_pair.mojom.DecryptedResponseSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.DecryptedResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.DecryptedResponse',
       packedSize: 40,
       fields: [
-        { name: 'message_type', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'address_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'salt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'flags_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'flags_$value', originalFieldName: 'flags' } },
-        { name: 'flags_$value', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'flags_$flag', originalFieldName: 'flags' } },
-        { name: 'num_addresses_$flag', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'num_addresses_$value', originalFieldName: 'num_addresses' } },
-        { name: 'num_addresses_$value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'num_addresses_$flag', originalFieldName: 'num_addresses' } },
-        { name: 'secondary_address_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
+        { name: 'message_type', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'address_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'salt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'flags_$flag', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'flags_$value', originalFieldName: 'flags' } },
+        { name: 'flags_$value', packedOffset: 29, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'flags_$flag', originalFieldName: 'flags' } },
+        { name: 'num_addresses_$flag', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'num_addresses_$value', originalFieldName: 'num_addresses' } },
+        { name: 'num_addresses_$value', packedOffset: 30, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'num_addresses_$flag', originalFieldName: 'num_addresses' } },
+        { name: 'secondary_address_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -106,15 +106,15 @@ ash.quick_pair.mojom.DecryptedResponseSpec = {
 };
 
 // Struct: DecryptedPasskey
-ash.quick_pair.mojom.DecryptedPasskeySpec = {
+ash.quick_pair.quick_pair.mojom.mojom.DecryptedPasskeySpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.DecryptedPasskey',
       packedSize: 24,
       fields: [
-        { name: 'message_type', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'passkey', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'salt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'passkey', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -122,7 +122,7 @@ ash.quick_pair.mojom.DecryptedPasskeySpec = {
 };
 
 // Struct: BatteryInfo
-ash.quick_pair.mojom.BatteryInfoSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.BatteryInfo',
@@ -137,16 +137,16 @@ ash.quick_pair.mojom.BatteryInfoSpec = {
 };
 
 // Struct: BatteryNotification
-ash.quick_pair.mojom.BatteryNotificationSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.BatteryNotificationSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.BatteryNotification',
       packedSize: 40,
       fields: [
-        { name: 'show_ui', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'left_bud_info', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'right_bud_info', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'case_info', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'show_ui', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'left_bud_info', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'right_bud_info', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'case_info', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -154,7 +154,7 @@ ash.quick_pair.mojom.BatteryNotificationSpec = {
 };
 
 // Struct: BatteryUpdate
-ash.quick_pair.mojom.BatteryUpdateSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.BatteryUpdateSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.BatteryUpdate',
@@ -170,7 +170,7 @@ ash.quick_pair.mojom.BatteryUpdateSpec = {
 };
 
 // Struct: RingDevice
-ash.quick_pair.mojom.RingDeviceSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.RingDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.RingDevice',
@@ -185,15 +185,15 @@ ash.quick_pair.mojom.RingDeviceSpec = {
 };
 
 // Struct: AcknowledgementMessage
-ash.quick_pair.mojom.AcknowledgementMessageSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.AcknowledgementMessageSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.AcknowledgementMessage',
       packedSize: 24,
       fields: [
-        { name: 'action_message_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'acknowledgement', packedOffset: 4, packedBitOffset: 0, type: ash.quick_pair.mojom.AcknowledgementSpec, nullable: false, minVersion: 0 },
-        { name: 'action_message_group', packedOffset: 8, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageGroupSpec, nullable: false, minVersion: 0 },
+        { name: 'action_message_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'acknowledgement', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.AcknowledgementSpec, nullable: false, minVersion: 0 },
+        { name: 'action_message_group', packedOffset: 4, packedBitOffset: 0, type: ash.quick_pair.mojom.MessageGroupSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -201,7 +201,7 @@ ash.quick_pair.mojom.AcknowledgementMessageSpec = {
 };
 
 // Struct: NotDiscoverableAdvertisement
-ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.NotDiscoverableAdvertisementSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.NotDiscoverableAdvertisement',
@@ -209,8 +209,8 @@ ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = {
       fields: [
         { name: 'account_key_filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'salt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'show_ui', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'battery_notification', packedOffset: 24, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryNotificationSpec, nullable: true, minVersion: 0 },
+        { name: 'show_ui', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'battery_notification', packedOffset: 16, packedBitOffset: 0, type: ash.quick_pair.mojom.BatteryNotificationSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -218,24 +218,24 @@ ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = {
 };
 
 // Interface: FastPairDataParser
-ash.quick_pair.mojom.FastPairDataParser = {};
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser = {};
 
-ash.quick_pair.mojom.FastPairDataParserPendingReceiver = class {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.quick_pair.mojom.FastPairDataParserRemote = class {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserRemote = class {
   static get $interfaceName() {
     return 'ash.quick_pair.mojom.FastPairDataParser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.quick_pair.mojom.FastPairDataParserPendingReceiver,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserPendingReceiver,
       handle);
-    this.$ = new ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler(this.proxy);
+    this.$ = new ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -247,7 +247,7 @@ ash.quick_pair.mojom.FastPairDataParserRemote = class {
   }
 };
 
-ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -256,8 +256,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec,
-      ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec,
       [service_data]);
   }
 
@@ -265,8 +265,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec,
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec,
       [aes_key, encrypted_response_bytes]);
   }
 
@@ -274,8 +274,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec,
-      ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec,
       [aes_key, encrypted_passkey_bytes]);
   }
 
@@ -283,8 +283,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec,
-      ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec,
       [service_data, address]);
   }
 
@@ -292,15 +292,15 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec,
-      ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec,
+      ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec,
       [message_bytes]);
   }
 
 };
 
-ash.quick_pair.mojom.FastPairDataParser.getRemote = function() {
-  let remote = new ash.quick_pair.mojom.FastPairDataParserRemote();
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser.getRemote = function() {
+  let remote = new ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -310,7 +310,7 @@ ash.quick_pair.mojom.FastPairDataParser.getRemote = function() {
 };
 
 // ParamsSpec for GetHexModelIdFromServiceData
-ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.GetHexModelIdFromServiceData_Params',
@@ -323,7 +323,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec 
   }
 };
 
-ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.GetHexModelIdFromServiceData_ResponseParams',
@@ -337,7 +337,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponsePar
 };
 
 // ParamsSpec for ParseDecryptedResponse
-ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedResponse_Params',
@@ -351,7 +351,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
   }
 };
 
-ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedResponse_ResponseParams',
@@ -365,7 +365,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpe
 };
 
 // ParamsSpec for ParseDecryptedPasskey
-ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedPasskey_Params',
@@ -379,7 +379,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
   }
 };
 
-ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedPasskey_ResponseParams',
@@ -393,7 +393,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec
 };
 
 // ParamsSpec for ParseNotDiscoverableAdvertisement
-ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseNotDiscoverableAdvertisement_Params',
@@ -407,7 +407,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Params
   }
 };
 
-ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseNotDiscoverableAdvertisement_ResponseParams',
@@ -421,7 +421,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Respon
 };
 
 // ParamsSpec for ParseMessageStreamMessages
-ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseMessageStreamMessages_Params',
@@ -434,7 +434,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = 
   }
 };
 
-ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec = {
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_pair.mojom.FastPairDataParser.ParseMessageStreamMessages_ResponseParams',
@@ -448,6 +448,6 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParam
 };
 
 // Legacy compatibility
-ash.quick_pair.mojom.FastPairDataParserPtr = ash.quick_pair.mojom.FastPairDataParserRemote;
-ash.quick_pair.mojom.FastPairDataParserRequest = ash.quick_pair.mojom.FastPairDataParserPendingReceiver;
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserPtr = ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserRemote;
+ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserRequest = ash.quick_pair.quick_pair.mojom.mojom.FastPairDataParserPendingReceiver;
 

@@ -10,34 +10,34 @@ heap_profiling.mojom = heap_profiling.mojom || {};
 
 
 // Enum: ProcessType
-heap_profiling.mojom.ProcessType = {
+heap_profiling.mojom.mojom.ProcessType = {
   OTHER: 0,
   BROWSER: 1,
   RENDERER: 2,
   GPU: 3,
   LAST: 4,
 };
-heap_profiling.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
+heap_profiling.mojom.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: ProfilingService
-heap_profiling.mojom.ProfilingService = {};
+heap_profiling.mojom.mojom.ProfilingService = {};
 
-heap_profiling.mojom.ProfilingServicePendingReceiver = class {
+heap_profiling.mojom.mojom.ProfilingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-heap_profiling.mojom.ProfilingServiceRemote = class {
+heap_profiling.mojom.mojom.ProfilingServiceRemote = class {
   static get $interfaceName() {
     return 'heap_profiling.mojom.ProfilingService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      heap_profiling.mojom.ProfilingServicePendingReceiver,
+      heap_profiling.mojom.mojom.ProfilingServicePendingReceiver,
       handle);
-    this.$ = new heap_profiling.mojom.ProfilingServiceRemoteCallHandler(this.proxy);
+    this.$ = new heap_profiling.mojom.mojom.ProfilingServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +49,7 @@ heap_profiling.mojom.ProfilingServiceRemote = class {
   }
 };
 
-heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
+heap_profiling.mojom.mojom.ProfilingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,8 +58,8 @@ heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec,
-      heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec,
+      heap_profiling.mojom.mojom.ProfilingService_AddProfilingClient_ParamsSpec,
+      heap_profiling.mojom.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec,
       [pid, client, process_type, params]);
   }
 
@@ -67,15 +67,15 @@ heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec,
-      heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec,
+      heap_profiling.mojom.mojom.ProfilingService_GetProfiledPids_ParamsSpec,
+      heap_profiling.mojom.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec,
       []);
   }
 
 };
 
-heap_profiling.mojom.ProfilingService.getRemote = function() {
-  let remote = new heap_profiling.mojom.ProfilingServiceRemote();
+heap_profiling.mojom.mojom.ProfilingService.getRemote = function() {
+  let remote = new heap_profiling.mojom.mojom.ProfilingServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -85,23 +85,23 @@ heap_profiling.mojom.ProfilingService.getRemote = function() {
 };
 
 // ParamsSpec for AddProfilingClient
-heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
+heap_profiling.mojom.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_Params',
       packedSize: 32,
       fields: [
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'process_type', packedOffset: 12, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'process_type', packedOffset: 20, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec = {
+heap_profiling.mojom.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_ResponseParams',
@@ -115,7 +115,7 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetProfiledPids
-heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec = {
+heap_profiling.mojom.mojom.ProfilingService_GetProfiledPids_ParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingService.GetProfiledPids_Params',
@@ -127,7 +127,7 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec = {
   }
 };
 
-heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = {
+heap_profiling.mojom.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingService.GetProfiledPids_ResponseParams',
@@ -141,6 +141,6 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-heap_profiling.mojom.ProfilingServicePtr = heap_profiling.mojom.ProfilingServiceRemote;
-heap_profiling.mojom.ProfilingServiceRequest = heap_profiling.mojom.ProfilingServicePendingReceiver;
+heap_profiling.mojom.mojom.ProfilingServicePtr = heap_profiling.mojom.mojom.ProfilingServiceRemote;
+heap_profiling.mojom.mojom.ProfilingServiceRequest = heap_profiling.mojom.mojom.ProfilingServicePendingReceiver;
 

@@ -10,7 +10,7 @@ bluetooth.mojom = bluetooth.mojom || {};
 
 
 // Enum: ConnectResult
-bluetooth.mojom.ConnectResult = {
+bluetooth.mojom.mojom.ConnectResult = {
   SUCCESS: 0,
   AUTH_CANCELED: 1,
   AUTH_FAILED: 2,
@@ -35,10 +35,10 @@ bluetooth.mojom.ConnectResult = {
   UNEXPECTED_STATE: 21,
   SOCKET: 22,
 };
-bluetooth.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
 
 // Union: LocalCharacteristicReadResult
-bluetooth.mojom.LocalCharacteristicReadResultSpec = { $: mojo.internal.Union(
+bluetooth.mojom.mojom.LocalCharacteristicReadResultSpec = { $: mojo.internal.Union(
     'bluetooth.mojom.LocalCharacteristicReadResult', {
       'error_code': {
         'ordinal': 0,
@@ -52,15 +52,15 @@ bluetooth.mojom.LocalCharacteristicReadResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ConnectToServiceResult
-bluetooth.mojom.ConnectToServiceResultSpec = {
+bluetooth.mojom.mojom.ConnectToServiceResultSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ConnectToServiceResult',
       packedSize: 32,
       fields: [
-        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'receive_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'send_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receive_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'send_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -68,16 +68,16 @@ bluetooth.mojom.ConnectToServiceResultSpec = {
 };
 
 // Struct: AcceptConnectionResult
-bluetooth.mojom.AcceptConnectionResultSpec = {
+bluetooth.mojom.mojom.AcceptConnectionResultSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AcceptConnectionResult',
       packedSize: 40,
       fields: [
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'receive_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'send_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receive_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'send_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -85,7 +85,7 @@ bluetooth.mojom.AcceptConnectionResultSpec = {
 };
 
 // Struct: AdapterInfo
-bluetooth.mojom.AdapterInfoSpec = {
+bluetooth.mojom.mojom.AdapterInfoSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterInfo',
@@ -108,24 +108,24 @@ bluetooth.mojom.AdapterInfoSpec = {
 };
 
 // Interface: Advertisement
-bluetooth.mojom.Advertisement = {};
+bluetooth.mojom.mojom.Advertisement = {};
 
-bluetooth.mojom.AdvertisementPendingReceiver = class {
+bluetooth.mojom.mojom.AdvertisementPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.AdvertisementRemote = class {
+bluetooth.mojom.mojom.AdvertisementRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.Advertisement';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.AdvertisementPendingReceiver,
+      bluetooth.mojom.mojom.AdvertisementPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.AdvertisementRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.AdvertisementRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -137,7 +137,7 @@ bluetooth.mojom.AdvertisementRemote = class {
   }
 };
 
-bluetooth.mojom.AdvertisementRemoteCallHandler = class {
+bluetooth.mojom.mojom.AdvertisementRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -146,15 +146,15 @@ bluetooth.mojom.AdvertisementRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.Advertisement_Unregister_ParamsSpec,
+      bluetooth.mojom.mojom.Advertisement_Unregister_ParamsSpec,
       null,
       []);
   }
 
 };
 
-bluetooth.mojom.Advertisement.getRemote = function() {
-  let remote = new bluetooth.mojom.AdvertisementRemote();
+bluetooth.mojom.mojom.Advertisement.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.AdvertisementRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -164,7 +164,7 @@ bluetooth.mojom.Advertisement.getRemote = function() {
 };
 
 // ParamsSpec for Unregister
-bluetooth.mojom.Advertisement_Unregister_ParamsSpec = {
+bluetooth.mojom.mojom.Advertisement_Unregister_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Advertisement.Unregister_Params',
@@ -177,29 +177,29 @@ bluetooth.mojom.Advertisement_Unregister_ParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.AdvertisementPtr = bluetooth.mojom.AdvertisementRemote;
-bluetooth.mojom.AdvertisementRequest = bluetooth.mojom.AdvertisementPendingReceiver;
+bluetooth.mojom.mojom.AdvertisementPtr = bluetooth.mojom.mojom.AdvertisementRemote;
+bluetooth.mojom.mojom.AdvertisementRequest = bluetooth.mojom.mojom.AdvertisementPendingReceiver;
 
 
 // Interface: DiscoverySession
-bluetooth.mojom.DiscoverySession = {};
+bluetooth.mojom.mojom.DiscoverySession = {};
 
-bluetooth.mojom.DiscoverySessionPendingReceiver = class {
+bluetooth.mojom.mojom.DiscoverySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.DiscoverySessionRemote = class {
+bluetooth.mojom.mojom.DiscoverySessionRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.DiscoverySession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.DiscoverySessionPendingReceiver,
+      bluetooth.mojom.mojom.DiscoverySessionPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.DiscoverySessionRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.DiscoverySessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -211,7 +211,7 @@ bluetooth.mojom.DiscoverySessionRemote = class {
   }
 };
 
-bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
+bluetooth.mojom.mojom.DiscoverySessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -220,8 +220,8 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec,
-      bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec,
+      bluetooth.mojom.mojom.DiscoverySession_IsActive_ParamsSpec,
+      bluetooth.mojom.mojom.DiscoverySession_IsActive_ResponseParamsSpec,
       []);
   }
 
@@ -229,15 +229,15 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.DiscoverySession_Stop_ParamsSpec,
-      bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec,
+      bluetooth.mojom.mojom.DiscoverySession_Stop_ParamsSpec,
+      bluetooth.mojom.mojom.DiscoverySession_Stop_ResponseParamsSpec,
       []);
   }
 
 };
 
-bluetooth.mojom.DiscoverySession.getRemote = function() {
-  let remote = new bluetooth.mojom.DiscoverySessionRemote();
+bluetooth.mojom.mojom.DiscoverySession.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.DiscoverySessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -247,7 +247,7 @@ bluetooth.mojom.DiscoverySession.getRemote = function() {
 };
 
 // ParamsSpec for IsActive
-bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec = {
+bluetooth.mojom.mojom.DiscoverySession_IsActive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.DiscoverySession.IsActive_Params',
@@ -259,7 +259,7 @@ bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec = {
+bluetooth.mojom.mojom.DiscoverySession_IsActive_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.DiscoverySession.IsActive_ResponseParams',
@@ -273,7 +273,7 @@ bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Stop
-bluetooth.mojom.DiscoverySession_Stop_ParamsSpec = {
+bluetooth.mojom.mojom.DiscoverySession_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.DiscoverySession.Stop_Params',
@@ -285,7 +285,7 @@ bluetooth.mojom.DiscoverySession_Stop_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec = {
+bluetooth.mojom.mojom.DiscoverySession_Stop_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.DiscoverySession.Stop_ResponseParams',
@@ -299,29 +299,29 @@ bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.DiscoverySessionPtr = bluetooth.mojom.DiscoverySessionRemote;
-bluetooth.mojom.DiscoverySessionRequest = bluetooth.mojom.DiscoverySessionPendingReceiver;
+bluetooth.mojom.mojom.DiscoverySessionPtr = bluetooth.mojom.mojom.DiscoverySessionRemote;
+bluetooth.mojom.mojom.DiscoverySessionRequest = bluetooth.mojom.mojom.DiscoverySessionPendingReceiver;
 
 
 // Interface: Socket
-bluetooth.mojom.Socket = {};
+bluetooth.mojom.mojom.Socket = {};
 
-bluetooth.mojom.SocketPendingReceiver = class {
+bluetooth.mojom.mojom.SocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.SocketRemote = class {
+bluetooth.mojom.mojom.SocketRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.Socket';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.SocketPendingReceiver,
+      bluetooth.mojom.mojom.SocketPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.SocketRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.SocketRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -333,7 +333,7 @@ bluetooth.mojom.SocketRemote = class {
   }
 };
 
-bluetooth.mojom.SocketRemoteCallHandler = class {
+bluetooth.mojom.mojom.SocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -342,15 +342,15 @@ bluetooth.mojom.SocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.Socket_Disconnect_ParamsSpec,
+      bluetooth.mojom.mojom.Socket_Disconnect_ParamsSpec,
       null,
       []);
   }
 
 };
 
-bluetooth.mojom.Socket.getRemote = function() {
-  let remote = new bluetooth.mojom.SocketRemote();
+bluetooth.mojom.mojom.Socket.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.SocketRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -360,7 +360,7 @@ bluetooth.mojom.Socket.getRemote = function() {
 };
 
 // ParamsSpec for Disconnect
-bluetooth.mojom.Socket_Disconnect_ParamsSpec = {
+bluetooth.mojom.mojom.Socket_Disconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Socket.Disconnect_Params',
@@ -373,29 +373,29 @@ bluetooth.mojom.Socket_Disconnect_ParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.SocketPtr = bluetooth.mojom.SocketRemote;
-bluetooth.mojom.SocketRequest = bluetooth.mojom.SocketPendingReceiver;
+bluetooth.mojom.mojom.SocketPtr = bluetooth.mojom.mojom.SocketRemote;
+bluetooth.mojom.mojom.SocketRequest = bluetooth.mojom.mojom.SocketPendingReceiver;
 
 
 // Interface: ServerSocket
-bluetooth.mojom.ServerSocket = {};
+bluetooth.mojom.mojom.ServerSocket = {};
 
-bluetooth.mojom.ServerSocketPendingReceiver = class {
+bluetooth.mojom.mojom.ServerSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.ServerSocketRemote = class {
+bluetooth.mojom.mojom.ServerSocketRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.ServerSocket';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.ServerSocketPendingReceiver,
+      bluetooth.mojom.mojom.ServerSocketPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.ServerSocketRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.ServerSocketRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -407,7 +407,7 @@ bluetooth.mojom.ServerSocketRemote = class {
   }
 };
 
-bluetooth.mojom.ServerSocketRemoteCallHandler = class {
+bluetooth.mojom.mojom.ServerSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -416,8 +416,8 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.ServerSocket_Accept_ParamsSpec,
-      bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec,
+      bluetooth.mojom.mojom.ServerSocket_Accept_ParamsSpec,
+      bluetooth.mojom.mojom.ServerSocket_Accept_ResponseParamsSpec,
       []);
   }
 
@@ -425,15 +425,15 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec,
+      bluetooth.mojom.mojom.ServerSocket_Disconnect_ParamsSpec,
       null,
       []);
   }
 
 };
 
-bluetooth.mojom.ServerSocket.getRemote = function() {
-  let remote = new bluetooth.mojom.ServerSocketRemote();
+bluetooth.mojom.mojom.ServerSocket.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.ServerSocketRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -443,7 +443,7 @@ bluetooth.mojom.ServerSocket.getRemote = function() {
 };
 
 // ParamsSpec for Accept
-bluetooth.mojom.ServerSocket_Accept_ParamsSpec = {
+bluetooth.mojom.mojom.ServerSocket_Accept_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ServerSocket.Accept_Params',
@@ -455,7 +455,7 @@ bluetooth.mojom.ServerSocket_Accept_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec = {
+bluetooth.mojom.mojom.ServerSocket_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ServerSocket.Accept_ResponseParams',
@@ -469,7 +469,7 @@ bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Disconnect
-bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec = {
+bluetooth.mojom.mojom.ServerSocket_Disconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.ServerSocket.Disconnect_Params',
@@ -482,29 +482,29 @@ bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.ServerSocketPtr = bluetooth.mojom.ServerSocketRemote;
-bluetooth.mojom.ServerSocketRequest = bluetooth.mojom.ServerSocketPendingReceiver;
+bluetooth.mojom.mojom.ServerSocketPtr = bluetooth.mojom.mojom.ServerSocketRemote;
+bluetooth.mojom.mojom.ServerSocketRequest = bluetooth.mojom.mojom.ServerSocketPendingReceiver;
 
 
 // Interface: GattService
-bluetooth.mojom.GattService = {};
+bluetooth.mojom.mojom.GattService = {};
 
-bluetooth.mojom.GattServicePendingReceiver = class {
+bluetooth.mojom.mojom.GattServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.GattServiceRemote = class {
+bluetooth.mojom.mojom.GattServiceRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.GattService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.GattServicePendingReceiver,
+      bluetooth.mojom.mojom.GattServicePendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.GattServiceRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.GattServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -516,7 +516,7 @@ bluetooth.mojom.GattServiceRemote = class {
   }
 };
 
-bluetooth.mojom.GattServiceRemoteCallHandler = class {
+bluetooth.mojom.mojom.GattServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -525,8 +525,8 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec,
-      bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec,
+      bluetooth.mojom.mojom.GattService_CreateCharacteristic_ParamsSpec,
+      bluetooth.mojom.mojom.GattService_CreateCharacteristic_ResponseParamsSpec,
       [characteristic_uuid, permissions, properties]);
   }
 
@@ -534,15 +534,15 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.GattService_Register_ParamsSpec,
-      bluetooth.mojom.GattService_Register_ResponseParamsSpec,
+      bluetooth.mojom.mojom.GattService_Register_ParamsSpec,
+      bluetooth.mojom.mojom.GattService_Register_ResponseParamsSpec,
       []);
   }
 
 };
 
-bluetooth.mojom.GattService.getRemote = function() {
-  let remote = new bluetooth.mojom.GattServiceRemote();
+bluetooth.mojom.mojom.GattService.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.GattServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -552,7 +552,7 @@ bluetooth.mojom.GattService.getRemote = function() {
 };
 
 // ParamsSpec for CreateCharacteristic
-bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec = {
+bluetooth.mojom.mojom.GattService_CreateCharacteristic_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattService.CreateCharacteristic_Params',
@@ -567,7 +567,7 @@ bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec = {
+bluetooth.mojom.mojom.GattService_CreateCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattService.CreateCharacteristic_ResponseParams',
@@ -581,7 +581,7 @@ bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Register
-bluetooth.mojom.GattService_Register_ParamsSpec = {
+bluetooth.mojom.mojom.GattService_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattService.Register_Params',
@@ -593,7 +593,7 @@ bluetooth.mojom.GattService_Register_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.GattService_Register_ResponseParamsSpec = {
+bluetooth.mojom.mojom.GattService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattService.Register_ResponseParams',
@@ -607,29 +607,29 @@ bluetooth.mojom.GattService_Register_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.GattServicePtr = bluetooth.mojom.GattServiceRemote;
-bluetooth.mojom.GattServiceRequest = bluetooth.mojom.GattServicePendingReceiver;
+bluetooth.mojom.mojom.GattServicePtr = bluetooth.mojom.mojom.GattServiceRemote;
+bluetooth.mojom.mojom.GattServiceRequest = bluetooth.mojom.mojom.GattServicePendingReceiver;
 
 
 // Interface: GattServiceObserver
-bluetooth.mojom.GattServiceObserver = {};
+bluetooth.mojom.mojom.GattServiceObserver = {};
 
-bluetooth.mojom.GattServiceObserverPendingReceiver = class {
+bluetooth.mojom.mojom.GattServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.GattServiceObserverRemote = class {
+bluetooth.mojom.mojom.GattServiceObserverRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.GattServiceObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.GattServiceObserverPendingReceiver,
+      bluetooth.mojom.mojom.GattServiceObserverPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.GattServiceObserverRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.GattServiceObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -641,7 +641,7 @@ bluetooth.mojom.GattServiceObserverRemote = class {
   }
 };
 
-bluetooth.mojom.GattServiceObserverRemoteCallHandler = class {
+bluetooth.mojom.mojom.GattServiceObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -650,15 +650,15 @@ bluetooth.mojom.GattServiceObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec,
-      bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec,
+      bluetooth.mojom.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec,
+      bluetooth.mojom.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec,
       [remote_device, characteristic_uuid, service_uuid, offset]);
   }
 
 };
 
-bluetooth.mojom.GattServiceObserver.getRemote = function() {
-  let remote = new bluetooth.mojom.GattServiceObserverRemote();
+bluetooth.mojom.mojom.GattServiceObserver.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.GattServiceObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -668,7 +668,7 @@ bluetooth.mojom.GattServiceObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnLocalCharacteristicRead
-bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec = {
+bluetooth.mojom.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattServiceObserver.OnLocalCharacteristicRead_Params',
@@ -684,7 +684,7 @@ bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec = {
+bluetooth.mojom.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.GattServiceObserver.OnLocalCharacteristicRead_ResponseParams',
@@ -698,29 +698,29 @@ bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec
 };
 
 // Legacy compatibility
-bluetooth.mojom.GattServiceObserverPtr = bluetooth.mojom.GattServiceObserverRemote;
-bluetooth.mojom.GattServiceObserverRequest = bluetooth.mojom.GattServiceObserverPendingReceiver;
+bluetooth.mojom.mojom.GattServiceObserverPtr = bluetooth.mojom.mojom.GattServiceObserverRemote;
+bluetooth.mojom.mojom.GattServiceObserverRequest = bluetooth.mojom.mojom.GattServiceObserverPendingReceiver;
 
 
 // Interface: Adapter
-bluetooth.mojom.Adapter = {};
+bluetooth.mojom.mojom.Adapter = {};
 
-bluetooth.mojom.AdapterPendingReceiver = class {
+bluetooth.mojom.mojom.AdapterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.AdapterRemote = class {
+bluetooth.mojom.mojom.AdapterRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.Adapter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.AdapterPendingReceiver,
+      bluetooth.mojom.mojom.AdapterPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.AdapterRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.AdapterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -732,7 +732,7 @@ bluetooth.mojom.AdapterRemote = class {
   }
 };
 
-bluetooth.mojom.AdapterRemoteCallHandler = class {
+bluetooth.mojom.mojom.AdapterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -741,8 +741,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec,
-      bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_ConnectToDevice_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_ConnectToDevice_ResponseParamsSpec,
       [address]);
   }
 
@@ -750,8 +750,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.Adapter_GetDevices_ParamsSpec,
-      bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_GetDevices_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -759,8 +759,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.Adapter_GetInfo_ParamsSpec,
-      bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_GetInfo_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_GetInfo_ResponseParamsSpec,
       []);
   }
 
@@ -768,7 +768,7 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.Adapter_AddObserver_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -777,8 +777,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec,
-      bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_RegisterAdvertisement_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec,
       [service_id, service_data, use_scan_response, connectable]);
   }
 
@@ -786,8 +786,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec,
-      bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_SetDiscoverable_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_SetDiscoverable_ResponseParamsSpec,
       [discoverable]);
   }
 
@@ -795,8 +795,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.Adapter_SetName_ParamsSpec,
-      bluetooth.mojom.Adapter_SetName_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_SetName_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_SetName_ResponseParamsSpec,
       [name]);
   }
 
@@ -804,8 +804,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec,
-      bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_StartDiscoverySession_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec,
       [client_name]);
   }
 
@@ -813,8 +813,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec,
-      bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
       [address, service_uuid, should_unbond_on_error]);
   }
 
@@ -822,8 +822,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec,
-      bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec,
       [service_name, service_uuid]);
   }
 
@@ -831,8 +831,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec,
-      bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_CreateLocalGattService_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec,
       [service_id, observer]);
   }
 
@@ -840,15 +840,15 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec,
-      bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec,
+      bluetooth.mojom.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec,
+      bluetooth.mojom.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec,
       []);
   }
 
 };
 
-bluetooth.mojom.Adapter.getRemote = function() {
-  let remote = new bluetooth.mojom.AdapterRemote();
+bluetooth.mojom.mojom.Adapter.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.AdapterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -858,7 +858,7 @@ bluetooth.mojom.Adapter.getRemote = function() {
 };
 
 // ParamsSpec for ConnectToDevice
-bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_ConnectToDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.ConnectToDevice_Params',
@@ -871,7 +871,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.ConnectToDevice_ResponseParams',
@@ -886,7 +886,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDevices
-bluetooth.mojom.Adapter_GetDevices_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_GetDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.GetDevices_Params',
@@ -898,7 +898,7 @@ bluetooth.mojom.Adapter_GetDevices_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.GetDevices_ResponseParams',
@@ -912,7 +912,7 @@ bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetInfo
-bluetooth.mojom.Adapter_GetInfo_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_GetInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.GetInfo_Params',
@@ -924,7 +924,7 @@ bluetooth.mojom.Adapter_GetInfo_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_GetInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.GetInfo_ResponseParams',
@@ -938,7 +938,7 @@ bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddObserver
-bluetooth.mojom.Adapter_AddObserver_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.AddObserver_Params',
@@ -952,7 +952,7 @@ bluetooth.mojom.Adapter_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterAdvertisement
-bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.RegisterAdvertisement_Params',
@@ -968,7 +968,7 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.RegisterAdvertisement_ResponseParams',
@@ -982,7 +982,7 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetDiscoverable
-bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_SetDiscoverable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.SetDiscoverable_Params',
@@ -995,7 +995,7 @@ bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_SetDiscoverable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.SetDiscoverable_ResponseParams',
@@ -1009,7 +1009,7 @@ bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetName
-bluetooth.mojom.Adapter_SetName_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_SetName_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.SetName_Params',
@@ -1022,7 +1022,7 @@ bluetooth.mojom.Adapter_SetName_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_SetName_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_SetName_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.SetName_ResponseParams',
@@ -1036,7 +1036,7 @@ bluetooth.mojom.Adapter_SetName_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartDiscoverySession
-bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_StartDiscoverySession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.StartDiscoverySession_Params',
@@ -1049,7 +1049,7 @@ bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.StartDiscoverySession_ResponseParams',
@@ -1063,7 +1063,7 @@ bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ConnectToServiceInsecurely
-bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.ConnectToServiceInsecurely_Params',
@@ -1078,7 +1078,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.ConnectToServiceInsecurely_ResponseParams',
@@ -1092,7 +1092,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateRfcommServiceInsecurely
-bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.CreateRfcommServiceInsecurely_Params',
@@ -1106,7 +1106,7 @@ bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.CreateRfcommServiceInsecurely_ResponseParams',
@@ -1120,7 +1120,7 @@ bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateLocalGattService
-bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_CreateLocalGattService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.CreateLocalGattService_Params',
@@ -1134,7 +1134,7 @@ bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.CreateLocalGattService_ResponseParams',
@@ -1148,7 +1148,7 @@ bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsLeScatternetDualRoleSupported
-bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec = {
+bluetooth.mojom.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.IsLeScatternetDualRoleSupported_Params',
@@ -1160,7 +1160,7 @@ bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec = {
   }
 };
 
-bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec = {
+bluetooth.mojom.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.Adapter.IsLeScatternetDualRoleSupported_ResponseParams',
@@ -1174,29 +1174,29 @@ bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.AdapterPtr = bluetooth.mojom.AdapterRemote;
-bluetooth.mojom.AdapterRequest = bluetooth.mojom.AdapterPendingReceiver;
+bluetooth.mojom.mojom.AdapterPtr = bluetooth.mojom.mojom.AdapterRemote;
+bluetooth.mojom.mojom.AdapterRequest = bluetooth.mojom.mojom.AdapterPendingReceiver;
 
 
 // Interface: AdapterObserver
-bluetooth.mojom.AdapterObserver = {};
+bluetooth.mojom.mojom.AdapterObserver = {};
 
-bluetooth.mojom.AdapterObserverPendingReceiver = class {
+bluetooth.mojom.mojom.AdapterObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bluetooth.mojom.AdapterObserverRemote = class {
+bluetooth.mojom.mojom.AdapterObserverRemote = class {
   static get $interfaceName() {
     return 'bluetooth.mojom.AdapterObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bluetooth.mojom.AdapterObserverPendingReceiver,
+      bluetooth.mojom.mojom.AdapterObserverPendingReceiver,
       handle);
-    this.$ = new bluetooth.mojom.AdapterObserverRemoteCallHandler(this.proxy);
+    this.$ = new bluetooth.mojom.mojom.AdapterObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1208,7 +1208,7 @@ bluetooth.mojom.AdapterObserverRemote = class {
   }
 };
 
-bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
+bluetooth.mojom.mojom.AdapterObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1217,7 +1217,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec,
+      bluetooth.mojom.mojom.AdapterObserver_PresentChanged_ParamsSpec,
       null,
       [present]);
   }
@@ -1226,7 +1226,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec,
+      bluetooth.mojom.mojom.AdapterObserver_PoweredChanged_ParamsSpec,
       null,
       [powered]);
   }
@@ -1235,7 +1235,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec,
+      bluetooth.mojom.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec,
       null,
       [discoverable]);
   }
@@ -1244,7 +1244,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec,
+      bluetooth.mojom.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec,
       null,
       [discovering]);
   }
@@ -1253,7 +1253,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec,
+      bluetooth.mojom.mojom.AdapterObserver_DeviceAdded_ParamsSpec,
       null,
       [device]);
   }
@@ -1262,7 +1262,7 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec,
+      bluetooth.mojom.mojom.AdapterObserver_DeviceChanged_ParamsSpec,
       null,
       [device]);
   }
@@ -1271,15 +1271,15 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec,
+      bluetooth.mojom.mojom.AdapterObserver_DeviceRemoved_ParamsSpec,
       null,
       [device]);
   }
 
 };
 
-bluetooth.mojom.AdapterObserver.getRemote = function() {
-  let remote = new bluetooth.mojom.AdapterObserverRemote();
+bluetooth.mojom.mojom.AdapterObserver.getRemote = function() {
+  let remote = new bluetooth.mojom.mojom.AdapterObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1289,7 +1289,7 @@ bluetooth.mojom.AdapterObserver.getRemote = function() {
 };
 
 // ParamsSpec for PresentChanged
-bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec = {
+bluetooth.mojom.mojom.AdapterObserver_PresentChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterObserver.PresentChanged_Params',
@@ -1303,7 +1303,7 @@ bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec = {
 };
 
 // ParamsSpec for PoweredChanged
-bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec = {
+bluetooth.mojom.mojom.AdapterObserver_PoweredChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterObserver.PoweredChanged_Params',
@@ -1317,7 +1317,7 @@ bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DiscoverableChanged
-bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec = {
+bluetooth.mojom.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterObserver.DiscoverableChanged_Params',
@@ -1331,7 +1331,7 @@ bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DiscoveringChanged
-bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec = {
+bluetooth.mojom.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterObserver.DiscoveringChanged_Params',
@@ -1345,7 +1345,7 @@ bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DeviceAdded
-bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec = {
+bluetooth.mojom.mojom.AdapterObserver_DeviceAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterObserver.DeviceAdded_Params',
@@ -1359,7 +1359,7 @@ bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec = {
 };
 
 // ParamsSpec for DeviceChanged
-bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec = {
+bluetooth.mojom.mojom.AdapterObserver_DeviceChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterObserver.DeviceChanged_Params',
@@ -1373,7 +1373,7 @@ bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DeviceRemoved
-bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec = {
+bluetooth.mojom.mojom.AdapterObserver_DeviceRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.AdapterObserver.DeviceRemoved_Params',
@@ -1387,6 +1387,6 @@ bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec = {
 };
 
 // Legacy compatibility
-bluetooth.mojom.AdapterObserverPtr = bluetooth.mojom.AdapterObserverRemote;
-bluetooth.mojom.AdapterObserverRequest = bluetooth.mojom.AdapterObserverPendingReceiver;
+bluetooth.mojom.mojom.AdapterObserverPtr = bluetooth.mojom.mojom.AdapterObserverRemote;
+bluetooth.mojom.mojom.AdapterObserverRequest = bluetooth.mojom.mojom.AdapterObserverPendingReceiver;
 

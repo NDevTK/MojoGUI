@@ -10,11 +10,11 @@ media_router.mojom = media_router.mojom || {};
 
 
 // Enum: MediaRouteProviderId
-media_router.mojom.MediaRouteProviderId = {
+media_router.mojom.mojom.MediaRouteProviderId = {
   WIRED_DISPLAY: 0,
   CAST: 1,
   DIAL: 2,
   ANDROID_CAF: 3,
   TEST: 4,
 };
-media_router.mojom.MediaRouteProviderIdSpec = { $: mojo.internal.Enum() };
+media_router.mojom.mojom.MediaRouteProviderIdSpec = { $: mojo.internal.Enum() };

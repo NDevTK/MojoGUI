@@ -10,33 +10,33 @@ custom_help_bubble.mojom = custom_help_bubble.mojom || {};
 
 
 // Enum: CustomHelpBubbleUserAction
-custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleUserAction = {
   kDismiss: 0,
   kSnooze: 1,
   kAction: 2,
   kCancel: 3,
 };
-custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum() };
+custom_help_bubble.mojom.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum() };
 
 // Interface: CustomHelpBubbleHandlerFactory
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = {};
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactory = {};
 
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver = class {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote = class {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver,
+      custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +48,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote = class {
   }
 };
 
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler = class {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,15 +57,15 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec,
+      custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.getRemote = function() {
-  let remote = new custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote();
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactory.getRemote = function() {
+  let remote = new custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateCustomHelpBubbleHandler
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.CreateCustomHelpBubbleHandler_Params',
@@ -89,29 +89,29 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHa
 };
 
 // Legacy compatibility
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote;
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRequest = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver;
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryPtr = custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryRemote;
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryRequest = custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver;
 
 
 // Interface: CustomHelpBubbleHandler
-custom_help_bubble.mojom.CustomHelpBubbleHandler = {};
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandler = {};
 
-custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver = class {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote = class {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerRemote = class {
   static get $interfaceName() {
     return 'custom_help_bubble.mojom.CustomHelpBubbleHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver,
+      custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerPendingReceiver,
       handle);
-    this.$ = new custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCallHandler(this.proxy);
+    this.$ = new custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -123,7 +123,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote = class {
   }
 };
 
-custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCallHandler = class {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -132,15 +132,15 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec,
+      custom_help_bubble.mojom.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec,
       null,
       [action]);
   }
 
 };
 
-custom_help_bubble.mojom.CustomHelpBubbleHandler.getRemote = function() {
-  let remote = new custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote();
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandler.getRemote = function() {
+  let remote = new custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -150,7 +150,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler.getRemote = function() {
 };
 
 // ParamsSpec for NotifyUserAction
-custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'custom_help_bubble.mojom.CustomHelpBubbleHandler.NotifyUserAction_Params',
@@ -164,6 +164,6 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
 };
 
 // Legacy compatibility
-custom_help_bubble.mojom.CustomHelpBubbleHandlerPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote;
-custom_help_bubble.mojom.CustomHelpBubbleHandlerRequest = custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver;
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerPtr = custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerRemote;
+custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerRequest = custom_help_bubble.mojom.mojom.CustomHelpBubbleHandlerPendingReceiver;
 

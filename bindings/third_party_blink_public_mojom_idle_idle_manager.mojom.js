@@ -9,17 +9,17 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
-blink.mojom.kUserInputThresholdMs = 60000;
+blink.mojom.mojom.kUserInputThresholdMs = 60000;
 
 // Enum: IdleManagerError
-blink.mojom.IdleManagerError = {
+blink.mojom.mojom.IdleManagerError = {
   kSuccess: 0,
   kPermissionDisabled: 1,
 };
-blink.mojom.IdleManagerErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.IdleManagerErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: IdleState
-blink.mojom.IdleStateSpec = {
+blink.mojom.mojom.IdleStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdleState',
@@ -34,24 +34,24 @@ blink.mojom.IdleStateSpec = {
 };
 
 // Interface: IdleMonitor
-blink.mojom.IdleMonitor = {};
+blink.mojom.mojom.IdleMonitor = {};
 
-blink.mojom.IdleMonitorPendingReceiver = class {
+blink.mojom.mojom.IdleMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.IdleMonitorRemote = class {
+blink.mojom.mojom.IdleMonitorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.IdleMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.IdleMonitorPendingReceiver,
+      blink.mojom.mojom.IdleMonitorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.IdleMonitorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.IdleMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -63,7 +63,7 @@ blink.mojom.IdleMonitorRemote = class {
   }
 };
 
-blink.mojom.IdleMonitorRemoteCallHandler = class {
+blink.mojom.mojom.IdleMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -72,15 +72,15 @@ blink.mojom.IdleMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.IdleMonitor_Update_ParamsSpec,
+      blink.mojom.mojom.IdleMonitor_Update_ParamsSpec,
       null,
       [state, is_overridden_by_devtools]);
   }
 
 };
 
-blink.mojom.IdleMonitor.getRemote = function() {
-  let remote = new blink.mojom.IdleMonitorRemote();
+blink.mojom.mojom.IdleMonitor.getRemote = function() {
+  let remote = new blink.mojom.mojom.IdleMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +90,7 @@ blink.mojom.IdleMonitor.getRemote = function() {
 };
 
 // ParamsSpec for Update
-blink.mojom.IdleMonitor_Update_ParamsSpec = {
+blink.mojom.mojom.IdleMonitor_Update_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdleMonitor.Update_Params',
@@ -105,29 +105,29 @@ blink.mojom.IdleMonitor_Update_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.IdleMonitorPtr = blink.mojom.IdleMonitorRemote;
-blink.mojom.IdleMonitorRequest = blink.mojom.IdleMonitorPendingReceiver;
+blink.mojom.mojom.IdleMonitorPtr = blink.mojom.mojom.IdleMonitorRemote;
+blink.mojom.mojom.IdleMonitorRequest = blink.mojom.mojom.IdleMonitorPendingReceiver;
 
 
 // Interface: IdleManager
-blink.mojom.IdleManager = {};
+blink.mojom.mojom.IdleManager = {};
 
-blink.mojom.IdleManagerPendingReceiver = class {
+blink.mojom.mojom.IdleManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.IdleManagerRemote = class {
+blink.mojom.mojom.IdleManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.IdleManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.IdleManagerPendingReceiver,
+      blink.mojom.mojom.IdleManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.IdleManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.IdleManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -139,7 +139,7 @@ blink.mojom.IdleManagerRemote = class {
   }
 };
 
-blink.mojom.IdleManagerRemoteCallHandler = class {
+blink.mojom.mojom.IdleManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -148,15 +148,15 @@ blink.mojom.IdleManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.IdleManager_AddMonitor_ParamsSpec,
-      blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
+      blink.mojom.mojom.IdleManager_AddMonitor_ParamsSpec,
+      blink.mojom.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
       [monitor]);
   }
 
 };
 
-blink.mojom.IdleManager.getRemote = function() {
-  let remote = new blink.mojom.IdleManagerRemote();
+blink.mojom.mojom.IdleManager.getRemote = function() {
+  let remote = new blink.mojom.mojom.IdleManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -166,7 +166,7 @@ blink.mojom.IdleManager.getRemote = function() {
 };
 
 // ParamsSpec for AddMonitor
-blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
+blink.mojom.mojom.IdleManager_AddMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdleManager.AddMonitor_Params',
@@ -179,14 +179,14 @@ blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
   }
 };
 
-blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
+blink.mojom.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdleManager.AddMonitor_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdleManagerErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdleStateSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdleManagerErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdleStateSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -194,6 +194,6 @@ blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.IdleManagerPtr = blink.mojom.IdleManagerRemote;
-blink.mojom.IdleManagerRequest = blink.mojom.IdleManagerPendingReceiver;
+blink.mojom.mojom.IdleManagerPtr = blink.mojom.mojom.IdleManagerRemote;
+blink.mojom.mojom.IdleManagerRequest = blink.mojom.mojom.IdleManagerPendingReceiver;
 

@@ -7,11 +7,11 @@
 // Module namespace
 var ax = ax || {};
 ax.android = ax.android || {};
-ax.android.mojom = ax.android.mojom || {};
+ax.android.android.mojom = ax.android.android.mojom || {};
 
 
 // Enum: AccessibilityEventType
-ax.android.mojom.AccessibilityEventType = {
+ax.android.android.mojom.mojom.AccessibilityEventType = {
   VIEW_FOCUSED: 0,
   VIEW_CLICKED: 1,
   VIEW_LONG_CLICKED: 2,
@@ -38,10 +38,10 @@ ax.android.mojom.AccessibilityEventType = {
   VIEW_CONTEXT_CLICKED: 23,
   ASSIST_READING_CONTEXT: 24,
 };
-ax.android.mojom.AccessibilityEventTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentChangeType
-ax.android.mojom.ContentChangeType = {
+ax.android.android.mojom.mojom.ContentChangeType = {
   CONTENT_DESCRIPTION: 0,
   STATE_DESCRIPTION: 1,
   SUBTREE: 2,
@@ -51,10 +51,10 @@ ax.android.mojom.ContentChangeType = {
   PANE_APPEARED: 6,
   PANE_DISAPPEARED: 7,
 };
-ax.android.mojom.ContentChangeTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.ContentChangeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityActionType
-ax.android.mojom.AccessibilityActionType = {
+ax.android.android.mojom.mojom.AccessibilityActionType = {
   FOCUS: 0,
   CLEAR_FOCUS: 1,
   SELECT: 2,
@@ -90,10 +90,10 @@ ax.android.mojom.AccessibilityActionType = {
   SHOW_TOOLTIP: 32,
   HIDE_TOOLTIP: 33,
 };
-ax.android.mojom.AccessibilityActionTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityBooleanProperty
-ax.android.mojom.AccessibilityBooleanProperty = {
+ax.android.android.mojom.mojom.AccessibilityBooleanProperty = {
   CHECKABLE: 0,
   CHECKED: 1,
   FOCUSABLE: 2,
@@ -118,10 +118,10 @@ ax.android.mojom.AccessibilityBooleanProperty = {
   HEADING: 21,
   SUPPORTS_TEXT_LOCATION: 22,
 };
-ax.android.mojom.AccessibilityBooleanPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityBooleanPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityStringProperty
-ax.android.mojom.AccessibilityStringProperty = {
+ax.android.android.mojom.mojom.AccessibilityStringProperty = {
   PACKAGE_NAME: 0,
   CLASS_NAME: 1,
   TEXT: 2,
@@ -134,10 +134,10 @@ ax.android.mojom.AccessibilityStringProperty = {
   HINT_TEXT: 9,
   STATE_DESCRIPTION: 10,
 };
-ax.android.mojom.AccessibilityStringPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityStringPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityIntProperty
-ax.android.mojom.AccessibilityIntProperty = {
+ax.android.android.mojom.mojom.AccessibilityIntProperty = {
   LABEL_FOR: 0,
   LABELED_BY: 1,
   TRAVERSAL_BEFORE: 2,
@@ -148,109 +148,109 @@ ax.android.mojom.AccessibilityIntProperty = {
   INPUT_TYPE: 7,
   LIVE_REGION: 8,
 };
-ax.android.mojom.AccessibilityIntPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityIntPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityIntListProperty
-ax.android.mojom.AccessibilityIntListProperty = {
+ax.android.android.mojom.mojom.AccessibilityIntListProperty = {
   CHILD_NODE_IDS: 0,
   CUSTOM_ACTION_IDS_DEPRECATED: 1,
   STANDARD_ACTION_IDS_DEPRECATED: 2,
 };
-ax.android.mojom.AccessibilityIntListPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityIntListPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityStringListProperty
-ax.android.mojom.AccessibilityStringListProperty = {
+ax.android.android.mojom.mojom.AccessibilityStringListProperty = {
   CUSTOM_ACTION_DESCRIPTIONS: 0,
 };
-ax.android.mojom.AccessibilityStringListPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityStringListPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityWindowBooleanProperty
-ax.android.mojom.AccessibilityWindowBooleanProperty = {
+ax.android.android.mojom.mojom.AccessibilityWindowBooleanProperty = {
   ACCESSIBILITY_FOCUSED: 0,
   FOCUSED: 1,
   IN_PICTURE_IN_PICTURE_MODE: 2,
   WINDOW_ACTIVE: 3,
 };
-ax.android.mojom.AccessibilityWindowBooleanPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityWindowBooleanPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityWindowIntProperty
-ax.android.mojom.AccessibilityWindowIntProperty = {
+ax.android.android.mojom.mojom.AccessibilityWindowIntProperty = {
   ANCHOR_NODE_ID: 0,
   LAYER_ORDER: 1,
   PARENT_WINDOW_ID: 2,
 };
-ax.android.mojom.AccessibilityWindowIntPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityWindowIntPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityWindowStringProperty
-ax.android.mojom.AccessibilityWindowStringProperty = {
+ax.android.android.mojom.mojom.AccessibilityWindowStringProperty = {
   TITLE: 0,
 };
-ax.android.mojom.AccessibilityWindowStringPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityWindowStringPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityWindowIntListProperty
-ax.android.mojom.AccessibilityWindowIntListProperty = {
+ax.android.android.mojom.mojom.AccessibilityWindowIntListProperty = {
   CHILD_WINDOW_IDS: 0,
 };
-ax.android.mojom.AccessibilityWindowIntListPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityWindowIntListPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: SpanType
-ax.android.mojom.SpanType = {
+ax.android.android.mojom.mojom.SpanType = {
   URL: 0,
   CLICKABLE: 1,
 };
-ax.android.mojom.SpanTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.SpanTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilitySelectionMode
-ax.android.mojom.AccessibilitySelectionMode = {
+ax.android.android.mojom.mojom.AccessibilitySelectionMode = {
   NONE: 0,
   SINGLE: 1,
   MULTIPLE: 2,
 };
-ax.android.mojom.AccessibilitySelectionModeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilitySelectionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityRangeType
-ax.android.mojom.AccessibilityRangeType = {
+ax.android.android.mojom.mojom.AccessibilityRangeType = {
   INT: 0,
   FLOAT: 1,
   PERCENT: 2,
 };
-ax.android.mojom.AccessibilityRangeTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityRangeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityLiveRegionType
-ax.android.mojom.AccessibilityLiveRegionType = {
+ax.android.android.mojom.mojom.AccessibilityLiveRegionType = {
   NONE: 0,
   POLITE: 1,
   ASSERTIVE: 2,
 };
-ax.android.mojom.AccessibilityLiveRegionTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityLiveRegionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityWindowType
-ax.android.mojom.AccessibilityWindowType = {
+ax.android.android.mojom.mojom.AccessibilityWindowType = {
   TYPE_ACCESSIBILITY_OVERLAY: 0,
   TYPE_APPLICATION: 1,
   TYPE_INPUT_METHOD: 2,
   TYPE_SPLIT_SCREEN_DIVIDER: 3,
   TYPE_SYSTEM: 4,
 };
-ax.android.mojom.AccessibilityWindowTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityWindowTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityFilterType
-ax.android.mojom.AccessibilityFilterType = {
+ax.android.android.mojom.mojom.AccessibilityFilterType = {
   OFF: 0,
   FOCUS: 1,
   ALL: 2,
 };
-ax.android.mojom.AccessibilityFilterTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityFilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityNotificationStateType
-ax.android.mojom.AccessibilityNotificationStateType = {
+ax.android.android.mojom.mojom.AccessibilityNotificationStateType = {
   SURFACE_CREATED: 0,
   SURFACE_REMOVED: 1,
 };
-ax.android.mojom.AccessibilityNotificationStateTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityNotificationStateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityEventIntProperty
-ax.android.mojom.AccessibilityEventIntProperty = {
+ax.android.android.mojom.mojom.AccessibilityEventIntProperty = {
   ACTION: 0,
   FROM_INDEX: 1,
   TO_INDEX: 2,
@@ -263,30 +263,30 @@ ax.android.mojom.AccessibilityEventIntProperty = {
   SCROLL_DELTA_X: 9,
   SCROLL_DELTA_Y: 10,
 };
-ax.android.mojom.AccessibilityEventIntPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityEventIntPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityEventStringProperty
-ax.android.mojom.AccessibilityEventStringProperty = {
+ax.android.android.mojom.mojom.AccessibilityEventStringProperty = {
   CLASS_NAME: 0,
   PACKAGE_NAME: 1,
   CONTENT_DESCRIPTION: 2,
 };
-ax.android.mojom.AccessibilityEventStringPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityEventStringPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: AccessibilityEventIntListProperty
-ax.android.mojom.AccessibilityEventIntListProperty = {
+ax.android.android.mojom.mojom.AccessibilityEventIntListProperty = {
   CONTENT_CHANGE_TYPES: 0,
 };
-ax.android.mojom.AccessibilityEventIntListPropertySpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.AccessibilityEventIntListPropertySpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionFloatArgumentType
-ax.android.mojom.ActionFloatArgumentType = {
+ax.android.android.mojom.mojom.ActionFloatArgumentType = {
   PROGRESS_VALUE: 0,
 };
-ax.android.mojom.ActionFloatArgumentTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.ActionFloatArgumentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionIntArgumentType
-ax.android.mojom.ActionIntArgumentType = {
+ax.android.android.mojom.mojom.ActionIntArgumentType = {
   MOVEMENT_GRANULARITY_INT: 0,
   SELECTION_START_INT: 1,
   SELECTION_END_INT: 2,
@@ -296,33 +296,33 @@ ax.android.mojom.ActionIntArgumentType = {
   MOVE_WINDOW_Y: 6,
   PRESS_AND_HOLD_DURATION_MILLIS_INT: 7,
 };
-ax.android.mojom.ActionIntArgumentTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.ActionIntArgumentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionStringArgumentType
-ax.android.mojom.ActionStringArgumentType = {
+ax.android.android.mojom.mojom.ActionStringArgumentType = {
   HTML_ELEMENT_STRING: 0,
   SET_TEXT_CHARSEQUENCE: 1,
 };
-ax.android.mojom.ActionStringArgumentTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.ActionStringArgumentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionComplexArgumentType
-ax.android.mojom.ActionComplexArgumentType = {
+ax.android.android.mojom.mojom.ActionComplexArgumentType = {
   ACCESSIBLE_CLICKABLE_SPAN: 0,
 };
-ax.android.mojom.ActionComplexArgumentTypeSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.ActionComplexArgumentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SetNativeChromeVoxResponse
-ax.android.mojom.SetNativeChromeVoxResponse = {
+ax.android.android.mojom.mojom.SetNativeChromeVoxResponse = {
   SUCCESS: 0,
   WINDOW_NOT_FOUND: 1,
   TALKBACK_NOT_INSTALLED: 2,
   FAILURE: 3,
   NEED_DEPRECATION_CONFIRMATION: 4,
 };
-ax.android.mojom.SetNativeChromeVoxResponseSpec = { $: mojo.internal.Enum() };
+ax.android.android.mojom.mojom.SetNativeChromeVoxResponseSpec = { $: mojo.internal.Enum() };
 
 // Union: AccessibilityWindowKey
-ax.android.mojom.AccessibilityWindowKeySpec = { $: mojo.internal.Union(
+ax.android.android.mojom.mojom.AccessibilityWindowKeySpec = { $: mojo.internal.Union(
     'ax.android.mojom.AccessibilityWindowKey', {
       'window_id': {
         'ordinal': 0,
@@ -336,7 +336,7 @@ ax.android.mojom.AccessibilityWindowKeySpec = { $: mojo.internal.Union(
 };
 
 // Struct: Rect
-ax.android.mojom.RectSpec = {
+ax.android.android.mojom.mojom.RectSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.Rect',
@@ -353,7 +353,7 @@ ax.android.mojom.RectSpec = {
 };
 
 // Struct: SpanEntry
-ax.android.mojom.SpanEntrySpec = {
+ax.android.android.mojom.mojom.SpanEntrySpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.SpanEntry',
@@ -369,7 +369,7 @@ ax.android.mojom.SpanEntrySpec = {
 };
 
 // Struct: AccessibilityCollectionInfoData
-ax.android.mojom.AccessibilityCollectionInfoDataSpec = {
+ax.android.android.mojom.mojom.AccessibilityCollectionInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityCollectionInfoData',
@@ -377,8 +377,8 @@ ax.android.mojom.AccessibilityCollectionInfoDataSpec = {
       fields: [
         { name: 'row_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'column_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_hierarchical', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'selection_mode', packedOffset: 12, packedBitOffset: 0, type: ax.android.mojom.AccessibilitySelectionModeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_hierarchical', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'selection_mode', packedOffset: 8, packedBitOffset: 0, type: ax.android.mojom.AccessibilitySelectionModeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -386,7 +386,7 @@ ax.android.mojom.AccessibilityCollectionInfoDataSpec = {
 };
 
 // Struct: AccessibilityCollectionItemInfoData
-ax.android.mojom.AccessibilityCollectionItemInfoDataSpec = {
+ax.android.android.mojom.mojom.AccessibilityCollectionItemInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityCollectionItemInfoData',
@@ -405,7 +405,7 @@ ax.android.mojom.AccessibilityCollectionItemInfoDataSpec = {
 };
 
 // Struct: AccessibilityRangeInfoData
-ax.android.mojom.AccessibilityRangeInfoDataSpec = {
+ax.android.android.mojom.mojom.AccessibilityRangeInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityRangeInfoData',
@@ -422,14 +422,14 @@ ax.android.mojom.AccessibilityRangeInfoDataSpec = {
 };
 
 // Struct: AccessibilityActionInAndroid
-ax.android.mojom.AccessibilityActionInAndroidSpec = {
+ax.android.android.mojom.mojom.AccessibilityActionInAndroidSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityActionInAndroid',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -437,48 +437,48 @@ ax.android.mojom.AccessibilityActionInAndroidSpec = {
 };
 
 // Struct: AccessibilityNodeInfoData
-ax.android.mojom.AccessibilityNodeInfoDataSpec = {
+ax.android.android.mojom.mojom.AccessibilityNodeInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityNodeInfoData',
       packedSize: 120,
       fields: [
         { name: 'bounds_in_screen', packedOffset: 0, packedBitOffset: 0, type: ax.android.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 1 },
-        { name: 'boolean_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityBooleanPropertySpec, mojo.internal.Bool, false), nullable: true, minVersion: 1 },
-        { name: 'string_properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityStringPropertySpec, mojo.internal.String, false), nullable: true, minVersion: 1 },
-        { name: 'int_properties', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityIntPropertySpec, mojo.internal.Int32, false), nullable: true, minVersion: 1 },
-        { name: 'int_list_properties', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), nullable: true, minVersion: 1 },
-        { name: 'string_list_properties', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityStringListPropertySpec, mojo.internal.Array(mojo.internal.String, false), false), nullable: true, minVersion: 3 },
-        { name: 'spannable_string_properties', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityStringPropertySpec, mojo.internal.Array(ax.android.mojom.SpanEntrySpec, false), false), nullable: true, minVersion: 5 },
-        { name: 'collection_info', packedOffset: 64, packedBitOffset: 0, type: ax.android.mojom.AccessibilityCollectionInfoDataSpec, nullable: true, minVersion: 5 },
-        { name: 'collection_item_info', packedOffset: 72, packedBitOffset: 0, type: ax.android.mojom.AccessibilityCollectionItemInfoDataSpec, nullable: true, minVersion: 5 },
-        { name: 'range_info', packedOffset: 80, packedBitOffset: 0, type: ax.android.mojom.AccessibilityRangeInfoDataSpec, nullable: true, minVersion: 5 },
-        { name: 'window_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 12 },
-        { name: 'is_virtual_node', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
-        { name: 'standard_actions', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityActionInAndroidSpec, false), nullable: true, minVersion: 24 },
-        { name: 'custom_actions', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityActionInAndroidSpec, false), nullable: true, minVersion: 24 },
+        { name: 'id', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 1 },
+        { name: 'boolean_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityBooleanPropertySpec, mojo.internal.Bool, false), nullable: true, minVersion: 1 },
+        { name: 'string_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityStringPropertySpec, mojo.internal.String, false), nullable: true, minVersion: 1 },
+        { name: 'int_properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityIntPropertySpec, mojo.internal.Int32, false), nullable: true, minVersion: 1 },
+        { name: 'int_list_properties', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), nullable: true, minVersion: 1 },
+        { name: 'string_list_properties', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityStringListPropertySpec, mojo.internal.Array(mojo.internal.String, false), false), nullable: true, minVersion: 3 },
+        { name: 'spannable_string_properties', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityStringPropertySpec, mojo.internal.Array(ax.android.mojom.SpanEntrySpec, false), false), nullable: true, minVersion: 5 },
+        { name: 'collection_info', packedOffset: 56, packedBitOffset: 0, type: ax.android.mojom.AccessibilityCollectionInfoDataSpec, nullable: true, minVersion: 5 },
+        { name: 'collection_item_info', packedOffset: 64, packedBitOffset: 0, type: ax.android.mojom.AccessibilityCollectionItemInfoDataSpec, nullable: true, minVersion: 5 },
+        { name: 'range_info', packedOffset: 72, packedBitOffset: 0, type: ax.android.mojom.AccessibilityRangeInfoDataSpec, nullable: true, minVersion: 5 },
+        { name: 'window_id', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 12 },
+        { name: 'is_virtual_node', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
+        { name: 'standard_actions', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityActionInAndroidSpec, false), nullable: true, minVersion: 24 },
+        { name: 'custom_actions', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityActionInAndroidSpec, false), nullable: true, minVersion: 24 },
       ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 56}, {version: 3, packedSize: 64}, {version: 5, packedSize: 96}, {version: 12, packedSize: 96}, {version: 20, packedSize: 104}, {version: 24, packedSize: 120}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 112}, {version: 3, packedSize: 112}, {version: 5, packedSize: 112}, {version: 12, packedSize: 112}, {version: 20, packedSize: 120}, {version: 24, packedSize: 120}]
     }
   }
 };
 
 // Struct: AccessibilityWindowInfoData
-ax.android.mojom.AccessibilityWindowInfoDataSpec = {
+ax.android.android.mojom.mojom.AccessibilityWindowInfoDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityWindowInfoData',
       packedSize: 64,
       fields: [
-        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'root_node_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bounds_in_screen', packedOffset: 8, packedBitOffset: 0, type: ax.android.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'window_type', packedOffset: 16, packedBitOffset: 0, type: ax.android.mojom.AccessibilityWindowTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'boolean_properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowBooleanPropertySpec, mojo.internal.Bool, false), nullable: true, minVersion: 0 },
-        { name: 'string_properties', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowStringPropertySpec, mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'int_properties', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowIntPropertySpec, mojo.internal.Int32, false), nullable: true, minVersion: 0 },
-        { name: 'int_list_properties', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), nullable: true, minVersion: 0 },
+        { name: 'window_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'root_node_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bounds_in_screen', packedOffset: 0, packedBitOffset: 0, type: ax.android.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'window_type', packedOffset: 48, packedBitOffset: 0, type: ax.android.mojom.AccessibilityWindowTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'boolean_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowBooleanPropertySpec, mojo.internal.Bool, false), nullable: true, minVersion: 0 },
+        { name: 'string_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowStringPropertySpec, mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'int_properties', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowIntPropertySpec, mojo.internal.Int32, false), nullable: true, minVersion: 0 },
+        { name: 'int_list_properties', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityWindowIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -486,71 +486,71 @@ ax.android.mojom.AccessibilityWindowInfoDataSpec = {
 };
 
 // Struct: AccessibilityEventData
-ax.android.mojom.AccessibilityEventDataSpec = {
+ax.android.android.mojom.mojom.AccessibilityEventDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityEventData',
       packedSize: 88,
       fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: ax.android.mojom.AccessibilityEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'source_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'node_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityNodeInfoDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'notification_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 6 },
-        { name: 'window_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
-        { name: 'task_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 8 },
-        { name: 'window_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityWindowInfoDataSpec, false), nullable: true, minVersion: 12 },
-        { name: 'is_input_method_window', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 14 },
-        { name: 'event_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
-        { name: 'int_properties', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityEventIntPropertySpec, mojo.internal.Int32, false), nullable: true, minVersion: 21 },
-        { name: 'string_properties', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityEventStringPropertySpec, mojo.internal.String, false), nullable: true, minVersion: 21 },
-        { name: 'int_list_properties', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityEventIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), nullable: true, minVersion: 23 },
+        { name: 'event_type', packedOffset: 56, packedBitOffset: 0, type: ax.android.mojom.AccessibilityEventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'source_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'node_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityNodeInfoDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'notification_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 6 },
+        { name: 'window_id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
+        { name: 'task_id', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 8 },
+        { name: 'window_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ax.android.mojom.AccessibilityWindowInfoDataSpec, false), nullable: true, minVersion: 12 },
+        { name: 'is_input_method_window', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 14 },
+        { name: 'event_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
+        { name: 'int_properties', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityEventIntPropertySpec, mojo.internal.Int32, false), nullable: true, minVersion: 21 },
+        { name: 'string_properties', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityEventStringPropertySpec, mojo.internal.String, false), nullable: true, minVersion: 21 },
+        { name: 'int_list_properties', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.AccessibilityEventIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), nullable: true, minVersion: 23 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 40}, {version: 8, packedSize: 40}, {version: 12, packedSize: 48}, {version: 14, packedSize: 56}, {version: 15, packedSize: 64}, {version: 21, packedSize: 80}, {version: 23, packedSize: 88}]
+      versions: [{version: 0, packedSize: 72}, {version: 6, packedSize: 80}, {version: 8, packedSize: 80}, {version: 12, packedSize: 80}, {version: 14, packedSize: 88}, {version: 15, packedSize: 88}, {version: 21, packedSize: 88}, {version: 23, packedSize: 88}]
     }
   }
 };
 
 // Struct: AccessibilityActionData
-ax.android.mojom.AccessibilityActionDataSpec = {
+ax.android.android.mojom.mojom.AccessibilityActionDataSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityActionData',
       packedSize: 56,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'action_type', packedOffset: 4, packedBitOffset: 0, type: ax.android.mojom.AccessibilityActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'custom_action_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'window_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
-        { name: 'start_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 13 },
-        { name: 'end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 13 },
-        { name: 'int_parameters', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.ActionIntArgumentTypeSpec, mojo.internal.Int32, false), nullable: true, minVersion: 25 },
-        { name: 'string_parameters', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.ActionStringArgumentTypeSpec, mojo.internal.String, false), nullable: true, minVersion: 25 },
-        { name: 'float_parameters', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.ActionFloatArgumentTypeSpec, mojo.internal.Float, false), nullable: true, minVersion: 25 },
+        { name: 'node_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'action_type', packedOffset: 28, packedBitOffset: 0, type: ax.android.mojom.AccessibilityActionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'custom_action_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'window_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
+        { name: 'start_index', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 13 },
+        { name: 'end_index', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 13 },
+        { name: 'int_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.ActionIntArgumentTypeSpec, mojo.internal.Int32, false), nullable: true, minVersion: 25 },
+        { name: 'string_parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.ActionStringArgumentTypeSpec, mojo.internal.String, false), nullable: true, minVersion: 25 },
+        { name: 'float_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(ax.android.mojom.ActionFloatArgumentTypeSpec, mojo.internal.Float, false), nullable: true, minVersion: 25 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 24}, {version: 13, packedSize: 32}, {version: 25, packedSize: 56}]
+      versions: [{version: 0, packedSize: 48}, {version: 6, packedSize: 48}, {version: 13, packedSize: 56}, {version: 25, packedSize: 56}]
     }
   }
 };
 
 // Interface: AccessibilityHelperHost
-ax.android.mojom.AccessibilityHelperHost = {};
+ax.android.android.mojom.mojom.AccessibilityHelperHost = {};
 
-ax.android.mojom.AccessibilityHelperHostPendingReceiver = class {
+ax.android.android.mojom.mojom.AccessibilityHelperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.android.mojom.AccessibilityHelperHostRemote = class {
+ax.android.android.mojom.mojom.AccessibilityHelperHostRemote = class {
   static get $interfaceName() {
     return 'ax.android.mojom.AccessibilityHelperHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.android.mojom.AccessibilityHelperHostPendingReceiver,
+      ax.android.android.mojom.mojom.AccessibilityHelperHostPendingReceiver,
       handle);
-    this.$ = new ax.android.mojom.AccessibilityHelperHostRemoteCallHandler(this.proxy);
+    this.$ = new ax.android.android.mojom.mojom.AccessibilityHelperHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -562,7 +562,7 @@ ax.android.mojom.AccessibilityHelperHostRemote = class {
   }
 };
 
-ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
+ax.android.android.mojom.mojom.AccessibilityHelperHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -571,7 +571,7 @@ ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec,
       null,
       [event_data]);
   }
@@ -580,7 +580,7 @@ ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec,
       null,
       [notification_key, state]);
   }
@@ -589,15 +589,15 @@ ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-ax.android.mojom.AccessibilityHelperHost.getRemote = function() {
-  let remote = new ax.android.mojom.AccessibilityHelperHostRemote();
+ax.android.android.mojom.mojom.AccessibilityHelperHost.getRemote = function() {
+  let remote = new ax.android.android.mojom.mojom.AccessibilityHelperHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -607,7 +607,7 @@ ax.android.mojom.AccessibilityHelperHost.getRemote = function() {
 };
 
 // ParamsSpec for OnAccessibilityEvent
-ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperHost.OnAccessibilityEvent_Params',
@@ -621,7 +621,7 @@ ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec = {
 };
 
 // ParamsSpec for OnNotificationStateChanged
-ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperHost.OnNotificationStateChanged_Params',
@@ -636,7 +636,7 @@ ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec =
 };
 
 // ParamsSpec for OnToggleNativeChromeVoxArcSupport
-ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperHost.OnToggleNativeChromeVoxArcSupport_Params',
@@ -650,29 +650,29 @@ ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_Param
 };
 
 // Legacy compatibility
-ax.android.mojom.AccessibilityHelperHostPtr = ax.android.mojom.AccessibilityHelperHostRemote;
-ax.android.mojom.AccessibilityHelperHostRequest = ax.android.mojom.AccessibilityHelperHostPendingReceiver;
+ax.android.android.mojom.mojom.AccessibilityHelperHostPtr = ax.android.android.mojom.mojom.AccessibilityHelperHostRemote;
+ax.android.android.mojom.mojom.AccessibilityHelperHostRequest = ax.android.android.mojom.mojom.AccessibilityHelperHostPendingReceiver;
 
 
 // Interface: AccessibilityHelperInstance
-ax.android.mojom.AccessibilityHelperInstance = {};
+ax.android.android.mojom.mojom.AccessibilityHelperInstance = {};
 
-ax.android.mojom.AccessibilityHelperInstancePendingReceiver = class {
+ax.android.android.mojom.mojom.AccessibilityHelperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.android.mojom.AccessibilityHelperInstanceRemote = class {
+ax.android.android.mojom.mojom.AccessibilityHelperInstanceRemote = class {
   static get $interfaceName() {
     return 'ax.android.mojom.AccessibilityHelperInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.android.mojom.AccessibilityHelperInstancePendingReceiver,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstancePendingReceiver,
       handle);
-    this.$ = new ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler(this.proxy);
+    this.$ = new ax.android.android.mojom.mojom.AccessibilityHelperInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -684,7 +684,7 @@ ax.android.mojom.AccessibilityHelperInstanceRemote = class {
   }
 };
 
-ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
+ax.android.android.mojom.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -693,7 +693,7 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -702,7 +702,7 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec,
       null,
       [filter_type]);
   }
@@ -711,8 +711,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec,
-      ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec,
       [action_data]);
   }
 
@@ -720,7 +720,7 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -729,8 +729,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec,
-      ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec,
       [refresh_data]);
   }
 
@@ -738,7 +738,7 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec,
       null,
       [window]);
   }
@@ -747,15 +747,15 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec,
-      ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec,
+      ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec,
       [enabled]);
   }
 
 };
 
-ax.android.mojom.AccessibilityHelperInstance.getRemote = function() {
-  let remote = new ax.android.mojom.AccessibilityHelperInstanceRemote();
+ax.android.android.mojom.mojom.AccessibilityHelperInstance.getRemote = function() {
+  let remote = new ax.android.android.mojom.mojom.AccessibilityHelperInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -765,7 +765,7 @@ ax.android.mojom.AccessibilityHelperInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.Init_Params',
@@ -779,7 +779,7 @@ ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for SetFilter
-ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.SetFilter_Params',
@@ -793,7 +793,7 @@ ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec = {
 };
 
 // ParamsSpec for PerformAction
-ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.PerformAction_Params',
@@ -806,7 +806,7 @@ ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec = {
   }
 };
 
-ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.PerformAction_ResponseParams',
@@ -820,7 +820,7 @@ ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec = 
 };
 
 // ParamsSpec for SetExploreByTouchEnabled
-ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.SetExploreByTouchEnabled_Params',
@@ -834,7 +834,7 @@ ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec
 };
 
 // ParamsSpec for RefreshWithExtraData
-ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.RefreshWithExtraData_Params',
@@ -847,7 +847,7 @@ ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec = {
   }
 };
 
-ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.RefreshWithExtraData_ResponseParams',
@@ -861,7 +861,7 @@ ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParams
 };
 
 // ParamsSpec for RequestSendAccessibilityTree
-ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.RequestSendAccessibilityTree_Params',
@@ -875,7 +875,7 @@ ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_Params
 };
 
 // ParamsSpec for SetNativeChromeVoxArcSupportForFocusedWindow
-ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.SetNativeChromeVoxArcSupportForFocusedWindow_Params',
@@ -888,7 +888,7 @@ ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocu
   }
 };
 
-ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec = {
+ax.android.android.mojom.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.android.mojom.AccessibilityHelperInstance.SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParams',
@@ -902,6 +902,6 @@ ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocu
 };
 
 // Legacy compatibility
-ax.android.mojom.AccessibilityHelperInstancePtr = ax.android.mojom.AccessibilityHelperInstanceRemote;
-ax.android.mojom.AccessibilityHelperInstanceRequest = ax.android.mojom.AccessibilityHelperInstancePendingReceiver;
+ax.android.android.mojom.mojom.AccessibilityHelperInstancePtr = ax.android.android.mojom.mojom.AccessibilityHelperInstanceRemote;
+ax.android.android.mojom.mojom.AccessibilityHelperInstanceRequest = ax.android.android.mojom.mojom.AccessibilityHelperInstancePendingReceiver;
 

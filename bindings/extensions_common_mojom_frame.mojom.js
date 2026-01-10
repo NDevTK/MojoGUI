@@ -7,17 +7,21 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
+var blink = blink || {};
 
 
 // Struct: ExecuteCodeParams
-extensions.mojom.ExecuteCodeParamsSpec = {
+extensions.mojom.mojom.ExecuteCodeParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExecuteCodeParams',
       packedSize: 56,
       fields: [
-        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false, minVersion: 0 },
-        { name: 'injection', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.CodeInjectionSpec, nullable: false, minVersion: 0 },
+        { name: 'host_id', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.HostIDSpec, nullable: false, minVersion: 0 },
+        { name: 'injection', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.CodeInjectionSpec, nullable: false, minVersion: 0 },
         { name: 'webview_src', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
         { name: 'match_origin_as_fallback_behavior', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.MatchOriginAsFallbackBehaviorSpec, nullable: false, minVersion: 0 },
         { name: 'run_at', packedOffset: 36, packedBitOffset: 0, type: extensions.mojom.RunLocationSpec, nullable: false, minVersion: 0 },
@@ -29,7 +33,7 @@ extensions.mojom.ExecuteCodeParamsSpec = {
 };
 
 // Struct: RequestParams
-extensions.mojom.RequestParamsSpec = {
+extensions.mojom.mojom.RequestParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.RequestParams',
@@ -39,13 +43,13 @@ extensions.mojom.RequestParamsSpec = {
         { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
         { name: 'extension_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'context_type', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.ContextTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'request_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'has_callback', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'worker_thread_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'service_worker_version_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'js_callstack', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(extensions.mojom.StackFrameSpec, false), nullable: true, minVersion: 0 },
+        { name: 'context_type', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.ContextTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'has_callback', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'user_gesture', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'worker_thread_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'service_worker_version_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'js_callstack', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(extensions.mojom.StackFrameSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -53,24 +57,24 @@ extensions.mojom.RequestParamsSpec = {
 };
 
 // Interface: LocalFrame
-extensions.mojom.LocalFrame = {};
+extensions.mojom.mojom.LocalFrame = {};
 
-extensions.mojom.LocalFramePendingReceiver = class {
+extensions.mojom.mojom.LocalFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.LocalFrameRemote = class {
+extensions.mojom.mojom.LocalFrameRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.LocalFrame';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.LocalFramePendingReceiver,
+      extensions.mojom.mojom.LocalFramePendingReceiver,
       handle);
-    this.$ = new extensions.mojom.LocalFrameRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.mojom.LocalFrameRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -82,7 +86,7 @@ extensions.mojom.LocalFrameRemote = class {
   }
 };
 
-extensions.mojom.LocalFrameRemoteCallHandler = class {
+extensions.mojom.mojom.LocalFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -91,7 +95,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.LocalFrame_SetFrameName_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_SetFrameName_ParamsSpec,
       null,
       [frame_name]);
   }
@@ -100,7 +104,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec,
       null,
       [spatial_nav_enabled]);
   }
@@ -109,7 +113,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.LocalFrame_SetTabId_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_SetTabId_ParamsSpec,
       null,
       [tab_id]);
   }
@@ -118,7 +122,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_AppWindowClosed_ParamsSpec,
       null,
       [send_onclosed]);
   }
@@ -127,7 +131,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec,
       null,
       [view_type]);
   }
@@ -136,7 +140,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_MessageInvoke_ParamsSpec,
       null,
       [extension_id, module_name, function_name, args]);
   }
@@ -145,8 +149,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec,
-      extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec,
+      extensions.mojom.mojom.LocalFrame_ExecuteCode_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec,
       [param]);
   }
 
@@ -154,7 +158,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec,
       null,
       [tab_id, extension_id, script_id, url]);
   }
@@ -163,7 +167,7 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec,
       null,
       [window_id]);
   }
@@ -172,15 +176,15 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec,
-      extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec,
+      extensions.mojom.mojom.LocalFrame_DispatchOnConnect_ParamsSpec,
+      extensions.mojom.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec,
       [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host]);
   }
 
 };
 
-extensions.mojom.LocalFrame.getRemote = function() {
-  let remote = new extensions.mojom.LocalFrameRemote();
+extensions.mojom.mojom.LocalFrame.getRemote = function() {
+  let remote = new extensions.mojom.mojom.LocalFrameRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -190,7 +194,7 @@ extensions.mojom.LocalFrame.getRemote = function() {
 };
 
 // ParamsSpec for SetFrameName
-extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_SetFrameName_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.SetFrameName_Params',
@@ -204,7 +208,7 @@ extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = {
 };
 
 // ParamsSpec for SetSpatialNavigationEnabled
-extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.SetSpatialNavigationEnabled_Params',
@@ -218,7 +222,7 @@ extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for SetTabId
-extensions.mojom.LocalFrame_SetTabId_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_SetTabId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.SetTabId_Params',
@@ -232,7 +236,7 @@ extensions.mojom.LocalFrame_SetTabId_ParamsSpec = {
 };
 
 // ParamsSpec for AppWindowClosed
-extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_AppWindowClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.AppWindowClosed_Params',
@@ -246,7 +250,7 @@ extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyRenderViewType
-extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.NotifyRenderViewType_Params',
@@ -260,7 +264,7 @@ extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = {
 };
 
 // ParamsSpec for MessageInvoke
-extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_MessageInvoke_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.MessageInvoke_Params',
@@ -277,7 +281,7 @@ extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteCode
-extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_ExecuteCode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.ExecuteCode_Params',
@@ -290,15 +294,15 @@ extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = {
   }
 };
 
-extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = {
+extensions.mojom.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.ExecuteCode_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -306,16 +310,16 @@ extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ExecuteDeclarativeScript
-extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.ExecuteDeclarativeScript_Params',
       packedSize: 40,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
-        { name: 'script_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'script_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -323,7 +327,7 @@ extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateBrowserWindowId
-extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.UpdateBrowserWindowId_Params',
@@ -337,18 +341,18 @@ extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = {
 };
 
 // ParamsSpec for DispatchOnConnect
-extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = {
+extensions.mojom.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.DispatchOnConnect_Params',
       packedSize: 56,
       fields: [
         { name: 'port_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tab_info', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.TabConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'external_connection_info', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'channel_type', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tab_info', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.TabConnectionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'external_connection_info', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
         { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
@@ -356,7 +360,7 @@ extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = {
   }
 };
 
-extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = {
+extensions.mojom.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrame.DispatchOnConnect_ResponseParams',
@@ -370,29 +374,29 @@ extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.LocalFramePtr = extensions.mojom.LocalFrameRemote;
-extensions.mojom.LocalFrameRequest = extensions.mojom.LocalFramePendingReceiver;
+extensions.mojom.mojom.LocalFramePtr = extensions.mojom.mojom.LocalFrameRemote;
+extensions.mojom.mojom.LocalFrameRequest = extensions.mojom.mojom.LocalFramePendingReceiver;
 
 
 // Interface: LocalFrameHost
-extensions.mojom.LocalFrameHost = {};
+extensions.mojom.mojom.LocalFrameHost = {};
 
-extensions.mojom.LocalFrameHostPendingReceiver = class {
+extensions.mojom.mojom.LocalFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.LocalFrameHostRemote = class {
+extensions.mojom.mojom.LocalFrameHostRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.LocalFrameHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.LocalFrameHostPendingReceiver,
+      extensions.mojom.mojom.LocalFrameHostPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.LocalFrameHostRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.mojom.LocalFrameHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -404,7 +408,7 @@ extensions.mojom.LocalFrameHostRemote = class {
   }
 };
 
-extensions.mojom.LocalFrameHostRemoteCallHandler = class {
+extensions.mojom.mojom.LocalFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -413,8 +417,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec,
-      extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec,
       [extension_id, script_type, run_location]);
   }
 
@@ -422,8 +426,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec,
-      extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec,
       [url]);
   }
 
@@ -431,8 +435,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.LocalFrameHost_Request_ParamsSpec,
-      extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_Request_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_Request_ResponseParamsSpec,
       [params]);
   }
 
@@ -440,7 +444,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_ResponseAck_ParamsSpec,
       null,
       [request_uuid]);
   }
@@ -449,7 +453,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec,
       null,
       [css_selectors]);
   }
@@ -458,7 +462,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec,
       null,
       [message, source, stack_trace, level]);
   }
@@ -467,7 +471,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec,
       null,
       [extension_id_to_scripts, frame_url]);
   }
@@ -476,7 +480,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec,
       null,
       []);
   }
@@ -485,7 +489,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec,
       null,
       []);
   }
@@ -494,7 +498,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_AppWindowReady_ParamsSpec,
       null,
       []);
   }
@@ -503,7 +507,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec,
       null,
       [info, channel_type, channel_name, port_id, port, port_host]);
   }
@@ -512,7 +516,7 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec,
       null,
       [native_app_name, port_id, port, port_host]);
   }
@@ -521,15 +525,15 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec,
+      extensions.mojom.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec,
       null,
       [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host]);
   }
 
 };
 
-extensions.mojom.LocalFrameHost.getRemote = function() {
-  let remote = new extensions.mojom.LocalFrameHostRemote();
+extensions.mojom.mojom.LocalFrameHost.getRemote = function() {
+  let remote = new extensions.mojom.mojom.LocalFrameHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -539,7 +543,7 @@ extensions.mojom.LocalFrameHost.getRemote = function() {
 };
 
 // ParamsSpec for RequestScriptInjectionPermission
-extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.RequestScriptInjectionPermission_Params',
@@ -554,7 +558,7 @@ extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = {
   }
 };
 
-extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.RequestScriptInjectionPermission_ResponseParams',
@@ -568,7 +572,7 @@ extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsS
 };
 
 // ParamsSpec for GetAppInstallState
-extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.GetAppInstallState_Params',
@@ -581,7 +585,7 @@ extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = {
   }
 };
 
-extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.GetAppInstallState_ResponseParams',
@@ -595,7 +599,7 @@ extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Request
-extensions.mojom.LocalFrameHost_Request_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_Request_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.Request_Params',
@@ -608,16 +612,16 @@ extensions.mojom.LocalFrameHost_Request_ParamsSpec = {
   }
 };
 
-extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.Request_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'response_wrapper', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'extra_data', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.ExtraResponseDataSpec, nullable: true, minVersion: 0 },
+        { name: 'success', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'response_wrapper', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'extra_data', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ExtraResponseDataSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -625,7 +629,7 @@ extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ResponseAck
-extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_ResponseAck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.ResponseAck_Params',
@@ -639,7 +643,7 @@ extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec = {
 };
 
 // ParamsSpec for WatchedPageChange
-extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.WatchedPageChange_Params',
@@ -653,7 +657,7 @@ extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = {
 };
 
 // ParamsSpec for DetailedConsoleMessageAdded
-extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.DetailedConsoleMessageAdded_Params',
@@ -670,7 +674,7 @@ extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = {
 };
 
 // ParamsSpec for ContentScriptsExecuting
-extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.ContentScriptsExecuting_Params',
@@ -685,7 +689,7 @@ extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = {
 };
 
 // ParamsSpec for IncrementLazyKeepaliveCount
-extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.IncrementLazyKeepaliveCount_Params',
@@ -698,7 +702,7 @@ extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec = {
 };
 
 // ParamsSpec for DecrementLazyKeepaliveCount
-extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.DecrementLazyKeepaliveCount_Params',
@@ -711,7 +715,7 @@ extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec = {
 };
 
 // ParamsSpec for AppWindowReady
-extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_AppWindowReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.AppWindowReady_Params',
@@ -724,17 +728,17 @@ extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec = {
 };
 
 // ParamsSpec for OpenChannelToExtension
-extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.OpenChannelToExtension_Params',
       packedSize: 48,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port_id', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'channel_type', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port_id', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
         { name: 'port_host', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
@@ -743,7 +747,7 @@ extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = {
 };
 
 // ParamsSpec for OpenChannelToNativeApp
-extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.OpenChannelToNativeApp_Params',
@@ -760,19 +764,19 @@ extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = {
 };
 
 // ParamsSpec for OpenChannelToTab
-extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = {
+extensions.mojom.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.LocalFrameHost.OpenChannelToTab_Params',
       packedSize: 56,
       fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'channel_type', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port_id', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'document_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'channel_type', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port_id', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
         { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
@@ -781,6 +785,6 @@ extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.LocalFrameHostPtr = extensions.mojom.LocalFrameHostRemote;
-extensions.mojom.LocalFrameHostRequest = extensions.mojom.LocalFrameHostPendingReceiver;
+extensions.mojom.mojom.LocalFrameHostPtr = extensions.mojom.mojom.LocalFrameHostRemote;
+extensions.mojom.mojom.LocalFrameHostRequest = extensions.mojom.mojom.LocalFrameHostPendingReceiver;
 

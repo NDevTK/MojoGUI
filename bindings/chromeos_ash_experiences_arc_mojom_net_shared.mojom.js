@@ -10,10 +10,10 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: SecurityType
-arc.mojom.SecurityType = {
+arc.mojom.mojom.SecurityType = {
   WEP_PSK: 0,
   WEP_8021X: 1,
   WPA_PSK: 2,
   WPA_EAP: 3,
 };
-arc.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };

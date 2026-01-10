@@ -7,10 +7,11 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Struct: SchemefulSite
-network.mojom.SchemefulSiteSpec = {
+network.mojom.mojom.SchemefulSiteSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SchemefulSite',

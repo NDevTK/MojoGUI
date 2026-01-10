@@ -7,23 +7,23 @@
 // Module namespace
 var ash = ash || {};
 ash.enhanced_network_tts = ash.enhanced_network_tts || {};
-ash.enhanced_network_tts.mojom = ash.enhanced_network_tts.mojom || {};
+ash.enhanced_network_tts.enhanced_network_tts.mojom = ash.enhanced_network_tts.enhanced_network_tts.mojom || {};
 
 
-ash.enhanced_network_tts.mojom.kEnhancedNetworkTtsMaxCharacterSize = 1000;
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.kEnhancedNetworkTtsMaxCharacterSize = 1000;
 
 // Enum: TtsRequestError
-ash.enhanced_network_tts.mojom.TtsRequestError = {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.TtsRequestError = {
   kEmptyUtterance: 0,
   kOverLength: 1,
   kServerError: 2,
   kReceivedUnexpectedData: 3,
   kRequestOverride: 4,
 };
-ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum() };
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: TtsResponse
-ash.enhanced_network_tts.mojom.TtsResponseSpec = { $: mojo.internal.Union(
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.TtsResponseSpec = { $: mojo.internal.Union(
     'ash.enhanced_network_tts.mojom.TtsResponse', {
       'error_code': {
         'ordinal': 0,
@@ -37,16 +37,16 @@ ash.enhanced_network_tts.mojom.TtsResponseSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TtsRequest
-ash.enhanced_network_tts.mojom.TtsRequestSpec = {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.TtsRequestSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.TtsRequest',
       packedSize: 40,
       fields: [
         { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'voice', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'voice', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -54,16 +54,16 @@ ash.enhanced_network_tts.mojom.TtsRequestSpec = {
 };
 
 // Struct: TimingInfo
-ash.enhanced_network_tts.mojom.TimingInfoSpec = {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.TimingInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.TimingInfo',
       packedSize: 40,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'time_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'text_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'time_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -71,7 +71,7 @@ ash.enhanced_network_tts.mojom.TimingInfoSpec = {
 };
 
 // Struct: TtsData
-ash.enhanced_network_tts.mojom.TtsDataSpec = {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.TtsDataSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.TtsData',
@@ -87,24 +87,24 @@ ash.enhanced_network_tts.mojom.TtsDataSpec = {
 };
 
 // Interface: EnhancedNetworkTts
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts = {};
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTts = {};
 
-ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver = class {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote = class {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsRemote = class {
   static get $interfaceName() {
     return 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver,
+      ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsPendingReceiver,
       handle);
-    this.$ = new ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler(this.proxy);
+    this.$ = new ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -116,7 +116,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote = class {
   }
 };
 
-ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -125,15 +125,15 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec,
-      ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
+      ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec,
+      ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts.getRemote = function() {
-  let remote = new ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote();
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTts.getRemote = function() {
+  let remote = new ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -143,7 +143,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts.getRemote = function() {
 };
 
 // ParamsSpec for GetAudioData
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_Params',
@@ -156,7 +156,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
   }
 };
 
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_ResponseParams',
@@ -170,29 +170,29 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpe
 };
 
 // Legacy compatibility
-ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPtr = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote;
-ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRequest = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver;
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsPtr = ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsRemote;
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsRequest = ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.EnhancedNetworkTtsPendingReceiver;
 
 
 // Interface: AudioDataObserver
-ash.enhanced_network_tts.mojom.AudioDataObserver = {};
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserver = {};
 
-ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver = class {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.enhanced_network_tts.mojom.AudioDataObserverRemote = class {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverRemote = class {
   static get $interfaceName() {
     return 'ash.enhanced_network_tts.mojom.AudioDataObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver,
+      ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverPendingReceiver,
       handle);
-    this.$ = new ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -204,7 +204,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserverRemote = class {
   }
 };
 
-ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler = class {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -213,15 +213,15 @@ ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec,
+      ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec,
       null,
       [response]);
   }
 
 };
 
-ash.enhanced_network_tts.mojom.AudioDataObserver.getRemote = function() {
-  let remote = new ash.enhanced_network_tts.mojom.AudioDataObserverRemote();
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserver.getRemote = function() {
+  let remote = new ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -231,7 +231,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnAudioDataReceived
-ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = {
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.enhanced_network_tts.mojom.AudioDataObserver.OnAudioDataReceived_Params',
@@ -245,6 +245,6 @@ ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec 
 };
 
 // Legacy compatibility
-ash.enhanced_network_tts.mojom.AudioDataObserverPtr = ash.enhanced_network_tts.mojom.AudioDataObserverRemote;
-ash.enhanced_network_tts.mojom.AudioDataObserverRequest = ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver;
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverPtr = ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverRemote;
+ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverRequest = ash.enhanced_network_tts.enhanced_network_tts.mojom.mojom.AudioDataObserverPendingReceiver;
 

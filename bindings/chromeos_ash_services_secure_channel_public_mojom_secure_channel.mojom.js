@@ -7,13 +7,13 @@
 // Module namespace
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
-ash.secure_channel.mojom = ash.secure_channel.mojom || {};
+ash.secure_channel.secure_channel.mojom = ash.secure_channel.secure_channel.mojom || {};
 
 
-ash.secure_channel.mojom.kConnectionDroppedReason = 1;
+ash.secure_channel.secure_channel.mojom.mojom.kConnectionDroppedReason = 1;
 
 // Enum: ConnectionAttemptFailureReason
-ash.secure_channel.mojom.ConnectionAttemptFailureReason = {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionAttemptFailureReason = {
   AUTHENTICATION_ERROR: 0,
   COULD_NOT_GENERATE_ADVERTISEMENT: 1,
   GATT_CONNECTION_ERROR: 2,
@@ -31,39 +31,39 @@ ash.secure_channel.mojom.ConnectionAttemptFailureReason = {
   MISSING_NEARBY_CONNECTOR: 14,
   CONNECTION_CANCELLED: 15,
 };
-ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionAttemptFailureReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionCreationDetail
-ash.secure_channel.mojom.ConnectionCreationDetail = {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionCreationDetail = {
   REMOTE_DEVICE_USED_BACKGROUND_BLE_ADVERTISING: 0,
   REMOTE_DEVICE_USED_FOREGROUND_BLE_ADVERTISING: 1,
 };
-ash.secure_channel.mojom.ConnectionCreationDetailSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionCreationDetailSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionPriority
-ash.secure_channel.mojom.ConnectionPriority = {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionPriority = {
   LOW: 0,
   MEDIUM: 1,
   HIGH: 2,
 };
-ash.secure_channel.mojom.ConnectionPrioritySpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionMedium
-ash.secure_channel.mojom.ConnectionMedium = {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionMedium = {
   kBluetoothLowEnergy: 0,
   kNearbyConnections: 1,
 };
-ash.secure_channel.mojom.ConnectionMediumSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionMediumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiscoveryResult
-ash.secure_channel.mojom.DiscoveryResult = {
+ash.secure_channel.secure_channel.mojom.mojom.DiscoveryResult = {
   kFailure: 0,
   kSuccess: 1,
 };
-ash.secure_channel.mojom.DiscoveryResultSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.DiscoveryResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiscoveryErrorCode
-ash.secure_channel.mojom.DiscoveryErrorCode = {
+ash.secure_channel.secure_channel.mojom.mojom.DiscoveryErrorCode = {
   kBluetoothTurnedOff: 0,
   kFilterCreationFailed: 1,
   kErrorStartingDiscovery: 2,
@@ -71,10 +71,10 @@ ash.secure_channel.mojom.DiscoveryErrorCode = {
   kDeviceNotInScanRequest: 4,
   kTimeout: 5,
 };
-ash.secure_channel.mojom.DiscoveryErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.DiscoveryErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecureChannelState
-ash.secure_channel.mojom.SecureChannelState = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelState = {
   kGeneratingSessionKeys: 0,
   kSendingHello: 1,
   kSentHello: 2,
@@ -93,10 +93,10 @@ ash.secure_channel.mojom.SecureChannelState = {
   kFailedToSendInitiatorAuth: 15,
   kFailureDisconnectDuringAuthentication: 16,
 };
-ash.secure_channel.mojom.SecureChannelStateSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: BluetoothConnectionMetadata
-ash.secure_channel.mojom.BluetoothConnectionMetadataSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.BluetoothConnectionMetadataSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.BluetoothConnectionMetadata',
@@ -110,7 +110,7 @@ ash.secure_channel.mojom.BluetoothConnectionMetadataSpec = {
 };
 
 // Struct: ConnectionMetadata
-ash.secure_channel.mojom.ConnectionMetadataSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionMetadataSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.ConnectionMetadata',
@@ -126,24 +126,24 @@ ash.secure_channel.mojom.ConnectionMetadataSpec = {
 };
 
 // Interface: Channel
-ash.secure_channel.mojom.Channel = {};
+ash.secure_channel.secure_channel.mojom.mojom.Channel = {};
 
-ash.secure_channel.mojom.ChannelPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.ChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.ChannelRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.ChannelRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.Channel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.ChannelPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.ChannelPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.ChannelRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.ChannelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -155,7 +155,7 @@ ash.secure_channel.mojom.ChannelRemote = class {
   }
 };
 
-ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.ChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -164,7 +164,7 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.Channel_SendMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -173,8 +173,8 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec,
-      ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.Channel_RegisterPayloadFile_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec,
       [payload_id, payload_files, listener]);
   }
 
@@ -182,15 +182,15 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec,
-      ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.Channel_GetConnectionMetadata_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.secure_channel.mojom.Channel.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.ChannelRemote();
+ash.secure_channel.secure_channel.mojom.mojom.Channel.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.ChannelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -200,7 +200,7 @@ ash.secure_channel.mojom.Channel.getRemote = function() {
 };
 
 // ParamsSpec for SendMessage
-ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.Channel_SendMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.Channel.SendMessage_Params',
@@ -214,7 +214,7 @@ ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterPayloadFile
-ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.Channel.RegisterPayloadFile_Params',
@@ -229,7 +229,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
   }
 };
 
-ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.Channel.RegisterPayloadFile_ResponseParams',
@@ -243,7 +243,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetConnectionMetadata
-ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.Channel_GetConnectionMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.Channel.GetConnectionMetadata_Params',
@@ -255,7 +255,7 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = {
   }
 };
 
-ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.Channel.GetConnectionMetadata_ResponseParams',
@@ -269,29 +269,29 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.ChannelPtr = ash.secure_channel.mojom.ChannelRemote;
-ash.secure_channel.mojom.ChannelRequest = ash.secure_channel.mojom.ChannelPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.ChannelPtr = ash.secure_channel.secure_channel.mojom.mojom.ChannelRemote;
+ash.secure_channel.secure_channel.mojom.mojom.ChannelRequest = ash.secure_channel.secure_channel.mojom.mojom.ChannelPendingReceiver;
 
 
 // Interface: MessageReceiver
-ash.secure_channel.mojom.MessageReceiver = {};
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiver = {};
 
-ash.secure_channel.mojom.MessageReceiverPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.MessageReceiverRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.MessageReceiver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.MessageReceiverPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.MessageReceiverRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -303,7 +303,7 @@ ash.secure_channel.mojom.MessageReceiverRemote = class {
   }
 };
 
-ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -312,15 +312,15 @@ ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.MessageReceiver_OnMessageReceived_ParamsSpec,
       null,
       [message]);
   }
 
 };
 
-ash.secure_channel.mojom.MessageReceiver.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.MessageReceiverRemote();
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiver.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -330,7 +330,7 @@ ash.secure_channel.mojom.MessageReceiver.getRemote = function() {
 };
 
 // ParamsSpec for OnMessageReceived
-ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.MessageReceiver.OnMessageReceived_Params',
@@ -344,29 +344,29 @@ ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.MessageReceiverPtr = ash.secure_channel.mojom.MessageReceiverRemote;
-ash.secure_channel.mojom.MessageReceiverRequest = ash.secure_channel.mojom.MessageReceiverPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverPtr = ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverRemote;
+ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverRequest = ash.secure_channel.secure_channel.mojom.mojom.MessageReceiverPendingReceiver;
 
 
 // Interface: ConnectionDelegate
-ash.secure_channel.mojom.ConnectionDelegate = {};
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegate = {};
 
-ash.secure_channel.mojom.ConnectionDelegatePendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.ConnectionDelegateRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegateRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.ConnectionDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.ConnectionDelegatePendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegatePendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -378,7 +378,7 @@ ash.secure_channel.mojom.ConnectionDelegateRemote = class {
   }
 };
 
-ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -387,7 +387,7 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec,
       null,
       [reason]);
   }
@@ -396,15 +396,15 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegate_OnConnection_ParamsSpec,
       null,
       [channel, message_receiver_receiver, nearby_connection_state_listener_receiver]);
   }
 
 };
 
-ash.secure_channel.mojom.ConnectionDelegate.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.ConnectionDelegateRemote();
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegate.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -414,7 +414,7 @@ ash.secure_channel.mojom.ConnectionDelegate.getRemote = function() {
 };
 
 // ParamsSpec for OnConnectionAttemptFailure
-ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.ConnectionDelegate.OnConnectionAttemptFailure_Params',
@@ -428,7 +428,7 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpe
 };
 
 // ParamsSpec for OnConnection
-ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.ConnectionDelegate.OnConnection_Params',
@@ -444,29 +444,29 @@ ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.ConnectionDelegatePtr = ash.secure_channel.mojom.ConnectionDelegateRemote;
-ash.secure_channel.mojom.ConnectionDelegateRequest = ash.secure_channel.mojom.ConnectionDelegatePendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegatePtr = ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegateRemote;
+ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegateRequest = ash.secure_channel.secure_channel.mojom.mojom.ConnectionDelegatePendingReceiver;
 
 
 // Interface: SecureChannelStructuredMetricsLogger
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger = {};
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger = {};
 
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -478,7 +478,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote = class {
   }
 };
 
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -487,7 +487,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec,
       null,
       [result, error_code]);
   }
@@ -496,7 +496,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec,
       null,
       [step, status]);
   }
@@ -505,15 +505,15 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote();
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -523,7 +523,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.getRemote = functi
 };
 
 // ParamsSpec for LogDiscoveryAttempt
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.LogDiscoveryAttempt_Params',
@@ -538,7 +538,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttemp
 };
 
 // ParamsSpec for LogNearbyConnectionState
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.LogNearbyConnectionState_Params',
@@ -553,7 +553,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectio
 };
 
 // ParamsSpec for LogSecureChannelState
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.LogSecureChannelState_Params',
@@ -567,29 +567,29 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelSt
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPtr = ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote;
-ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRequest = ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerPtr = ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerRemote;
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerRequest = ash.secure_channel.secure_channel.mojom.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver;
 
 
 // Interface: SecureChannel
-ash.secure_channel.mojom.SecureChannel = {};
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannel = {};
 
-ash.secure_channel.mojom.SecureChannelPendingReceiver = class {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.secure_channel.mojom.SecureChannelRemote = class {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelRemote = class {
   static get $interfaceName() {
     return 'ash.secure_channel.mojom.SecureChannel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.secure_channel.mojom.SecureChannelPendingReceiver,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannelPendingReceiver,
       handle);
-    this.$ = new ash.secure_channel.mojom.SecureChannelRemoteCallHandler(this.proxy);
+    this.$ = new ash.secure_channel.secure_channel.mojom.mojom.SecureChannelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -601,7 +601,7 @@ ash.secure_channel.mojom.SecureChannelRemote = class {
   }
 };
 
-ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -610,7 +610,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec,
       null,
       [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate]);
   }
@@ -619,7 +619,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec,
       null,
       [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger]);
   }
@@ -628,7 +628,7 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_SetNearbyConnector_ParamsSpec,
       null,
       [nearby_connector]);
   }
@@ -637,15 +637,15 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec,
-      ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec,
+      ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec,
       [remote_device_id]);
   }
 
 };
 
-ash.secure_channel.mojom.SecureChannel.getRemote = function() {
-  let remote = new ash.secure_channel.mojom.SecureChannelRemote();
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannel.getRemote = function() {
+  let remote = new ash.secure_channel.secure_channel.mojom.mojom.SecureChannelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -655,7 +655,7 @@ ash.secure_channel.mojom.SecureChannel.getRemote = function() {
 };
 
 // ParamsSpec for ListenForConnectionFromDevice
-ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannel.ListenForConnectionFromDevice_Params',
@@ -674,7 +674,7 @@ ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec 
 };
 
 // ParamsSpec for InitiateConnectionToDevice
-ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannel.InitiateConnectionToDevice_Params',
@@ -694,7 +694,7 @@ ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = {
 };
 
 // ParamsSpec for SetNearbyConnector
-ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannel.SetNearbyConnector_Params',
@@ -708,7 +708,7 @@ ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = {
 };
 
 // ParamsSpec for GetLastSeenTimestamp
-ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannel.GetLastSeenTimestamp_Params',
@@ -721,7 +721,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
   }
 };
 
-ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec = {
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.secure_channel.mojom.SecureChannel.GetLastSeenTimestamp_ResponseParams',
@@ -735,6 +735,6 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-ash.secure_channel.mojom.SecureChannelPtr = ash.secure_channel.mojom.SecureChannelRemote;
-ash.secure_channel.mojom.SecureChannelRequest = ash.secure_channel.mojom.SecureChannelPendingReceiver;
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelPtr = ash.secure_channel.secure_channel.mojom.mojom.SecureChannelRemote;
+ash.secure_channel.secure_channel.mojom.mojom.SecureChannelRequest = ash.secure_channel.secure_channel.mojom.mojom.SecureChannelPendingReceiver;
 

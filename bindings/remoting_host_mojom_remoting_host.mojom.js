@@ -10,24 +10,24 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Enum: TransportRouteType
-remoting.mojom.TransportRouteType = {
+remoting.mojom.mojom.TransportRouteType = {
   kUndefined: 0,
   kDirect: 1,
   kStun: 2,
   kRelay: 3,
 };
-remoting.mojom.TransportRouteTypeSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.TransportRouteTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TransportRoute
-remoting.mojom.TransportRouteSpec = {
+remoting.mojom.mojom.TransportRouteSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.TransportRoute',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TransportRouteTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.TransportRouteTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -35,24 +35,24 @@ remoting.mojom.TransportRouteSpec = {
 };
 
 // Interface: RemotingHostControl
-remoting.mojom.RemotingHostControl = {};
+remoting.mojom.mojom.RemotingHostControl = {};
 
-remoting.mojom.RemotingHostControlPendingReceiver = class {
+remoting.mojom.mojom.RemotingHostControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.RemotingHostControlRemote = class {
+remoting.mojom.mojom.RemotingHostControlRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.RemotingHostControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.RemotingHostControlPendingReceiver,
+      remoting.mojom.mojom.RemotingHostControlPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.RemotingHostControlRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.RemotingHostControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -64,7 +64,7 @@ remoting.mojom.RemotingHostControlRemote = class {
   }
 };
 
-remoting.mojom.RemotingHostControlRemoteCallHandler = class {
+remoting.mojom.mojom.RemotingHostControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -73,7 +73,7 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec,
+      remoting.mojom.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec,
       null,
       [config]);
   }
@@ -82,7 +82,7 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec,
+      remoting.mojom.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec,
       null,
       [privileged_handle, unprivileged_handle]);
   }
@@ -91,15 +91,15 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec,
+      remoting.mojom.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec,
       null,
       [receiver, peer_pid]);
   }
 
 };
 
-remoting.mojom.RemotingHostControl.getRemote = function() {
-  let remote = new remoting.mojom.RemotingHostControlRemote();
+remoting.mojom.mojom.RemotingHostControl.getRemote = function() {
+  let remote = new remoting.mojom.mojom.RemotingHostControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -109,7 +109,7 @@ remoting.mojom.RemotingHostControl.getRemote = function() {
 };
 
 // ParamsSpec for ApplyHostConfig
-remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
+remoting.mojom.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.RemotingHostControl.ApplyHostConfig_Params',
@@ -123,7 +123,7 @@ remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
 };
 
 // ParamsSpec for InitializePairingRegistry
-remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
+remoting.mojom.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.RemotingHostControl.InitializePairingRegistry_Params',
@@ -138,7 +138,7 @@ remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
 };
 
 // ParamsSpec for BindChromotingHostServices
-remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
+remoting.mojom.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.RemotingHostControl.BindChromotingHostServices_Params',
@@ -153,29 +153,29 @@ remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.RemotingHostControlPtr = remoting.mojom.RemotingHostControlRemote;
-remoting.mojom.RemotingHostControlRequest = remoting.mojom.RemotingHostControlPendingReceiver;
+remoting.mojom.mojom.RemotingHostControlPtr = remoting.mojom.mojom.RemotingHostControlRemote;
+remoting.mojom.mojom.RemotingHostControlRequest = remoting.mojom.mojom.RemotingHostControlPendingReceiver;
 
 
 // Interface: DesktopSessionConnectionEvents
-remoting.mojom.DesktopSessionConnectionEvents = {};
+remoting.mojom.mojom.DesktopSessionConnectionEvents = {};
 
-remoting.mojom.DesktopSessionConnectionEventsPendingReceiver = class {
+remoting.mojom.mojom.DesktopSessionConnectionEventsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.DesktopSessionConnectionEventsRemote = class {
+remoting.mojom.mojom.DesktopSessionConnectionEventsRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.DesktopSessionConnectionEvents';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.DesktopSessionConnectionEventsPendingReceiver,
+      remoting.mojom.mojom.DesktopSessionConnectionEventsPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.DesktopSessionConnectionEventsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -187,7 +187,7 @@ remoting.mojom.DesktopSessionConnectionEventsRemote = class {
   }
 };
 
-remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
+remoting.mojom.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -196,7 +196,7 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec,
       null,
       [terminal_id]);
   }
@@ -205,15 +205,15 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec,
       null,
       [terminal_id, session_id, desktop_pipe]);
   }
 
 };
 
-remoting.mojom.DesktopSessionConnectionEvents.getRemote = function() {
-  let remote = new remoting.mojom.DesktopSessionConnectionEventsRemote();
+remoting.mojom.mojom.DesktopSessionConnectionEvents.getRemote = function() {
+  let remote = new remoting.mojom.mojom.DesktopSessionConnectionEventsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -223,7 +223,7 @@ remoting.mojom.DesktopSessionConnectionEvents.getRemote = function() {
 };
 
 // ParamsSpec for OnTerminalDisconnected
-remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionConnectionEvents.OnTerminalDisconnected_Params',
@@ -237,15 +237,15 @@ remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec 
 };
 
 // ParamsSpec for OnDesktopSessionAgentAttached
-remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionConnectionEvents.OnDesktopSessionAgentAttached_Params',
       packedSize: 24,
       fields: [
-        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'desktop_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'desktop_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -253,29 +253,29 @@ remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Para
 };
 
 // Legacy compatibility
-remoting.mojom.DesktopSessionConnectionEventsPtr = remoting.mojom.DesktopSessionConnectionEventsRemote;
-remoting.mojom.DesktopSessionConnectionEventsRequest = remoting.mojom.DesktopSessionConnectionEventsPendingReceiver;
+remoting.mojom.mojom.DesktopSessionConnectionEventsPtr = remoting.mojom.mojom.DesktopSessionConnectionEventsRemote;
+remoting.mojom.mojom.DesktopSessionConnectionEventsRequest = remoting.mojom.mojom.DesktopSessionConnectionEventsPendingReceiver;
 
 
 // Interface: HostStatusObserver
-remoting.mojom.HostStatusObserver = {};
+remoting.mojom.mojom.HostStatusObserver = {};
 
-remoting.mojom.HostStatusObserverPendingReceiver = class {
+remoting.mojom.mojom.HostStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.HostStatusObserverRemote = class {
+remoting.mojom.mojom.HostStatusObserverRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.HostStatusObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.HostStatusObserverPendingReceiver,
+      remoting.mojom.mojom.HostStatusObserverPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.HostStatusObserverRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.HostStatusObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -287,7 +287,7 @@ remoting.mojom.HostStatusObserverRemote = class {
   }
 };
 
-remoting.mojom.HostStatusObserverRemoteCallHandler = class {
+remoting.mojom.mojom.HostStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -296,7 +296,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec,
+      remoting.mojom.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -305,7 +305,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec,
+      remoting.mojom.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -314,7 +314,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec,
+      remoting.mojom.mojom.HostStatusObserver_OnClientConnected_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -323,7 +323,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec,
+      remoting.mojom.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec,
       null,
       [signaling_id]);
   }
@@ -332,7 +332,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec,
+      remoting.mojom.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec,
       null,
       [signaling_id, channel_name, route]);
   }
@@ -341,7 +341,7 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec,
+      remoting.mojom.mojom.HostStatusObserver_OnHostStarted_ParamsSpec,
       null,
       [owner_email]);
   }
@@ -350,15 +350,15 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec,
+      remoting.mojom.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec,
       null,
       []);
   }
 
 };
 
-remoting.mojom.HostStatusObserver.getRemote = function() {
-  let remote = new remoting.mojom.HostStatusObserverRemote();
+remoting.mojom.mojom.HostStatusObserver.getRemote = function() {
+  let remote = new remoting.mojom.mojom.HostStatusObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -368,7 +368,7 @@ remoting.mojom.HostStatusObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnClientAccessDenied
-remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
+remoting.mojom.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.HostStatusObserver.OnClientAccessDenied_Params',
@@ -382,7 +382,7 @@ remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
 };
 
 // ParamsSpec for OnClientAuthenticated
-remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
+remoting.mojom.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.HostStatusObserver.OnClientAuthenticated_Params',
@@ -396,7 +396,7 @@ remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
 };
 
 // ParamsSpec for OnClientConnected
-remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
+remoting.mojom.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.HostStatusObserver.OnClientConnected_Params',
@@ -410,7 +410,7 @@ remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
 };
 
 // ParamsSpec for OnClientDisconnected
-remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
+remoting.mojom.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.HostStatusObserver.OnClientDisconnected_Params',
@@ -424,7 +424,7 @@ remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
 };
 
 // ParamsSpec for OnClientRouteChange
-remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
+remoting.mojom.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.HostStatusObserver.OnClientRouteChange_Params',
@@ -440,7 +440,7 @@ remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostStarted
-remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
+remoting.mojom.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.HostStatusObserver.OnHostStarted_Params',
@@ -454,7 +454,7 @@ remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostShutdown
-remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = {
+remoting.mojom.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.HostStatusObserver.OnHostShutdown_Params',
@@ -467,6 +467,6 @@ remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.HostStatusObserverPtr = remoting.mojom.HostStatusObserverRemote;
-remoting.mojom.HostStatusObserverRequest = remoting.mojom.HostStatusObserverPendingReceiver;
+remoting.mojom.mojom.HostStatusObserverPtr = remoting.mojom.mojom.HostStatusObserverRemote;
+remoting.mojom.mojom.HostStatusObserverRequest = remoting.mojom.mojom.HostStatusObserverPendingReceiver;
 

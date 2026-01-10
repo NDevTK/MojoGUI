@@ -7,10 +7,12 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: Selection
-viz.mojom.SelectionSpec = {
+viz.mojom.mojom.SelectionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Selection',

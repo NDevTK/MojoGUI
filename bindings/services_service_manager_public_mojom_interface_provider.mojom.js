@@ -10,24 +10,24 @@ service_manager.mojom = service_manager.mojom || {};
 
 
 // Interface: InterfaceProvider
-service_manager.mojom.InterfaceProvider = {};
+service_manager.mojom.mojom.InterfaceProvider = {};
 
-service_manager.mojom.InterfaceProviderPendingReceiver = class {
+service_manager.mojom.mojom.InterfaceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-service_manager.mojom.InterfaceProviderRemote = class {
+service_manager.mojom.mojom.InterfaceProviderRemote = class {
   static get $interfaceName() {
     return 'service_manager.mojom.InterfaceProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      service_manager.mojom.InterfaceProviderPendingReceiver,
+      service_manager.mojom.mojom.InterfaceProviderPendingReceiver,
       handle);
-    this.$ = new service_manager.mojom.InterfaceProviderRemoteCallHandler(this.proxy);
+    this.$ = new service_manager.mojom.mojom.InterfaceProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ service_manager.mojom.InterfaceProviderRemote = class {
   }
 };
 
-service_manager.mojom.InterfaceProviderRemoteCallHandler = class {
+service_manager.mojom.mojom.InterfaceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ service_manager.mojom.InterfaceProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec,
+      service_manager.mojom.mojom.InterfaceProvider_GetInterface_ParamsSpec,
       null,
       [interface_name, pipe]);
   }
 
 };
 
-service_manager.mojom.InterfaceProvider.getRemote = function() {
-  let remote = new service_manager.mojom.InterfaceProviderRemote();
+service_manager.mojom.mojom.InterfaceProvider.getRemote = function() {
+  let remote = new service_manager.mojom.mojom.InterfaceProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ service_manager.mojom.InterfaceProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetInterface
-service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
+service_manager.mojom.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.InterfaceProvider.GetInterface_Params',
@@ -81,6 +81,6 @@ service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
 };
 
 // Legacy compatibility
-service_manager.mojom.InterfaceProviderPtr = service_manager.mojom.InterfaceProviderRemote;
-service_manager.mojom.InterfaceProviderRequest = service_manager.mojom.InterfaceProviderPendingReceiver;
+service_manager.mojom.mojom.InterfaceProviderPtr = service_manager.mojom.mojom.InterfaceProviderRemote;
+service_manager.mojom.mojom.InterfaceProviderRequest = service_manager.mojom.mojom.InterfaceProviderPendingReceiver;
 

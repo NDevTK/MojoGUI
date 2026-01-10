@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: CrashCollectorHost
-arc.mojom.CrashCollectorHost = {};
+arc.mojom.mojom.CrashCollectorHost = {};
 
-arc.mojom.CrashCollectorHostPendingReceiver = class {
+arc.mojom.mojom.CrashCollectorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.CrashCollectorHostRemote = class {
+arc.mojom.mojom.CrashCollectorHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.CrashCollectorHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.CrashCollectorHostPendingReceiver,
+      arc.mojom.mojom.CrashCollectorHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.CrashCollectorHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.CrashCollectorHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.CrashCollectorHostRemote = class {
   }
 };
 
-arc.mojom.CrashCollectorHostRemoteCallHandler = class {
+arc.mojom.mojom.CrashCollectorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec,
+      arc.mojom.mojom.CrashCollectorHost_DumpCrash_ParamsSpec,
       null,
       [type, pipe, uptime]);
   }
@@ -57,7 +57,7 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec,
+      arc.mojom.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec,
       null,
       [device, board, cpu_abi, fingerprint]);
   }
@@ -66,7 +66,7 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec,
+      arc.mojom.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec,
       null,
       [exec_name, pid, timestamp, minidump_fd]);
   }
@@ -75,15 +75,15 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec,
+      arc.mojom.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec,
       null,
       [ramoops_handle]);
   }
 
 };
 
-arc.mojom.CrashCollectorHost.getRemote = function() {
-  let remote = new arc.mojom.CrashCollectorHostRemote();
+arc.mojom.mojom.CrashCollectorHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.CrashCollectorHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,23 +93,23 @@ arc.mojom.CrashCollectorHost.getRemote = function() {
 };
 
 // ParamsSpec for DumpCrash
-arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec = {
+arc.mojom.mojom.CrashCollectorHost_DumpCrash_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CrashCollectorHost.DumpCrash_Params',
       packedSize: 32,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'uptime', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 6 },
+        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'uptime', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 32}]
+      versions: [{version: 0, packedSize: 32}, {version: 6, packedSize: 32}]
     }
   }
 };
 
 // ParamsSpec for SetBuildProperties
-arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec = {
+arc.mojom.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CrashCollectorHost.SetBuildProperties_Params',
@@ -126,16 +126,16 @@ arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec = {
 };
 
 // ParamsSpec for DumpNativeCrash
-arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec = {
+arc.mojom.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CrashCollectorHost.DumpNativeCrash_Params',
       packedSize: 32,
       fields: [
         { name: 'exec_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'minidump_fd', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'minidump_fd', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -143,7 +143,7 @@ arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec = {
 };
 
 // ParamsSpec for DumpKernelCrash
-arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec = {
+arc.mojom.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CrashCollectorHost.DumpKernelCrash_Params',
@@ -157,29 +157,29 @@ arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.CrashCollectorHostPtr = arc.mojom.CrashCollectorHostRemote;
-arc.mojom.CrashCollectorHostRequest = arc.mojom.CrashCollectorHostPendingReceiver;
+arc.mojom.mojom.CrashCollectorHostPtr = arc.mojom.mojom.CrashCollectorHostRemote;
+arc.mojom.mojom.CrashCollectorHostRequest = arc.mojom.mojom.CrashCollectorHostPendingReceiver;
 
 
 // Interface: CrashCollectorInstance
-arc.mojom.CrashCollectorInstance = {};
+arc.mojom.mojom.CrashCollectorInstance = {};
 
-arc.mojom.CrashCollectorInstancePendingReceiver = class {
+arc.mojom.mojom.CrashCollectorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.CrashCollectorInstanceRemote = class {
+arc.mojom.mojom.CrashCollectorInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.CrashCollectorInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.CrashCollectorInstancePendingReceiver,
+      arc.mojom.mojom.CrashCollectorInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.CrashCollectorInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.CrashCollectorInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -191,7 +191,7 @@ arc.mojom.CrashCollectorInstanceRemote = class {
   }
 };
 
-arc.mojom.CrashCollectorInstanceRemoteCallHandler = class {
+arc.mojom.mojom.CrashCollectorInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -200,15 +200,15 @@ arc.mojom.CrashCollectorInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.CrashCollectorInstance_Init_ParamsSpec,
+      arc.mojom.mojom.CrashCollectorInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.CrashCollectorInstance.getRemote = function() {
-  let remote = new arc.mojom.CrashCollectorInstanceRemote();
+arc.mojom.mojom.CrashCollectorInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.CrashCollectorInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -218,7 +218,7 @@ arc.mojom.CrashCollectorInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.CrashCollectorInstance_Init_ParamsSpec = {
+arc.mojom.mojom.CrashCollectorInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CrashCollectorInstance.Init_Params',
@@ -232,6 +232,6 @@ arc.mojom.CrashCollectorInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.CrashCollectorInstancePtr = arc.mojom.CrashCollectorInstanceRemote;
-arc.mojom.CrashCollectorInstanceRequest = arc.mojom.CrashCollectorInstancePendingReceiver;
+arc.mojom.mojom.CrashCollectorInstancePtr = arc.mojom.mojom.CrashCollectorInstanceRemote;
+arc.mojom.mojom.CrashCollectorInstanceRequest = arc.mojom.mojom.CrashCollectorInstancePendingReceiver;
 

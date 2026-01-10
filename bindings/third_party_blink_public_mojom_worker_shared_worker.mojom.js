@@ -7,27 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Interface: SharedWorker
-blink.mojom.SharedWorker = {};
+blink.mojom.mojom.SharedWorker = {};
 
-blink.mojom.SharedWorkerPendingReceiver = class {
+blink.mojom.mojom.SharedWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SharedWorkerRemote = class {
+blink.mojom.mojom.SharedWorkerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SharedWorker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SharedWorkerPendingReceiver,
+      blink.mojom.mojom.SharedWorkerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SharedWorkerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SharedWorkerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ blink.mojom.SharedWorkerRemote = class {
   }
 };
 
-blink.mojom.SharedWorkerRemoteCallHandler = class {
+blink.mojom.mojom.SharedWorkerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +49,7 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SharedWorker_Connect_ParamsSpec,
+      blink.mojom.mojom.SharedWorker_Connect_ParamsSpec,
       null,
       [connection_id, message_port]);
   }
@@ -57,15 +58,15 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SharedWorker_Terminate_ParamsSpec,
+      blink.mojom.mojom.SharedWorker_Terminate_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.SharedWorker.getRemote = function() {
-  let remote = new blink.mojom.SharedWorkerRemote();
+blink.mojom.mojom.SharedWorker.getRemote = function() {
+  let remote = new blink.mojom.mojom.SharedWorkerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,14 +76,14 @@ blink.mojom.SharedWorker.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-blink.mojom.SharedWorker_Connect_ParamsSpec = {
+blink.mojom.mojom.SharedWorker_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorker.Connect_Params',
       packedSize: 24,
       fields: [
-        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'message_port', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
+        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'message_port', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -90,7 +91,7 @@ blink.mojom.SharedWorker_Connect_ParamsSpec = {
 };
 
 // ParamsSpec for Terminate
-blink.mojom.SharedWorker_Terminate_ParamsSpec = {
+blink.mojom.mojom.SharedWorker_Terminate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorker.Terminate_Params',
@@ -103,6 +104,6 @@ blink.mojom.SharedWorker_Terminate_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SharedWorkerPtr = blink.mojom.SharedWorkerRemote;
-blink.mojom.SharedWorkerRequest = blink.mojom.SharedWorkerPendingReceiver;
+blink.mojom.mojom.SharedWorkerPtr = blink.mojom.mojom.SharedWorkerRemote;
+blink.mojom.mojom.SharedWorkerRequest = blink.mojom.mojom.SharedWorkerPendingReceiver;
 

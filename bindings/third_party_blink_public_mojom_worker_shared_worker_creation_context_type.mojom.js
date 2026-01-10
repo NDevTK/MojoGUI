@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: SharedWorkerCreationContextType
-blink.mojom.SharedWorkerCreationContextType = {
+blink.mojom.mojom.SharedWorkerCreationContextType = {
   kNonsecure: 0,
   kSecure: 1,
 };
-blink.mojom.SharedWorkerCreationContextTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SharedWorkerCreationContextTypeSpec = { $: mojo.internal.Enum() };

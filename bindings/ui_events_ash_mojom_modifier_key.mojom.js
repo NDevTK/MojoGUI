@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: ModifierKey
-ui.mojom.ModifierKey = {
+ui.mojom.mojom.ModifierKey = {
   kMeta: 0,
   kControl: 1,
   kAlt: 2,
@@ -23,4 +23,4 @@ ui.mojom.ModifierKey = {
   kFunction: 9,
   kQuickInsert: 10,
 };
-ui.mojom.ModifierKeySpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.ModifierKeySpec = { $: mojo.internal.Enum() };

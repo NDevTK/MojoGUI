@@ -10,17 +10,17 @@ network.mojom = network.mojom || {};
 
 
 // Enum: ConnectionAllowlistIssue
-network.mojom.ConnectionAllowlistIssue = {
+network.mojom.mojom.ConnectionAllowlistIssue = {
   kInvalidHeader: 0,
   kMoreThanOneList: 1,
   kItemNotInnerList: 2,
   kInvalidAllowlistItemType: 3,
   kReportingEndpointNotToken: 4,
 };
-network.mojom.ConnectionAllowlistIssueSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.ConnectionAllowlistIssueSpec = { $: mojo.internal.Enum() };
 
 // Struct: ConnectionAllowlist
-network.mojom.ConnectionAllowlistSpec = {
+network.mojom.mojom.ConnectionAllowlistSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionAllowlist',
@@ -36,7 +36,7 @@ network.mojom.ConnectionAllowlistSpec = {
 };
 
 // Struct: ConnectionAllowlists
-network.mojom.ConnectionAllowlistsSpec = {
+network.mojom.mojom.ConnectionAllowlistsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionAllowlists',

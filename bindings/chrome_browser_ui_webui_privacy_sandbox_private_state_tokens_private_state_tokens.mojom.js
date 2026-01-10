@@ -10,7 +10,7 @@ private_state_tokens.mojom = private_state_tokens.mojom || {};
 
 
 // Struct: IssuerTokenCount
-private_state_tokens.mojom.IssuerTokenCountSpec = {
+private_state_tokens.mojom.mojom.IssuerTokenCountSpec = {
   $: {
     structSpec: {
       name: 'private_state_tokens.mojom.IssuerTokenCount',
@@ -25,24 +25,24 @@ private_state_tokens.mojom.IssuerTokenCountSpec = {
 };
 
 // Interface: PrivateStateTokensPageHandler
-private_state_tokens.mojom.PrivateStateTokensPageHandler = {};
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandler = {};
 
-private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver = class {
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote = class {
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerRemote = class {
   static get $interfaceName() {
     return 'private_state_tokens.mojom.PrivateStateTokensPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver,
+      private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerPendingReceiver,
       handle);
-    this.$ = new private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote = class {
   }
 };
 
-private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = class {
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,15 +63,15 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = clas
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec,
-      private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec,
+      private_state_tokens.mojom.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec,
+      private_state_tokens.mojom.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec,
       []);
   }
 
 };
 
-private_state_tokens.mojom.PrivateStateTokensPageHandler.getRemote = function() {
-  let remote = new private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote();
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandler.getRemote = function() {
+  let remote = new private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -81,7 +81,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler.getRemote = function() 
 };
 
 // ParamsSpec for GetIssuerTokenCounts
-private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec = {
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'private_state_tokens.mojom.PrivateStateTokensPageHandler.GetIssuerTokenCounts_Params',
@@ -93,7 +93,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Pa
   }
 };
 
-private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec = {
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'private_state_tokens.mojom.PrivateStateTokensPageHandler.GetIssuerTokenCounts_ResponseParams',
@@ -107,6 +107,6 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Re
 };
 
 // Legacy compatibility
-private_state_tokens.mojom.PrivateStateTokensPageHandlerPtr = private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote;
-private_state_tokens.mojom.PrivateStateTokensPageHandlerRequest = private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver;
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerPtr = private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerRemote;
+private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerRequest = private_state_tokens.mojom.mojom.PrivateStateTokensPageHandlerPendingReceiver;
 

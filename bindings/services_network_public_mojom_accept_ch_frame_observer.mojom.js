@@ -7,27 +7,28 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Interface: AcceptCHFrameObserver
-network.mojom.AcceptCHFrameObserver = {};
+network.mojom.mojom.AcceptCHFrameObserver = {};
 
-network.mojom.AcceptCHFrameObserverPendingReceiver = class {
+network.mojom.mojom.AcceptCHFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.AcceptCHFrameObserverRemote = class {
+network.mojom.mojom.AcceptCHFrameObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.AcceptCHFrameObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.AcceptCHFrameObserverPendingReceiver,
+      network.mojom.mojom.AcceptCHFrameObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.AcceptCHFrameObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.AcceptCHFrameObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ network.mojom.AcceptCHFrameObserverRemote = class {
   }
 };
 
-network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
+network.mojom.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +49,8 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
-      network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
+      network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
+      network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
       [origin, accept_ch_frame]);
   }
 
@@ -57,15 +58,15 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
+      network.mojom.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-network.mojom.AcceptCHFrameObserver.getRemote = function() {
-  let remote = new network.mojom.AcceptCHFrameObserverRemote();
+network.mojom.mojom.AcceptCHFrameObserver.getRemote = function() {
+  let remote = new network.mojom.mojom.AcceptCHFrameObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +76,7 @@ network.mojom.AcceptCHFrameObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnAcceptCHFrameReceived
-network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
+network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_Params',
@@ -89,7 +90,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec = {
   }
 };
 
-network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = {
+network.mojom.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AcceptCHFrameObserver.OnAcceptCHFrameReceived_ResponseParams',
@@ -103,7 +104,7 @@ network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec =
 };
 
 // ParamsSpec for Clone
-network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
+network.mojom.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AcceptCHFrameObserver.Clone_Params',
@@ -117,6 +118,6 @@ network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.AcceptCHFrameObserverPtr = network.mojom.AcceptCHFrameObserverRemote;
-network.mojom.AcceptCHFrameObserverRequest = network.mojom.AcceptCHFrameObserverPendingReceiver;
+network.mojom.mojom.AcceptCHFrameObserverPtr = network.mojom.mojom.AcceptCHFrameObserverRemote;
+network.mojom.mojom.AcceptCHFrameObserverRequest = network.mojom.mojom.AcceptCHFrameObserverPendingReceiver;
 

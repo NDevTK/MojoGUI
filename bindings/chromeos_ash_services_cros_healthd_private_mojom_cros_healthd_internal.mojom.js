@@ -7,21 +7,21 @@
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.internal = ash.cros_healthd.internal || {};
-ash.cros_healthd.internal.mojom = ash.cros_healthd.internal.mojom || {};
+ash.cros_healthd.cros_healthd.internal = ash.cros_healthd.cros_healthd.internal || {};
+ash.cros_healthd.cros_healthd.internal.internal.mojom = ash.cros_healthd.cros_healthd.internal.internal.mojom || {};
 
 
 // Enum: ConnectionType
-ash.cros_healthd.internal.mojom.ConnectionType = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ConnectionType = {
   kInternal: 0,
   kUSB: 1,
   kBluetooth: 2,
   kUnknown: 3,
 };
-ash.cros_healthd.internal.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TouchscreenDevice
-ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.TouchscreenDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.TouchscreenDevice',
@@ -38,7 +38,7 @@ ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = {
 };
 
 // Struct: InputDevice
-ash.cros_healthd.internal.mojom.InputDeviceSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.InputDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.InputDevice',
@@ -53,24 +53,24 @@ ash.cros_healthd.internal.mojom.InputDeviceSpec = {
 };
 
 // Interface: ChromiumDataCollector
-ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector = {};
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollectorPendingReceiver = class {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote = class {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.internal.mojom.ChromiumDataCollector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.internal.mojom.ChromiumDataCollectorPendingReceiver,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler(this.proxy);
+    this.$ = new ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -82,7 +82,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote = class {
   }
 };
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -91,8 +91,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec,
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec,
       []);
   }
 
@@ -100,8 +100,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec,
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec,
       []);
   }
 
@@ -109,8 +109,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec,
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec,
       [state]);
   }
 
@@ -118,15 +118,15 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec,
-      ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec,
+      ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec,
       [mute_on]);
   }
 
 };
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector.getRemote = function() {
-  let remote = new ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote();
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector.getRemote = function() {
+  let remote = new ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -136,7 +136,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector.getRemote = function() {
 };
 
 // ParamsSpec for GetTouchscreenDevices
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchscreenDevices_Params',
@@ -148,7 +148,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_Para
   }
 };
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchscreenDevices_ResponseParams',
@@ -162,7 +162,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_Resp
 };
 
 // ParamsSpec for GetTouchpadLibraryName
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchpadLibraryName_Params',
@@ -174,7 +174,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_Par
   }
 };
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchpadLibraryName_ResponseParams',
@@ -188,7 +188,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_Res
 };
 
 // ParamsSpec for SetPrivacyScreenState
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.SetPrivacyScreenState_Params',
@@ -201,7 +201,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_Para
   }
 };
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.SetPrivacyScreenState_ResponseParams',
@@ -215,7 +215,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_Resp
 };
 
 // ParamsSpec for DEPRECATED_SetAudioOutputMute
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.DEPRECATED_SetAudioOutputMute_Params',
@@ -228,7 +228,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputM
   }
 };
 
-ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec = {
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.DEPRECATED_SetAudioOutputMute_ResponseParams',
@@ -242,6 +242,6 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputM
 };
 
 // Legacy compatibility
-ash.cros_healthd.internal.mojom.ChromiumDataCollectorPtr = ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote;
-ash.cros_healthd.internal.mojom.ChromiumDataCollectorRequest = ash.cros_healthd.internal.mojom.ChromiumDataCollectorPendingReceiver;
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorPtr = ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorRemote;
+ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorRequest = ash.cros_healthd.cros_healthd.internal.internal.mojom.mojom.ChromiumDataCollectorPendingReceiver;
 

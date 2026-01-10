@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: NavigationDownloadTypes
-blink.mojom.NavigationDownloadTypesSpec = {
+blink.mojom.mojom.NavigationDownloadTypesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationDownloadTypes',
@@ -30,7 +30,7 @@ blink.mojom.NavigationDownloadTypesSpec = {
 };
 
 // Struct: NavigationDownloadPolicy
-blink.mojom.NavigationDownloadPolicySpec = {
+blink.mojom.mojom.NavigationDownloadPolicySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NavigationDownloadPolicy',

@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Struct: SpeechRecognitionHypothesis
-media.mojom.SpeechRecognitionHypothesisSpec = {
+media.mojom.mojom.SpeechRecognitionHypothesisSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionHypothesis',
@@ -25,7 +25,7 @@ media.mojom.SpeechRecognitionHypothesisSpec = {
 };
 
 // Struct: WebSpeechRecognitionResult
-media.mojom.WebSpeechRecognitionResultSpec = {
+media.mojom.mojom.WebSpeechRecognitionResultSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WebSpeechRecognitionResult',

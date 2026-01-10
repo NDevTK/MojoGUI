@@ -10,7 +10,7 @@ color.mojom = color.mojom || {};
 
 
 // Enum: RendererColorId
-color.mojom.RendererColorId = {
+color.mojom.mojom.RendererColorId = {
   kColorCssSystemActiveText: 0,
   kColorCssSystemBtnFace: 1,
   kColorCssSystemBtnText: 2,
@@ -78,4 +78,4 @@ color.mojom.RendererColorId = {
   kColorWebNativeControlSliderHovered: 64,
   kColorWebNativeControlSliderPressed: 65,
 };
-color.mojom.RendererColorIdSpec = { $: mojo.internal.Enum() };
+color.mojom.mojom.RendererColorIdSpec = { $: mojo.internal.Enum() };

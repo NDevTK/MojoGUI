@@ -10,24 +10,24 @@ media.mojom = media.mojom || {};
 
 
 // Interface: LocalMuter
-media.mojom.LocalMuter = {};
+media.mojom.mojom.LocalMuter = {};
 
-media.mojom.LocalMuterPendingReceiver = class {
+media.mojom.mojom.LocalMuterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.LocalMuterRemote = class {
+media.mojom.mojom.LocalMuterRemote = class {
   static get $interfaceName() {
     return 'media.mojom.LocalMuter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.LocalMuterPendingReceiver,
+      media.mojom.mojom.LocalMuterPendingReceiver,
       handle);
-    this.$ = new media.mojom.LocalMuterRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.LocalMuterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ media.mojom.LocalMuterRemote = class {
   }
 };
 
-media.mojom.LocalMuterRemoteCallHandler = class {
+media.mojom.mojom.LocalMuterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-media.mojom.LocalMuter.getRemote = function() {
-  let remote = new media.mojom.LocalMuterRemote();
+media.mojom.mojom.LocalMuter.getRemote = function() {
+  let remote = new media.mojom.mojom.LocalMuterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,29 +57,29 @@ media.mojom.LocalMuter.getRemote = function() {
 };
 
 // Legacy compatibility
-media.mojom.LocalMuterPtr = media.mojom.LocalMuterRemote;
-media.mojom.LocalMuterRequest = media.mojom.LocalMuterPendingReceiver;
+media.mojom.mojom.LocalMuterPtr = media.mojom.mojom.LocalMuterRemote;
+media.mojom.mojom.LocalMuterRequest = media.mojom.mojom.LocalMuterPendingReceiver;
 
 
 // Interface: AudioStreamFactory
-media.mojom.AudioStreamFactory = {};
+media.mojom.mojom.AudioStreamFactory = {};
 
-media.mojom.AudioStreamFactoryPendingReceiver = class {
+media.mojom.mojom.AudioStreamFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.AudioStreamFactoryRemote = class {
+media.mojom.mojom.AudioStreamFactoryRemote = class {
   static get $interfaceName() {
     return 'media.mojom.AudioStreamFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.AudioStreamFactoryPendingReceiver,
+      media.mojom.mojom.AudioStreamFactoryPendingReceiver,
       handle);
-    this.$ = new media.mojom.AudioStreamFactoryRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.AudioStreamFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -91,7 +91,7 @@ media.mojom.AudioStreamFactoryRemote = class {
   }
 };
 
-media.mojom.AudioStreamFactoryRemoteCallHandler = class {
+media.mojom.mojom.AudioStreamFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -100,8 +100,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec,
-      media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec,
       [stream, client, observer, log, device_id, params, group_id, shared_memory_count, enable_agc, processing_config]);
   }
 
@@ -109,7 +109,7 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
       [input_stream_id, output_device_id]);
   }
@@ -118,8 +118,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec,
-      media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec,
       [stream, observer, log, device_id, params, group_id]);
   }
 
@@ -127,8 +127,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec,
-      media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec,
       [stream, device_switch_receiver, observer, log, device_id, params, group_id]);
   }
 
@@ -136,7 +136,7 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.AudioStreamFactory_BindMuter_ParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_BindMuter_ParamsSpec,
       null,
       [receiver, group_id]);
   }
@@ -145,15 +145,15 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec,
-      media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec,
+      media.mojom.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec,
       [receiver, client, observer, params, shared_memory_count, group_id]);
   }
 
 };
 
-media.mojom.AudioStreamFactory.getRemote = function() {
-  let remote = new media.mojom.AudioStreamFactoryRemote();
+media.mojom.mojom.AudioStreamFactory.getRemote = function() {
+  let remote = new media.mojom.mojom.AudioStreamFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -163,37 +163,37 @@ media.mojom.AudioStreamFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateInputStream
-media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateInputStream_Params',
       packedSize: 64,
       fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'log', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'enable_agc', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'processing_config', packedOffset: 48, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'log', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'enable_agc', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'processing_config', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
   }
 };
 
-media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateInputStream_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: true, minVersion: 0 },
-        { name: 'initially_muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'initially_muted', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'stream_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -201,7 +201,7 @@ media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AssociateInputAndOutputForAec
-media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.AssociateInputAndOutputForAec_Params',
@@ -216,25 +216,25 @@ media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
 };
 
 // ParamsSpec for CreateOutputStream
-media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateOutputStream_Params',
       packedSize: 48,
       fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'log', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
   }
 };
 
-media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateOutputStream_ResponseParams',
@@ -248,26 +248,26 @@ media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateSwitchableOutputStream
-media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateSwitchableOutputStream_Params',
       packedSize: 48,
       fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'device_switch_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'log', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'device_switch_receiver', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'log', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
   }
 };
 
-media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateSwitchableOutputStream_ResponseParams',
@@ -281,14 +281,14 @@ media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec =
 };
 
 // ParamsSpec for BindMuter
-media.mojom.AudioStreamFactory_BindMuter_ParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_BindMuter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.BindMuter_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -296,25 +296,25 @@ media.mojom.AudioStreamFactory_BindMuter_ParamsSpec = {
 };
 
 // ParamsSpec for CreateLoopbackStream
-media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateLoopbackStream_Params',
       packedSize: 40,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_memory_count', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec = {
+media.mojom.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioStreamFactory.CreateLoopbackStream_ResponseParams',
@@ -328,6 +328,6 @@ media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.AudioStreamFactoryPtr = media.mojom.AudioStreamFactoryRemote;
-media.mojom.AudioStreamFactoryRequest = media.mojom.AudioStreamFactoryPendingReceiver;
+media.mojom.mojom.AudioStreamFactoryPtr = media.mojom.mojom.AudioStreamFactoryRemote;
+media.mojom.mojom.AudioStreamFactoryRequest = media.mojom.mojom.AudioStreamFactoryPendingReceiver;
 

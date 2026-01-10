@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: RendererContentSettings
-blink.mojom.RendererContentSettingsSpec = {
+blink.mojom.mojom.RendererContentSettingsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RendererContentSettings',

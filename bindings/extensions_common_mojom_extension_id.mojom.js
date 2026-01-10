@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Struct: ExtensionId
-extensions.mojom.ExtensionIdSpec = {
+extensions.mojom.mojom.ExtensionIdSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExtensionId',

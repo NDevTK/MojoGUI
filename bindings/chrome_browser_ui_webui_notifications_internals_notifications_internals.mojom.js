@@ -10,24 +10,24 @@ notifications_internals.mojom = notifications_internals.mojom || {};
 
 
 // Interface: PageHandler
-notifications_internals.mojom.PageHandler = {};
+notifications_internals.mojom.mojom.PageHandler = {};
 
-notifications_internals.mojom.PageHandlerPendingReceiver = class {
+notifications_internals.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-notifications_internals.mojom.PageHandlerRemote = class {
+notifications_internals.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'notifications_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      notifications_internals.mojom.PageHandlerPendingReceiver,
+      notifications_internals.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new notifications_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new notifications_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ notifications_internals.mojom.PageHandlerRemote = class {
   }
 };
 
-notifications_internals.mojom.PageHandlerRemoteCallHandler = class {
+notifications_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ notifications_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec,
+      notifications_internals.mojom.mojom.PageHandler_ScheduleNotification_ParamsSpec,
       null,
       [feature]);
   }
 
 };
 
-notifications_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new notifications_internals.mojom.PageHandlerRemote();
+notifications_internals.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new notifications_internals.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ notifications_internals.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ScheduleNotification
-notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
+notifications_internals.mojom.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
   $: {
     structSpec: {
       name: 'notifications_internals.mojom.PageHandler.ScheduleNotification_Params',
@@ -80,6 +80,6 @@ notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = {
 };
 
 // Legacy compatibility
-notifications_internals.mojom.PageHandlerPtr = notifications_internals.mojom.PageHandlerRemote;
-notifications_internals.mojom.PageHandlerRequest = notifications_internals.mojom.PageHandlerPendingReceiver;
+notifications_internals.mojom.mojom.PageHandlerPtr = notifications_internals.mojom.mojom.PageHandlerRemote;
+notifications_internals.mojom.mojom.PageHandlerRequest = notifications_internals.mojom.mojom.PageHandlerPendingReceiver;
 

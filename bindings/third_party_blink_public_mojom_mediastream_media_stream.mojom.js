@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Enum: MediaStreamType
-blink.mojom.MediaStreamType = {
+blink.mojom.mojom.MediaStreamType = {
   NO_SERVICE: 0,
   DEVICE_AUDIO_CAPTURE: 1,
   DEVICE_VIDEO_CAPTURE: 2,
@@ -24,10 +25,10 @@ blink.mojom.MediaStreamType = {
   DISPLAY_VIDEO_CAPTURE_SET: 10,
   NUM_MEDIA_TYPES: 11,
 };
-blink.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaStreamRequestResult
-blink.mojom.MediaStreamRequestResult = {
+blink.mojom.mojom.MediaStreamRequestResult = {
   OK: 0,
   PERMISSION_DENIED: 1,
   PERMISSION_DISMISSED: 2,
@@ -66,26 +67,26 @@ blink.mojom.MediaStreamRequestResult = {
   CAPTURE_NOT_ALLOWED_FOR_LONG_DOMAINS: 35,
   PERMISSION_DENIED_BY_CONTROLLER: 36,
 };
-blink.mojom.MediaStreamRequestResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.MediaStreamRequestResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaStreamStateChange
-blink.mojom.MediaStreamStateChange = {
+blink.mojom.mojom.MediaStreamStateChange = {
   PLAY: 0,
   PAUSE: 1,
 };
-blink.mojom.MediaStreamStateChangeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.MediaStreamStateChangeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PreferredDisplaySurface
-blink.mojom.PreferredDisplaySurface = {
+blink.mojom.mojom.PreferredDisplaySurface = {
   NO_PREFERENCE: 0,
   MONITOR: 1,
   WINDOW: 2,
   BROWSER: 3,
 };
-blink.mojom.PreferredDisplaySurfaceSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PreferredDisplaySurfaceSpec = { $: mojo.internal.Enum() };
 
 // Enum: CapturedSurfaceControlResult
-blink.mojom.CapturedSurfaceControlResult = {
+blink.mojom.mojom.CapturedSurfaceControlResult = {
   kSuccess: 0,
   kUnknownError: 1,
   kNoPermissionError: 2,
@@ -96,26 +97,26 @@ blink.mojom.CapturedSurfaceControlResult = {
   kMinZoomLevel: 7,
   kMaxZoomLevel: 8,
 };
-blink.mojom.CapturedSurfaceControlResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.CapturedSurfaceControlResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ZoomLevelAction
-blink.mojom.ZoomLevelAction = {
+blink.mojom.mojom.ZoomLevelAction = {
   kIncrease: 0,
   kDecrease: 1,
   kReset: 2,
 };
-blink.mojom.ZoomLevelActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ZoomLevelActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: WindowAudioPreference
-blink.mojom.WindowAudioPreference = {
+blink.mojom.mojom.WindowAudioPreference = {
   kSystem: 0,
   kWindow: 1,
   kExclude: 2,
 };
-blink.mojom.WindowAudioPreferenceSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.WindowAudioPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Union: StreamSelectionInfo
-blink.mojom.StreamSelectionInfoSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.StreamSelectionInfoSpec = { $: mojo.internal.Union(
     'blink.mojom.StreamSelectionInfo', {
       'search_only_by_device_id': {
         'ordinal': 0,
@@ -129,7 +130,7 @@ blink.mojom.StreamSelectionInfoSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SearchOnlyByDeviceId
-blink.mojom.SearchOnlyByDeviceIdSpec = {
+blink.mojom.mojom.SearchOnlyByDeviceIdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SearchOnlyByDeviceId',
@@ -142,7 +143,7 @@ blink.mojom.SearchOnlyByDeviceIdSpec = {
 };
 
 // Struct: SearchBySessionId
-blink.mojom.SearchBySessionIdSpec = {
+blink.mojom.mojom.SearchBySessionIdSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SearchBySessionId',
@@ -156,22 +157,22 @@ blink.mojom.SearchBySessionIdSpec = {
 };
 
 // Struct: MediaStreamDevice
-blink.mojom.MediaStreamDeviceSpec = {
+blink.mojom.mojom.MediaStreamDeviceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDevice',
       packedSize: 80,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'video_facing', packedOffset: 4, packedBitOffset: 0, type: media.mojom.VideoFacingModeSpec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'matched_output_device_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input', packedOffset: 48, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'display_media_info', packedOffset: 64, packedBitOffset: 0, type: media.mojom.DisplayMediaInformationSpec, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'video_facing', packedOffset: 68, packedBitOffset: 0, type: media.mojom.VideoFacingModeSpec, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'matched_output_device_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 40, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'display_media_info', packedOffset: 56, packedBitOffset: 0, type: media.mojom.DisplayMediaInformationSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -179,14 +180,14 @@ blink.mojom.MediaStreamDeviceSpec = {
 };
 
 // Struct: TrackControls
-blink.mojom.TrackControlsSpec = {
+blink.mojom.mojom.TrackControlsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TrackControls',
       packedSize: 24,
       fields: [
-        { name: 'stream_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -194,7 +195,7 @@ blink.mojom.TrackControlsSpec = {
 };
 
 // Struct: StreamControls
-blink.mojom.StreamControlsSpec = {
+blink.mojom.mojom.StreamControlsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StreamControls',
@@ -202,18 +203,18 @@ blink.mojom.StreamControlsSpec = {
       fields: [
         { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TrackControlsSpec, nullable: false, minVersion: 0 },
         { name: 'video', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TrackControlsSpec, nullable: false, minVersion: 0 },
-        { name: 'hotword_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disable_local_echo', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suppress_local_audio_playback', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'restrict_own_audio', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'exclude_system_audio', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'window_audio_preference', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.WindowAudioPreferenceSpec, nullable: false, minVersion: 0 },
-        { name: 'exclude_self_browser_surface', packedOffset: 16, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'request_pan_tilt_zoom_permission', packedOffset: 16, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'request_all_screens', packedOffset: 16, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preferred_display_surface', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PreferredDisplaySurfaceSpec, nullable: false, minVersion: 0 },
-        { name: 'dynamic_surface_switching_requested', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'exclude_monitor_type_surfaces', packedOffset: 17, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hotword_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disable_local_echo', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'suppress_local_audio_playback', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'restrict_own_audio', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'exclude_system_audio', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'window_audio_preference', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WindowAudioPreferenceSpec, nullable: false, minVersion: 0 },
+        { name: 'exclude_self_browser_surface', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'request_pan_tilt_zoom_permission', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'request_all_screens', packedOffset: 24, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'preferred_display_surface', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.PreferredDisplaySurfaceSpec, nullable: false, minVersion: 0 },
+        { name: 'dynamic_surface_switching_requested', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'exclude_monitor_type_surfaces', packedOffset: 25, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -221,7 +222,7 @@ blink.mojom.StreamControlsSpec = {
 };
 
 // Struct: GetOpenDeviceResponse
-blink.mojom.GetOpenDeviceResponseSpec = {
+blink.mojom.mojom.GetOpenDeviceResponseSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GetOpenDeviceResponse',
@@ -237,7 +238,7 @@ blink.mojom.GetOpenDeviceResponseSpec = {
 };
 
 // Struct: CapturedWheelAction
-blink.mojom.CapturedWheelActionSpec = {
+blink.mojom.mojom.CapturedWheelActionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CapturedWheelAction',
@@ -254,7 +255,7 @@ blink.mojom.CapturedWheelActionSpec = {
 };
 
 // Struct: StreamDevices
-blink.mojom.StreamDevicesSpec = {
+blink.mojom.mojom.StreamDevicesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StreamDevices',
@@ -269,7 +270,7 @@ blink.mojom.StreamDevicesSpec = {
 };
 
 // Struct: StreamDevicesSet
-blink.mojom.StreamDevicesSetSpec = {
+blink.mojom.mojom.StreamDevicesSetSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StreamDevicesSet',
@@ -283,24 +284,24 @@ blink.mojom.StreamDevicesSetSpec = {
 };
 
 // Interface: MediaStreamDeviceObserver
-blink.mojom.MediaStreamDeviceObserver = {};
+blink.mojom.mojom.MediaStreamDeviceObserver = {};
 
-blink.mojom.MediaStreamDeviceObserverPendingReceiver = class {
+blink.mojom.mojom.MediaStreamDeviceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.MediaStreamDeviceObserverRemote = class {
+blink.mojom.mojom.MediaStreamDeviceObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MediaStreamDeviceObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.MediaStreamDeviceObserverPendingReceiver,
+      blink.mojom.mojom.MediaStreamDeviceObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.MediaStreamDeviceObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.MediaStreamDeviceObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -312,7 +313,7 @@ blink.mojom.MediaStreamDeviceObserverRemote = class {
   }
 };
 
-blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
+blink.mojom.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -321,7 +322,7 @@ blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec,
       null,
       [label, device]);
   }
@@ -330,7 +331,7 @@ blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec,
       null,
       [label, old_device, new_device]);
   }
@@ -339,7 +340,7 @@ blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec,
       null,
       [label, device, new_state]);
   }
@@ -348,7 +349,7 @@ blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec,
       null,
       [label, device]);
   }
@@ -357,7 +358,7 @@ blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec,
       null,
       [label, device]);
   }
@@ -366,15 +367,15 @@ blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec,
       null,
       [label, device, zoom_level]);
   }
 
 };
 
-blink.mojom.MediaStreamDeviceObserver.getRemote = function() {
-  let remote = new blink.mojom.MediaStreamDeviceObserverRemote();
+blink.mojom.mojom.MediaStreamDeviceObserver.getRemote = function() {
+  let remote = new blink.mojom.mojom.MediaStreamDeviceObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -384,7 +385,7 @@ blink.mojom.MediaStreamDeviceObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnDeviceStopped
-blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceStopped_Params',
@@ -399,7 +400,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceChanged
-blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceChanged_Params',
@@ -415,7 +416,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceRequestStateChange
-blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceRequestStateChange_Params',
@@ -431,7 +432,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceCaptureConfigurationChange
-blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceCaptureConfigurationChange_Params',
@@ -446,7 +447,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsS
 };
 
 // ParamsSpec for OnDeviceCaptureHandleChange
-blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDeviceObserver.OnDeviceCaptureHandleChange_Params',
@@ -461,7 +462,7 @@ blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnZoomLevelChange
-blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDeviceObserver.OnZoomLevelChange_Params',
@@ -477,29 +478,29 @@ blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.MediaStreamDeviceObserverPtr = blink.mojom.MediaStreamDeviceObserverRemote;
-blink.mojom.MediaStreamDeviceObserverRequest = blink.mojom.MediaStreamDeviceObserverPendingReceiver;
+blink.mojom.mojom.MediaStreamDeviceObserverPtr = blink.mojom.mojom.MediaStreamDeviceObserverRemote;
+blink.mojom.mojom.MediaStreamDeviceObserverRequest = blink.mojom.mojom.MediaStreamDeviceObserverPendingReceiver;
 
 
 // Interface: MediaStreamDispatcherHost
-blink.mojom.MediaStreamDispatcherHost = {};
+blink.mojom.mojom.MediaStreamDispatcherHost = {};
 
-blink.mojom.MediaStreamDispatcherHostPendingReceiver = class {
+blink.mojom.mojom.MediaStreamDispatcherHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.MediaStreamDispatcherHostRemote = class {
+blink.mojom.mojom.MediaStreamDispatcherHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MediaStreamDispatcherHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.MediaStreamDispatcherHostPendingReceiver,
+      blink.mojom.mojom.MediaStreamDispatcherHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.MediaStreamDispatcherHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.MediaStreamDispatcherHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -511,7 +512,7 @@ blink.mojom.MediaStreamDispatcherHostRemote = class {
   }
 };
 
-blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
+blink.mojom.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -520,8 +521,8 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec,
-      blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec,
       [request_id, controls, user_gesture, audio_stream_selection_info]);
   }
 
@@ -529,7 +530,7 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec,
       null,
       [label, focus]);
   }
@@ -538,7 +539,7 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec,
       null,
       [request_id]);
   }
@@ -547,7 +548,7 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec,
       null,
       [device_id, session_id]);
   }
@@ -556,8 +557,8 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec,
-      blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec,
       [request_id, device_id, type]);
   }
 
@@ -565,7 +566,7 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec,
       null,
       [label]);
   }
@@ -574,7 +575,7 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec,
       null,
       [session_id, type, is_secure]);
   }
@@ -583,8 +584,8 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec,
-      blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec,
       [session_id, type, sub_capture_target, sub_capture_target_version]);
   }
 
@@ -592,7 +593,7 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec,
       null,
       [session_id, action]);
   }
@@ -601,8 +602,8 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec,
-      blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec,
       [session_id, action]);
   }
 
@@ -610,8 +611,8 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec,
-      blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec,
       [session_id]);
   }
 
@@ -619,8 +620,8 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec,
-      blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec,
       [request_id, session_id, transfer_id]);
   }
 
@@ -628,15 +629,15 @@ blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec,
-      blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec,
+      blink.mojom.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec,
       [session_id, transfer_id]);
   }
 
 };
 
-blink.mojom.MediaStreamDispatcherHost.getRemote = function() {
-  let remote = new blink.mojom.MediaStreamDispatcherHostRemote();
+blink.mojom.mojom.MediaStreamDispatcherHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.MediaStreamDispatcherHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -646,32 +647,32 @@ blink.mojom.MediaStreamDispatcherHost.getRemote = function() {
 };
 
 // ParamsSpec for GenerateStreams
-blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.GenerateStreams_Params',
       packedSize: 40,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'controls', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StreamControlsSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'audio_stream_selection_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StreamSelectionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'controls', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StreamControlsSpec, nullable: false, minVersion: 0 },
+        { name: 'user_gesture', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'audio_stream_selection_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StreamSelectionInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.GenerateStreams_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'stream_devices', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StreamDevicesSetSpec, nullable: true, minVersion: 0 },
-        { name: 'pan_tilt_zoom_allowed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'stream_devices', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StreamDevicesSetSpec, nullable: true, minVersion: 0 },
+        { name: 'pan_tilt_zoom_allowed', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -679,7 +680,7 @@ blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec = {
 };
 
 // ParamsSpec for FocusCapturedSurface
-blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.FocusCapturedSurface_Params',
@@ -694,7 +695,7 @@ blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec = {
 };
 
 // ParamsSpec for CancelRequest
-blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.CancelRequest_Params',
@@ -708,7 +709,7 @@ blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec = {
 };
 
 // ParamsSpec for StopStreamDevice
-blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.StopStreamDevice_Params',
@@ -723,30 +724,30 @@ blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec = {
 };
 
 // ParamsSpec for OpenDevice
-blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.OpenDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.OpenDevice_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamDeviceSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -754,7 +755,7 @@ blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CloseDevice
-blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.CloseDevice_Params',
@@ -768,7 +769,7 @@ blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec = {
 };
 
 // ParamsSpec for SetCapturingLinkSecured
-blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.SetCapturingLinkSecured_Params',
@@ -784,23 +785,23 @@ blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec = {
 };
 
 // ParamsSpec for ApplySubCaptureTarget
-blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.ApplySubCaptureTarget_Params',
       packedSize: 32,
       fields: [
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SubCaptureTargetTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_capture_target', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_capture_target_version', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SubCaptureTargetTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'sub_capture_target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
+        { name: 'sub_capture_target_version', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.ApplySubCaptureTarget_ResponseParams',
@@ -814,7 +815,7 @@ blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec =
 };
 
 // ParamsSpec for SendWheel
-blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.SendWheel_Params',
@@ -829,7 +830,7 @@ blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateZoomLevel
-blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.UpdateZoomLevel_Params',
@@ -843,7 +844,7 @@ blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec = {
   }
 };
 
-blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.UpdateZoomLevel_ResponseParams',
@@ -857,7 +858,7 @@ blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestCapturedSurfaceControlPermission
-blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.RequestCapturedSurfaceControlPermission_Params',
@@ -870,7 +871,7 @@ blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Pa
   }
 };
 
-blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.RequestCapturedSurfaceControlPermission_ResponseParams',
@@ -884,29 +885,29 @@ blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Re
 };
 
 // ParamsSpec for GetOpenDevice
-blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.GetOpenDevice_Params',
       packedSize: 32,
       fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'transfer_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.GetOpenDevice_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetOpenDeviceResponseSpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MediaStreamRequestResultSpec, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetOpenDeviceResponseSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -914,7 +915,7 @@ blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for KeepDeviceAliveForTransfer
-blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.KeepDeviceAliveForTransfer_Params',
@@ -928,7 +929,7 @@ blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec = {
   }
 };
 
-blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec = {
+blink.mojom.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamDispatcherHost.KeepDeviceAliveForTransfer_ResponseParams',
@@ -942,29 +943,29 @@ blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsS
 };
 
 // Legacy compatibility
-blink.mojom.MediaStreamDispatcherHostPtr = blink.mojom.MediaStreamDispatcherHostRemote;
-blink.mojom.MediaStreamDispatcherHostRequest = blink.mojom.MediaStreamDispatcherHostPendingReceiver;
+blink.mojom.mojom.MediaStreamDispatcherHostPtr = blink.mojom.mojom.MediaStreamDispatcherHostRemote;
+blink.mojom.mojom.MediaStreamDispatcherHostRequest = blink.mojom.mojom.MediaStreamDispatcherHostPendingReceiver;
 
 
 // Interface: MediaStreamTrackMetricsHost
-blink.mojom.MediaStreamTrackMetricsHost = {};
+blink.mojom.mojom.MediaStreamTrackMetricsHost = {};
 
-blink.mojom.MediaStreamTrackMetricsHostPendingReceiver = class {
+blink.mojom.mojom.MediaStreamTrackMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.MediaStreamTrackMetricsHostRemote = class {
+blink.mojom.mojom.MediaStreamTrackMetricsHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MediaStreamTrackMetricsHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.MediaStreamTrackMetricsHostPendingReceiver,
+      blink.mojom.mojom.MediaStreamTrackMetricsHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.MediaStreamTrackMetricsHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.MediaStreamTrackMetricsHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -976,7 +977,7 @@ blink.mojom.MediaStreamTrackMetricsHostRemote = class {
   }
 };
 
-blink.mojom.MediaStreamTrackMetricsHostRemoteCallHandler = class {
+blink.mojom.mojom.MediaStreamTrackMetricsHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -985,7 +986,7 @@ blink.mojom.MediaStreamTrackMetricsHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec,
+      blink.mojom.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec,
       null,
       [id, is_audio, is_remote]);
   }
@@ -994,15 +995,15 @@ blink.mojom.MediaStreamTrackMetricsHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec,
+      blink.mojom.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec,
       null,
       [id]);
   }
 
 };
 
-blink.mojom.MediaStreamTrackMetricsHost.getRemote = function() {
-  let remote = new blink.mojom.MediaStreamTrackMetricsHostRemote();
+blink.mojom.mojom.MediaStreamTrackMetricsHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.MediaStreamTrackMetricsHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1012,7 +1013,7 @@ blink.mojom.MediaStreamTrackMetricsHost.getRemote = function() {
 };
 
 // ParamsSpec for AddTrack
-blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
+blink.mojom.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamTrackMetricsHost.AddTrack_Params',
@@ -1028,7 +1029,7 @@ blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec = {
 };
 
 // ParamsSpec for RemoveTrack
-blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = {
+blink.mojom.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MediaStreamTrackMetricsHost.RemoveTrack_Params',
@@ -1042,6 +1043,6 @@ blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.MediaStreamTrackMetricsHostPtr = blink.mojom.MediaStreamTrackMetricsHostRemote;
-blink.mojom.MediaStreamTrackMetricsHostRequest = blink.mojom.MediaStreamTrackMetricsHostPendingReceiver;
+blink.mojom.mojom.MediaStreamTrackMetricsHostPtr = blink.mojom.mojom.MediaStreamTrackMetricsHostRemote;
+blink.mojom.mojom.MediaStreamTrackMetricsHostRequest = blink.mojom.mojom.MediaStreamTrackMetricsHostPendingReceiver;
 

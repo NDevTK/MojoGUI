@@ -10,16 +10,16 @@ cc.mojom = cc.mojom || {};
 
 
 // Enum: FilterQuality
-cc.mojom.FilterQuality = {
+cc.mojom.mojom.FilterQuality = {
   kNone: 0,
   kLow: 1,
   kMedium: 2,
   kHigh: 3,
 };
-cc.mojom.FilterQualitySpec = { $: mojo.internal.Enum() };
+cc.mojom.mojom.FilterQualitySpec = { $: mojo.internal.Enum() };
 
 // Struct: DynamicRangeLimit
-cc.mojom.DynamicRangeLimitSpec = {
+cc.mojom.mojom.DynamicRangeLimitSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.DynamicRangeLimit',

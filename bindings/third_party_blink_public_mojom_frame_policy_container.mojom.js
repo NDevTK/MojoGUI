@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: PolicyContainerPolicies
-blink.mojom.PolicyContainerPoliciesSpec = {
+blink.mojom.mojom.PolicyContainerPoliciesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PolicyContainerPolicies',
@@ -31,7 +31,7 @@ blink.mojom.PolicyContainerPoliciesSpec = {
 };
 
 // Struct: PolicyContainer
-blink.mojom.PolicyContainerSpec = {
+blink.mojom.mojom.PolicyContainerSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PolicyContainer',
@@ -46,7 +46,7 @@ blink.mojom.PolicyContainerSpec = {
 };
 
 // Struct: PolicyContainerBindParams
-blink.mojom.PolicyContainerBindParamsSpec = {
+blink.mojom.mojom.PolicyContainerBindParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PolicyContainerBindParams',
@@ -60,24 +60,24 @@ blink.mojom.PolicyContainerBindParamsSpec = {
 };
 
 // Interface: PolicyContainerHost
-blink.mojom.PolicyContainerHost = {};
+blink.mojom.mojom.PolicyContainerHost = {};
 
-blink.mojom.PolicyContainerHostPendingReceiver = class {
+blink.mojom.mojom.PolicyContainerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PolicyContainerHostRemote = class {
+blink.mojom.mojom.PolicyContainerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PolicyContainerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PolicyContainerHostPendingReceiver,
+      blink.mojom.mojom.PolicyContainerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.PolicyContainerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.PolicyContainerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -89,7 +89,7 @@ blink.mojom.PolicyContainerHostRemote = class {
   }
 };
 
-blink.mojom.PolicyContainerHostRemoteCallHandler = class {
+blink.mojom.mojom.PolicyContainerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -98,7 +98,7 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
+      blink.mojom.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
       null,
       [referrer_policy]);
   }
@@ -107,15 +107,15 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
+      blink.mojom.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
       null,
       [content_security_policies]);
   }
 
 };
 
-blink.mojom.PolicyContainerHost.getRemote = function() {
-  let remote = new blink.mojom.PolicyContainerHostRemote();
+blink.mojom.mojom.PolicyContainerHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.PolicyContainerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -125,7 +125,7 @@ blink.mojom.PolicyContainerHost.getRemote = function() {
 };
 
 // ParamsSpec for SetReferrerPolicy
-blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
+blink.mojom.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PolicyContainerHost.SetReferrerPolicy_Params',
@@ -139,7 +139,7 @@ blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
 };
 
 // ParamsSpec for AddContentSecurityPolicies
-blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
+blink.mojom.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PolicyContainerHost.AddContentSecurityPolicies_Params',
@@ -153,6 +153,6 @@ blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.PolicyContainerHostPtr = blink.mojom.PolicyContainerHostRemote;
-blink.mojom.PolicyContainerHostRequest = blink.mojom.PolicyContainerHostPendingReceiver;
+blink.mojom.mojom.PolicyContainerHostPtr = blink.mojom.mojom.PolicyContainerHostRemote;
+blink.mojom.mojom.PolicyContainerHostRequest = blink.mojom.mojom.PolicyContainerHostPendingReceiver;
 

@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: SharedDictionaryError
-network.mojom.SharedDictionaryError = {
+network.mojom.mojom.SharedDictionaryError = {
   kUseErrorCrossOriginNoCorsRequest: 0,
   kUseErrorDictionaryLoadFailure: 1,
   kUseErrorMatchingDictionaryNotUsed: 2,
@@ -38,4 +38,4 @@ network.mojom.SharedDictionaryError = {
   kWriteErrorTooLongIdField: 24,
   kWriteErrorUnsupportedType: 25,
 };
-network.mojom.SharedDictionaryErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.SharedDictionaryErrorSpec = { $: mojo.internal.Enum() };

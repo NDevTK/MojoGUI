@@ -10,32 +10,32 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: GetArcSafetySessionResult
-arc.mojom.GetArcSafetySessionResult = {
+arc.mojom.mojom.GetArcSafetySessionResult = {
   kOk: 0,
   kSafetyServiceNotFound: 1,
   kBindSafetyServiceError: 2,
 };
-arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: OnDeviceSafetyHost
-arc.mojom.OnDeviceSafetyHost = {};
+arc.mojom.mojom.OnDeviceSafetyHost = {};
 
-arc.mojom.OnDeviceSafetyHostPendingReceiver = class {
+arc.mojom.mojom.OnDeviceSafetyHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.OnDeviceSafetyHostRemote = class {
+arc.mojom.mojom.OnDeviceSafetyHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.OnDeviceSafetyHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.OnDeviceSafetyHostPendingReceiver,
+      arc.mojom.mojom.OnDeviceSafetyHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.OnDeviceSafetyHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.OnDeviceSafetyHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +47,7 @@ arc.mojom.OnDeviceSafetyHostRemote = class {
   }
 };
 
-arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
+arc.mojom.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,15 +56,15 @@ arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec,
-      arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec,
+      arc.mojom.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec,
+      arc.mojom.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.OnDeviceSafetyHost.getRemote = function() {
-  let remote = new arc.mojom.OnDeviceSafetyHostRemote();
+arc.mojom.mojom.OnDeviceSafetyHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.OnDeviceSafetyHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -74,7 +74,7 @@ arc.mojom.OnDeviceSafetyHost.getRemote = function() {
 };
 
 // ParamsSpec for IsCrosSafetyServiceEnabled
-arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = {
+arc.mojom.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OnDeviceSafetyHost.IsCrosSafetyServiceEnabled_Params',
@@ -86,7 +86,7 @@ arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = {
   }
 };
 
-arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = {
+arc.mojom.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OnDeviceSafetyHost.IsCrosSafetyServiceEnabled_ResponseParams',
@@ -100,29 +100,29 @@ arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.OnDeviceSafetyHostPtr = arc.mojom.OnDeviceSafetyHostRemote;
-arc.mojom.OnDeviceSafetyHostRequest = arc.mojom.OnDeviceSafetyHostPendingReceiver;
+arc.mojom.mojom.OnDeviceSafetyHostPtr = arc.mojom.mojom.OnDeviceSafetyHostRemote;
+arc.mojom.mojom.OnDeviceSafetyHostRequest = arc.mojom.mojom.OnDeviceSafetyHostPendingReceiver;
 
 
 // Interface: OnDeviceSafetyInstance
-arc.mojom.OnDeviceSafetyInstance = {};
+arc.mojom.mojom.OnDeviceSafetyInstance = {};
 
-arc.mojom.OnDeviceSafetyInstancePendingReceiver = class {
+arc.mojom.mojom.OnDeviceSafetyInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.OnDeviceSafetyInstanceRemote = class {
+arc.mojom.mojom.OnDeviceSafetyInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.OnDeviceSafetyInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.OnDeviceSafetyInstancePendingReceiver,
+      arc.mojom.mojom.OnDeviceSafetyInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.OnDeviceSafetyInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -134,7 +134,7 @@ arc.mojom.OnDeviceSafetyInstanceRemote = class {
   }
 };
 
-arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
+arc.mojom.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -143,8 +143,8 @@ arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec,
-      arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec,
+      arc.mojom.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec,
+      arc.mojom.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec,
       [session]);
   }
 
@@ -152,15 +152,15 @@ arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec,
+      arc.mojom.mojom.OnDeviceSafetyInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.OnDeviceSafetyInstance.getRemote = function() {
-  let remote = new arc.mojom.OnDeviceSafetyInstanceRemote();
+arc.mojom.mojom.OnDeviceSafetyInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.OnDeviceSafetyInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -170,7 +170,7 @@ arc.mojom.OnDeviceSafetyInstance.getRemote = function() {
 };
 
 // ParamsSpec for GetArcSafetySession
-arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = {
+arc.mojom.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OnDeviceSafetyInstance.GetArcSafetySession_Params',
@@ -183,7 +183,7 @@ arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = {
   }
 };
 
-arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = {
+arc.mojom.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OnDeviceSafetyInstance.GetArcSafetySession_ResponseParams',
@@ -197,7 +197,7 @@ arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Init
-arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = {
+arc.mojom.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OnDeviceSafetyInstance.Init_Params',
@@ -211,6 +211,6 @@ arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.OnDeviceSafetyInstancePtr = arc.mojom.OnDeviceSafetyInstanceRemote;
-arc.mojom.OnDeviceSafetyInstanceRequest = arc.mojom.OnDeviceSafetyInstancePendingReceiver;
+arc.mojom.mojom.OnDeviceSafetyInstancePtr = arc.mojom.mojom.OnDeviceSafetyInstanceRemote;
+arc.mojom.mojom.OnDeviceSafetyInstanceRequest = arc.mojom.mojom.OnDeviceSafetyInstancePendingReceiver;
 

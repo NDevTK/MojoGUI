@@ -7,27 +7,29 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: TextInputHost
-blink.mojom.TextInputHost = {};
+blink.mojom.mojom.TextInputHost = {};
 
-blink.mojom.TextInputHostPendingReceiver = class {
+blink.mojom.mojom.TextInputHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.TextInputHostRemote = class {
+blink.mojom.mojom.TextInputHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.TextInputHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.TextInputHostPendingReceiver,
+      blink.mojom.mojom.TextInputHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.TextInputHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.TextInputHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ blink.mojom.TextInputHostRemote = class {
   }
 };
 
-blink.mojom.TextInputHostRemoteCallHandler = class {
+blink.mojom.mojom.TextInputHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
+      blink.mojom.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
       null,
       [index]);
   }
@@ -57,15 +59,15 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
+      blink.mojom.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
       null,
       [rect]);
   }
 
 };
 
-blink.mojom.TextInputHost.getRemote = function() {
-  let remote = new blink.mojom.TextInputHostRemote();
+blink.mojom.mojom.TextInputHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.TextInputHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +77,7 @@ blink.mojom.TextInputHost.getRemote = function() {
 };
 
 // ParamsSpec for GotCharacterIndexAtPoint
-blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
+blink.mojom.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextInputHost.GotCharacterIndexAtPoint_Params',
@@ -89,7 +91,7 @@ blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec = {
 };
 
 // ParamsSpec for GotFirstRectForRange
-blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
+blink.mojom.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextInputHost.GotFirstRectForRange_Params',
@@ -103,6 +105,6 @@ blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.TextInputHostPtr = blink.mojom.TextInputHostRemote;
-blink.mojom.TextInputHostRequest = blink.mojom.TextInputHostPendingReceiver;
+blink.mojom.mojom.TextInputHostPtr = blink.mojom.mojom.TextInputHostRemote;
+blink.mojom.mojom.TextInputHostRequest = blink.mojom.mojom.TextInputHostPendingReceiver;
 

@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: AbslStatusCode
-mojo_base.mojom.AbslStatusCode = {
+mojo_base.mojom.mojom.AbslStatusCode = {
   kOk: 0,
   kCancelled: 1,
   kUnknown: 2,
@@ -29,4 +29,4 @@ mojo_base.mojom.AbslStatusCode = {
   kDataLoss: 15,
   kUnauthenticated: 16,
 };
-mojo_base.mojom.AbslStatusCodeSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.mojom.AbslStatusCodeSpec = { $: mojo.internal.Enum() };

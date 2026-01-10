@@ -7,24 +7,26 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: PlaybackProperties
-media.mojom.PlaybackPropertiesSpec = {
+media.mojom.mojom.PlaybackPropertiesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackProperties',
       packedSize: 24,
       fields: [
-        { name: 'has_audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_video', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_background', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_muted', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_eme', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_embedded_media_experience', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'media_stream_type', packedOffset: 4, packedBitOffset: 0, type: media.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'demuxer_type', packedOffset: 12, packedBitOffset: 0, type: media.mojom.DemuxerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_audio', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_video', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_background', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_muted', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_eme', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_embedded_media_experience', packedOffset: 12, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'media_stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'renderer_type', packedOffset: 4, packedBitOffset: 0, type: media.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'demuxer_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DemuxerTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -32,7 +34,7 @@ media.mojom.PlaybackPropertiesSpec = {
 };
 
 // Struct: SecondaryPlaybackProperties
-media.mojom.SecondaryPlaybackPropertiesSpec = {
+media.mojom.mojom.SecondaryPlaybackPropertiesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SecondaryPlaybackProperties',
@@ -54,24 +56,24 @@ media.mojom.SecondaryPlaybackPropertiesSpec = {
 };
 
 // Interface: WatchTimeRecorder
-media.mojom.WatchTimeRecorder = {};
+media.mojom.mojom.WatchTimeRecorder = {};
 
-media.mojom.WatchTimeRecorderPendingReceiver = class {
+media.mojom.mojom.WatchTimeRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.WatchTimeRecorderRemote = class {
+media.mojom.mojom.WatchTimeRecorderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.WatchTimeRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.WatchTimeRecorderPendingReceiver,
+      media.mojom.mojom.WatchTimeRecorderPendingReceiver,
       handle);
-    this.$ = new media.mojom.WatchTimeRecorderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.WatchTimeRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +85,7 @@ media.mojom.WatchTimeRecorderRemote = class {
   }
 };
 
-media.mojom.WatchTimeRecorderRemoteCallHandler = class {
+media.mojom.mojom.WatchTimeRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,7 +94,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec,
       null,
       [key, watch_time]);
   }
@@ -101,7 +103,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec,
       null,
       [watch_time_keys]);
   }
@@ -110,7 +112,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.WatchTimeRecorder_OnError_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_OnError_ParamsSpec,
       null,
       [status]);
   }
@@ -119,7 +121,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec,
       null,
       [secondary_properties]);
   }
@@ -128,7 +130,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec,
       null,
       [value]);
   }
@@ -137,7 +139,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec,
       null,
       [duration]);
   }
@@ -146,7 +148,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec,
       null,
       [frames_decoded, frames_dropped]);
   }
@@ -155,7 +157,7 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec,
       null,
       [total_count]);
   }
@@ -164,15 +166,15 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec,
+      media.mojom.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec,
       null,
       [total_completed_count, total_duration]);
   }
 
 };
 
-media.mojom.WatchTimeRecorder.getRemote = function() {
-  let remote = new media.mojom.WatchTimeRecorderRemote();
+media.mojom.mojom.WatchTimeRecorder.getRemote = function() {
+  let remote = new media.mojom.mojom.WatchTimeRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -182,7 +184,7 @@ media.mojom.WatchTimeRecorder.getRemote = function() {
 };
 
 // ParamsSpec for RecordWatchTime
-media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.RecordWatchTime_Params',
@@ -197,7 +199,7 @@ media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
 };
 
 // ParamsSpec for FinalizeWatchTime
-media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.FinalizeWatchTime_Params',
@@ -211,7 +213,7 @@ media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-media.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.OnError_Params',
@@ -225,7 +227,7 @@ media.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateSecondaryProperties
-media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.UpdateSecondaryProperties_Params',
@@ -239,7 +241,7 @@ media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
 };
 
 // ParamsSpec for SetAutoplayInitiated
-media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.SetAutoplayInitiated_Params',
@@ -253,7 +255,7 @@ media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
 };
 
 // ParamsSpec for OnDurationChanged
-media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.OnDurationChanged_Params',
@@ -267,7 +269,7 @@ media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateVideoDecodeStats
-media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.UpdateVideoDecodeStats_Params',
@@ -282,7 +284,7 @@ media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateUnderflowCount
-media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.UpdateUnderflowCount_Params',
@@ -296,14 +298,14 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateUnderflowDuration
-media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
+media.mojom.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.WatchTimeRecorder.UpdateUnderflowDuration_Params',
       packedSize: 24,
       fields: [
-        { name: 'total_completed_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'total_duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'total_completed_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'total_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -311,6 +313,6 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.WatchTimeRecorderPtr = media.mojom.WatchTimeRecorderRemote;
-media.mojom.WatchTimeRecorderRequest = media.mojom.WatchTimeRecorderPendingReceiver;
+media.mojom.mojom.WatchTimeRecorderPtr = media.mojom.mojom.WatchTimeRecorderRemote;
+media.mojom.mojom.WatchTimeRecorderRequest = media.mojom.mojom.WatchTimeRecorderPendingReceiver;
 

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: FocusType
-blink.mojom.FocusType = {
+blink.mojom.mojom.FocusType = {
   kNone: 0,
   kScript: 1,
   kForward: 2,
@@ -20,4 +20,4 @@ blink.mojom.FocusType = {
   kAccessKey: 6,
   kPage: 7,
 };
-blink.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.FocusTypeSpec = { $: mojo.internal.Enum() };

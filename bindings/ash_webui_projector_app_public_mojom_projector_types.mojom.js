@@ -7,19 +7,19 @@
 // Module namespace
 var ash = ash || {};
 ash.projector = ash.projector || {};
-ash.projector.mojom = ash.projector.mojom || {};
+ash.projector.projector.mojom = ash.projector.projector.mojom || {};
 
 
 // Enum: NewScreencastPreconditionState
-ash.projector.mojom.NewScreencastPreconditionState = {
+ash.projector.projector.mojom.mojom.NewScreencastPreconditionState = {
   kDisabled: 0,
   kEnabled: 1,
   kHidden: 2,
 };
-ash.projector.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum() };
+ash.projector.projector.mojom.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NewScreencastPreconditionReason
-ash.projector.mojom.NewScreencastPreconditionReason = {
+ash.projector.projector.mojom.mojom.NewScreencastPreconditionReason = {
   kSodaInstallationErrorUnspecifiedError: 0,
   kOnDeviceRecognitionNotSupported: 1,
   kUserLocaleNotSupported: 2,
@@ -36,29 +36,29 @@ ash.projector.mojom.NewScreencastPreconditionReason = {
   kEnabledBySoda: 13,
   kEnabledByServerSideSpeechRecognition: 14,
 };
-ash.projector.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum() };
+ash.projector.projector.mojom.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrefsThatProjectorCanAskFor
-ash.projector.mojom.PrefsThatProjectorCanAskFor = {
+ash.projector.projector.mojom.mojom.PrefsThatProjectorCanAskFor = {
   kProjectorCreationFlowEnabled: 0,
   kProjectorExcludeTranscriptDialogShown: 1,
   kProjectorViewerOnboardingShowCount: 2,
   kProjectorGalleryOnboardingShowCount: 3,
 };
-ash.projector.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum() };
+ash.projector.projector.mojom.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum() };
 
 // Enum: XhrResponseCode
-ash.projector.mojom.XhrResponseCode = {
+ash.projector.projector.mojom.mojom.XhrResponseCode = {
   kSuccess: 0,
   kTokenFetchFailure: 1,
   kXhrFetchFailure: 2,
   kUnsupportedURL: 3,
   kInvalidAccountEmail: 4,
 };
-ash.projector.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum() };
+ash.projector.projector.mojom.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: JsNetErrorCode
-ash.projector.mojom.JsNetErrorCode = {
+ash.projector.projector.mojom.mojom.JsNetErrorCode = {
   kNoError: 0,
   kAccessDenied: 1,
   kFileNotFound: 2,
@@ -70,19 +70,19 @@ ash.projector.mojom.JsNetErrorCode = {
   kTimeout: 8,
   kOffline: 9,
 };
-ash.projector.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.projector.projector.mojom.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestType
-ash.projector.mojom.RequestType = {
+ash.projector.projector.mojom.mojom.RequestType = {
   kPost: 0,
   kGet: 1,
   kPatch: 2,
   kDelete: 3,
 };
-ash.projector.mojom.RequestTypeSpec = { $: mojo.internal.Enum() };
+ash.projector.projector.mojom.mojom.RequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: GetVideoResult
-ash.projector.mojom.GetVideoResultSpec = { $: mojo.internal.Union(
+ash.projector.projector.mojom.mojom.GetVideoResultSpec = { $: mojo.internal.Union(
     'ash.projector.mojom.GetVideoResult', {
       'video': {
         'ordinal': 0,
@@ -96,14 +96,14 @@ ash.projector.mojom.GetVideoResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: NewScreencastPrecondition
-ash.projector.mojom.NewScreencastPreconditionSpec = {
+ash.projector.projector.mojom.mojom.NewScreencastPreconditionSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.NewScreencastPrecondition',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionStateSpec, nullable: false, minVersion: 0 },
-        { name: 'reasons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionStateSpec, nullable: false, minVersion: 0 },
+        { name: 'reasons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -111,16 +111,16 @@ ash.projector.mojom.NewScreencastPreconditionSpec = {
 };
 
 // Struct: PendingScreencast
-ash.projector.mojom.PendingScreencastSpec = {
+ash.projector.projector.mojom.mojom.PendingScreencastSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.PendingScreencast',
       packedSize: 32,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'upload_progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'created_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'upload_failed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'upload_progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'created_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'upload_failed', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -128,7 +128,7 @@ ash.projector.mojom.PendingScreencastSpec = {
 };
 
 // Struct: XhrResponse
-ash.projector.mojom.XhrResponseSpec = {
+ash.projector.projector.mojom.mojom.XhrResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.XhrResponse',
@@ -144,7 +144,7 @@ ash.projector.mojom.XhrResponseSpec = {
 };
 
 // Struct: Account
-ash.projector.mojom.AccountSpec = {
+ash.projector.projector.mojom.mojom.AccountSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.Account',
@@ -159,7 +159,7 @@ ash.projector.mojom.AccountSpec = {
 };
 
 // Struct: VideoInfo
-ash.projector.mojom.VideoInfoSpec = {
+ash.projector.projector.mojom.mojom.VideoInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.projector.mojom.VideoInfo',

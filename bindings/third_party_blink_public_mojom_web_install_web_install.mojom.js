@@ -7,18 +7,19 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Enum: WebInstallServiceResult
-blink.mojom.WebInstallServiceResult = {
+blink.mojom.mojom.WebInstallServiceResult = {
   kSuccess: 0,
   kAbortError: 1,
   kDataError: 2,
 };
-blink.mojom.WebInstallServiceResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.WebInstallServiceResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: InstallOptions
-blink.mojom.InstallOptionsSpec = {
+blink.mojom.mojom.InstallOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InstallOptions',
@@ -33,24 +34,24 @@ blink.mojom.InstallOptionsSpec = {
 };
 
 // Interface: WebInstallService
-blink.mojom.WebInstallService = {};
+blink.mojom.mojom.WebInstallService = {};
 
-blink.mojom.WebInstallServicePendingReceiver = class {
+blink.mojom.mojom.WebInstallServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebInstallServiceRemote = class {
+blink.mojom.mojom.WebInstallServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebInstallService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebInstallServicePendingReceiver,
+      blink.mojom.mojom.WebInstallServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebInstallServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebInstallServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +63,7 @@ blink.mojom.WebInstallServiceRemote = class {
   }
 };
 
-blink.mojom.WebInstallServiceRemoteCallHandler = class {
+blink.mojom.mojom.WebInstallServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,8 +72,8 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebInstallService_Install_ParamsSpec,
-      blink.mojom.WebInstallService_Install_ResponseParamsSpec,
+      blink.mojom.mojom.WebInstallService_Install_ParamsSpec,
+      blink.mojom.mojom.WebInstallService_Install_ResponseParamsSpec,
       [options]);
   }
 
@@ -80,15 +81,15 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebInstallService_InstallFromElement_ParamsSpec,
-      blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
+      blink.mojom.mojom.WebInstallService_InstallFromElement_ParamsSpec,
+      blink.mojom.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
       [options]);
   }
 
 };
 
-blink.mojom.WebInstallService.getRemote = function() {
-  let remote = new blink.mojom.WebInstallServiceRemote();
+blink.mojom.mojom.WebInstallService.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebInstallServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -98,7 +99,7 @@ blink.mojom.WebInstallService.getRemote = function() {
 };
 
 // ParamsSpec for Install
-blink.mojom.WebInstallService_Install_ParamsSpec = {
+blink.mojom.mojom.WebInstallService_Install_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebInstallService.Install_Params',
@@ -111,14 +112,14 @@ blink.mojom.WebInstallService_Install_ParamsSpec = {
   }
 };
 
-blink.mojom.WebInstallService_Install_ResponseParamsSpec = {
+blink.mojom.mojom.WebInstallService_Install_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebInstallService.Install_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },
+        { name: 'manifest_id', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -126,7 +127,7 @@ blink.mojom.WebInstallService_Install_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InstallFromElement
-blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
+blink.mojom.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebInstallService.InstallFromElement_Params',
@@ -139,14 +140,14 @@ blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
   }
 };
 
-blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
+blink.mojom.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebInstallService.InstallFromElement_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },
-        { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },
+        { name: 'manifest_id', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -154,6 +155,6 @@ blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WebInstallServicePtr = blink.mojom.WebInstallServiceRemote;
-blink.mojom.WebInstallServiceRequest = blink.mojom.WebInstallServicePendingReceiver;
+blink.mojom.mojom.WebInstallServicePtr = blink.mojom.mojom.WebInstallServiceRemote;
+blink.mojom.mojom.WebInstallServiceRequest = blink.mojom.mojom.WebInstallServicePendingReceiver;
 

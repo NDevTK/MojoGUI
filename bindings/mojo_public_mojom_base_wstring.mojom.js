@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: WString
-mojo_base.mojom.WStringSpec = {
+mojo_base.mojom.mojom.WStringSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.WString',

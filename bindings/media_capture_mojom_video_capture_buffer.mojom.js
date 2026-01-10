@@ -7,10 +7,16 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Union: VideoBufferHandle
-media.mojom.VideoBufferHandleSpec = { $: mojo.internal.Union(
+media.mojom.mojom.VideoBufferHandleSpec = { $: mojo.internal.Union(
     'media.mojom.VideoBufferHandle', {
       'unsafe_shmem_region': {
         'ordinal': 0,
@@ -32,7 +38,7 @@ media.mojom.VideoBufferHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: VideoFrameInfo
-media.mojom.VideoFrameInfoSpec = {
+media.mojom.mojom.VideoFrameInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoFrameInfo',
@@ -40,12 +46,12 @@ media.mojom.VideoFrameInfoSpec = {
       fields: [
         { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
         { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'pixel_format', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'is_premapped', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'color_space', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'strides', packedOffset: 48, packedBitOffset: 0, type: media.mojom.PlaneStridesSpec, nullable: true, minVersion: 0 },
+        { name: 'pixel_format', packedOffset: 48, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'visible_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'is_premapped', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'color_space', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'strides', packedOffset: 40, packedBitOffset: 0, type: media.mojom.PlaneStridesSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -53,14 +59,14 @@ media.mojom.VideoFrameInfoSpec = {
 };
 
 // Struct: ReadyBuffer
-media.mojom.ReadyBufferSpec = {
+media.mojom.mojom.ReadyBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ReadyBuffer',
       packedSize: 24,
       fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -68,7 +74,7 @@ media.mojom.ReadyBufferSpec = {
 };
 
 // Struct: SharedImageBufferHandleSet
-media.mojom.SharedImageBufferHandleSetSpec = {
+media.mojom.mojom.SharedImageBufferHandleSetSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SharedImageBufferHandleSet',

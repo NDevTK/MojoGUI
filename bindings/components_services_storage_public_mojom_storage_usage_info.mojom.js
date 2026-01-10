@@ -7,10 +7,11 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var blink = blink || {};
 
 
 // Struct: StorageUsageInfo
-storage.mojom.StorageUsageInfoSpec = {
+storage.mojom.mojom.StorageUsageInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StorageUsageInfo',

@@ -10,14 +10,14 @@ network.mojom = network.mojom || {};
 
 
 // Enum: CorsPreflightPolicy
-network.mojom.CorsPreflightPolicy = {
+network.mojom.mojom.CorsPreflightPolicy = {
   kConsiderPreflight: 0,
   kPreventPreflight: 1,
 };
-network.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsError
-network.mojom.CorsError = {
+network.mojom.mojom.CorsError = {
   kDisallowedByMode: 0,
   kInvalidResponse: 1,
   kWildcardOriginNotAllowed: 2,
@@ -44,21 +44,21 @@ network.mojom.CorsError = {
   kInvalidPrivateNetworkAccess: 23,
   kLocalNetworkAccessPermissionDenied: 24,
 };
-network.mojom.CorsErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CorsErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: CorsErrorStatus
-network.mojom.CorsErrorStatusSpec = {
+network.mojom.mojom.CorsErrorStatusSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CorsErrorStatus',
       packedSize: 40,
       fields: [
-        { name: 'cors_error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CorsErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'failed_parameter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 4, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'inconsistent_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'has_authorization_covered_by_wildcard_on_preflight', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'issue_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'cors_error', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CorsErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'failed_parameter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'resource_address_space', packedOffset: 20, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'inconsistent_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'has_authorization_covered_by_wildcard_on_preflight', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'issue_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

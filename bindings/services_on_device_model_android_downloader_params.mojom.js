@@ -10,7 +10,7 @@ on_device_model.mojom = on_device_model.mojom || {};
 
 
 // Struct: DownloaderParams
-on_device_model.mojom.DownloaderParamsSpec = {
+on_device_model.mojom.mojom.DownloaderParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_model.mojom.DownloaderParams',

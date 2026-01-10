@@ -10,7 +10,7 @@ ukm.mojom = ukm.mojom || {};
 
 
 // Struct: UkmEntry
-ukm.mojom.UkmEntrySpec = {
+ukm.mojom.mojom.UkmEntrySpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmEntry',
@@ -26,14 +26,14 @@ ukm.mojom.UkmEntrySpec = {
 };
 
 // Struct: UkmRecorderParameters
-ukm.mojom.UkmRecorderParametersSpec = {
+ukm.mojom.mojom.UkmRecorderParametersSpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmRecorderParameters',
       packedSize: 24,
       fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'event_hash_bypass_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'event_hash_bypass_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -41,24 +41,24 @@ ukm.mojom.UkmRecorderParametersSpec = {
 };
 
 // Interface: SingularUkmInterface
-ukm.mojom.SingularUkmInterface = {};
+ukm.mojom.mojom.SingularUkmInterface = {};
 
-ukm.mojom.SingularUkmInterfacePendingReceiver = class {
+ukm.mojom.mojom.SingularUkmInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ukm.mojom.SingularUkmInterfaceRemote = class {
+ukm.mojom.mojom.SingularUkmInterfaceRemote = class {
   static get $interfaceName() {
     return 'ukm.mojom.SingularUkmInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ukm.mojom.SingularUkmInterfacePendingReceiver,
+      ukm.mojom.mojom.SingularUkmInterfacePendingReceiver,
       handle);
-    this.$ = new ukm.mojom.SingularUkmInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new ukm.mojom.mojom.SingularUkmInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -70,7 +70,7 @@ ukm.mojom.SingularUkmInterfaceRemote = class {
   }
 };
 
-ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
+ukm.mojom.mojom.SingularUkmInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -79,15 +79,15 @@ ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.SingularUkmInterface_Submit_ParamsSpec,
+      ukm.mojom.mojom.SingularUkmInterface_Submit_ParamsSpec,
       null,
       [entry]);
   }
 
 };
 
-ukm.mojom.SingularUkmInterface.getRemote = function() {
-  let remote = new ukm.mojom.SingularUkmInterfaceRemote();
+ukm.mojom.mojom.SingularUkmInterface.getRemote = function() {
+  let remote = new ukm.mojom.mojom.SingularUkmInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +97,7 @@ ukm.mojom.SingularUkmInterface.getRemote = function() {
 };
 
 // ParamsSpec for Submit
-ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
+ukm.mojom.mojom.SingularUkmInterface_Submit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.SingularUkmInterface.Submit_Params',
@@ -111,29 +111,29 @@ ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = {
 };
 
 // Legacy compatibility
-ukm.mojom.SingularUkmInterfacePtr = ukm.mojom.SingularUkmInterfaceRemote;
-ukm.mojom.SingularUkmInterfaceRequest = ukm.mojom.SingularUkmInterfacePendingReceiver;
+ukm.mojom.mojom.SingularUkmInterfacePtr = ukm.mojom.mojom.SingularUkmInterfaceRemote;
+ukm.mojom.mojom.SingularUkmInterfaceRequest = ukm.mojom.mojom.SingularUkmInterfacePendingReceiver;
 
 
 // Interface: UkmRecorderClientInterface
-ukm.mojom.UkmRecorderClientInterface = {};
+ukm.mojom.mojom.UkmRecorderClientInterface = {};
 
-ukm.mojom.UkmRecorderClientInterfacePendingReceiver = class {
+ukm.mojom.mojom.UkmRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ukm.mojom.UkmRecorderClientInterfaceRemote = class {
+ukm.mojom.mojom.UkmRecorderClientInterfaceRemote = class {
   static get $interfaceName() {
     return 'ukm.mojom.UkmRecorderClientInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ukm.mojom.UkmRecorderClientInterfacePendingReceiver,
+      ukm.mojom.mojom.UkmRecorderClientInterfacePendingReceiver,
       handle);
-    this.$ = new ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new ukm.mojom.mojom.UkmRecorderClientInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -145,7 +145,7 @@ ukm.mojom.UkmRecorderClientInterfaceRemote = class {
   }
 };
 
-ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
+ukm.mojom.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -154,15 +154,15 @@ ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec,
+      ukm.mojom.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec,
       null,
       [params]);
   }
 
 };
 
-ukm.mojom.UkmRecorderClientInterface.getRemote = function() {
-  let remote = new ukm.mojom.UkmRecorderClientInterfaceRemote();
+ukm.mojom.mojom.UkmRecorderClientInterface.getRemote = function() {
+  let remote = new ukm.mojom.mojom.UkmRecorderClientInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -172,7 +172,7 @@ ukm.mojom.UkmRecorderClientInterface.getRemote = function() {
 };
 
 // ParamsSpec for SetParameters
-ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
+ukm.mojom.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmRecorderClientInterface.SetParameters_Params',
@@ -186,29 +186,29 @@ ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = {
 };
 
 // Legacy compatibility
-ukm.mojom.UkmRecorderClientInterfacePtr = ukm.mojom.UkmRecorderClientInterfaceRemote;
-ukm.mojom.UkmRecorderClientInterfaceRequest = ukm.mojom.UkmRecorderClientInterfacePendingReceiver;
+ukm.mojom.mojom.UkmRecorderClientInterfacePtr = ukm.mojom.mojom.UkmRecorderClientInterfaceRemote;
+ukm.mojom.mojom.UkmRecorderClientInterfaceRequest = ukm.mojom.mojom.UkmRecorderClientInterfacePendingReceiver;
 
 
 // Interface: UkmRecorderInterface
-ukm.mojom.UkmRecorderInterface = {};
+ukm.mojom.mojom.UkmRecorderInterface = {};
 
-ukm.mojom.UkmRecorderInterfacePendingReceiver = class {
+ukm.mojom.mojom.UkmRecorderInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ukm.mojom.UkmRecorderInterfaceRemote = class {
+ukm.mojom.mojom.UkmRecorderInterfaceRemote = class {
   static get $interfaceName() {
     return 'ukm.mojom.UkmRecorderInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ukm.mojom.UkmRecorderInterfacePendingReceiver,
+      ukm.mojom.mojom.UkmRecorderInterfacePendingReceiver,
       handle);
-    this.$ = new ukm.mojom.UkmRecorderInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new ukm.mojom.mojom.UkmRecorderInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -220,7 +220,7 @@ ukm.mojom.UkmRecorderInterfaceRemote = class {
   }
 };
 
-ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
+ukm.mojom.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -229,7 +229,7 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec,
+      ukm.mojom.mojom.UkmRecorderInterface_AddEntry_ParamsSpec,
       null,
       [entry]);
   }
@@ -238,15 +238,15 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec,
+      ukm.mojom.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec,
       null,
       [source_id, url]);
   }
 
 };
 
-ukm.mojom.UkmRecorderInterface.getRemote = function() {
-  let remote = new ukm.mojom.UkmRecorderInterfaceRemote();
+ukm.mojom.mojom.UkmRecorderInterface.getRemote = function() {
+  let remote = new ukm.mojom.mojom.UkmRecorderInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -256,7 +256,7 @@ ukm.mojom.UkmRecorderInterface.getRemote = function() {
 };
 
 // ParamsSpec for AddEntry
-ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
+ukm.mojom.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmRecorderInterface.AddEntry_Params',
@@ -270,7 +270,7 @@ ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateSourceURL
-ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
+ukm.mojom.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmRecorderInterface.UpdateSourceURL_Params',
@@ -285,29 +285,29 @@ ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = {
 };
 
 // Legacy compatibility
-ukm.mojom.UkmRecorderInterfacePtr = ukm.mojom.UkmRecorderInterfaceRemote;
-ukm.mojom.UkmRecorderInterfaceRequest = ukm.mojom.UkmRecorderInterfacePendingReceiver;
+ukm.mojom.mojom.UkmRecorderInterfacePtr = ukm.mojom.mojom.UkmRecorderInterfaceRemote;
+ukm.mojom.mojom.UkmRecorderInterfaceRequest = ukm.mojom.mojom.UkmRecorderInterfacePendingReceiver;
 
 
 // Interface: UkmRecorderFactory
-ukm.mojom.UkmRecorderFactory = {};
+ukm.mojom.mojom.UkmRecorderFactory = {};
 
-ukm.mojom.UkmRecorderFactoryPendingReceiver = class {
+ukm.mojom.mojom.UkmRecorderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ukm.mojom.UkmRecorderFactoryRemote = class {
+ukm.mojom.mojom.UkmRecorderFactoryRemote = class {
   static get $interfaceName() {
     return 'ukm.mojom.UkmRecorderFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ukm.mojom.UkmRecorderFactoryPendingReceiver,
+      ukm.mojom.mojom.UkmRecorderFactoryPendingReceiver,
       handle);
-    this.$ = new ukm.mojom.UkmRecorderFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ukm.mojom.mojom.UkmRecorderFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -319,7 +319,7 @@ ukm.mojom.UkmRecorderFactoryRemote = class {
   }
 };
 
-ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
+ukm.mojom.mojom.UkmRecorderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -328,15 +328,15 @@ ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec,
+      ukm.mojom.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec,
       null,
       [receiver, client_remote]);
   }
 
 };
 
-ukm.mojom.UkmRecorderFactory.getRemote = function() {
-  let remote = new ukm.mojom.UkmRecorderFactoryRemote();
+ukm.mojom.mojom.UkmRecorderFactory.getRemote = function() {
+  let remote = new ukm.mojom.mojom.UkmRecorderFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -346,7 +346,7 @@ ukm.mojom.UkmRecorderFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateUkmRecorder
-ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
+ukm.mojom.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ukm.mojom.UkmRecorderFactory.CreateUkmRecorder_Params',
@@ -361,6 +361,6 @@ ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = {
 };
 
 // Legacy compatibility
-ukm.mojom.UkmRecorderFactoryPtr = ukm.mojom.UkmRecorderFactoryRemote;
-ukm.mojom.UkmRecorderFactoryRequest = ukm.mojom.UkmRecorderFactoryPendingReceiver;
+ukm.mojom.mojom.UkmRecorderFactoryPtr = ukm.mojom.mojom.UkmRecorderFactoryRemote;
+ukm.mojom.mojom.UkmRecorderFactoryRequest = ukm.mojom.mojom.UkmRecorderFactoryPendingReceiver;
 

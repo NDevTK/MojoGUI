@@ -10,7 +10,7 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Struct: ActivityUrlFilterCriteria
-chromecast.mojom.ActivityUrlFilterCriteriaSpec = {
+chromecast.mojom.mojom.ActivityUrlFilterCriteriaSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ActivityUrlFilterCriteria',
@@ -24,24 +24,24 @@ chromecast.mojom.ActivityUrlFilterCriteriaSpec = {
 };
 
 // Interface: ActivityUrlFilterConfiguration
-chromecast.mojom.ActivityUrlFilterConfiguration = {};
+chromecast.mojom.mojom.ActivityUrlFilterConfiguration = {};
 
-chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver = class {
+chromecast.mojom.mojom.ActivityUrlFilterConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.ActivityUrlFilterConfigurationRemote = class {
+chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.ActivityUrlFilterConfiguration';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver,
+      chromecast.mojom.mojom.ActivityUrlFilterConfigurationPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +53,7 @@ chromecast.mojom.ActivityUrlFilterConfigurationRemote = class {
   }
 };
 
-chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
+chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +62,15 @@ chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
+      chromecast.mojom.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
       null,
       [filter]);
   }
 
 };
 
-chromecast.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
-  let remote = new chromecast.mojom.ActivityUrlFilterConfigurationRemote();
+chromecast.mojom.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +80,7 @@ chromecast.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
 };
 
 // ParamsSpec for SetFilter
-chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
+chromecast.mojom.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ActivityUrlFilterConfiguration.SetFilter_Params',
@@ -94,6 +94,6 @@ chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.ActivityUrlFilterConfigurationPtr = chromecast.mojom.ActivityUrlFilterConfigurationRemote;
-chromecast.mojom.ActivityUrlFilterConfigurationRequest = chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver;
+chromecast.mojom.mojom.ActivityUrlFilterConfigurationPtr = chromecast.mojom.mojom.ActivityUrlFilterConfigurationRemote;
+chromecast.mojom.mojom.ActivityUrlFilterConfigurationRequest = chromecast.mojom.mojom.ActivityUrlFilterConfigurationPendingReceiver;
 

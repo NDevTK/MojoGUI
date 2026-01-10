@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: UserActivationNotificationType
-blink.mojom.UserActivationNotificationType = {
+blink.mojom.mojom.UserActivationNotificationType = {
   kNone: 0,
   kInteraction: 1,
   kDevTools: 2,
@@ -28,4 +28,4 @@ blink.mojom.UserActivationNotificationType = {
   kExtensionMessagingReceiverPrivileged: 14,
   kExtensionMessagingNeitherPrivileged: 15,
 };
-blink.mojom.UserActivationNotificationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.UserActivationNotificationTypeSpec = { $: mojo.internal.Enum() };

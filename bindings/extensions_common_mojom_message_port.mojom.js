@@ -7,38 +7,40 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var url = url || {};
+var url = url || {};
 
 
-extensions.mojom.kMaxMessageBytes = 67108864;
+extensions.mojom.mojom.kMaxMessageBytes = 67108864;
 
 // Enum: SerializationFormat
-extensions.mojom.SerializationFormat = {
+extensions.mojom.mojom.SerializationFormat = {
   kStructuredClone: 0,
   kJson: 1,
 };
-extensions.mojom.SerializationFormatSpec = { $: mojo.internal.Enum() };
+extensions.mojom.mojom.SerializationFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChannelType
-extensions.mojom.ChannelType = {
+extensions.mojom.mojom.ChannelType = {
   kSendMessage: 0,
   kSendRequest: 1,
   kConnect: 2,
   kNative: 3,
 };
-extensions.mojom.ChannelTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.mojom.ChannelTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MessagingEndpointType
-extensions.mojom.MessagingEndpointType = {
+extensions.mojom.mojom.MessagingEndpointType = {
   kExtension: 0,
   kWebPage: 1,
   kContentScript: 2,
   kUserScript: 3,
   kNativeApp: 4,
 };
-extensions.mojom.MessagingEndpointTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.mojom.MessagingEndpointTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: MessageData
-extensions.mojom.MessageDataSpec = { $: mojo.internal.Union(
+extensions.mojom.mojom.MessageDataSpec = { $: mojo.internal.Union(
     'extensions.mojom.MessageData', {
       'json': {
         'ordinal': 0,
@@ -52,7 +54,7 @@ extensions.mojom.MessageDataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: PortId
-extensions.mojom.PortIdSpec = {
+extensions.mojom.mojom.PortIdSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.PortId',
@@ -60,8 +62,8 @@ extensions.mojom.PortIdSpec = {
       fields: [
         { name: 'context_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
         { name: 'port_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_opener', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'serialization_format', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'is_opener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'serialization_format', packedOffset: 12, packedBitOffset: 0, type: extensions.mojom.SerializationFormatSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -69,15 +71,15 @@ extensions.mojom.PortIdSpec = {
 };
 
 // Struct: MessagingEndpoint
-extensions.mojom.MessagingEndpointSpec = {
+extensions.mojom.mojom.MessagingEndpointSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MessagingEndpoint',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.MessagingEndpointTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'native_app_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.MessagingEndpointTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'native_app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -85,16 +87,16 @@ extensions.mojom.MessagingEndpointSpec = {
 };
 
 // Struct: TabConnectionInfo
-extensions.mojom.TabConnectionInfoSpec = {
+extensions.mojom.mojom.TabConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.TabConnectionInfo',
       packedSize: 40,
       fields: [
         { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'document_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_lifecycle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'document_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'document_lifecycle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -102,7 +104,7 @@ extensions.mojom.TabConnectionInfoSpec = {
 };
 
 // Struct: ExternalConnectionInfo
-extensions.mojom.ExternalConnectionInfoSpec = {
+extensions.mojom.mojom.ExternalConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExternalConnectionInfo',
@@ -121,7 +123,7 @@ extensions.mojom.ExternalConnectionInfoSpec = {
 };
 
 // Struct: Message
-extensions.mojom.MessageSpec = {
+extensions.mojom.mojom.MessageSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Message',
@@ -138,24 +140,24 @@ extensions.mojom.MessageSpec = {
 };
 
 // Interface: MessagePort
-extensions.mojom.MessagePort = {};
+extensions.mojom.mojom.MessagePort = {};
 
-extensions.mojom.MessagePortPendingReceiver = class {
+extensions.mojom.mojom.MessagePortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.MessagePortRemote = class {
+extensions.mojom.mojom.MessagePortRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.MessagePort';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.MessagePortPendingReceiver,
+      extensions.mojom.mojom.MessagePortPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.MessagePortRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.mojom.MessagePortRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -167,7 +169,7 @@ extensions.mojom.MessagePortRemote = class {
   }
 };
 
-extensions.mojom.MessagePortRemoteCallHandler = class {
+extensions.mojom.mojom.MessagePortRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -176,7 +178,7 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec,
+      extensions.mojom.mojom.MessagePort_DispatchDisconnect_ParamsSpec,
       null,
       [error]);
   }
@@ -185,15 +187,15 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.MessagePort_DeliverMessage_ParamsSpec,
+      extensions.mojom.mojom.MessagePort_DeliverMessage_ParamsSpec,
       null,
       [message]);
   }
 
 };
 
-extensions.mojom.MessagePort.getRemote = function() {
-  let remote = new extensions.mojom.MessagePortRemote();
+extensions.mojom.mojom.MessagePort.getRemote = function() {
+  let remote = new extensions.mojom.mojom.MessagePortRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -203,7 +205,7 @@ extensions.mojom.MessagePort.getRemote = function() {
 };
 
 // ParamsSpec for DispatchDisconnect
-extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
+extensions.mojom.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MessagePort.DispatchDisconnect_Params',
@@ -217,7 +219,7 @@ extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = {
 };
 
 // ParamsSpec for DeliverMessage
-extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = {
+extensions.mojom.mojom.MessagePort_DeliverMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MessagePort.DeliverMessage_Params',
@@ -231,29 +233,29 @@ extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.MessagePortPtr = extensions.mojom.MessagePortRemote;
-extensions.mojom.MessagePortRequest = extensions.mojom.MessagePortPendingReceiver;
+extensions.mojom.mojom.MessagePortPtr = extensions.mojom.mojom.MessagePortRemote;
+extensions.mojom.mojom.MessagePortRequest = extensions.mojom.mojom.MessagePortPendingReceiver;
 
 
 // Interface: MessagePortHost
-extensions.mojom.MessagePortHost = {};
+extensions.mojom.mojom.MessagePortHost = {};
 
-extensions.mojom.MessagePortHostPendingReceiver = class {
+extensions.mojom.mojom.MessagePortHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.MessagePortHostRemote = class {
+extensions.mojom.mojom.MessagePortHostRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.MessagePortHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.MessagePortHostPendingReceiver,
+      extensions.mojom.mojom.MessagePortHostPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.MessagePortHostRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.mojom.MessagePortHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -265,7 +267,7 @@ extensions.mojom.MessagePortHostRemote = class {
   }
 };
 
-extensions.mojom.MessagePortHostRemoteCallHandler = class {
+extensions.mojom.mojom.MessagePortHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -274,7 +276,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.MessagePortHost_ClosePort_ParamsSpec,
+      extensions.mojom.mojom.MessagePortHost_ClosePort_ParamsSpec,
       null,
       [close_channel, error_message]);
   }
@@ -283,7 +285,7 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.MessagePortHost_PostMessage_ParamsSpec,
+      extensions.mojom.mojom.MessagePortHost_PostMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -292,15 +294,15 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec,
+      extensions.mojom.mojom.MessagePortHost_ResponsePending_ParamsSpec,
       null,
       []);
   }
 
 };
 
-extensions.mojom.MessagePortHost.getRemote = function() {
-  let remote = new extensions.mojom.MessagePortHostRemote();
+extensions.mojom.mojom.MessagePortHost.getRemote = function() {
+  let remote = new extensions.mojom.mojom.MessagePortHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -310,14 +312,14 @@ extensions.mojom.MessagePortHost.getRemote = function() {
 };
 
 // ParamsSpec for ClosePort
-extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
+extensions.mojom.mojom.MessagePortHost_ClosePort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MessagePortHost.ClosePort_Params',
       packedSize: 24,
       fields: [
-        { name: 'close_channel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'close_channel', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -325,7 +327,7 @@ extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = {
 };
 
 // ParamsSpec for PostMessage
-extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = {
+extensions.mojom.mojom.MessagePortHost_PostMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MessagePortHost.PostMessage_Params',
@@ -339,7 +341,7 @@ extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = {
 };
 
 // ParamsSpec for ResponsePending
-extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = {
+extensions.mojom.mojom.MessagePortHost_ResponsePending_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.MessagePortHost.ResponsePending_Params',
@@ -352,6 +354,6 @@ extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.MessagePortHostPtr = extensions.mojom.MessagePortHostRemote;
-extensions.mojom.MessagePortHostRequest = extensions.mojom.MessagePortHostPendingReceiver;
+extensions.mojom.mojom.MessagePortHostPtr = extensions.mojom.mojom.MessagePortHostRemote;
+extensions.mojom.mojom.MessagePortHostRequest = extensions.mojom.mojom.MessagePortHostPendingReceiver;
 

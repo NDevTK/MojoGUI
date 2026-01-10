@@ -7,42 +7,44 @@
 // Module namespace
 var ash = ash || {};
 ash.personalization_app = ash.personalization_app || {};
-ash.personalization_app.mojom = ash.personalization_app.mojom || {};
+ash.personalization_app.personalization_app.mojom = ash.personalization_app.personalization_app.mojom || {};
+var skia = skia || {};
+var url = url || {};
 
 
-ash.personalization_app.mojom.kStaticColorGoogleBlue = 0x4285F4;
+ash.personalization_app.personalization_app.mojom.mojom.kStaticColorGoogleBlue = 0x4285F4;
 
-ash.personalization_app.mojom.kStaticColorLightPink = 0xFFD6D6;
+ash.personalization_app.personalization_app.mojom.mojom.kStaticColorLightPink = 0xFFD6D6;
 
-ash.personalization_app.mojom.kStaticColorDarkGreen = 0x485045;
+ash.personalization_app.personalization_app.mojom.mojom.kStaticColorDarkGreen = 0x485045;
 
-ash.personalization_app.mojom.kStaticColorLightPurple = 0xCBBFFF;
+ash.personalization_app.personalization_app.mojom.mojom.kStaticColorLightPurple = 0xCBBFFF;
 
-ash.personalization_app.mojom.kWhiteColor = 0xFFFFFF;
+ash.personalization_app.personalization_app.mojom.mojom.kWhiteColor = 0xFFFFFF;
 
-ash.personalization_app.mojom.kRedColor = 0xEE675C;
+ash.personalization_app.personalization_app.mojom.mojom.kRedColor = 0xEE675C;
 
-ash.personalization_app.mojom.kYellowColor = 0xFBBC04;
+ash.personalization_app.personalization_app.mojom.mojom.kYellowColor = 0xFBBC04;
 
-ash.personalization_app.mojom.kGreenColor = 0x34A853;
+ash.personalization_app.personalization_app.mojom.mojom.kGreenColor = 0x34A853;
 
-ash.personalization_app.mojom.kBlueColor = 0x00A3C2;
+ash.personalization_app.personalization_app.mojom.mojom.kBlueColor = 0x00A3C2;
 
-ash.personalization_app.mojom.kIndigoColor = 0x4285F4;
+ash.personalization_app.personalization_app.mojom.mojom.kIndigoColor = 0x4285F4;
 
-ash.personalization_app.mojom.kPurpleColor = 0xB76DF8;
+ash.personalization_app.personalization_app.mojom.mojom.kPurpleColor = 0xB76DF8;
 
 // Enum: WallpaperLayout
-ash.personalization_app.mojom.WallpaperLayout = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperLayout = {
   kCenter: 0,
   kCenterCropped: 1,
   kStretch: 2,
   kTile: 3,
 };
-ash.personalization_app.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: WallpaperType
-ash.personalization_app.mojom.WallpaperType = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperType = {
   kDaily: 0,
   kCustomized: 1,
   kDefault: 2,
@@ -56,10 +58,10 @@ ash.personalization_app.mojom.WallpaperType = {
   kOobe: 10,
   kSeaPen: 11,
 };
-ash.personalization_app.mojom.WallpaperTypeSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OnlineImageType
-ash.personalization_app.mojom.OnlineImageType = {
+ash.personalization_app.personalization_app.mojom.mojom.OnlineImageType = {
   kUnknown: 0,
   kLight: 1,
   kDark: 2,
@@ -67,61 +69,61 @@ ash.personalization_app.mojom.OnlineImageType = {
   kMorning: 4,
   kLateAfternoon: 5,
 };
-ash.personalization_app.mojom.OnlineImageTypeSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.OnlineImageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GooglePhotosEnablementState
-ash.personalization_app.mojom.GooglePhotosEnablementState = {
+ash.personalization_app.personalization_app.mojom.mojom.GooglePhotosEnablementState = {
   kError: 0,
   kDisabled: 1,
   kEnabled: 2,
 };
-ash.personalization_app.mojom.GooglePhotosEnablementStateSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.GooglePhotosEnablementStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: StaticColor
-ash.personalization_app.mojom.StaticColor = {
+ash.personalization_app.personalization_app.mojom.mojom.StaticColor = {
   kUnknown: 0,
   kGoogleBlue: 1,
   kLightPink: 2,
   kDarkGreen: 3,
   kLightPurple: 4,
 };
-ash.personalization_app.mojom.StaticColorSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.StaticColorSpec = { $: mojo.internal.Enum() };
 
 // Enum: AmbientTheme
-ash.personalization_app.mojom.AmbientTheme = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientTheme = {
   kSlideshow: 0,
   kFeelTheBreeze: 1,
   kFloatOnBy: 2,
   kVideo: 3,
 };
-ash.personalization_app.mojom.AmbientThemeSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.AmbientThemeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TopicSource
-ash.personalization_app.mojom.TopicSource = {
+ash.personalization_app.personalization_app.mojom.mojom.TopicSource = {
   kGooglePhotos: 0,
   kArtGallery: 1,
   kVideo: 2,
 };
-ash.personalization_app.mojom.TopicSourceSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.TopicSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TemperatureUnit
-ash.personalization_app.mojom.TemperatureUnit = {
+ash.personalization_app.personalization_app.mojom.mojom.TemperatureUnit = {
   kFahrenheit: 0,
   kCelsius: 1,
 };
-ash.personalization_app.mojom.TemperatureUnitSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.TemperatureUnitSpec = { $: mojo.internal.Enum() };
 
 // Enum: AmbientUiVisibility
-ash.personalization_app.mojom.AmbientUiVisibility = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientUiVisibility = {
   kShouldShow: 0,
   kPreview: 1,
   kHidden: 2,
   kClosed: 3,
 };
-ash.personalization_app.mojom.AmbientUiVisibilitySpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.AmbientUiVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: BacklightColor
-ash.personalization_app.mojom.BacklightColor = {
+ash.personalization_app.personalization_app.mojom.mojom.BacklightColor = {
   kWallpaper: 0,
   kWhite: 1,
   kRed: 2,
@@ -132,10 +134,10 @@ ash.personalization_app.mojom.BacklightColor = {
   kPurple: 7,
   kRainbow: 8,
 };
-ash.personalization_app.mojom.BacklightColorSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.personalization_app.mojom.mojom.BacklightColorSpec = { $: mojo.internal.Enum() };
 
 // Union: UserImage
-ash.personalization_app.mojom.UserImageSpec = { $: mojo.internal.Union(
+ash.personalization_app.personalization_app.mojom.mojom.UserImageSpec = { $: mojo.internal.Union(
     'ash.personalization_app.mojom.UserImage', {
       'default_image': {
         'ordinal': 0,
@@ -157,7 +159,7 @@ ash.personalization_app.mojom.UserImageSpec = { $: mojo.internal.Union(
 };
 
 // Union: CurrentBacklightState
-ash.personalization_app.mojom.CurrentBacklightStateSpec = { $: mojo.internal.Union(
+ash.personalization_app.personalization_app.mojom.mojom.CurrentBacklightStateSpec = { $: mojo.internal.Union(
     'ash.personalization_app.mojom.CurrentBacklightState', {
       'color': {
         'ordinal': 0,
@@ -171,7 +173,7 @@ ash.personalization_app.mojom.CurrentBacklightStateSpec = { $: mojo.internal.Uni
 };
 
 // Struct: WallpaperCollection
-ash.personalization_app.mojom.WallpaperCollectionSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperCollectionSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperCollection',
@@ -188,7 +190,7 @@ ash.personalization_app.mojom.WallpaperCollectionSpec = {
 };
 
 // Struct: GooglePhotosAlbum
-ash.personalization_app.mojom.GooglePhotosAlbumSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.GooglePhotosAlbumSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.GooglePhotosAlbum',
@@ -196,10 +198,10 @@ ash.personalization_app.mojom.GooglePhotosAlbumSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'photo_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'preview', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_shared', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'photo_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'preview', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_shared', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -207,7 +209,7 @@ ash.personalization_app.mojom.GooglePhotosAlbumSpec = {
 };
 
 // Struct: FetchGooglePhotosAlbumsResponse
-ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.FetchGooglePhotosAlbumsResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponse',
@@ -222,7 +224,7 @@ ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec = {
 };
 
 // Struct: WallpaperImage
-ash.personalization_app.mojom.WallpaperImageSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperImageSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperImage',
@@ -240,7 +242,7 @@ ash.personalization_app.mojom.WallpaperImageSpec = {
 };
 
 // Struct: GooglePhotosPhoto
-ash.personalization_app.mojom.GooglePhotosPhotoSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.GooglePhotosPhotoSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.GooglePhotosPhoto',
@@ -259,7 +261,7 @@ ash.personalization_app.mojom.GooglePhotosPhotoSpec = {
 };
 
 // Struct: FetchGooglePhotosPhotosResponse
-ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.FetchGooglePhotosPhotosResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.FetchGooglePhotosPhotosResponse',
@@ -274,7 +276,7 @@ ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec = {
 };
 
 // Struct: CurrentAttribution
-ash.personalization_app.mojom.CurrentAttributionSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.CurrentAttributionSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.CurrentAttribution',
@@ -289,18 +291,18 @@ ash.personalization_app.mojom.CurrentAttributionSpec = {
 };
 
 // Struct: CurrentWallpaper
-ash.personalization_app.mojom.CurrentWallpaperSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.CurrentWallpaperSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.CurrentWallpaper',
       packedSize: 48,
       fields: [
-        { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description_title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description_content', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'layout', packedOffset: 32, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 36, packedBitOffset: 0, type: ash.personalization_app.mojom.WallpaperTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'description_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'description_content', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'action_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -308,16 +310,16 @@ ash.personalization_app.mojom.CurrentWallpaperSpec = {
 };
 
 // Struct: SampleColorScheme
-ash.personalization_app.mojom.SampleColorSchemeSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.SampleColorSchemeSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.SampleColorScheme',
       packedSize: 40,
       fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'primary', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'secondary', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'tertiary', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'scheme', packedOffset: 24, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'secondary', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
+        { name: 'tertiary', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -325,7 +327,7 @@ ash.personalization_app.mojom.SampleColorSchemeSpec = {
 };
 
 // Struct: UserInfo
-ash.personalization_app.mojom.UserInfoSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserInfo',
@@ -340,7 +342,7 @@ ash.personalization_app.mojom.UserInfoSpec = {
 };
 
 // Struct: DeprecatedSourceInfo
-ash.personalization_app.mojom.DeprecatedSourceInfoSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.DeprecatedSourceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.DeprecatedSourceInfo',
@@ -355,16 +357,16 @@ ash.personalization_app.mojom.DeprecatedSourceInfoSpec = {
 };
 
 // Struct: DefaultUserImage
-ash.personalization_app.mojom.DefaultUserImageSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.DefaultUserImageSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.DefaultUserImage',
       packedSize: 40,
       fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'source_info', packedOffset: 24, packedBitOffset: 0, type: ash.personalization_app.mojom.DeprecatedSourceInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'source_info', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.DeprecatedSourceInfoSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -372,7 +374,7 @@ ash.personalization_app.mojom.DefaultUserImageSpec = {
 };
 
 // Struct: ProfileImage
-ash.personalization_app.mojom.ProfileImageSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ProfileImageSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ProfileImage',
@@ -385,7 +387,7 @@ ash.personalization_app.mojom.ProfileImageSpec = {
 };
 
 // Struct: InvalidImage
-ash.personalization_app.mojom.InvalidImageSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.InvalidImageSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.InvalidImage',
@@ -398,19 +400,19 @@ ash.personalization_app.mojom.InvalidImageSpec = {
 };
 
 // Struct: AmbientModeAlbum
-ash.personalization_app.mojom.AmbientModeAlbumSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientModeAlbumSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientModeAlbum',
       packedSize: 56,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'checked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'number_of_photos', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'topic_source', packedOffset: 32, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'checked', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'number_of_photos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'topic_source', packedOffset: 36, packedBitOffset: 0, type: ash.personalization_app.mojom.TopicSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -418,24 +420,24 @@ ash.personalization_app.mojom.AmbientModeAlbumSpec = {
 };
 
 // Interface: WallpaperObserver
-ash.personalization_app.mojom.WallpaperObserver = {};
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver = {};
 
-ash.personalization_app.mojom.WallpaperObserverPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.WallpaperObserverRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.WallpaperObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.WallpaperObserverPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -447,7 +449,7 @@ ash.personalization_app.mojom.WallpaperObserverRemote = class {
   }
 };
 
-ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -456,7 +458,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec,
       null,
       []);
   }
@@ -465,7 +467,7 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec,
       null,
       [attribution]);
   }
@@ -474,15 +476,15 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec,
       null,
       [image]);
   }
 
 };
 
-ash.personalization_app.mojom.WallpaperObserver.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.WallpaperObserverRemote();
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -492,7 +494,7 @@ ash.personalization_app.mojom.WallpaperObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnWallpaperPreviewEnded
-ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperObserver.OnWallpaperPreviewEnded_Params',
@@ -505,7 +507,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSp
 };
 
 // ParamsSpec for OnAttributionChanged
-ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperObserver.OnAttributionChanged_Params',
@@ -519,7 +521,7 @@ ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec 
 };
 
 // ParamsSpec for OnWallpaperChanged
-ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperObserver.OnWallpaperChanged_Params',
@@ -533,29 +535,29 @@ ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec = 
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.WallpaperObserverPtr = ash.personalization_app.mojom.WallpaperObserverRemote;
-ash.personalization_app.mojom.WallpaperObserverRequest = ash.personalization_app.mojom.WallpaperObserverPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverPtr = ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverRemote;
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverRequest = ash.personalization_app.personalization_app.mojom.mojom.WallpaperObserverPendingReceiver;
 
 
 // Interface: WallpaperProvider
-ash.personalization_app.mojom.WallpaperProvider = {};
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider = {};
 
-ash.personalization_app.mojom.WallpaperProviderPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.WallpaperProviderRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.WallpaperProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.WallpaperProviderPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -567,7 +569,7 @@ ash.personalization_app.mojom.WallpaperProviderRemote = class {
   }
 };
 
-ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -576,7 +578,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_MakeTransparent_ParamsSpec,
       null,
       []);
   }
@@ -585,7 +587,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_MakeOpaque_ParamsSpec,
       null,
       []);
   }
@@ -594,8 +596,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchCollections_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
       []);
   }
 
@@ -603,8 +605,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -612,8 +614,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
       [resume_token]);
   }
 
@@ -621,8 +623,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
       [resume_token]);
   }
 
@@ -630,8 +632,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -639,8 +641,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
       [item_id, album_id, resume_token]);
   }
 
@@ -648,8 +650,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImages_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
       []);
   }
 
@@ -657,8 +659,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
       []);
   }
 
@@ -666,8 +668,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
       [file_path]);
   }
 
@@ -675,7 +677,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -684,8 +686,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
       [unit_id, preview_mode]);
   }
 
@@ -693,8 +695,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
       []);
   }
 
@@ -702,8 +704,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
       [path, layout, preview_mode]);
   }
 
@@ -711,8 +713,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
       [id, layout, preview_mode]);
   }
 
@@ -720,8 +722,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
       [id]);
   }
 
@@ -729,8 +731,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
       []);
   }
 
@@ -738,7 +740,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec,
       null,
       [layout]);
   }
@@ -747,8 +749,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
       [collection_id]);
   }
 
@@ -756,8 +758,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
       []);
   }
 
@@ -765,8 +767,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
       []);
   }
 
@@ -774,8 +776,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
       []);
   }
 
@@ -783,7 +785,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec,
       null,
       []);
   }
@@ -792,7 +794,7 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec,
       null,
       []);
   }
@@ -801,15 +803,15 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec,
-      ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.personalization_app.mojom.WallpaperProvider.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.WallpaperProviderRemote();
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -819,7 +821,7 @@ ash.personalization_app.mojom.WallpaperProvider.getRemote = function() {
 };
 
 // ParamsSpec for MakeTransparent
-ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_MakeTransparent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.MakeTransparent_Params',
@@ -832,7 +834,7 @@ ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec = {
 };
 
 // ParamsSpec for MakeOpaque
-ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_MakeOpaque_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.MakeOpaque_Params',
@@ -845,7 +847,7 @@ ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec = {
 };
 
 // ParamsSpec for FetchCollections
-ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchCollections_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchCollections_Params',
@@ -857,7 +859,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchCollections_ResponseParams',
@@ -871,7 +873,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsS
 };
 
 // ParamsSpec for FetchImagesForCollection
-ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchImagesForCollection_Params',
@@ -884,7 +886,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsS
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchImagesForCollection_ResponseParams',
@@ -898,7 +900,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_Respons
 };
 
 // ParamsSpec for FetchGooglePhotosAlbums
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosAlbums_Params',
@@ -911,7 +913,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSp
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosAlbums_ResponseParams',
@@ -925,7 +927,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_Response
 };
 
 // ParamsSpec for FetchGooglePhotosSharedAlbums
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosSharedAlbums_Params',
@@ -938,7 +940,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Pa
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosSharedAlbums_ResponseParams',
@@ -952,7 +954,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Re
 };
 
 // ParamsSpec for FetchGooglePhotosEnabled
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosEnabled_Params',
@@ -964,7 +966,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsS
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosEnabled_ResponseParams',
@@ -978,7 +980,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_Respons
 };
 
 // ParamsSpec for FetchGooglePhotosPhotos
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosPhotos_Params',
@@ -993,7 +995,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSp
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosPhotos_ResponseParams',
@@ -1007,7 +1009,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_Response
 };
 
 // ParamsSpec for GetLocalImages
-ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImages_Params',
@@ -1019,7 +1021,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImages_ResponseParams',
@@ -1033,7 +1035,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpe
 };
 
 // ParamsSpec for GetDefaultImageThumbnail
-ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetDefaultImageThumbnail_Params',
@@ -1045,7 +1047,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsS
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetDefaultImageThumbnail_ResponseParams',
@@ -1059,7 +1061,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_Respons
 };
 
 // ParamsSpec for GetLocalImageThumbnail
-ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImageThumbnail_Params',
@@ -1072,7 +1074,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpe
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImageThumbnail_ResponseParams',
@@ -1086,7 +1088,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseP
 };
 
 // ParamsSpec for SetWallpaperObserver
-ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetWallpaperObserver_Params',
@@ -1100,7 +1102,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec 
 };
 
 // ParamsSpec for SelectWallpaper
-ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectWallpaper_Params',
@@ -1114,7 +1116,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectWallpaper_ResponseParams',
@@ -1128,7 +1130,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSp
 };
 
 // ParamsSpec for SelectDefaultImage
-ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectDefaultImage_Params',
@@ -1140,7 +1142,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec = 
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectDefaultImage_ResponseParams',
@@ -1154,7 +1156,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParam
 };
 
 // ParamsSpec for SelectLocalImage
-ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectLocalImage_Params',
@@ -1169,7 +1171,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectLocalImage_ResponseParams',
@@ -1183,7 +1185,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsS
 };
 
 // ParamsSpec for SelectGooglePhotosPhoto
-ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosPhoto_Params',
@@ -1198,7 +1200,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSp
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosPhoto_ResponseParams',
@@ -1212,7 +1214,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_Response
 };
 
 // ParamsSpec for SelectGooglePhotosAlbum
-ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosAlbum_Params',
@@ -1225,7 +1227,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSp
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosAlbum_ResponseParams',
@@ -1239,7 +1241,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_Response
 };
 
 // ParamsSpec for GetGooglePhotosDailyRefreshAlbumId
-ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetGooglePhotosDailyRefreshAlbumId_Params',
@@ -1251,7 +1253,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetGooglePhotosDailyRefreshAlbumId_ResponseParams',
@@ -1265,7 +1267,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
 };
 
 // ParamsSpec for SetCurrentWallpaperLayout
-ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetCurrentWallpaperLayout_Params',
@@ -1279,7 +1281,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_Params
 };
 
 // ParamsSpec for SetDailyRefreshCollectionId
-ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetDailyRefreshCollectionId_Params',
@@ -1292,7 +1294,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Para
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetDailyRefreshCollectionId_ResponseParams',
@@ -1306,7 +1308,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Resp
 };
 
 // ParamsSpec for GetDailyRefreshCollectionId
-ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetDailyRefreshCollectionId_Params',
@@ -1318,7 +1320,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Para
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.GetDailyRefreshCollectionId_ResponseParams',
@@ -1332,7 +1334,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Resp
 };
 
 // ParamsSpec for UpdateDailyRefreshWallpaper
-ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.UpdateDailyRefreshWallpaper_Params',
@@ -1344,7 +1346,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Para
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.UpdateDailyRefreshWallpaper_ResponseParams',
@@ -1358,7 +1360,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Resp
 };
 
 // ParamsSpec for IsInTabletMode
-ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.IsInTabletMode_Params',
@@ -1370,7 +1372,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.IsInTabletMode_ResponseParams',
@@ -1384,7 +1386,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpe
 };
 
 // ParamsSpec for ConfirmPreviewWallpaper
-ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.ConfirmPreviewWallpaper_Params',
@@ -1397,7 +1399,7 @@ ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSp
 };
 
 // ParamsSpec for CancelPreviewWallpaper
-ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.CancelPreviewWallpaper_Params',
@@ -1410,7 +1412,7 @@ ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpe
 };
 
 // ParamsSpec for ShouldShowTimeOfDayWallpaperDialog
-ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.ShouldShowTimeOfDayWallpaperDialog_Params',
@@ -1422,7 +1424,7 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
   }
 };
 
-ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.WallpaperProvider.ShouldShowTimeOfDayWallpaperDialog_ResponseParams',
@@ -1436,29 +1438,29 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.WallpaperProviderPtr = ash.personalization_app.mojom.WallpaperProviderRemote;
-ash.personalization_app.mojom.WallpaperProviderRequest = ash.personalization_app.mojom.WallpaperProviderPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderPtr = ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderRemote;
+ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderRequest = ash.personalization_app.personalization_app.mojom.mojom.WallpaperProviderPendingReceiver;
 
 
 // Interface: ThemeObserver
-ash.personalization_app.mojom.ThemeObserver = {};
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver = {};
 
-ash.personalization_app.mojom.ThemeObserverPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.ThemeObserverRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.ThemeObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.ThemeObserverPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.ThemeObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1470,7 +1472,7 @@ ash.personalization_app.mojom.ThemeObserverRemote = class {
   }
 };
 
-ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1479,7 +1481,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec,
       null,
       [dark_mode_enabled]);
   }
@@ -1488,7 +1490,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1497,7 +1499,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec,
       null,
       [color_scheme]);
   }
@@ -1506,7 +1508,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec,
       null,
       [sample_color_schemes]);
   }
@@ -1515,7 +1517,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec,
       null,
       [color]);
   }
@@ -1524,7 +1526,7 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
       [enabled, is_user_modifiable]);
   }
@@ -1533,15 +1535,15 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec,
       null,
       [sunrise_time, sunset_time]);
   }
 
 };
 
-ash.personalization_app.mojom.ThemeObserver.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.ThemeObserverRemote();
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1551,7 +1553,7 @@ ash.personalization_app.mojom.ThemeObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnColorModeChanged
-ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnColorModeChanged_Params',
@@ -1565,7 +1567,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnColorModeAutoScheduleChanged
-ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnColorModeAutoScheduleChanged_Params',
@@ -1579,7 +1581,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_Param
 };
 
 // ParamsSpec for OnColorSchemeChanged
-ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnColorSchemeChanged_Params',
@@ -1593,7 +1595,7 @@ ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnSampleColorSchemesChanged
-ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnSampleColorSchemesChanged_Params',
@@ -1607,7 +1609,7 @@ ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSp
 };
 
 // ParamsSpec for OnStaticColorChanged
-ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnStaticColorChanged_Params',
@@ -1621,7 +1623,7 @@ ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnGeolocationPermissionForSystemServicesChanged
-ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnGeolocationPermissionForSystemServicesChanged_Params',
@@ -1636,7 +1638,7 @@ ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServ
 };
 
 // ParamsSpec for OnDaylightTimeChanged
-ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeObserver.OnDaylightTimeChanged_Params',
@@ -1651,29 +1653,29 @@ ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.ThemeObserverPtr = ash.personalization_app.mojom.ThemeObserverRemote;
-ash.personalization_app.mojom.ThemeObserverRequest = ash.personalization_app.mojom.ThemeObserverPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverPtr = ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverRemote;
+ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverRequest = ash.personalization_app.personalization_app.mojom.mojom.ThemeObserverPendingReceiver;
 
 
 // Interface: ThemeProvider
-ash.personalization_app.mojom.ThemeProvider = {};
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider = {};
 
-ash.personalization_app.mojom.ThemeProviderPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.ThemeProviderRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.ThemeProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.ThemeProviderPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.ThemeProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1685,7 +1687,7 @@ ash.personalization_app.mojom.ThemeProviderRemote = class {
   }
 };
 
-ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1694,7 +1696,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetThemeObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -1703,7 +1705,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetColorModePref_ParamsSpec,
       null,
       [dark_mode_enabled]);
   }
@@ -1712,7 +1714,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -1721,7 +1723,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetColorScheme_ParamsSpec,
       null,
       [colorScheme]);
   }
@@ -1730,7 +1732,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetStaticColor_ParamsSpec,
       null,
       [static_color]);
   }
@@ -1739,7 +1741,7 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
       []);
   }
@@ -1748,8 +1750,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetColorScheme_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
       []);
   }
 
@@ -1757,8 +1759,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetStaticColor_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
       []);
   }
 
@@ -1766,8 +1768,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
       []);
   }
 
@@ -1775,8 +1777,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1784,8 +1786,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -1793,8 +1795,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
       []);
   }
 
@@ -1802,15 +1804,15 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec,
-      ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.personalization_app.mojom.ThemeProvider.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.ThemeProviderRemote();
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1820,7 +1822,7 @@ ash.personalization_app.mojom.ThemeProvider.getRemote = function() {
 };
 
 // ParamsSpec for SetThemeObserver
-ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetThemeObserver_Params',
@@ -1834,7 +1836,7 @@ ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec = {
 };
 
 // ParamsSpec for SetColorModePref
-ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetColorModePref_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetColorModePref_Params',
@@ -1848,7 +1850,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec = {
 };
 
 // ParamsSpec for SetColorModeAutoScheduleEnabled
-ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetColorModeAutoScheduleEnabled_Params',
@@ -1862,7 +1864,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_Para
 };
 
 // ParamsSpec for SetColorScheme
-ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetColorScheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetColorScheme_Params',
@@ -1876,7 +1878,7 @@ ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec = {
 };
 
 // ParamsSpec for SetStaticColor
-ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetStaticColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.SetStaticColor_Params',
@@ -1890,7 +1892,7 @@ ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec = {
 };
 
 // ParamsSpec for EnableGeolocationForSystemServices
-ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.EnableGeolocationForSystemServices_Params',
@@ -1903,7 +1905,7 @@ ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_P
 };
 
 // ParamsSpec for GetColorScheme
-ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetColorScheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.GetColorScheme_Params',
@@ -1915,7 +1917,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.GetColorScheme_ResponseParams',
@@ -1929,7 +1931,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = 
 };
 
 // ParamsSpec for GetStaticColor
-ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetStaticColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.GetStaticColor_Params',
@@ -1941,7 +1943,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.GetStaticColor_ResponseParams',
@@ -1955,7 +1957,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = 
 };
 
 // ParamsSpec for GenerateSampleColorSchemes
-ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.GenerateSampleColorSchemes_Params',
@@ -1967,7 +1969,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpe
   }
 };
 
-ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.GenerateSampleColorSchemes_ResponseParams',
@@ -1981,7 +1983,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseP
 };
 
 // ParamsSpec for IsColorModeAutoScheduleEnabled
-ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsColorModeAutoScheduleEnabled_Params',
@@ -1993,7 +1995,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Param
   }
 };
 
-ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsColorModeAutoScheduleEnabled_ResponseParams',
@@ -2007,7 +2009,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Respo
 };
 
 // ParamsSpec for IsDarkModeEnabled
-ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsDarkModeEnabled_Params',
@@ -2019,7 +2021,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsDarkModeEnabled_ResponseParams',
@@ -2033,7 +2035,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec
 };
 
 // ParamsSpec for IsGeolocationEnabledForSystemServices
-ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationEnabledForSystemServices_Params',
@@ -2045,7 +2047,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
   }
 };
 
-ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationEnabledForSystemServices_ResponseParams',
@@ -2059,7 +2061,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
 };
 
 // ParamsSpec for IsGeolocationUserModifiable
-ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationUserModifiable_Params',
@@ -2071,7 +2073,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSp
   }
 };
 
-ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationUserModifiable_ResponseParams',
@@ -2085,29 +2087,29 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_Response
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.ThemeProviderPtr = ash.personalization_app.mojom.ThemeProviderRemote;
-ash.personalization_app.mojom.ThemeProviderRequest = ash.personalization_app.mojom.ThemeProviderPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderPtr = ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderRemote;
+ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderRequest = ash.personalization_app.personalization_app.mojom.mojom.ThemeProviderPendingReceiver;
 
 
 // Interface: UserImageObserver
-ash.personalization_app.mojom.UserImageObserver = {};
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver = {};
 
-ash.personalization_app.mojom.UserImageObserverPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.UserImageObserverRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.UserImageObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.UserImageObserverPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.UserImageObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2119,7 +2121,7 @@ ash.personalization_app.mojom.UserImageObserverRemote = class {
   }
 };
 
-ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2128,7 +2130,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec,
       null,
       [user_image]);
   }
@@ -2137,7 +2139,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec,
       null,
       [profile_image]);
   }
@@ -2146,7 +2148,7 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec,
       null,
       [is_camera_present]);
   }
@@ -2155,15 +2157,15 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec,
       null,
       [is_enterprise_managed]);
   }
 
 };
 
-ash.personalization_app.mojom.UserImageObserver.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.UserImageObserverRemote();
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2173,7 +2175,7 @@ ash.personalization_app.mojom.UserImageObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnUserImageChanged
-ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserImageObserver.OnUserImageChanged_Params',
@@ -2187,7 +2189,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec = 
 };
 
 // ParamsSpec for OnUserProfileImageUpdated
-ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserImageObserver.OnUserProfileImageUpdated_Params',
@@ -2201,7 +2203,7 @@ ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_Params
 };
 
 // ParamsSpec for OnCameraPresenceCheckDone
-ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserImageObserver.OnCameraPresenceCheckDone_Params',
@@ -2215,7 +2217,7 @@ ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_Params
 };
 
 // ParamsSpec for OnIsEnterpriseManagedChanged
-ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserImageObserver.OnIsEnterpriseManagedChanged_Params',
@@ -2229,29 +2231,29 @@ ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_Par
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.UserImageObserverPtr = ash.personalization_app.mojom.UserImageObserverRemote;
-ash.personalization_app.mojom.UserImageObserverRequest = ash.personalization_app.mojom.UserImageObserverPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverPtr = ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverRemote;
+ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverRequest = ash.personalization_app.personalization_app.mojom.mojom.UserImageObserverPendingReceiver;
 
 
 // Interface: UserProvider
-ash.personalization_app.mojom.UserProvider = {};
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider = {};
 
-ash.personalization_app.mojom.UserProviderPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.UserProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.UserProviderRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.UserProviderRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.UserProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.UserProviderPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProviderPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.UserProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.UserProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2263,7 +2265,7 @@ ash.personalization_app.mojom.UserProviderRemote = class {
   }
 };
 
-ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.UserProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2272,7 +2274,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SetUserImageObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -2281,8 +2283,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec,
-      ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetUserInfo_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
       []);
   }
 
@@ -2290,8 +2292,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec,
-      ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetDefaultUserImages_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
       []);
   }
 
@@ -2299,7 +2301,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectDefaultImage_ParamsSpec,
       null,
       [index]);
   }
@@ -2308,7 +2310,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectProfileImage_ParamsSpec,
       null,
       []);
   }
@@ -2317,7 +2319,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectCameraImage_ParamsSpec,
       null,
       [data]);
   }
@@ -2326,7 +2328,7 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectImageFromDisk_ParamsSpec,
       null,
       []);
   }
@@ -2335,15 +2337,15 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.personalization_app.mojom.UserProvider.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.UserProviderRemote();
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.UserProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2353,7 +2355,7 @@ ash.personalization_app.mojom.UserProvider.getRemote = function() {
 };
 
 // ParamsSpec for SetUserImageObserver
-ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SetUserImageObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.SetUserImageObserver_Params',
@@ -2367,7 +2369,7 @@ ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec = {
 };
 
 // ParamsSpec for GetUserInfo
-ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetUserInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.GetUserInfo_Params',
@@ -2379,7 +2381,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.GetUserInfo_ResponseParams',
@@ -2393,7 +2395,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDefaultUserImages
-ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetDefaultUserImages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.GetDefaultUserImages_Params',
@@ -2405,7 +2407,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec = {
   }
 };
 
-ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.GetDefaultUserImages_ResponseParams',
@@ -2419,7 +2421,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSp
 };
 
 // ParamsSpec for SelectDefaultImage
-ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectDefaultImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.SelectDefaultImage_Params',
@@ -2433,7 +2435,7 @@ ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec = {
 };
 
 // ParamsSpec for SelectProfileImage
-ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectProfileImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.SelectProfileImage_Params',
@@ -2446,7 +2448,7 @@ ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec = {
 };
 
 // ParamsSpec for SelectCameraImage
-ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectCameraImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.SelectCameraImage_Params',
@@ -2460,7 +2462,7 @@ ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec = {
 };
 
 // ParamsSpec for SelectImageFromDisk
-ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectImageFromDisk_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.SelectImageFromDisk_Params',
@@ -2473,7 +2475,7 @@ ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec = {
 };
 
 // ParamsSpec for SelectLastExternalUserImage
-ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.UserProvider.SelectLastExternalUserImage_Params',
@@ -2486,29 +2488,29 @@ ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpe
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.UserProviderPtr = ash.personalization_app.mojom.UserProviderRemote;
-ash.personalization_app.mojom.UserProviderRequest = ash.personalization_app.mojom.UserProviderPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.UserProviderPtr = ash.personalization_app.personalization_app.mojom.mojom.UserProviderRemote;
+ash.personalization_app.personalization_app.mojom.mojom.UserProviderRequest = ash.personalization_app.personalization_app.mojom.mojom.UserProviderPendingReceiver;
 
 
 // Interface: AmbientObserver
-ash.personalization_app.mojom.AmbientObserver = {};
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver = {};
 
-ash.personalization_app.mojom.AmbientObserverPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.AmbientObserverRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.AmbientObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.AmbientObserverPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.AmbientObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2520,7 +2522,7 @@ ash.personalization_app.mojom.AmbientObserverRemote = class {
   }
 };
 
-ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2529,7 +2531,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec,
       null,
       [ambient_mode_enabled]);
   }
@@ -2538,7 +2540,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec,
       null,
       [ambient_theme]);
   }
@@ -2547,7 +2549,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec,
       null,
       [topic_source]);
   }
@@ -2556,7 +2558,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec,
       null,
       [minutes]);
   }
@@ -2565,7 +2567,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec,
       null,
       [temperature_unit]);
   }
@@ -2574,7 +2576,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec,
       null,
       [albums]);
   }
@@ -2583,7 +2585,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec,
       null,
       [previews]);
   }
@@ -2592,7 +2594,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec,
       null,
       [visibility]);
   }
@@ -2601,7 +2603,7 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
       [enabled, is_user_modifiable]);
   }
@@ -2610,15 +2612,15 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec,
       null,
       [previews]);
   }
 
 };
 
-ash.personalization_app.mojom.AmbientObserver.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.AmbientObserverRemote();
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2628,7 +2630,7 @@ ash.personalization_app.mojom.AmbientObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnAmbientModeEnabledChanged
-ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientModeEnabledChanged_Params',
@@ -2642,7 +2644,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_Params
 };
 
 // ParamsSpec for OnAmbientThemeChanged
-ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientThemeChanged_Params',
@@ -2656,7 +2658,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec =
 };
 
 // ParamsSpec for OnTopicSourceChanged
-ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnTopicSourceChanged_Params',
@@ -2670,7 +2672,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec = 
 };
 
 // ParamsSpec for OnScreenSaverDurationChanged
-ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnScreenSaverDurationChanged_Params',
@@ -2684,7 +2686,7 @@ ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_Param
 };
 
 // ParamsSpec for OnTemperatureUnitChanged
-ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnTemperatureUnitChanged_Params',
@@ -2698,7 +2700,7 @@ ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpe
 };
 
 // ParamsSpec for OnAlbumsChanged
-ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAlbumsChanged_Params',
@@ -2712,7 +2714,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnPreviewsFetched
-ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnPreviewsFetched_Params',
@@ -2726,7 +2728,7 @@ ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec = {
 };
 
 // ParamsSpec for OnAmbientUiVisibilityChanged
-ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientUiVisibilityChanged_Params',
@@ -2740,7 +2742,7 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_Param
 };
 
 // ParamsSpec for OnGeolocationPermissionForSystemServicesChanged
-ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnGeolocationPermissionForSystemServicesChanged_Params',
@@ -2755,7 +2757,7 @@ ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemSe
 };
 
 // ParamsSpec for OnAmbientThemePreviewImagesChanged
-ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientObserver.OnAmbientThemePreviewImagesChanged_Params',
@@ -2769,29 +2771,29 @@ ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.AmbientObserverPtr = ash.personalization_app.mojom.AmbientObserverRemote;
-ash.personalization_app.mojom.AmbientObserverRequest = ash.personalization_app.mojom.AmbientObserverPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverPtr = ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverRemote;
+ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverRequest = ash.personalization_app.personalization_app.mojom.mojom.AmbientObserverPendingReceiver;
 
 
 // Interface: AmbientProvider
-ash.personalization_app.mojom.AmbientProvider = {};
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider = {};
 
-ash.personalization_app.mojom.AmbientProviderPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.AmbientProviderRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.AmbientProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.AmbientProviderPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.AmbientProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2803,7 +2805,7 @@ ash.personalization_app.mojom.AmbientProviderRemote = class {
   }
 };
 
-ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2812,8 +2814,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
       []);
   }
 
@@ -2821,7 +2823,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -2830,7 +2832,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -2839,7 +2841,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec,
       null,
       [ambient_theme]);
   }
@@ -2848,7 +2850,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec,
       null,
       [minutes]);
   }
@@ -2857,7 +2859,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetTopicSource_ParamsSpec,
       null,
       [topic_source]);
   }
@@ -2866,7 +2868,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec,
       null,
       [temperature_unit]);
   }
@@ -2875,7 +2877,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec,
       null,
       [id, topic_source, selected]);
   }
@@ -2884,7 +2886,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetPageViewed_ParamsSpec,
       null,
       []);
   }
@@ -2893,7 +2895,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec,
       null,
       []);
   }
@@ -2902,7 +2904,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec,
       null,
       []);
   }
@@ -2911,8 +2913,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
       []);
   }
 
@@ -2920,7 +2922,7 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec,
       null,
       []);
   }
@@ -2929,8 +2931,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
       []);
   }
 
@@ -2938,8 +2940,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec,
-      ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
       []);
   }
 
@@ -2947,15 +2949,15 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.personalization_app.mojom.AmbientProvider.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.AmbientProviderRemote();
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2965,7 +2967,7 @@ ash.personalization_app.mojom.AmbientProvider.getRemote = function() {
 };
 
 // ParamsSpec for IsAmbientModeEnabled
-ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.IsAmbientModeEnabled_Params',
@@ -2977,7 +2979,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = 
   }
 };
 
-ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.IsAmbientModeEnabled_ResponseParams',
@@ -2991,7 +2993,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParam
 };
 
 // ParamsSpec for SetAmbientModeEnabled
-ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAmbientModeEnabled_Params',
@@ -3005,7 +3007,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec =
 };
 
 // ParamsSpec for SetAmbientObserver
-ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAmbientObserver_Params',
@@ -3019,7 +3021,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec = {
 };
 
 // ParamsSpec for SetAmbientTheme
-ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAmbientTheme_Params',
@@ -3033,7 +3035,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec = {
 };
 
 // ParamsSpec for SetScreenSaverDuration
-ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetScreenSaverDuration_Params',
@@ -3047,7 +3049,7 @@ ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec 
 };
 
 // ParamsSpec for SetTopicSource
-ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetTopicSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetTopicSource_Params',
@@ -3061,7 +3063,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec = {
 };
 
 // ParamsSpec for SetTemperatureUnit
-ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetTemperatureUnit_Params',
@@ -3075,7 +3077,7 @@ ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec = {
 };
 
 // ParamsSpec for SetAlbumSelected
-ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAlbumSelected_Params',
@@ -3091,7 +3093,7 @@ ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec = {
 };
 
 // ParamsSpec for SetPageViewed
-ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetPageViewed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.SetPageViewed_Params',
@@ -3104,7 +3106,7 @@ ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec = {
 };
 
 // ParamsSpec for FetchSettingsAndAlbums
-ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.FetchSettingsAndAlbums_Params',
@@ -3117,7 +3119,7 @@ ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec 
 };
 
 // ParamsSpec for StartScreenSaverPreview
-ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.StartScreenSaverPreview_Params',
@@ -3130,7 +3132,7 @@ ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec
 };
 
 // ParamsSpec for ShouldShowTimeOfDayBanner
-ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.ShouldShowTimeOfDayBanner_Params',
@@ -3142,7 +3144,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSp
   }
 };
 
-ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.ShouldShowTimeOfDayBanner_ResponseParams',
@@ -3156,7 +3158,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_Response
 };
 
 // ParamsSpec for HandleTimeOfDayBannerDismissed
-ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.HandleTimeOfDayBannerDismissed_Params',
@@ -3169,7 +3171,7 @@ ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_Par
 };
 
 // ParamsSpec for IsGeolocationEnabledForSystemServices
-ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationEnabledForSystemServices_Params',
@@ -3181,7 +3183,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
   }
 };
 
-ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationEnabledForSystemServices_ResponseParams',
@@ -3195,7 +3197,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
 };
 
 // ParamsSpec for IsGeolocationUserModifiable
-ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationUserModifiable_Params',
@@ -3207,7 +3209,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Params
   }
 };
 
-ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationUserModifiable_ResponseParams',
@@ -3221,7 +3223,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Respon
 };
 
 // ParamsSpec for EnableGeolocationForSystemServices
-ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.AmbientProvider.EnableGeolocationForSystemServices_Params',
@@ -3234,29 +3236,29 @@ ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.AmbientProviderPtr = ash.personalization_app.mojom.AmbientProviderRemote;
-ash.personalization_app.mojom.AmbientProviderRequest = ash.personalization_app.mojom.AmbientProviderPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderPtr = ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderRemote;
+ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderRequest = ash.personalization_app.personalization_app.mojom.mojom.AmbientProviderPendingReceiver;
 
 
 // Interface: KeyboardBacklightObserver
-ash.personalization_app.mojom.KeyboardBacklightObserver = {};
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserver = {};
 
-ash.personalization_app.mojom.KeyboardBacklightObserverPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.KeyboardBacklightObserverRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.KeyboardBacklightObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.KeyboardBacklightObserverPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -3268,7 +3270,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemote = class {
   }
 };
 
-ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -3277,7 +3279,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec,
       null,
       [currentBacklightState]);
   }
@@ -3286,15 +3288,15 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec,
       null,
       [wallpaper_color]);
   }
 
 };
 
-ash.personalization_app.mojom.KeyboardBacklightObserver.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.KeyboardBacklightObserverRemote();
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserver.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -3304,7 +3306,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnBacklightStateChanged
-ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightObserver.OnBacklightStateChanged_Params',
@@ -3318,7 +3320,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_
 };
 
 // ParamsSpec for OnWallpaperColorChanged
-ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightObserver.OnWallpaperColorChanged_Params',
@@ -3332,29 +3334,29 @@ ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.KeyboardBacklightObserverPtr = ash.personalization_app.mojom.KeyboardBacklightObserverRemote;
-ash.personalization_app.mojom.KeyboardBacklightObserverRequest = ash.personalization_app.mojom.KeyboardBacklightObserverPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverPtr = ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverRemote;
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverRequest = ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightObserverPendingReceiver;
 
 
 // Interface: KeyboardBacklightProvider
-ash.personalization_app.mojom.KeyboardBacklightProvider = {};
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider = {};
 
-ash.personalization_app.mojom.KeyboardBacklightProviderPendingReceiver = class {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.personalization_app.mojom.KeyboardBacklightProviderRemote = class {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderRemote = class {
   static get $interfaceName() {
     return 'ash.personalization_app.mojom.KeyboardBacklightProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.personalization_app.mojom.KeyboardBacklightProviderPendingReceiver,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderPendingReceiver,
       handle);
-    this.$ = new ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -3366,7 +3368,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemote = class {
   }
 };
 
-ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -3375,7 +3377,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -3384,7 +3386,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec,
       null,
       [backlight_color]);
   }
@@ -3393,7 +3395,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec,
       null,
       [zone, backlight_color]);
   }
@@ -3402,8 +3404,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec,
-      ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
       []);
   }
 
@@ -3411,15 +3413,15 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec,
+      ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.personalization_app.mojom.KeyboardBacklightProvider.getRemote = function() {
-  let remote = new ash.personalization_app.mojom.KeyboardBacklightProviderRemote();
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider.getRemote = function() {
+  let remote = new ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -3429,7 +3431,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider.getRemote = function() {
 };
 
 // ParamsSpec for SetKeyboardBacklightObserver
-ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetKeyboardBacklightObserver_Params',
@@ -3443,7 +3445,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObse
 };
 
 // ParamsSpec for SetBacklightColor
-ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetBacklightColor_Params',
@@ -3457,7 +3459,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_Params
 };
 
 // ParamsSpec for SetBacklightZoneColor
-ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetBacklightZoneColor_Params',
@@ -3472,7 +3474,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_Pa
 };
 
 // ParamsSpec for ShouldShowNudge
-ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.ShouldShowNudge_Params',
@@ -3484,7 +3486,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSp
   }
 };
 
-ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.ShouldShowNudge_ResponseParams',
@@ -3498,7 +3500,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_Response
 };
 
 // ParamsSpec for HandleNudgeShown
-ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec = {
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.HandleNudgeShown_Params',
@@ -3511,6 +3513,6 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsS
 };
 
 // Legacy compatibility
-ash.personalization_app.mojom.KeyboardBacklightProviderPtr = ash.personalization_app.mojom.KeyboardBacklightProviderRemote;
-ash.personalization_app.mojom.KeyboardBacklightProviderRequest = ash.personalization_app.mojom.KeyboardBacklightProviderPendingReceiver;
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderPtr = ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderRemote;
+ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderRequest = ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProviderPendingReceiver;
 

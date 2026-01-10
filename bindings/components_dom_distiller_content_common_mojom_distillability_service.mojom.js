@@ -10,24 +10,24 @@ dom_distiller.mojom = dom_distiller.mojom || {};
 
 
 // Interface: DistillabilityService
-dom_distiller.mojom.DistillabilityService = {};
+dom_distiller.mojom.mojom.DistillabilityService = {};
 
-dom_distiller.mojom.DistillabilityServicePendingReceiver = class {
+dom_distiller.mojom.mojom.DistillabilityServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-dom_distiller.mojom.DistillabilityServiceRemote = class {
+dom_distiller.mojom.mojom.DistillabilityServiceRemote = class {
   static get $interfaceName() {
     return 'dom_distiller.mojom.DistillabilityService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      dom_distiller.mojom.DistillabilityServicePendingReceiver,
+      dom_distiller.mojom.mojom.DistillabilityServicePendingReceiver,
       handle);
-    this.$ = new dom_distiller.mojom.DistillabilityServiceRemoteCallHandler(this.proxy);
+    this.$ = new dom_distiller.mojom.mojom.DistillabilityServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ dom_distiller.mojom.DistillabilityServiceRemote = class {
   }
 };
 
-dom_distiller.mojom.DistillabilityServiceRemoteCallHandler = class {
+dom_distiller.mojom.mojom.DistillabilityServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ dom_distiller.mojom.DistillabilityServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec,
+      dom_distiller.mojom.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec,
       null,
       [page_is_distillable, is_last_update, is_long_article, is_mobile_friendly]);
   }
 
 };
 
-dom_distiller.mojom.DistillabilityService.getRemote = function() {
-  let remote = new dom_distiller.mojom.DistillabilityServiceRemote();
+dom_distiller.mojom.mojom.DistillabilityService.getRemote = function() {
+  let remote = new dom_distiller.mojom.mojom.DistillabilityServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ dom_distiller.mojom.DistillabilityService.getRemote = function() {
 };
 
 // ParamsSpec for NotifyIsDistillable
-dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
+dom_distiller.mojom.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dom_distiller.mojom.DistillabilityService.NotifyIsDistillable_Params',
@@ -83,6 +83,6 @@ dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = {
 };
 
 // Legacy compatibility
-dom_distiller.mojom.DistillabilityServicePtr = dom_distiller.mojom.DistillabilityServiceRemote;
-dom_distiller.mojom.DistillabilityServiceRequest = dom_distiller.mojom.DistillabilityServicePendingReceiver;
+dom_distiller.mojom.mojom.DistillabilityServicePtr = dom_distiller.mojom.mojom.DistillabilityServiceRemote;
+dom_distiller.mojom.mojom.DistillabilityServiceRequest = dom_distiller.mojom.mojom.DistillabilityServicePendingReceiver;
 

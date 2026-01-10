@@ -10,7 +10,7 @@ attribution_reporting.mojom = attribution_reporting.mojom || {};
 
 
 // Enum: StoreSourceResult
-attribution_reporting.mojom.StoreSourceResult = {
+attribution_reporting.mojom.mojom.StoreSourceResult = {
   kSuccess: 0,
   kInternalError: 1,
   kInsufficientSourceCapacity: 2,
@@ -28,4 +28,4 @@ attribution_reporting.mojom.StoreSourceResult = {
   kExceedsMaxScopesChannelCapacity: 14,
   kExceedsMaxEventStatesLimit: 15,
 };
-attribution_reporting.mojom.StoreSourceResultSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.mojom.StoreSourceResultSpec = { $: mojo.internal.Enum() };

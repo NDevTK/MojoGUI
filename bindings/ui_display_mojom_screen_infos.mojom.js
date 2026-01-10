@@ -7,10 +7,13 @@
 // Module namespace
 var display = display || {};
 display.mojom = display.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: ScreenInfos
-display.mojom.ScreenInfosSpec = {
+display.mojom.mojom.ScreenInfosSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.ScreenInfos',

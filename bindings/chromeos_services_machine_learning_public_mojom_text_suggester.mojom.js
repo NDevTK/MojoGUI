@@ -7,29 +7,29 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
 
 
 // Enum: TextSuggestionMode
-chromeos.machine_learning.mojom.TextSuggestionMode = {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggestionMode = {
   kCompletion: 0,
 };
-chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
-chromeos.machine_learning.mojom.Status = {
+chromeos.machine_learning.machine_learning.mojom.mojom.Status = {
   OK: 0,
 };
-chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.machine_learning.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: MultiWordExperimentGroup
-chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MultiWordExperimentGroup = {
   kGboard: 0,
 };
-chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.machine_learning.mojom.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum() };
 
 // Union: TextSuggestionCandidate
-chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: mojo.internal.Union(
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggestionCandidateSpec = { $: mojo.internal.Union(
     'chromeos.machine_learning.mojom.TextSuggestionCandidate', {
       'multi_word': {
         'ordinal': 0,
@@ -39,7 +39,7 @@ chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: mojo.internal
 };
 
 // Struct: NextWordCompletionCandidate
-chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.NextWordCompletionCandidateSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.NextWordCompletionCandidate',
@@ -54,7 +54,7 @@ chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = {
 };
 
 // Struct: TextSuggesterQuery
-chromeos.machine_learning.mojom.TextSuggesterQuerySpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterQuerySpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextSuggesterQuery',
@@ -70,7 +70,7 @@ chromeos.machine_learning.mojom.TextSuggesterQuerySpec = {
 };
 
 // Struct: MultiWordSuggestionCandidate
-chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MultiWordSuggestionCandidateSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate',
@@ -85,7 +85,7 @@ chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = {
 };
 
 // Struct: TextSuggesterResult
-chromeos.machine_learning.mojom.TextSuggesterResultSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextSuggesterResult',
@@ -99,7 +99,7 @@ chromeos.machine_learning.mojom.TextSuggesterResultSpec = {
 };
 
 // Struct: TextSuggesterSpec
-chromeos.machine_learning.mojom.TextSuggesterSpecSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterSpecSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextSuggesterSpec',
@@ -113,24 +113,24 @@ chromeos.machine_learning.mojom.TextSuggesterSpecSpec = {
 };
 
 // Interface: TextSuggester
-chromeos.machine_learning.mojom.TextSuggester = {};
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggester = {};
 
-chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.mojom.TextSuggesterRemote = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.TextSuggester';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.mojom.TextSuggesterPendingReceiver,
+      chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -142,7 +142,7 @@ chromeos.machine_learning.mojom.TextSuggesterRemote = class {
   }
 };
 
-chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -151,15 +151,15 @@ chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec,
-      chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggester_Suggest_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggester_Suggest_ResponseParamsSpec,
       [query]);
   }
 
 };
 
-chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
-  let remote = new chromeos.machine_learning.mojom.TextSuggesterRemote();
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggester.getRemote = function() {
+  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,7 +169,7 @@ chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
 };
 
 // ParamsSpec for Suggest
-chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggester_Suggest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextSuggester.Suggest_Params',
@@ -182,7 +182,7 @@ chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = {
   }
 };
 
-chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggester_Suggest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.TextSuggester.Suggest_ResponseParams',
@@ -196,6 +196,6 @@ chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.machine_learning.mojom.TextSuggesterPtr = chromeos.machine_learning.mojom.TextSuggesterRemote;
-chromeos.machine_learning.mojom.TextSuggesterRequest = chromeos.machine_learning.mojom.TextSuggesterPendingReceiver;
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterPtr = chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterRemote;
+chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterRequest = chromeos.machine_learning.machine_learning.mojom.mojom.TextSuggesterPendingReceiver;
 

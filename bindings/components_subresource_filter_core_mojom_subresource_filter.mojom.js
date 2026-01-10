@@ -10,24 +10,24 @@ subresource_filter.mojom = subresource_filter.mojom || {};
 
 
 // Enum: ActivationLevel
-subresource_filter.mojom.ActivationLevel = {
+subresource_filter.mojom.mojom.ActivationLevel = {
   kDisabled: 0,
   kDryRun: 1,
   kEnabled: 2,
 };
-subresource_filter.mojom.ActivationLevelSpec = { $: mojo.internal.Enum() };
+subresource_filter.mojom.mojom.ActivationLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: AdsViolation
-subresource_filter.mojom.AdsViolation = {
+subresource_filter.mojom.mojom.AdsViolation = {
   kMobileAdDensityByHeightAbove30: 0,
   kHeavyAdsInterventionAtHostLimit: 1,
   kLargeStickyAd: 2,
   kOverlayPopupAd: 3,
 };
-subresource_filter.mojom.AdsViolationSpec = { $: mojo.internal.Enum() };
+subresource_filter.mojom.mojom.AdsViolationSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubresourceFilterDisabledReason
-subresource_filter.mojom.SubresourceFilterDisabledReason = {
+subresource_filter.mojom.mojom.SubresourceFilterDisabledReason = {
   kUnknown: 0,
   kNoMatchingConfiguration: 1,
   kDisabledByConfiguration: 2,
@@ -38,10 +38,10 @@ subresource_filter.mojom.SubresourceFilterDisabledReason = {
   kRulesetUnavailableOrCorrupt: 7,
   kUrlNotHandledByNetworkStack: 8,
 };
-subresource_filter.mojom.SubresourceFilterDisabledReasonSpec = { $: mojo.internal.Enum() };
+subresource_filter.mojom.mojom.SubresourceFilterDisabledReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: ActivationState
-subresource_filter.mojom.ActivationStateSpec = {
+subresource_filter.mojom.mojom.ActivationStateSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.ActivationState',
@@ -60,18 +60,18 @@ subresource_filter.mojom.ActivationStateSpec = {
 };
 
 // Struct: DocumentLoadStatistics
-subresource_filter.mojom.DocumentLoadStatisticsSpec = {
+subresource_filter.mojom.mojom.DocumentLoadStatisticsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.DocumentLoadStatistics',
       packedSize: 40,
       fields: [
-        { name: 'num_loads_total', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'num_loads_evaluated', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'num_loads_matching_rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'num_loads_disallowed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'evaluation_total_wall_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'evaluation_total_cpu_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'num_loads_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'num_loads_evaluated', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'num_loads_matching_rules', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'num_loads_disallowed', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'evaluation_total_wall_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'evaluation_total_cpu_duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -79,24 +79,24 @@ subresource_filter.mojom.DocumentLoadStatisticsSpec = {
 };
 
 // Interface: SubresourceFilterRulesetObserver
-subresource_filter.mojom.SubresourceFilterRulesetObserver = {};
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserver = {};
 
-subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver = class {
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-subresource_filter.mojom.SubresourceFilterRulesetObserverRemote = class {
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverRemote = class {
   static get $interfaceName() {
     return 'subresource_filter.mojom.SubresourceFilterRulesetObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver,
+      subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverPendingReceiver,
       handle);
-    this.$ = new subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler(this.proxy);
+    this.$ = new subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -108,7 +108,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverRemote = class {
   }
 };
 
-subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = class {
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -117,15 +117,15 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec,
       null,
       [ruleset_file]);
   }
 
 };
 
-subresource_filter.mojom.SubresourceFilterRulesetObserver.getRemote = function() {
-  let remote = new subresource_filter.mojom.SubresourceFilterRulesetObserverRemote();
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserver.getRemote = function() {
+  let remote = new subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -135,7 +135,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver.getRemote = function()
 };
 
 // ParamsSpec for SetRulesetForProcess
-subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterRulesetObserver.SetRulesetForProcess_Params',
@@ -149,6 +149,6 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_P
 };
 
 // Legacy compatibility
-subresource_filter.mojom.SubresourceFilterRulesetObserverPtr = subresource_filter.mojom.SubresourceFilterRulesetObserverRemote;
-subresource_filter.mojom.SubresourceFilterRulesetObserverRequest = subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver;
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverPtr = subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverRemote;
+subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverRequest = subresource_filter.mojom.mojom.SubresourceFilterRulesetObserverPendingReceiver;
 

@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Struct: SystemAppRunningState
-arc.mojom.SystemAppRunningStateSpec = {
+arc.mojom.mojom.SystemAppRunningStateSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SystemAppRunningState',
@@ -28,24 +28,24 @@ arc.mojom.SystemAppRunningStateSpec = {
 };
 
 // Interface: SystemStateHost
-arc.mojom.SystemStateHost = {};
+arc.mojom.mojom.SystemStateHost = {};
 
-arc.mojom.SystemStateHostPendingReceiver = class {
+arc.mojom.mojom.SystemStateHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.SystemStateHostRemote = class {
+arc.mojom.mojom.SystemStateHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.SystemStateHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.SystemStateHostPendingReceiver,
+      arc.mojom.mojom.SystemStateHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.SystemStateHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.SystemStateHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +57,7 @@ arc.mojom.SystemStateHostRemote = class {
   }
 };
 
-arc.mojom.SystemStateHostRemoteCallHandler = class {
+arc.mojom.mojom.SystemStateHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,15 +66,15 @@ arc.mojom.SystemStateHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec,
+      arc.mojom.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-arc.mojom.SystemStateHost.getRemote = function() {
-  let remote = new arc.mojom.SystemStateHostRemote();
+arc.mojom.mojom.SystemStateHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.SystemStateHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ arc.mojom.SystemStateHost.getRemote = function() {
 };
 
 // ParamsSpec for UpdateAppRunningState
-arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec = {
+arc.mojom.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SystemStateHost.UpdateAppRunningState_Params',
@@ -98,29 +98,29 @@ arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.SystemStateHostPtr = arc.mojom.SystemStateHostRemote;
-arc.mojom.SystemStateHostRequest = arc.mojom.SystemStateHostPendingReceiver;
+arc.mojom.mojom.SystemStateHostPtr = arc.mojom.mojom.SystemStateHostRemote;
+arc.mojom.mojom.SystemStateHostRequest = arc.mojom.mojom.SystemStateHostPendingReceiver;
 
 
 // Interface: SystemStateInstance
-arc.mojom.SystemStateInstance = {};
+arc.mojom.mojom.SystemStateInstance = {};
 
-arc.mojom.SystemStateInstancePendingReceiver = class {
+arc.mojom.mojom.SystemStateInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.SystemStateInstanceRemote = class {
+arc.mojom.mojom.SystemStateInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.SystemStateInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.SystemStateInstancePendingReceiver,
+      arc.mojom.mojom.SystemStateInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.SystemStateInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.SystemStateInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -132,7 +132,7 @@ arc.mojom.SystemStateInstanceRemote = class {
   }
 };
 
-arc.mojom.SystemStateInstanceRemoteCallHandler = class {
+arc.mojom.mojom.SystemStateInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -141,15 +141,15 @@ arc.mojom.SystemStateInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.SystemStateInstance_Init_ParamsSpec,
+      arc.mojom.mojom.SystemStateInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.SystemStateInstance.getRemote = function() {
-  let remote = new arc.mojom.SystemStateInstanceRemote();
+arc.mojom.mojom.SystemStateInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.SystemStateInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +159,7 @@ arc.mojom.SystemStateInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.SystemStateInstance_Init_ParamsSpec = {
+arc.mojom.mojom.SystemStateInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SystemStateInstance.Init_Params',
@@ -173,6 +173,6 @@ arc.mojom.SystemStateInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.SystemStateInstancePtr = arc.mojom.SystemStateInstanceRemote;
-arc.mojom.SystemStateInstanceRequest = arc.mojom.SystemStateInstancePendingReceiver;
+arc.mojom.mojom.SystemStateInstancePtr = arc.mojom.mojom.SystemStateInstanceRemote;
+arc.mojom.mojom.SystemStateInstanceRequest = arc.mojom.mojom.SystemStateInstancePendingReceiver;
 

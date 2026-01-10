@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Enum: MhtmlSaveStatus
-content.mojom.MhtmlSaveStatus = {
+content.mojom.mojom.MhtmlSaveStatus = {
   kSuccess: 0,
   kFileClosingError: 1,
   kFileCreationError: 2,
@@ -20,10 +20,10 @@ content.mojom.MhtmlSaveStatus = {
   kRenderProcessExited: 6,
   kStreamingError: 7,
 };
-content.mojom.MhtmlSaveStatusSpec = { $: mojo.internal.Enum() };
+content.mojom.mojom.MhtmlSaveStatusSpec = { $: mojo.internal.Enum() };
 
 // Union: MhtmlOutputHandle
-content.mojom.MhtmlOutputHandleSpec = { $: mojo.internal.Union(
+content.mojom.mojom.MhtmlOutputHandleSpec = { $: mojo.internal.Union(
     'content.mojom.MhtmlOutputHandle', {
       'file_handle': {
         'ordinal': 0,
@@ -37,18 +37,18 @@ content.mojom.MhtmlOutputHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SerializeAsMHTMLParams
-content.mojom.SerializeAsMHTMLParamsSpec = {
+content.mojom.mojom.SerializeAsMHTMLParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SerializeAsMHTMLParams',
       packedSize: 56,
       fields: [
-        { name: 'mhtml_boundary_marker', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mhtml_binary_encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mhtml_popup_overlay_removal', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'digests_of_uris_to_skip', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
-        { name: 'salt', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-        { name: 'output_handle', packedOffset: 32, packedBitOffset: 0, type: content.mojom.MhtmlOutputHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'mhtml_boundary_marker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mhtml_binary_encoding', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mhtml_popup_overlay_removal', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'digests_of_uris_to_skip', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
+        { name: 'salt', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
+        { name: 'output_handle', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MhtmlOutputHandleSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -56,24 +56,24 @@ content.mojom.SerializeAsMHTMLParamsSpec = {
 };
 
 // Interface: MhtmlFileWriter
-content.mojom.MhtmlFileWriter = {};
+content.mojom.mojom.MhtmlFileWriter = {};
 
-content.mojom.MhtmlFileWriterPendingReceiver = class {
+content.mojom.mojom.MhtmlFileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.MhtmlFileWriterRemote = class {
+content.mojom.mojom.MhtmlFileWriterRemote = class {
   static get $interfaceName() {
     return 'content.mojom.MhtmlFileWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.MhtmlFileWriterPendingReceiver,
+      content.mojom.mojom.MhtmlFileWriterPendingReceiver,
       handle);
-    this.$ = new content.mojom.MhtmlFileWriterRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.MhtmlFileWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +85,7 @@ content.mojom.MhtmlFileWriterRemote = class {
   }
 };
 
-content.mojom.MhtmlFileWriterRemoteCallHandler = class {
+content.mojom.mojom.MhtmlFileWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,15 +94,15 @@ content.mojom.MhtmlFileWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
-      content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
+      content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
+      content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
       [params]);
   }
 
 };
 
-content.mojom.MhtmlFileWriter.getRemote = function() {
-  let remote = new content.mojom.MhtmlFileWriterRemote();
+content.mojom.mojom.MhtmlFileWriter.getRemote = function() {
+  let remote = new content.mojom.mojom.MhtmlFileWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -112,7 +112,7 @@ content.mojom.MhtmlFileWriter.getRemote = function() {
 };
 
 // ParamsSpec for SerializeAsMHTML
-content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
+content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_Params',
@@ -125,14 +125,14 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
   }
 };
 
-content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
+content.mojom.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MhtmlSaveStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'digests_of_uris_to_skip', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: content.mojom.MhtmlSaveStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'digests_of_uris_to_skip', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -140,6 +140,6 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.MhtmlFileWriterPtr = content.mojom.MhtmlFileWriterRemote;
-content.mojom.MhtmlFileWriterRequest = content.mojom.MhtmlFileWriterPendingReceiver;
+content.mojom.mojom.MhtmlFileWriterPtr = content.mojom.mojom.MhtmlFileWriterRemote;
+content.mojom.mojom.MhtmlFileWriterRequest = content.mojom.mojom.MhtmlFileWriterPendingReceiver;
 

@@ -7,28 +7,29 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.mojom = ash.ime.mojom || {};
+ash.ime.ime.mojom = ash.ime.ime.mojom || {};
+var url = url || {};
 
 
 // Interface: InputEngineManager
-ash.ime.mojom.InputEngineManager = {};
+ash.ime.ime.mojom.mojom.InputEngineManager = {};
 
-ash.ime.mojom.InputEngineManagerPendingReceiver = class {
+ash.ime.ime.mojom.mojom.InputEngineManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.mojom.InputEngineManagerRemote = class {
+ash.ime.ime.mojom.mojom.InputEngineManagerRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.InputEngineManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.mojom.InputEngineManagerPendingReceiver,
+      ash.ime.ime.mojom.mojom.InputEngineManagerPendingReceiver,
       handle);
-    this.$ = new ash.ime.mojom.InputEngineManagerRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.ime.mojom.mojom.InputEngineManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +41,7 @@ ash.ime.mojom.InputEngineManagerRemote = class {
   }
 };
 
-ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
+ash.ime.ime.mojom.mojom.InputEngineManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +50,8 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec,
-      ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
+      ash.ime.ime.mojom.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec,
+      ash.ime.ime.mojom.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
       [ime_spec, to_engine_request, from_engine, extra]);
   }
 
@@ -58,15 +59,15 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec,
-      ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
+      ash.ime.ime.mojom.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec,
+      ash.ime.ime.mojom.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
       [connection_factory]);
   }
 
 };
 
-ash.ime.mojom.InputEngineManager.getRemote = function() {
-  let remote = new ash.ime.mojom.InputEngineManagerRemote();
+ash.ime.ime.mojom.mojom.InputEngineManager.getRemote = function() {
+  let remote = new ash.ime.ime.mojom.mojom.InputEngineManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,23 +77,23 @@ ash.ime.mojom.InputEngineManager.getRemote = function() {
 };
 
 // ParamsSpec for ConnectToImeEngine
-ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
+ash.ime.ime.mojom.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputEngineManager.ConnectToImeEngine_Params',
       packedSize: 32,
       fields: [
         { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'to_engine_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'from_engine', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'extra', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'to_engine_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'from_engine', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'extra', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
+ash.ime.ime.mojom.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputEngineManager.ConnectToImeEngine_ResponseParams',
@@ -106,7 +107,7 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InitializeConnectionFactory
-ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
+ash.ime.ime.mojom.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputEngineManager.InitializeConnectionFactory_Params',
@@ -119,7 +120,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
   }
 };
 
-ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = {
+ash.ime.ime.mojom.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.InputEngineManager.InitializeConnectionFactory_ResponseParams',
@@ -133,29 +134,29 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-ash.ime.mojom.InputEngineManagerPtr = ash.ime.mojom.InputEngineManagerRemote;
-ash.ime.mojom.InputEngineManagerRequest = ash.ime.mojom.InputEngineManagerPendingReceiver;
+ash.ime.ime.mojom.mojom.InputEngineManagerPtr = ash.ime.ime.mojom.mojom.InputEngineManagerRemote;
+ash.ime.ime.mojom.mojom.InputEngineManagerRequest = ash.ime.ime.mojom.mojom.InputEngineManagerPendingReceiver;
 
 
 // Interface: PlatformAccessProvider
-ash.ime.mojom.PlatformAccessProvider = {};
+ash.ime.ime.mojom.mojom.PlatformAccessProvider = {};
 
-ash.ime.mojom.PlatformAccessProviderPendingReceiver = class {
+ash.ime.ime.mojom.mojom.PlatformAccessProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.mojom.PlatformAccessProviderRemote = class {
+ash.ime.ime.mojom.mojom.PlatformAccessProviderRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.PlatformAccessProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.mojom.PlatformAccessProviderPendingReceiver,
+      ash.ime.ime.mojom.mojom.PlatformAccessProviderPendingReceiver,
       handle);
-    this.$ = new ash.ime.mojom.PlatformAccessProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.ime.mojom.mojom.PlatformAccessProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -167,7 +168,7 @@ ash.ime.mojom.PlatformAccessProviderRemote = class {
   }
 };
 
-ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
+ash.ime.ime.mojom.mojom.PlatformAccessProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -176,15 +177,15 @@ ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec,
-      ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
+      ash.ime.ime.mojom.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec,
+      ash.ime.ime.mojom.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
       [url, file_path]);
   }
 
 };
 
-ash.ime.mojom.PlatformAccessProvider.getRemote = function() {
-  let remote = new ash.ime.mojom.PlatformAccessProviderRemote();
+ash.ime.ime.mojom.mojom.PlatformAccessProvider.getRemote = function() {
+  let remote = new ash.ime.ime.mojom.mojom.PlatformAccessProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -194,7 +195,7 @@ ash.ime.mojom.PlatformAccessProvider.getRemote = function() {
 };
 
 // ParamsSpec for DownloadImeFileTo
-ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
+ash.ime.ime.mojom.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.PlatformAccessProvider.DownloadImeFileTo_Params',
@@ -208,7 +209,7 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
   }
 };
 
-ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
+ash.ime.ime.mojom.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.PlatformAccessProvider.DownloadImeFileTo_ResponseParams',
@@ -222,29 +223,29 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.ime.mojom.PlatformAccessProviderPtr = ash.ime.mojom.PlatformAccessProviderRemote;
-ash.ime.mojom.PlatformAccessProviderRequest = ash.ime.mojom.PlatformAccessProviderPendingReceiver;
+ash.ime.ime.mojom.mojom.PlatformAccessProviderPtr = ash.ime.ime.mojom.mojom.PlatformAccessProviderRemote;
+ash.ime.ime.mojom.mojom.PlatformAccessProviderRequest = ash.ime.ime.mojom.mojom.PlatformAccessProviderPendingReceiver;
 
 
 // Interface: ImeService
-ash.ime.mojom.ImeService = {};
+ash.ime.ime.mojom.mojom.ImeService = {};
 
-ash.ime.mojom.ImeServicePendingReceiver = class {
+ash.ime.ime.mojom.mojom.ImeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.mojom.ImeServiceRemote = class {
+ash.ime.ime.mojom.mojom.ImeServiceRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.ImeService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.mojom.ImeServicePendingReceiver,
+      ash.ime.ime.mojom.mojom.ImeServicePendingReceiver,
       handle);
-    this.$ = new ash.ime.mojom.ImeServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.ime.mojom.mojom.ImeServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -256,7 +257,7 @@ ash.ime.mojom.ImeServiceRemote = class {
   }
 };
 
-ash.ime.mojom.ImeServiceRemoteCallHandler = class {
+ash.ime.ime.mojom.mojom.ImeServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -265,7 +266,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec,
+      ash.ime.ime.mojom.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec,
       null,
       [provider]);
   }
@@ -274,7 +275,7 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec,
+      ash.ime.ime.mojom.mojom.ImeService_BindInputEngineManager_ParamsSpec,
       null,
       [receiver]);
   }
@@ -283,15 +284,15 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec,
+      ash.ime.ime.mojom.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-ash.ime.mojom.ImeService.getRemote = function() {
-  let remote = new ash.ime.mojom.ImeServiceRemote();
+ash.ime.ime.mojom.mojom.ImeService.getRemote = function() {
+  let remote = new ash.ime.ime.mojom.mojom.ImeServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -301,7 +302,7 @@ ash.ime.mojom.ImeService.getRemote = function() {
 };
 
 // ParamsSpec for SetPlatformAccessProvider
-ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
+ash.ime.ime.mojom.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ImeService.SetPlatformAccessProvider_Params',
@@ -315,7 +316,7 @@ ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
 };
 
 // ParamsSpec for BindInputEngineManager
-ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
+ash.ime.ime.mojom.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ImeService.BindInputEngineManager_Params',
@@ -329,7 +330,7 @@ ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
 };
 
 // ParamsSpec for BindInputMethodUserDataService
-ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
+ash.ime.ime.mojom.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ImeService.BindInputMethodUserDataService_Params',
@@ -343,6 +344,6 @@ ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.ime.mojom.ImeServicePtr = ash.ime.mojom.ImeServiceRemote;
-ash.ime.mojom.ImeServiceRequest = ash.ime.mojom.ImeServicePendingReceiver;
+ash.ime.ime.mojom.mojom.ImeServicePtr = ash.ime.ime.mojom.mojom.ImeServiceRemote;
+ash.ime.ime.mojom.mojom.ImeServiceRequest = ash.ime.ime.mojom.mojom.ImeServicePendingReceiver;
 

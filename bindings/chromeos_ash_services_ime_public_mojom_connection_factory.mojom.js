@@ -7,28 +7,28 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.mojom = ash.ime.mojom || {};
+ash.ime.ime.mojom = ash.ime.ime.mojom || {};
 
 
 // Interface: ConnectionFactory
-ash.ime.mojom.ConnectionFactory = {};
+ash.ime.ime.mojom.mojom.ConnectionFactory = {};
 
-ash.ime.mojom.ConnectionFactoryPendingReceiver = class {
+ash.ime.ime.mojom.mojom.ConnectionFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.mojom.ConnectionFactoryRemote = class {
+ash.ime.ime.mojom.mojom.ConnectionFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.ConnectionFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.mojom.ConnectionFactoryPendingReceiver,
+      ash.ime.ime.mojom.mojom.ConnectionFactoryPendingReceiver,
       handle);
-    this.$ = new ash.ime.mojom.ConnectionFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.ime.ime.mojom.mojom.ConnectionFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ash.ime.mojom.ConnectionFactoryRemote = class {
   }
 };
 
-ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
+ash.ime.ime.mojom.mojom.ConnectionFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +49,8 @@ ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec,
-      ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec,
+      ash.ime.ime.mojom.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec,
+      ash.ime.ime.mojom.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec,
       [ime_spec, input_method, input_method_host, settings]);
   }
 
@@ -58,15 +58,15 @@ ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec,
-      ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec,
+      ash.ime.ime.mojom.mojom.ConnectionFactory_Unused_ParamsSpec,
+      ash.ime.ime.mojom.mojom.ConnectionFactory_Unused_ResponseParamsSpec,
       [unused]);
   }
 
 };
 
-ash.ime.mojom.ConnectionFactory.getRemote = function() {
-  let remote = new ash.ime.mojom.ConnectionFactoryRemote();
+ash.ime.ime.mojom.mojom.ConnectionFactory.getRemote = function() {
+  let remote = new ash.ime.ime.mojom.mojom.ConnectionFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,23 +76,23 @@ ash.ime.mojom.ConnectionFactory.getRemote = function() {
 };
 
 // ParamsSpec for ConnectToInputMethod
-ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = {
+ash.ime.ime.mojom.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ConnectionFactory.ConnectToInputMethod_Params',
       packedSize: 40,
       fields: [
-        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'input_method_host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 2 },
+        { name: 'ime_spec', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'input_method', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'input_method_host', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 40}]
+      versions: [{version: 0, packedSize: 40}, {version: 2, packedSize: 40}]
     }
   }
 };
 
-ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec = {
+ash.ime.ime.mojom.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ConnectionFactory.ConnectToInputMethod_ResponseParams',
@@ -106,7 +106,7 @@ ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Unused
-ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = {
+ash.ime.ime.mojom.mojom.ConnectionFactory_Unused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ConnectionFactory.Unused_Params',
@@ -119,7 +119,7 @@ ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = {
   }
 };
 
-ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = {
+ash.ime.ime.mojom.mojom.ConnectionFactory_Unused_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ConnectionFactory.Unused_ResponseParams',
@@ -133,6 +133,6 @@ ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.ime.mojom.ConnectionFactoryPtr = ash.ime.mojom.ConnectionFactoryRemote;
-ash.ime.mojom.ConnectionFactoryRequest = ash.ime.mojom.ConnectionFactoryPendingReceiver;
+ash.ime.ime.mojom.mojom.ConnectionFactoryPtr = ash.ime.ime.mojom.mojom.ConnectionFactoryRemote;
+ash.ime.ime.mojom.mojom.ConnectionFactoryRequest = ash.ime.ime.mojom.mojom.ConnectionFactoryPendingReceiver;
 

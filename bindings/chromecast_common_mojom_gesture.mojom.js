@@ -7,27 +7,29 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: GestureHandler
-chromecast.mojom.GestureHandler = {};
+chromecast.mojom.mojom.GestureHandler = {};
 
-chromecast.mojom.GestureHandlerPendingReceiver = class {
+chromecast.mojom.mojom.GestureHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.GestureHandlerRemote = class {
+chromecast.mojom.mojom.GestureHandlerRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.GestureHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.GestureHandlerPendingReceiver,
+      chromecast.mojom.mojom.GestureHandlerPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.GestureHandlerRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.GestureHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ chromecast.mojom.GestureHandlerRemote = class {
   }
 };
 
-chromecast.mojom.GestureHandlerRemoteCallHandler = class {
+chromecast.mojom.mojom.GestureHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +50,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec,
-      chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnBackGesture_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +59,7 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec,
       null,
       [touch_location]);
   }
@@ -66,7 +68,7 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec,
       null,
       [touch_location]);
   }
@@ -75,7 +77,7 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +86,7 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec,
       null,
       [touch_location]);
   }
@@ -93,7 +95,7 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +104,7 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec,
       null,
       []);
   }
@@ -111,7 +113,7 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnTapGesture_ParamsSpec,
       null,
       []);
   }
@@ -120,15 +122,15 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec,
+      chromecast.mojom.mojom.GestureHandler_OnTapDownGesture_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chromecast.mojom.GestureHandler.getRemote = function() {
-  let remote = new chromecast.mojom.GestureHandlerRemote();
+chromecast.mojom.mojom.GestureHandler.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.GestureHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -138,7 +140,7 @@ chromecast.mojom.GestureHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnBackGesture
-chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnBackGesture_Params',
@@ -150,7 +152,7 @@ chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
   }
 };
 
-chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnBackGesture_ResponseParams',
@@ -164,7 +166,7 @@ chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnBackGestureProgress
-chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnBackGestureProgress_Params',
@@ -178,7 +180,7 @@ chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = {
 };
 
 // ParamsSpec for OnTopDragGestureProgress
-chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnTopDragGestureProgress_Params',
@@ -192,7 +194,7 @@ chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = {
 };
 
 // ParamsSpec for OnTopDragGestureDone
-chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnTopDragGestureDone_Params',
@@ -205,7 +207,7 @@ chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = {
 };
 
 // ParamsSpec for OnRightDragGestureProgress
-chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnRightDragGestureProgress_Params',
@@ -219,7 +221,7 @@ chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = {
 };
 
 // ParamsSpec for OnRightDragGestureDone
-chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnRightDragGestureDone_Params',
@@ -232,7 +234,7 @@ chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = {
 };
 
 // ParamsSpec for OnBackGestureCancel
-chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnBackGestureCancel_Params',
@@ -245,7 +247,7 @@ chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = {
 };
 
 // ParamsSpec for OnTapGesture
-chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnTapGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnTapGesture_Params',
@@ -258,7 +260,7 @@ chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = {
 };
 
 // ParamsSpec for OnTapDownGesture
-chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = {
+chromecast.mojom.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureHandler.OnTapDownGesture_Params',
@@ -271,29 +273,29 @@ chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.GestureHandlerPtr = chromecast.mojom.GestureHandlerRemote;
-chromecast.mojom.GestureHandlerRequest = chromecast.mojom.GestureHandlerPendingReceiver;
+chromecast.mojom.mojom.GestureHandlerPtr = chromecast.mojom.mojom.GestureHandlerRemote;
+chromecast.mojom.mojom.GestureHandlerRequest = chromecast.mojom.mojom.GestureHandlerPendingReceiver;
 
 
 // Interface: GestureSource
-chromecast.mojom.GestureSource = {};
+chromecast.mojom.mojom.GestureSource = {};
 
-chromecast.mojom.GestureSourcePendingReceiver = class {
+chromecast.mojom.mojom.GestureSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.GestureSourceRemote = class {
+chromecast.mojom.mojom.GestureSourceRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.GestureSource';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.GestureSourcePendingReceiver,
+      chromecast.mojom.mojom.GestureSourcePendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.GestureSourceRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.GestureSourceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -305,7 +307,7 @@ chromecast.mojom.GestureSourceRemote = class {
   }
 };
 
-chromecast.mojom.GestureSourceRemoteCallHandler = class {
+chromecast.mojom.mojom.GestureSourceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -314,7 +316,7 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.GestureSource_Subscribe_ParamsSpec,
+      chromecast.mojom.mojom.GestureSource_Subscribe_ParamsSpec,
       null,
       [handler]);
   }
@@ -323,7 +325,7 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec,
+      chromecast.mojom.mojom.GestureSource_SetCanGoBack_ParamsSpec,
       null,
       [can_go_back]);
   }
@@ -332,7 +334,7 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec,
+      chromecast.mojom.mojom.GestureSource_SetCanTopDrag_ParamsSpec,
       null,
       [can_top_drag]);
   }
@@ -341,15 +343,15 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec,
+      chromecast.mojom.mojom.GestureSource_SetCanRightDrag_ParamsSpec,
       null,
       [can_top_drag]);
   }
 
 };
 
-chromecast.mojom.GestureSource.getRemote = function() {
-  let remote = new chromecast.mojom.GestureSourceRemote();
+chromecast.mojom.mojom.GestureSource.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.GestureSourceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -359,7 +361,7 @@ chromecast.mojom.GestureSource.getRemote = function() {
 };
 
 // ParamsSpec for Subscribe
-chromecast.mojom.GestureSource_Subscribe_ParamsSpec = {
+chromecast.mojom.mojom.GestureSource_Subscribe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureSource.Subscribe_Params',
@@ -373,7 +375,7 @@ chromecast.mojom.GestureSource_Subscribe_ParamsSpec = {
 };
 
 // ParamsSpec for SetCanGoBack
-chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = {
+chromecast.mojom.mojom.GestureSource_SetCanGoBack_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureSource.SetCanGoBack_Params',
@@ -387,7 +389,7 @@ chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = {
 };
 
 // ParamsSpec for SetCanTopDrag
-chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = {
+chromecast.mojom.mojom.GestureSource_SetCanTopDrag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureSource.SetCanTopDrag_Params',
@@ -401,7 +403,7 @@ chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = {
 };
 
 // ParamsSpec for SetCanRightDrag
-chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = {
+chromecast.mojom.mojom.GestureSource_SetCanRightDrag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GestureSource.SetCanRightDrag_Params',
@@ -415,6 +417,6 @@ chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.GestureSourcePtr = chromecast.mojom.GestureSourceRemote;
-chromecast.mojom.GestureSourceRequest = chromecast.mojom.GestureSourcePendingReceiver;
+chromecast.mojom.mojom.GestureSourcePtr = chromecast.mojom.mojom.GestureSourceRemote;
+chromecast.mojom.mojom.GestureSourceRequest = chromecast.mojom.mojom.GestureSourcePendingReceiver;
 

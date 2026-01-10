@@ -10,22 +10,22 @@ network.mojom = network.mojom || {};
 
 
 // Enum: SessionSource
-network.mojom.SessionSource = {
+network.mojom.mojom.SessionSource = {
   kNew: 0,
   kExisting: 1,
 };
-network.mojom.SessionSourceSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.SessionSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AdvertisedAltSvcState
-network.mojom.AdvertisedAltSvcState = {
+network.mojom.mojom.AdvertisedAltSvcState = {
   kUnknown: 0,
   kQuicNotBroken: 1,
   kQuicBroken: 2,
 };
-network.mojom.AdvertisedAltSvcStateSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.AdvertisedAltSvcStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: LoadTimingInternalInfo
-network.mojom.LoadTimingInternalInfoSpec = {
+network.mojom.mojom.LoadTimingInternalInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.LoadTimingInternalInfo',

@@ -10,28 +10,28 @@ prefs.mojom = prefs.mojom || {};
 
 
 // Enum: EnforcementLevel
-prefs.mojom.EnforcementLevel = {
+prefs.mojom.mojom.EnforcementLevel = {
   NO_ENFORCEMENT: 0,
   ENFORCE_ON_LOAD: 1,
 };
-prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum() };
+prefs.mojom.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrefTrackingStrategy
-prefs.mojom.PrefTrackingStrategy = {
+prefs.mojom.mojom.PrefTrackingStrategy = {
   ATOMIC: 0,
   SPLIT: 1,
 };
-prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum() };
+prefs.mojom.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum() };
 
 // Enum: ValueType
-prefs.mojom.ValueType = {
+prefs.mojom.mojom.ValueType = {
   IMPERSONAL: 0,
   PERSONAL: 1,
 };
-prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum() };
+prefs.mojom.mojom.ValueTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TrackedPersistentPrefStoreConfiguration
-prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
+prefs.mojom.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
   $: {
     structSpec: {
       name: 'prefs.mojom.TrackedPersistentPrefStoreConfiguration',
@@ -53,7 +53,7 @@ prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
 };
 
 // Struct: TrackedPreferenceMetadata
-prefs.mojom.TrackedPreferenceMetadataSpec = {
+prefs.mojom.mojom.TrackedPreferenceMetadataSpec = {
   $: {
     structSpec: {
       name: 'prefs.mojom.TrackedPreferenceMetadata',
@@ -67,24 +67,24 @@ prefs.mojom.TrackedPreferenceMetadataSpec = {
 };
 
 // Interface: ResetOnLoadObserver
-prefs.mojom.ResetOnLoadObserver = {};
+prefs.mojom.mojom.ResetOnLoadObserver = {};
 
-prefs.mojom.ResetOnLoadObserverPendingReceiver = class {
+prefs.mojom.mojom.ResetOnLoadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-prefs.mojom.ResetOnLoadObserverRemote = class {
+prefs.mojom.mojom.ResetOnLoadObserverRemote = class {
   static get $interfaceName() {
     return 'prefs.mojom.ResetOnLoadObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      prefs.mojom.ResetOnLoadObserverPendingReceiver,
+      prefs.mojom.mojom.ResetOnLoadObserverPendingReceiver,
       handle);
-    this.$ = new prefs.mojom.ResetOnLoadObserverRemoteCallHandler(this.proxy);
+    this.$ = new prefs.mojom.mojom.ResetOnLoadObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -96,7 +96,7 @@ prefs.mojom.ResetOnLoadObserverRemote = class {
   }
 };
 
-prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {
+prefs.mojom.mojom.ResetOnLoadObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -105,15 +105,15 @@ prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec,
+      prefs.mojom.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec,
       null,
       []);
   }
 
 };
 
-prefs.mojom.ResetOnLoadObserver.getRemote = function() {
-  let remote = new prefs.mojom.ResetOnLoadObserverRemote();
+prefs.mojom.mojom.ResetOnLoadObserver.getRemote = function() {
+  let remote = new prefs.mojom.mojom.ResetOnLoadObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -123,7 +123,7 @@ prefs.mojom.ResetOnLoadObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnResetOnLoad
-prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
+prefs.mojom.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
   $: {
     structSpec: {
       name: 'prefs.mojom.ResetOnLoadObserver.OnResetOnLoad_Params',
@@ -136,6 +136,6 @@ prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
 };
 
 // Legacy compatibility
-prefs.mojom.ResetOnLoadObserverPtr = prefs.mojom.ResetOnLoadObserverRemote;
-prefs.mojom.ResetOnLoadObserverRequest = prefs.mojom.ResetOnLoadObserverPendingReceiver;
+prefs.mojom.mojom.ResetOnLoadObserverPtr = prefs.mojom.mojom.ResetOnLoadObserverRemote;
+prefs.mojom.mojom.ResetOnLoadObserverRequest = prefs.mojom.mojom.ResetOnLoadObserverPendingReceiver;
 

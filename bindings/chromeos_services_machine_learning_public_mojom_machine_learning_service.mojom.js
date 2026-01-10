@@ -7,38 +7,38 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
 
 
 // Enum: LoadModelResult
-chromeos.machine_learning.mojom.LoadModelResult = {
+chromeos.machine_learning.machine_learning.mojom.mojom.LoadModelResult = {
   OK: 0,
   MODEL_SPEC_ERROR: 1,
   LOAD_MODEL_ERROR: 2,
   FEATURE_NOT_SUPPORTED_ERROR: 3,
   LANGUAGE_NOT_SUPPORTED_ERROR: 4,
 };
-chromeos.machine_learning.mojom.LoadModelResultSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.machine_learning.mojom.mojom.LoadModelResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: MachineLearningService
-chromeos.machine_learning.mojom.MachineLearningService = {};
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService = {};
 
-chromeos.machine_learning.mojom.MachineLearningServicePendingReceiver = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningServiceRemote = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServiceRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.MachineLearningService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.mojom.MachineLearningServicePendingReceiver,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServicePendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -50,7 +50,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemote = class {
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -59,7 +59,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Clone_ParamsSpec,
       null,
       [receiver]);
   }
@@ -68,8 +68,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec,
       [spec, receiver]);
   }
 
@@ -77,8 +77,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec,
       [spec, receiver]);
   }
 
@@ -86,8 +86,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec,
       [receiver]);
   }
 
@@ -95,8 +95,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec,
       [spec, receiver]);
   }
 
@@ -104,8 +104,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec,
       [config, soda_client, soda_recognizer]);
   }
 
@@ -113,8 +113,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec,
       [receiver]);
   }
 
@@ -122,8 +122,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec,
       [receiver, spec]);
   }
 
@@ -131,8 +131,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec,
       [constraint, receiver]);
   }
 
@@ -140,8 +140,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec,
       [receiver, config]);
   }
 
@@ -149,8 +149,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec,
       [config, receiver]);
   }
 
@@ -158,8 +158,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec,
       [config, client]);
   }
 
@@ -167,15 +167,15 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec,
-      chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_REMOVED_4_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec,
       [spec, receiver]);
   }
 
 };
 
-chromeos.machine_learning.mojom.MachineLearningService.getRemote = function() {
-  let remote = new chromeos.machine_learning.mojom.MachineLearningServiceRemote();
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService.getRemote = function() {
+  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -185,7 +185,7 @@ chromeos.machine_learning.mojom.MachineLearningService.getRemote = function() {
 };
 
 // ParamsSpec for Clone
-chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.Clone_Params',
@@ -199,7 +199,7 @@ chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec = {
 };
 
 // ParamsSpec for LoadBuiltinModel
-chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadBuiltinModel_Params',
@@ -213,7 +213,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSp
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadBuiltinModel_ResponseParams',
@@ -227,7 +227,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_Response
 };
 
 // ParamsSpec for LoadFlatBufferModel
-chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadFlatBufferModel_Params',
@@ -241,7 +241,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_Param
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadFlatBufferModel_ResponseParams',
@@ -255,7 +255,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_Respo
 };
 
 // ParamsSpec for LoadTextClassifier
-chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextClassifier_Params',
@@ -268,7 +268,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_Params
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextClassifier_ResponseParams',
@@ -282,7 +282,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_Respon
 };
 
 // ParamsSpec for LoadHandwritingModel
-chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHandwritingModel_Params',
@@ -296,7 +296,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_Para
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHandwritingModel_ResponseParams',
@@ -310,7 +310,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_Resp
 };
 
 // ParamsSpec for LoadSpeechRecognizer
-chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadSpeechRecognizer_Params',
@@ -325,7 +325,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_Para
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadSpeechRecognizer_ResponseParams',
@@ -339,7 +339,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_Resp
 };
 
 // ParamsSpec for LoadGrammarChecker
-chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadGrammarChecker_Params',
@@ -352,7 +352,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_Params
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadGrammarChecker_ResponseParams',
@@ -366,21 +366,21 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_Respon
 };
 
 // ParamsSpec for LoadTextSuggester
-chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextSuggester_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'spec', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterSpecSpec, nullable: true, minVersion: 3 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterSpecSpec, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 16}, {version: 3, packedSize: 24}]
+      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 24}]
     }
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextSuggester_ResponseParams',
@@ -394,7 +394,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_Respons
 };
 
 // ParamsSpec for LoadWebPlatformHandwritingModel
-chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadWebPlatformHandwritingModel_Params',
@@ -408,7 +408,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritin
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadWebPlatformHandwritingModel_ResponseParams',
@@ -422,21 +422,21 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritin
 };
 
 // ParamsSpec for LoadDocumentScanner
-chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadDocumentScanner_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerConfigSpec, nullable: true, minVersion: 6 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerConfigSpec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0, packedSize: 16}, {version: 6, packedSize: 24}]
+      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 24}]
     }
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadDocumentScanner_ResponseParams',
@@ -450,7 +450,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_Respo
 };
 
 // ParamsSpec for LoadImageAnnotator
-chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadImageAnnotator_Params',
@@ -464,7 +464,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_Params
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadImageAnnotator_ResponseParams',
@@ -478,7 +478,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_Respon
 };
 
 // ParamsSpec for LoadHeatmapPalmRejection
-chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHeatmapPalmRejection_Params',
@@ -492,7 +492,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHeatmapPalmRejection_ResponseParams',
@@ -506,7 +506,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_
 };
 
 // ParamsSpec for REMOVED_4
-chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_REMOVED_4_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.REMOVED_4_Params',
@@ -520,7 +520,7 @@ chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec = {
   }
 };
 
-chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.REMOVED_4_ResponseParams',
@@ -534,6 +534,6 @@ chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsS
 };
 
 // Legacy compatibility
-chromeos.machine_learning.mojom.MachineLearningServicePtr = chromeos.machine_learning.mojom.MachineLearningServiceRemote;
-chromeos.machine_learning.mojom.MachineLearningServiceRequest = chromeos.machine_learning.mojom.MachineLearningServicePendingReceiver;
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServicePtr = chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServiceRemote;
+chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServiceRequest = chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningServicePendingReceiver;
 

@@ -10,24 +10,24 @@ content.mojom = content.mojom || {};
 
 
 // Interface: FontCacheWin
-content.mojom.FontCacheWin = {};
+content.mojom.mojom.FontCacheWin = {};
 
-content.mojom.FontCacheWinPendingReceiver = class {
+content.mojom.mojom.FontCacheWinPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.FontCacheWinRemote = class {
+content.mojom.mojom.FontCacheWinRemote = class {
   static get $interfaceName() {
     return 'content.mojom.FontCacheWin';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.FontCacheWinPendingReceiver,
+      content.mojom.mojom.FontCacheWinPendingReceiver,
       handle);
-    this.$ = new content.mojom.FontCacheWinRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.FontCacheWinRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ content.mojom.FontCacheWinRemote = class {
   }
 };
 
-content.mojom.FontCacheWinRemoteCallHandler = class {
+content.mojom.mojom.FontCacheWinRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.FontCacheWin_PreCacheFont_ParamsSpec,
+      content.mojom.mojom.FontCacheWin_PreCacheFont_ParamsSpec,
       null,
       [log_font]);
   }
@@ -57,15 +57,15 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec,
+      content.mojom.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec,
       null,
       []);
   }
 
 };
 
-content.mojom.FontCacheWin.getRemote = function() {
-  let remote = new content.mojom.FontCacheWinRemote();
+content.mojom.mojom.FontCacheWin.getRemote = function() {
+  let remote = new content.mojom.mojom.FontCacheWinRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ content.mojom.FontCacheWin.getRemote = function() {
 };
 
 // ParamsSpec for PreCacheFont
-content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
+content.mojom.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.FontCacheWin.PreCacheFont_Params',
@@ -89,7 +89,7 @@ content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
 };
 
 // ParamsSpec for ReleaseCachedFonts
-content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
+content.mojom.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.FontCacheWin.ReleaseCachedFonts_Params',
@@ -102,6 +102,6 @@ content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.FontCacheWinPtr = content.mojom.FontCacheWinRemote;
-content.mojom.FontCacheWinRequest = content.mojom.FontCacheWinPendingReceiver;
+content.mojom.mojom.FontCacheWinPtr = content.mojom.mojom.FontCacheWinRemote;
+content.mojom.mojom.FontCacheWinRequest = content.mojom.mojom.FontCacheWinPendingReceiver;
 

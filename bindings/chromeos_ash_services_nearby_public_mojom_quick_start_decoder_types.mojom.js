@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.quick_start = ash.quick_start || {};
-ash.quick_start.mojom = ash.quick_start.mojom || {};
+ash.quick_start.quick_start.mojom = ash.quick_start.quick_start.mojom || {};
 
 
 // Enum: WifiSecurityType
-ash.quick_start.mojom.WifiSecurityType = {
+ash.quick_start.quick_start.mojom.mojom.WifiSecurityType = {
   kPSK: 0,
   kWEP: 1,
   kEAP: 2,
@@ -19,18 +19,18 @@ ash.quick_start.mojom.WifiSecurityType = {
   kOWE: 4,
   kSAE: 5,
 };
-ash.quick_start.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
+ash.quick_start.quick_start.mojom.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserVerificationResult
-ash.quick_start.mojom.UserVerificationResult = {
+ash.quick_start.quick_start.mojom.mojom.UserVerificationResult = {
   kUserVerified: 0,
   kUserNotVerified: 1,
   kLSKFNotSet: 2,
 };
-ash.quick_start.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum() };
+ash.quick_start.quick_start.mojom.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: QuickStartDecoderError
-ash.quick_start.mojom.QuickStartDecoderError = {
+ash.quick_start.quick_start.mojom.mojom.QuickStartDecoderError = {
   kEmptyMessage: 0,
   kUnableToReadAsJSON: 1,
   kMessageDoesNotMatchSchema: 2,
@@ -38,10 +38,10 @@ ash.quick_start.mojom.QuickStartDecoderError = {
   kUnknownPayload: 4,
   kUnableToReadAsBase64: 5,
 };
-ash.quick_start.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum() };
+ash.quick_start.quick_start.mojom.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: QuickStartMessage
-ash.quick_start.mojom.QuickStartMessageSpec = { $: mojo.internal.Union(
+ash.quick_start.quick_start.mojom.mojom.QuickStartMessageSpec = { $: mojo.internal.Union(
     'ash.quick_start.mojom.QuickStartMessage', {
       'bootstrap_configurations': {
         'ordinal': 0,
@@ -75,15 +75,15 @@ ash.quick_start.mojom.QuickStartMessageSpec = { $: mojo.internal.Union(
 };
 
 // Struct: BootstrapConfigurations
-ash.quick_start.mojom.BootstrapConfigurationsSpec = {
+ash.quick_start.quick_start.mojom.mojom.BootstrapConfigurationsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.BootstrapConfigurations',
       packedSize: 32,
       fields: [
         { name: 'instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_supervised_account', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_supervised_account', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -91,7 +91,7 @@ ash.quick_start.mojom.BootstrapConfigurationsSpec = {
 };
 
 // Struct: UserVerificationMethod
-ash.quick_start.mojom.UserVerificationMethodSpec = {
+ash.quick_start.quick_start.mojom.mojom.UserVerificationMethodSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.UserVerificationMethod',
@@ -105,7 +105,7 @@ ash.quick_start.mojom.UserVerificationMethodSpec = {
 };
 
 // Struct: UserVerificationResponse
-ash.quick_start.mojom.UserVerificationResponseSpec = {
+ash.quick_start.quick_start.mojom.mojom.UserVerificationResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.UserVerificationResponse',
@@ -120,7 +120,7 @@ ash.quick_start.mojom.UserVerificationResponseSpec = {
 };
 
 // Struct: UserVerificationRequested
-ash.quick_start.mojom.UserVerificationRequestedSpec = {
+ash.quick_start.quick_start.mojom.mojom.UserVerificationRequestedSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.UserVerificationRequested',
@@ -134,16 +134,16 @@ ash.quick_start.mojom.UserVerificationRequestedSpec = {
 };
 
 // Struct: WifiCredentials
-ash.quick_start.mojom.WifiCredentialsSpec = {
+ash.quick_start.quick_start.mojom.mojom.WifiCredentialsSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.WifiCredentials',
       packedSize: 32,
       fields: [
         { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'security_type', packedOffset: 8, packedBitOffset: 0, type: ash.quick_start.mojom.WifiSecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_hidden', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'security_type', packedOffset: 16, packedBitOffset: 0, type: ash.quick_start.mojom.WifiSecurityTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_hidden', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -151,7 +151,7 @@ ash.quick_start.mojom.WifiCredentialsSpec = {
 };
 
 // Struct: FidoAssertionResponse
-ash.quick_start.mojom.FidoAssertionResponseSpec = {
+ash.quick_start.quick_start.mojom.mojom.FidoAssertionResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.FidoAssertionResponse',
@@ -168,7 +168,7 @@ ash.quick_start.mojom.FidoAssertionResponseSpec = {
 };
 
 // Struct: NotifySourceOfUpdateResponse
-ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec = {
+ash.quick_start.quick_start.mojom.mojom.NotifySourceOfUpdateResponseSpec = {
   $: {
     structSpec: {
       name: 'ash.quick_start.mojom.NotifySourceOfUpdateResponse',

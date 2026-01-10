@@ -7,10 +7,11 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: ProxyScheme
-network.mojom.ProxyScheme = {
+network.mojom.mojom.ProxyScheme = {
   kInvalid: 0,
   kHttp: 1,
   kSocks4: 2,
@@ -18,21 +19,21 @@ network.mojom.ProxyScheme = {
   kHttps: 4,
   kQuic: 5,
 };
-network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AuthChallengeInfo
-network.mojom.AuthChallengeInfoSpec = {
+network.mojom.mojom.AuthChallengeInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AuthChallengeInfo',
       packedSize: 56,
       fields: [
-        { name: 'is_proxy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'challenger', packedOffset: 8, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
-        { name: 'scheme', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'realm', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'challenge', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_proxy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'challenger', packedOffset: 0, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
+        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'challenge', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -40,7 +41,7 @@ network.mojom.AuthChallengeInfoSpec = {
 };
 
 // Struct: HttpVersion
-network.mojom.HttpVersionSpec = {
+network.mojom.mojom.HttpVersionSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpVersion',
@@ -55,7 +56,7 @@ network.mojom.HttpVersionSpec = {
 };
 
 // Struct: HostPortPair
-network.mojom.HostPortPairSpec = {
+network.mojom.mojom.HostPortPairSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HostPortPair',
@@ -70,14 +71,14 @@ network.mojom.HostPortPairSpec = {
 };
 
 // Struct: ProxyServer
-network.mojom.ProxyServerSpec = {
+network.mojom.mojom.ProxyServerSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyServer',
       packedSize: 24,
       fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxySchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'host_and_port', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: true, minVersion: 0 },
+        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxySchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'host_and_port', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -85,7 +86,7 @@ network.mojom.ProxyServerSpec = {
 };
 
 // Struct: ProxyChain
-network.mojom.ProxyChainSpec = {
+network.mojom.mojom.ProxyChainSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ProxyChain',
@@ -100,7 +101,7 @@ network.mojom.ProxyChainSpec = {
 };
 
 // Struct: ResolveErrorInfo
-network.mojom.ResolveErrorInfoSpec = {
+network.mojom.mojom.ResolveErrorInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveErrorInfo',
@@ -115,16 +116,16 @@ network.mojom.ResolveErrorInfoSpec = {
 };
 
 // Struct: SSLCertRequestInfo
-network.mojom.SSLCertRequestInfoSpec = {
+network.mojom.mojom.SSLCertRequestInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SSLCertRequestInfo',
       packedSize: 40,
       fields: [
         { name: 'host_and_port', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
-        { name: 'is_proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cert_authorities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'signature_algorithms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'is_proxy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'cert_authorities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'signature_algorithms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -132,15 +133,15 @@ network.mojom.SSLCertRequestInfoSpec = {
 };
 
 // Struct: NetLogSource
-network.mojom.NetLogSourceSpec = {
+network.mojom.mojom.NetLogSourceSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogSource',
       packedSize: 24,
       fields: [
-        { name: 'source_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'source_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'source_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'source_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

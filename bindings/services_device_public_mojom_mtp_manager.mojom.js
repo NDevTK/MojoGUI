@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Interface: MtpManagerClient
-device.mojom.MtpManagerClient = {};
+device.mojom.mojom.MtpManagerClient = {};
 
-device.mojom.MtpManagerClientPendingReceiver = class {
+device.mojom.mojom.MtpManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.MtpManagerClientRemote = class {
+device.mojom.mojom.MtpManagerClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.MtpManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.MtpManagerClientPendingReceiver,
+      device.mojom.mojom.MtpManagerClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.MtpManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.MtpManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ device.mojom.MtpManagerClientRemote = class {
   }
 };
 
-device.mojom.MtpManagerClientRemoteCallHandler = class {
+device.mojom.mojom.MtpManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.MtpManagerClient_StorageAttached_ParamsSpec,
+      device.mojom.mojom.MtpManagerClient_StorageAttached_ParamsSpec,
       null,
       [storage_info]);
   }
@@ -57,15 +57,15 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.MtpManagerClient_StorageDetached_ParamsSpec,
+      device.mojom.mojom.MtpManagerClient_StorageDetached_ParamsSpec,
       null,
       [storage_name]);
   }
 
 };
 
-device.mojom.MtpManagerClient.getRemote = function() {
-  let remote = new device.mojom.MtpManagerClientRemote();
+device.mojom.mojom.MtpManagerClient.getRemote = function() {
+  let remote = new device.mojom.mojom.MtpManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ device.mojom.MtpManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for StorageAttached
-device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = {
+device.mojom.mojom.MtpManagerClient_StorageAttached_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManagerClient.StorageAttached_Params',
@@ -89,7 +89,7 @@ device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = {
 };
 
 // ParamsSpec for StorageDetached
-device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = {
+device.mojom.mojom.MtpManagerClient_StorageDetached_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManagerClient.StorageDetached_Params',
@@ -103,29 +103,29 @@ device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.MtpManagerClientPtr = device.mojom.MtpManagerClientRemote;
-device.mojom.MtpManagerClientRequest = device.mojom.MtpManagerClientPendingReceiver;
+device.mojom.mojom.MtpManagerClientPtr = device.mojom.mojom.MtpManagerClientRemote;
+device.mojom.mojom.MtpManagerClientRequest = device.mojom.mojom.MtpManagerClientPendingReceiver;
 
 
 // Interface: MtpManager
-device.mojom.MtpManager = {};
+device.mojom.mojom.MtpManager = {};
 
-device.mojom.MtpManagerPendingReceiver = class {
+device.mojom.mojom.MtpManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.MtpManagerRemote = class {
+device.mojom.mojom.MtpManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.MtpManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.MtpManagerPendingReceiver,
+      device.mojom.mojom.MtpManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.MtpManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.MtpManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -137,7 +137,7 @@ device.mojom.MtpManagerRemote = class {
   }
 };
 
-device.mojom.MtpManagerRemoteCallHandler = class {
+device.mojom.mojom.MtpManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -146,8 +146,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec,
-      device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec,
+      device.mojom.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec,
       [client]);
   }
 
@@ -155,8 +155,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.MtpManager_GetStorageInfo_ParamsSpec,
-      device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_GetStorageInfo_ParamsSpec,
+      device.mojom.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec,
       [storage_name]);
   }
 
@@ -164,8 +164,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec,
-      device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec,
+      device.mojom.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec,
       [storage_name]);
   }
 
@@ -173,8 +173,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.MtpManager_OpenStorage_ParamsSpec,
-      device.mojom.MtpManager_OpenStorage_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_OpenStorage_ParamsSpec,
+      device.mojom.mojom.MtpManager_OpenStorage_ResponseParamsSpec,
       [storage_name, mode]);
   }
 
@@ -182,8 +182,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.MtpManager_CloseStorage_ParamsSpec,
-      device.mojom.MtpManager_CloseStorage_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_CloseStorage_ParamsSpec,
+      device.mojom.mojom.MtpManager_CloseStorage_ResponseParamsSpec,
       [storage_handle]);
   }
 
@@ -191,8 +191,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.MtpManager_CreateDirectory_ParamsSpec,
-      device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_CreateDirectory_ParamsSpec,
+      device.mojom.mojom.MtpManager_CreateDirectory_ResponseParamsSpec,
       [storage_handle, parent_id, directory_name]);
   }
 
@@ -200,8 +200,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec,
-      device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec,
+      device.mojom.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec,
       [storage_handle, file_id]);
   }
 
@@ -209,8 +209,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.MtpManager_ReadFileChunk_ParamsSpec,
-      device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_ReadFileChunk_ParamsSpec,
+      device.mojom.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec,
       [storage_handle, file_id, offset, count]);
   }
 
@@ -218,8 +218,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.MtpManager_GetFileInfo_ParamsSpec,
-      device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_GetFileInfo_ParamsSpec,
+      device.mojom.mojom.MtpManager_GetFileInfo_ResponseParamsSpec,
       [storage_handle, file_ids]);
   }
 
@@ -227,8 +227,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      device.mojom.MtpManager_RenameObject_ParamsSpec,
-      device.mojom.MtpManager_RenameObject_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_RenameObject_ParamsSpec,
+      device.mojom.mojom.MtpManager_RenameObject_ResponseParamsSpec,
       [storage_handle, object_id, new_name]);
   }
 
@@ -236,8 +236,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec,
-      device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_CopyFileFromLocal_ParamsSpec,
+      device.mojom.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec,
       [storage_handle, source_file_descriptor, parent_id, file_name]);
   }
 
@@ -245,15 +245,15 @@ device.mojom.MtpManagerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      device.mojom.MtpManager_DeleteObject_ParamsSpec,
-      device.mojom.MtpManager_DeleteObject_ResponseParamsSpec,
+      device.mojom.mojom.MtpManager_DeleteObject_ParamsSpec,
+      device.mojom.mojom.MtpManager_DeleteObject_ResponseParamsSpec,
       [storage_handle, object_id]);
   }
 
 };
 
-device.mojom.MtpManager.getRemote = function() {
-  let remote = new device.mojom.MtpManagerRemote();
+device.mojom.mojom.MtpManager.getRemote = function() {
+  let remote = new device.mojom.mojom.MtpManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -263,7 +263,7 @@ device.mojom.MtpManager.getRemote = function() {
 };
 
 // ParamsSpec for EnumerateStoragesAndSetClient
-device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = {
+device.mojom.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.EnumerateStoragesAndSetClient_Params',
@@ -276,7 +276,7 @@ device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.EnumerateStoragesAndSetClient_ResponseParams',
@@ -290,7 +290,7 @@ device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetStorageInfo
-device.mojom.MtpManager_GetStorageInfo_ParamsSpec = {
+device.mojom.mojom.MtpManager_GetStorageInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.GetStorageInfo_Params',
@@ -303,7 +303,7 @@ device.mojom.MtpManager_GetStorageInfo_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.GetStorageInfo_ResponseParams',
@@ -317,7 +317,7 @@ device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetStorageInfoFromDevice
-device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = {
+device.mojom.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.GetStorageInfoFromDevice_Params',
@@ -330,7 +330,7 @@ device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.GetStorageInfoFromDevice_ResponseParams',
@@ -345,7 +345,7 @@ device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenStorage
-device.mojom.MtpManager_OpenStorage_ParamsSpec = {
+device.mojom.mojom.MtpManager_OpenStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.OpenStorage_Params',
@@ -359,7 +359,7 @@ device.mojom.MtpManager_OpenStorage_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_OpenStorage_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_OpenStorage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.OpenStorage_ResponseParams',
@@ -374,7 +374,7 @@ device.mojom.MtpManager_OpenStorage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CloseStorage
-device.mojom.MtpManager_CloseStorage_ParamsSpec = {
+device.mojom.mojom.MtpManager_CloseStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.CloseStorage_Params',
@@ -387,7 +387,7 @@ device.mojom.MtpManager_CloseStorage_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_CloseStorage_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_CloseStorage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.CloseStorage_ResponseParams',
@@ -401,22 +401,22 @@ device.mojom.MtpManager_CloseStorage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateDirectory
-device.mojom.MtpManager_CreateDirectory_ParamsSpec = {
+device.mojom.mojom.MtpManager_CreateDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.CreateDirectory_Params',
       packedSize: 32,
       fields: [
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'directory_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'parent_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'directory_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.CreateDirectory_ResponseParams',
@@ -430,7 +430,7 @@ device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadDirectoryEntryIds
-device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = {
+device.mojom.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.ReadDirectoryEntryIds_Params',
@@ -444,7 +444,7 @@ device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.ReadDirectoryEntryIds_ResponseParams',
@@ -459,7 +459,7 @@ device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadFileChunk
-device.mojom.MtpManager_ReadFileChunk_ParamsSpec = {
+device.mojom.mojom.MtpManager_ReadFileChunk_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.ReadFileChunk_Params',
@@ -475,7 +475,7 @@ device.mojom.MtpManager_ReadFileChunk_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.ReadFileChunk_ResponseParams',
@@ -490,7 +490,7 @@ device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetFileInfo
-device.mojom.MtpManager_GetFileInfo_ParamsSpec = {
+device.mojom.mojom.MtpManager_GetFileInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.GetFileInfo_Params',
@@ -504,7 +504,7 @@ device.mojom.MtpManager_GetFileInfo_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.GetFileInfo_ResponseParams',
@@ -519,22 +519,22 @@ device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RenameObject
-device.mojom.MtpManager_RenameObject_ParamsSpec = {
+device.mojom.mojom.MtpManager_RenameObject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.RenameObject_Params',
       packedSize: 32,
       fields: [
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'new_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'object_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'new_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-device.mojom.MtpManager_RenameObject_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_RenameObject_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.RenameObject_ResponseParams',
@@ -548,7 +548,7 @@ device.mojom.MtpManager_RenameObject_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CopyFileFromLocal
-device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = {
+device.mojom.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.CopyFileFromLocal_Params',
@@ -556,15 +556,15 @@ device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = {
       fields: [
         { name: 'storage_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'source_file_descriptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'parent_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'file_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'parent_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.CopyFileFromLocal_ResponseParams',
@@ -578,7 +578,7 @@ device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteObject
-device.mojom.MtpManager_DeleteObject_ParamsSpec = {
+device.mojom.mojom.MtpManager_DeleteObject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.DeleteObject_Params',
@@ -592,7 +592,7 @@ device.mojom.MtpManager_DeleteObject_ParamsSpec = {
   }
 };
 
-device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = {
+device.mojom.mojom.MtpManager_DeleteObject_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.MtpManager.DeleteObject_ResponseParams',
@@ -606,6 +606,6 @@ device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.MtpManagerPtr = device.mojom.MtpManagerRemote;
-device.mojom.MtpManagerRequest = device.mojom.MtpManagerPendingReceiver;
+device.mojom.mojom.MtpManagerPtr = device.mojom.mojom.MtpManagerRemote;
+device.mojom.mojom.MtpManagerRequest = device.mojom.mojom.MtpManagerPendingReceiver;
 

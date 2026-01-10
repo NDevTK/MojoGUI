@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: NoiseToken
-blink.mojom.NoiseTokenSpec = {
+blink.mojom.mojom.NoiseTokenSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NoiseToken',

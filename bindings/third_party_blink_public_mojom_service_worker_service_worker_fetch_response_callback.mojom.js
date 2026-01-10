@@ -7,10 +7,13 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Struct: ServiceWorkerFetchEventTiming
-blink.mojom.ServiceWorkerFetchEventTimingSpec = {
+blink.mojom.mojom.ServiceWorkerFetchEventTimingSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchEventTiming',
@@ -25,24 +28,24 @@ blink.mojom.ServiceWorkerFetchEventTimingSpec = {
 };
 
 // Interface: ServiceWorkerFetchResponseCallback
-blink.mojom.ServiceWorkerFetchResponseCallback = {};
+blink.mojom.mojom.ServiceWorkerFetchResponseCallback = {};
 
-blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver = class {
+blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ServiceWorkerFetchResponseCallbackRemote = class {
+blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerFetchResponseCallback';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver,
+      blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +57,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemote = class {
   }
 };
 
-blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
+blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +66,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
       null,
       [response, timing]);
   }
@@ -72,7 +75,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
       null,
       [response, body_as_stream, timing]);
   }
@@ -81,15 +84,15 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
       null,
       [request_body, timing]);
   }
 
 };
 
-blink.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
-  let remote = new blink.mojom.ServiceWorkerFetchResponseCallbackRemote();
+blink.mojom.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
+  let remote = new blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +102,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
 };
 
 // ParamsSpec for OnResponse
-blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponse_Params',
@@ -114,7 +117,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
 };
 
 // ParamsSpec for OnResponseStream
-blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponseStream_Params',
@@ -130,7 +133,7 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
 };
 
 // ParamsSpec for OnFallback
-blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnFallback_Params',
@@ -145,6 +148,6 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ServiceWorkerFetchResponseCallbackPtr = blink.mojom.ServiceWorkerFetchResponseCallbackRemote;
-blink.mojom.ServiceWorkerFetchResponseCallbackRequest = blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver;
+blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPtr = blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRemote;
+blink.mojom.mojom.ServiceWorkerFetchResponseCallbackRequest = blink.mojom.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver;
 
