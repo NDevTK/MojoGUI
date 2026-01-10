@@ -126,8 +126,11 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -150,9 +153,13 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getRelatedWebsiteSets');
           const result = this.impl.getRelatedWebsiteSets();
           if (header.expectsResponse) {

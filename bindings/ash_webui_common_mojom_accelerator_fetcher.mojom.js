@@ -85,8 +85,11 @@ ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -109,9 +112,13 @@ ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAcceleratorsUpdated');
           const result = this.impl.onAcceleratorsUpdated(params.actionId, params.accelerators);
           break;
@@ -217,8 +224,12 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -241,15 +252,20 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeAcceleratorChanges');
           const result = this.impl.observeAcceleratorChanges(params.actionIds, params.observer);
           break;
         }
         case 1: {
-          const params = ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMetaKeyToDisplay');
           const result = this.impl.getMetaKeyToDisplay();
           if (header.expectsResponse) {

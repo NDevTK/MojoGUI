@@ -98,8 +98,11 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -122,9 +125,13 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler, params.page);
           break;
@@ -244,8 +251,13 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -268,9 +280,13 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPreferences');
           const result = this.impl.getPreferences();
           if (header.expectsResponse) {
@@ -282,13 +298,15 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.message);
           break;
         }
         case 2: {
-          const params = ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.doSomething');
           const result = this.impl.doSomething();
           break;
@@ -389,8 +407,12 @@ ash.mojom.sample_swa.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -413,15 +435,20 @@ ash.mojom.sample_swa.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEventOccurred');
           const result = this.impl.onEventOccurred(params.name);
           break;
         }
         case 1: {
-          const params = ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createParentPage');
           const result = this.impl.createParentPage(params.child_untrusted_page, params.parent_trusted_page);
           break;

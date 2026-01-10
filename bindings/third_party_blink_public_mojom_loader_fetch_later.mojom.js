@@ -103,8 +103,12 @@ blink.mojom.FetchLaterLoaderFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -127,15 +131,20 @@ blink.mojom.FetchLaterLoaderFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createLoader');
           const result = this.impl.createLoader(params.loader, params.request_id, params.options, params.request, params.traffic_annotation);
           break;
         }
         case 1: {
-          const params = blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.factory);
           break;
@@ -233,8 +242,12 @@ blink.mojom.FetchLaterLoaderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -257,15 +270,20 @@ blink.mojom.FetchLaterLoaderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.FetchLaterLoader_SendNow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FetchLaterLoader_SendNow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendNow');
           const result = this.impl.sendNow();
           break;
         }
         case 1: {
-          const params = blink.mojom.FetchLaterLoader_Cancel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.FetchLaterLoader_Cancel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;

@@ -116,8 +116,12 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -140,15 +144,20 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.source, params.target, params.client);
           break;
         }
         case 1: {
-          const params = chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.verify');
           const result = this.impl.verify(params.source, params.target, params.client);
           break;
@@ -248,8 +257,12 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -272,15 +285,20 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
         }
         case 1: {
-          const params = chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.error);
           break;

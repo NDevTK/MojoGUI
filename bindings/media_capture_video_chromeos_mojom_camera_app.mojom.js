@@ -220,8 +220,13 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -244,9 +249,13 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getCameraAppDevice');
           const result = this.impl.getCameraAppDevice(params.source_id);
           if (header.expectsResponse) {
@@ -258,7 +267,8 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
           break;
         }
         case 1: {
-          const params = cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
           const result = this.impl.isSupported();
           if (header.expectsResponse) {
@@ -270,7 +280,8 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
           break;
         }
         case 2: {
-          const params = cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isDeviceInUse');
           const result = this.impl.isDeviceInUse(params.source_id);
           if (header.expectsResponse) {
@@ -433,8 +444,14 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -457,9 +474,13 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getCameraAppDevice');
           const result = this.impl.getCameraAppDevice(params.device_id);
           if (header.expectsResponse) {
@@ -471,7 +492,8 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
           break;
         }
         case 1: {
-          const params = cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
           const result = this.impl.isSupported();
           if (header.expectsResponse) {
@@ -483,7 +505,8 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
           break;
         }
         case 2: {
-          const params = cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setVirtualDeviceEnabled');
           const result = this.impl.setVirtualDeviceEnabled(params.device_id, params.enabled);
           if (header.expectsResponse) {
@@ -495,7 +518,8 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
           break;
         }
         case 3: {
-          const params = cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isDeviceInUse');
           const result = this.impl.isDeviceInUse(params.device_id);
           if (header.expectsResponse) {
@@ -844,8 +868,23 @@ cros.mojom.CameraAppDeviceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -868,9 +907,13 @@ cros.mojom.CameraAppDeviceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.takePortraitModePhoto');
           const result = this.impl.takePortraitModePhoto(params.observer);
           if (header.expectsResponse) {
@@ -882,7 +925,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 1: {
-          const params = cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setFpsRange');
           const result = this.impl.setFpsRange(params.fps_range);
           if (header.expectsResponse) {
@@ -894,7 +938,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 2: {
-          const params = cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setStillCaptureResolution');
           const result = this.impl.setStillCaptureResolution(params.resolution);
           if (header.expectsResponse) {
@@ -906,7 +951,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 3: {
-          const params = cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setCaptureIntent');
           const result = this.impl.setCaptureIntent(params.intent);
           if (header.expectsResponse) {
@@ -918,7 +964,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 4: {
-          const params = cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addResultMetadataObserver');
           const result = this.impl.addResultMetadataObserver(params.observer, params.stream_type);
           if (header.expectsResponse) {
@@ -930,7 +977,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 5: {
-          const params = cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addCameraEventObserver');
           const result = this.impl.addCameraEventObserver(params.observer);
           if (header.expectsResponse) {
@@ -942,7 +990,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 6: {
-          const params = cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setCameraFrameRotationEnabledAtSource');
           const result = this.impl.setCameraFrameRotationEnabledAtSource(params.is_enabled);
           if (header.expectsResponse) {
@@ -954,7 +1003,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 7: {
-          const params = cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getCameraFrameRotation');
           const result = this.impl.getCameraFrameRotation();
           if (header.expectsResponse) {
@@ -966,7 +1016,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 8: {
-          const params = cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerDocumentCornersObserver');
           const result = this.impl.registerDocumentCornersObserver(params.observer);
           if (header.expectsResponse) {
@@ -978,7 +1029,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 9: {
-          const params = cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMultipleStreamsEnabled');
           const result = this.impl.setMultipleStreamsEnabled(params.enabled);
           if (header.expectsResponse) {
@@ -990,7 +1042,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 10: {
-          const params = cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerCameraInfoObserver');
           const result = this.impl.registerCameraInfoObserver(params.observer);
           if (header.expectsResponse) {
@@ -1002,7 +1055,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 11: {
-          const params = cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setCropRegion');
           const result = this.impl.setCropRegion(params.crop_region);
           if (header.expectsResponse) {
@@ -1014,7 +1068,8 @@ cros.mojom.CameraAppDeviceReceiver = class {
           break;
         }
         case 12: {
-          const params = cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetCropRegion');
           const result = this.impl.resetCropRegion();
           if (header.expectsResponse) {
@@ -1104,8 +1159,11 @@ cros.mojom.ResultMetadataObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1128,9 +1186,13 @@ cros.mojom.ResultMetadataObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMetadataAvailable');
           const result = this.impl.onMetadataAvailable(params.camera_metadata);
           break;
@@ -1213,8 +1275,11 @@ cros.mojom.CameraEventObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1237,9 +1302,13 @@ cros.mojom.CameraEventObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onShutterDone');
           const result = this.impl.onShutterDone();
           break;
@@ -1323,8 +1392,11 @@ cros.mojom.DocumentCornersObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1347,9 +1419,13 @@ cros.mojom.DocumentCornersObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDocumentCornersUpdated');
           const result = this.impl.onDocumentCornersUpdated(params.corners);
           break;
@@ -1433,8 +1509,11 @@ cros.mojom.CameraInfoObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1457,9 +1536,13 @@ cros.mojom.CameraInfoObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCameraInfoUpdated');
           const result = this.impl.onCameraInfoUpdated(params.camera_info);
           break;
@@ -1545,8 +1628,11 @@ cros.mojom.StillCaptureResultObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1569,9 +1655,13 @@ cros.mojom.StillCaptureResultObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStillCaptureDone');
           const result = this.impl.onStillCaptureDone(params.effect, params.status, params.blob);
           break;

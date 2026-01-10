@@ -129,8 +129,13 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -153,21 +158,27 @@ network.mojom.ConnectionChangeObserverClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSessionClosed');
           const result = this.impl.onSessionClosed();
           break;
         }
         case 1: {
-          const params = network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNetworkEvent');
           const result = this.impl.onNetworkEvent(params.event);
           break;
         }
         case 2: {
-          const params = network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnectionFailed');
           const result = this.impl.onConnectionFailed();
           break;

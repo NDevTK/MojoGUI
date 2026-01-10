@@ -277,8 +277,22 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -301,75 +315,90 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleImeTray');
           const result = this.impl.toggleImeTray(params.visible);
           break;
         }
         case 1: {
-          const params = ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.togglePaletteTray');
           const result = this.impl.togglePaletteTray(params.visible);
           break;
         }
         case 2: {
-          const params = ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleLogoutTray');
           const result = this.impl.toggleLogoutTray(params.visible);
           break;
         }
         case 3: {
-          const params = ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleVirtualKeyboardTray');
           const result = this.impl.toggleVirtualKeyboardTray(params.visible);
           break;
         }
         case 4: {
-          const params = ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleDictationTray');
           const result = this.impl.toggleDictationTray(params.visible);
           break;
         }
         case 5: {
-          const params = ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleVideoConferenceTray');
           const result = this.impl.toggleVideoConferenceTray(params.visible);
           break;
         }
         case 6: {
-          const params = ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleAnnotationTray');
           const result = this.impl.toggleAnnotationTray(params.visible);
           break;
         }
         case 7: {
-          const params = ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setIsInUserChildSession');
           const result = this.impl.setIsInUserChildSession(params.in_child_session);
           break;
         }
         case 8: {
-          const params = ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.triggerPrivacyIndicators');
           const result = this.impl.triggerPrivacyIndicators(params.app_id, params.app_name, params.is_camera_used, params.is_microphone_used);
           break;
         }
         case 9: {
-          const params = ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetHmrConsentStatus');
           const result = this.impl.resetHmrConsentStatus();
           break;
         }
         case 10: {
-          const params = ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBatteryIcon');
           const result = this.impl.setBatteryIcon(params.icon);
           break;
         }
         case 11: {
-          const params = ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBatteryPercent');
           const result = this.impl.setBatteryPercent(params.percent);
           break;

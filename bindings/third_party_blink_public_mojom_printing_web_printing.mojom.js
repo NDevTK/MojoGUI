@@ -383,8 +383,11 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -407,9 +410,13 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWebPrintJobUpdate');
           const result = this.impl.onWebPrintJobUpdate(params.update);
           break;
@@ -492,8 +499,11 @@ blink.mojom.WebPrintJobControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -516,9 +526,13 @@ blink.mojom.WebPrintJobControllerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
@@ -630,8 +644,12 @@ blink.mojom.WebPrinterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -654,9 +672,13 @@ blink.mojom.WebPrinterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.fetchAttributes');
           const result = this.impl.fetchAttributes();
           if (header.expectsResponse) {
@@ -668,7 +690,8 @@ blink.mojom.WebPrinterReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.WebPrinter_Print_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.WebPrinter_Print_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.print');
           const result = this.impl.print(params.document, params.attributes);
           if (header.expectsResponse) {
@@ -763,8 +786,11 @@ blink.mojom.WebPrintingServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -787,9 +813,13 @@ blink.mojom.WebPrintingServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPrinters');
           const result = this.impl.getPrinters();
           if (header.expectsResponse) {

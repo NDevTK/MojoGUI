@@ -126,8 +126,13 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -150,21 +155,27 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResponse');
           const result = this.impl.onResponse(params.response, params.timing);
           break;
         }
         case 1: {
-          const params = blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResponseStream');
           const result = this.impl.onResponseStream(params.response, params.body_as_stream, params.timing);
           break;
         }
         case 2: {
-          const params = blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFallback');
           const result = this.impl.onFallback(params.request_body, params.timing);
           break;

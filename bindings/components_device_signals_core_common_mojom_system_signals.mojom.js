@@ -201,8 +201,13 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -225,9 +230,13 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileSystemSignals');
           const result = this.impl.getFileSystemSignals(params.requests);
           if (header.expectsResponse) {
@@ -239,7 +248,8 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAntiVirusSignals');
           const result = this.impl.getAntiVirusSignals();
           if (header.expectsResponse) {
@@ -251,7 +261,8 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHotfixSignals');
           const result = this.impl.getHotfixSignals();
           if (header.expectsResponse) {

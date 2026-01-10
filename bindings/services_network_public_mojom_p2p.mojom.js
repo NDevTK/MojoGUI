@@ -126,8 +126,11 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -150,9 +153,13 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.networkListChanged');
           const result = this.impl.networkListChanged(params.networks, params.default_ipv4_local_address, params.default_ipv6_local_address);
           break;
@@ -283,8 +290,13 @@ network.mojom.P2PSocketManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -307,15 +319,20 @@ network.mojom.P2PSocketManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startNetworkNotifications');
           const result = this.impl.startNetworkNotifications(params.client);
           break;
         }
         case 1: {
-          const params = network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getHostAddress');
           const result = this.impl.getHostAddress(params.host_name, params.address_family, params.enable_mdns);
           if (header.expectsResponse) {
@@ -327,7 +344,8 @@ network.mojom.P2PSocketManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createSocket');
           const result = this.impl.createSocket(params.type, params.local_address, params.port_range, params.remote_address, params.traffic_annotation, params.devtools_token, params.client, params.socket);
           break;
@@ -445,8 +463,13 @@ network.mojom.P2PSocketReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -469,21 +492,27 @@ network.mojom.P2PSocketReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.P2PSocket_Send_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocket_Send_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.data, params.packet_info);
           break;
         }
         case 1: {
-          const params = network.mojom.P2PSocket_SendBatch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocket_SendBatch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendBatch');
           const result = this.impl.sendBatch(params.packet_batch);
           break;
         }
         case 2: {
-          const params = network.mojom.P2PSocket_SetOption_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocket_SetOption_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setOption');
           const result = this.impl.setOption(params.option, params.value);
           break;
@@ -616,8 +645,14 @@ network.mojom.P2PSocketClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -640,27 +675,34 @@ network.mojom.P2PSocketClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.socketCreated');
           const result = this.impl.socketCreated(params.local_address, params.remote_address);
           break;
         }
         case 1: {
-          const params = network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendComplete');
           const result = this.impl.sendComplete(params.send_metrics);
           break;
         }
         case 2: {
-          const params = network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendBatchComplete');
           const result = this.impl.sendBatchComplete(params.send_metrics_batch);
           break;
         }
         case 3: {
-          const params = network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dataReceived');
           const result = this.impl.dataReceived(params.packets);
           break;

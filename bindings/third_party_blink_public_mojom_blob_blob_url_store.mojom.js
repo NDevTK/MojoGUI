@@ -146,8 +146,14 @@ blink.mojom.BlobURLStoreReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -170,9 +176,13 @@ blink.mojom.BlobURLStoreReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.BlobURLStore_Register_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_Register_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.blob, params.url);
           if (header.expectsResponse) {
@@ -184,19 +194,22 @@ blink.mojom.BlobURLStoreReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.BlobURLStore_Revoke_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_Revoke_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.revoke');
           const result = this.impl.revoke(params.url);
           break;
         }
         case 2: {
-          const params = blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resolveAsURLLoaderFactory');
           const result = this.impl.resolveAsURLLoaderFactory(params.url, params.factory);
           break;
         }
         case 3: {
-          const params = blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resolveAsBlobURLToken');
           const result = this.impl.resolveAsBlobURLToken(params.url, params.token, params.is_top_level_navigation);
           break;
@@ -301,8 +314,12 @@ blink.mojom.BlobURLTokenReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -325,15 +342,20 @@ blink.mojom.BlobURLTokenReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.BlobURLToken_Clone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BlobURLToken_Clone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.token);
           break;
         }
         case 1: {
-          const params = blink.mojom.BlobURLToken_GetToken_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.BlobURLToken_GetToken_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getToken');
           const result = this.impl.getToken();
           if (header.expectsResponse) {

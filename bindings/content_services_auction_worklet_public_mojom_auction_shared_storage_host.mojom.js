@@ -107,8 +107,12 @@ auction_worklet.mojom.AuctionSharedStorageHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -131,15 +135,20 @@ auction_worklet.mojom.AuctionSharedStorageHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
           const result = this.impl.sharedStorageUpdate(params.method_with_options, params.source_auction_worklet_function);
           break;
         }
         case 1: {
-          const params = auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
           const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock, params.source_auction_worklet_function);
           break;

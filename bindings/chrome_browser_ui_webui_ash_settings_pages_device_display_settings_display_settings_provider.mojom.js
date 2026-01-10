@@ -156,8 +156,11 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -180,9 +183,13 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
           const result = this.impl.onTabletModeChanged(params.is_tablet_mode);
           break;
@@ -265,8 +272,11 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -289,9 +299,13 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDisplayConfigurationChanged');
           const result = this.impl.onDisplayConfigurationChanged();
           break;
@@ -376,8 +390,11 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -400,9 +417,13 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
           const result = this.impl.onDisplayBrightnessChanged(params.brightness_percent, params.triggered_by_als);
           break;
@@ -486,8 +507,11 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -510,9 +534,13 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAmbientLightSensorEnabledChanged');
           const result = this.impl.onAmbientLightSensorEnabledChanged(params.is_ambient_light_sensor_enabled);
           break;
@@ -763,8 +791,20 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -787,9 +827,13 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
           const result = this.impl.observeTabletMode(params.observer);
           if (header.expectsResponse) {
@@ -801,13 +845,15 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayConfiguration');
           const result = this.impl.observeDisplayConfiguration(params.observer);
           break;
         }
         case 2: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayBrightnessSettings');
           const result = this.impl.observeDisplayBrightnessSettings(params.observer);
           if (header.expectsResponse) {
@@ -819,7 +865,8 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.observeAmbientLightSensor');
           const result = this.impl.observeAmbientLightSensor(params.observer);
           if (header.expectsResponse) {
@@ -831,37 +878,43 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordChangingDisplaySettings');
           const result = this.impl.recordChangingDisplaySettings(params.type, params.value);
           break;
         }
         case 5: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setShinyPerformance');
           const result = this.impl.setShinyPerformance(params.enabled);
           break;
         }
         case 6: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayScreenBrightness');
           const result = this.impl.setInternalDisplayScreenBrightness(params.percent);
           break;
         }
         case 7: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayAmbientLightSensorEnabled');
           const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.enabled);
           break;
         }
         case 8: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startNativeTouchscreenMappingExperience');
           const result = this.impl.startNativeTouchscreenMappingExperience();
           break;
         }
         case 9: {
-          const params = ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hasAmbientLightSensor');
           const result = this.impl.hasAmbientLightSensor();
           if (header.expectsResponse) {

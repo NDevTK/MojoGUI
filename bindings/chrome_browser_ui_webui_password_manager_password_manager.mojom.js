@@ -124,8 +124,11 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -148,9 +151,13 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -465,8 +472,23 @@ password_manager.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -489,15 +511,20 @@ password_manager.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.extendAuthValidity');
           const result = this.impl.extendAuthValidity();
           break;
         }
         case 1: {
-          const params = password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteAllPasswordManagerData');
           const result = this.impl.deleteAllPasswordManagerData();
           if (header.expectsResponse) {
@@ -509,7 +536,8 @@ password_manager.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.copyPlaintextBackupPassword');
           const result = this.impl.copyPlaintextBackupPassword(params.id);
           if (header.expectsResponse) {
@@ -521,13 +549,15 @@ password_manager.mojom.PageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeBackupPassword');
           const result = this.impl.removeBackupPassword(params.id);
           break;
         }
         case 4: {
-          const params = password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getActorLoginPermissions');
           const result = this.impl.getActorLoginPermissions();
           if (header.expectsResponse) {
@@ -539,13 +569,15 @@ password_manager.mojom.PageHandlerReceiver = class {
           break;
         }
         case 5: {
-          const params = password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.revokeActorLoginPermission');
           const result = this.impl.revokeActorLoginPermission(params.site);
           break;
         }
         case 6: {
-          const params = password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.changePasswordManagerPin');
           const result = this.impl.changePasswordManagerPin();
           if (header.expectsResponse) {
@@ -557,13 +589,15 @@ password_manager.mojom.PageHandlerReceiver = class {
           break;
         }
         case 7: {
-          const params = password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showAddShortcutDialog');
           const result = this.impl.showAddShortcutDialog();
           break;
         }
         case 8: {
-          const params = password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isAccountStorageEnabled');
           const result = this.impl.isAccountStorageEnabled();
           if (header.expectsResponse) {
@@ -575,13 +609,15 @@ password_manager.mojom.PageHandlerReceiver = class {
           break;
         }
         case 9: {
-          const params = password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAccountStorageEnabled');
           const result = this.impl.setAccountStorageEnabled(params.enabled);
           break;
         }
         case 10: {
-          const params = password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldShowAccountStorageSettingToggle');
           const result = this.impl.shouldShowAccountStorageSettingToggle();
           if (header.expectsResponse) {
@@ -593,7 +629,8 @@ password_manager.mojom.PageHandlerReceiver = class {
           break;
         }
         case 11: {
-          const params = password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isPasswordManagerPinAvailable');
           const result = this.impl.isPasswordManagerPinAvailable();
           if (header.expectsResponse) {
@@ -605,7 +642,8 @@ password_manager.mojom.PageHandlerReceiver = class {
           break;
         }
         case 12: {
-          const params = password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.switchBiometricAuthBeforeFillingState');
           const result = this.impl.switchBiometricAuthBeforeFillingState();
           if (header.expectsResponse) {
@@ -679,8 +717,10 @@ password_manager.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -703,7 +743,10 @@ password_manager.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);

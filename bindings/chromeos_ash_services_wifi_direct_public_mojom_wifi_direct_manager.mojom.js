@@ -191,8 +191,13 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -215,9 +220,13 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createWifiDirectGroup');
           const result = this.impl.createWifiDirectGroup(params.credentials);
           if (header.expectsResponse) {
@@ -229,7 +238,8 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToWifiDirectGroup');
           const result = this.impl.connectToWifiDirectGroup(params.credentials, params.frequency);
           if (header.expectsResponse) {
@@ -241,7 +251,8 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWifiP2PCapabilities');
           const result = this.impl.getWifiP2PCapabilities();
           if (header.expectsResponse) {
@@ -358,8 +369,12 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -382,9 +397,13 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProperties');
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
@@ -396,7 +415,8 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.associateSocket');
           const result = this.impl.associateSocket(params.socket);
           if (header.expectsResponse) {

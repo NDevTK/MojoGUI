@@ -447,8 +447,23 @@ content.mojom.WebTestRenderFrameReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -471,9 +486,13 @@ content.mojom.WebTestRenderFrameReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.synchronouslyCompositeAfterTest');
           const result = this.impl.synchronouslyCompositeAfterTest();
           if (header.expectsResponse) {
@@ -485,7 +504,8 @@ content.mojom.WebTestRenderFrameReceiver = class {
           break;
         }
         case 1: {
-          const params = content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dumpFrameLayout');
           const result = this.impl.dumpFrameLayout();
           if (header.expectsResponse) {
@@ -497,67 +517,78 @@ content.mojom.WebTestRenderFrameReceiver = class {
           break;
         }
         case 2: {
-          const params = content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTestConfiguration');
           const result = this.impl.setTestConfiguration(params.config, params.starting_test);
           break;
         }
         case 3: {
-          const params = content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeactivated');
           const result = this.impl.onDeactivated();
           break;
         }
         case 4: {
-          const params = content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReactivated');
           const result = this.impl.onReactivated();
           break;
         }
         case 5: {
-          const params = content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.blockTestUntilStart');
           const result = this.impl.blockTestUntilStart();
           break;
         }
         case 6: {
-          const params = content.mojom.WebTestRenderFrame_StartTest_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_StartTest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startTest');
           const result = this.impl.startTest();
           break;
         }
         case 7: {
-          const params = content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setupRendererProcessForNonTestWindow');
           const result = this.impl.setupRendererProcessForNonTestWindow();
           break;
         }
         case 8: {
-          const params = content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.replicateWebTestRuntimeFlagsChanges');
           const result = this.impl.replicateWebTestRuntimeFlagsChanges(params.changed_layout_test_runtime_flags);
           break;
         }
         case 9: {
-          const params = content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.testFinishedFromSecondaryRenderer');
           const result = this.impl.testFinishedFromSecondaryRenderer();
           break;
         }
         case 10: {
-          const params = content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetRendererAfterWebTest');
           const result = this.impl.resetRendererAfterWebTest();
           break;
         }
         case 11: {
-          const params = content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.processWorkItem');
           const result = this.impl.processWorkItem(params.work_item);
           break;
         }
         case 12: {
-          const params = content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.replicateWorkQueueStates');
           const result = this.impl.replicateWorkQueueStates(params.work_queue_states);
           break;
@@ -1298,8 +1329,50 @@ content.mojom.WebTestControlHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
+    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
+    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
+    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
+    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
+    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
+    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
+    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
+    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
+    this.ordinalMap.set(37, 37); // Default ordinal 37 -> Index 37
+    this.ordinalMap.set(38, 38); // Default ordinal 38 -> Index 38
+    this.ordinalMap.set(39, 39); // Default ordinal 39 -> Index 39
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1322,81 +1395,97 @@ content.mojom.WebTestControlHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initiateCaptureDump');
           const result = this.impl.initiateCaptureDump(params.result, params.capture_navigation_history, params.capture_pixels);
           break;
         }
         case 1: {
-          const params = content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.testFinishedInSecondaryRenderer');
           const result = this.impl.testFinishedInSecondaryRenderer();
           break;
         }
         case 2: {
-          const params = content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.printMessageToStderr');
           const result = this.impl.printMessageToStderr(params.message);
           break;
         }
         case 3: {
-          const params = content.mojom.WebTestControlHost_PrintMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_PrintMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.printMessage');
           const result = this.impl.printMessage(params.message);
           break;
         }
         case 4: {
-          const params = content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.overridePreferences');
           const result = this.impl.overridePreferences(params.web_preferences);
           break;
         }
         case 5: {
-          const params = content.mojom.WebTestControlHost_Reload_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_Reload_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload();
           break;
         }
         case 6: {
-          const params = content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.checkForLeakedWindows');
           const result = this.impl.checkForLeakedWindows();
           break;
         }
         case 7: {
-          const params = content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMainWindowHidden');
           const result = this.impl.setMainWindowHidden(params.hidden);
           break;
         }
         case 8: {
-          const params = content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setFrameWindowHidden');
           const result = this.impl.setFrameWindowHidden(params.frame_token, params.hidden);
           break;
         }
         case 9: {
-          const params = content.mojom.WebTestControlHost_GoToOffset_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_GoToOffset_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.goToOffset');
           const result = this.impl.goToOffset(params.offset);
           break;
         }
         case 10: {
-          const params = content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendBluetoothManualChooserEvent');
           const result = this.impl.sendBluetoothManualChooserEvent(params.event, params.argument);
           break;
         }
         case 11: {
-          const params = content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBluetoothManualChooser');
           const result = this.impl.setBluetoothManualChooser(params.enable);
           break;
         }
         case 12: {
-          const params = content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBluetoothManualChooserEvents');
           const result = this.impl.getBluetoothManualChooserEvents();
           if (header.expectsResponse) {
@@ -1408,37 +1497,43 @@ content.mojom.WebTestControlHostReceiver = class {
           break;
         }
         case 13: {
-          const params = content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPopupBlockingEnabled');
           const result = this.impl.setPopupBlockingEnabled(params.block_popups);
           break;
         }
         case 14: {
-          const params = content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadURLForFrame');
           const result = this.impl.loadURLForFrame(params.url, params.frame_name);
           break;
         }
         case 15: {
-          const params = content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.simulateScreenOrientationChanged');
           const result = this.impl.simulateScreenOrientationChanged();
           break;
         }
         case 16: {
-          const params = content.mojom.WebTestControlHost_SetPermission_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetPermission_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPermission');
           const result = this.impl.setPermission(params.name, params.status, params.origin, params.embedding_origin);
           break;
         }
         case 17: {
-          const params = content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.blockThirdPartyCookies');
           const result = this.impl.blockThirdPartyCookies(params.block);
           break;
         }
         case 18: {
-          const params = content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWritableDirectory');
           const result = this.impl.getWritableDirectory();
           if (header.expectsResponse) {
@@ -1450,13 +1545,15 @@ content.mojom.WebTestControlHostReceiver = class {
           break;
         }
         case 19: {
-          const params = content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setFilePathForMockFileDialog');
           const result = this.impl.setFilePathForMockFileDialog(params.path);
           break;
         }
         case 20: {
-          const params = content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createSubresourceFilterRulesetFile');
           const result = this.impl.createSubresourceFilterRulesetFile(params.disallowed_suffixes);
           if (header.expectsResponse) {
@@ -1468,13 +1565,15 @@ content.mojom.WebTestControlHostReceiver = class {
           break;
         }
         case 21: {
-          const params = content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.focusDevtoolsSecondaryWindow');
           const result = this.impl.focusDevtoolsSecondaryWindow();
           break;
         }
         case 22: {
-          const params = content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTrustTokenKeyCommitments');
           const result = this.impl.setTrustTokenKeyCommitments(params.raw_commitments);
           if (header.expectsResponse) {
@@ -1486,7 +1585,8 @@ content.mojom.WebTestControlHostReceiver = class {
           break;
         }
         case 23: {
-          const params = content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clearTrustTokenState');
           const result = this.impl.clearTrustTokenState();
           if (header.expectsResponse) {
@@ -1498,31 +1598,36 @@ content.mojom.WebTestControlHostReceiver = class {
           break;
         }
         case 24: {
-          const params = content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.simulateWebNotificationClick');
           const result = this.impl.simulateWebNotificationClick(params.title, params.action_index, params.reply);
           break;
         }
         case 25: {
-          const params = content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.simulateWebNotificationClose');
           const result = this.impl.simulateWebNotificationClose(params.title, params.by_user);
           break;
         }
         case 26: {
-          const params = content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.simulateWebContentIndexDelete');
           const result = this.impl.simulateWebContentIndexDelete(params.id);
           break;
         }
         case 27: {
-          const params = content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.webTestRuntimeFlagsChanged');
           const result = this.impl.webTestRuntimeFlagsChanged(params.changed_web_test_runtime_flags);
           break;
         }
         case 28: {
-          const params = content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerIsolatedFileSystem');
           const result = this.impl.registerIsolatedFileSystem(params.file_paths);
           if (header.expectsResponse) {
@@ -1534,67 +1639,78 @@ content.mojom.WebTestControlHostReceiver = class {
           break;
         }
         case 29: {
-          const params = content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dropPointerLock');
           const result = this.impl.dropPointerLock();
           break;
         }
         case 30: {
-          const params = content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPointerLockWillFail');
           const result = this.impl.setPointerLockWillFail();
           break;
         }
         case 31: {
-          const params = content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPointerLockWillRespondAsynchronously');
           const result = this.impl.setPointerLockWillRespondAsynchronously();
           break;
         }
         case 32: {
-          const params = content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.allowPointerLock');
           const result = this.impl.allowPointerLock();
           break;
         }
         case 33: {
-          const params = content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.workItemAdded');
           const result = this.impl.workItemAdded(params.work_item);
           break;
         }
         case 34: {
-          const params = content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestWorkItem');
           const result = this.impl.requestWorkItem();
           break;
         }
         case 35: {
-          const params = content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.workQueueStatesChanged');
           const result = this.impl.workQueueStatesChanged(params.changed_work_queue_states);
           break;
         }
         case 36: {
-          const params = content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAcceptLanguages');
           const result = this.impl.setAcceptLanguages(params.accept_languages);
           break;
         }
         case 37: {
-          const params = content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setRegisterProtocolHandlerMode');
           const result = this.impl.setRegisterProtocolHandlerMode(params.mode);
           break;
         }
         case 38: {
-          const params = content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableAutoResize');
           const result = this.impl.enableAutoResize(params.min_size, params.max_size);
           break;
         }
         case 39: {
-          const params = content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disableAutoResize');
           const result = this.impl.disableAutoResize(params.new_size);
           break;
@@ -1678,8 +1794,11 @@ content.mojom.NonAssociatedWebTestControlHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1702,9 +1821,13 @@ content.mojom.NonAssociatedWebTestControlHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLCPPNavigationHint');
           const result = this.impl.setLCPPNavigationHint(params.hint);
           break;

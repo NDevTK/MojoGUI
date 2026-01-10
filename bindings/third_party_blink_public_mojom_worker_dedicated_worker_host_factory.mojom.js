@@ -126,8 +126,13 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -150,21 +155,27 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWorkerHostCreated');
           const result = this.impl.onWorkerHostCreated(params.browser_interface_broker, params.host, params.origin);
           break;
         }
         case 1: {
-          const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoadStarted');
           const result = this.impl.onScriptLoadStarted(params.service_worker_container_info, params.main_script_load_params, params.subresource_loader_factories, params.subresource_loader_updater, params.controller_info, params.back_forward_cache_controller_host, params.coep_reporting_observer_receiver, params.dip_reporting_observer_receiver);
           break;
         }
         case 2: {
-          const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoadStartFailed');
           const result = this.impl.onScriptLoadStartFailed();
           break;
@@ -254,8 +265,11 @@ blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -278,9 +292,13 @@ blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createWorkerHostAndStartScriptLoad');
           const result = this.impl.createWorkerHostAndStartScriptLoad(params.token, params.script_url, params.credentials_mode, params.outside_fetch_client_settings_object, params.blob_url_token, params.client, params.storage_access_api_status);
           break;

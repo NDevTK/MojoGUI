@@ -101,8 +101,12 @@ chrome.mojom.ZipListenerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -125,15 +129,20 @@ chrome.mojom.ZipListenerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chrome.mojom.ZipListener_OnProgress_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.ZipListener_OnProgress_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.bytes, params.files, params.directories);
           break;
         }
         case 1: {
-          const params = chrome.mojom.ZipListener_OnFinished_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.ZipListener_OnFinished_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFinished');
           const result = this.impl.onFinished(params.success);
           break;
@@ -220,8 +229,11 @@ chrome.mojom.ZipFileCreatorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -244,9 +256,13 @@ chrome.mojom.ZipFileCreatorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createZipFile');
           const result = this.impl.createZipFile(params.src_dir, params.relative_paths, params.zip_file, params.listener);
           break;

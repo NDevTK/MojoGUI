@@ -156,8 +156,11 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -180,9 +183,13 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
@@ -267,8 +274,11 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -291,9 +301,13 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
@@ -411,8 +425,13 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -435,21 +454,27 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindTrackedElementHandler');
           const result = this.impl.bindTrackedElementHandler(params.handler);
           break;
         }
         case 1: {
-          const params = help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleButtonPressed');
           const result = this.impl.helpBubbleButtonPressed(params.native_identifier, params.button_index);
           break;
         }
         case 2: {
-          const params = help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleClosed');
           const result = this.impl.helpBubbleClosed(params.native_identifier, params.reason);
           break;
@@ -582,8 +607,14 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -606,27 +637,34 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showHelpBubble');
           const result = this.impl.showHelpBubble(params.params);
           break;
         }
         case 1: {
-          const params = help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.toggleFocusForAccessibility');
           const result = this.impl.toggleFocusForAccessibility(params.native_identifier);
           break;
         }
         case 2: {
-          const params = help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hideHelpBubble');
           const result = this.impl.hideHelpBubble(params.native_identifier);
           break;
         }
         case 3: {
-          const params = help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.externalHelpBubbleUpdated');
           const result = this.impl.externalHelpBubbleUpdated(params.native_identifier, params.shown);
           break;

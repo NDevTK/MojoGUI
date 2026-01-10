@@ -186,8 +186,12 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -210,9 +214,13 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBuffer');
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
@@ -224,7 +232,8 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
           break;
         }
         case 1: {
-          const params = cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableBitstreamConverter');
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
@@ -340,8 +349,12 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -364,9 +377,13 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBuffer');
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
@@ -378,7 +395,8 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
           break;
         }
         case 1: {
-          const params = cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableBitstreamConverter');
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
@@ -489,8 +507,12 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -513,9 +535,13 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableReceiver');
           const result = this.impl.enableReceiver();
           if (header.expectsResponse) {
@@ -527,7 +553,8 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
           break;
         }
         case 1: {
-          const params = cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStreamsInitialized');
           const result = this.impl.onStreamsInitialized(params.audio_buffer_requester, params.video_buffer_requester);
           break;

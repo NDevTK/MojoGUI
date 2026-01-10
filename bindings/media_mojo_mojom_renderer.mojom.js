@@ -215,8 +215,17 @@ media.mojom.RendererReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -239,9 +248,13 @@ media.mojom.RendererReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.Renderer_Initialize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.Renderer_Initialize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.client, params.streams);
           if (header.expectsResponse) {
@@ -253,7 +266,8 @@ media.mojom.RendererReceiver = class {
           break;
         }
         case 1: {
-          const params = media.mojom.Renderer_Flush_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.Renderer_Flush_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
@@ -265,25 +279,29 @@ media.mojom.RendererReceiver = class {
           break;
         }
         case 2: {
-          const params = media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startPlayingFrom');
           const result = this.impl.startPlayingFrom(params.time);
           break;
         }
         case 3: {
-          const params = media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackRate');
           const result = this.impl.setPlaybackRate(params.playback_rate);
           break;
         }
         case 4: {
-          const params = media.mojom.Renderer_SetVolume_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.Renderer_SetVolume_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
         }
         case 5: {
-          const params = media.mojom.Renderer_SetCdm_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.Renderer_SetCdm_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setCdm');
           const result = this.impl.setCdm(params.cdm_id);
           if (header.expectsResponse) {
@@ -295,7 +313,8 @@ media.mojom.RendererReceiver = class {
           break;
         }
         case 6: {
-          const params = media.mojom.Renderer_SetLatencyHint_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.Renderer_SetLatencyHint_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLatencyHint');
           const result = this.impl.setLatencyHint(params.latency_hint);
           break;
@@ -525,8 +544,20 @@ media.mojom.RendererClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -549,63 +580,76 @@ media.mojom.RendererClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTimeUpdate');
           const result = this.impl.onTimeUpdate(params.time, params.max_time, params.capture_time);
           break;
         }
         case 1: {
-          const params = media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBufferingStateChange');
           const result = this.impl.onBufferingStateChange(params.state, params.reason);
           break;
         }
         case 2: {
-          const params = media.mojom.RendererClient_OnEnded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnEnded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEnded');
           const result = this.impl.onEnded();
           break;
         }
         case 3: {
-          const params = media.mojom.RendererClient_OnError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status);
           break;
         }
         case 4: {
-          const params = media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAudioConfigChange');
           const result = this.impl.onAudioConfigChange(params.config);
           break;
         }
         case 5: {
-          const params = media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onVideoConfigChange');
           const result = this.impl.onVideoConfigChange(params.config);
           break;
         }
         case 6: {
-          const params = media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onVideoNaturalSizeChange');
           const result = this.impl.onVideoNaturalSizeChange(params.size);
           break;
         }
         case 7: {
-          const params = media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onVideoOpacityChange');
           const result = this.impl.onVideoOpacityChange(params.opaque);
           break;
         }
         case 8: {
-          const params = media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStatisticsUpdate');
           const result = this.impl.onStatisticsUpdate(params.stats);
           break;
         }
         case 9: {
-          const params = media.mojom.RendererClient_OnWaiting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.RendererClient_OnWaiting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWaiting');
           const result = this.impl.onWaiting(params.reason);
           break;

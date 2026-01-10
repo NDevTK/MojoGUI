@@ -222,8 +222,13 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    this.ordinalMap.set(1, 2); // Default ordinal 1 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -246,9 +251,13 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.annotate');
           const result = this.impl.annotate(params.request);
           if (header.expectsResponse) {
@@ -259,8 +268,9 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
           }
           break;
         }
-        case 2: {
-          const params = chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.findLanguages');
           const result = this.impl.findLanguages(params.text);
           if (header.expectsResponse) {
@@ -271,8 +281,9 @@ chromeos.machine_learning.mojom.TextClassifierReceiver = class {
           }
           break;
         }
-        case 1: {
-          const params = chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_1');
           const result = this.impl.rEMOVED_1(params.request);
           if (header.expectsResponse) {

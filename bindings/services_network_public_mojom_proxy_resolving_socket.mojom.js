@@ -102,8 +102,11 @@ network.mojom.ProxyResolvingSocketReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -126,9 +129,13 @@ network.mojom.ProxyResolvingSocketReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
           const result = this.impl.upgradeToTLS(params.host_port_pair, params.traffic_annotation, params.receiver, params.observer);
           if (header.expectsResponse) {
@@ -233,8 +240,11 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -257,9 +267,13 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createProxyResolvingSocket');
           const result = this.impl.createProxyResolvingSocket(params.url, params.network_anonymization_key, params.options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {

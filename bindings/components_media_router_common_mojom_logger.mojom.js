@@ -152,8 +152,14 @@ media_router.mojom.LoggerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -176,27 +182,34 @@ media_router.mojom.LoggerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media_router.mojom.Logger_LogInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_router.mojom.Logger_LogInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logInfo');
           const result = this.impl.logInfo(params.category, params.component, params.message, params.sink_id, params.media_source, params.session_id);
           break;
         }
         case 1: {
-          const params = media_router.mojom.Logger_LogWarning_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_router.mojom.Logger_LogWarning_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logWarning');
           const result = this.impl.logWarning(params.category, params.component, params.message, params.sink_id, params.media_source, params.session_id);
           break;
         }
         case 2: {
-          const params = media_router.mojom.Logger_LogError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_router.mojom.Logger_LogError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logError');
           const result = this.impl.logError(params.category, params.component, params.message, params.sink_id, params.media_source, params.session_id);
           break;
         }
         case 3: {
-          const params = media_router.mojom.Logger_BindReceiver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media_router.mojom.Logger_BindReceiver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
           const result = this.impl.bindReceiver(params.receiver);
           break;

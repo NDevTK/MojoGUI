@@ -518,8 +518,26 @@ ash.orca.mojom.EditorClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -542,9 +560,13 @@ ash.orca.mojom.EditorClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPresetTextQueries');
           const result = this.impl.getPresetTextQueries();
           if (header.expectsResponse) {
@@ -556,7 +578,8 @@ ash.orca.mojom.EditorClientReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPresetRewrite');
           const result = this.impl.requestPresetRewrite(params.text_query_id, params.text_override);
           if (header.expectsResponse) {
@@ -568,7 +591,8 @@ ash.orca.mojom.EditorClientReceiver = class {
           break;
         }
         case 2: {
-          const params = ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformRewrite');
           const result = this.impl.requestFreeformRewrite(params.input, params.text_override);
           if (header.expectsResponse) {
@@ -580,7 +604,8 @@ ash.orca.mojom.EditorClientReceiver = class {
           break;
         }
         case 3: {
-          const params = ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformWrite');
           const result = this.impl.requestFreeformWrite(params.input);
           if (header.expectsResponse) {
@@ -592,55 +617,64 @@ ash.orca.mojom.EditorClientReceiver = class {
           break;
         }
         case 4: {
-          const params = ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text);
           break;
         }
         case 5: {
-          const params = ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.approveConsent');
           const result = this.impl.approveConsent();
           break;
         }
         case 6: {
-          const params = ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.declineConsent');
           const result = this.impl.declineConsent();
           break;
         }
         case 7: {
-          const params = ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dismissConsent');
           const result = this.impl.dismissConsent();
           break;
         }
         case 8: {
-          const params = ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;
         }
         case 9: {
-          const params = ash.orca.mojom.EditorClient_ShowUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_ShowUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 10: {
-          const params = ash.orca.mojom.EditorClient_CloseUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_CloseUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 11: {
-          const params = ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.appendText');
           const result = this.impl.appendText(params.text);
           break;
         }
         case 12: {
-          const params = ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.previewFeedback');
           const result = this.impl.previewFeedback(params.result_id);
           if (header.expectsResponse) {
@@ -652,19 +686,22 @@ ash.orca.mojom.EditorClientReceiver = class {
           break;
         }
         case 13: {
-          const params = ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.result_id, params.user_description);
           break;
         }
         case 14: {
-          const params = ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
           const result = this.impl.onTrigger(params.trigger_context);
           break;
         }
         case 15: {
-          const params = ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
@@ -748,8 +785,11 @@ ash.orca.mojom.EditorClientConnectorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -772,9 +812,13 @@ ash.orca.mojom.EditorClientConnectorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindEditorClient');
           const result = this.impl.bindEditorClient(params.editor_client);
           break;
@@ -858,8 +902,11 @@ ash.orca.mojom.EditorEventSinkReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -882,9 +929,13 @@ ash.orca.mojom.EditorEventSinkReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onContextUpdated');
           const result = this.impl.onContextUpdated(params.context);
           break;
@@ -1092,8 +1143,19 @@ ash.orca.mojom.SystemActuatorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1116,57 +1178,69 @@ ash.orca.mojom.SystemActuatorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text);
           break;
         }
         case 1: {
-          const params = ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.approveConsent');
           const result = this.impl.approveConsent();
           break;
         }
         case 2: {
-          const params = ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.declineConsent');
           const result = this.impl.declineConsent();
           break;
         }
         case 3: {
-          const params = ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;
         }
         case 4: {
-          const params = ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 5: {
-          const params = ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 6: {
-          const params = ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.description);
           break;
         }
         case 7: {
-          const params = ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
           const result = this.impl.onTrigger(params.trigger_context);
           break;
         }
         case 8: {
-          const params = ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
@@ -1256,8 +1330,11 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1280,9 +1357,13 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.process');
           const result = this.impl.process(params.request);
           if (header.expectsResponse) {
@@ -1376,8 +1457,11 @@ ash.orca.mojom.OrcaServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1400,9 +1484,13 @@ ash.orca.mojom.OrcaServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindEditor');
           const result = this.impl.bindEditor(params.system_actuator, params.text_query_provider, params.client_connector, params.event_sink, params.editor_config);
           break;

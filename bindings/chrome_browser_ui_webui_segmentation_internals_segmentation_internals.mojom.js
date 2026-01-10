@@ -121,8 +121,11 @@ segmentation_internals.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -145,9 +148,13 @@ segmentation_internals.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -280,8 +287,14 @@ segmentation_internals.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -304,27 +317,34 @@ segmentation_internals.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getServiceStatus');
           const result = this.impl.getServiceStatus();
           break;
         }
         case 1: {
-          const params = segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.executeModel');
           const result = this.impl.executeModel(params.segment_id);
           break;
         }
         case 2: {
-          const params = segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.overwriteResult');
           const result = this.impl.overwriteResult(params.segment_id, params.result);
           break;
         }
         case 3: {
-          const params = segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSelected');
           const result = this.impl.setSelected(params.segmentation_key, params.optimization_target);
           break;
@@ -425,8 +445,12 @@ segmentation_internals.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -449,15 +473,20 @@ segmentation_internals.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onServiceStatusChanged');
           const result = this.impl.onServiceStatusChanged(params.is_initialized, params.status_flag);
           break;
         }
         case 1: {
-          const params = segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onClientInfoAvailable');
           const result = this.impl.onClientInfoAvailable(params.client_info);
           break;

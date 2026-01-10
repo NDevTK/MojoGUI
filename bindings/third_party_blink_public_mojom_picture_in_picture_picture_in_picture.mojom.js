@@ -107,8 +107,12 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -131,15 +135,20 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWindowSizeChanged');
           const result = this.impl.onWindowSizeChanged(params.size);
           break;
         }
         case 1: {
-          const params = blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
@@ -263,8 +272,13 @@ blink.mojom.PictureInPictureSessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -287,15 +301,20 @@ blink.mojom.PictureInPictureSessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PictureInPictureSession_Update_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSession_Update_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button);
           break;
         }
         case 1: {
-          const params = blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           if (header.expectsResponse) {
@@ -307,7 +326,8 @@ blink.mojom.PictureInPictureSessionReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateMediaPosition');
           const result = this.impl.updateMediaPosition(params.media_position);
           break;
@@ -404,8 +424,11 @@ blink.mojom.PictureInPictureServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -428,9 +451,13 @@ blink.mojom.PictureInPictureServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button, params.observer, params.source_bounds);
           if (header.expectsResponse) {

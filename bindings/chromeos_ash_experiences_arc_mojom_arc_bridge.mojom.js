@@ -1048,8 +1048,68 @@ arc.mojom.ArcBridgeHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(127, 0); // Default ordinal 127 -> Index 0
+    this.ordinalMap.set(158, 1); // Default ordinal 158 -> Index 1
+    this.ordinalMap.set(100, 2); // Default ordinal 100 -> Index 2
+    this.ordinalMap.set(149, 3); // Default ordinal 149 -> Index 3
+    this.ordinalMap.set(145, 4); // Default ordinal 145 -> Index 4
+    this.ordinalMap.set(174, 5); // Default ordinal 174 -> Index 5
+    this.ordinalMap.set(171, 6); // Default ordinal 171 -> Index 6
+    this.ordinalMap.set(115, 7); // Default ordinal 115 -> Index 7
+    this.ordinalMap.set(106, 8); // Default ordinal 106 -> Index 8
+    this.ordinalMap.set(138, 9); // Default ordinal 138 -> Index 9
+    this.ordinalMap.set(113, 10); // Default ordinal 113 -> Index 10
+    this.ordinalMap.set(125, 11); // Default ordinal 125 -> Index 11
+    this.ordinalMap.set(151, 12); // Default ordinal 151 -> Index 12
+    this.ordinalMap.set(170, 13); // Default ordinal 170 -> Index 13
+    this.ordinalMap.set(161, 14); // Default ordinal 161 -> Index 14
+    this.ordinalMap.set(112, 15); // Default ordinal 112 -> Index 15
+    this.ordinalMap.set(173, 16); // Default ordinal 173 -> Index 16
+    this.ordinalMap.set(156, 17); // Default ordinal 156 -> Index 17
+    this.ordinalMap.set(144, 18); // Default ordinal 144 -> Index 18
+    this.ordinalMap.set(122, 19); // Default ordinal 122 -> Index 19
+    this.ordinalMap.set(172, 20); // Default ordinal 172 -> Index 20
+    this.ordinalMap.set(119, 21); // Default ordinal 119 -> Index 21
+    this.ordinalMap.set(159, 22); // Default ordinal 159 -> Index 22
+    this.ordinalMap.set(110, 23); // Default ordinal 110 -> Index 23
+    this.ordinalMap.set(143, 24); // Default ordinal 143 -> Index 24
+    this.ordinalMap.set(111, 25); // Default ordinal 111 -> Index 25
+    this.ordinalMap.set(152, 26); // Default ordinal 152 -> Index 26
+    this.ordinalMap.set(168, 27); // Default ordinal 168 -> Index 27
+    this.ordinalMap.set(175, 28); // Default ordinal 175 -> Index 28
+    this.ordinalMap.set(148, 29); // Default ordinal 148 -> Index 29
+    this.ordinalMap.set(164, 30); // Default ordinal 164 -> Index 30
+    this.ordinalMap.set(116, 31); // Default ordinal 116 -> Index 31
+    this.ordinalMap.set(135, 32); // Default ordinal 135 -> Index 32
+    this.ordinalMap.set(163, 33); // Default ordinal 163 -> Index 33
+    this.ordinalMap.set(108, 34); // Default ordinal 108 -> Index 34
+    this.ordinalMap.set(102, 35); // Default ordinal 102 -> Index 35
+    this.ordinalMap.set(120, 36); // Default ordinal 120 -> Index 36
+    this.ordinalMap.set(133, 37); // Default ordinal 133 -> Index 37
+    this.ordinalMap.set(155, 38); // Default ordinal 155 -> Index 38
+    this.ordinalMap.set(146, 39); // Default ordinal 146 -> Index 39
+    this.ordinalMap.set(114, 40); // Default ordinal 114 -> Index 40
+    this.ordinalMap.set(103, 41); // Default ordinal 103 -> Index 41
+    this.ordinalMap.set(150, 42); // Default ordinal 150 -> Index 42
+    this.ordinalMap.set(166, 43); // Default ordinal 166 -> Index 43
+    this.ordinalMap.set(104, 44); // Default ordinal 104 -> Index 44
+    this.ordinalMap.set(140, 45); // Default ordinal 140 -> Index 45
+    this.ordinalMap.set(157, 46); // Default ordinal 157 -> Index 46
+    this.ordinalMap.set(169, 47); // Default ordinal 169 -> Index 47
+    this.ordinalMap.set(167, 48); // Default ordinal 167 -> Index 48
+    this.ordinalMap.set(141, 49); // Default ordinal 141 -> Index 49
+    this.ordinalMap.set(128, 50); // Default ordinal 128 -> Index 50
+    this.ordinalMap.set(123, 51); // Default ordinal 123 -> Index 51
+    this.ordinalMap.set(139, 52); // Default ordinal 139 -> Index 52
+    this.ordinalMap.set(107, 53); // Default ordinal 107 -> Index 53
+    this.ordinalMap.set(131, 54); // Default ordinal 131 -> Index 54
+    this.ordinalMap.set(142, 55); // Default ordinal 142 -> Index 55
+    this.ordinalMap.set(124, 56); // Default ordinal 124 -> Index 56
+    this.ordinalMap.set(162, 57); // Default ordinal 162 -> Index 57
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1072,351 +1132,412 @@ arc.mojom.ArcBridgeHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 127: {
-          const params = arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAccessibilityHelperInstanceReady');
           const result = this.impl.onAccessibilityHelperInstanceReady(params.instance_remote);
           break;
         }
-        case 158: {
-          const params = arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAdbdMonitorInstanceReady');
           const result = this.impl.onAdbdMonitorInstanceReady(params.instance_remote);
           break;
         }
-        case 100: {
-          const params = arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAppInstanceReady');
           const result = this.impl.onAppInstanceReady(params.instance_remote);
           break;
         }
-        case 149: {
-          const params = arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAppPermissionsInstanceReady');
           const result = this.impl.onAppPermissionsInstanceReady(params.instance_remote);
           break;
         }
-        case 145: {
-          const params = arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAppfuseInstanceReady');
           const result = this.impl.onAppfuseInstanceReady(params.instance_remote);
           break;
         }
-        case 174: {
-          const params = arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onArcShellExecutionInstanceReady');
           const result = this.impl.onArcShellExecutionInstanceReady(params.instance_remote);
           break;
         }
-        case 171: {
-          const params = arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onArcWifiInstanceReady');
           const result = this.impl.onArcWifiInstanceReady(params.instance_remote);
           break;
         }
-        case 115: {
-          const params = arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAudioInstanceReady');
           const result = this.impl.onAudioInstanceReady(params.instance_remote);
           break;
         }
-        case 106: {
-          const params = arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAuthInstanceReady');
           const result = this.impl.onAuthInstanceReady(params.instance_remote);
           break;
         }
-        case 138: {
-          const params = arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBackupSettingsInstanceReady');
           const result = this.impl.onBackupSettingsInstanceReady(params.instance_remote);
           break;
         }
-        case 113: {
-          const params = arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBluetoothInstanceReady');
           const result = this.impl.onBluetoothInstanceReady(params.instance_remote);
           break;
         }
-        case 125: {
-          const params = arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBootPhaseMonitorInstanceReady');
           const result = this.impl.onBootPhaseMonitorInstanceReady(params.instance_remote);
           break;
         }
-        case 151: {
-          const params = arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCameraInstanceReady');
           const result = this.impl.onCameraInstanceReady(params.instance_remote);
           break;
         }
-        case 170: {
-          const params = arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 13: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onChromeFeatureFlagsInstanceReady');
           const result = this.impl.onChromeFeatureFlagsInstanceReady(params.instance_remote);
           break;
         }
-        case 161: {
-          const params = arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 14: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCompatibilityModeInstanceReady');
           const result = this.impl.onCompatibilityModeInstanceReady(params.instance_remote);
           break;
         }
-        case 112: {
-          const params = arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 15: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCrashCollectorInstanceReady');
           const result = this.impl.onCrashCollectorInstanceReady(params.instance_remote);
           break;
         }
-        case 173: {
-          const params = arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onOnDeviceSafetyInstanceReady');
           const result = this.impl.onOnDeviceSafetyInstanceReady(params.instance_remote);
           break;
         }
-        case 156: {
-          const params = arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 17: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDigitalGoodsInstanceReady');
           const result = this.impl.onDigitalGoodsInstanceReady(params.instance_remote);
           break;
         }
-        case 144: {
-          const params = arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 18: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDiskSpaceInstanceReady');
           const result = this.impl.onDiskSpaceInstanceReady(params.instance_remote);
           break;
         }
-        case 122: {
-          const params = arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 19: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEnterpriseReportingInstanceReady');
           const result = this.impl.onEnterpriseReportingInstanceReady(params.instance_remote);
           break;
         }
-        case 172: {
-          const params = arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 20: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onErrorNotificationInstanceReady');
           const result = this.impl.onErrorNotificationInstanceReady(params.instance_remote);
           break;
         }
-        case 119: {
-          const params = arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 21: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFileSystemInstanceReady');
           const result = this.impl.onFileSystemInstanceReady(params.instance_remote);
           break;
         }
-        case 159: {
-          const params = arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 22: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onIioSensorInstanceReady');
           const result = this.impl.onIioSensorInstanceReady(params.instance_remote);
           break;
         }
-        case 110: {
-          const params = arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 23: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onImeInstanceReady');
           const result = this.impl.onImeInstanceReady(params.instance_remote);
           break;
         }
-        case 143: {
-          const params = arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 24: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onInputMethodManagerInstanceReady');
           const result = this.impl.onInputMethodManagerInstanceReady(params.instance_remote);
           break;
         }
-        case 111: {
-          const params = arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 25: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onIntentHelperInstanceReady');
           const result = this.impl.onIntentHelperInstanceReady(params.instance_remote);
           break;
         }
-        case 152: {
-          const params = arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 26: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKeymasterInstanceReady');
           const result = this.impl.onKeymasterInstanceReady(params.instance_remote);
           break;
         }
-        case 168: {
-          const params = arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 27: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKeyMintInstanceReady');
           const result = this.impl.onKeyMintInstanceReady(params.instance_remote);
           break;
         }
-        case 175: {
-          const params = arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 28: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKioskInstanceReady');
           const result = this.impl.onKioskInstanceReady(params.instance_remote);
           break;
         }
-        case 148: {
-          const params = arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 29: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMediaSessionInstanceReady');
           const result = this.impl.onMediaSessionInstanceReady(params.instance_remote);
           break;
         }
-        case 164: {
-          const params = arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 30: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMemoryInstanceReady');
           const result = this.impl.onMemoryInstanceReady(params.instance_remote);
           break;
         }
-        case 116: {
-          const params = arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 31: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMetricsInstanceReady');
           const result = this.impl.onMetricsInstanceReady(params.instance_remote);
           break;
         }
-        case 135: {
-          const params = arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 32: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMidisInstanceReady');
           const result = this.impl.onMidisInstanceReady(params.instance_remote);
           break;
         }
-        case 163: {
-          const params = arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 33: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNearbyShareInstanceReady');
           const result = this.impl.onNearbyShareInstanceReady(params.instance_remote);
           break;
         }
-        case 108: {
-          const params = arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 34: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNetInstanceReady');
           const result = this.impl.onNetInstanceReady(params.instance_remote);
           break;
         }
-        case 102: {
-          const params = arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 35: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNotificationsInstanceReady');
           const result = this.impl.onNotificationsInstanceReady(params.instance_remote);
           break;
         }
-        case 120: {
-          const params = arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 36: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onObbMounterInstanceReady');
           const result = this.impl.onObbMounterInstanceReady(params.instance_remote);
           break;
         }
-        case 133: {
-          const params = arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 37: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onOemCryptoInstanceReady');
           const result = this.impl.onOemCryptoInstanceReady(params.instance_remote);
           break;
         }
-        case 155: {
-          const params = arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 38: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPaymentAppInstanceReady');
           const result = this.impl.onPaymentAppInstanceReady(params.instance_remote);
           break;
         }
-        case 146: {
-          const params = arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 39: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPipInstanceReady');
           const result = this.impl.onPipInstanceReady(params.instance_remote);
           break;
         }
-        case 114: {
-          const params = arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 40: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPolicyInstanceReady');
           const result = this.impl.onPolicyInstanceReady(params.instance_remote);
           break;
         }
-        case 103: {
-          const params = arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 41: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPowerInstanceReady');
           const result = this.impl.onPowerInstanceReady(params.instance_remote);
           break;
         }
-        case 150: {
-          const params = arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 42: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPrintSpoolerInstanceReady');
           const result = this.impl.onPrintSpoolerInstanceReady(params.instance_remote);
           break;
         }
-        case 166: {
-          const params = arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 43: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPrivacyItemsInstanceReady');
           const result = this.impl.onPrivacyItemsInstanceReady(params.instance_remote);
           break;
         }
-        case 104: {
-          const params = arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 44: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onProcessInstanceReady');
           const result = this.impl.onProcessInstanceReady(params.instance_remote);
           break;
         }
-        case 140: {
-          const params = arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 45: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScreenCaptureInstanceReady');
           const result = this.impl.onScreenCaptureInstanceReady(params.instance_remote);
           break;
         }
-        case 157: {
-          const params = arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 46: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSharesheetInstanceReady');
           const result = this.impl.onSharesheetInstanceReady(params.instance_remote);
           break;
         }
-        case 169: {
-          const params = arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 47: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSystemStateInstanceReady');
           const result = this.impl.onSystemStateInstanceReady(params.instance_remote);
           break;
         }
-        case 167: {
-          const params = arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 48: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSystemUiInstanceReady');
           const result = this.impl.onSystemUiInstanceReady(params.instance_remote);
           break;
         }
-        case 141: {
-          const params = arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 49: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTimerInstanceReady');
           const result = this.impl.onTimerInstanceReady(params.instance_remote);
           break;
         }
-        case 128: {
-          const params = arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 50: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTracingInstanceReady');
           const result = this.impl.onTracingInstanceReady(params.instance_remote);
           break;
         }
-        case 123: {
-          const params = arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 51: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTtsInstanceReady');
           const result = this.impl.onTtsInstanceReady(params.instance_remote);
           break;
         }
-        case 139: {
-          const params = arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 52: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onUsbHostInstanceReady');
           const result = this.impl.onUsbHostInstanceReady(params.instance_remote);
           break;
         }
-        case 107: {
-          const params = arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 53: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onVideoInstanceReady');
           const result = this.impl.onVideoInstanceReady(params.instance_remote);
           break;
         }
-        case 131: {
-          const params = arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 54: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onVolumeMounterInstanceReady');
           const result = this.impl.onVolumeMounterInstanceReady(params.instance_remote);
           break;
         }
-        case 142: {
-          const params = arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 55: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWakeLockInstanceReady');
           const result = this.impl.onWakeLockInstanceReady(params.instance_remote);
           break;
         }
-        case 124: {
-          const params = arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 56: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperInstanceReady');
           const result = this.impl.onWallpaperInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
-          const params = arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec.$.decode(message.payload);
+        case 57: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWebApkInstanceReady');
           const result = this.impl.onWebApkInstanceReady(params.instance_ptr);
           break;

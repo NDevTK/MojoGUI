@@ -74,8 +74,10 @@ media.mojom.LocalMuterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -98,7 +100,10 @@ media.mojom.LocalMuterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -311,8 +316,16 @@ media.mojom.AudioStreamFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -335,9 +348,13 @@ media.mojom.AudioStreamFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createInputStream');
           const result = this.impl.createInputStream(params.stream, params.client, params.observer, params.log, params.device_id, params.params, params.group_id, params.shared_memory_count, params.enable_agc, params.processing_config);
           if (header.expectsResponse) {
@@ -349,13 +366,15 @@ media.mojom.AudioStreamFactoryReceiver = class {
           break;
         }
         case 1: {
-          const params = media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
           const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
           break;
         }
         case 2: {
-          const params = media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createOutputStream');
           const result = this.impl.createOutputStream(params.stream, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
@@ -367,7 +386,8 @@ media.mojom.AudioStreamFactoryReceiver = class {
           break;
         }
         case 3: {
-          const params = media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createSwitchableOutputStream');
           const result = this.impl.createSwitchableOutputStream(params.stream, params.device_switch_receiver, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
@@ -379,13 +399,15 @@ media.mojom.AudioStreamFactoryReceiver = class {
           break;
         }
         case 4: {
-          const params = media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindMuter');
           const result = this.impl.bindMuter(params.receiver, params.group_id);
           break;
         }
         case 5: {
-          const params = media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createLoopbackStream');
           const result = this.impl.createLoopbackStream(params.receiver, params.client, params.observer, params.params, params.shared_memory_count, params.group_id);
           if (header.expectsResponse) {

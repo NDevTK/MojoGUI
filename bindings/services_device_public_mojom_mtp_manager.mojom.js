@@ -120,8 +120,12 @@ device.mojom.MtpManagerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -144,15 +148,20 @@ device.mojom.MtpManagerClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.storageAttached');
           const result = this.impl.storageAttached(params.storage_info);
           break;
         }
         case 1: {
-          const params = device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.storageDetached');
           const result = this.impl.storageDetached(params.storage_name);
           break;
@@ -503,8 +512,22 @@ device.mojom.MtpManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -527,9 +550,13 @@ device.mojom.MtpManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enumerateStoragesAndSetClient');
           const result = this.impl.enumerateStoragesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -541,7 +568,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 1: {
-          const params = device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getStorageInfo');
           const result = this.impl.getStorageInfo(params.storage_name);
           if (header.expectsResponse) {
@@ -553,7 +581,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getStorageInfoFromDevice');
           const result = this.impl.getStorageInfoFromDevice(params.storage_name);
           if (header.expectsResponse) {
@@ -565,7 +594,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 3: {
-          const params = device.mojom.MtpManager_OpenStorage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_OpenStorage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openStorage');
           const result = this.impl.openStorage(params.storage_name, params.mode);
           if (header.expectsResponse) {
@@ -577,7 +607,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 4: {
-          const params = device.mojom.MtpManager_CloseStorage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_CloseStorage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeStorage');
           const result = this.impl.closeStorage(params.storage_handle);
           if (header.expectsResponse) {
@@ -589,7 +620,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 5: {
-          const params = device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_CreateDirectory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createDirectory');
           const result = this.impl.createDirectory(params.storage_handle, params.parent_id, params.directory_name);
           if (header.expectsResponse) {
@@ -601,7 +633,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 6: {
-          const params = device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.readDirectoryEntryIds');
           const result = this.impl.readDirectoryEntryIds(params.storage_handle, params.file_id);
           if (header.expectsResponse) {
@@ -613,7 +646,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 7: {
-          const params = device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.readFileChunk');
           const result = this.impl.readFileChunk(params.storage_handle, params.file_id, params.offset, params.count);
           if (header.expectsResponse) {
@@ -625,7 +659,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 8: {
-          const params = device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_GetFileInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getFileInfo');
           const result = this.impl.getFileInfo(params.storage_handle, params.file_ids);
           if (header.expectsResponse) {
@@ -637,7 +672,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 9: {
-          const params = device.mojom.MtpManager_RenameObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_RenameObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.renameObject');
           const result = this.impl.renameObject(params.storage_handle, params.object_id, params.new_name);
           if (header.expectsResponse) {
@@ -649,7 +685,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 10: {
-          const params = device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.copyFileFromLocal');
           const result = this.impl.copyFileFromLocal(params.storage_handle, params.source_file_descriptor, params.parent_id, params.file_name);
           if (header.expectsResponse) {
@@ -661,7 +698,8 @@ device.mojom.MtpManagerReceiver = class {
           break;
         }
         case 11: {
-          const params = device.mojom.MtpManager_DeleteObject_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.MtpManager_DeleteObject_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteObject');
           const result = this.impl.deleteObject(params.storage_handle, params.object_id);
           if (header.expectsResponse) {

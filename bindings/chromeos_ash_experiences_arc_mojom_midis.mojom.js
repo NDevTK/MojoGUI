@@ -131,8 +131,12 @@ arc.mojom.MidisClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -155,15 +159,20 @@ arc.mojom.MidisClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded(params.device);
           break;
         }
         case 1: {
-          const params = arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved(params.device);
           break;
@@ -290,8 +299,13 @@ arc.mojom.MidisServerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(3, 1); // Default ordinal 3 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -314,9 +328,13 @@ arc.mojom.MidisServerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.MidisServer_ListDevices_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.MidisServer_ListDevices_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listDevices');
           const result = this.impl.listDevices();
           if (header.expectsResponse) {
@@ -327,8 +345,9 @@ arc.mojom.MidisServerReceiver = class {
           }
           break;
         }
-        case 3: {
-          const params = arc.mojom.MidisServer_RequestPort_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.MidisServer_RequestPort_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
           const result = this.impl.requestPort(params.request);
           if (header.expectsResponse) {
@@ -340,7 +359,8 @@ arc.mojom.MidisServerReceiver = class {
           break;
         }
         case 2: {
-          const params = arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.MidisServer_CloseDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeDevice');
           const result = this.impl.closeDevice(params.request);
           break;
@@ -425,8 +445,11 @@ arc.mojom.MidisHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -449,9 +472,13 @@ arc.mojom.MidisHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.MidisHost_Connect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.MidisHost_Connect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.server, params.client);
           break;
@@ -540,8 +567,11 @@ arc.mojom.MidisInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -564,9 +594,13 @@ arc.mojom.MidisInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = arc.mojom.MidisInstance_Init_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.MidisInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

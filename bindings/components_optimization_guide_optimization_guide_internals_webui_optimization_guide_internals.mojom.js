@@ -179,8 +179,14 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -203,15 +209,20 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page);
           break;
         }
         case 1: {
-          const params = optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestDownloadedModelsInfo');
           const result = this.impl.requestDownloadedModelsInfo();
           if (header.expectsResponse) {
@@ -223,7 +234,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
           break;
         }
         case 2: {
-          const params = optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestLoggedModelQualityClientIds');
           const result = this.impl.requestLoggedModelQualityClientIds();
           if (header.expectsResponse) {
@@ -235,7 +247,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
           break;
         }
         case 3: {
-          const params = optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestMqlsLogs');
           const result = this.impl.requestMqlsLogs();
           if (header.expectsResponse) {
@@ -329,8 +342,11 @@ optimization_guide_internals.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -353,9 +369,13 @@ optimization_guide_internals.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
           const result = this.impl.onLogMessageAdded(params.event_time, params.log_source, params.source_file, params.source_line, params.message);
           break;

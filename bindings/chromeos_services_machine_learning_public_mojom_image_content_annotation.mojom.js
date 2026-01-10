@@ -150,8 +150,12 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -174,9 +178,13 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.annotateRawImage');
           const result = this.impl.annotateRawImage(params.rgb_bytes, params.width, params.height, params.line_stride);
           if (header.expectsResponse) {
@@ -188,7 +196,8 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver = class {
           break;
         }
         case 1: {
-          const params = chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.annotateEncodedImage');
           const result = this.impl.annotateEncodedImage(params.encoded_image);
           if (header.expectsResponse) {

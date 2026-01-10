@@ -106,8 +106,11 @@ ukm.mojom.SingularUkmInterfaceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -130,9 +133,13 @@ ukm.mojom.SingularUkmInterfaceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.submit');
           const result = this.impl.submit(params.entry);
           break;
@@ -216,8 +223,11 @@ ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -240,9 +250,13 @@ ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setParameters');
           const result = this.impl.setParameters(params.params);
           break;
@@ -343,8 +357,12 @@ ukm.mojom.UkmRecorderInterfaceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -367,15 +385,20 @@ ukm.mojom.UkmRecorderInterfaceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
           const result = this.impl.addEntry(params.entry);
           break;
         }
         case 1: {
-          const params = ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateSourceURL');
           const result = this.impl.updateSourceURL(params.source_id, params.url);
           break;
@@ -460,8 +483,11 @@ ukm.mojom.UkmRecorderFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -484,9 +510,13 @@ ukm.mojom.UkmRecorderFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createUkmRecorder');
           const result = this.impl.createUkmRecorder(params.receiver, params.client_remote);
           break;

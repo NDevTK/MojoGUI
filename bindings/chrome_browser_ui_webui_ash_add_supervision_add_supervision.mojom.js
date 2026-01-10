@@ -186,8 +186,16 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -210,9 +218,13 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           if (header.expectsResponse) {
@@ -224,7 +236,8 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getInstalledArcApps');
           const result = this.impl.getInstalledArcApps();
           if (header.expectsResponse) {
@@ -236,7 +249,8 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getOAuthToken');
           const result = this.impl.getOAuthToken();
           if (header.expectsResponse) {
@@ -248,19 +262,22 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logOut');
           const result = this.impl.logOut();
           break;
         }
         case 4: {
-          const params = add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifySupervisionEnabled');
           const result = this.impl.notifySupervisionEnabled();
           break;
         }
         case 5: {
-          const params = add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setCloseOnEscape');
           const result = this.impl.setCloseOnEscape(params.enabled);
           break;

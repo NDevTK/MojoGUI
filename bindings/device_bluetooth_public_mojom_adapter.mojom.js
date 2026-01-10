@@ -225,8 +225,11 @@ bluetooth.mojom.AdvertisementReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -249,9 +252,13 @@ bluetooth.mojom.AdvertisementReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.Advertisement_Unregister_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Advertisement_Unregister_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.unregister');
           const result = this.impl.unregister();
           if (header.expectsResponse) {
@@ -367,8 +374,12 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -391,9 +402,13 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isActive');
           const result = this.impl.isActive();
           if (header.expectsResponse) {
@@ -405,7 +420,8 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
           break;
         }
         case 1: {
-          const params = bluetooth.mojom.DiscoverySession_Stop_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.DiscoverySession_Stop_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           if (header.expectsResponse) {
@@ -499,8 +515,11 @@ bluetooth.mojom.SocketReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -523,9 +542,13 @@ bluetooth.mojom.SocketReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.Socket_Disconnect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Socket_Disconnect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           if (header.expectsResponse) {
@@ -640,8 +663,12 @@ bluetooth.mojom.ServerSocketReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -664,9 +691,13 @@ bluetooth.mojom.ServerSocketReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.ServerSocket_Accept_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.ServerSocket_Accept_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept();
           if (header.expectsResponse) {
@@ -678,7 +709,8 @@ bluetooth.mojom.ServerSocketReceiver = class {
           break;
         }
         case 1: {
-          const params = bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           if (header.expectsResponse) {
@@ -797,8 +829,12 @@ bluetooth.mojom.GattServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -821,9 +857,13 @@ bluetooth.mojom.GattServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createCharacteristic');
           const result = this.impl.createCharacteristic(params.characteristic_uuid, params.permissions, params.properties);
           if (header.expectsResponse) {
@@ -835,7 +875,8 @@ bluetooth.mojom.GattServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = bluetooth.mojom.GattService_Register_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.GattService_Register_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register();
           if (header.expectsResponse) {
@@ -934,8 +975,11 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -958,9 +1002,13 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLocalCharacteristicRead');
           const result = this.impl.onLocalCharacteristicRead(params.remote_device, params.characteristic_uuid, params.service_uuid, params.offset);
           if (header.expectsResponse) {
@@ -1302,8 +1350,22 @@ bluetooth.mojom.AdapterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1326,9 +1388,13 @@ bluetooth.mojom.AdapterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToDevice');
           const result = this.impl.connectToDevice(params.address);
           if (header.expectsResponse) {
@@ -1340,7 +1406,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 1: {
-          const params = bluetooth.mojom.Adapter_GetDevices_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_GetDevices_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -1352,7 +1419,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 2: {
-          const params = bluetooth.mojom.Adapter_GetInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_GetInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getInfo');
           const result = this.impl.getInfo();
           if (header.expectsResponse) {
@@ -1364,7 +1432,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 3: {
-          const params = bluetooth.mojom.Adapter_AddObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_AddObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           if (header.expectsResponse) {
@@ -1376,7 +1445,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 4: {
-          const params = bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerAdvertisement');
           const result = this.impl.registerAdvertisement(params.service_id, params.service_data, params.use_scan_response, params.connectable);
           if (header.expectsResponse) {
@@ -1388,7 +1458,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 5: {
-          const params = bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDiscoverable');
           const result = this.impl.setDiscoverable(params.discoverable);
           if (header.expectsResponse) {
@@ -1400,7 +1471,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 6: {
-          const params = bluetooth.mojom.Adapter_SetName_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_SetName_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setName');
           const result = this.impl.setName(params.name);
           if (header.expectsResponse) {
@@ -1412,7 +1484,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 7: {
-          const params = bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startDiscoverySession');
           const result = this.impl.startDiscoverySession(params.client_name);
           if (header.expectsResponse) {
@@ -1424,7 +1497,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 8: {
-          const params = bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToServiceInsecurely');
           const result = this.impl.connectToServiceInsecurely(params.address, params.service_uuid, params.should_unbond_on_error);
           if (header.expectsResponse) {
@@ -1436,7 +1510,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 9: {
-          const params = bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createRfcommServiceInsecurely');
           const result = this.impl.createRfcommServiceInsecurely(params.service_name, params.service_uuid);
           if (header.expectsResponse) {
@@ -1448,7 +1523,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 10: {
-          const params = bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createLocalGattService');
           const result = this.impl.createLocalGattService(params.service_id, params.observer);
           if (header.expectsResponse) {
@@ -1460,7 +1536,8 @@ bluetooth.mojom.AdapterReceiver = class {
           break;
         }
         case 11: {
-          const params = bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isLeScatternetDualRoleSupported');
           const result = this.impl.isLeScatternetDualRoleSupported();
           if (header.expectsResponse) {
@@ -1646,8 +1723,17 @@ bluetooth.mojom.AdapterObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1670,45 +1756,55 @@ bluetooth.mojom.AdapterObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.presentChanged');
           const result = this.impl.presentChanged(params.present);
           break;
         }
         case 1: {
-          const params = bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.poweredChanged');
           const result = this.impl.poweredChanged(params.powered);
           break;
         }
         case 2: {
-          const params = bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.discoverableChanged');
           const result = this.impl.discoverableChanged(params.discoverable);
           break;
         }
         case 3: {
-          const params = bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.discoveringChanged');
           const result = this.impl.discoveringChanged(params.discovering);
           break;
         }
         case 4: {
-          const params = bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
           const result = this.impl.deviceAdded(params.device);
           break;
         }
         case 5: {
-          const params = bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
           const result = this.impl.deviceChanged(params.device);
           break;
         }
         case 6: {
-          const params = bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
           const result = this.impl.deviceRemoved(params.device);
           break;

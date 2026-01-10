@@ -548,8 +548,13 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -572,21 +577,27 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectDesktopChannel');
           const result = this.impl.connectDesktopChannel(params.desktop_pipe);
           break;
         }
         case 1: {
-          const params = remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.injectSecureAttentionSequence');
           const result = this.impl.injectSecureAttentionSequence();
           break;
         }
         case 2: {
-          const params = remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.crashNetworkProcess');
           const result = this.impl.crashNetworkProcess();
           break;
@@ -705,8 +716,13 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -729,21 +745,27 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createDesktopSession');
           const result = this.impl.createDesktopSession(params.terminal_id, params.screen_resolution, params.is_virtual_terminal);
           break;
         }
         case 1: {
-          const params = remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeDesktopSession');
           const result = this.impl.closeDesktopSession(params.terminal_id);
           break;
         }
         case 2: {
-          const params = remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.terminal_id, params.screen_resolution);
           break;
@@ -835,8 +857,11 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -859,9 +884,13 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.authenticated_jid, params.resolution, params.options);
           if (header.expectsResponse) {
@@ -978,8 +1007,12 @@ remoting.mojom.FileWriterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1002,9 +1035,13 @@ remoting.mojom.FileWriterReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.writeChunk');
           const result = this.impl.writeChunk(params.data);
           if (header.expectsResponse) {
@@ -1016,7 +1053,8 @@ remoting.mojom.FileWriterReceiver = class {
           break;
         }
         case 1: {
-          const params = remoting.mojom.FileWriter_CloseFile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.FileWriter_CloseFile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeFile');
           const result = this.impl.closeFile();
           if (header.expectsResponse) {
@@ -1112,8 +1150,11 @@ remoting.mojom.FileReaderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1136,9 +1177,13 @@ remoting.mojom.FileReaderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.FileReader_ReadChunk_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.FileReader_ReadChunk_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.readChunk');
           const result = this.impl.readChunk(params.bytes_to_read);
           if (header.expectsResponse) {
@@ -1448,8 +1493,24 @@ remoting.mojom.DesktopSessionControlReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1472,9 +1533,13 @@ remoting.mojom.DesktopSessionControlReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createVideoCapturer');
           const result = this.impl.createVideoCapturer(params.desktop_display_id);
           if (header.expectsResponse) {
@@ -1486,67 +1551,78 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           break;
         }
         case 1: {
-          const params = remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.new_resolution);
           break;
         }
         case 2: {
-          const params = remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.lockWorkstation');
           const result = this.impl.lockWorkstation();
           break;
         }
         case 3: {
-          const params = remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.injectSendAttentionSequence');
           const result = this.impl.injectSendAttentionSequence();
           break;
         }
         case 4: {
-          const params = remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.injectClipboardEvent');
           const result = this.impl.injectClipboardEvent(params.event);
           break;
         }
         case 5: {
-          const params = remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.injectKeyEvent');
           const result = this.impl.injectKeyEvent(params.event);
           break;
         }
         case 6: {
-          const params = remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.injectMouseEvent');
           const result = this.impl.injectMouseEvent(params.event);
           break;
         }
         case 7: {
-          const params = remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.injectTextEvent');
           const result = this.impl.injectTextEvent(params.event);
           break;
         }
         case 8: {
-          const params = remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.injectTouchEvent');
           const result = this.impl.injectTouchEvent(params.event);
           break;
         }
         case 9: {
-          const params = remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUpUrlForwarder');
           const result = this.impl.setUpUrlForwarder();
           break;
         }
         case 10: {
-          const params = remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.signalWebAuthnExtension');
           const result = this.impl.signalWebAuthnExtension();
           break;
         }
         case 11: {
-          const params = remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.beginFileRead');
           const result = this.impl.beginFileRead();
           if (header.expectsResponse) {
@@ -1558,7 +1634,8 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           break;
         }
         case 12: {
-          const params = remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.beginFileWrite');
           const result = this.impl.beginFileWrite(params.file_path);
           if (header.expectsResponse) {
@@ -1570,7 +1647,8 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           break;
         }
         case 13: {
-          const params = remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setHostCursorRenderedByClient');
           const result = this.impl.setHostCursorRenderedByClient();
           break;
@@ -1669,8 +1747,12 @@ remoting.mojom.VideoCapturerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1693,15 +1775,20 @@ remoting.mojom.VideoCapturerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.captureFrame');
           const result = this.impl.captureFrame();
           break;
         }
         case 1: {
-          const params = remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setComposeEnabled');
           const result = this.impl.setComposeEnabled(params.enabled);
           break;
@@ -1819,8 +1906,13 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1843,21 +1935,27 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionCreated');
           const result = this.impl.onSharedMemoryRegionCreated(params.id, params.region, params.size);
           break;
         }
         case 1: {
-          const params = remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionReleased');
           const result = this.impl.onSharedMemoryRegionReleased(params.id);
           break;
         }
         case 2: {
-          const params = remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCaptureResult');
           const result = this.impl.onCaptureResult(params.result);
           break;
@@ -2069,8 +2167,19 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -2093,57 +2202,69 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onClipboardEvent');
           const result = this.impl.onClipboardEvent(params.event);
           break;
         }
         case 1: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onUrlForwarderStateChange');
           const result = this.impl.onUrlForwarderStateChange(params.state);
           break;
         }
         case 2: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAudioPacket');
           const result = this.impl.onAudioPacket(params.audio_packet);
           break;
         }
         case 3: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDesktopDisplayChanged');
           const result = this.impl.onDesktopDisplayChanged(params.layout);
           break;
         }
         case 4: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMouseCursorChanged');
           const result = this.impl.onMouseCursorChanged(params.mouse_cursor);
           break;
         }
         case 5: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMouseCursorFractionalPositionChanged');
           const result = this.impl.onMouseCursorFractionalPositionChanged(params.position);
           break;
         }
         case 6: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardLayoutChanged');
           const result = this.impl.onKeyboardLayoutChanged(params.keyboard_layout);
           break;
         }
         case 7: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLocalMouseMoveDetected');
           const result = this.impl.onLocalMouseMoveDetected(params.new_position);
           break;
         }
         case 8: {
-          const params = remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onLocalKeyboardInputDetected');
           const result = this.impl.onLocalKeyboardInputDetected(params.usb_keycode);
           break;
@@ -2229,8 +2350,11 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -2253,9 +2377,13 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disconnectSession');
           const result = this.impl.disconnectSession(params.error_code, params.error_details, params.error_location);
           break;
@@ -2341,8 +2469,11 @@ remoting.mojom.WorkerProcessControlReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -2365,9 +2496,13 @@ remoting.mojom.WorkerProcessControlReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.crashProcess');
           const result = this.impl.crashProcess(params.function_name, params.file_name, params.line_number);
           break;

@@ -154,8 +154,13 @@ arc.mojom.VolumeMounterHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
+    this.ordinalMap.set(3, 1); // Default ordinal 3 -> Index 1
+    this.ordinalMap.set(4, 2); // Default ordinal 4 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -178,15 +183,20 @@ arc.mojom.VolumeMounterHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestAllMountPoints');
           const result = this.impl.requestAllMountPoints();
           break;
         }
-        case 3: {
-          const params = arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUpExternalStorageMountPoints');
           const result = this.impl.setUpExternalStorageMountPoints(params.media_provider_uid);
           if (header.expectsResponse) {
@@ -197,8 +207,9 @@ arc.mojom.VolumeMounterHostReceiver = class {
           }
           break;
         }
-        case 4: {
-          const params = arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReadyToSuspend');
           const result = this.impl.onReadyToSuspend(params.success);
           break;
@@ -325,8 +336,13 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -349,9 +365,13 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.VolumeMounterInstance_Init_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VolumeMounterInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -363,13 +383,15 @@ arc.mojom.VolumeMounterInstanceReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onMountEvent');
           const result = this.impl.onMountEvent(params.mount_point_info);
           break;
         }
         case 2: {
-          const params = arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.prepareForRemovableMediaUnmount');
           const result = this.impl.prepareForRemovableMediaUnmount(params.path);
           if (header.expectsResponse) {

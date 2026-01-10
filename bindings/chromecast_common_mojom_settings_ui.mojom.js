@@ -118,8 +118,12 @@ chromecast.mojom.SettingsClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -142,15 +146,20 @@ chromecast.mojom.SettingsClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.handleSideSwipe');
           const result = this.impl.handleSideSwipe(params.event, params.origin, params.touch_location);
           break;
         }
         case 1: {
-          const params = chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendPlatformInfo');
           const result = this.impl.sendPlatformInfo(params.platform_info_json);
           break;
@@ -250,8 +259,12 @@ chromecast.mojom.SettingsPlatformReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -274,15 +287,20 @@ chromecast.mojom.SettingsPlatformReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.client);
           break;
         }
         case 1: {
-          const params = chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestVisible');
           const result = this.impl.requestVisible(params.visible);
           break;

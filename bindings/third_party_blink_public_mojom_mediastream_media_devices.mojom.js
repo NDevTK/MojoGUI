@@ -396,8 +396,21 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -420,9 +433,13 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enumerateDevices');
           const result = this.impl.enumerateDevices(params.request_audio_input, params.request_video_input, params.request_audio_output, params.request_video_input_capabilities, params.request_audio_input_capabilities);
           if (header.expectsResponse) {
@@ -434,7 +451,8 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getVideoInputCapabilities');
           const result = this.impl.getVideoInputCapabilities();
           if (header.expectsResponse) {
@@ -446,7 +464,8 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           break;
         }
         case 2: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAllVideoInputDeviceFormats');
           const result = this.impl.getAllVideoInputDeviceFormats(params.device_id);
           if (header.expectsResponse) {
@@ -458,7 +477,8 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAvailableVideoInputDeviceFormats');
           const result = this.impl.getAvailableVideoInputDeviceFormats(params.device_id);
           if (header.expectsResponse) {
@@ -470,7 +490,8 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           break;
         }
         case 4: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getAudioInputCapabilities');
           const result = this.impl.getAudioInputCapabilities();
           if (header.expectsResponse) {
@@ -482,25 +503,29 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           break;
         }
         case 5: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addMediaDevicesListener');
           const result = this.impl.addMediaDevicesListener(params.subscribe_audio_input, params.subscribe_video_input, params.subscribe_audio_output, params.listener);
           break;
         }
         case 6: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setCaptureHandleConfig');
           const result = this.impl.setCaptureHandleConfig(params.config);
           break;
         }
         case 7: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeFocusWindowOfOpportunity');
           const result = this.impl.closeFocusWindowOfOpportunity(params.label);
           break;
         }
         case 8: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.produceSubCaptureTargetId');
           const result = this.impl.produceSubCaptureTargetId(params.type);
           if (header.expectsResponse) {
@@ -512,7 +537,8 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           break;
         }
         case 9: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPreferredSinkId');
           const result = this.impl.setPreferredSinkId(params.sink_id);
           if (header.expectsResponse) {
@@ -524,7 +550,8 @@ blink.mojom.MediaDevicesDispatcherHostReceiver = class {
           break;
         }
         case 10: {
-          const params = blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.selectAudioOutput');
           const result = this.impl.selectAudioOutput(params.device_id);
           if (header.expectsResponse) {
@@ -615,8 +642,11 @@ blink.mojom.MediaDevicesListenerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -639,9 +669,13 @@ blink.mojom.MediaDevicesListenerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDevicesChanged');
           const result = this.impl.onDevicesChanged(params.type, params.device_infos);
           break;

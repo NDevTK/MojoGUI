@@ -213,8 +213,17 @@ echo.mojom.EchoServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -237,9 +246,13 @@ echo.mojom.EchoServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = echo.mojom.EchoService_EchoString_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_EchoString_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.echoString');
           const result = this.impl.echoString(params.input);
           if (header.expectsResponse) {
@@ -251,31 +264,36 @@ echo.mojom.EchoServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.echoStringToSharedMemory');
           const result = this.impl.echoStringToSharedMemory(params.input, params.region);
           break;
         }
         case 2: {
-          const params = echo.mojom.EchoService_Quit_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_Quit_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.quit');
           const result = this.impl.quit();
           break;
         }
         case 3: {
-          const params = echo.mojom.EchoService_Crash_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_Crash_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.crash');
           const result = this.impl.crash();
           break;
         }
         case 4: {
-          const params = echo.mojom.EchoService_DelayLoad_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_DelayLoad_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.delayLoad');
           const result = this.impl.delayLoad();
           break;
         }
         case 5: {
-          const params = echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadNativeLibrary');
           const result = this.impl.loadNativeLibrary(params.library, params.call_winmm_delayload);
           if (header.expectsResponse) {
@@ -287,7 +305,8 @@ echo.mojom.EchoServiceReceiver = class {
           break;
         }
         case 6: {
-          const params = echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.decryptEncrypt');
           const result = this.impl.decryptEncrypt(params.encryptor, params.input);
           if (header.expectsResponse) {

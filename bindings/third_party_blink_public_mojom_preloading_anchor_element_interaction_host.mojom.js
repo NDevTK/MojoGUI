@@ -158,8 +158,15 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -182,33 +189,41 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPointerDown');
           const result = this.impl.onPointerDown(params.target);
           break;
         }
         case 1: {
-          const params = blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverEager');
           const result = this.impl.onPointerHoverEager(params.target, params.mouse_data);
           break;
         }
         case 2: {
-          const params = blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverModerate');
           const result = this.impl.onPointerHoverModerate(params.target, params.mouse_data);
           break;
         }
         case 3: {
-          const params = blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onModerateViewportHeuristicTriggered');
           const result = this.impl.onModerateViewportHeuristicTriggered(params.target);
           break;
         }
         case 4: {
-          const params = blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEagerViewportHeuristicTriggered');
           const result = this.impl.onEagerViewportHeuristicTriggered(params.targets);
           break;

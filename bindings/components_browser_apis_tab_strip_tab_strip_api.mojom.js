@@ -226,8 +226,17 @@ tabs_api.mojom.TabStripServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -250,45 +259,55 @@ tabs_api.mojom.TabStripServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getTabs');
           const result = this.impl.getTabs();
           break;
         }
         case 1: {
-          const params = tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getTab');
           const result = this.impl.getTab(params.id);
           break;
         }
         case 2: {
-          const params = tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createTabAt');
           const result = this.impl.createTabAt(params.pos, params.url);
           break;
         }
         case 3: {
-          const params = tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closeTabs');
           const result = this.impl.closeTabs(params.id);
           break;
         }
         case 4: {
-          const params = tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.activateTab');
           const result = this.impl.activateTab(params.id);
           break;
         }
         case 5: {
-          const params = tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSelectedTabs');
           const result = this.impl.setSelectedTabs(params.selection, params.tab_to_activate);
           break;
         }
         case 6: {
-          const params = tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.moveNode');
           const result = this.impl.moveNode(params.id, params.position);
           break;
@@ -372,8 +391,11 @@ tabs_api.mojom.TabsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -396,9 +418,13 @@ tabs_api.mojom.TabsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTabEvents');
           const result = this.impl.onTabEvents(params.events);
           break;

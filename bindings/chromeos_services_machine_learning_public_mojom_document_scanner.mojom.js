@@ -171,8 +171,13 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -195,9 +200,13 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.detectCornersFromNV12Image');
           const result = this.impl.detectCornersFromNV12Image(params.nv12_image);
           if (header.expectsResponse) {
@@ -209,7 +218,8 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
           break;
         }
         case 1: {
-          const params = chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.detectCornersFromJPEGImage');
           const result = this.impl.detectCornersFromJPEGImage(params.jpeg_image);
           if (header.expectsResponse) {
@@ -221,7 +231,8 @@ chromeos.machine_learning.mojom.DocumentScannerReceiver = class {
           break;
         }
         case 2: {
-          const params = chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.doPostProcessing');
           const result = this.impl.doPostProcessing(params.jpeg_image, params.corners, params.rotation);
           if (header.expectsResponse) {

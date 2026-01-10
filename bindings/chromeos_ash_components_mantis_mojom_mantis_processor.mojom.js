@@ -268,8 +268,16 @@ mantis.mojom.MantisProcessorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -292,9 +300,13 @@ mantis.mojom.MantisProcessorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.inpainting');
           const result = this.impl.inpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -306,7 +318,8 @@ mantis.mojom.MantisProcessorReceiver = class {
           break;
         }
         case 1: {
-          const params = mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.generativeFill');
           const result = this.impl.generativeFill(params.image, params.mask, params.seed, params.prompt);
           if (header.expectsResponse) {
@@ -318,7 +331,8 @@ mantis.mojom.MantisProcessorReceiver = class {
           break;
         }
         case 2: {
-          const params = mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.segmentation');
           const result = this.impl.segmentation(params.image, params.prior);
           if (header.expectsResponse) {
@@ -330,7 +344,8 @@ mantis.mojom.MantisProcessorReceiver = class {
           break;
         }
         case 3: {
-          const params = mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.image);
           if (header.expectsResponse) {
@@ -342,7 +357,8 @@ mantis.mojom.MantisProcessorReceiver = class {
           break;
         }
         case 4: {
-          const params = mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.outpainting');
           const result = this.impl.outpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -354,7 +370,8 @@ mantis.mojom.MantisProcessorReceiver = class {
           break;
         }
         case 5: {
-          const params = mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.inferSegmentationMode');
           const result = this.impl.inferSegmentationMode(params.gesture);
           if (header.expectsResponse) {

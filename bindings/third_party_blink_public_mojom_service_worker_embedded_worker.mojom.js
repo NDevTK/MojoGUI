@@ -158,8 +158,12 @@ blink.mojom.EmbeddedWorkerInstanceClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -182,15 +186,20 @@ blink.mojom.EmbeddedWorkerInstanceClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startWorker');
           const result = this.impl.startWorker(params.params);
           break;
         }
         case 1: {
-          const params = blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopWorker');
           const result = this.impl.stopWorker();
           break;
@@ -417,8 +426,19 @@ blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -441,9 +461,13 @@ blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestTermination');
           const result = this.impl.requestTermination();
           if (header.expectsResponse) {
@@ -455,49 +479,57 @@ blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.countFeature');
           const result = this.impl.countFeature(params.feature);
           break;
         }
         case 2: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReadyForInspection');
           const result = this.impl.onReadyForInspection(params.agent, params.agent_host);
           break;
         }
         case 3: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoaded');
           const result = this.impl.onScriptLoaded();
           break;
         }
         case 4: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onScriptEvaluationStart');
           const result = this.impl.onScriptEvaluationStart();
           break;
         }
         case 5: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted(params.status, params.fetch_handler_type, params.has_hid_event_handlers, params.has_usb_event_handlers, params.thread_id, params.start_timing);
           break;
         }
         case 6: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReportException');
           const result = this.impl.onReportException(params.error_message, params.line_number, params.column_number, params.source_url);
           break;
         }
         case 7: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReportConsoleMessage');
           const result = this.impl.onReportConsoleMessage(params.source, params.message_level, params.message, params.line_number, params.source_url);
           break;
         }
         case 8: {
-          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;

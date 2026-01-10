@@ -408,8 +408,13 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -432,21 +437,27 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateTiming');
           const result = this.impl.updateTiming(params.page_load_timing, params.frame_metadata, params.new_features, params.resources, params.render_data, params.cpu_load_timing, params.input_timing_delta, params.subresource_load_metrics, params.soft_navigation_metrics);
           break;
         }
         case 1: {
-          const params = page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');
           const result = this.impl.setUpSharedMemoryForDroppedFrames(params.dropped_frames_memory);
           break;
         }
         case 2: {
-          const params = page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addCustomUserTiming');
           const result = this.impl.addCustomUserTiming(params.custom_user_timing);
           break;

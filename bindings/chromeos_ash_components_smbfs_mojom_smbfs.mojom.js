@@ -187,8 +187,11 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -211,9 +214,13 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mountShare');
           const result = this.impl.mountShare(params.options, params.delegate);
           if (header.expectsResponse) {
@@ -330,8 +337,12 @@ smbfs.mojom.SmbFsReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -354,9 +365,13 @@ smbfs.mojom.SmbFsReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removeSavedCredentials');
           const result = this.impl.removeSavedCredentials();
           if (header.expectsResponse) {
@@ -368,7 +383,8 @@ smbfs.mojom.SmbFsReceiver = class {
           break;
         }
         case 1: {
-          const params = smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteRecursively');
           const result = this.impl.deleteRecursively(params.path);
           if (header.expectsResponse) {
@@ -463,8 +479,11 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -487,9 +506,13 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestCredentials');
           const result = this.impl.requestCredentials();
           if (header.expectsResponse) {

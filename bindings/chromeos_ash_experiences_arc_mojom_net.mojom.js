@@ -1004,8 +1004,33 @@ arc.mojom.NetHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
+    this.ordinalMap.set(2, 1); // Default ordinal 2 -> Index 1
+    this.ordinalMap.set(4, 2); // Default ordinal 4 -> Index 2
+    this.ordinalMap.set(5, 3); // Default ordinal 5 -> Index 3
+    this.ordinalMap.set(6, 4); // Default ordinal 6 -> Index 4
+    this.ordinalMap.set(20, 5); // Default ordinal 20 -> Index 5
+    this.ordinalMap.set(7, 6); // Default ordinal 7 -> Index 6
+    this.ordinalMap.set(8, 7); // Default ordinal 8 -> Index 7
+    this.ordinalMap.set(10, 8); // Default ordinal 10 -> Index 8
+    this.ordinalMap.set(11, 9); // Default ordinal 11 -> Index 9
+    this.ordinalMap.set(25, 10); // Default ordinal 25 -> Index 10
+    this.ordinalMap.set(12, 11); // Default ordinal 12 -> Index 11
+    this.ordinalMap.set(26, 12); // Default ordinal 26 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(21, 14); // Default ordinal 21 -> Index 14
+    this.ordinalMap.set(14, 15); // Default ordinal 14 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(22, 20); // Default ordinal 22 -> Index 20
+    this.ordinalMap.set(23, 21); // Default ordinal 23 -> Index 21
+    this.ordinalMap.set(24, 22); // Default ordinal 24 -> Index 22
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1028,9 +1053,13 @@ arc.mojom.NetHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getWifiEnabledState');
           const result = this.impl.getWifiEnabledState();
           if (header.expectsResponse) {
@@ -1041,14 +1070,16 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 2: {
-          const params = arc.mojom.NetHost_StartScan_ParamsSpec.$.decode(message.payload);
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_StartScan_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan();
           break;
         }
-        case 4: {
-          const params = arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWifiEnabledState');
           const result = this.impl.setWifiEnabledState(params.is_enabled);
           if (header.expectsResponse) {
@@ -1059,8 +1090,9 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 5: {
-          const params = arc.mojom.NetHost_CreateNetwork_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_CreateNetwork_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createNetwork');
           const result = this.impl.createNetwork(params.cfg);
           if (header.expectsResponse) {
@@ -1071,8 +1103,9 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 6: {
-          const params = arc.mojom.NetHost_ForgetNetwork_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_ForgetNetwork_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.forgetNetwork');
           const result = this.impl.forgetNetwork(params.guid);
           if (header.expectsResponse) {
@@ -1083,8 +1116,9 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 20: {
-          const params = arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateWifiNetwork');
           const result = this.impl.updateWifiNetwork(params.guid, params.cfg);
           if (header.expectsResponse) {
@@ -1095,8 +1129,9 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 7: {
-          const params = arc.mojom.NetHost_StartConnect_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_StartConnect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startConnect');
           const result = this.impl.startConnect(params.guid);
           if (header.expectsResponse) {
@@ -1107,8 +1142,9 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 8: {
-          const params = arc.mojom.NetHost_StartDisconnect_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_StartDisconnect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startDisconnect');
           const result = this.impl.startDisconnect(params.guid);
           if (header.expectsResponse) {
@@ -1119,8 +1155,9 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 10: {
-          const params = arc.mojom.NetHost_GetNetworks_ParamsSpec.$.decode(message.payload);
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_GetNetworks_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getNetworks');
           const result = this.impl.getNetworks(params.type);
           if (header.expectsResponse) {
@@ -1131,38 +1168,44 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 11: {
-          const params = arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec.$.decode(message.payload);
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.androidVpnConnected');
           const result = this.impl.androidVpnConnected(params.cfg);
           break;
         }
-        case 25: {
-          const params = arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec.$.decode(message.payload);
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.androidVpnUpdated');
           const result = this.impl.androidVpnUpdated(params.cfg);
           break;
         }
-        case 12: {
-          const params = arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec.$.decode(message.payload);
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AndroidVpnStateChanged');
           const result = this.impl.dEPRECATED_AndroidVpnStateChanged(params.state);
           break;
         }
-        case 26: {
-          const params = arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec.$.decode(message.payload);
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.androidVpnDisconnected');
           const result = this.impl.androidVpnDisconnected();
           break;
         }
         case 13: {
-          const params = arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysOnVpn');
           const result = this.impl.setAlwaysOnVpn(params.vpnPackage, params.lockdown);
           break;
         }
-        case 21: {
-          const params = arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec.$.decode(message.payload);
+        case 14: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestPasspointAppApproval');
           const result = this.impl.requestPasspointAppApproval(params.request);
           if (header.expectsResponse) {
@@ -1173,26 +1216,30 @@ arc.mojom.NetHostReceiver = class {
           }
           break;
         }
-        case 14: {
-          const params = arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec.$.decode(message.payload);
+        case 15: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addPasspointCredentials');
           const result = this.impl.addPasspointCredentials(params.credentials);
           break;
         }
         case 16: {
-          const params = arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removePasspointCredentials');
           const result = this.impl.removePasspointCredentials(params.properties);
           break;
         }
         case 17: {
-          const params = arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disconnectHostVpn');
           const result = this.impl.disconnectHostVpn();
           break;
         }
         case 18: {
-          const params = arc.mojom.NetHost_StartLohs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_StartLohs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startLohs');
           const result = this.impl.startLohs(params.config);
           if (header.expectsResponse) {
@@ -1204,25 +1251,29 @@ arc.mojom.NetHostReceiver = class {
           break;
         }
         case 19: {
-          const params = arc.mojom.NetHost_StopLohs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_StopLohs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopLohs');
           const result = this.impl.stopLohs();
           break;
         }
-        case 22: {
-          const params = arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec.$.decode(message.payload);
+        case 20: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyAndroidWifiMulticastLockChange');
           const result = this.impl.notifyAndroidWifiMulticastLockChange(params.is_held);
           break;
         }
-        case 23: {
-          const params = arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec.$.decode(message.payload);
+        case 21: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifySocketConnectionEvent');
           const result = this.impl.notifySocketConnectionEvent(params.msg);
           break;
         }
-        case 24: {
-          const params = arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec.$.decode(message.payload);
+        case 22: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyARCVPNSocketConnectionEvent');
           const result = this.impl.notifyARCVPNSocketConnectionEvent(params.msg);
           break;
@@ -1474,8 +1525,20 @@ arc.mojom.NetInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(6, 0); // Default ordinal 6 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(3, 2); // Default ordinal 3 -> Index 2
+    this.ordinalMap.set(4, 3); // Default ordinal 4 -> Index 3
+    this.ordinalMap.set(5, 4); // Default ordinal 5 -> Index 4
+    this.ordinalMap.set(7, 5); // Default ordinal 7 -> Index 5
+    this.ordinalMap.set(8, 6); // Default ordinal 8 -> Index 6
+    this.ordinalMap.set(9, 7); // Default ordinal 9 -> Index 7
+    this.ordinalMap.set(10, 8); // Default ordinal 10 -> Index 8
+    this.ordinalMap.set(11, 9); // Default ordinal 11 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1498,9 +1561,13 @@ arc.mojom.NetInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 6: {
-          const params = arc.mojom.NetInstance_Init_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1512,37 +1579,43 @@ arc.mojom.NetInstanceReceiver = class {
           break;
         }
         case 1: {
-          const params = arc.mojom.NetInstance_ScanCompleted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_ScanCompleted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.scanCompleted');
           const result = this.impl.scanCompleted();
           break;
         }
-        case 3: {
-          const params = arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec.$.decode(message.payload);
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.wifiEnabledStateChanged');
           const result = this.impl.wifiEnabledStateChanged(params.is_enabled);
           break;
         }
-        case 4: {
-          const params = arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec.$.decode(message.payload);
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disconnectAndroidVpn');
           const result = this.impl.disconnectAndroidVpn();
           break;
         }
-        case 5: {
-          const params = arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec.$.decode(message.payload);
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.configureAndroidVpn');
           const result = this.impl.configureAndroidVpn();
           break;
         }
-        case 7: {
-          const params = arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec.$.decode(message.payload);
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.activeNetworksChanged');
           const result = this.impl.activeNetworksChanged(params.network);
           break;
         }
-        case 8: {
-          const params = arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec.$.decode(message.payload);
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dnsResolutionTest');
           const result = this.impl.dnsResolutionTest(params.transport_name, params.host_name);
           if (header.expectsResponse) {
@@ -1553,8 +1626,9 @@ arc.mojom.NetInstanceReceiver = class {
           }
           break;
         }
-        case 9: {
-          const params = arc.mojom.NetInstance_HttpTest_ParamsSpec.$.decode(message.payload);
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_HttpTest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.httpTest');
           const result = this.impl.httpTest(params.transport_name, params.url);
           if (header.expectsResponse) {
@@ -1565,8 +1639,9 @@ arc.mojom.NetInstanceReceiver = class {
           }
           break;
         }
-        case 10: {
-          const params = arc.mojom.NetInstance_PingTest_ParamsSpec.$.decode(message.payload);
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_PingTest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pingTest');
           const result = this.impl.pingTest(params.transport_name, params.ip_address);
           if (header.expectsResponse) {
@@ -1577,8 +1652,9 @@ arc.mojom.NetInstanceReceiver = class {
           }
           break;
         }
-        case 11: {
-          const params = arc.mojom.NetInstance_SetUpFlag_ParamsSpec.$.decode(message.payload);
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.NetInstance_SetUpFlag_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setUpFlag');
           const result = this.impl.setUpFlag(params.flag, params.value);
           break;

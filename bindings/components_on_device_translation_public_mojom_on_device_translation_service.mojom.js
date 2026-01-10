@@ -155,8 +155,12 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -179,9 +183,13 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.fileExists');
           const result = this.impl.fileExists(params.package_index, params.relative_path);
           if (header.expectsResponse) {
@@ -193,7 +201,8 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
           break;
         }
         case 1: {
-          const params = on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open(params.package_index, params.relative_path);
           if (header.expectsResponse) {
@@ -330,8 +339,13 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -354,15 +368,20 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setServiceConfig');
           const result = this.impl.setServiceConfig(params.config);
           break;
         }
         case 1: {
-          const params = on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createTranslator');
           const result = this.impl.createTranslator(params.source_lang, params.target_lang, params.receiver);
           if (header.expectsResponse) {
@@ -374,7 +393,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.canTranslate');
           const result = this.impl.canTranslate(params.source_lang, params.target_lang);
           if (header.expectsResponse) {

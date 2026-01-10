@@ -121,8 +121,12 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -145,9 +149,13 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addProfilingClient');
           const result = this.impl.addProfilingClient(params.pid, params.client, params.process_type, params.params);
           if (header.expectsResponse) {
@@ -159,7 +167,8 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProfiledPids');
           const result = this.impl.getProfiledPids();
           if (header.expectsResponse) {

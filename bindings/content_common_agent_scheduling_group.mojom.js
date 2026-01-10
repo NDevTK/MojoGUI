@@ -84,8 +84,11 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -108,9 +111,13 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didUnloadRenderFrame');
           const result = this.impl.didUnloadRenderFrame(params.frame_token);
           break;
@@ -244,8 +251,14 @@ content.mojom.AgentSchedulingGroupReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -268,27 +281,34 @@ content.mojom.AgentSchedulingGroupReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindAssociatedInterfaces');
           const result = this.impl.bindAssociatedInterfaces(params.remote_host, params.route_provider_receiver);
           break;
         }
         case 1: {
-          const params = content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createView');
           const result = this.impl.createView(params.params);
           break;
         }
         case 2: {
-          const params = content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createFrame');
           const result = this.impl.createFrame(params.params);
           break;
         }
         case 3: {
-          const params = content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createSharedStorageWorkletService');
           const result = this.impl.createSharedStorageWorkletService(params.receiver, params.global_scope_creation_params);
           break;

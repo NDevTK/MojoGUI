@@ -162,8 +162,12 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -186,15 +190,20 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.postMessage');
           const result = this.impl.postMessage(params.message, params.ports);
           break;
         }
         case 1: {
-          const params = js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBrowserToJsMessaging');
           const result = this.impl.setBrowserToJsMessaging(params.browser_to_js_messaging);
           break;
@@ -277,8 +286,11 @@ js_injection.mojom.JsObjectsClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -301,9 +313,13 @@ js_injection.mojom.JsObjectsClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWindowObjectCleared');
           const result = this.impl.onWindowObjectCleared();
           break;
@@ -387,8 +403,11 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -411,9 +430,13 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendBrowserToJsMessaging');
           const result = this.impl.sendBrowserToJsMessaging(params.browser_to_js_messaging);
           break;
@@ -497,8 +520,11 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -521,9 +547,13 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPostMessage');
           const result = this.impl.onPostMessage(params.message);
           break;
@@ -640,8 +670,13 @@ js_injection.mojom.JsCommunicationReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -664,21 +699,27 @@ js_injection.mojom.JsCommunicationReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setJsObjects');
           const result = this.impl.setJsObjects(params.js_objects, params.client);
           break;
         }
         case 1: {
-          const params = js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addPersistentJavaScript');
           const result = this.impl.addPersistentJavaScript(params.script);
           break;
         }
         case 2: {
-          const params = js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.removePersistentJavaScript');
           const result = this.impl.removePersistentJavaScript(params.script_id);
           break;

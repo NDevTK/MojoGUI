@@ -136,8 +136,13 @@ blink.mojom.TextSuggestionHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -160,21 +165,27 @@ blink.mojom.TextSuggestionHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.startSuggestionMenuTimer');
           const result = this.impl.startSuggestionMenuTimer();
           break;
         }
         case 1: {
-          const params = blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showSpellCheckSuggestionMenu');
           const result = this.impl.showSpellCheckSuggestionMenu(params.caret_x, params.caret_y, params.marked_text, params.suggestions);
           break;
         }
         case 2: {
-          const params = blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showTextSuggestionMenu');
           const result = this.impl.showTextSuggestionMenu(params.caret_x, params.caret_y, params.marked_text, params.suggestions);
           break;

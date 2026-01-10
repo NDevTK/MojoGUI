@@ -334,8 +334,11 @@ new_tab_page.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -358,9 +361,13 @@ new_tab_page.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -958,8 +965,41 @@ new_tab_page.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
+    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
+    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -982,15 +1022,20 @@ new_tab_page.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedSettings');
           const result = this.impl.setMostVisitedSettings(params.shortcuts_type, params.shortcuts_visible);
           break;
         }
         case 1: {
-          const params = new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMostVisitedSettings');
           const result = this.impl.getMostVisitedSettings();
           if (header.expectsResponse) {
@@ -1002,7 +1047,8 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDoodle');
           const result = this.impl.getDoodle();
           if (header.expectsResponse) {
@@ -1014,61 +1060,71 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           break;
         }
         case 3: {
-          const params = new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updatePromoData');
           const result = this.impl.updatePromoData();
           break;
         }
         case 4: {
-          const params = new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.blocklistPromo');
           const result = this.impl.blocklistPromo(params.promo_id);
           break;
         }
         case 5: {
-          const params = new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.undoBlocklistPromo');
           const result = this.impl.undoBlocklistPromo(params.promo_id);
           break;
         }
         case 6: {
-          const params = new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDismissModule');
           const result = this.impl.onDismissModule(params.module_id);
           break;
         }
         case 7: {
-          const params = new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRestoreModule');
           const result = this.impl.onRestoreModule(params.module_id);
           break;
         }
         case 8: {
-          const params = new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setModulesVisible');
           const result = this.impl.setModulesVisible(params.visible);
           break;
         }
         case 9: {
-          const params = new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateDisabledModules');
           const result = this.impl.updateDisabledModules();
           break;
         }
         case 10: {
-          const params = new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onModulesLoadedWithData');
           const result = this.impl.onModulesLoadedWithData(params.module_ids);
           break;
         }
         case 11: {
-          const params = new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onModuleUsed');
           const result = this.impl.onModuleUsed(params.module_id);
           break;
         }
         case 12: {
-          const params = new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getModulesIdNames');
           const result = this.impl.getModulesIdNames();
           if (header.expectsResponse) {
@@ -1080,7 +1136,8 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           break;
         }
         case 13: {
-          const params = new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getModulesEligibleForRemoval');
           const result = this.impl.getModulesEligibleForRemoval();
           if (header.expectsResponse) {
@@ -1092,13 +1149,15 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           break;
         }
         case 14: {
-          const params = new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setModulesOrder');
           const result = this.impl.setModulesOrder(params.module_ids);
           break;
         }
         case 15: {
-          const params = new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getModulesOrder');
           const result = this.impl.getModulesOrder();
           if (header.expectsResponse) {
@@ -1110,73 +1169,85 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           break;
         }
         case 16: {
-          const params = new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateModulesLoadable');
           const result = this.impl.updateModulesLoadable();
           break;
         }
         case 17: {
-          const params = new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setModulesDisabled');
           const result = this.impl.setModulesDisabled(params.module_ids, params.disabled, params.is_user_action);
           break;
         }
         case 18: {
-          const params = new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateActionChipsVisibility');
           const result = this.impl.updateActionChipsVisibility();
           break;
         }
         case 19: {
-          const params = new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateFooterVisibility');
           const result = this.impl.updateFooterVisibility();
           break;
         }
         case 20: {
-          const params = new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.incrementComposeButtonShownCount');
           const result = this.impl.incrementComposeButtonShownCount();
           break;
         }
         case 21: {
-          const params = new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.maybeTriggerAutomaticCustomizeChromePromo');
           const result = this.impl.maybeTriggerAutomaticCustomizeChromePromo();
           break;
         }
         case 22: {
-          const params = new_tab_page.mojom.PageHandler_RecordContextMenuClick_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_RecordContextMenuClick_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.recordContextMenuClick');
           const result = this.impl.recordContextMenuClick();
           break;
         }
         case 23: {
-          const params = new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onOneGoogleBarRendered');
           const result = this.impl.onOneGoogleBarRendered(params.time);
           break;
         }
         case 24: {
-          const params = new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPromoRendered');
           const result = this.impl.onPromoRendered(params.time, params.log_url);
           break;
         }
         case 25: {
-          const params = new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onCustomizeDialogAction');
           const result = this.impl.onCustomizeDialogAction(params.action);
           break;
         }
         case 26: {
-          const params = new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDoodleImageClicked');
           const result = this.impl.onDoodleImageClicked(params.type, params.log_url);
           break;
         }
         case 27: {
-          const params = new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDoodleImageRendered');
           const result = this.impl.onDoodleImageRendered(params.type, params.time, params.log_url);
           if (header.expectsResponse) {
@@ -1188,19 +1259,22 @@ new_tab_page.mojom.PageHandlerReceiver = class {
           break;
         }
         case 28: {
-          const params = new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDoodleShared');
           const result = this.impl.onDoodleShared(params.channel, params.doodle_id, params.share_id);
           break;
         }
         case 29: {
-          const params = new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPromoLinkClicked');
           const result = this.impl.onPromoLinkClicked();
           break;
         }
         case 30: {
-          const params = new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onAppRendered');
           const result = this.impl.onAppRendered(params.time);
           break;
@@ -1411,8 +1485,19 @@ new_tab_page.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1435,57 +1520,69 @@ new_tab_page.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = new_tab_page.mojom.Page_SetTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_SetTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
           const result = this.impl.setTheme(params.theme);
           break;
         }
         case 1: {
-          const params = new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDisabledModules');
           const result = this.impl.setDisabledModules(params.all, params.ids);
           break;
         }
         case 2: {
-          const params = new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setModulesLoadable');
           const result = this.impl.setModulesLoadable();
           break;
         }
         case 3: {
-          const params = new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setActionChipsVisibility');
           const result = this.impl.setActionChipsVisibility(params.visible);
           break;
         }
         case 4: {
-          const params = new_tab_page.mojom.Page_SetPromo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_SetPromo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPromo');
           const result = this.impl.setPromo(params.promo);
           break;
         }
         case 5: {
-          const params = new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showWebstoreToast');
           const result = this.impl.showWebstoreToast();
           break;
         }
         case 6: {
-          const params = new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWallpaperSearchButtonVisibility');
           const result = this.impl.setWallpaperSearchButtonVisibility(params.visible);
           break;
         }
         case 7: {
-          const params = new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.footerVisibilityUpdated');
           const result = this.impl.footerVisibilityUpdated(params.visible);
           break;
         }
         case 8: {
-          const params = new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToParentDocument');
           const result = this.impl.connectToParentDocument(params.child_untrusted_document_remote);
           break;

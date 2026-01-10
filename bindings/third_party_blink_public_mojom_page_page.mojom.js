@@ -340,8 +340,22 @@ blink.mojom.PageBroadcastReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -364,9 +378,13 @@ blink.mojom.PageBroadcastReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPageLifecycleState');
           const result = this.impl.setPageLifecycleState(params.state, params.page_restore_params);
           if (header.expectsResponse) {
@@ -378,13 +396,15 @@ blink.mojom.PageBroadcastReceiver = class {
           break;
         }
         case 1: {
-          const params = blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.audioStateChanged');
           const result = this.impl.audioStateChanged(params.is_audio_playing);
           break;
         }
         case 2: {
-          const params = blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.activatePrerenderedPage');
           const result = this.impl.activatePrerenderedPage(params.prerender_page_activation_params);
           if (header.expectsResponse) {
@@ -396,55 +416,64 @@ blink.mojom.PageBroadcastReceiver = class {
           break;
         }
         case 3: {
-          const params = blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateWebPreferences');
           const result = this.impl.updateWebPreferences(params.preferences);
           break;
         }
         case 4: {
-          const params = blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateRendererPreferences');
           const result = this.impl.updateRendererPreferences(params.preferences);
           break;
         }
         case 5: {
-          const params = blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setHistoryIndexAndLength');
           const result = this.impl.setHistoryIndexAndLength(params.index, params.length);
           break;
         }
         case 6: {
-          const params = blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPageBaseBackgroundColor');
           const result = this.impl.setPageBaseBackgroundColor(params.color);
           break;
         }
         case 7: {
-          const params = blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createRemoteMainFrame');
           const result = this.impl.createRemoteMainFrame(params.token, params.opener_frame_token, params.replication_state, params.is_loading, params.devtools_frame_token, params.navigation_metrics_token, params.remote_frame_interfaces, params.remote_main_frame_interfaces);
           break;
         }
         case 8: {
-          const params = blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updatePageBrowsingContextGroup');
           const result = this.impl.updatePageBrowsingContextGroup(params.browsing_context_group_token);
           break;
         }
         case 9: {
-          const params = blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPageAttributionSupport');
           const result = this.impl.setPageAttributionSupport(params.support);
           break;
         }
         case 10: {
-          const params = blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateColorProviders');
           const result = this.impl.updateColorProviders(params.color_provider_colors);
           break;
         }
         case 11: {
-          const params = blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSupportsDraggableRegions');
           const result = this.impl.setSupportsDraggableRegions(params.supports_draggable_regions);
           break;

@@ -132,8 +132,12 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -156,9 +160,13 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createOnDeviceSafetySession');
           const result = this.impl.createOnDeviceSafetySession(params.session);
           if (header.expectsResponse) {
@@ -170,7 +178,8 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createCloudSafetySession');
           const result = this.impl.createCloudSafetySession(params.session);
           if (header.expectsResponse) {

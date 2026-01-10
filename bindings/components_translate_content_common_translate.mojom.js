@@ -146,8 +146,12 @@ translate.mojom.TranslateAgentReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -170,9 +174,13 @@ translate.mojom.TranslateAgentReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.translateFrame');
           const result = this.impl.translateFrame(params.translate_script, params.source_lang, params.target_lang);
           if (header.expectsResponse) {
@@ -184,7 +192,8 @@ translate.mojom.TranslateAgentReceiver = class {
           break;
         }
         case 1: {
-          const params = translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.revertTranslation');
           const result = this.impl.revertTranslation();
           break;
@@ -270,8 +279,11 @@ translate.mojom.ContentTranslateDriverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -294,9 +306,13 @@ translate.mojom.ContentTranslateDriverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerPage');
           const result = this.impl.registerPage(params.translate_agent, params.details, params.translation_critiera_met);
           break;

@@ -224,8 +224,15 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -248,9 +255,13 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addFolder');
           const result = this.impl.addFolder(params.name, params.add_to_front);
           if (header.expectsResponse) {
@@ -262,7 +273,8 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           break;
         }
         case 1: {
-          const params = chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addApp');
           const result = this.impl.addApp(params.source_id, params.name, params.folder_id, params.icon_url, params.add_to_front);
           if (header.expectsResponse) {
@@ -274,7 +286,8 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           break;
         }
         case 2: {
-          const params = chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.deleteApp');
           const result = this.impl.deleteApp(params.app_id);
           if (header.expectsResponse) {
@@ -286,7 +299,8 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           break;
         }
         case 3: {
-          const params = chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sortLauncherWithRemoteAppsFirst');
           const result = this.impl.sortLauncherWithRemoteAppsFirst();
           if (header.expectsResponse) {
@@ -298,7 +312,8 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           break;
         }
         case 4: {
-          const params = chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPinnedApps');
           const result = this.impl.setPinnedApps(params.app_ids);
           if (header.expectsResponse) {
@@ -390,8 +405,11 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -414,9 +432,13 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bindRemoteAppsAndAppLaunchObserver');
           const result = this.impl.bindRemoteAppsAndAppLaunchObserver(params.source_id, params.remote_apps, params.observer);
           break;
@@ -501,8 +523,11 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -525,9 +550,13 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRemoteAppLaunched');
           const result = this.impl.onRemoteAppLaunched(params.app_id, params.source_id);
           break;

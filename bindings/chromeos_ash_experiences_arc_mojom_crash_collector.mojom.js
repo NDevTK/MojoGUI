@@ -141,8 +141,14 @@ arc.mojom.CrashCollectorHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -165,27 +171,34 @@ arc.mojom.CrashCollectorHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dumpCrash');
           const result = this.impl.dumpCrash(params.type, params.pipe, params.uptime);
           break;
         }
         case 1: {
-          const params = arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setBuildProperties');
           const result = this.impl.setBuildProperties(params.device, params.board, params.cpu_abi, params.fingerprint);
           break;
         }
         case 2: {
-          const params = arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dumpNativeCrash');
           const result = this.impl.dumpNativeCrash(params.exec_name, params.pid, params.timestamp, params.minidump_fd);
           break;
         }
         case 3: {
-          const params = arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dumpKernelCrash');
           const result = this.impl.dumpKernelCrash(params.ramoops_handle);
           break;
@@ -274,8 +287,11 @@ arc.mojom.CrashCollectorInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(1, 0); // Default ordinal 1 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -298,9 +314,13 @@ arc.mojom.CrashCollectorInstanceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
-        case 1: {
-          const params = arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$.decode(message.payload);
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

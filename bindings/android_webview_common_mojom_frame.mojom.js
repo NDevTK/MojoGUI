@@ -186,8 +186,15 @@ android_webview.mojom.LocalMainFrameReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -210,21 +217,27 @@ android_webview.mojom.LocalMainFrameReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setInitialPageScale');
           const result = this.impl.setInitialPageScale(params.page_scale_factor);
           break;
         }
         case 1: {
-          const params = android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTextZoomFactor');
           const result = this.impl.setTextZoomFactor(params.zoom_factor);
           break;
         }
         case 2: {
-          const params = android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.documentHasImage');
           const result = this.impl.documentHasImage();
           if (header.expectsResponse) {
@@ -236,13 +249,15 @@ android_webview.mojom.LocalMainFrameReceiver = class {
           break;
         }
         case 3: {
-          const params = android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resetScrollAndScaleState');
           const result = this.impl.resetScrollAndScaleState();
           break;
         }
         case 4: {
-          const params = android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.smoothScroll');
           const result = this.impl.smoothScroll(params.target_x, params.target_y, params.duration);
           break;
@@ -367,8 +382,13 @@ android_webview.mojom.FrameHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -391,21 +411,27 @@ android_webview.mojom.FrameHostReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateHitTestData');
           const result = this.impl.updateHitTestData(params.data);
           break;
         }
         case 1: {
-          const params = android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.contentsSizeChanged');
           const result = this.impl.contentsSizeChanged(params.contents_size);
           break;
         }
         case 2: {
-          const params = android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldOverrideUrlLoading');
           const result = this.impl.shouldOverrideUrlLoading(params.url, params.has_user_gesture, params.is_redirect, params.is_outermost_main_frame);
           if (header.expectsResponse) {

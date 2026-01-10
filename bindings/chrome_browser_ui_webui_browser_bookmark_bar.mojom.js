@@ -111,8 +111,11 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -135,9 +138,13 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -242,8 +249,12 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -266,9 +277,13 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getBookmarkBar');
           const result = this.impl.getBookmarkBar();
           if (header.expectsResponse) {
@@ -280,7 +295,8 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openInNewTab');
           const result = this.impl.openInNewTab(params.node_id);
           break;
@@ -409,8 +425,14 @@ bookmark_bar.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -433,27 +455,34 @@ bookmark_bar.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bookmarkLoaded');
           const result = this.impl.bookmarkLoaded();
           break;
         }
         case 1: {
-          const params = bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.favIconChanged');
           const result = this.impl.favIconChanged(params.bookmark_data);
           break;
         }
         case 2: {
-          const params = bookmark_bar.mojom.Page_Show_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Show_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show();
           break;
         }
         case 3: {
-          const params = bookmark_bar.mojom.Page_Hide_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(bookmark_bar.mojom.Page_Hide_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.hide');
           const result = this.impl.hide();
           break;

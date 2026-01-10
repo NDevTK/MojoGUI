@@ -388,8 +388,28 @@ viz.mojom.DisplayPrivateReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -412,15 +432,20 @@ viz.mojom.DisplayPrivateReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDisplayVisible');
           const result = this.impl.setDisplayVisible(params.visible);
           break;
         }
         case 1: {
-          const params = viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.disableSwapUntilResize');
           const result = this.impl.disableSwapUntilResize();
           if (header.expectsResponse) {
@@ -432,97 +457,113 @@ viz.mojom.DisplayPrivateReceiver = class {
           break;
         }
         case 2: {
-          const params = viz.mojom.DisplayPrivate_Resize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_Resize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resize');
           const result = this.impl.resize(params.size);
           break;
         }
         case 3: {
-          const params = viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDisplayColorMatrix');
           const result = this.impl.setDisplayColorMatrix(params.color_matrix);
           break;
         }
         case 4: {
-          const params = viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDisplayColorSpaces');
           const result = this.impl.setDisplayColorSpaces(params.display_color_spaces);
           break;
         }
         case 5: {
-          const params = viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setOutputIsSecure');
           const result = this.impl.setOutputIsSecure(params.secure);
           break;
         }
         case 6: {
-          const params = viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setVSyncDisplayID');
           const result = this.impl.setVSyncDisplayID(params.display_id);
           break;
         }
         case 7: {
-          const params = viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDisplayVSyncParameters');
           const result = this.impl.setDisplayVSyncParameters(params.timebase, params.interval);
           break;
         }
         case 8: {
-          const params = viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.forceImmediateDrawAndSwapIfPossible');
           const result = this.impl.forceImmediateDrawAndSwapIfPossible();
           break;
         }
         case 9: {
-          const params = viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateRefreshRate');
           const result = this.impl.updateRefreshRate(params.refresh_rate);
           break;
         }
         case 10: {
-          const params = viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAdaptiveRefreshRateInfo');
           const result = this.impl.setAdaptiveRefreshRateInfo(params.has_support, params.suggested_high, params.device_scale_factor);
           break;
         }
         case 11: {
-          const params = viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSupportedRefreshRates');
           const result = this.impl.setSupportedRefreshRates(params.refresh_rates);
           break;
         }
         case 12: {
-          const params = viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.preserveChildSurfaceControls');
           const result = this.impl.preserveChildSurfaceControls();
           break;
         }
         case 13: {
-          const params = viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSwapCompletionCallbackEnabled');
           const result = this.impl.setSwapCompletionCallbackEnabled(params.enable);
           break;
         }
         case 14: {
-          const params = viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addVSyncParameterObserver');
           const result = this.impl.addVSyncParameterObserver(params.observer);
           break;
         }
         case 15: {
-          const params = viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDelegatedInkPointRenderer');
           const result = this.impl.setDelegatedInkPointRenderer(params.receiver);
           break;
         }
         case 16: {
-          const params = viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setStandaloneBeginFrameObserver');
           const result = this.impl.setStandaloneBeginFrameObserver(params.observer);
           break;
         }
         case 17: {
-          const params = viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMaxVSyncAndVrr');
           const result = this.impl.setMaxVSyncAndVrr(params.max_vsync_interval, params.vrr_state);
           break;
@@ -718,8 +759,18 @@ viz.mojom.DisplayClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -742,51 +793,62 @@ viz.mojom.DisplayClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDisplayReceivedCALayerParams');
           const result = this.impl.onDisplayReceivedCALayerParams(params.ca_layer_params);
           break;
         }
         case 1: {
-          const params = viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createLayeredWindowUpdater');
           const result = this.impl.createLayeredWindowUpdater(params.receiver);
           break;
         }
         case 2: {
-          const params = viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addChildWindowToBrowser');
           const result = this.impl.addChildWindowToBrowser(params.child_window);
           break;
         }
         case 3: {
-          const params = viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didCompleteSwapWithSize');
           const result = this.impl.didCompleteSwapWithSize(params.size);
           break;
         }
         case 4: {
-          const params = viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didCompleteSwapWithNewSize');
           const result = this.impl.didCompleteSwapWithNewSize(params.size);
           break;
         }
         case 5: {
-          const params = viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onContextCreationResult');
           const result = this.impl.onContextCreationResult(params.result);
           break;
         }
         case 6: {
-          const params = viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWideColorEnabled');
           const result = this.impl.setWideColorEnabled(params.enabled);
           break;
         }
         case 7: {
-          const params = viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPreferredRefreshRate');
           const result = this.impl.setPreferredRefreshRate(params.refresh_rate);
           break;

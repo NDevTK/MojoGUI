@@ -437,8 +437,29 @@ content.mojom.RendererReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -461,69 +482,83 @@ content.mojom.RendererReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createAgentSchedulingGroup');
           const result = this.impl.createAgentSchedulingGroup(params.bootstrap);
           break;
         }
         case 1: {
-          const params = content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createAssociatedAgentSchedulingGroup');
           const result = this.impl.createAssociatedAgentSchedulingGroup(params.agent_scheduling_group);
           break;
         }
         case 2: {
-          const params = content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.transferSharedLastForegroundTime');
           const result = this.impl.transferSharedLastForegroundTime(params.last_foreground_time_region);
           break;
         }
         case 3: {
-          const params = content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNetworkConnectionChanged');
           const result = this.impl.onNetworkConnectionChanged(params.connection_type, params.max_bandwidth_mbps);
           break;
         }
         case 4: {
-          const params = content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNetworkQualityChanged');
           const result = this.impl.onNetworkQualityChanged(params.effective_connection_type, params.http_rtt, params.transport_rtt, params.bandwidth_kbps);
           break;
         }
         case 5: {
-          const params = content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWebKitSharedTimersSuspended');
           const result = this.impl.setWebKitSharedTimersSuspended(params.suspend);
           break;
         }
         case 6: {
-          const params = content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateScrollbarTheme');
           const result = this.impl.updateScrollbarTheme(params.params);
           break;
         }
         case 7: {
-          const params = content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSystemColorsChanged');
           const result = this.impl.onSystemColorsChanged(params.aqua_color_variant);
           break;
         }
         case 8: {
-          const params = content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateSystemColorInfo');
           const result = this.impl.updateSystemColorInfo(params.params);
           break;
         }
         case 9: {
-          const params = content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.purgePluginListCache');
           const result = this.impl.purgePluginListCache();
           break;
         }
         case 10: {
-          const params = content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.purgeResourceCache');
           const result = this.impl.purgeResourceCache();
           if (header.expectsResponse) {
@@ -535,19 +570,22 @@ content.mojom.RendererReceiver = class {
           break;
         }
         case 11: {
-          const params = content.mojom.Renderer_SetProcessState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_SetProcessState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setProcessState');
           const result = this.impl.setProcessState(params.process_priority, params.visible_state);
           break;
         }
         case 12: {
-          const params = content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setIsLockedToSite');
           const result = this.impl.setIsLockedToSite();
           break;
         }
         case 13: {
-          const params = content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
           const result = this.impl.writeClangProfilingProfile();
           if (header.expectsResponse) {
@@ -559,31 +597,36 @@ content.mojom.RendererReceiver = class {
           break;
         }
         case 14: {
-          const params = content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setIsCrossOriginIsolated');
           const result = this.impl.setIsCrossOriginIsolated(params.value);
           break;
         }
         case 15: {
-          const params = content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setIsWebSecurityDisabled');
           const result = this.impl.setIsWebSecurityDisabled(params.value);
           break;
         }
         case 16: {
-          const params = content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setIsIsolatedContext');
           const result = this.impl.setIsIsolatedContext(params.value);
           break;
         }
         case 17: {
-          const params = content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWebUIResourceUrlToCodeCacheMap');
           const result = this.impl.setWebUIResourceUrlToCodeCacheMap(params.resource_map);
           break;
         }
         case 18: {
-          const params = content.mojom.Renderer_InitializeRenderer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content.mojom.Renderer_InitializeRenderer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initializeRenderer');
           const result = this.impl.initializeRenderer(params.user_agent, params.metadata, params.cors_exempt_header_list, params.origin_trials_settings, params.cpu_performance_tier, params.trace_id);
           break;

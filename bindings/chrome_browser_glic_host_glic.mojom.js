@@ -1162,8 +1162,11 @@ glic.mojom.PreloadPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1186,9 +1189,13 @@ glic.mojom.PreloadPageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setProfileReadyState');
           const result = this.impl.setProfileReadyState(params.ready_state);
           break;
@@ -1303,8 +1310,13 @@ glic.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1327,21 +1339,27 @@ glic.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.Page_IntentToShow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.Page_IntentToShow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.intentToShow');
           const result = this.impl.intentToShow();
           break;
         }
         case 1: {
-          const params = glic.mojom.Page_SetProfileReadyState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.Page_SetProfileReadyState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setProfileReadyState');
           const result = this.impl.setProfileReadyState(params.ready_state);
           break;
         }
         case 2: {
-          const params = glic.mojom.Page_UpdatePageState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.Page_UpdatePageState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updatePageState');
           const result = this.impl.updatePageState(params.panelStateKind);
           break;
@@ -1430,8 +1448,11 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1454,9 +1475,13 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
@@ -1547,8 +1572,11 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1571,9 +1599,13 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPreloadHandler');
           const result = this.impl.createPreloadHandler(params.receiver, params.page);
           break;
@@ -1658,8 +1690,11 @@ glic.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1682,9 +1717,13 @@ glic.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.receiver, params.page);
           break;
@@ -1945,8 +1984,21 @@ glic.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -1969,15 +2021,20 @@ glic.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createWebClient');
           const result = this.impl.createWebClient(params.web_client_receiver);
           break;
         }
         case 1: {
-          const params = glic.mojom.PageHandler_PrepareForClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_PrepareForClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
@@ -1989,13 +2046,15 @@ glic.mojom.PageHandlerReceiver = class {
           break;
         }
         case 2: {
-          const params = glic.mojom.PageHandler_WebviewCommitted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_WebviewCommitted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.webviewCommitted');
           const result = this.impl.webviewCommitted(params.url);
           break;
         }
         case 3: {
-          const params = glic.mojom.PageHandler_ClosePanel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_ClosePanel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closePanel');
           const result = this.impl.closePanel();
           if (header.expectsResponse) {
@@ -2007,25 +2066,29 @@ glic.mojom.PageHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openProfilePickerAndClosePanel');
           const result = this.impl.openProfilePickerAndClosePanel();
           break;
         }
         case 5: {
-          const params = glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openDisabledByAdminLinkAndClosePanel');
           const result = this.impl.openDisabledByAdminLinkAndClosePanel();
           break;
         }
         case 6: {
-          const params = glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.signInAndClosePanel');
           const result = this.impl.signInAndClosePanel();
           break;
         }
         case 7: {
-          const params = glic.mojom.PageHandler_ResizeWidget_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_ResizeWidget_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resizeWidget');
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
@@ -2037,19 +2100,22 @@ glic.mojom.PageHandlerReceiver = class {
           break;
         }
         case 8: {
-          const params = glic.mojom.PageHandler_EnableDragResize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_EnableDragResize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableDragResize');
           const result = this.impl.enableDragResize(params.enabled);
           break;
         }
         case 9: {
-          const params = glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.webUiStateChanged');
           const result = this.impl.webUiStateChanged(params.new_state);
           break;
         }
         case 10: {
-          const params = glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getProfileEnablement');
           const result = this.impl.getProfileEnablement();
           if (header.expectsResponse) {
@@ -2139,8 +2205,11 @@ glic.mojom.PinCandidatesObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -2163,9 +2232,13 @@ glic.mojom.PinCandidatesObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPinCandidatesChanged');
           const result = this.impl.onPinCandidatesChanged(params.candidates);
           break;
@@ -3833,8 +3906,96 @@ glic.mojom.WebClientHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
+    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
+    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
+    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
+    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
+    this.ordinalMap.set(33, 33); // Default ordinal 33 -> Index 33
+    this.ordinalMap.set(34, 34); // Default ordinal 34 -> Index 34
+    this.ordinalMap.set(35, 35); // Default ordinal 35 -> Index 35
+    this.ordinalMap.set(36, 36); // Default ordinal 36 -> Index 36
+    this.ordinalMap.set(37, 37); // Default ordinal 37 -> Index 37
+    this.ordinalMap.set(38, 38); // Default ordinal 38 -> Index 38
+    this.ordinalMap.set(39, 39); // Default ordinal 39 -> Index 39
+    this.ordinalMap.set(40, 40); // Default ordinal 40 -> Index 40
+    this.ordinalMap.set(41, 41); // Default ordinal 41 -> Index 41
+    this.ordinalMap.set(42, 42); // Default ordinal 42 -> Index 42
+    this.ordinalMap.set(43, 43); // Default ordinal 43 -> Index 43
+    this.ordinalMap.set(44, 44); // Default ordinal 44 -> Index 44
+    this.ordinalMap.set(45, 45); // Default ordinal 45 -> Index 45
+    this.ordinalMap.set(46, 46); // Default ordinal 46 -> Index 46
+    this.ordinalMap.set(47, 47); // Default ordinal 47 -> Index 47
+    this.ordinalMap.set(48, 48); // Default ordinal 48 -> Index 48
+    this.ordinalMap.set(49, 49); // Default ordinal 49 -> Index 49
+    this.ordinalMap.set(50, 50); // Default ordinal 50 -> Index 50
+    this.ordinalMap.set(51, 51); // Default ordinal 51 -> Index 51
+    this.ordinalMap.set(52, 52); // Default ordinal 52 -> Index 52
+    this.ordinalMap.set(53, 53); // Default ordinal 53 -> Index 53
+    this.ordinalMap.set(54, 54); // Default ordinal 54 -> Index 54
+    this.ordinalMap.set(55, 55); // Default ordinal 55 -> Index 55
+    this.ordinalMap.set(56, 56); // Default ordinal 56 -> Index 56
+    this.ordinalMap.set(57, 57); // Default ordinal 57 -> Index 57
+    this.ordinalMap.set(58, 58); // Default ordinal 58 -> Index 58
+    this.ordinalMap.set(59, 59); // Default ordinal 59 -> Index 59
+    this.ordinalMap.set(60, 60); // Default ordinal 60 -> Index 60
+    this.ordinalMap.set(61, 61); // Default ordinal 61 -> Index 61
+    this.ordinalMap.set(62, 62); // Default ordinal 62 -> Index 62
+    this.ordinalMap.set(63, 63); // Default ordinal 63 -> Index 63
+    this.ordinalMap.set(64, 64); // Default ordinal 64 -> Index 64
+    this.ordinalMap.set(65, 65); // Default ordinal 65 -> Index 65
+    this.ordinalMap.set(66, 66); // Default ordinal 66 -> Index 66
+    this.ordinalMap.set(67, 67); // Default ordinal 67 -> Index 67
+    this.ordinalMap.set(68, 68); // Default ordinal 68 -> Index 68
+    this.ordinalMap.set(69, 69); // Default ordinal 69 -> Index 69
+    this.ordinalMap.set(70, 70); // Default ordinal 70 -> Index 70
+    this.ordinalMap.set(71, 71); // Default ordinal 71 -> Index 71
+    this.ordinalMap.set(72, 72); // Default ordinal 72 -> Index 72
+    this.ordinalMap.set(73, 73); // Default ordinal 73 -> Index 73
+    this.ordinalMap.set(74, 74); // Default ordinal 74 -> Index 74
+    this.ordinalMap.set(75, 75); // Default ordinal 75 -> Index 75
+    this.ordinalMap.set(76, 76); // Default ordinal 76 -> Index 76
+    this.ordinalMap.set(77, 77); // Default ordinal 77 -> Index 77
+    this.ordinalMap.set(78, 78); // Default ordinal 78 -> Index 78
+    this.ordinalMap.set(79, 79); // Default ordinal 79 -> Index 79
+    this.ordinalMap.set(80, 80); // Default ordinal 80 -> Index 80
+    this.ordinalMap.set(81, 81); // Default ordinal 81 -> Index 81
+    this.ordinalMap.set(82, 82); // Default ordinal 82 -> Index 82
+    this.ordinalMap.set(83, 83); // Default ordinal 83 -> Index 83
+    this.ordinalMap.set(84, 84); // Default ordinal 84 -> Index 84
+    this.ordinalMap.set(85, 85); // Default ordinal 85 -> Index 85
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -3857,9 +4018,13 @@ glic.mojom.WebClientHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.webClientCreated');
           const result = this.impl.webClientCreated(params.web_client);
           if (header.expectsResponse) {
@@ -3871,19 +4036,22 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.webClientInitialized');
           const result = this.impl.webClientInitialized();
           break;
         }
         case 2: {
-          const params = glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.webClientInitializeFailed');
           const result = this.impl.webClientInitializeFailed();
           break;
         }
         case 3: {
-          const params = glic.mojom.WebClientHandler_CreateTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_CreateTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createTab');
           const result = this.impl.createTab(params.url, params.open_in_background, params.window_id);
           if (header.expectsResponse) {
@@ -3895,61 +4063,71 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 4: {
-          const params = glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openLinkInPopup');
           const result = this.impl.openLinkInPopup(params.url, params.popup_width, params.popup_height);
           break;
         }
         case 5: {
-          const params = glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openGlicSettingsPage');
           const result = this.impl.openGlicSettingsPage(params.options);
           break;
         }
         case 6: {
-          const params = glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openPasswordManagerSettingsPage');
           const result = this.impl.openPasswordManagerSettingsPage();
           break;
         }
         case 7: {
-          const params = glic.mojom.WebClientHandler_ClosePanel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ClosePanel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closePanel');
           const result = this.impl.closePanel();
           break;
         }
         case 8: {
-          const params = glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closePanelAndShutdown');
           const result = this.impl.closePanelAndShutdown();
           break;
         }
         case 9: {
-          const params = glic.mojom.WebClientHandler_AttachPanel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_AttachPanel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.attachPanel');
           const result = this.impl.attachPanel();
           break;
         }
         case 10: {
-          const params = glic.mojom.WebClientHandler_DetachPanel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_DetachPanel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.detachPanel');
           const result = this.impl.detachPanel();
           break;
         }
         case 11: {
-          const params = glic.mojom.WebClientHandler_OnModeChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnModeChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onModeChange');
           const result = this.impl.onModeChange(params.new_mode);
           break;
         }
         case 12: {
-          const params = glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.showProfilePicker');
           const result = this.impl.showProfilePicker();
           break;
         }
         case 13: {
-          const params = glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getModelQualityClientId');
           const result = this.impl.getModelQualityClientId();
           if (header.expectsResponse) {
@@ -3961,7 +4139,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 14: {
-          const params = glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getContextFromFocusedTab');
           const result = this.impl.getContextFromFocusedTab(params.options);
           if (header.expectsResponse) {
@@ -3973,7 +4152,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 15: {
-          const params = glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getContextFromTab');
           const result = this.impl.getContextFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
@@ -3985,7 +4165,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 16: {
-          const params = glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getContextForActorFromTab');
           const result = this.impl.getContextForActorFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
@@ -3997,7 +4178,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 17: {
-          const params = glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMaximumNumberOfPinnedTabs');
           const result = this.impl.setMaximumNumberOfPinnedTabs(params.requested_max);
           if (header.expectsResponse) {
@@ -4009,7 +4191,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 18: {
-          const params = glic.mojom.WebClientHandler_PinTabs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_PinTabs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pinTabs');
           const result = this.impl.pinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
@@ -4021,7 +4204,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 19: {
-          const params = glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.unpinTabs');
           const result = this.impl.unpinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
@@ -4033,13 +4217,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 20: {
-          const params = glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.unpinAllTabs');
           const result = this.impl.unpinAllTabs(params.options);
           break;
         }
         case 21: {
-          const params = glic.mojom.WebClientHandler_CreateSkill_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_CreateSkill_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createSkill');
           const result = this.impl.createSkill(params.request);
           if (header.expectsResponse) {
@@ -4051,7 +4237,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 22: {
-          const params = glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateSkill');
           const result = this.impl.updateSkill(params.request);
           if (header.expectsResponse) {
@@ -4063,7 +4250,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 23: {
-          const params = glic.mojom.WebClientHandler_GetSkill_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetSkill_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSkill');
           const result = this.impl.getSkill(params.id);
           if (header.expectsResponse) {
@@ -4075,25 +4263,29 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 24: {
-          const params = glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.subscribeToPinCandidates');
           const result = this.impl.subscribeToPinCandidates(params.options, params.observer);
           break;
         }
         case 25: {
-          const params = glic.mojom.WebClientHandler_CreateTask_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_CreateTask_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createTask');
           const result = this.impl.createTask(params.task_options);
           break;
         }
         case 26: {
-          const params = glic.mojom.WebClientHandler_PerformActions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_PerformActions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.performActions');
           const result = this.impl.performActions(params.actions_proto);
           break;
         }
         case 27: {
-          const params = glic.mojom.WebClientHandler_CancelActions_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_CancelActions_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancelActions');
           const result = this.impl.cancelActions(params.task_id);
           if (header.expectsResponse) {
@@ -4105,19 +4297,22 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 28: {
-          const params = glic.mojom.WebClientHandler_StopActorTask_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_StopActorTask_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopActorTask');
           const result = this.impl.stopActorTask(params.task_id, params.stop_reason);
           break;
         }
         case 29: {
-          const params = glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pauseActorTask');
           const result = this.impl.pauseActorTask(params.task_id, params.pause_reason, params.tab_id);
           break;
         }
         case 30: {
-          const params = glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resumeActorTask');
           const result = this.impl.resumeActorTask(params.task_id, params.context_options);
           if (header.expectsResponse) {
@@ -4129,19 +4324,22 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 31: {
-          const params = glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.interruptActorTask');
           const result = this.impl.interruptActorTask(params.task_id);
           break;
         }
         case 32: {
-          const params = glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.uninterruptActorTask');
           const result = this.impl.uninterruptActorTask(params.task_id);
           break;
         }
         case 33: {
-          const params = glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createActorTab');
           const result = this.impl.createActorTab(params.task_id, params.open_in_background, params.initiator_tab_id, params.initiator_window_id);
           if (header.expectsResponse) {
@@ -4153,13 +4351,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 34: {
-          const params = glic.mojom.WebClientHandler_ActivateTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ActivateTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.activateTab');
           const result = this.impl.activateTab(params.task_id);
           break;
         }
         case 35: {
-          const params = glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resizeWidget');
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
@@ -4171,7 +4371,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 36: {
-          const params = glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.captureScreenshot');
           const result = this.impl.captureScreenshot();
           if (header.expectsResponse) {
@@ -4183,13 +4384,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 37: {
-          const params = glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.captureRegion');
           const result = this.impl.captureRegion(params.observer);
           break;
         }
         case 38: {
-          const params = glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAudioDucking');
           const result = this.impl.setAudioDucking(params.enable);
           if (header.expectsResponse) {
@@ -4201,7 +4404,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 39: {
-          const params = glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPanelDraggableAreas');
           const result = this.impl.setPanelDraggableAreas(params.draggable_areas);
           if (header.expectsResponse) {
@@ -4213,13 +4417,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 40: {
-          const params = glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMinimumPanelSize');
           const result = this.impl.setMinimumPanelSize(params.size);
           break;
         }
         case 41: {
-          const params = glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMicrophonePermissionState');
           const result = this.impl.setMicrophonePermissionState(params.enabled);
           if (header.expectsResponse) {
@@ -4231,7 +4437,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 42: {
-          const params = glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLocationPermissionState');
           const result = this.impl.setLocationPermissionState(params.enabled);
           if (header.expectsResponse) {
@@ -4243,7 +4450,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 43: {
-          const params = glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setTabContextPermissionState');
           const result = this.impl.setTabContextPermissionState(params.enabled);
           if (header.expectsResponse) {
@@ -4255,7 +4463,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 44: {
-          const params = glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setClosedCaptioningSetting');
           const result = this.impl.setClosedCaptioningSetting(params.enabled);
           if (header.expectsResponse) {
@@ -4267,7 +4476,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 45: {
-          const params = glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setActuationOnWebSetting');
           const result = this.impl.setActuationOnWebSetting(params.enabled);
           if (header.expectsResponse) {
@@ -4279,7 +4489,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 46: {
-          const params = glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldAllowMediaPermissionRequest');
           const result = this.impl.shouldAllowMediaPermissionRequest();
           if (header.expectsResponse) {
@@ -4291,7 +4502,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 47: {
-          const params = glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.shouldAllowGeolocationPermissionRequest');
           const result = this.impl.shouldAllowGeolocationPermissionRequest();
           if (header.expectsResponse) {
@@ -4303,13 +4515,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 48: {
-          const params = glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setContextAccessIndicator');
           const result = this.impl.setContextAccessIndicator(params.enabled);
           break;
         }
         case 49: {
-          const params = glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getUserProfileInfo');
           const result = this.impl.getUserProfileInfo();
           if (header.expectsResponse) {
@@ -4321,7 +4535,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 50: {
-          const params = glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.syncCookies');
           const result = this.impl.syncCookies();
           if (header.expectsResponse) {
@@ -4333,31 +4548,36 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 51: {
-          const params = glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logBeginAsyncEvent');
           const result = this.impl.logBeginAsyncEvent(params.event_async_id, params.task_id, params.event, params.details);
           break;
         }
         case 52: {
-          const params = glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logEndAsyncEvent');
           const result = this.impl.logEndAsyncEvent(params.event_async_id, params.details);
           break;
         }
         case 53: {
-          const params = glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.logInstantEvent');
           const result = this.impl.logInstantEvent(params.task_id, params.event, params.details);
           break;
         }
         case 54: {
-          const params = glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.journalClear');
           const result = this.impl.journalClear();
           break;
         }
         case 55: {
-          const params = glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.journalSnapshot');
           const result = this.impl.journalSnapshot(params.clear_journal);
           if (header.expectsResponse) {
@@ -4369,97 +4589,113 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 56: {
-          const params = glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.journalStart');
           const result = this.impl.journalStart(params.max_bytes, params.capture_screenshots);
           break;
         }
         case 57: {
-          const params = glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.journalStop');
           const result = this.impl.journalStop();
           break;
         }
         case 58: {
-          const params = glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.journalRecordFeedback');
           const result = this.impl.journalRecordFeedback(params.positive, params.reason);
           break;
         }
         case 59: {
-          const params = glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onUserInputSubmitted');
           const result = this.impl.onUserInputSubmitted(params.mode);
           break;
         }
         case 60: {
-          const params = glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onContextUploadStarted');
           const result = this.impl.onContextUploadStarted();
           break;
         }
         case 61: {
-          const params = glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onContextUploadCompleted');
           const result = this.impl.onContextUploadCompleted();
           break;
         }
         case 62: {
-          const params = glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReaction');
           const result = this.impl.onReaction(params.reactionType);
           break;
         }
         case 63: {
-          const params = glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted();
           break;
         }
         case 64: {
-          const params = glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResponseStopped');
           const result = this.impl.onResponseStopped(params.details);
           break;
         }
         case 65: {
-          const params = glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSessionTerminated');
           const result = this.impl.onSessionTerminated();
           break;
         }
         case 66: {
-          const params = glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTurnCompleted');
           const result = this.impl.onTurnCompleted(params.model, params.duration);
           break;
         }
         case 67: {
-          const params = glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onModelChanged');
           const result = this.impl.onModelChanged(params.model);
           break;
         }
         case 68: {
-          const params = glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRecordUseCounter');
           const result = this.impl.onRecordUseCounter(params.counter);
           break;
         }
         case 69: {
-          const params = glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResponseRated');
           const result = this.impl.onResponseRated(params.positive);
           break;
         }
         case 70: {
-          const params = glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onClosedCaptionsShown');
           const result = this.impl.onClosedCaptionsShown();
           break;
         }
         case 71: {
-          const params = glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.scrollTo');
           const result = this.impl.scrollTo(params.params);
           if (header.expectsResponse) {
@@ -4471,25 +4707,29 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 72: {
-          const params = glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.dropScrollToHighlight');
           const result = this.impl.dropScrollToHighlight();
           break;
         }
         case 73: {
-          const params = glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setSyntheticExperimentState');
           const result = this.impl.setSyntheticExperimentState(params.trial_name, params.group_name);
           break;
         }
         case 74: {
-          const params = glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.openOsPermissionSettingsMenu');
           const result = this.impl.openOsPermissionSettingsMenu(params.type);
           break;
         }
         case 75: {
-          const params = glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getOsMicrophonePermissionStatus');
           const result = this.impl.getOsMicrophonePermissionStatus();
           if (header.expectsResponse) {
@@ -4501,7 +4741,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 76: {
-          const params = glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsAndSubscribe');
           const result = this.impl.getZeroStateSuggestionsAndSubscribe(params.is_live, params.options);
           if (header.expectsResponse) {
@@ -4513,7 +4754,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 77: {
-          const params = glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsForFocusedTab');
           const result = this.impl.getZeroStateSuggestionsForFocusedTab(params.is_first_run);
           if (header.expectsResponse) {
@@ -4525,13 +4767,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 78: {
-          const params = glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.maybeRefreshUserStatus');
           const result = this.impl.maybeRefreshUserStatus();
           break;
         }
         case 79: {
-          const params = glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.isDebuggerAttached');
           const result = this.impl.isDebuggerAttached();
           if (header.expectsResponse) {
@@ -4543,13 +4787,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 80: {
-          const params = glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onViewChanged');
           const result = this.impl.onViewChanged(params.notification);
           break;
         }
         case 81: {
-          const params = glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.subscribeToPageMetadata');
           const result = this.impl.subscribeToPageMetadata(params.tab_id, params.names);
           if (header.expectsResponse) {
@@ -4561,7 +4807,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 82: {
-          const params = glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.switchConversation');
           const result = this.impl.switchConversation(params.info);
           if (header.expectsResponse) {
@@ -4573,7 +4820,8 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 83: {
-          const params = glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.registerConversation');
           const result = this.impl.registerConversation(params.info);
           if (header.expectsResponse) {
@@ -4585,13 +4833,15 @@ glic.mojom.WebClientHandlerReceiver = class {
           break;
         }
         case 84: {
-          const params = glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setOnboardingCompleted');
           const result = this.impl.setOnboardingCompleted();
           break;
         }
         case 85: {
-          const params = glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.subscribeToTabData');
           const result = this.impl.subscribeToTabData(params.tab_id, params.receiver);
           break;
@@ -4675,8 +4925,11 @@ glic.mojom.TabDataHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -4699,9 +4952,13 @@ glic.mojom.TabDataHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onTabDataChanged');
           const result = this.impl.onTabDataChanged(params.tab_data);
           break;
@@ -5334,8 +5591,43 @@ glic.mojom.WebClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
+    this.ordinalMap.set(14, 14); // Default ordinal 14 -> Index 14
+    this.ordinalMap.set(15, 15); // Default ordinal 15 -> Index 15
+    this.ordinalMap.set(16, 16); // Default ordinal 16 -> Index 16
+    this.ordinalMap.set(17, 17); // Default ordinal 17 -> Index 17
+    this.ordinalMap.set(18, 18); // Default ordinal 18 -> Index 18
+    this.ordinalMap.set(19, 19); // Default ordinal 19 -> Index 19
+    this.ordinalMap.set(20, 20); // Default ordinal 20 -> Index 20
+    this.ordinalMap.set(21, 21); // Default ordinal 21 -> Index 21
+    this.ordinalMap.set(22, 22); // Default ordinal 22 -> Index 22
+    this.ordinalMap.set(23, 23); // Default ordinal 23 -> Index 23
+    this.ordinalMap.set(24, 24); // Default ordinal 24 -> Index 24
+    this.ordinalMap.set(25, 25); // Default ordinal 25 -> Index 25
+    this.ordinalMap.set(26, 26); // Default ordinal 26 -> Index 26
+    this.ordinalMap.set(27, 27); // Default ordinal 27 -> Index 27
+    this.ordinalMap.set(28, 28); // Default ordinal 28 -> Index 28
+    this.ordinalMap.set(29, 29); // Default ordinal 29 -> Index 29
+    this.ordinalMap.set(30, 30); // Default ordinal 30 -> Index 30
+    this.ordinalMap.set(31, 31); // Default ordinal 31 -> Index 31
+    this.ordinalMap.set(32, 32); // Default ordinal 32 -> Index 32
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -5358,9 +5650,13 @@ glic.mojom.WebClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelWillOpen');
           const result = this.impl.notifyPanelWillOpen(params.panel_opening_data);
           if (header.expectsResponse) {
@@ -5372,7 +5668,8 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
         case 1: {
-          const params = glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelWasClosed');
           const result = this.impl.notifyPanelWasClosed();
           if (header.expectsResponse) {
@@ -5384,145 +5681,169 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
         case 2: {
-          const params = glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelStateChange');
           const result = this.impl.notifyPanelStateChange(params.panel_state);
           break;
         }
         case 3: {
-          const params = glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelActiveChange');
           const result = this.impl.notifyPanelActiveChange(params.panel_active);
           break;
         }
         case 4: {
-          const params = glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPanelCanAttachChange');
           const result = this.impl.notifyPanelCanAttachChange(params.can_attach);
           break;
         }
         case 5: {
-          const params = glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyMicrophonePermissionStateChanged');
           const result = this.impl.notifyMicrophonePermissionStateChanged(params.enabled);
           break;
         }
         case 6: {
-          const params = glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyLocationPermissionStateChanged');
           const result = this.impl.notifyLocationPermissionStateChanged(params.enabled);
           break;
         }
         case 7: {
-          const params = glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyTabContextPermissionStateChanged');
           const result = this.impl.notifyTabContextPermissionStateChanged(params.enabled);
           break;
         }
         case 8: {
-          const params = glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyOsLocationPermissionStateChanged');
           const result = this.impl.notifyOsLocationPermissionStateChanged(params.enabled);
           break;
         }
         case 9: {
-          const params = glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyFocusedTabChanged');
           const result = this.impl.notifyFocusedTabChanged(params.focused_tab_data);
           break;
         }
         case 10: {
-          const params = glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyManualResizeChanged');
           const result = this.impl.notifyManualResizeChanged(params.resizing);
           break;
         }
         case 11: {
-          const params = glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyOsHotkeyStateChanged');
           const result = this.impl.notifyOsHotkeyStateChanged(params.hotkey);
           break;
         }
         case 12: {
-          const params = glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyBrowserIsOpenChanged');
           const result = this.impl.notifyBrowserIsOpenChanged(params.browser_is_open);
           break;
         }
         case 13: {
-          const params = glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyInstanceActivationChanged');
           const result = this.impl.notifyInstanceActivationChanged(params.instance_active);
           break;
         }
         case 14: {
-          const params = glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyClosedCaptioningSettingChanged');
           const result = this.impl.notifyClosedCaptioningSettingChanged(params.enabled);
           break;
         }
         case 15: {
-          const params = glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPinnedTabsChanged');
           const result = this.impl.notifyPinnedTabsChanged(params.tab_data);
           break;
         }
         case 16: {
-          const params = glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPinnedTabDataChanged');
           const result = this.impl.notifyPinnedTabDataChanged(params.tab_data);
           break;
         }
         case 17: {
-          const params = glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifySkillPreviewsChanged');
           const result = this.impl.notifySkillPreviewsChanged(params.skill_previews);
           break;
         }
         case 18: {
-          const params = glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifySkillPreviewChanged');
           const result = this.impl.notifySkillPreviewChanged(params.skill_preview);
           break;
         }
         case 19: {
-          const params = glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifySkillToInvokeChanged');
           const result = this.impl.notifySkillToInvokeChanged(params.skill);
           break;
         }
         case 20: {
-          const params = glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyZeroStateSuggestionsChanged');
           const result = this.impl.notifyZeroStateSuggestionsChanged(params.suggestions, params.options);
           break;
         }
         case 21: {
-          const params = glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyActorTaskStateChanged');
           const result = this.impl.notifyActorTaskStateChanged(params.task_id, params.state);
           break;
         }
         case 22: {
-          const params = glic.mojom.WebClient_RequestViewChange_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_RequestViewChange_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestViewChange');
           const result = this.impl.requestViewChange(params.request);
           break;
         }
         case 23: {
-          const params = glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyPageMetadataChanged');
           const result = this.impl.notifyPageMetadataChanged(params.tab_id, params.metadata);
           break;
         }
         case 24: {
-          const params = glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyDefaultTabContextPermissionStateChanged');
           const result = this.impl.notifyDefaultTabContextPermissionStateChanged(params.enabled);
           break;
         }
         case 25: {
-          const params = glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestToShowCredentialSelectionDialog');
           const result = this.impl.requestToShowCredentialSelectionDialog(params.request);
           if (header.expectsResponse) {
@@ -5534,7 +5855,8 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
         case 26: {
-          const params = glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestToShowAutofillSuggestionsDialog');
           const result = this.impl.requestToShowAutofillSuggestionsDialog(params.request);
           if (header.expectsResponse) {
@@ -5546,7 +5868,8 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
         case 27: {
-          const params = glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestToShowUserConfirmationDialog');
           const result = this.impl.requestToShowUserConfirmationDialog(params.request);
           if (header.expectsResponse) {
@@ -5558,7 +5881,8 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
         case 28: {
-          const params = glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestToConfirmNavigation');
           const result = this.impl.requestToConfirmNavigation(params.request);
           if (header.expectsResponse) {
@@ -5570,25 +5894,29 @@ glic.mojom.WebClientReceiver = class {
           break;
         }
         case 29: {
-          const params = glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyAdditionalContext');
           const result = this.impl.notifyAdditionalContext(params.context);
           break;
         }
         case 30: {
-          const params = glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyActuationOnWebSettingChanged');
           const result = this.impl.notifyActuationOnWebSettingChanged(params.enabled);
           break;
         }
         case 31: {
-          const params = glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyActOnWebCapabilityChanged');
           const result = this.impl.notifyActOnWebCapabilityChanged(params.can_act_on_web);
           break;
         }
         case 32: {
-          const params = glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.notifyOnboardingCompletedChanged');
           const result = this.impl.notifyOnboardingCompletedChanged(params.completed);
           break;
@@ -5673,8 +6001,11 @@ glic.mojom.CaptureRegionObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -5697,9 +6028,13 @@ glic.mojom.CaptureRegionObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onUpdate');
           const result = this.impl.onUpdate(params.result, params.reason);
           break;

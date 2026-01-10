@@ -137,8 +137,13 @@ content_settings.mojom.ContentSettingsManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -161,15 +166,20 @@ content_settings.mojom.ContentSettingsManagerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.clone);
           break;
         }
         case 1: {
-          const params = content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.allowStorageAccess');
           const result = this.impl.allowStorageAccess(params.frame_token, params.storage_type, params.origin, params.site_for_cookies, params.top_frame_origin);
           if (header.expectsResponse) {
@@ -181,7 +191,8 @@ content_settings.mojom.ContentSettingsManagerReceiver = class {
           break;
         }
         case 2: {
-          const params = content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onContentBlocked');
           const result = this.impl.onContentBlocked(params.frame_token, params.type);
           break;

@@ -247,8 +247,15 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -271,9 +278,13 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.beginSeparatedFrameComposite');
           const result = this.impl.beginSeparatedFrameComposite(params.request);
           if (header.expectsResponse) {
@@ -285,7 +296,8 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           break;
         }
         case 1: {
-          const params = paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bitmapForSeparatedFrame');
           const result = this.impl.bitmapForSeparatedFrame(params.frame_guid, params.clip_rect, params.scale_factor);
           if (header.expectsResponse) {
@@ -297,7 +309,8 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           break;
         }
         case 2: {
-          const params = paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.beginMainFrameComposite');
           const result = this.impl.beginMainFrameComposite(params.request);
           if (header.expectsResponse) {
@@ -309,7 +322,8 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           break;
         }
         case 3: {
-          const params = paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.bitmapForMainFrame');
           const result = this.impl.bitmapForMainFrame(params.clip_rect, params.scale_factor);
           if (header.expectsResponse) {
@@ -321,7 +335,8 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
           break;
         }
         case 4: {
-          const params = paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setRootFrameUrl');
           const result = this.impl.setRootFrameUrl(params.url);
           break;
@@ -448,8 +463,13 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -472,15 +492,20 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setDiscardableSharedMemoryManager');
           const result = this.impl.setDiscardableSharedMemoryManager(params.manager);
           break;
         }
         case 1: {
-          const params = paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createCompositor');
           const result = this.impl.createCompositor(params.compositor);
           if (header.expectsResponse) {
@@ -492,7 +517,8 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
           break;
         }
         case 2: {
-          const params = paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.listCompositors');
           const result = this.impl.listCompositors();
           if (header.expectsResponse) {

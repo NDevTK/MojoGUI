@@ -206,8 +206,12 @@ blink.mojom.AIManagerCreateLanguageModelClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -230,15 +234,20 @@ blink.mojom.AIManagerCreateLanguageModelClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.language_model_remote, params.info);
           break;
         }
         case 1: {
-          const params = blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -395,8 +404,15 @@ blink.mojom.AILanguageModelReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -419,33 +435,41 @@ blink.mojom.AILanguageModelReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.AILanguageModel_Prompt_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AILanguageModel_Prompt_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.prompt');
           const result = this.impl.prompt(params.prompts, params.constraint, params.pending_responder);
           break;
         }
         case 1: {
-          const params = blink.mojom.AILanguageModel_Append_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AILanguageModel_Append_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.append');
           const result = this.impl.append(params.prompts, params.client);
           break;
         }
         case 2: {
-          const params = blink.mojom.AILanguageModel_Fork_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AILanguageModel_Fork_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.fork');
           const result = this.impl.fork(params.client);
           break;
         }
         case 3: {
-          const params = blink.mojom.AILanguageModel_Destroy_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AILanguageModel_Destroy_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.destroy');
           const result = this.impl.destroy();
           break;
         }
         case 4: {
-          const params = blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.measureInputUsage');
           const result = this.impl.measureInputUsage(params.input);
           if (header.expectsResponse) {

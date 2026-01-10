@@ -296,8 +296,17 @@ device.mojom.NFCReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -320,15 +329,20 @@ device.mojom.NFCReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.NFC_SetClient_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFC_SetClient_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
-          const params = device.mojom.NFC_Push_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFC_Push_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.push');
           const result = this.impl.push(params.message, params.options);
           if (header.expectsResponse) {
@@ -340,13 +354,15 @@ device.mojom.NFCReceiver = class {
           break;
         }
         case 2: {
-          const params = device.mojom.NFC_CancelPush_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFC_CancelPush_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancelPush');
           const result = this.impl.cancelPush();
           break;
         }
         case 3: {
-          const params = device.mojom.NFC_MakeReadOnly_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFC_MakeReadOnly_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.makeReadOnly');
           const result = this.impl.makeReadOnly();
           if (header.expectsResponse) {
@@ -358,13 +374,15 @@ device.mojom.NFCReceiver = class {
           break;
         }
         case 4: {
-          const params = device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancelMakeReadOnly');
           const result = this.impl.cancelMakeReadOnly();
           break;
         }
         case 5: {
-          const params = device.mojom.NFC_Watch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFC_Watch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.watch');
           const result = this.impl.watch(params.id);
           if (header.expectsResponse) {
@@ -376,7 +394,8 @@ device.mojom.NFCReceiver = class {
           break;
         }
         case 6: {
-          const params = device.mojom.NFC_CancelWatch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFC_CancelWatch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancelWatch');
           const result = this.impl.cancelWatch(params.id);
           break;
@@ -478,8 +497,12 @@ device.mojom.NFCClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -502,15 +525,20 @@ device.mojom.NFCClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.NFCClient_OnWatch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFCClient_OnWatch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWatch');
           const result = this.impl.onWatch(params.watch_ids, params.serial_number, params.message);
           break;
         }
         case 1: {
-          const params = device.mojom.NFCClient_OnError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.NFCClient_OnError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
@@ -611,8 +639,12 @@ device.mojom.RawNFCClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -635,15 +667,20 @@ device.mojom.RawNFCClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = device.mojom.RawNFCClient_OnWatch_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.RawNFCClient_OnWatch_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWatch');
           const result = this.impl.onWatch(params.watch_ids, params.message);
           break;
         }
         case 1: {
-          const params = device.mojom.RawNFCClient_OnError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(device.mojom.RawNFCClient_OnError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;

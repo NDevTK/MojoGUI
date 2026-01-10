@@ -145,8 +145,14 @@ media.mojom.VideoEncoderMetricsProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -169,27 +175,34 @@ media.mojom.VideoEncoderMetricsProviderReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.encoder_id, params.encoder_use_case, params.profile, params.encode_size, params.is_hardware_encoder, params.svc_mode);
           break;
         }
         case 1: {
-          const params = media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setEncodedFrameCount');
           const result = this.impl.setEncodedFrameCount(params.encoder_id, params.num_encoded_frames);
           break;
         }
         case 2: {
-          const params = media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setError');
           const result = this.impl.setError(params.encoder_id, params.status);
           break;
         }
         case 3: {
-          const params = media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.encoder_id);
           break;

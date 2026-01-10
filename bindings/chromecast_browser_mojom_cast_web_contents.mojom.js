@@ -277,8 +277,21 @@ chromecast.mojom.CastWebContentsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -301,69 +314,83 @@ chromecast.mojom.CastWebContentsObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pageStateChanged');
           const result = this.impl.pageStateChanged(params.state);
           break;
         }
         case 1: {
-          const params = chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pageStopped');
           const result = this.impl.pageStopped(params.state, params.error_code);
           break;
         }
         case 2: {
-          const params = chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.renderFrameCreated');
           const result = this.impl.renderFrameCreated(params.render_process_id, params.render_frame_id);
           break;
         }
         case 3: {
-          const params = chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mainFrameFinishedNavigation');
           const result = this.impl.mainFrameFinishedNavigation();
           break;
         }
         case 4: {
-          const params = chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateTitle');
           const result = this.impl.updateTitle(params.title);
           break;
         }
         case 5: {
-          const params = chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.updateFaviconURL');
           const result = this.impl.updateFaviconURL(params.url);
           break;
         }
         case 6: {
-          const params = chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.didFirstVisuallyNonEmptyPaint');
           const result = this.impl.didFirstVisuallyNonEmptyPaint();
           break;
         }
         case 7: {
-          const params = chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resourceLoadFailed');
           const result = this.impl.resourceLoadFailed();
           break;
         }
         case 8: {
-          const params = chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRenderProcessReady');
           const result = this.impl.onRenderProcessReady(params.pid);
           break;
         }
         case 9: {
-          const params = chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.mediaPlaybackChanged');
           const result = this.impl.mediaPlaybackChanged(params.media_playing);
           break;
         }
         case 10: {
-          const params = chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.innerContentsCreated');
           const result = this.impl.innerContentsCreated(params.web_contents);
           break;
@@ -666,8 +693,24 @@ chromecast.mojom.CastWebContentsReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
+    this.ordinalMap.set(12, 12); // Default ordinal 12 -> Index 12
+    this.ordinalMap.set(13, 13); // Default ordinal 13 -> Index 13
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -690,87 +733,104 @@ chromecast.mojom.CastWebContentsReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setAppProperties');
           const result = this.impl.setAppProperties(params.app_id, params.session_id, params.is_audio_app, params.app_web_url, params.enforce_feature_permissions, params.feature_permissions, params.additional_feature_permission_origins);
           break;
         }
         case 1: {
-          const params = chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setGroupInfo');
           const result = this.impl.setGroupInfo(params.session_id, params.is_multizone_launch);
           break;
         }
         case 2: {
-          const params = chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addRendererFeatures');
           const result = this.impl.addRendererFeatures(params.features);
           break;
         }
         case 3: {
-          const params = chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setInterfacesForRenderer');
           const result = this.impl.setInterfacesForRenderer(params.remote_interfaces);
           break;
         }
         case 4: {
-          const params = chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadUrl');
           const result = this.impl.loadUrl(params.url);
           break;
         }
         case 5: {
-          const params = chromecast.mojom.CastWebContents_ClosePage_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_ClosePage_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.closePage');
           const result = this.impl.closePage();
           break;
         }
         case 6: {
-          const params = chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setWebVisibilityAndPaint');
           const result = this.impl.setWebVisibilityAndPaint(params.visible);
           break;
         }
         case 7: {
-          const params = chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.blockMediaLoading');
           const result = this.impl.blockMediaLoading(params.blocked);
           break;
         }
         case 8: {
-          const params = chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.blockMediaStarting');
           const result = this.impl.blockMediaStarting(params.blocked);
           break;
         }
         case 9: {
-          const params = chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enableBackgroundVideoPlayback');
           const result = this.impl.enableBackgroundVideoPlayback(params.enabled);
           break;
         }
         case 10: {
-          const params = chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.connectToBindingsService');
           const result = this.impl.connectToBindingsService(params.api_bindings_remote);
           break;
         }
         case 11: {
-          const params = chromecast.mojom.CastWebContents_AddObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_AddObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 12: {
-          const params = chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setEnabledForRemoteDebugging');
           const result = this.impl.setEnabledForRemoteDebugging(params.enabled);
           break;
         }
         case 13: {
-          const params = chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getMainFramePid');
           const result = this.impl.getMainFramePid();
           if (header.expectsResponse) {

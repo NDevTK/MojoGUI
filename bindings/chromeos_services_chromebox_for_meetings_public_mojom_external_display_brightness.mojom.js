@@ -141,8 +141,14 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -165,15 +171,20 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setExternalDisplayALSBrightness');
           const result = this.impl.setExternalDisplayALSBrightness(params.enabled);
           break;
         }
         case 1: {
-          const params = chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getExternalDisplayALSBrightness');
           const result = this.impl.getExternalDisplayALSBrightness();
           if (header.expectsResponse) {
@@ -185,13 +196,15 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
           break;
         }
         case 2: {
-          const params = chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setExternalDisplayBrightnessPercent');
           const result = this.impl.setExternalDisplayBrightnessPercent(params.percent);
           break;
         }
         case 3: {
-          const params = chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getExternalDisplayBrightnessPercent');
           const result = this.impl.getExternalDisplayBrightnessPercent();
           if (header.expectsResponse) {

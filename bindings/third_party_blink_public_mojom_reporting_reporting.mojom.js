@@ -254,8 +254,18 @@ blink.mojom.ReportingServiceProxyReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -278,51 +288,62 @@ blink.mojom.ReportingServiceProxyReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueInterventionReport');
           const result = this.impl.queueInterventionReport(params.url, params.id, params.message, params.source_file, params.line_number, params.column_number);
           break;
         }
         case 1: {
-          const params = blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueDeprecationReport');
           const result = this.impl.queueDeprecationReport(params.url, params.id, params.anticipatedRemoval, params.message, params.source_file, params.line_number, params.column_number);
           break;
         }
         case 2: {
-          const params = blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueCspViolationReport');
           const result = this.impl.queueCspViolationReport(params.url, params.group, params.document_url, params.referrer, params.blocked_url, params.effective_directive, params.original_policy, params.source_file, params.script_sample, params.disposition, params.status_code, params.line_number, params.column_number);
           break;
         }
         case 3: {
-          const params = blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueIntegrityViolationReport');
           const result = this.impl.queueIntegrityViolationReport(params.url, params.endpoint, params.document_url, params.blocked_url, params.destination, params.report_only);
           break;
         }
         case 4: {
-          const params = blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queuePermissionsPolicyViolationReport');
           const result = this.impl.queuePermissionsPolicyViolationReport(params.url, params.endpoint, params.policy_id, params.disposition, params.message, params.source_file, params.line_number, params.column_number);
           break;
         }
         case 5: {
-          const params = blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queuePotentialPermissionsPolicyViolationReport');
           const result = this.impl.queuePotentialPermissionsPolicyViolationReport(params.url, params.endpoint, params.policy_id, params.disposition, params.message, params.allow_attribute, params.src_attribute, params.source_file, params.line_number, params.column_number);
           break;
         }
         case 6: {
-          const params = blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueDocumentPolicyViolationReport');
           const result = this.impl.queueDocumentPolicyViolationReport(params.url, params.group, params.policy_id, params.disposition, params.message, params.source_file, params.line_number, params.column_number);
           break;
         }
         case 7: {
-          const params = blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.queueCSPHashReport');
           const result = this.impl.queueCSPHashReport(params.url, params.endpoint, params.subresource_url, params.integrity_hash, params.type, params.destination);
           break;

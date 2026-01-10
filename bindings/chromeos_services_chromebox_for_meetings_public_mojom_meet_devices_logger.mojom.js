@@ -130,8 +130,11 @@ chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -154,9 +157,13 @@ chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNotifyState');
           const result = this.impl.onNotifyState(params.state);
           break;
@@ -263,8 +270,12 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -287,9 +298,13 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.enqueue');
           const result = this.impl.enqueue(params.record, params.priority);
           if (header.expectsResponse) {
@@ -301,7 +316,8 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
           break;
         }
         case 1: {
-          const params = chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addStateObserver');
           const result = this.impl.addStateObserver(params.pending_observer);
           break;

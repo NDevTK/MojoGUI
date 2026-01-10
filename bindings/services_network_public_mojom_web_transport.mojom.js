@@ -326,8 +326,20 @@ network.mojom.WebTransportReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -350,9 +362,13 @@ network.mojom.WebTransportReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.WebTransport_SendDatagram_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_SendDatagram_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendDatagram');
           const result = this.impl.sendDatagram(params.data);
           if (header.expectsResponse) {
@@ -364,7 +380,8 @@ network.mojom.WebTransportReceiver = class {
           break;
         }
         case 1: {
-          const params = network.mojom.WebTransport_CreateStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_CreateStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createStream');
           const result = this.impl.createStream(params.readable, params.writable);
           if (header.expectsResponse) {
@@ -376,7 +393,8 @@ network.mojom.WebTransportReceiver = class {
           break;
         }
         case 2: {
-          const params = network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.acceptBidirectionalStream');
           const result = this.impl.acceptBidirectionalStream();
           if (header.expectsResponse) {
@@ -388,7 +406,8 @@ network.mojom.WebTransportReceiver = class {
           break;
         }
         case 3: {
-          const params = network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.acceptUnidirectionalStream');
           const result = this.impl.acceptUnidirectionalStream();
           if (header.expectsResponse) {
@@ -400,31 +419,36 @@ network.mojom.WebTransportReceiver = class {
           break;
         }
         case 4: {
-          const params = network.mojom.WebTransport_SendFin_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_SendFin_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.sendFin');
           const result = this.impl.sendFin(params.stream_id);
           break;
         }
         case 5: {
-          const params = network.mojom.WebTransport_AbortStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_AbortStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.abortStream');
           const result = this.impl.abortStream(params.stream_id, params.code);
           break;
         }
         case 6: {
-          const params = network.mojom.WebTransport_StopSending_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_StopSending_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.stopSending');
           const result = this.impl.stopSending(params.stream_id, params.code);
           break;
         }
         case 7: {
-          const params = network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setOutgoingDatagramExpirationDuration');
           const result = this.impl.setOutgoingDatagramExpirationDuration(params.duration);
           break;
         }
         case 8: {
-          const params = network.mojom.WebTransport_GetStats_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_GetStats_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getStats');
           const result = this.impl.getStats();
           if (header.expectsResponse) {
@@ -436,7 +460,8 @@ network.mojom.WebTransportReceiver = class {
           break;
         }
         case 9: {
-          const params = network.mojom.WebTransport_Close_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_Close_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close(params.close_info);
           break;
@@ -604,8 +629,16 @@ network.mojom.WebTransportClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -628,39 +661,48 @@ network.mojom.WebTransportClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onDatagramReceived');
           const result = this.impl.onDatagramReceived(params.data);
           break;
         }
         case 1: {
-          const params = network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onIncomingStreamClosed');
           const result = this.impl.onIncomingStreamClosed(params.stream_id, params.fin_received);
           break;
         }
         case 2: {
-          const params = network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onOutgoingStreamClosed');
           const result = this.impl.onOutgoingStreamClosed(params.stream_id);
           break;
         }
         case 3: {
-          const params = network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReceivedStopSending');
           const result = this.impl.onReceivedStopSending(params.stream_id, params.stream_error_code);
           break;
         }
         case 4: {
-          const params = network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onReceivedResetStream');
           const result = this.impl.onReceivedResetStream(params.stream_id, params.stream_error_code);
           break;
         }
         case 5: {
-          const params = network.mojom.WebTransportClient_OnClosed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnClosed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onClosed');
           const result = this.impl.onClosed(params.close_info, params.final_stats);
           break;
@@ -780,8 +822,13 @@ network.mojom.WebTransportHandshakeClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -804,21 +851,27 @@ network.mojom.WebTransportHandshakeClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onBeforeConnect');
           const result = this.impl.onBeforeConnect(params.server_address);
           break;
         }
         case 1: {
-          const params = network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onConnectionEstablished');
           const result = this.impl.onConnectionEstablished(params.transport, params.client, params.response_headers, params.selected_application_protocol, params.initial_stats);
           break;
         }
         case 2: {
-          const params = network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onHandshakeFailed');
           const result = this.impl.onHandshakeFailed(params.error);
           break;

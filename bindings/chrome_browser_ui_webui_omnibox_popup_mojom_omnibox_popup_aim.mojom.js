@@ -92,8 +92,11 @@ omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -116,9 +119,13 @@ omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -217,8 +224,12 @@ omnibox_popup_aim.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -241,15 +252,20 @@ omnibox_popup_aim.mojom.PageHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           break;
         }
         case 1: {
-          const params = omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.navigateCurrentTab');
           const result = this.impl.navigateCurrentTab(params.url);
           break;
@@ -386,8 +402,14 @@ omnibox_popup_aim.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -410,21 +432,27 @@ omnibox_popup_aim.mojom.PageReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPopupShown');
           const result = this.impl.onPopupShown(params.context);
           break;
         }
         case 1: {
-          const params = omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addContext');
           const result = this.impl.addContext(params.context);
           break;
         }
         case 2: {
-          const params = omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPopupHidden');
           const result = this.impl.onPopupHidden();
           if (header.expectsResponse) {
@@ -436,7 +464,8 @@ omnibox_popup_aim.mojom.PageReceiver = class {
           break;
         }
         case 3: {
-          const params = omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setPreserveContextOnClose');
           const result = this.impl.setPreserveContextOnClose(params.preserve_context_on_close);
           break;

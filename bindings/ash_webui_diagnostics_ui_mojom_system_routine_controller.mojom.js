@@ -153,8 +153,11 @@ ash.diagnostics.mojom.RoutineRunnerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -177,9 +180,13 @@ ash.diagnostics.mojom.RoutineRunnerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRoutineResult');
           const result = this.impl.onRoutineResult(params.info);
           break;
@@ -285,8 +292,12 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -309,9 +320,13 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getSupportedRoutines');
           const result = this.impl.getSupportedRoutines();
           if (header.expectsResponse) {
@@ -323,7 +338,8 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
           break;
         }
         case 1: {
-          const params = ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.runRoutine');
           const result = this.impl.runRoutine(params.type, params.runner);
           break;

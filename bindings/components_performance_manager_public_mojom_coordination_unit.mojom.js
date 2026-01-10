@@ -287,8 +287,22 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
+    this.ordinalMap.set(7, 7); // Default ordinal 7 -> Index 7
+    this.ordinalMap.set(8, 8); // Default ordinal 8 -> Index 8
+    this.ordinalMap.set(9, 9); // Default ordinal 9 -> Index 9
+    this.ordinalMap.set(10, 10); // Default ordinal 10 -> Index 10
+    this.ordinalMap.set(11, 11); // Default ordinal 11 -> Index 11
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -311,69 +325,83 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setNetworkAlmostIdle');
           const result = this.impl.setNetworkAlmostIdle();
           break;
         }
         case 1: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setLifecycleState');
           const result = this.impl.setLifecycleState(params.state);
           break;
         }
         case 2: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setHasNonEmptyBeforeUnload');
           const result = this.impl.setHasNonEmptyBeforeUnload(params.has_nonempty_beforeunload);
           break;
         }
         case 3: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setHadFormInteraction');
           const result = this.impl.setHadFormInteraction();
           break;
         }
         case 4: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setHadUserEdits');
           const result = this.impl.setHadUserEdits();
           break;
         }
         case 5: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStartedUsingWebRTC');
           const result = this.impl.onStartedUsingWebRTC();
           break;
         }
         case 6: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStoppedUsingWebRTC');
           const result = this.impl.onStoppedUsingWebRTC();
           break;
         }
         case 7: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setIsAdFrame');
           const result = this.impl.setIsAdFrame(params.is_ad_frame);
           break;
         }
         case 8: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onNonPersistentNotificationCreated');
           const result = this.impl.onNonPersistentNotificationCreated();
           break;
         }
         case 9: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFirstContentfulPaint');
           const result = this.impl.onFirstContentfulPaint(params.time_since_navigation_start);
           break;
         }
         case 10: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onWebMemoryMeasurementRequested');
           const result = this.impl.onWebMemoryMeasurementRequested(params.mode);
           if (header.expectsResponse) {
@@ -385,7 +413,8 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
           break;
         }
         case 11: {
-          const params = performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFreezingOriginTrialOptOut');
           const result = this.impl.onFreezingOriginTrialOptOut();
           break;
@@ -553,8 +582,16 @@ performance_manager.mojom.ProcessCoordinationUnitReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -577,39 +614,48 @@ performance_manager.mojom.ProcessCoordinationUnitReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.setMainThreadTaskLoadIsLow');
           const result = this.impl.setMainThreadTaskLoadIsLow(params.main_thread_task_load_is_low);
           break;
         }
         case 1: {
-          const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onV8ContextCreated');
           const result = this.impl.onV8ContextCreated(params.description, params.iframe_attribution_data);
           break;
         }
         case 2: {
-          const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onV8ContextDetached');
           const result = this.impl.onV8ContextDetached(params.v8_context_token);
           break;
         }
         case 3: {
-          const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onV8ContextDestroyed');
           const result = this.impl.onV8ContextDestroyed(params.v8_context_token);
           break;
         }
         case 4: {
-          const params = performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRemoteIframeAttached');
           const result = this.impl.onRemoteIframeAttached(params.parent_frame_token, params.remote_frame_token, params.iframe_attribution_data);
           break;
         }
         case 5: {
-          const params = performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onRemoteIframeDetached');
           const result = this.impl.onRemoteIframeDetached(params.parent_frame_token, params.remote_frame_token);
           break;
@@ -699,8 +745,11 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -723,9 +772,13 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.initializeChildProcessCoordination');
           const result = this.impl.initializeChildProcessCoordination();
           if (header.expectsResponse) {

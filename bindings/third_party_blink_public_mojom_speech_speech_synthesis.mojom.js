@@ -135,8 +135,11 @@ blink.mojom.SpeechSynthesisVoiceListObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -159,9 +162,13 @@ blink.mojom.SpeechSynthesisVoiceListObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onSetVoiceList');
           const result = this.impl.onSetVoiceList(params.voice_list);
           break;
@@ -339,8 +346,17 @@ blink.mojom.SpeechSynthesisClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
+    this.ordinalMap.set(5, 5); // Default ordinal 5 -> Index 5
+    this.ordinalMap.set(6, 6); // Default ordinal 6 -> Index 6
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -363,45 +379,55 @@ blink.mojom.SpeechSynthesisClientReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onStartedSpeaking');
           const result = this.impl.onStartedSpeaking();
           break;
         }
         case 1: {
-          const params = blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onFinishedSpeaking');
           const result = this.impl.onFinishedSpeaking(params.error_code);
           break;
         }
         case 2: {
-          const params = blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onPausedSpeaking');
           const result = this.impl.onPausedSpeaking();
           break;
         }
         case 3: {
-          const params = blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onResumedSpeaking');
           const result = this.impl.onResumedSpeaking();
           break;
         }
         case 4: {
-          const params = blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEncounteredWordBoundary');
           const result = this.impl.onEncounteredWordBoundary(params.char_index, params.char_length);
           break;
         }
         case 5: {
-          const params = blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEncounteredSentenceBoundary');
           const result = this.impl.onEncounteredSentenceBoundary(params.char_index, params.char_length);
           break;
         }
         case 6: {
-          const params = blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.onEncounteredSpeakingError');
           const result = this.impl.onEncounteredSpeakingError();
           break;
@@ -547,8 +573,15 @@ blink.mojom.SpeechSynthesisReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -571,33 +604,41 @@ blink.mojom.SpeechSynthesisReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.addVoiceListObserver');
           const result = this.impl.addVoiceListObserver(params.observer);
           break;
         }
         case 1: {
-          const params = blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.utterance, params.client);
           break;
         }
         case 2: {
-          const params = blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 3: {
-          const params = blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 4: {
-          const params = blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;

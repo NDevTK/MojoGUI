@@ -241,8 +241,11 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -265,9 +268,13 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
@@ -419,8 +426,14 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -443,9 +456,13 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
           const result = this.impl.loadModel(params.params, params.model);
           if (header.expectsResponse) {
@@ -457,7 +474,8 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getCapabilities');
           const result = this.impl.getCapabilities(params.weights);
           if (header.expectsResponse) {
@@ -469,13 +487,15 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadTextSafetyModel');
           const result = this.impl.loadTextSafetyModel(params.params, params.model);
           break;
         }
         case 3: {
-          const params = on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getDeviceAndPerformanceInfo');
           const result = this.impl.getDeviceAndPerformanceInfo();
           if (header.expectsResponse) {
@@ -664,8 +684,15 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
+    this.ordinalMap.set(2, 2); // Default ordinal 2 -> Index 2
+    this.ordinalMap.set(3, 3); // Default ordinal 3 -> Index 3
+    this.ordinalMap.set(4, 4); // Default ordinal 4 -> Index 4
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -688,9 +715,13 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.loadPlatformModel');
           const result = this.impl.loadPlatformModel(params.uuid, params.model, params.progress_observer);
           if (header.expectsResponse) {
@@ -702,7 +733,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           break;
         }
         case 1: {
-          const params = on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getPlatformModelState');
           const result = this.impl.getPlatformModelState(params.uuid);
           if (header.expectsResponse) {
@@ -714,7 +746,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           break;
         }
         case 2: {
-          const params = on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.getEstimatedPerformanceClass');
           const result = this.impl.getEstimatedPerformanceClass();
           if (header.expectsResponse) {
@@ -726,7 +759,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           break;
         }
         case 3: {
-          const params = on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.formatInput');
           const result = this.impl.formatInput(params.uuid, params.feature, params.fields);
           if (header.expectsResponse) {
@@ -738,7 +772,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           break;
         }
         case 4: {
-          const params = on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
           const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
           if (header.expectsResponse) {

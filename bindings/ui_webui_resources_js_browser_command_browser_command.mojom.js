@@ -120,8 +120,11 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -144,9 +147,13 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.createBrowserCommandHandler');
           const result = this.impl.createBrowserCommandHandler(params.handler);
           break;
@@ -259,8 +266,12 @@ browser_command.mojom.CommandHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
+    this.ordinalMap = new Map();
+    this.ordinalMap.set(0, 0); // Default ordinal 0 -> Index 0
+    this.ordinalMap.set(1, 1); // Default ordinal 1 -> Index 1
     console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
@@ -283,9 +294,13 @@ browser_command.mojom.CommandHandlerReceiver = class {
       }
       const header = message && message.header;
       if (!header) return;
-      switch (header.ordinal) {
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      switch (dispatchId) {
         case 0: {
-          const params = browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.canExecuteCommand');
           const result = this.impl.canExecuteCommand(params.command_id);
           if (header.expectsResponse) {
@@ -297,7 +312,8 @@ browser_command.mojom.CommandHandlerReceiver = class {
           break;
         }
         case 1: {
-          const params = browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.decode(message.payload);
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStruct(browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$, 0);
           console.log('[GeneratedReceiver] Calling impl.executeCommand');
           const result = this.impl.executeCommand(params.command_id, params.click_info);
           if (header.expectsResponse) {
