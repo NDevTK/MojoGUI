@@ -120,10 +120,13 @@
             this.id = Math.random().toString(36).substr(2, 9);
 
             // Register globally so UI can access it easily via ID
-            if (!global.MojoProxyRegistry) {
-                global.MojoProxyRegistry = new Map();
+            const registry = global.MojoProxyRegistry || new Map();
+            global.MojoProxyRegistry = registry;
+            // Ensure distinct global scope access (window vs global)
+            if (typeof window !== 'undefined') {
+                window.MojoProxyRegistry = registry;
             }
-            global.MojoProxyRegistry.set(this.id, this);
+            registry.set(this.id, this);
 
             // We need to return a proxy that traps all method calls
             return new Proxy(this, {

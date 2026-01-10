@@ -946,6 +946,7 @@
         const row = document.createElement('tr');
         row.dataset.id = id;
         row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
+        if (data.proxyId) row.dataset.proxyId = data.proxyId;
 
         // Visual indicator for manual vs intercept
         const typeIcon = type === 'MANUAL' ? '🛠️' : '📡';
