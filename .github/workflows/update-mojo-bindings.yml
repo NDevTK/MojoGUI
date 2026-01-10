@@ -966,9 +966,9 @@ jobs:
                   js_code += "  return remote.$;\n"
                   js_code += "};\n\n"
                   
-                   # Legacy compatibility
-                   js_code += f"{full_name}Ptr = {full_name}Remote;\n"
-                   js_code += f"{full_name}Request = {full_name}PendingReceiver;\n\n"
+                  # Legacy compatibility
+                  js_code += f"{full_name}Ptr = {full_name}Remote;\n"
+                  js_code += f"{full_name}Request = {full_name}PendingReceiver;\n\n"
                
               return js_code
 
