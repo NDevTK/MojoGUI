@@ -51,7 +51,7 @@ device.mojom.ReportingMode = {
 mojo.internal.Struct(
     device.mojom.SensorReadingRawSpec, 'device.mojom.SensorReadingRaw', [
       mojo.internal.StructField('timestamp', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('values', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('values', 8, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -399,7 +399,7 @@ mojo.internal.Struct(
 // Struct: PlaneStrides
 mojo.internal.Struct(
     media.mojom.PlaneStridesSpec, 'media.mojom.PlaneStrides', [
-      mojo.internal.StructField('stride_by_plane', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('stride_by_plane', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

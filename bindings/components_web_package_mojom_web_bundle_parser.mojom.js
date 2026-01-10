@@ -130,14 +130,14 @@ mojo.internal.Struct(
 // Struct: Ed25519PublicKey
 mojo.internal.Struct(
     web_package.mojom.Ed25519PublicKeySpec, 'web_package.mojom.Ed25519PublicKey', [
-      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: Ed25519Signature
 mojo.internal.Struct(
     web_package.mojom.Ed25519SignatureSpec, 'web_package.mojom.Ed25519Signature', [
-      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 // Struct: EcdsaP256PublicKey
 mojo.internal.Struct(
     web_package.mojom.EcdsaP256PublicKeySpec, 'web_package.mojom.EcdsaP256PublicKey', [
-      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

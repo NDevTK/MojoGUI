@@ -312,9 +312,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.CableAuthenticationSpec, 'blink.mojom.CableAuthentication', [
       mojo.internal.StructField('version', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('client_eid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
-      mojo.internal.StructField('authenticator_eid', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
-      mojo.internal.StructField('session_pre_key', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('client_eid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('authenticator_eid', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('session_pre_key', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('server_link_data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('experiments', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],

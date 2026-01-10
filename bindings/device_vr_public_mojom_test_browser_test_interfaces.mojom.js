@@ -115,7 +115,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('buttons_pressed', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('buttons_touched', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('supported_buttons', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('axis_data', 32, 0, mojo.internal.Array(device_test.mojom.ControllerAxisData, 5Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('axis_data', 32, 0, mojo.internal.Array(device_test.mojom.ControllerAxisDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('pose_data', 40, 0, gfx.mojom.TransformSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('role', 48, 0, device_test.mojom.ControllerRoleSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('hand_data', 56, 0, device.mojom.XRHandTrackingDataSpec.$, null, true, 0, undefined),
@@ -134,8 +134,8 @@ mojo.internal.Struct(
 // Struct: XRVisibilityMask
 mojo.internal.Struct(
     device_test.mojom.XRVisibilityMaskSpec, 'device_test.mojom.XRVisibilityMask', [
-      mojo.internal.StructField('vertices', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('indices', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('vertices', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('indices', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

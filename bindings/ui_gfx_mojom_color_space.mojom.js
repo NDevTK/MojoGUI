@@ -94,7 +94,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('transfer', 8, 0, gfx.mojom.ColorSpaceTransferIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('matrix', 16, 0, gfx.mojom.ColorSpaceMatrixIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('range', 24, 0, gfx.mojom.ColorSpaceRangeIDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('custom_primary_matrix', 32, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('transfer_params', 40, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('custom_primary_matrix', 32, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('transfer_params', 40, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
     ],
     [[0, 56]]);

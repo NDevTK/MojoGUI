@@ -15,7 +15,7 @@ skia.mojom.SkColorSpaceSpec = { $: {} };
 // Struct: SkcmsMatrix3x3
 mojo.internal.Struct(
     skia.mojom.SkcmsMatrix3x3Spec, 'skia.mojom.SkcmsMatrix3x3', [
-      mojo.internal.StructField('vals', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('vals', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

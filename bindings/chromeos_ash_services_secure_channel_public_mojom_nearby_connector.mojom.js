@@ -353,8 +353,8 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerRequest = ash.secure_channel.mo
 // Interface: NearbyConnector
 mojo.internal.Struct(
     ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_Params', [
-      mojo.internal.StructField('bluetooth_public_address', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('eid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('bluetooth_public_address', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('eid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('message_receiver', 16, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageReceiverRemote), null, false, 0, undefined),
       mojo.internal.StructField('nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
     ],

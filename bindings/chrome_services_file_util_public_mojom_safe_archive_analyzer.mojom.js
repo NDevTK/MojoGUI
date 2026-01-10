@@ -31,8 +31,8 @@ chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = { $: 
 // Struct: ObfuscatedFileUtilHeaderData
 mojo.internal.Struct(
     chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, 'chrome.mojom.ObfuscatedFileUtilHeaderData', [
-      mojo.internal.StructField('derived_key', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('nonce_prefix', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('derived_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('nonce_prefix', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

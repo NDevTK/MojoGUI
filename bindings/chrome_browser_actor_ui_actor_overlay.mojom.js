@@ -36,7 +36,7 @@ mojo.internal.Struct(
     actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
       mojo.internal.StructField('border_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('border_glow_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('scrim_colors', 16, 0, mojo.internal.Array(skia.mojom.SkColor, 3Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('scrim_colors', 16, 0, mojo.internal.Array(skia.mojom.SkColorSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('magic_cursor_color', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);

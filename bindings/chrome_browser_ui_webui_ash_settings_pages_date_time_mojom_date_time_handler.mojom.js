@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec, 'ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParams', [
-      mojo.internal.StructField('timezones', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Pointer, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('timezones', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

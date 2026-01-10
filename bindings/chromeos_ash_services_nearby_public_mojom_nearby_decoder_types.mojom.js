@@ -122,8 +122,8 @@ mojo.internal.Union(
 // Struct: Advertisement
 mojo.internal.Struct(
     sharing.mojom.AdvertisementSpec, 'sharing.mojom.Advertisement', [
-      mojo.internal.StructField('salt', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('encrypted_metadata_key', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('salt', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('encrypted_metadata_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('device_type', 16, 0, nearby_share.mojom.ShareTargetTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],

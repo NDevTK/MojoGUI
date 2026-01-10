@@ -23,7 +23,7 @@ legion.mojom.OakSession_Decrypt_ResponseParamsSpec = { $: {} };
 // Struct: HandshakeMessage
 mojo.internal.Struct(
     legion.mojom.HandshakeMessageSpec, 'legion.mojom.HandshakeMessage', [
-      mojo.internal.StructField('ephemeral_public_key', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('ephemeral_public_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('ciphertext', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -22,6 +22,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('address', 32, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('prefix_length', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('ip_address_attributes', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('mac_address', 48, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('mac_address', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 64]]);

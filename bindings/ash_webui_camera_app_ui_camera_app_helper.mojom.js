@@ -1202,7 +1202,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_Params', [
       mojo.internal.StructField('jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointF, 4Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('rotation', 16, 0, chromeos.machine_learning.mojom.RotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
