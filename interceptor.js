@@ -95,8 +95,9 @@
                             // console.log('[Interceptor] Polyfill Encoder init', structSpec.packedSize);
                             var encoder = new mojo.internal.Encoder(structSpec.packedSize, 0);
 
-                            // Fix: bindings_lite Encoder might not init data_ in all versions?
-                            if (!encoder.data_ && encoder.buffer_) {
+                            // Fix: Force DataView initialization.
+                            // Some versions have data_ as undefined or not a DataView.
+                            if (encoder.buffer_) {
                                 encoder.data_ = new DataView(encoder.buffer_);
                             }
 
@@ -107,21 +108,6 @@
                             console.error('[Interceptor] createResponder Encoder failed, attempting manual fallback:', e);
 
                             // Attempt 2: Manual Buffer Construction (For Empty Response)
-                            // Structure: [Header (24 bytes)] + [Payload (8 bytes)]
-                            // Header: size(4), version(4), interface(4), ordinal(4), flags(4), padding(4), requestID(8)
-                            // Header v1 is 24 bytes? No, v0 is 24 bytes usually without requestID? 
-                            // Check mojo wire format:
-                            // v0: 24 bytes. [u32 num_bytes, u32 version, u32 interface_id, u32 ordinal, u32 flags, u32 padding] ? No.
-                            // Standard Header: 
-                            // 0: u32 num_bytes
-                            // 4: u32 version
-                            // 8: u32 interface_id
-                            // 12: u32 ordinal
-                            // 16: u32 flags
-                            // 20: u32 padding
-                            // 24: u64 request_id (Version 1) -> Total 32 bytes?
-                            // Let's assume Version 1 header which allows RequestID.
-
                             try {
                                 const headerSize = 32;
                                 const payloadSize = 8; // Empty struct (8 bytes size/ver)
@@ -137,26 +123,19 @@
                                 view.setUint32(16, 2, true);        // flags: 2 (IsResponse)
                                 view.setUint32(20, 0, true);        // padding
 
-                                // RequestID (u64) - Split into two u32
-                                // requestId is likely a BigInt or Number.
-                                // If it's BigInt
+                                // RequestID (u64)
                                 if (typeof requestId === 'bigint') {
                                     view.setBigUint64(24, requestId, true);
                                 } else {
-                                    // Lo/Hi
                                     view.setUint32(24, Number(requestId) & 0xFFFFFFFF, true);
                                     view.setUint32(28, (Number(requestId) / 0x100000000) >>> 0, true);
                                 }
 
-                                // Payload: Empty Struct
-                                // Size=8, Version=0
+                                // Payload: Empty Struct (Size=8, Version=0)
                                 view.setUint32(32, 8, true);
                                 view.setUint32(36, 0, true);
 
-                                // Create Message wrapper
-                                // message = new mojo.internal.Message(buffer, []); // Crashes due to internal validation
-
-                                // Bypassing constructor: return a plain object that satisfies Router.accept
+                                // Bypassing constructor: return a plain object that mimics Message
                                 message = {
                                     buffer: buffer,
                                     handles: [],
@@ -174,40 +153,30 @@
                         }
 
                         if (message) {
-                            // Ensure header properties are set (if using encoder path)
+                            // Ensure header properties are set
                             if (message.header && !message.header.requestId) {
                                 message.header.requestId = requestId;
                                 message.header.flags = 2;
                             }
 
-                            // If it's our raw object, it already has them.
-
-                            // Try to find the accept method
-                            if (typeof endpoint.router_.accept === 'function') {
-                                endpoint.router_.accept(message);
-                            } else {
-                                console.warn('[Interceptor] router_.accept does not exist! Inspecting router:', endpoint.router_);
-                                // Log prototype methods
-                                let proto = Object.getPrototypeOf(endpoint.router_);
-                                console.log('[Interceptor] Router prototype keys:', Object.getOwnPropertyNames(proto));
-
-                                // Try acceptBuffer if it exists (common variant)
-                                if (typeof endpoint.router_.acceptBuffer === 'function') {
-                                    console.log('[Interceptor] using router_.acceptBuffer');
-                                    endpoint.router_.acceptBuffer(message.buffer, message.handles || []);
-                                }
-                                // Try global test helper
-                                else if (mojo.internal.interfaceSupport.acceptBufferForTesting) {
-                                    console.log('[Interceptor] using interfaceSupport.acceptBufferForTesting');
-                                    // Usually takes (handle, buffer, handles)
-                                    mojo.internal.interfaceSupport.acceptBufferForTesting(
-                                        endpoint.router_.pipe_ || endpoint.router_.handle_,
-                                        message.buffer,
-                                        message.handles || []
-                                    );
+                            try {
+                                // Try to find the send method
+                                if (typeof endpoint.router_.accept === 'function') {
+                                    endpoint.router_.accept(message);
+                                } else if (typeof endpoint.router_.send === 'function') {
+                                    console.log('[Interceptor] using router_.send');
+                                    endpoint.router_.send(message);
+                                } else if (endpoint.router_.pipe_) {
+                                    console.log('[Interceptor] using Mojo.writeMessage (Direct)');
+                                    const result = Mojo.writeMessage(endpoint.router_.pipe_, message.buffer, message.handles || []);
+                                    if (result !== Mojo.RESULT_OK) {
+                                        console.error('[Interceptor] Mojo.writeMessage failed with result:', result);
+                                    }
                                 } else {
                                     console.error('[Interceptor] Could not find any method to send message on router!');
                                 }
+                            } catch (sendErr) {
+                                console.error('[Interceptor] Failed to send response:', sendErr);
                             }
                         }
                     };
