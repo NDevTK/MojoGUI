@@ -143,11 +143,16 @@
                 } else if (!input.type || input.type === 'text') {
                     // Check if it's supposed to be a BigInt (e.g. ends with 'n' or type is likely integer)
                     // Our safeParse/safeStringify uses '123n' convention.
-                    // If the type suggests integer, we might need to be careful.
-                    // But Mojo bindings usually handle coercion if it's close.
-                    // However, for explicit BigInt support from user input:
+                    // If the schema type says int64/uint64, we force BigInt even if user typed plain number.
+                    // If user typed '123n', it becomes BigInt(123).
+                    // If user typed '123' and type is int64, it becomes BigInt(123).
+
+                    const isBigIntType = type && (type.includes('int64') || type.includes('uint64'));
+
                     if (value.endsWith('n') && /^-?\d+n$/.test(value)) {
                         value = BigInt(value.slice(0, -1));
+                    } else if (isBigIntType && /^-?\d+$/.test(value)) {
+                        value = BigInt(value);
                     }
                 }
             }
@@ -354,6 +359,7 @@
         elements.resetBtn.disabled = false;
     }
 
+
     function getMethodParams(interfaceName, methodName) {
         // First look up metadata from state.interfaces
         // This handles cases where interfaceName might be simple or fully qualified
@@ -371,50 +377,8 @@
             ifaceMetadata = state.selectedInterface;
         }
 
-        if (ifaceMetadata && ifaceMetadata.module) {
-            const specName = `${interfaceName}_${methodName}_ParamsSpec`;
-            const namespace = resolveNamespace(ifaceMetadata.module);
-
-            if (namespace && namespace[specName]) {
-                const specWrapper = namespace[specName];
-                // specWrapper is like { $: { structSpec: { ... } } }
-                // or just { structSpec: ... } depending on generation
-                // The bindings use { $: { structSpec: ... } } for types like ParamsSpec
-
-                const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
-
-                if (structSpec && structSpec.fields) {
-                    return structSpec.fields.map(field => {
-                        let type = 'any';
-                        let originalName = field.name;
-
-                        // Handle formatting from StructFieldSpec
-                        // field.name might be internal name needed for packing
-
-                        // Check if it's a nullable value kind field (has originalFieldName)
-                        // In bindings_lite.js StructFieldSpec logic
-                        if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
-                            originalName = field.nullableValueKindProperties.originalFieldName;
-                        }
-
-                        // Infer type string better from the type object if possible, 
-                        // but for now use MojoParser's helper if we can get type name
-                        // In bindings_lite, type is a MojomType object.
-
-                        // We need to convert the MojomType back to a string representation for getInputType
-                        type = inferTypeFromMojomType(field.type);
-
-                        return {
-                            name: originalName,
-                            type: type,
-                            optional: !!field.nullable
-                        };
-                    }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value')); // Simple filter for split numerics if not handled
-                }
-            }
-        }
-
-        return generateDefaultParams(methodName);
+        // Delegate to the schema parser
+        return generateDefaultParams(ifaceMetadata, methodName);
     }
 
     function findMethodDefinition(interfaceName, methodName) {
@@ -612,11 +576,77 @@
         return current;
     }
 
-    function generateDefaultParams(methodName) {
-        // Fallback when we can't find the schema:
-        // Return null so the UI falls back to the "Raw Arguments Array" editor.
-        // This is crucial for methods with unknown signatures, as we need to support
-        // entering multiple arguments [arg1, arg2] via the raw textarea.
+    function inferTypeFromMojomType(mojomType) {
+        // Best effort mapping from runtime Mojo types to strings for UI
+        if (!mojomType) return 'any';
+
+        // Check availability of mojo global to avoid ReferenceError
+        const mojoLib = (typeof mojo !== 'undefined') ? mojo : ((typeof Mojo !== 'undefined') ? Mojo : null);
+
+        if (mojoLib && mojoLib.internal) {
+            // generated bindings use mojo.internal.String etc.
+            if (mojomType === mojoLib.internal.String) return 'string';
+            if (mojomType === mojoLib.internal.Bool) return 'bool';
+
+            // Specific handling for 64-bit types to ensure Text Input (BigInt support)
+            if (mojomType === mojoLib.internal.Int64) return 'int64';
+            if (mojomType === mojoLib.internal.Uint64) return 'uint64';
+
+            if (mojomType === mojoLib.internal.Int8 ||
+                mojomType === mojoLib.internal.Int16 ||
+                mojomType === mojoLib.internal.Int32 ||
+                mojomType === mojoLib.internal.Uint8 ||
+                mojomType === mojoLib.internal.Uint16 ||
+                mojomType === mojoLib.internal.Uint32 ||
+                mojomType === mojoLib.internal.Float ||
+                mojomType === mojoLib.internal.Double) return 'number';
+        }
+
+        // Arrays are tricky because they are constructible functions in bindings_lite
+        // We can check if it has array properties or naming convention
+        if (typeof mojomType === 'string') return mojomType;
+
+        return 'string'; // Default to string input for complex types so user can paste JSON/values
+    }
+
+    function generateDefaultParams(ifaceMetadata, methodName) {
+        // Attempts to resolve parameters from the Loaded Bindings in the page
+        if (ifaceMetadata && ifaceMetadata.module) {
+            // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
+            const simpleInterfaceName = ifaceMetadata.name.split('.').pop();
+            const specName = `${simpleInterfaceName}_${methodName}_ParamsSpec`;
+            const namespace = resolveNamespace(ifaceMetadata.module);
+
+            if (namespace && namespace[specName]) {
+                const specWrapper = namespace[specName];
+                // specWrapper is like { $: { structSpec: { ... } } }
+                // or just { structSpec: ... } depending on generation
+                const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
+
+                if (structSpec && structSpec.fields) {
+                    return structSpec.fields.map(field => {
+                        let type = 'any';
+                        let originalName = field.name;
+
+                        // Check for generated binding artifacts (nullable value structs)
+                        if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
+                            originalName = field.nullableValueKindProperties.originalFieldName;
+                        }
+
+                        // Use the runtime type inference
+                        type = inferTypeFromMojomType(field.type);
+
+                        return {
+                            name: originalName,
+                            type: type,
+                            optional: !!field.nullable
+                        };
+                    }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value'));
+                }
+            }
+        }
+
+        // Return null if schema not found, triggering the "Raw Arguments Array" fallback UI
         return null;
     }
 
