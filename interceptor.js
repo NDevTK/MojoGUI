@@ -182,7 +182,33 @@
 
                             // If it's our raw object, it already has them.
 
-                            endpoint.router_.accept(message);
+                            // Try to find the accept method
+                            if (typeof endpoint.router_.accept === 'function') {
+                                endpoint.router_.accept(message);
+                            } else {
+                                console.warn('[Interceptor] router_.accept does not exist! Inspecting router:', endpoint.router_);
+                                // Log prototype methods
+                                let proto = Object.getPrototypeOf(endpoint.router_);
+                                console.log('[Interceptor] Router prototype keys:', Object.getOwnPropertyNames(proto));
+
+                                // Try acceptBuffer if it exists (common variant)
+                                if (typeof endpoint.router_.acceptBuffer === 'function') {
+                                    console.log('[Interceptor] using router_.acceptBuffer');
+                                    endpoint.router_.acceptBuffer(message.buffer, message.handles || []);
+                                }
+                                // Try global test helper
+                                else if (mojo.internal.interfaceSupport.acceptBufferForTesting) {
+                                    console.log('[Interceptor] using interfaceSupport.acceptBufferForTesting');
+                                    // Usually takes (handle, buffer, handles)
+                                    mojo.internal.interfaceSupport.acceptBufferForTesting(
+                                        endpoint.router_.pipe_ || endpoint.router_.handle_,
+                                        message.buffer,
+                                        message.handles || []
+                                    );
+                                } else {
+                                    console.error('[Interceptor] Could not find any method to send message on router!');
+                                }
+                            }
                         }
                     };
                 };
