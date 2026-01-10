@@ -86,19 +86,31 @@
             // Mapping of Endpoint -> { header, rawHeader } to store context for createResponder
             const _endpointContexts = new WeakMap();
 
-            // Intercept ControlMessageHandler to capture headers and fix expectsResponse flag
-            if (typeof mojo.internal.interfaceSupport.getControlMessageHandler === 'function') {
-                const origGetHandler = mojo.internal.interfaceSupport.getControlMessageHandler;
+            // 1. Ensure getControlMessageHandler exists (Polyfill if missing in this environment)
+            if (typeof mojo.internal.interfaceSupport.getControlMessageHandler !== 'function') {
+                console.log('[Interceptor] Polyfilling missing getControlMessageHandler');
                 mojo.internal.interfaceSupport.getControlMessageHandler = function (endpoint) {
-                    const handler = origGetHandler(endpoint);
-                    if (handler && !handler._interceptor_patched) {
-                        handler._interceptor_patched = true;
-                        // console.log('[Interceptor] Patching ControlMessageHandler for endpoint:', endpoint.router_?.handle_ || 'unknown');
-                        const origDecode = handler.decodeMessageHeader;
+                    if (!endpoint._control_handler_) {
+                        const CMH = mojo.internal.interfaceSupport.ControlMessageHandler;
+                        if (CMH) {
+                            endpoint._control_handler_ = new CMH(endpoint);
+                        }
+                    }
+                    return endpoint._control_handler_;
+                };
+            }
+
+            // 2. Patch getControlMessageHandler (Original or Polyfilled) to capture headers
+            const origGetHandler = mojo.internal.interfaceSupport.getControlMessageHandler;
+            mojo.internal.interfaceSupport.getControlMessageHandler = function (endpoint) {
+                const handler = origGetHandler(endpoint);
+                if (handler && !handler._interceptor_patched) {
+                    handler._interceptor_patched = true;
+                    const origDecode = handler.decodeMessageHeader;
+                    if (typeof origDecode === 'function') {
                         handler.decodeMessageHeader = function (message) {
                             const header = origDecode.call(this, message);
                             if (header) {
-                                // console.log(`[Interceptor] Decoded header for ordinal ${header.ordinal} (expectsResponse: ${header.expectsResponse})`);
                                 // Fix the missing property that causes generated code to skip responses
                                 if (header.expectsResponse === undefined) {
                                     header.expectsResponse = !!(header.flags & 1);
@@ -112,9 +124,9 @@
                             return header;
                         };
                     }
-                    return handler;
-                };
-            }
+                }
+                return handler;
+            };
 
             // Polyfill createResponder if missing
             if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
