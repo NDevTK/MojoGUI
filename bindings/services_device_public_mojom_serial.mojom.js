@@ -323,32 +323,32 @@ device.mojom.SerialPortManagerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortManager_SetClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetDevices
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortManager_GetDevices_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OpenPort
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortManager_OpenPort_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPort (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -356,14 +356,14 @@ device.mojom.SerialPortManagerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPortManager_SetClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPortManager_GetDevices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
@@ -532,32 +532,32 @@ device.mojom.SerialPortManagerClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnPortAdded
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnPortRemoved
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnPortConnectedStateChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPortConnectedStateChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -565,14 +565,14 @@ device.mojom.SerialPortManagerClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPortAdded');
           const result = this.impl.onPortAdded(params.port_info);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPortRemoved');
@@ -867,86 +867,86 @@ device.mojom.SerialPortReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: StartWriting
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_StartWriting_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartWriting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: StartReading
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_StartReading_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartReading (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Flush
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_Flush_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: Drain
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_Drain_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Drain (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: GetControlSignals
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_GetControlSignals_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetControlSignals (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: SetControlSignals
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_SetControlSignals_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetControlSignals (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: ConfigurePort
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_ConfigurePort_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigurePort (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: GetPortInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_GetPortInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPortInfo (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: Close
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPort_Close_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -954,21 +954,21 @@ device.mojom.SerialPortReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 8: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_StartWriting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startWriting');
           const result = this.impl.startWriting(params.consumer);
           break;
         }
-        case 8: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_StartReading_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startReading');
           const result = this.impl.startReading(params.producer);
           break;
         }
-        case 8: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_Flush_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flush');
@@ -981,7 +981,7 @@ device.mojom.SerialPortReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_Drain_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.drain');
@@ -994,7 +994,7 @@ device.mojom.SerialPortReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_GetControlSignals_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getControlSignals');
@@ -1007,7 +1007,7 @@ device.mojom.SerialPortReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_SetControlSignals_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setControlSignals');
@@ -1020,7 +1020,7 @@ device.mojom.SerialPortReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_ConfigurePort_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.configurePort');
@@ -1033,7 +1033,7 @@ device.mojom.SerialPortReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPort_GetPortInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPortInfo');
@@ -1185,23 +1185,23 @@ device.mojom.SerialPortClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnReadError
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortClient_OnReadError_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnSendError
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SerialPortClient_OnSendError_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSendError (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1209,7 +1209,7 @@ device.mojom.SerialPortClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SerialPortClient_OnReadError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReadError');

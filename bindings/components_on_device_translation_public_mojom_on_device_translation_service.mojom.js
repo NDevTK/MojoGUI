@@ -186,23 +186,23 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: FileExists
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FileExists (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Open
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Open (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -210,7 +210,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fileExists');
@@ -394,32 +394,32 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetServiceConfig
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetServiceConfig (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CreateTranslator
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTranslator (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: CanTranslate
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanTranslate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -427,14 +427,14 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setServiceConfig');
           const result = this.impl.setServiceConfig(params.config);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createTranslator');

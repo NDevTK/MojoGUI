@@ -125,23 +125,23 @@ on_load_script_injector.mojom.OnLoadScriptInjectorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddOnLoadScript
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddOnLoadScript (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ClearOnLoadScripts
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearOnLoadScripts (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -149,7 +149,7 @@ on_load_script_injector.mojom.OnLoadScriptInjectorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addOnLoadScript');

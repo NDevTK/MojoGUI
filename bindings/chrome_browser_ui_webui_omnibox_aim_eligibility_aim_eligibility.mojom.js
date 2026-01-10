@@ -134,14 +134,14 @@ aim_eligibility.mojom.PageReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnEligibilityStateChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEligibilityStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -309,32 +309,32 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetEligibilityState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEligibilityState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: RequestServerEligibilityForDebugging
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestServerEligibilityForDebugging (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SetEligibilityResponseForDebugging
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEligibilityResponseForDebugging (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -342,7 +342,7 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getEligibilityState');
@@ -355,7 +355,7 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestServerEligibilityForDebugging');
@@ -485,14 +485,14 @@ aim_eligibility.mojom.PageHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

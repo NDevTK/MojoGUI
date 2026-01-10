@@ -204,41 +204,41 @@ webnn.mojom.WebNNTensorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReadTensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadTensor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: WriteTensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteTensor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ExportTensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExportTensor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ImportTensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImportTensor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -246,7 +246,7 @@ webnn.mojom.WebNNTensorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readTensor');
@@ -259,14 +259,14 @@ webnn.mojom.WebNNTensorReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeTensor');
           const result = this.impl.writeTensor(params.src_buffer);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.exportTensor');

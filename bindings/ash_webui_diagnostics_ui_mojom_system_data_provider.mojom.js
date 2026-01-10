@@ -230,14 +230,14 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnBatteryChargeStatusUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatteryChargeStatusUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -361,14 +361,14 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnBatteryHealthUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBatteryHealthUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -492,14 +492,14 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnMemoryUsageUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryUsageUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -623,14 +623,14 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnCpuUsageUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCpuUsageUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -849,59 +849,59 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetSystemInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemInfo (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetBatteryInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBatteryInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ObserveBatteryChargeStatus
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveBatteryChargeStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ObserveBatteryHealth
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveBatteryHealth (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: ObserveMemoryUsage
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveMemoryUsage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: ObserveCpuUsage
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveCpuUsage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -909,7 +909,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 5: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSystemInfo');
@@ -922,7 +922,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBatteryInfo');
@@ -935,21 +935,21 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryChargeStatus');
           const result = this.impl.observeBatteryChargeStatus(params.observer);
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryHealth');
           const result = this.impl.observeBatteryHealth(params.observer);
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeMemoryUsage');

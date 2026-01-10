@@ -159,23 +159,23 @@ ax.mojom.UserInputReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SendSyntheticKeyEventForShortcutOrNavigation
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendSyntheticKeyEventForShortcutOrNavigation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SendSyntheticMouseEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendSyntheticMouseEvent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -183,7 +183,7 @@ ax.mojom.UserInputReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendSyntheticKeyEventForShortcutOrNavigation');

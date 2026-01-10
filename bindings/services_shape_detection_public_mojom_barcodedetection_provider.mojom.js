@@ -140,23 +140,23 @@ shape_detection.mojom.BarcodeDetectionProviderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateBarcodeDetection
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateBarcodeDetection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: EnumerateSupportedFormats
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateSupportedFormats (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -164,7 +164,7 @@ shape_detection.mojom.BarcodeDetectionProviderReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createBarcodeDetection');

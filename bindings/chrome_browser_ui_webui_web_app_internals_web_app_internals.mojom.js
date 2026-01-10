@@ -575,149 +575,149 @@ mojom.WebAppInternalsHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDebugInfoAsJsonString
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugInfoAsJsonString (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: InstallIsolatedWebAppFromDevProxy
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallIsolatedWebAppFromDevProxy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SelectFileAndInstallIsolatedWebAppFromDevBundle
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectFileAndInstallIsolatedWebAppFromDevBundle (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ParseUpdateManifestFromUrl
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseUpdateManifestFromUrl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: InstallIsolatedWebAppFromBundleUrl
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallIsolatedWebAppFromBundleUrl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: UpdateDevProxyIsolatedWebApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDevProxyIsolatedWebApp (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: SelectFileAndUpdateIsolatedWebAppFromDevBundle
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectFileAndUpdateIsolatedWebAppFromDevBundle (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: UpdateManifestInstalledIsolatedWebApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateManifestInstalledIsolatedWebApp (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: DeleteIsolatedWebApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteIsolatedWebApp (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: SetUpdateChannelForIsolatedWebApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpdateChannelForIsolatedWebApp (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: SetPinnedVersionForIsolatedWebApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPinnedVersionForIsolatedWebApp (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: ResetPinnedVersionForIsolatedWebApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetPinnedVersionForIsolatedWebApp (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: SetAllowDowngradesForIsolatedWebApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowDowngradesForIsolatedWebApp (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: SearchForIsolatedWebAppUpdates
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SearchForIsolatedWebAppUpdates (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: GetIsolatedWebAppDevModeAppInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsolatedWebAppDevModeAppInfo (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: RotateKey
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.WebAppInternalsHandler_RotateKey_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RotateKey (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -725,7 +725,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 15: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDebugInfoAsJsonString');
@@ -738,7 +738,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.installIsolatedWebAppFromDevProxy');
@@ -751,7 +751,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectFileAndInstallIsolatedWebAppFromDevBundle');
@@ -764,7 +764,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseUpdateManifestFromUrl');
@@ -777,7 +777,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.installIsolatedWebAppFromBundleUrl');
@@ -790,7 +790,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateDevProxyIsolatedWebApp');
@@ -803,7 +803,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectFileAndUpdateIsolatedWebAppFromDevBundle');
@@ -816,7 +816,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateManifestInstalledIsolatedWebApp');
@@ -829,7 +829,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteIsolatedWebApp');
@@ -842,7 +842,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUpdateChannelForIsolatedWebApp');
@@ -855,7 +855,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPinnedVersionForIsolatedWebApp');
@@ -868,21 +868,21 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resetPinnedVersionForIsolatedWebApp');
           const result = this.impl.resetPinnedVersionForIsolatedWebApp(params.app_id);
           break;
         }
-        case 15: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setAllowDowngradesForIsolatedWebApp');
           const result = this.impl.setAllowDowngradesForIsolatedWebApp(params.allow_downgrades, params.app_id);
           break;
         }
-        case 15: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.searchForIsolatedWebAppUpdates');
@@ -895,7 +895,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getIsolatedWebAppDevModeAppInfo');

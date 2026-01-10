@@ -280,14 +280,14 @@ coral.mojom.TitleObserverReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TitleUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TitleUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -441,23 +441,23 @@ coral.mojom.CoralProcessorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Group
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(coral.mojom.CoralProcessor_Group_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Group (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CacheEmbeddings
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CacheEmbeddings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -465,7 +465,7 @@ coral.mojom.CoralProcessorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(coral.mojom.CoralProcessor_Group_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.group');
@@ -665,41 +665,41 @@ coral.mojom.CoralServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GroupDeprecated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GroupDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CacheEmbeddingsDeprecated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CacheEmbeddingsDeprecated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: PrepareResource
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(coral.mojom.CoralService_PrepareResource_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareResource (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: Initialize
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(coral.mojom.CoralService_Initialize_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -707,7 +707,7 @@ coral.mojom.CoralServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.groupDeprecated');
@@ -720,7 +720,7 @@ coral.mojom.CoralServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddingsDeprecated');
@@ -733,7 +733,7 @@ coral.mojom.CoralServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(coral.mojom.CoralService_PrepareResource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prepareResource');

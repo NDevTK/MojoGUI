@@ -197,41 +197,41 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AuthenticateWebview
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AuthenticateWebview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetProfileInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProfileInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnScreenSwitched
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenSwitched (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OnTransferComplete
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTransferComplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -239,7 +239,7 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.authenticateWebview');
@@ -252,7 +252,7 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getProfileInfo');
@@ -265,7 +265,7 @@ ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onScreenSwitched');

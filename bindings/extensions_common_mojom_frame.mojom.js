@@ -350,95 +350,95 @@ extensions.mojom.LocalFrameReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetFrameName
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrameName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SetSpatialNavigationEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSpatialNavigationEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SetTabId
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabId (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: AppWindowClosed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AppWindowClosed (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: NotifyRenderViewType
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyRenderViewType (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: MessageInvoke
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MessageInvoke (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: ExecuteCode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteCode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: ExecuteDeclarativeScript
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteDeclarativeScript (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: UpdateBrowserWindowId
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateBrowserWindowId (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: DispatchOnConnect
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchOnConnect (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -446,49 +446,49 @@ extensions.mojom.LocalFrameReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 9: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setFrameName');
           const result = this.impl.setFrameName(params.frame_name);
           break;
         }
-        case 9: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSpatialNavigationEnabled');
           const result = this.impl.setSpatialNavigationEnabled(params.spatial_nav_enabled);
           break;
         }
-        case 9: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTabId');
           const result = this.impl.setTabId(params.tab_id);
           break;
         }
-        case 9: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.appWindowClosed');
           const result = this.impl.appWindowClosed(params.send_onclosed);
           break;
         }
-        case 9: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyRenderViewType');
           const result = this.impl.notifyRenderViewType(params.view_type);
           break;
         }
-        case 9: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.messageInvoke');
           const result = this.impl.messageInvoke(params.extension_id, params.module_name, params.function_name, params.args);
           break;
         }
-        case 9: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.executeCode');
@@ -501,14 +501,14 @@ extensions.mojom.LocalFrameReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.executeDeclarativeScript');
           const result = this.impl.executeDeclarativeScript(params.tab_id, params.extension_id, params.script_id, params.url);
           break;
         }
-        case 9: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateBrowserWindowId');
@@ -880,122 +880,122 @@ extensions.mojom.LocalFrameHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestScriptInjectionPermission
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestScriptInjectionPermission (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetAppInstallState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAppInstallState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Request
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_Request_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Request (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ResponseAck
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResponseAck (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: WatchedPageChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WatchedPageChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: DetailedConsoleMessageAdded
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetailedConsoleMessageAdded (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: ContentScriptsExecuting
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContentScriptsExecuting (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: IncrementLazyKeepaliveCount
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IncrementLazyKeepaliveCount (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: DecrementLazyKeepaliveCount
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecrementLazyKeepaliveCount (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: AppWindowReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AppWindowReady (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: OpenChannelToExtension
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToExtension (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: OpenChannelToNativeApp
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToNativeApp (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: OpenChannelToTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenChannelToTab (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1003,7 +1003,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 12: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestScriptInjectionPermission');
@@ -1016,7 +1016,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAppInstallState');
@@ -1029,7 +1029,7 @@ extensions.mojom.LocalFrameHostReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_Request_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.request');
@@ -1042,63 +1042,63 @@ extensions.mojom.LocalFrameHostReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.responseAck');
           const result = this.impl.responseAck(params.request_uuid);
           break;
         }
-        case 12: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.watchedPageChange');
           const result = this.impl.watchedPageChange(params.css_selectors);
           break;
         }
-        case 12: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.detailedConsoleMessageAdded');
           const result = this.impl.detailedConsoleMessageAdded(params.message, params.source, params.stack_trace, params.level);
           break;
         }
-        case 12: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.contentScriptsExecuting');
           const result = this.impl.contentScriptsExecuting(params.extension_id_to_scripts, params.frame_url);
           break;
         }
-        case 12: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.incrementLazyKeepaliveCount');
           const result = this.impl.incrementLazyKeepaliveCount();
           break;
         }
-        case 12: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.decrementLazyKeepaliveCount');
           const result = this.impl.decrementLazyKeepaliveCount();
           break;
         }
-        case 12: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.appWindowReady');
           const result = this.impl.appWindowReady();
           break;
         }
-        case 12: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openChannelToExtension');
           const result = this.impl.openChannelToExtension(params.info, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openChannelToNativeApp');

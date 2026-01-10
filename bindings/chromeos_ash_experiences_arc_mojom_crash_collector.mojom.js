@@ -174,41 +174,41 @@ arc.mojom.CrashCollectorHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DumpCrash
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpCrash (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SetBuildProperties
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBuildProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: DumpNativeCrash
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpNativeCrash (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: DumpKernelCrash
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpKernelCrash (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -216,21 +216,21 @@ arc.mojom.CrashCollectorHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dumpCrash');
           const result = this.impl.dumpCrash(params.type, params.pipe, params.uptime);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setBuildProperties');
           const result = this.impl.setBuildProperties(params.device, params.board, params.cpu_abi, params.fingerprint);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dumpNativeCrash');
@@ -358,14 +358,14 @@ arc.mojom.CrashCollectorInstanceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -373,7 +373,7 @@ arc.mojom.CrashCollectorInstanceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');

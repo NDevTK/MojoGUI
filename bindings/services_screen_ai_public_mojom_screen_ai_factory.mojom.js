@@ -116,14 +116,14 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ShuttingDownOnIdle
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShuttingDownOnIdle (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -297,32 +297,32 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: InitializeOCR
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeOCR (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: InitializeMainContentExtraction
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeMainContentExtraction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: BindShutdownHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindShutdownHandler (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -330,7 +330,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.initializeOCR');
@@ -343,7 +343,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.initializeMainContentExtraction');

@@ -221,59 +221,59 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestClose
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestClose (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetInstalledArcApps
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInstalledArcApps (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: GetOAuthToken
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOAuthToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: LogOut
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogOut (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: NotifySupervisionEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySupervisionEnabled (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: SetCloseOnEscape
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCloseOnEscape (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -281,7 +281,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 5: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
@@ -294,7 +294,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getInstalledArcApps');
@@ -307,7 +307,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getOAuthToken');
@@ -320,14 +320,14 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.logOut');
           const result = this.impl.logOut();
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifySupervisionEnabled');

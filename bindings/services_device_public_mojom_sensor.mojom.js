@@ -251,59 +251,59 @@ device.mojom.SensorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDefaultConfiguration
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultConfiguration (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: AddConfiguration
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.Sensor_AddConfiguration_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddConfiguration (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: RemoveConfiguration
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveConfiguration (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: Suspend
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.Sensor_Suspend_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Suspend (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: Resume
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.Sensor_Resume_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: ConfigureReadingChangeNotifications
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureReadingChangeNotifications (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -311,7 +311,7 @@ device.mojom.SensorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 5: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDefaultConfiguration');
@@ -324,7 +324,7 @@ device.mojom.SensorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.Sensor_AddConfiguration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addConfiguration');
@@ -337,21 +337,21 @@ device.mojom.SensorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeConfiguration');
           const result = this.impl.removeConfiguration(params.configuration);
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.Sensor_Suspend_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.Sensor_Resume_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resume');
@@ -489,23 +489,23 @@ device.mojom.SensorClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RaiseError
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SensorClient_RaiseError_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RaiseError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SensorReadingChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SensorReadingChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -513,7 +513,7 @@ device.mojom.SensorClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SensorClient_RaiseError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.raiseError');

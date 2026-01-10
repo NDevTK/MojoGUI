@@ -238,41 +238,41 @@ chromecast.mojom.CastWebServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateWebView
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebView (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: RegisterWebUiClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterWebUiClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: FlushDomLocalStorage
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushDomLocalStorage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ClearLocalStorage
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearLocalStorage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -280,21 +280,21 @@ chromecast.mojom.CastWebServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWebView');
           const result = this.impl.createWebView(params.params, params.web_contents, params.window);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.registerWebUiClient');
           const result = this.impl.registerWebUiClient(params.client, params.hosts);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flushDomLocalStorage');

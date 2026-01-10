@@ -210,23 +210,23 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SelectURL
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectURL (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Run
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Run (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -234,7 +234,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectURL');
@@ -454,41 +454,41 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateWorklet
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWorklet (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SharedStorageGet
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageGet (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SharedStorageUpdate
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageUpdate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: SharedStorageBatchUpdate
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SharedStorageBatchUpdate (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -496,7 +496,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWorklet');
@@ -509,7 +509,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageGet');
@@ -522,7 +522,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');

@@ -210,14 +210,14 @@ ash.auth.mojom.FactorObserverReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnFactorChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFactorChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -454,59 +454,59 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ObserveFactorChanges
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveFactorChanges (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: IsSupported
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSupported (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: IsConfigured
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsConfigured (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetManagementType
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetManagementType (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: IsEditable
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsEditable (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: GetLocalAuthFactorsComplexity
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalAuthFactorsComplexity (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -514,14 +514,14 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 5: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.observeFactorChanges');
           const result = this.impl.observeFactorChanges(params.observer);
           break;
         }
-        case 5: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
@@ -534,7 +534,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isConfigured');
@@ -547,7 +547,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getManagementType');
@@ -560,7 +560,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isEditable');
@@ -696,14 +696,14 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Configure
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Configure (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -934,50 +934,50 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetPin
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPin (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: UpdatePin
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePin (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: RemovePin
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePin (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetConfiguredPinFactor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConfiguredPinFactor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: CheckPinComplexity
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckPinComplexity (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -985,7 +985,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 4: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPin');
@@ -998,7 +998,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updatePin');
@@ -1011,7 +1011,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removePin');
@@ -1024,7 +1024,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getConfiguredPinFactor');
@@ -1284,59 +1284,59 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdateOrSetLocalPassword
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOrSetLocalPassword (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: UpdateOrSetOnlinePassword
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOrSetOnlinePassword (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SetLocalPassword
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocalPassword (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: SetOnlinePassword
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOnlinePassword (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: CheckLocalPasswordComplexity
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckLocalPasswordComplexity (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: RemovePassword
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePassword (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1344,7 +1344,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 5: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetLocalPassword');
@@ -1357,7 +1357,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetOnlinePassword');
@@ -1370,7 +1370,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setLocalPassword');
@@ -1383,7 +1383,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setOnlinePassword');
@@ -1396,7 +1396,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.checkLocalPasswordComplexity');

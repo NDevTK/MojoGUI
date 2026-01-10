@@ -300,50 +300,50 @@ device.mojom.SensorProviderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetSensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SensorProvider_GetSensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSensor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CreateVirtualSensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVirtualSensor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: UpdateVirtualSensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateVirtualSensor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: RemoveVirtualSensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveVirtualSensor (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: GetVirtualSensorInformation
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVirtualSensorInformation (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -351,7 +351,7 @@ device.mojom.SensorProviderReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 4: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SensorProvider_GetSensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSensor');
@@ -364,7 +364,7 @@ device.mojom.SensorProviderReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVirtualSensor');
@@ -377,7 +377,7 @@ device.mojom.SensorProviderReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateVirtualSensor');
@@ -390,7 +390,7 @@ device.mojom.SensorProviderReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeVirtualSensor');

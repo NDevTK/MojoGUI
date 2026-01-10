@@ -251,77 +251,77 @@ video_capture.mojom.DeviceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Start
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_Start_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: MaybeSuspend
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_MaybeSuspend_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeSuspend (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Resume
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_Resume_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetPhotoState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_GetPhotoState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPhotoState (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: SetPhotoOptions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_SetPhotoOptions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhotoOptions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: TakePhoto
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_TakePhoto_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TakePhoto (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: ProcessFeedback
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_ProcessFeedback_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessFeedback (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: RequestRefreshFrame
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestRefreshFrame (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -329,28 +329,28 @@ video_capture.mojom.DeviceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 7: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(video_capture.mojom.Device_Start_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.requested_settings, params.handler);
           break;
         }
-        case 7: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(video_capture.mojom.Device_MaybeSuspend_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.maybeSuspend');
           const result = this.impl.maybeSuspend();
           break;
         }
-        case 7: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(video_capture.mojom.Device_Resume_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
-        case 7: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(video_capture.mojom.Device_GetPhotoState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPhotoState');
@@ -363,7 +363,7 @@ video_capture.mojom.DeviceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(video_capture.mojom.Device_SetPhotoOptions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
@@ -376,7 +376,7 @@ video_capture.mojom.DeviceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(video_capture.mojom.Device_TakePhoto_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.takePhoto');
@@ -389,7 +389,7 @@ video_capture.mojom.DeviceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(video_capture.mojom.Device_ProcessFeedback_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.processFeedback');

@@ -327,50 +327,50 @@ network.mojom.SimpleCacheEntryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: WriteData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCacheEntry_WriteData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ReadData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCacheEntry_ReadData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadData (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: WriteSparseData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSparseData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ReadSparseData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSparseData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: Close
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCacheEntry_Close_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -378,7 +378,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 4: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCacheEntry_WriteData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeData');
@@ -391,7 +391,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCacheEntry_ReadData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readData');
@@ -404,7 +404,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeSparseData');
@@ -417,7 +417,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readSparseData');
@@ -557,14 +557,14 @@ network.mojom.SimpleCacheEntryEnumeratorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetNext
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -808,59 +808,59 @@ network.mojom.SimpleCacheReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateEntry
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCache_CreateEntry_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateEntry (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OpenEntry
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCache_OpenEntry_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEntry (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: DoomEntry
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCache_DoomEntry_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoomEntry (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: DoomAllEntries
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCache_DoomAllEntries_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoomAllEntries (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: EnumerateEntries
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCache_EnumerateEntries_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateEntries (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: Detach
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.SimpleCache_Detach_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Detach (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -868,7 +868,7 @@ network.mojom.SimpleCacheReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 5: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCache_CreateEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createEntry');
@@ -881,7 +881,7 @@ network.mojom.SimpleCacheReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCache_OpenEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openEntry');
@@ -894,7 +894,7 @@ network.mojom.SimpleCacheReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCache_DoomEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.doomEntry');
@@ -907,7 +907,7 @@ network.mojom.SimpleCacheReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCache_DoomAllEntries_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.doomAllEntries');
@@ -920,7 +920,7 @@ network.mojom.SimpleCacheReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.SimpleCache_EnumerateEntries_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enumerateEntries');
@@ -1661,266 +1661,266 @@ network.mojom.NetworkServiceTestReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddRules
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_AddRules_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRules (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SimulateNetworkChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SimulateNetworkChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SimulateNetworkQualityChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SimulateNetworkQualityChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ForceNetworkQualityEstimatorReportWifiAsSlow2G
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceNetworkQualityEstimatorReportWifiAsSlow2G (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: SimulateCrash
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SimulateCrash (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: MockCertVerifierSetDefaultResult
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MockCertVerifierSetDefaultResult (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: MockCertVerifierAddResultForCertAndHost
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MockCertVerifierAddResultForCertAndHost (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: SetTransportSecurityStateTestSource
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTransportSecurityStateTestSource (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: SetAllowNetworkAccessToHostResolutions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowNetworkAccessToHostResolutions (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: ReplaceSystemDnsConfig
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplaceSystemDnsConfig (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: SetTestDohConfig
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestDohConfig (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: CrashOnResolveHost
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashOnResolveHost (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: CrashOnGetCookieList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashOnGetCookieList (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: GetLatestMemoryPressureLevel
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLatestMemoryPressureLevel (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: GetPeerToPeerConnectionsCountChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPeerToPeerConnectionsCountChange (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: GetEnvironmentVariableValue
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEnvironmentVariableValue (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: Log
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_Log_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Log (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: ActivateFieldTrial
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateFieldTrial (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: SetSCTAuditingRetryDelay
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSCTAuditingRetryDelay (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 19: OpenFile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_OpenFile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 20: EnumerateFiles
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateFiles (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 21: CreateSimpleCache
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSimpleCache (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 22: MakeRequestToServer
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeRequestToServer (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 23: ResolveOwnHostnameWithSystemDns
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveOwnHostnameWithSystemDns (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 24: SetIPv6ProbeResult
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPv6ProbeResult (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 25: GetAddressMapCacheLinux
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAddressMapCacheLinux (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 26: AllowsGSSAPILibraryLoad
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowsGSSAPILibraryLoad (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 27: DisableExclusiveCookieDatabaseLockingForTesting
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableExclusiveCookieDatabaseLockingForTesting (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 28: IsHappyEyeballsV3Enabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsHappyEyeballsV3Enabled (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1928,7 +1928,7 @@ network.mojom.NetworkServiceTestReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 28: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_AddRules_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addRules');
@@ -1941,7 +1941,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.simulateNetworkChange');
@@ -1954,7 +1954,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.simulateNetworkQualityChange');
@@ -1967,7 +1967,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceNetworkQualityEstimatorReportWifiAsSlow2G');
@@ -1980,14 +1980,14 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.simulateCrash');
           const result = this.impl.simulateCrash();
           break;
         }
-        case 28: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mockCertVerifierSetDefaultResult');
@@ -2000,7 +2000,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mockCertVerifierAddResultForCertAndHost');
@@ -2013,7 +2013,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTransportSecurityStateTestSource');
@@ -2026,7 +2026,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setAllowNetworkAccessToHostResolutions');
@@ -2039,7 +2039,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.replaceSystemDnsConfig');
@@ -2052,7 +2052,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTestDohConfig');
@@ -2065,21 +2065,21 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.crashOnResolveHost');
           const result = this.impl.crashOnResolveHost(params.host);
           break;
         }
-        case 28: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.crashOnGetCookieList');
           const result = this.impl.crashOnGetCookieList();
           break;
         }
-        case 28: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getLatestMemoryPressureLevel');
@@ -2092,7 +2092,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPeerToPeerConnectionsCountChange');
@@ -2105,7 +2105,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getEnvironmentVariableValue');
@@ -2118,7 +2118,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_Log_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.log');
@@ -2131,14 +2131,14 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.activateFieldTrial');
           const result = this.impl.activateFieldTrial(params.field_trial_name);
           break;
         }
-        case 28: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSCTAuditingRetryDelay');
@@ -2151,7 +2151,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_OpenFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFile');
@@ -2164,7 +2164,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enumerateFiles');
@@ -2177,7 +2177,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createSimpleCache');
@@ -2190,7 +2190,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.makeRequestToServer');
@@ -2203,7 +2203,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resolveOwnHostnameWithSystemDns');
@@ -2216,7 +2216,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setIPv6ProbeResult');
@@ -2229,7 +2229,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAddressMapCacheLinux');
@@ -2242,7 +2242,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.allowsGSSAPILibraryLoad');
@@ -2255,7 +2255,7 @@ network.mojom.NetworkServiceTestReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disableExclusiveCookieDatabaseLockingForTesting');

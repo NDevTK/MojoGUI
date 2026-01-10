@@ -241,23 +241,23 @@ crosapi.mojom.PasskeyAuthenticatorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Create
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Assert
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Assert (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -278,7 +278,7 @@ crosapi.mojom.PasskeyAuthenticatorReceiver = class {
           }
           break;
         }
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.assert');

@@ -131,23 +131,23 @@ content.mojom.FontCacheWinReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: PreCacheFont
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.FontCacheWin_PreCacheFont_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreCacheFont (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ReleaseCachedFonts
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseCachedFonts (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -155,7 +155,7 @@ content.mojom.FontCacheWinReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.FontCacheWin_PreCacheFont_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.preCacheFont');

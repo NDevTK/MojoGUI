@@ -150,23 +150,23 @@ arc.mojom.VideoHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnBootstrapVideoAcceleratorFactory
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBootstrapVideoAcceleratorFactory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CreateVideoAcceleratorFactory
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoAcceleratorFactory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -174,7 +174,7 @@ arc.mojom.VideoHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBootstrapVideoAcceleratorFactory');
@@ -187,7 +187,7 @@ arc.mojom.VideoHostReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVideoAcceleratorFactory');
@@ -314,14 +314,14 @@ arc.mojom.VideoInstanceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Init
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.VideoInstance_Init_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -329,7 +329,7 @@ arc.mojom.VideoInstanceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.VideoInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
@@ -504,41 +504,41 @@ arc.mojom.VideoAcceleratorFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateEncodeAccelerator
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateEncodeAccelerator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CreateDecodeAccelerator
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDecodeAccelerator (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: CreateVideoDecoder
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoDecoder (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: CreateProtectedBufferAllocator
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProtectedBufferAllocator (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -546,21 +546,21 @@ arc.mojom.VideoAcceleratorFactoryReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createEncodeAccelerator');
           const result = this.impl.createEncodeAccelerator(params.video_encoder);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createDecodeAccelerator');
           const result = this.impl.createDecodeAccelerator(params.video_decoder, params.protected_buffer_manager, params.browser_cdm_factory);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');

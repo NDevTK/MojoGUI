@@ -147,23 +147,23 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Write
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Verify
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -171,7 +171,7 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.write');
@@ -311,23 +311,23 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Progress
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Complete
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -335,7 +335,7 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.progress');

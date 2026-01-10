@@ -163,23 +163,23 @@ arc.keymint.mojom.CertStoreInstanceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: UpdatePlaceholderKeys
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePlaceholderKeys (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SetSerialNumber
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSerialNumber (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -187,7 +187,7 @@ arc.keymint.mojom.CertStoreInstanceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updatePlaceholderKeys');
@@ -200,7 +200,7 @@ arc.keymint.mojom.CertStoreInstanceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSerialNumber');

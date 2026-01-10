@@ -580,32 +580,32 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConnectDesktopChannel
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectDesktopChannel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: InjectSecureAttentionSequence
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectSecureAttentionSequence (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: CrashNetworkProcess
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashNetworkProcess (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -613,14 +613,14 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.connectDesktopChannel');
           const result = this.impl.connectDesktopChannel(params.desktop_pipe);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.injectSecureAttentionSequence');
@@ -780,32 +780,32 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateDesktopSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDesktopSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CloseDesktopSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseDesktopSession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SetScreenResolution
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenResolution (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -813,14 +813,14 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createDesktopSession');
           const result = this.impl.createDesktopSession(params.terminal_id, params.screen_resolution, params.is_virtual_terminal);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeDesktopSession');
@@ -951,14 +951,14 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Start
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1116,23 +1116,23 @@ remoting.mojom.FileWriterReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: WriteChunk
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CloseFile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.FileWriter_CloseFile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseFile (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1140,7 +1140,7 @@ remoting.mojom.FileWriterReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeChunk');
@@ -1281,14 +1281,14 @@ remoting.mojom.FileReaderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ReadChunk
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.FileReader_ReadChunk_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1651,131 +1651,131 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateVideoCapturer
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoCapturer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SetScreenResolution
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenResolution (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: LockWorkstation
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LockWorkstation (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: InjectSendAttentionSequence
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectSendAttentionSequence (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: InjectClipboardEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectClipboardEvent (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: InjectKeyEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectKeyEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: InjectMouseEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectMouseEvent (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: InjectTextEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectTextEvent (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: InjectTouchEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InjectTouchEvent (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: SetUpUrlForwarder
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpUrlForwarder (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: SignalWebAuthnExtension
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SignalWebAuthnExtension (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: BeginFileRead
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFileRead (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: BeginFileWrite
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFileWrite (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: SetHostCursorRenderedByClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHostCursorRenderedByClient (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1783,7 +1783,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 13: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createVideoCapturer');
@@ -1796,77 +1796,77 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.new_resolution);
           break;
         }
-        case 13: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.lockWorkstation');
           const result = this.impl.lockWorkstation();
           break;
         }
-        case 13: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.injectSendAttentionSequence');
           const result = this.impl.injectSendAttentionSequence();
           break;
         }
-        case 13: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.injectClipboardEvent');
           const result = this.impl.injectClipboardEvent(params.event);
           break;
         }
-        case 13: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.injectKeyEvent');
           const result = this.impl.injectKeyEvent(params.event);
           break;
         }
-        case 13: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.injectMouseEvent');
           const result = this.impl.injectMouseEvent(params.event);
           break;
         }
-        case 13: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.injectTextEvent');
           const result = this.impl.injectTextEvent(params.event);
           break;
         }
-        case 13: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.injectTouchEvent');
           const result = this.impl.injectTouchEvent(params.event);
           break;
         }
-        case 13: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUpUrlForwarder');
           const result = this.impl.setUpUrlForwarder();
           break;
         }
-        case 13: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.signalWebAuthnExtension');
           const result = this.impl.signalWebAuthnExtension();
           break;
         }
-        case 13: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.beginFileRead');
@@ -1879,7 +1879,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.beginFileWrite');
@@ -2024,23 +2024,23 @@ remoting.mojom.VideoCapturerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CaptureFrame
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CaptureFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: SetComposeEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComposeEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2048,7 +2048,7 @@ remoting.mojom.VideoCapturerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.captureFrame');
@@ -2207,32 +2207,32 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnSharedMemoryRegionCreated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedMemoryRegionCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnSharedMemoryRegionReleased
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedMemoryRegionReleased (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnCaptureResult
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCaptureResult (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2240,14 +2240,14 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionCreated');
           const result = this.impl.onSharedMemoryRegionCreated(params.id, params.region, params.size);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionReleased');
@@ -2506,86 +2506,86 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnClipboardEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClipboardEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnUrlForwarderStateChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUrlForwarderStateChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnAudioPacket
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioPacket (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OnDesktopDisplayChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDesktopDisplayChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: OnMouseCursorChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMouseCursorChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: OnMouseCursorFractionalPositionChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMouseCursorFractionalPositionChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: OnKeyboardLayoutChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardLayoutChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: OnLocalMouseMoveDetected
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalMouseMoveDetected (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: OnLocalKeyboardInputDetected
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalKeyboardInputDetected (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2593,56 +2593,56 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 8: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onClipboardEvent');
           const result = this.impl.onClipboardEvent(params.event);
           break;
         }
-        case 8: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onUrlForwarderStateChange');
           const result = this.impl.onUrlForwarderStateChange(params.state);
           break;
         }
-        case 8: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAudioPacket');
           const result = this.impl.onAudioPacket(params.audio_packet);
           break;
         }
-        case 8: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDesktopDisplayChanged');
           const result = this.impl.onDesktopDisplayChanged(params.layout);
           break;
         }
-        case 8: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMouseCursorChanged');
           const result = this.impl.onMouseCursorChanged(params.mouse_cursor);
           break;
         }
-        case 8: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMouseCursorFractionalPositionChanged');
           const result = this.impl.onMouseCursorFractionalPositionChanged(params.position);
           break;
         }
-        case 8: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardLayoutChanged');
           const result = this.impl.onKeyboardLayoutChanged(params.keyboard_layout);
           break;
         }
-        case 8: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLocalMouseMoveDetected');
@@ -2767,14 +2767,14 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: DisconnectSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2900,14 +2900,14 @@ remoting.mojom.WorkerProcessControlReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CrashProcess
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

@@ -593,176 +593,176 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetTutorials
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTutorials (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: StartTutorial
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTutorial (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: GetSessionData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSessionData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetFeaturePromos
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeaturePromos (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: ShowFeaturePromo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowFeaturePromo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: ClearFeaturePromoData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearFeaturePromoData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: ClearSessionData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSessionData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: ForceNewSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceNewSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: RemoveGracePeriods
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveGracePeriods (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: GetNewBadges
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewBadges (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: GetWhatsNewModules
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWhatsNewModules (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: GetWhatsNewEditions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWhatsNewEditions (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: GetNtpPromos
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNtpPromos (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: GetNtpPromoPreferences
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNtpPromoPreferences (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: ClearNewBadgeData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNewBadgeData (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: ClearWhatsNewData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearWhatsNewData (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: ClearNtpPromoData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNtpPromoData (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: ClearNtpPromoPreferences
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNtpPromoPreferences (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: LaunchWhatsNewStaging
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchWhatsNewStaging (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -770,7 +770,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 18: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTutorials');
@@ -783,7 +783,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startTutorial');
@@ -796,7 +796,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSessionData');
@@ -809,7 +809,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFeaturePromos');
@@ -822,7 +822,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showFeaturePromo');
@@ -835,7 +835,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearFeaturePromoData');
@@ -848,7 +848,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearSessionData');
@@ -861,7 +861,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceNewSession');
@@ -874,7 +874,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeGracePeriods');
@@ -887,7 +887,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNewBadges');
@@ -900,7 +900,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWhatsNewModules');
@@ -913,7 +913,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWhatsNewEditions');
@@ -926,7 +926,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNtpPromos');
@@ -939,7 +939,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNtpPromoPreferences');
@@ -952,7 +952,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearNewBadgeData');
@@ -965,7 +965,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearWhatsNewData');
@@ -978,7 +978,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearNtpPromoData');
@@ -991,7 +991,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
           }
           break;
         }
-        case 18: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearNtpPromoPreferences');

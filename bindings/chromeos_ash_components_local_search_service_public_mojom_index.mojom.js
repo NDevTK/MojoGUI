@@ -263,68 +263,68 @@ ash.local_search_service.mojom.IndexReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetSize
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: AddOrUpdate
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddOrUpdate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Delete
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.local_search_service.mojom.Index_Delete_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Delete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: UpdateDocuments
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDocuments (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: Find
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.local_search_service.mojom.Index_Find_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Find (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: ClearIndex
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearIndex (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: SetSearchParams
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSearchParams (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -332,7 +332,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 6: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSize');
@@ -345,7 +345,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addOrUpdate');
@@ -358,7 +358,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.local_search_service.mojom.Index_Delete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.delete');
@@ -371,7 +371,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateDocuments');
@@ -384,7 +384,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.local_search_service.mojom.Index_Find_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.find');
@@ -397,7 +397,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearIndex');

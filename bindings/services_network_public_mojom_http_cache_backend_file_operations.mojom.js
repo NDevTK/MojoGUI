@@ -168,14 +168,14 @@ network.mojom.FileEnumeratorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetNext
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.FileEnumerator_GetNext_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -494,86 +494,86 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateDirectory
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDirectory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: PathExists
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PathExists (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: DirectoryExists
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DirectoryExists (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OpenFile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: DeleteFile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteFile (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: RenameFile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameFile (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: GetFileInfo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFileInfo (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: EnumerateFiles
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnumerateFiles (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: CleanupDirectory
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CleanupDirectory (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -581,7 +581,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 8: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createDirectory');
@@ -594,7 +594,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.pathExists');
@@ -607,7 +607,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.directoryExists');
@@ -620,7 +620,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFile');
@@ -633,7 +633,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteFile');
@@ -646,7 +646,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.renameFile');
@@ -659,7 +659,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFileInfo');
@@ -672,7 +672,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enumerateFiles');
@@ -801,14 +801,14 @@ network.mojom.HttpCacheBackendFileOperationsFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Create
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

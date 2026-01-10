@@ -1231,284 +1231,284 @@ ash.boca.mojom.PageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AuthenticateWebview
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AuthenticateWebview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetWindowsTabsList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowsTabsList (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ListCourses
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListCourses (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ListStudents
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListStudents (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: ListAssignments
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListAssignments (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: CreateSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSession (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: GetSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSession (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: EndSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: ExtendSessionDuration
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtendSessionDuration (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: RemoveStudent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveStudent (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: RenotifyStudent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenotifyStudent (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: AddStudents
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddStudents (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: UpdateOnTaskConfig
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOnTaskConfig (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: UpdateCaptionConfig
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCaptionConfig (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: SetFloatMode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFloatMode (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: SubmitAccessCode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitAccessCode (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: ViewStudentScreen
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ViewStudentScreen (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: EndViewScreenSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndViewScreenSession (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: SetViewScreenSessionActive
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetViewScreenSessionActive (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 19: GetUserPref
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserPref (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 20: SetUserPref
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserPref (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 21: SetSitePermission
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSitePermission (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 22: CloseTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTab (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 23: OpenFeedbackDialog
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 24: RefreshWorkbook
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshWorkbook (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 25: GetSpeechRecognitionInstallationStatus
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSpeechRecognitionInstallationStatus (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 26: StartSpotlight
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSpotlight (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 27: PresentStudentScreen
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PresentStudentScreen (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 28: StopPresentingStudentScreen
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopPresentingStudentScreen (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 29: PresentOwnScreen
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PresentOwnScreen (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 30: StopPresentingOwnScreen
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopPresentingOwnScreen (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1516,7 +1516,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 30: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.authenticateWebview');
@@ -1529,7 +1529,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWindowsTabsList');
@@ -1542,7 +1542,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listCourses');
@@ -1555,7 +1555,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listStudents');
@@ -1568,7 +1568,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listAssignments');
@@ -1581,7 +1581,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createSession');
@@ -1594,7 +1594,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSession');
@@ -1607,7 +1607,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.endSession');
@@ -1620,7 +1620,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.extendSessionDuration');
@@ -1633,7 +1633,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeStudent');
@@ -1646,7 +1646,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.renotifyStudent');
@@ -1659,7 +1659,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addStudents');
@@ -1672,7 +1672,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateOnTaskConfig');
@@ -1685,7 +1685,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateCaptionConfig');
@@ -1698,7 +1698,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setFloatMode');
@@ -1711,7 +1711,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.submitAccessCode');
@@ -1724,7 +1724,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.viewStudentScreen');
@@ -1737,7 +1737,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.endViewScreenSession');
@@ -1750,7 +1750,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setViewScreenSessionActive');
@@ -1763,7 +1763,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getUserPref');
@@ -1776,7 +1776,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUserPref');
@@ -1789,7 +1789,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSitePermission');
@@ -1802,7 +1802,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeTab');
@@ -1815,7 +1815,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
@@ -1828,7 +1828,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.refreshWorkbook');
@@ -1841,7 +1841,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSpeechRecognitionInstallationStatus');
@@ -1854,7 +1854,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startSpotlight');
@@ -1867,7 +1867,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.presentStudentScreen');
@@ -1880,7 +1880,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopPresentingStudentScreen');
@@ -1893,7 +1893,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.presentOwnScreen');
@@ -2178,95 +2178,95 @@ ash.boca.mojom.PageReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnStudentActivityUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStudentActivityUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnSessionConfigUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionConfigUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnActiveNetworkStateChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActiveNetworkStateChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OnLocalCaptionDisabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLocalCaptionDisabled (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: OnSpeechRecognitionInstallStateUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpeechRecognitionInstallStateUpdated (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: OnSessionCaptionDisabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSessionCaptionDisabled (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: OnFrameDataReceived
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFrameDataReceived (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: OnSpotlightCrdSessionStatusUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSpotlightCrdSessionStatusUpdated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: OnPresentStudentScreenEnded
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentStudentScreenEnded (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: OnPresentOwnScreenEnded
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPresentOwnScreenEnded (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2274,63 +2274,63 @@ ash.boca.mojom.PageReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 9: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onStudentActivityUpdated');
           const result = this.impl.onStudentActivityUpdated(params.activities);
           break;
         }
-        case 9: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSessionConfigUpdated');
           const result = this.impl.onSessionConfigUpdated(params.config);
           break;
         }
-        case 9: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onActiveNetworkStateChanged');
           const result = this.impl.onActiveNetworkStateChanged(params.active_networks);
           break;
         }
-        case 9: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLocalCaptionDisabled');
           const result = this.impl.onLocalCaptionDisabled();
           break;
         }
-        case 9: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionInstallStateUpdated');
           const result = this.impl.onSpeechRecognitionInstallStateUpdated(params.state);
           break;
         }
-        case 9: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSessionCaptionDisabled');
           const result = this.impl.onSessionCaptionDisabled(params.is_error);
           break;
         }
-        case 9: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFrameDataReceived');
           const result = this.impl.onFrameDataReceived(params.frame_data);
           break;
         }
-        case 9: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSpotlightCrdSessionStatusUpdated');
           const result = this.impl.onSpotlightCrdSessionStatusUpdated(params.state);
           break;
         }
-        case 9: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPresentStudentScreenEnded');
@@ -2454,14 +2454,14 @@ ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Create
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

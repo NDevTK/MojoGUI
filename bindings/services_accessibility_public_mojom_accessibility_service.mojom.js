@@ -124,14 +124,14 @@ ax.mojom.AssistiveTechnologyControllerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: EnableAssistiveTechnology
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableAssistiveTechnology (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -291,32 +291,32 @@ ax.mojom.AccessibilityServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindAccessibilityServiceClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAccessibilityServiceClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: BindAssistiveTechnologyController
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAssistiveTechnologyController (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ConnectDevToolsAgent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectDevToolsAgent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -324,14 +324,14 @@ ax.mojom.AccessibilityServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindAccessibilityServiceClient');
           const result = this.impl.bindAccessibilityServiceClient(params.accessibility_service_client);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindAssistiveTechnologyController');
@@ -573,77 +573,77 @@ ax.mojom.AccessibilityServiceClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindAutomation
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAutomation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: BindAutomationClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAutomationClient (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: BindAutoclickClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAutoclickClient (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: BindSpeechRecognition
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSpeechRecognition (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: BindTts
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTts (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: BindUserInput
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindUserInput (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: BindUserInterface
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindUserInterface (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: BindAccessibilityFileLoader
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAccessibilityFileLoader (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -651,49 +651,49 @@ ax.mojom.AccessibilityServiceClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 7: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindAutomation');
           const result = this.impl.bindAutomation(params.automation);
           break;
         }
-        case 7: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindAutomationClient');
           const result = this.impl.bindAutomationClient(params.automation_client);
           break;
         }
-        case 7: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindAutoclickClient');
           const result = this.impl.bindAutoclickClient(params.autoclick_client);
           break;
         }
-        case 7: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindSpeechRecognition');
           const result = this.impl.bindSpeechRecognition(params.sr_receiver);
           break;
         }
-        case 7: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindTts');
           const result = this.impl.bindTts(params.tts_receiver);
           break;
         }
-        case 7: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindUserInput');
           const result = this.impl.bindUserInput(params.user_input_receiver);
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindUserInterface');

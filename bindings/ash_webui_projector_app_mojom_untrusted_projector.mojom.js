@@ -377,104 +377,104 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetNewScreencastPrecondition
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewScreencastPrecondition (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ShouldDownloadSoda
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldDownloadSoda (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: InstallSoda
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallSoda (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetPendingScreencasts
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPendingScreencasts (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: GetUserPref
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserPref (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: SetUserPref
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserPref (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: OpenFeedbackDialog
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: StartProjectorSession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartProjectorSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: SendXhr
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendXhr (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: GetAccounts
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccounts (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: GetVideo
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideo (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -482,7 +482,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 10: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNewScreencastPrecondition');
@@ -495,7 +495,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.shouldDownloadSoda');
@@ -508,7 +508,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.installSoda');
@@ -521,7 +521,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPendingScreencasts');
@@ -534,7 +534,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getUserPref');
@@ -547,7 +547,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUserPref');
@@ -560,7 +560,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
@@ -573,7 +573,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startProjectorSession');
@@ -586,7 +586,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendXhr');
@@ -599,7 +599,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAccounts');
@@ -800,50 +800,50 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnNewScreencastPreconditionChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewScreencastPreconditionChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnSodaInstallProgressUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstallProgressUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnSodaInstalled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstalled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OnSodaInstallError
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstallError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: OnScreencastsStateChange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreencastsStateChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -851,28 +851,28 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 4: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNewScreencastPreconditionChanged');
           const result = this.impl.onNewScreencastPreconditionChanged(params.precondition);
           break;
         }
-        case 4: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstallProgressUpdated');
           const result = this.impl.onSodaInstallProgressUpdated(params.progress);
           break;
         }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstalled');
           const result = this.impl.onSodaInstalled();
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstallError');
@@ -996,14 +996,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Create
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

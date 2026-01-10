@@ -175,23 +175,23 @@ spellcheck.mojom.SpellCheckerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Initialize
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CustomDictionaryChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CustomDictionaryChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -199,7 +199,7 @@ spellcheck.mojom.SpellCheckerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.initialize');
@@ -321,14 +321,14 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: RequestDictionary
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDictionary (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -587,68 +587,68 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: NotifyChecked
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyChecked (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CallSpellingService
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CallSpellingService (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: RequestTextCheck
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextCheck (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: DisconnectSessionBridge
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectSessionBridge (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: CheckSpelling
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSpelling (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: FillSuggestionList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillSuggestionList (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: InitializeDictionaries
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDictionaries (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -656,14 +656,14 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 6: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyChecked');
           const result = this.impl.notifyChecked(params.word, params.misspelled);
           break;
         }
-        case 6: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.callSpellingService');
@@ -676,7 +676,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestTextCheck');
@@ -689,14 +689,14 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disconnectSessionBridge');
           const result = this.impl.disconnectSessionBridge();
           break;
         }
-        case 6: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.checkSpelling');
@@ -709,7 +709,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fillSuggestionList');

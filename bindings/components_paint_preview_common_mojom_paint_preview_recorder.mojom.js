@@ -206,23 +206,23 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CapturePaintPreview
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CapturePaintPreview (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetGeometryMetadata
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGeometryMetadata (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -230,7 +230,7 @@ paint_preview.mojom.PaintPreviewRecorderReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.capturePaintPreview');

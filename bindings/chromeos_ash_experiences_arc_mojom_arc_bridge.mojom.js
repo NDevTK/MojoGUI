@@ -1135,527 +1135,527 @@ arc.mojom.ArcBridgeHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnAccessibilityHelperInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccessibilityHelperInstanceReady (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnAdbdMonitorInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdbdMonitorInstanceReady (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnAppInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppInstanceReady (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: OnAppPermissionsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppPermissionsInstanceReady (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: OnAppfuseInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAppfuseInstanceReady (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: OnArcShellExecutionInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnArcShellExecutionInstanceReady (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: OnArcWifiInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnArcWifiInstanceReady (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: OnAudioInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAudioInstanceReady (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: OnAuthInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthInstanceReady (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: OnBackupSettingsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBackupSettingsInstanceReady (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: OnBluetoothInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBluetoothInstanceReady (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: OnBootPhaseMonitorInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBootPhaseMonitorInstanceReady (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: OnCameraInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCameraInstanceReady (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: OnChromeFeatureFlagsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnChromeFeatureFlagsInstanceReady (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: OnCompatibilityModeInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompatibilityModeInstanceReady (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: OnCrashCollectorInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCrashCollectorInstanceReady (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: OnOnDeviceSafetyInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOnDeviceSafetyInstanceReady (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: OnDigitalGoodsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDigitalGoodsInstanceReady (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: OnDiskSpaceInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDiskSpaceInstanceReady (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 19: OnEnterpriseReportingInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnterpriseReportingInstanceReady (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 20: OnErrorNotificationInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnErrorNotificationInstanceReady (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 21: OnFileSystemInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFileSystemInstanceReady (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 22: OnIioSensorInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIioSensorInstanceReady (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 23: OnImeInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImeInstanceReady (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 24: OnInputMethodManagerInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInputMethodManagerInstanceReady (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 25: OnIntentHelperInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIntentHelperInstanceReady (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 26: OnKeymasterInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeymasterInstanceReady (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 27: OnKeyMintInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyMintInstanceReady (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 28: OnKioskInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKioskInstanceReady (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 29: OnMediaSessionInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMediaSessionInstanceReady (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 30: OnMemoryInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryInstanceReady (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 31: OnMetricsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMetricsInstanceReady (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 32: OnMidisInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMidisInstanceReady (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 33: OnNearbyShareInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNearbyShareInstanceReady (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 34: OnNetInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetInstanceReady (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 35: OnNotificationsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNotificationsInstanceReady (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 36: OnObbMounterInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnObbMounterInstanceReady (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 37: OnOemCryptoInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOemCryptoInstanceReady (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 38: OnPaymentAppInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentAppInstanceReady (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 39: OnPipInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPipInstanceReady (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 40: OnPolicyInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPolicyInstanceReady (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 41: OnPowerInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPowerInstanceReady (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 42: OnPrintSpoolerInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrintSpoolerInstanceReady (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 43: OnPrivacyItemsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPrivacyItemsInstanceReady (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 44: OnProcessInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProcessInstanceReady (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 45: OnScreenCaptureInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenCaptureInstanceReady (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 46: OnSharesheetInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharesheetInstanceReady (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 47: OnSystemStateInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemStateInstanceReady (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 48: OnSystemUiInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemUiInstanceReady (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 49: OnTimerInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTimerInstanceReady (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 50: OnTracingInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTracingInstanceReady (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 51: OnTtsInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTtsInstanceReady (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 52: OnUsbHostInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUsbHostInstanceReady (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 53: OnVideoInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVideoInstanceReady (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 54: OnVolumeMounterInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVolumeMounterInstanceReady (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 55: OnWakeLockInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWakeLockInstanceReady (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 56: OnWallpaperInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperInstanceReady (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 57: OnWebApkInstanceReady
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWebApkInstanceReady (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1663,406 +1663,406 @@ arc.mojom.ArcBridgeHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 162: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAccessibilityHelperInstanceReady');
           const result = this.impl.onAccessibilityHelperInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAdbdMonitorInstanceReady');
           const result = this.impl.onAdbdMonitorInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAppInstanceReady');
           const result = this.impl.onAppInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAppPermissionsInstanceReady');
           const result = this.impl.onAppPermissionsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAppfuseInstanceReady');
           const result = this.impl.onAppfuseInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onArcShellExecutionInstanceReady');
           const result = this.impl.onArcShellExecutionInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onArcWifiInstanceReady');
           const result = this.impl.onArcWifiInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAudioInstanceReady');
           const result = this.impl.onAudioInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAuthInstanceReady');
           const result = this.impl.onAuthInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBackupSettingsInstanceReady');
           const result = this.impl.onBackupSettingsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBluetoothInstanceReady');
           const result = this.impl.onBluetoothInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBootPhaseMonitorInstanceReady');
           const result = this.impl.onBootPhaseMonitorInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCameraInstanceReady');
           const result = this.impl.onCameraInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onChromeFeatureFlagsInstanceReady');
           const result = this.impl.onChromeFeatureFlagsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCompatibilityModeInstanceReady');
           const result = this.impl.onCompatibilityModeInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCrashCollectorInstanceReady');
           const result = this.impl.onCrashCollectorInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onOnDeviceSafetyInstanceReady');
           const result = this.impl.onOnDeviceSafetyInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDigitalGoodsInstanceReady');
           const result = this.impl.onDigitalGoodsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDiskSpaceInstanceReady');
           const result = this.impl.onDiskSpaceInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onEnterpriseReportingInstanceReady');
           const result = this.impl.onEnterpriseReportingInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onErrorNotificationInstanceReady');
           const result = this.impl.onErrorNotificationInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFileSystemInstanceReady');
           const result = this.impl.onFileSystemInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onIioSensorInstanceReady');
           const result = this.impl.onIioSensorInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImeInstanceReady');
           const result = this.impl.onImeInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onInputMethodManagerInstanceReady');
           const result = this.impl.onInputMethodManagerInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onIntentHelperInstanceReady');
           const result = this.impl.onIntentHelperInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeymasterInstanceReady');
           const result = this.impl.onKeymasterInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKeyMintInstanceReady');
           const result = this.impl.onKeyMintInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onKioskInstanceReady');
           const result = this.impl.onKioskInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMediaSessionInstanceReady');
           const result = this.impl.onMediaSessionInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMemoryInstanceReady');
           const result = this.impl.onMemoryInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMetricsInstanceReady');
           const result = this.impl.onMetricsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMidisInstanceReady');
           const result = this.impl.onMidisInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNearbyShareInstanceReady');
           const result = this.impl.onNearbyShareInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNetInstanceReady');
           const result = this.impl.onNetInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNotificationsInstanceReady');
           const result = this.impl.onNotificationsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onObbMounterInstanceReady');
           const result = this.impl.onObbMounterInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onOemCryptoInstanceReady');
           const result = this.impl.onOemCryptoInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPaymentAppInstanceReady');
           const result = this.impl.onPaymentAppInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPipInstanceReady');
           const result = this.impl.onPipInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPolicyInstanceReady');
           const result = this.impl.onPolicyInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPowerInstanceReady');
           const result = this.impl.onPowerInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPrintSpoolerInstanceReady');
           const result = this.impl.onPrintSpoolerInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPrivacyItemsInstanceReady');
           const result = this.impl.onPrivacyItemsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onProcessInstanceReady');
           const result = this.impl.onProcessInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onScreenCaptureInstanceReady');
           const result = this.impl.onScreenCaptureInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSharesheetInstanceReady');
           const result = this.impl.onSharesheetInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSystemStateInstanceReady');
           const result = this.impl.onSystemStateInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSystemUiInstanceReady');
           const result = this.impl.onSystemUiInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTimerInstanceReady');
           const result = this.impl.onTimerInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTracingInstanceReady');
           const result = this.impl.onTracingInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTtsInstanceReady');
           const result = this.impl.onTtsInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 52: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onUsbHostInstanceReady');
           const result = this.impl.onUsbHostInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 53: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onVideoInstanceReady');
           const result = this.impl.onVideoInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 54: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onVolumeMounterInstanceReady');
           const result = this.impl.onVolumeMounterInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 55: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWakeLockInstanceReady');
           const result = this.impl.onWakeLockInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 56: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperInstanceReady');
           const result = this.impl.onWallpaperInstanceReady(params.instance_remote);
           break;
         }
-        case 162: {
+        case 57: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWebApkInstanceReady');

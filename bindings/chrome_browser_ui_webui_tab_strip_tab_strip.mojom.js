@@ -185,14 +185,14 @@ tab_strip.mojom.PageHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -616,158 +616,158 @@ tab_strip.mojom.PageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetGroupVisualData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGroupVisualData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetTabs
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_GetTabs_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabs (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: CloseTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_CloseTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTab (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GroupTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_GroupTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GroupTab (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: MoveGroup
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveGroup (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: MoveTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_MoveTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveTab (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: SetThumbnailTracked
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThumbnailTracked (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: UngroupTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UngroupTab (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: GetLayout
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_GetLayout_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLayout (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: ShowEditDialogForGroup
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowEditDialogForGroup (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: ShowTabContextMenu
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowTabContextMenu (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: ShowBackgroundContextMenu
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowBackgroundContextMenu (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: CloseContainer
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseContainer (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: ReportTabActivationDuration
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportTabActivationDuration (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: ReportTabDataReceivedDuration
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportTabDataReceivedDuration (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: ReportTabCreationDuration
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportTabCreationDuration (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: ActivateTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateTab (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -775,7 +775,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 16: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getGroupVisualData');
@@ -788,7 +788,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_GetTabs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTabs');
@@ -801,49 +801,49 @@ tab_strip.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_CloseTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeTab');
           const result = this.impl.closeTab(params.tab_id, params.tab_was_swiped);
           break;
         }
-        case 16: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_GroupTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.groupTab');
           const result = this.impl.groupTab(params.tab_id, params.group_id);
           break;
         }
-        case 16: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.moveGroup');
           const result = this.impl.moveGroup(params.group_id, params.to_index);
           break;
         }
-        case 16: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_MoveTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.moveTab');
           const result = this.impl.moveTab(params.tab_id, params.to_index);
           break;
         }
-        case 16: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setThumbnailTracked');
           const result = this.impl.setThumbnailTracked(params.tab_id, params.thumbnail_tracked);
           break;
         }
-        case 16: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.ungroupTab');
           const result = this.impl.ungroupTab(params.tab_id);
           break;
         }
-        case 16: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_GetLayout_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getLayout');
@@ -856,49 +856,49 @@ tab_strip.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showEditDialogForGroup');
           const result = this.impl.showEditDialogForGroup(params.group_id, params.location_x, params.location_y, params.width, params.height);
           break;
         }
-        case 16: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showTabContextMenu');
           const result = this.impl.showTabContextMenu(params.tab_id, params.location_x, params.location_y);
           break;
         }
-        case 16: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showBackgroundContextMenu');
           const result = this.impl.showBackgroundContextMenu(params.location_x, params.location_y);
           break;
         }
-        case 16: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeContainer');
           const result = this.impl.closeContainer();
           break;
         }
-        case 16: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportTabActivationDuration');
           const result = this.impl.reportTabActivationDuration(params.duration_ms);
           break;
         }
-        case 16: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportTabDataReceivedDuration');
           const result = this.impl.reportTabDataReceivedDuration(params.tab_count, params.duration_ms);
           break;
         }
-        case 16: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reportTabCreationDuration');
@@ -1313,167 +1313,167 @@ tab_strip.mojom.PageReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: LayoutChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_LayoutChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LayoutChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ReceivedKeyboardFocus
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReceivedKeyboardFocus (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ContextMenuClosed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContextMenuClosed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: LongPress
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_LongPress_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LongPress (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: TabGroupVisualsChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabGroupVisualsChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: TabGroupMoved
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabGroupMoved_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabGroupMoved (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: TabGroupClosed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabGroupClosed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabGroupClosed (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: TabGroupStateChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabGroupStateChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: TabCloseCancelled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabCloseCancelled (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: TabCreated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabCreated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabCreated (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: TabRemoved
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabRemoved_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabRemoved (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: TabMoved
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabMoved_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabMoved (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: TabReplaced
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabReplaced_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabReplaced (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: TabActiveChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabActiveChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabActiveChanged (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: TabUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabUpdated (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: TabThumbnailUpdated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TabThumbnailUpdated (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: ShowContextMenu
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: ThemeChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tab_strip.mojom.Page_ThemeChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ThemeChanged (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1481,119 +1481,119 @@ tab_strip.mojom.PageReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 17: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_LayoutChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.layoutChanged');
           const result = this.impl.layoutChanged(params.layout);
           break;
         }
-        case 17: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.receivedKeyboardFocus');
           const result = this.impl.receivedKeyboardFocus();
           break;
         }
-        case 17: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.contextMenuClosed');
           const result = this.impl.contextMenuClosed();
           break;
         }
-        case 17: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_LongPress_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.longPress');
           const result = this.impl.longPress();
           break;
         }
-        case 17: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabGroupVisualsChanged');
           const result = this.impl.tabGroupVisualsChanged(params.group_id, params.tab_group);
           break;
         }
-        case 17: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabGroupMoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabGroupMoved');
           const result = this.impl.tabGroupMoved(params.group_id, params.index);
           break;
         }
-        case 17: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabGroupClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabGroupClosed');
           const result = this.impl.tabGroupClosed(params.group_id);
           break;
         }
-        case 17: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabGroupStateChanged');
           const result = this.impl.tabGroupStateChanged(params.tab_id, params.index, params.group_id);
           break;
         }
-        case 17: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabCloseCancelled');
           const result = this.impl.tabCloseCancelled(params.tab_id);
           break;
         }
-        case 17: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabCreated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabCreated');
           const result = this.impl.tabCreated(params.tab);
           break;
         }
-        case 17: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabRemoved');
           const result = this.impl.tabRemoved(params.tab_id);
           break;
         }
-        case 17: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabMoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabMoved');
           const result = this.impl.tabMoved(params.tab_id, params.to_index, params.in_pinned);
           break;
         }
-        case 17: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabReplaced_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabReplaced');
           const result = this.impl.tabReplaced(params.tab_id, params.new_tab_id);
           break;
         }
-        case 17: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabActiveChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabActiveChanged');
           const result = this.impl.tabActiveChanged(params.tab_id);
           break;
         }
-        case 17: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabUpdated');
           const result = this.impl.tabUpdated(params.tab);
           break;
         }
-        case 17: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.tabThumbnailUpdated');
           const result = this.impl.tabThumbnailUpdated(params.tab_id, params.data_uri);
           break;
         }
-        case 17: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tab_strip.mojom.Page_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');

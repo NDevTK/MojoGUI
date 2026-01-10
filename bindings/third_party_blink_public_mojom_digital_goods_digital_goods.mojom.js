@@ -194,41 +194,41 @@ payments.mojom.DigitalGoodsReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetDetails
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ListPurchases
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPurchases (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ListPurchaseHistory
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPurchaseHistory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: Consume
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(payments.mojom.DigitalGoods_Consume_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Consume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -236,7 +236,7 @@ payments.mojom.DigitalGoodsReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDetails');
@@ -249,7 +249,7 @@ payments.mojom.DigitalGoodsReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listPurchases');
@@ -262,7 +262,7 @@ payments.mojom.DigitalGoodsReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listPurchaseHistory');
@@ -404,14 +404,14 @@ payments.mojom.DigitalGoodsFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateDigitalGoods
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDigitalGoods (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

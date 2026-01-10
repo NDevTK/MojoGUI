@@ -144,14 +144,14 @@ cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateURLLoaderFactory
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateURLLoaderFactory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -338,41 +338,41 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: EnableNetworkAccess
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableNetworkAccess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Verify
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Verify2QwacBinding
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify2QwacBinding (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: SetConfig
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetConfig (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -380,21 +380,21 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enableNetworkAccess');
           const result = this.impl.enableNetworkAccess(params.url_loader_factory, params.reconnector);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.verify');
           const result = this.impl.verify(params.params, params.net_log_source, params.cert_verifier_request);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.verify2QwacBinding');
@@ -522,14 +522,14 @@ cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnCertVerifierChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCertVerifierChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -654,14 +654,14 @@ cert_verifier.mojom.CertVerifierRequestReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Complete
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

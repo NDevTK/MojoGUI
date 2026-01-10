@@ -429,122 +429,122 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Clone
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: LoadBuiltinModel
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadBuiltinModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: LoadFlatBufferModel
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadFlatBufferModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: LoadTextClassifier
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTextClassifier (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: LoadHandwritingModel
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadHandwritingModel (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: LoadSpeechRecognizer
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSpeechRecognizer (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: LoadGrammarChecker
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadGrammarChecker (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: LoadTextSuggester
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTextSuggester (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: LoadWebPlatformHandwritingModel
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadWebPlatformHandwritingModel (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: LoadDocumentScanner
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDocumentScanner (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: LoadImageAnnotator
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadImageAnnotator (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: LoadHeatmapPalmRejection
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadHeatmapPalmRejection (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: REMOVED_4
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_4 (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -552,14 +552,14 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 4: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
-        case 4: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadBuiltinModel');
@@ -572,7 +572,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadFlatBufferModel');
@@ -585,7 +585,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadTextClassifier');
@@ -611,7 +611,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadSpeechRecognizer');
@@ -624,7 +624,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadGrammarChecker');
@@ -637,7 +637,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadTextSuggester');
@@ -650,7 +650,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadWebPlatformHandwritingModel');
@@ -663,7 +663,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadDocumentScanner');
@@ -676,7 +676,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadImageAnnotator');
@@ -689,7 +689,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadHeatmapPalmRejection');
@@ -702,7 +702,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_4');

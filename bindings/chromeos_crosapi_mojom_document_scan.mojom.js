@@ -612,68 +612,68 @@ crosapi.mojom.DocumentScanReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OpenScanner
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenScanner (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CloseScanner
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseScanner (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: StartPreparedScan
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPreparedScan (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: ReadScanData
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadScanData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: SetOptions
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOptions (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: GetOptionGroups
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOptionGroups (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: CancelScan
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(crosapi.mojom.DocumentScan_CancelScan_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelScan (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -681,7 +681,7 @@ crosapi.mojom.DocumentScanReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 9: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openScanner');
@@ -694,7 +694,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeScanner');
@@ -707,7 +707,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startPreparedScan');
@@ -720,7 +720,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readScanData');
@@ -733,7 +733,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setOptions');
@@ -746,7 +746,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getOptionGroups');
@@ -759,7 +759,7 @@ crosapi.mojom.DocumentScanReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(crosapi.mojom.DocumentScan_CancelScan_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cancelScan');

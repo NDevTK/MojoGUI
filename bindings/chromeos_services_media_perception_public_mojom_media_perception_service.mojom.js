@@ -116,14 +116,14 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetController
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -247,14 +247,14 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ActivateMediaPerception
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateMediaPerception (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -378,14 +378,14 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ConnectToVideoCaptureService
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToVideoCaptureService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

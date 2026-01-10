@@ -177,41 +177,41 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GoBack
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GoBack (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: RequestUrlAccessRemote
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlAccessRemote (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: RequestUrlAccessLocal
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestUrlAccessLocal (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: LearnMore
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LearnMore (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -219,14 +219,14 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack();
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestUrlAccessRemote');
@@ -239,7 +239,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestUrlAccessLocal');

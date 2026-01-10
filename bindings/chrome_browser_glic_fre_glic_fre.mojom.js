@@ -134,14 +134,14 @@ glic.mojom.FrePageHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreatePageHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -401,86 +401,86 @@ glic.mojom.FrePageHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AcceptFre
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptFre (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: RejectFre
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RejectFre (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: DismissFre
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DismissFre (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: FreReloaded
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FreReloaded (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: PrepareForClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepareForClient (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: ValidateAndOpenLinkInNewTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateAndOpenLinkInNewTab (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: WebUiStateChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WebUiStateChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: ExceededTimeoutError
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExceededTimeoutError (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: LogWebUiLoadComplete
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogWebUiLoadComplete (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -488,35 +488,35 @@ glic.mojom.FrePageHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 8: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.acceptFre');
           const result = this.impl.acceptFre();
           break;
         }
-        case 8: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.rejectFre');
           const result = this.impl.rejectFre();
           break;
         }
-        case 8: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dismissFre');
           const result = this.impl.dismissFre(params.panel);
           break;
         }
-        case 8: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.freReloaded');
           const result = this.impl.freReloaded();
           break;
         }
-        case 8: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prepareForClient');
@@ -529,21 +529,21 @@ glic.mojom.FrePageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.validateAndOpenLinkInNewTab');
           const result = this.impl.validateAndOpenLinkInNewTab(params.url);
           break;
         }
-        case 8: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.webUiStateChanged');
           const result = this.impl.webUiStateChanged(params.new_state);
           break;
         }
-        case 8: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.exceededTimeoutError');

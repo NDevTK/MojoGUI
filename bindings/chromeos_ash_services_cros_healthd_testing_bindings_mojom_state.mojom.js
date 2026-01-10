@@ -159,32 +159,32 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: LastCallHasNext
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LastCallHasNext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: WaitLastCall
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitLastCall (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: FulfillLastCallCallback
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FulfillLastCallCallback (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -192,7 +192,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.lastCallHasNext');
@@ -205,7 +205,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.waitLastCall');
@@ -353,23 +353,23 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindContext
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindContext (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: BindTestProvider
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestProvider (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -377,7 +377,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindContext');

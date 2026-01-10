@@ -165,32 +165,32 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ParseItem
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseItem (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: ParseList
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseList (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: ParseDictionary
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseDictionary (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -198,7 +198,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseItem');
@@ -211,7 +211,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseList');

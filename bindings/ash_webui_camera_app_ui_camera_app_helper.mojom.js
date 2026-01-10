@@ -317,14 +317,14 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -448,14 +448,14 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -579,14 +579,14 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -710,14 +710,14 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -846,14 +846,14 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnCameraUsageOwnershipChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCameraUsageOwnershipChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -983,14 +983,14 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1114,14 +1114,14 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1262,23 +1262,23 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnWindowStateChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnWindowFocusChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowFocusChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1286,7 +1286,7 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onWindowStateChanged');
@@ -1409,14 +1409,14 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Update
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1673,68 +1673,68 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: AddMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMonitor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetWindowState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Minimize
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Minimize (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: Restore
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Restore (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: Maximize
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Maximize (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: Fullscreen
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Fullscreen (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: Focus
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Focus (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1742,7 +1742,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 6: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addMonitor');
@@ -1755,7 +1755,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWindowState');
@@ -1768,7 +1768,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.minimize');
@@ -1781,7 +1781,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.restore');
@@ -1794,7 +1794,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.maximize');
@@ -1807,7 +1807,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fullscreen');
@@ -2596,293 +2596,293 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HandleCameraResult
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleCameraResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: IsTabletMode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsTabletMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: StartPerfEventTrace
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPerfEventTrace (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: StopPerfEventTrace
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopPerfEventTrace (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: SetTabletMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabletMonitor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: SetScreenStateMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenStateMonitor (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: IsMetricsAndCrashReportingEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsMetricsAndCrashReportingEnabled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: SetExternalScreenMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExternalScreenMonitor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: OpenFileInGallery
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFileInGallery (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: OpenFeedbackDialog
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: OpenUrlInBrowser
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInBrowser (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: GetWindowStateController
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowStateController (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: ProcessCapturedFile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessCapturedFile (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: MonitorFileDeletion
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MonitorFileDeletion (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: IsDocumentScannerSupported
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDocumentScannerSupported (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: CheckDocumentModeReadiness
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckDocumentModeReadiness (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: ScanDocumentCorners
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScanDocumentCorners (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: ConvertToDocument
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConvertToDocument (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: MaybeTriggerSurvey
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeTriggerSurvey (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 19: StartStorageMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartStorageMonitor (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 20: StopStorageMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopStorageMonitor (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 21: OpenStorageManagement
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStorageManagement (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 22: OpenWifiDialog
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWifiDialog (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 23: SetLidStateMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLidStateMonitor (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 24: SetSWPrivacySwitchMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSWPrivacySwitchMonitor (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 25: GetEventsSender
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEventsSender (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 26: SetScreenLockedMonitor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenLockedMonitor (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 27: RenderPdfAsJpeg
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenderPdfAsJpeg (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 28: PerformOcr
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcr (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 29: PerformOcrInline
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrInline (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 30: CreatePdfBuilder
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePdfBuilder (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 31: GetAspectRatioOrder
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAspectRatioOrder (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2890,7 +2890,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 31: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleCameraResult');
@@ -2903,7 +2903,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isTabletMode');
@@ -2916,21 +2916,21 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startPerfEventTrace');
           const result = this.impl.startPerfEventTrace(params.event);
           break;
         }
-        case 31: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopPerfEventTrace');
           const result = this.impl.stopPerfEventTrace(params.event);
           break;
         }
-        case 31: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTabletMonitor');
@@ -2943,7 +2943,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setScreenStateMonitor');
@@ -2956,7 +2956,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isMetricsAndCrashReportingEnabled');
@@ -2969,7 +2969,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setExternalScreenMonitor');
@@ -2982,28 +2982,28 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFileInGallery');
           const result = this.impl.openFileInGallery(params.name);
           break;
         }
-        case 31: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog(params.placeholder);
           break;
         }
-        case 31: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openUrlInBrowser');
           const result = this.impl.openUrlInBrowser(params.url);
           break;
         }
-        case 31: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getWindowStateController');
@@ -3016,7 +3016,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.processCapturedFile');
@@ -3029,7 +3029,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.monitorFileDeletion');
@@ -3042,7 +3042,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isDocumentScannerSupported');
@@ -3055,7 +3055,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.checkDocumentModeReadiness');
@@ -3068,7 +3068,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.scanDocumentCorners');
@@ -3081,7 +3081,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.convertToDocument');
@@ -3094,14 +3094,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.maybeTriggerSurvey');
           const result = this.impl.maybeTriggerSurvey();
           break;
         }
-        case 31: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startStorageMonitor');
@@ -3114,28 +3114,28 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopStorageMonitor');
           const result = this.impl.stopStorageMonitor();
           break;
         }
-        case 31: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openStorageManagement');
           const result = this.impl.openStorageManagement();
           break;
         }
-        case 31: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openWifiDialog');
           const result = this.impl.openWifiDialog(params.config);
           break;
         }
-        case 31: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setLidStateMonitor');
@@ -3148,7 +3148,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSWPrivacySwitchMonitor');
@@ -3161,7 +3161,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getEventsSender');
@@ -3174,7 +3174,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setScreenLockedMonitor');
@@ -3187,7 +3187,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.renderPdfAsJpeg');
@@ -3200,7 +3200,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.performOcr');
@@ -3213,7 +3213,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.performOcrInline');
@@ -3226,7 +3226,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPdfBuilder');

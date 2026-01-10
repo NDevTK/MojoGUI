@@ -112,14 +112,14 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindSessionServices
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSessionServices (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -277,32 +277,32 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindWebAuthnProxy
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWebAuthnProxy (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: BindRemoteUrlOpener
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemoteUrlOpener (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: BindSecurityKeyForwarder
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSecurityKeyForwarder (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -310,14 +310,14 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindWebAuthnProxy');
           const result = this.impl.bindWebAuthnProxy(params.receiver);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindRemoteUrlOpener');

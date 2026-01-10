@@ -163,23 +163,23 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateOnDeviceSafetySession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOnDeviceSafetySession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CreateCloudSafetySession
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCloudSafetySession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -187,7 +187,7 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createOnDeviceSafetySession');

@@ -283,41 +283,41 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Register
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Request
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Request (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: Query
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Query (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: AddServiceObserver
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddServiceObserver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -325,21 +325,21 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.service_name, params.service_provider);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.request');
           const result = this.impl.request(params.service_name, params.timeout, params.receiver);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.query');
@@ -469,14 +469,14 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Request
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Request (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -600,14 +600,14 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: OnServiceEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnServiceEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

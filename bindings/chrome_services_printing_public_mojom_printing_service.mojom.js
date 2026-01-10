@@ -166,41 +166,41 @@ printing.mojom.PrintingServiceReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: BindPdfNupConverter
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfNupConverter (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: BindPdfToPwgRasterConverter
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfToPwgRasterConverter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: BindPdfFlattener
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfFlattener (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: BindPdfToEmfConverterFactory
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfToEmfConverterFactory (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -208,21 +208,21 @@ printing.mojom.PrintingServiceReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 3: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindPdfNupConverter');
           const result = this.impl.bindPdfNupConverter(params.receiver);
           break;
         }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToPwgRasterConverter');
           const result = this.impl.bindPdfToPwgRasterConverter(params.receiver);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindPdfFlattener');

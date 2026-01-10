@@ -108,14 +108,14 @@ printing.mojom.PrinterXmlParserReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ParseXmlForPrinterCapabilities
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseXmlForPrinterCapabilities (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;

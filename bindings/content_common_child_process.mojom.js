@@ -160,23 +160,23 @@ content.mojom.ChildProcessHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: Ping
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcessHost_Ping_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: BindHostReceiver
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindHostReceiver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -184,7 +184,7 @@ content.mojom.ChildProcessHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 1: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcessHost_Ping_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.ping');
@@ -541,131 +541,131 @@ content.mojom.ChildProcessReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: ProcessShutdown
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessShutdown (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetTaskPort
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTaskPort (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SetIPCLoggingEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPCLoggingEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetBackgroundTracingAgentProvider
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBackgroundTracingAgentProvider (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: EnableSystemTracingService
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableSystemTracingService (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: CrashHungProcess
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashHungProcess (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: BindServiceInterface
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindServiceInterface (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: BindReceiver
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_BindReceiver_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindReceiver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: SetProfilingFile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfilingFile (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: WriteClangProfilingProfile
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteClangProfilingProfile (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: SetPseudonymizationSalt
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPseudonymizationSalt (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: ReinitializeLogging
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReinitializeLogging (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: OnMemoryPressure
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryPressure (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: SetBatterySaverMode
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatterySaverMode (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -673,14 +673,14 @@ content.mojom.ChildProcessReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 13: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.processShutdown');
           const result = this.impl.processShutdown();
           break;
         }
-        case 13: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTaskPort');
@@ -693,56 +693,56 @@ content.mojom.ChildProcessReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setIPCLoggingEnabled');
           const result = this.impl.setIPCLoggingEnabled(params.on);
           break;
         }
-        case 13: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBackgroundTracingAgentProvider');
           const result = this.impl.getBackgroundTracingAgentProvider(params.receiver);
           break;
         }
-        case 13: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enableSystemTracingService');
           const result = this.impl.enableSystemTracingService(params.remote);
           break;
         }
-        case 13: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.crashHungProcess');
           const result = this.impl.crashHungProcess();
           break;
         }
-        case 13: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindServiceInterface');
           const result = this.impl.bindServiceInterface(params.receiver);
           break;
         }
-        case 13: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_BindReceiver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
           const result = this.impl.bindReceiver(params.receiver);
           break;
         }
-        case 13: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setProfilingFile');
           const result = this.impl.setProfilingFile(params.file);
           break;
         }
-        case 13: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
@@ -755,21 +755,21 @@ content.mojom.ChildProcessReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPseudonymizationSalt');
           const result = this.impl.setPseudonymizationSalt(params.salt);
           break;
         }
-        case 13: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reinitializeLogging');
           const result = this.impl.reinitializeLogging(params.settings);
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onMemoryPressure');

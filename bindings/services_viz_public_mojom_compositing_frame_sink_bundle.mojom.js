@@ -207,32 +207,32 @@ viz.mojom.FrameSinkBundleReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: SetNeedsBeginFrame
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: Submit
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Submit (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: SetThreads
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -240,14 +240,14 @@ viz.mojom.FrameSinkBundleReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
           const result = this.impl.setNeedsBeginFrame(params.sink_id, params.needs_begin_frame);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.submit');
@@ -408,32 +408,32 @@ viz.mojom.FrameSinkBundleClientReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: FlushNotifications
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: OnBeginFramePausedChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeginFramePausedChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: OnCompositorFrameTransitionDirectiveProcessed
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositorFrameTransitionDirectiveProcessed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -441,14 +441,14 @@ viz.mojom.FrameSinkBundleClientReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flushNotifications');
           const result = this.impl.flushNotifications(params.acks, params.begin_frames, params.reclaimed_resources);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBeginFramePausedChanged');

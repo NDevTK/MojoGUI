@@ -147,32 +147,32 @@ tracked_element.mojom.TrackedElementHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: TrackedElementVisibilityChanged
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TrackedElementVisibilityChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: TrackedElementActivated
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TrackedElementActivated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: TrackedElementCustomEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TrackedElementCustomEvent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -180,14 +180,14 @@ tracked_element.mojom.TrackedElementHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.trackedElementVisibilityChanged');
           const result = this.impl.trackedElementVisibilityChanged(params.native_identifier, params.visible, params.rect);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.trackedElementActivated');

@@ -267,14 +267,14 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateShoppingServiceHandler
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateShoppingServiceHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -814,185 +814,185 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: GetProductInfoForCurrentUrl
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductInfoForCurrentUrl (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: GetProductInfoForUrl
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductInfoForUrl (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: GetProductInfoForUrls
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductInfoForUrls (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetPriceInsightsInfoForCurrentUrl
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPriceInsightsInfoForCurrentUrl (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: GetPriceInsightsInfoForUrl
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPriceInsightsInfoForUrl (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: GetProductSpecificationsForUrls
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductSpecificationsForUrls (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: GetUrlInfosForProductTabs
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUrlInfosForProductTabs (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: GetUrlInfosForRecentlyViewedTabs
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUrlInfosForRecentlyViewedTabs (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: IsShoppingListEligible
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsShoppingListEligible (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: GetPriceTrackingStatusForCurrentUrl
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPriceTrackingStatusForCurrentUrl (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: OpenUrlInNewTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInNewTab (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: SwitchToOrOpenTab
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchToOrOpenTab (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: GetAllProductSpecificationsSets
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllProductSpecificationsSets (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: GetProductSpecificationsSetByUuid
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductSpecificationsSetByUuid (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: AddProductSpecificationsSet
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddProductSpecificationsSet (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 15: DeleteProductSpecificationsSet
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteProductSpecificationsSet (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 16: SetNameForProductSpecificationsSet
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNameForProductSpecificationsSet (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 17: SetUrlsForProductSpecificationsSet
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUrlsForProductSpecificationsSet (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 18: SetProductSpecificationsUserFeedback
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProductSpecificationsUserFeedback (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 19: GetProductSpecificationsFeatureState
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProductSpecificationsFeatureState (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1000,7 +1000,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 19: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getProductInfoForCurrentUrl');
@@ -1013,7 +1013,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrl');
@@ -1026,7 +1026,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrls');
@@ -1039,7 +1039,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPriceInsightsInfoForCurrentUrl');
@@ -1052,7 +1052,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPriceInsightsInfoForUrl');
@@ -1065,7 +1065,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsForUrls');
@@ -1078,7 +1078,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getUrlInfosForProductTabs');
@@ -1091,7 +1091,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getUrlInfosForRecentlyViewedTabs');
@@ -1104,7 +1104,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isShoppingListEligible');
@@ -1117,7 +1117,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPriceTrackingStatusForCurrentUrl');
@@ -1130,21 +1130,21 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewTab');
           const result = this.impl.openUrlInNewTab(params.url);
           break;
         }
-        case 19: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.switchToOrOpenTab');
           const result = this.impl.switchToOrOpenTab(params.url);
           break;
         }
-        case 19: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAllProductSpecificationsSets');
@@ -1157,7 +1157,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsSetByUuid');
@@ -1170,7 +1170,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addProductSpecificationsSet');
@@ -1183,14 +1183,14 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteProductSpecificationsSet');
           const result = this.impl.deleteProductSpecificationsSet(params.uuid);
           break;
         }
-        case 19: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNameForProductSpecificationsSet');
@@ -1203,7 +1203,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUrlsForProductSpecificationsSet');
@@ -1216,7 +1216,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setProductSpecificationsUserFeedback');

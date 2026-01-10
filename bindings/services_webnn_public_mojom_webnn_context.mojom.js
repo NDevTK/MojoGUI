@@ -188,32 +188,32 @@ webnn.mojom.WebNNContextReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: CreateGraphBuilder
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGraphBuilder (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: CreateTensor
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTensor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: CreateTensorFromMailbox
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTensorFromMailbox (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -221,14 +221,14 @@ webnn.mojom.WebNNContextReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 2: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createGraphBuilder');
           const result = this.impl.createGraphBuilder(params.receiver);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createTensor');

@@ -430,140 +430,140 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
         // Try Method 0: HasClient
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 1: HasInputContext
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasInputContext (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 2: IsRTL
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRTL (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 3: GetSelectionRange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSelectionRange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 4: GetSelectionText
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSelectionText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 5: InsertText
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertText (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 6: DeleteRange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRange (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 7: SetCompositionText
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionText (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 8: ConfirmCompositionText
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmCompositionText (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 9: HasCompositionText
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasCompositionText (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 10: GetCompositionTextRange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCompositionTextRange (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 11: GetAttributedSubstringForRange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAttributedSubstringForRange (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 12: GetFirstRectForRange
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFirstRectForRange (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 13: IsTextEditCommandEnabled
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsTextEditCommandEnabled (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         // Try Method 14: SetTextEditCommandForNextKeyEvent
-        try {
+        if (dispatchId === undefined) {
+           try {
              decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$, message.header.headerSize);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextEditCommandForNextKeyEvent (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-        } catch (e) { /* Ignore mismatch */ }
-        if (dispatchId !== undefined) break;
-
+           } catch (e) { /* Ignore mismatch */ }
+        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -571,7 +571,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 14: {
+        case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hasClient');
@@ -584,7 +584,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hasInputContext');
@@ -597,7 +597,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isRTL');
@@ -610,7 +610,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSelectionRange');
@@ -623,7 +623,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSelectionText');
@@ -636,35 +636,35 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text, params.as_character);
           break;
         }
-        case 14: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteRange');
           const result = this.impl.deleteRange(params.range);
           break;
         }
-        case 14: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCompositionText');
           const result = this.impl.setCompositionText(params.text, params.selected_range, params.replacement_range);
           break;
         }
-        case 14: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.confirmCompositionText');
           const result = this.impl.confirmCompositionText();
           break;
         }
-        case 14: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hasCompositionText');
@@ -677,7 +677,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getCompositionTextRange');
@@ -690,7 +690,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAttributedSubstringForRange');
@@ -703,7 +703,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFirstRectForRange');
@@ -716,7 +716,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStruct(remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isTextEditCommandEnabled');
