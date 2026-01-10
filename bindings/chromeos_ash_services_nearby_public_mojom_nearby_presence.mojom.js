@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -535,21 +536,21 @@ ash.nearby.presence.mojom.ScanObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceFound');
           const result = this.impl.onDeviceFound(params.device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
           const result = this.impl.onDeviceChanged(params.device);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceLost');
           const result = this.impl.onDeviceLost(params.device);
           break;
@@ -865,7 +866,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan(params.scan_request);
           if (header.expectsResponse) {
@@ -878,21 +879,21 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScanObserver');
           const result = this.impl.setScanObserver(params.scan_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadata');
           const result = this.impl.updateLocalDeviceMetadata(params.metadata);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadataAndGenerateCredentials');
           const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.metadata);
           if (header.expectsResponse) {
@@ -905,7 +906,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRemoteSharedCredentials');
           const result = this.impl.updateRemoteSharedCredentials(params.shared_credentials, params.account_name);
           if (header.expectsResponse) {
@@ -918,7 +919,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLocalSharedCredentials');
           const result = this.impl.getLocalSharedCredentials(params.account_name);
           if (header.expectsResponse) {

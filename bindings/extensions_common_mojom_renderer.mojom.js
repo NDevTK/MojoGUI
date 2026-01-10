@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -905,35 +906,35 @@ extensions.mojom.RendererReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ActivateExtension_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateExtension');
           const result = this.impl.activateExtension(params.extension_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActivityLoggingEnabled');
           const result = this.impl.setActivityLoggingEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_LoadExtensions_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadExtensions');
           const result = this.impl.loadExtensions(params.params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UnloadExtension_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unloadExtension');
           const result = this.impl.unloadExtension(params.extension_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SuspendExtension_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspendExtension');
           const result = this.impl.suspendExtension(params.extension_id);
           if (header.expectsResponse) {
@@ -946,70 +947,70 @@ extensions.mojom.RendererReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelSuspendExtension');
           const result = this.impl.cancelSuspendExtension(params.extension_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeveloperMode');
           const result = this.impl.setDeveloperMode(params.developer_mode_only);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserScriptsAllowed');
           const result = this.impl.setUserScriptsAllowed(params.extension_id, params.allowed);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetSessionInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSessionInfo');
           const result = this.impl.setSessionInfo(params.channel, params.session);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetSystemFont_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemFont');
           const result = this.impl.setSystemFont(params.font_family, params.font_size);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebViewPartitionID');
           const result = this.impl.setWebViewPartitionID(params.partition_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScriptingAllowlist');
           const result = this.impl.setScriptingAllowlist(params.extension_ids);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserScriptWorlds');
           const result = this.impl.updateUserScriptWorlds(params.infos);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserScriptWorldConfig');
           const result = this.impl.clearUserScriptWorldConfig(params.extension_id, params.world_id);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ShouldSuspend_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldSuspend');
           const result = this.impl.shouldSuspend();
           if (header.expectsResponse) {
@@ -1022,7 +1023,7 @@ extensions.mojom.RendererReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_TransferBlobs_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferBlobs');
           const result = this.impl.transferBlobs();
           if (header.expectsResponse) {
@@ -1035,49 +1036,49 @@ extensions.mojom.RendererReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdatePermissions_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePermissions');
           const result = this.impl.updatePermissions(params.extension_id, params.active_permissions, params.withheld_permissions, params.policy_blocked_hosts, params.policy_allowed_hosts, params.uses_default_policy_host_restrictions);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDefaultPolicyHostRestrictions');
           const result = this.impl.updateDefaultPolicyHostRestrictions(params.default_policy_blocked_hosts, params.default_policy_allowed_hosts);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserHostRestrictions');
           const result = this.impl.updateUserHostRestrictions(params.user_blocked_hosts, params.user_allowed_hosts);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTabSpecificPermissions');
           const result = this.impl.updateTabSpecificPermissions(params.extension_id, params.new_hosts, params.tab_id, params.update_origin_allowlist);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserScripts');
           const result = this.impl.updateUserScripts(params.region, params.owner);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTabSpecificPermissions');
           const result = this.impl.clearTabSpecificPermissions(params.extension_ids, params.tab_id, params.update_origin_allowlist);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.Renderer_WatchPages_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.Renderer_WatchPages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.watchPages');
           const result = this.impl.watchPages(params.css_selectors);
           break;

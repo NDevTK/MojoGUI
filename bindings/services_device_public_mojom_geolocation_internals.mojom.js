@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -357,21 +358,21 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDiagnosticsChanged');
           const result = this.impl.onDiagnosticsChanged(params.diagnostics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationRequested');
           const result = this.impl.onNetworkLocationRequested(params.access_point_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationReceived');
           const result = this.impl.onNetworkLocationReceived(params.response);
           break;
@@ -525,7 +526,7 @@ device.mojom.GeolocationInternalsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addInternalsObserver');
           const result = this.impl.addInternalsObserver(params.observer);
           if (header.expectsResponse) {

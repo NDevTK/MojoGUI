@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1655,7 +1656,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.authenticateWebview');
           const result = this.impl.authenticateWebview();
           if (header.expectsResponse) {
@@ -1668,7 +1669,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWindowsTabsList');
           const result = this.impl.getWindowsTabsList();
           if (header.expectsResponse) {
@@ -1681,7 +1682,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ListCourses_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listCourses');
           const result = this.impl.listCourses();
           if (header.expectsResponse) {
@@ -1694,7 +1695,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ListStudents_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listStudents');
           const result = this.impl.listStudents(params.course_id);
           if (header.expectsResponse) {
@@ -1707,7 +1708,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listAssignments');
           const result = this.impl.listAssignments(params.course_id);
           if (header.expectsResponse) {
@@ -1720,7 +1721,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_CreateSession_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSession');
           const result = this.impl.createSession(params.config);
           if (header.expectsResponse) {
@@ -1733,7 +1734,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetSession_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSession');
           const result = this.impl.getSession();
           if (header.expectsResponse) {
@@ -1746,7 +1747,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_EndSession_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endSession');
           const result = this.impl.endSession();
           if (header.expectsResponse) {
@@ -1759,7 +1760,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extendSessionDuration');
           const result = this.impl.extendSessionDuration(params.extended_duration);
           if (header.expectsResponse) {
@@ -1772,7 +1773,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeStudent');
           const result = this.impl.removeStudent(params.student_id);
           if (header.expectsResponse) {
@@ -1785,7 +1786,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renotifyStudent');
           const result = this.impl.renotifyStudent(params.student_id);
           if (header.expectsResponse) {
@@ -1798,7 +1799,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_AddStudents_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addStudents');
           const result = this.impl.addStudents(params.students);
           if (header.expectsResponse) {
@@ -1811,7 +1812,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOnTaskConfig');
           const result = this.impl.updateOnTaskConfig(params.on_task_config);
           if (header.expectsResponse) {
@@ -1824,7 +1825,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCaptionConfig');
           const result = this.impl.updateCaptionConfig(params.caption_config);
           if (header.expectsResponse) {
@@ -1837,7 +1838,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFloatMode');
           const result = this.impl.setFloatMode(params.is_float_mode);
           if (header.expectsResponse) {
@@ -1850,7 +1851,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitAccessCode');
           const result = this.impl.submitAccessCode(params.access_code);
           if (header.expectsResponse) {
@@ -1863,7 +1864,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.viewStudentScreen');
           const result = this.impl.viewStudentScreen(params.id);
           if (header.expectsResponse) {
@@ -1876,7 +1877,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endViewScreenSession');
           const result = this.impl.endViewScreenSession(params.id);
           if (header.expectsResponse) {
@@ -1889,7 +1890,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewScreenSessionActive');
           const result = this.impl.setViewScreenSessionActive(params.id);
           if (header.expectsResponse) {
@@ -1902,7 +1903,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserPref');
           const result = this.impl.getUserPref(params.pref);
           if (header.expectsResponse) {
@@ -1915,7 +1916,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserPref');
           const result = this.impl.setUserPref(params.pref, params.value);
           if (header.expectsResponse) {
@@ -1928,7 +1929,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSitePermission');
           const result = this.impl.setSitePermission(params.url, params.permission, params.setting);
           if (header.expectsResponse) {
@@ -1941,7 +1942,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_CloseTab_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeTab');
           const result = this.impl.closeTab(params.tab_id);
           if (header.expectsResponse) {
@@ -1954,7 +1955,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
@@ -1967,7 +1968,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshWorkbook');
           const result = this.impl.refreshWorkbook();
           if (header.expectsResponse) {
@@ -1980,7 +1981,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSpeechRecognitionInstallationStatus');
           const result = this.impl.getSpeechRecognitionInstallationStatus();
           if (header.expectsResponse) {
@@ -1993,7 +1994,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSpotlight');
           const result = this.impl.startSpotlight(params.crd_connection_code);
           if (header.expectsResponse) {
@@ -2006,7 +2007,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.presentStudentScreen');
           const result = this.impl.presentStudentScreen(params.student, params.receiver_id);
           if (header.expectsResponse) {
@@ -2019,7 +2020,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopPresentingStudentScreen');
           const result = this.impl.stopPresentingStudentScreen();
           if (header.expectsResponse) {
@@ -2032,7 +2033,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.presentOwnScreen');
           const result = this.impl.presentOwnScreen(params.receiver_id);
           if (header.expectsResponse) {
@@ -2045,7 +2046,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopPresentingOwnScreen');
           const result = this.impl.stopPresentingOwnScreen();
           if (header.expectsResponse) {
@@ -2448,70 +2449,70 @@ ash.boca.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStudentActivityUpdated');
           const result = this.impl.onStudentActivityUpdated(params.activities);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionConfigUpdated');
           const result = this.impl.onSessionConfigUpdated(params.config);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActiveNetworkStateChanged');
           const result = this.impl.onActiveNetworkStateChanged(params.active_networks);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalCaptionDisabled');
           const result = this.impl.onLocalCaptionDisabled();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionInstallStateUpdated');
           const result = this.impl.onSpeechRecognitionInstallStateUpdated(params.state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionCaptionDisabled');
           const result = this.impl.onSessionCaptionDisabled(params.is_error);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameDataReceived');
           const result = this.impl.onFrameDataReceived(params.frame_data);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpotlightCrdSessionStatusUpdated');
           const result = this.impl.onSpotlightCrdSessionStatusUpdated(params.state);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPresentStudentScreenEnded');
           const result = this.impl.onPresentStudentScreenEnded();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPresentOwnScreenEnded');
           const result = this.impl.onPresentOwnScreenEnded();
           break;
@@ -2660,7 +2661,7 @@ ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.handler, params.page);
           break;

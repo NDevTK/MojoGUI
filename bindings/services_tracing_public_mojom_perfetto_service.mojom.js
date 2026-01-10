@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -555,7 +556,7 @@ tracing.mojom.ProducerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_CommitData_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_CommitData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitData');
           const result = this.impl.commitData(params.data_request);
           if (header.expectsResponse) {
@@ -568,28 +569,28 @@ tracing.mojom.ProducerHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDataSource');
           const result = this.impl.registerDataSource(params.registration_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDataSource');
           const result = this.impl.updateDataSource(params.registration_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerTraceWriter');
           const result = this.impl.registerTraceWriter(params.writer_id, params.target_buffer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterTraceWriter');
           const result = this.impl.unregisterTraceWriter(params.writer_id);
           break;
@@ -859,14 +860,14 @@ tracing.mojom.ProducerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTracingStart');
           const result = this.impl.onTracingStart();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_StartDataSource_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataSource');
           const result = this.impl.startDataSource(params.id, params.data_source_config);
           if (header.expectsResponse) {
@@ -879,7 +880,7 @@ tracing.mojom.ProducerClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_StopDataSource_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDataSource');
           const result = this.impl.stopDataSource(params.id);
           if (header.expectsResponse) {
@@ -892,14 +893,14 @@ tracing.mojom.ProducerClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush(params.flush_request_id, params.data_source_ids);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearIncrementalState');
           const result = this.impl.clearIncrementalState();
           break;
@@ -1050,7 +1051,7 @@ tracing.mojom.PerfettoServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToProducerHost');
           const result = this.impl.connectToProducerHost(params.producer_client, params.producer_host_receiver, params.shared_memory, params.shared_memory_buffer_page_size_bytes);
           break;
@@ -1240,14 +1241,14 @@ tracing.mojom.ConsumerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableTracing');
           const result = this.impl.enableTracing(params.tracing_session_host, params.tracing_session_client, params.config, params.output_file);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.ConsumerHost_CloneSession_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneSession');
           const result = this.impl.cloneSession(params.tracing_session_host, params.tracing_session_client, params.unguessable_name, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
@@ -1531,21 +1532,21 @@ tracing.mojom.TracingSessionHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeTraceConfig');
           const result = this.impl.changeTraceConfig(params.config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableTracing');
           const result = this.impl.disableTracing();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readBuffers');
           const result = this.impl.readBuffers(params.stream);
           if (header.expectsResponse) {
@@ -1558,7 +1559,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBufferUsage');
           const result = this.impl.requestBufferUsage();
           if (header.expectsResponse) {
@@ -1571,7 +1572,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableTracingAndEmitJson');
           const result = this.impl.disableTracingAndEmitJson(params.agent_label_filter, params.stream, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
@@ -1752,14 +1753,14 @@ tracing.mojom.TracingSessionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTracingEnabled');
           const result = this.impl.onTracingEnabled();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTracingDisabled');
           const result = this.impl.onTracingDisabled(params.tracing_succeeded);
           break;

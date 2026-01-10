@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -800,35 +801,35 @@ arc.mojom.AuthHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthorizationResult');
           const result = this.impl.onAuthorizationResult(params.result, params.account);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportMetrics_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportMetrics');
           const result = this.impl.reportMetrics(params.metrics_type, params.value);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAccountCheckStatus');
           const result = this.impl.reportAccountCheckStatus(params.status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportManagementChangeStatus');
           const result = this.impl.reportManagementChangeStatus(params.status);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrimaryAccount');
           const result = this.impl.requestPrimaryAccount();
           if (header.expectsResponse) {
@@ -841,7 +842,7 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrimaryAccountInfo');
           const result = this.impl.requestPrimaryAccountInfo();
           if (header.expectsResponse) {
@@ -854,7 +855,7 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAccountInfo');
           const result = this.impl.requestAccountInfo(params.account_name);
           if (header.expectsResponse) {
@@ -867,7 +868,7 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isAccountManagerAvailable');
           const result = this.impl.isAccountManagerAvailable();
           if (header.expectsResponse) {
@@ -880,28 +881,28 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAddAccountRequest');
           const result = this.impl.handleAddAccountRequest();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleRemoveAccountRequest');
           const result = this.impl.handleRemoveAccountRequest(params.account_name);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleUpdateCredentialsRequest');
           const result = this.impl.handleUpdateCredentialsRequest(params.account_name);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAccountReauthReason');
           const result = this.impl.reportAccountReauthReason(params.reason);
           break;
@@ -1177,7 +1178,7 @@ arc.mojom.AuthInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1190,14 +1191,14 @@ arc.mojom.AuthInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccountUpdated');
           const result = this.impl.onAccountUpdated(params.account_name, params.update_type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGoogleAccounts');
           const result = this.impl.getGoogleAccounts();
           if (header.expectsResponse) {
@@ -1210,7 +1211,7 @@ arc.mojom.AuthInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMainAccountResolutionStatus');
           const result = this.impl.getMainAccountResolutionStatus();
           if (header.expectsResponse) {
@@ -1223,7 +1224,7 @@ arc.mojom.AuthInstanceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_SetAccounts_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccounts');
           const result = this.impl.setAccounts(params.accounts);
           break;

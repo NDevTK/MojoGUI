@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -399,7 +400,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllBucketsAcrossAllStorageKeys');
           const result = this.impl.getAllBucketsAcrossAllStorageKeys();
           if (header.expectsResponse) {
@@ -412,7 +413,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadBucketData');
           const result = this.impl.downloadBucketData(params.bucketId);
           if (header.expectsResponse) {
@@ -425,7 +426,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceClose');
           const result = this.impl.forceClose(params.bucketId);
           if (header.expectsResponse) {
@@ -438,7 +439,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMetadataRecording');
           const result = this.impl.startMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
@@ -451,7 +452,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopMetadataRecording');
           const result = this.impl.stopMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
@@ -464,7 +465,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inspectClient');
           const result = this.impl.inspectClient(params.client_info);
           if (header.expectsResponse) {

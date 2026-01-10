@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -266,14 +267,14 @@ arc.mojom.AudioHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showVolumeControls');
           const result = this.impl.showVolumeControls();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemVolumeUpdateRequest');
           const result = this.impl.onSystemVolumeUpdateRequest(params.percent);
           break;
@@ -539,7 +540,7 @@ arc.mojom.AudioInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -552,28 +553,28 @@ arc.mojom.AudioInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySwitchState');
           const result = this.impl.notifySwitchState(params.state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyVolumeState');
           const result = this.impl.notifyVolumeState(params.volume, params.muted);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySpatialAudioState');
           const result = this.impl.notifySpatialAudioState(params.enabled);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOutputDeviceInfo');
           const result = this.impl.notifyOutputDeviceInfo(params.device_type);
           break;

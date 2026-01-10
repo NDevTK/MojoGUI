@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -331,7 +332,7 @@ webnn.mojom.WebNNTensorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readTensor');
           const result = this.impl.readTensor();
           if (header.expectsResponse) {
@@ -344,21 +345,21 @@ webnn.mojom.WebNNTensorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeTensor');
           const result = this.impl.writeTensor(params.src_buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportTensor');
           const result = this.impl.exportTensor();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec);
+          const params = decoder.decodeStructInline(webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importTensor');
           const result = this.impl.importTensor(params.fence);
           break;

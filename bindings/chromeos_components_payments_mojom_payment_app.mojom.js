@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -317,7 +318,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isPaymentImplemented');
           const result = this.impl.isPaymentImplemented(params.package_name);
           if (header.expectsResponse) {
@@ -330,7 +331,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isReadyToPay');
           const result = this.impl.isReadyToPay(params.parameters);
           if (header.expectsResponse) {
@@ -343,7 +344,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokePaymentApp');
           const result = this.impl.invokePaymentApp(params.parameters);
           if (header.expectsResponse) {
@@ -356,7 +357,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abortPaymentApp');
           const result = this.impl.abortPaymentApp(params.request_token);
           if (header.expectsResponse) {

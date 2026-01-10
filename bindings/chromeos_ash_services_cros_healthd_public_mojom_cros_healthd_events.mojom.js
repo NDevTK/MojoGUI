@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -853,42 +854,42 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdapterAdded');
           const result = this.impl.onAdapterAdded();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdapterRemoved');
           const result = this.impl.onAdapterRemoved();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdapterPropertyChanged');
           const result = this.impl.onAdapterPropertyChanged();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDevicePropertyChanged');
           const result = this.impl.onDevicePropertyChanged();
           break;
@@ -1062,14 +1063,14 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidClosed');
           const result = this.impl.onLidClosed();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidOpened');
           const result = this.impl.onLidOpened();
           break;
@@ -1297,28 +1298,28 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcInserted');
           const result = this.impl.onAcInserted();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcRemoved');
           const result = this.impl.onAcRemoved();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsSuspend');
           const result = this.impl.onOsSuspend();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsResume');
           const result = this.impl.onOsResume();
           break;
@@ -1492,14 +1493,14 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnderrun');
           const result = this.impl.onUnderrun();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSevereUnderrun');
           const result = this.impl.onSevereUnderrun();
           break;
@@ -1727,28 +1728,28 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthorized');
           const result = this.impl.onAuthorized();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnAuthorized');
           const result = this.impl.onUnAuthorized();
           break;
@@ -1924,14 +1925,14 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd(params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove(params.info);
           break;
@@ -2105,14 +2106,14 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
@@ -2260,7 +2261,7 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.info);
           break;

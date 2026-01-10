@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -452,7 +453,7 @@ mantis.mojom.MantisProcessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inpainting');
           const result = this.impl.inpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -465,7 +466,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generativeFill');
           const result = this.impl.generativeFill(params.image, params.mask, params.seed, params.prompt);
           if (header.expectsResponse) {
@@ -478,7 +479,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.segmentation');
           const result = this.impl.segmentation(params.image, params.prior);
           if (header.expectsResponse) {
@@ -491,7 +492,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.image);
           if (header.expectsResponse) {
@@ -504,7 +505,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.outpainting');
           const result = this.impl.outpainting(params.image, params.mask, params.seed);
           if (header.expectsResponse) {
@@ -517,7 +518,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec);
+          const params = decoder.decodeStructInline(mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inferSegmentationMode');
           const result = this.impl.inferSegmentationMode(params.gesture);
           if (header.expectsResponse) {

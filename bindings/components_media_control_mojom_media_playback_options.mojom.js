@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -261,21 +262,21 @@ components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec);
+          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMediaLoadingBlocked');
           const result = this.impl.setMediaLoadingBlocked(params.blocked);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundVideoPlaybackEnabled');
           const result = this.impl.setBackgroundVideoPlaybackEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec);
+          const params = decoder.decodeStructInline(components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRendererType');
           const result = this.impl.setRendererType(params.type);
           break;

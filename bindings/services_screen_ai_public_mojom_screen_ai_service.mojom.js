@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -457,7 +458,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcrAndReturnAXTreeUpdate');
           const result = this.impl.performOcrAndReturnAXTreeUpdate(params.image);
           if (header.expectsResponse) {
@@ -470,7 +471,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcrAndReturnAnnotation');
           const result = this.impl.performOcrAndReturnAnnotation(params.image);
           if (header.expectsResponse) {
@@ -483,14 +484,14 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClientType');
           const result = this.impl.setClientType(params.client_type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMaxImageDimension');
           const result = this.impl.getMaxImageDimension();
           if (header.expectsResponse) {
@@ -503,14 +504,14 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOCRLightMode');
           const result = this.impl.setOCRLightMode(params.enabled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isOCRBusy');
           const result = this.impl.isOCRBusy();
           if (header.expectsResponse) {
@@ -767,7 +768,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractMainContent');
           const result = this.impl.extractMainContent(params.snapshot);
           if (header.expectsResponse) {
@@ -780,7 +781,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractMainNode');
           const result = this.impl.extractMainNode(params.snapshot);
           if (header.expectsResponse) {
@@ -793,7 +794,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.identifyMainNode');
           const result = this.impl.identifyMainNode(params.ax_tree);
           if (header.expectsResponse) {
@@ -806,7 +807,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClientType');
           const result = this.impl.setClientType(params.client_type);
           break;
@@ -954,7 +955,7 @@ screen_ai.mojom.OCRServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAnnotator');
           const result = this.impl.bindAnnotator(params.annotator);
           break;
@@ -1102,7 +1103,7 @@ screen_ai.mojom.MainContentExtractionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMainContentExtractor');
           const result = this.impl.bindMainContentExtractor(params.main_content_extractor);
           break;

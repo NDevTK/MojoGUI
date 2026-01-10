@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -353,7 +354,7 @@ network.mojom.ResolveHostHandleReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ResolveHostHandle_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.result);
           break;
@@ -560,21 +561,21 @@ network.mojom.ResolveHostClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ResolveHostClient_OnComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.result, params.resolve_error_info, params.resolved_addresses, params.alternative_endpoints);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ResolveHostClient_OnTextResults_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextResults');
           const result = this.impl.onTextResults(params.text_results);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResults');
           const result = this.impl.onHostnameResults(params.hosts);
           break;
@@ -813,28 +814,28 @@ network.mojom.MdnsListenClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAddressResult');
           const result = this.impl.onAddressResult(params.update_type, params.query_type, params.endpoint);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnTextResult_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextResult');
           const result = this.impl.onTextResult(params.update_type, params.query_type, params.text_records);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResult');
           const result = this.impl.onHostnameResult(params.update_type, params.query_type, params.host);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnhandledResult');
           const result = this.impl.onUnhandledResult(params.update_type, params.query_type);
           break;
@@ -1021,14 +1022,14 @@ network.mojom.HostResolverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.HostResolver_ResolveHost_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.HostResolver_ResolveHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveHost');
           const result = this.impl.resolveHost(params.host, params.network_anonymization_key, params.optional_parameters, params.response_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.HostResolver_MdnsListen_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.HostResolver_MdnsListen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mdnsListen');
           const result = this.impl.mdnsListen(params.host, params.query_type, params.response_client);
           if (header.expectsResponse) {
@@ -1181,7 +1182,7 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDnsConfigChanged');
           const result = this.impl.onDnsConfigChanged();
           break;
@@ -1329,7 +1330,7 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
           const result = this.impl.requestNotifications(params.client);
           break;

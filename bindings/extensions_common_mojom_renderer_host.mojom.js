@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -308,28 +309,28 @@ extensions.mojom.RendererHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAPIActionToActivityLog');
           const result = this.impl.addAPIActionToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEventToActivityLog');
           const result = this.impl.addEventToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDOMActionToActivityLog');
           const result = this.impl.addDOMActionToActivityLog(params.extension_id, params.call_name, params.args, params.url, params.url_title, params.call_type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMessageBundle');
           const result = this.impl.getMessageBundle(params.extension_id);
           if (header.expectsResponse) {

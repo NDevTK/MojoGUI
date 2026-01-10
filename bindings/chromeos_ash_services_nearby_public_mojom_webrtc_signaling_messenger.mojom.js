@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -255,14 +256,14 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.success);
           break;
@@ -409,7 +410,7 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopReceivingMessages');
           const result = this.impl.stopReceivingMessages();
           break;
@@ -603,7 +604,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.self_id, params.peer_id, params.location_hint, params.message);
           if (header.expectsResponse) {
@@ -616,7 +617,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReceivingMessages');
           const result = this.impl.startReceivingMessages(params.self_id, params.location_hint, params.listener);
           if (header.expectsResponse) {

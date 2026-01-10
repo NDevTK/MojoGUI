@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -347,14 +348,14 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceSettingsObserver');
           const result = this.impl.addDeviceSettingsObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPolicyInfo');
           const result = this.impl.getPolicyInfo();
           if (header.expectsResponse) {
@@ -367,7 +368,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSysInfo');
           const result = this.impl.getSysInfo();
           if (header.expectsResponse) {
@@ -380,7 +381,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMachineStatisticsInfo');
           const result = this.impl.getMachineStatisticsInfo();
           if (header.expectsResponse) {
@@ -534,7 +535,7 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPolicyInfoChange');
           const result = this.impl.onPolicyInfoChange(params.info);
           break;

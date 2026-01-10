@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -410,35 +411,35 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateSigningKey');
           const result = this.impl.generateSigningKey(params.acceptable_algorithms, params.priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fromWrappedSigningKey');
           const result = this.impl.fromWrappedSigningKey(params.wrapped_key, params.priority);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sign');
           const result = this.impl.sign(params.key_id, params.data, params.priority);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllSigningKeysForGarbageCollection');
           const result = this.impl.getAllSigningKeysForGarbageCollection(params.priority);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_id, params.priority);
           if (header.expectsResponse) {
@@ -451,7 +452,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec);
+          const params = decoder.decodeStructInline(unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys(params.priority);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -579,84 +580,84 @@ extensions.mojom.EventRouterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListenerForMainThread');
           const result = this.impl.addListenerForMainThread(params.event_listener);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListenerForServiceWorker');
           const result = this.impl.addListenerForServiceWorker(params.event_listener);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLazyListenerForMainThread');
           const result = this.impl.addLazyListenerForMainThread(params.extension_id, params.event_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLazyListenerForServiceWorker');
           const result = this.impl.addLazyListenerForServiceWorker(params.extension_id, params.worker_scope_url, params.event_name);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFilteredListenerForMainThread');
           const result = this.impl.addFilteredListenerForMainThread(params.listener_owner, params.event_name, params.filter, params.add_lazy_listener);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFilteredListenerForServiceWorker');
           const result = this.impl.addFilteredListenerForServiceWorker(params.extension_id, params.event_name, params.service_worker_context, params.filter, params.add_lazy_listener);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeListenerForMainThread');
           const result = this.impl.removeListenerForMainThread(params.event_listener);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeListenerForServiceWorker');
           const result = this.impl.removeListenerForServiceWorker(params.event_listener);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeLazyListenerForMainThread');
           const result = this.impl.removeLazyListenerForMainThread(params.extension_id, params.event_name);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeLazyListenerForServiceWorker');
           const result = this.impl.removeLazyListenerForServiceWorker(params.extension_id, params.worker_scope_url, params.event_name);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFilteredListenerForMainThread');
           const result = this.impl.removeFilteredListenerForMainThread(params.listener_owner, params.event_name, params.filter, params.remove_lazy_listener);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFilteredListenerForServiceWorker');
           const result = this.impl.removeFilteredListenerForServiceWorker(params.extension_id, params.event_name, params.service_worker_context, params.filter, params.remove_lazy_listener);
           break;

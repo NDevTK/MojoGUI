@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -212,7 +213,7 @@ media.mojom.CdmServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmService_CreateCdmFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmFactory');
           const result = this.impl.createCdmFactory(params.factory, params.frame_interfaces);
           break;
@@ -365,7 +366,7 @@ media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTokens');
           const result = this.impl.getTokens();
           if (header.expectsResponse) {
@@ -521,7 +522,7 @@ media.mojom.CdmServiceBrokerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmServiceBroker_GetService_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getService');
           const result = this.impl.getService(params.cdm_path, params.token_provider, params.receiver);
           break;

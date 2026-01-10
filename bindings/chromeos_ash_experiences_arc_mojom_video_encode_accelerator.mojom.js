@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -510,7 +511,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSupportedProfiles');
           const result = this.impl.getSupportedProfiles();
           if (header.expectsResponse) {
@@ -523,7 +524,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.client);
           if (header.expectsResponse) {
@@ -536,7 +537,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.encode');
           const result = this.impl.encode(params.format, params.frame_fd, params.planes, params.timestamp, params.force_keyframe);
           if (header.expectsResponse) {
@@ -549,7 +550,7 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.useBitstreamBuffer');
           const result = this.impl.useBitstreamBuffer(params.shmem_fd, params.offset, params.size);
           if (header.expectsResponse) {
@@ -562,21 +563,21 @@ arc.mojom.VideoEncodeAcceleratorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestEncodingParametersChange');
           const result = this.impl.requestEncodingParametersChange(params.bitrate, params.framerate);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestEncodingParametersChangeDeprecated');
           const result = this.impl.requestEncodingParametersChangeDeprecated(params.bitrate, params.framerate);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
@@ -760,14 +761,14 @@ arc.mojom.VideoEncodeClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requireBitstreamBuffers');
           const result = this.impl.requireBitstreamBuffers(params.input_count, params.input_coded_size, params.output_buffer_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyError');
           const result = this.impl.notifyError(params.error);
           break;

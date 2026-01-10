@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -433,28 +434,28 @@ crosapi.mojom.AccountManagerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTokenUpserted');
           const result = this.impl.onTokenUpserted(params.account);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccountRemoved');
           const result = this.impl.onAccountRemoved(params.account);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthErrorChanged');
           const result = this.impl.onAuthErrorChanged(params.account, params.error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSigninDialogClosed');
           const result = this.impl.onSigninDialogClosed();
           break;
@@ -866,7 +867,7 @@ crosapi.mojom.AccountManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_IsInitialized_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_IsInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isInitialized');
           const result = this.impl.isInitialized();
           if (header.expectsResponse) {
@@ -879,7 +880,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver();
           if (header.expectsResponse) {
@@ -892,7 +893,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_GetAccounts_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_GetAccounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccounts');
           const result = this.impl.getAccounts();
           if (header.expectsResponse) {
@@ -905,7 +906,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showAddAccountDialog');
           const result = this.impl.showAddAccountDialog(params.add_account_options);
           if (header.expectsResponse) {
@@ -918,7 +919,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showReauthAccountDialog');
           const result = this.impl.showReauthAccountDialog(params.email);
           if (header.expectsResponse) {
@@ -931,14 +932,14 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showManageAccountsSettings');
           const result = this.impl.showManageAccountsSettings();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPersistentErrorForAccount');
           const result = this.impl.getPersistentErrorForAccount(params.account);
           if (header.expectsResponse) {
@@ -951,7 +952,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAccessTokenFetcher');
           const result = this.impl.createAccessTokenFetcher(params.account_key, params.oauth_consumer_name);
           if (header.expectsResponse) {
@@ -964,7 +965,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAuthError');
           const result = this.impl.reportAuthError(params.account, params.error);
           break;
@@ -1118,7 +1119,7 @@ crosapi.mojom.AccessTokenFetcherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.scopes);
           if (header.expectsResponse) {

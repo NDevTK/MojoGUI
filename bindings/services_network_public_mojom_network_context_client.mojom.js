@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -389,7 +390,7 @@ network.mojom.NetworkContextClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFileUploadRequested');
           const result = this.impl.onFileUploadRequested(params.process_id, params.async, params.file_paths, params.destination_url);
           if (header.expectsResponse) {
@@ -402,7 +403,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanSendReportingReports');
           const result = this.impl.onCanSendReportingReports(params.origins);
           if (header.expectsResponse) {
@@ -415,7 +416,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanSendDomainReliabilityUpload');
           const result = this.impl.onCanSendDomainReliabilityUpload(params.origin);
           if (header.expectsResponse) {
@@ -428,7 +429,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGenerateHttpNegotiateAuthToken');
           const result = this.impl.onGenerateHttpNegotiateAuthToken(params.server_auth_token, params.can_delegate, params.auth_negotiate_android_account_type, params.spn);
           if (header.expectsResponse) {
@@ -441,7 +442,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanSendSCTAuditingReport');
           const result = this.impl.onCanSendSCTAuditingReport();
           if (header.expectsResponse) {
@@ -454,7 +455,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewSCTAuditingReportSent');
           const result = this.impl.onNewSCTAuditingReportSent();
           break;

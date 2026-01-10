@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -247,14 +248,14 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInitialized');
           const result = this.impl.onInitialized();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTriggerBackgroundTrace');
           const result = this.impl.onTriggerBackgroundTrace(params.rule, params.histogram_value, params.flow_id);
           break;
@@ -433,14 +434,14 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUMACallback');
           const result = this.impl.setUMACallback(params.rule, params.histogram_name, params.histogram_lower_value, params.histogram_upper_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUMACallback');
           const result = this.impl.clearUMACallback(params.rule);
           break;
@@ -590,7 +591,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec);
+          const params = decoder.decodeStructInline(tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.tracing_process_id, params.client, params.agent);
           break;

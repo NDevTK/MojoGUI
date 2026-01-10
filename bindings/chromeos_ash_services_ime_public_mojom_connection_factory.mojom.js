@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -248,7 +249,7 @@ ash.ime.mojom.ConnectionFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToInputMethod');
           const result = this.impl.connectToInputMethod(params.ime_spec, params.input_method, params.input_method_host, params.settings);
           if (header.expectsResponse) {
@@ -261,7 +262,7 @@ ash.ime.mojom.ConnectionFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unused');
           const result = this.impl.unused(params.unused);
           if (header.expectsResponse) {

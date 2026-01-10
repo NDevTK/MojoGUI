@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -250,7 +251,7 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked();
           break;
@@ -398,7 +399,7 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoTransition');
           const result = this.impl.setAutoTransition(params.value);
           break;
@@ -545,7 +546,7 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContinueClicked');
           const result = this.impl.onContinueClicked();
           break;
@@ -721,14 +722,14 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReturnClicked');
           const result = this.impl.onReturnClicked(params.enable_drive_pinning);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked(params.enable_drive_pinning);
           break;
@@ -877,7 +878,7 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRequiredSpaceInfo');
           const result = this.impl.setRequiredSpaceInfo(params.required_space, params.free_space);
           break;
@@ -1024,7 +1025,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSetupComplete');
           const result = this.impl.onSetupComplete();
           break;
@@ -1199,14 +1200,14 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBackClicked');
           const result = this.impl.onBackClicked();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked(params.user_flow);
           break;
@@ -1353,7 +1354,7 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setQuickStartVisible');
           const result = this.impl.setQuickStartVisible();
           break;
@@ -1555,21 +1556,21 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageChange');
           const result = this.impl.onPageChange(params.page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSkipClicked');
           const result = this.impl.onSkipClicked();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onExitClicked');
           const result = this.impl.onExitClicked();
           break;
@@ -1743,14 +1744,14 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBackClicked');
           const result = this.impl.onBackClicked();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
           const result = this.impl.onNextClicked();
           break;

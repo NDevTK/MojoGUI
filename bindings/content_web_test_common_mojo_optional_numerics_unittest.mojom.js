@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1906,7 +1907,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBool');
           const result = this.impl.sendNullBool(params.optional_bool);
           if (header.expectsResponse) {
@@ -1919,7 +1920,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint8');
           const result = this.impl.sendNullUint8(params.optional_uint8);
           if (header.expectsResponse) {
@@ -1932,7 +1933,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt8');
           const result = this.impl.sendNullInt8(params.optional_int8);
           if (header.expectsResponse) {
@@ -1945,7 +1946,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint16');
           const result = this.impl.sendNullUint16(params.optional_uint16);
           if (header.expectsResponse) {
@@ -1958,7 +1959,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16');
           const result = this.impl.sendNullInt16(params.optional_int16);
           if (header.expectsResponse) {
@@ -1971,7 +1972,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32');
           const result = this.impl.sendNullUint32(params.optional_uint32);
           if (header.expectsResponse) {
@@ -1984,7 +1985,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt32');
           const result = this.impl.sendNullInt32(params.optional_int32);
           if (header.expectsResponse) {
@@ -1997,7 +1998,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint64');
           const result = this.impl.sendNullUint64(params.optional_uint64);
           if (header.expectsResponse) {
@@ -2010,7 +2011,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt64');
           const result = this.impl.sendNullInt64(params.optional_int64);
           if (header.expectsResponse) {
@@ -2023,7 +2024,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullFloat');
           const result = this.impl.sendNullFloat(params.optional_float);
           if (header.expectsResponse) {
@@ -2036,7 +2037,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDouble');
           const result = this.impl.sendNullDouble(params.optional_double);
           if (header.expectsResponse) {
@@ -2049,7 +2050,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnum');
           const result = this.impl.sendNullEnum(params.optional_enum);
           if (header.expectsResponse) {
@@ -2062,7 +2063,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBools');
           const result = this.impl.sendNullBools(params.optional_bools);
           if (header.expectsResponse) {
@@ -2075,7 +2076,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16s');
           const result = this.impl.sendNullInt16s(params.optional_int16s);
           if (header.expectsResponse) {
@@ -2088,7 +2089,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32s');
           const result = this.impl.sendNullUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
@@ -2101,7 +2102,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubles');
           const result = this.impl.sendNullDoubles(params.optional_doubles);
           if (header.expectsResponse) {
@@ -2114,7 +2115,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnums');
           const result = this.impl.sendNullEnums(params.optional_enums);
           if (header.expectsResponse) {
@@ -2127,7 +2128,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBoolMap');
           const result = this.impl.sendNullBoolMap(params.values);
           if (header.expectsResponse) {
@@ -2140,7 +2141,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubleMap');
           const result = this.impl.sendNullDoubleMap(params.values);
           if (header.expectsResponse) {
@@ -2153,7 +2154,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnumMap');
           const result = this.impl.sendNullEnumMap(params.values);
           if (header.expectsResponse) {
@@ -2166,7 +2167,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBool');
           const result = this.impl.sendOptionalBool(params.optional_bool);
           if (header.expectsResponse) {
@@ -2179,7 +2180,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint8');
           const result = this.impl.sendOptionalUint8(params.optional_uint8);
           if (header.expectsResponse) {
@@ -2192,7 +2193,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt8');
           const result = this.impl.sendOptionalInt8(params.optional_int8);
           if (header.expectsResponse) {
@@ -2205,7 +2206,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint16');
           const result = this.impl.sendOptionalUint16(params.optional_uint16);
           if (header.expectsResponse) {
@@ -2218,7 +2219,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16');
           const result = this.impl.sendOptionalInt16(params.optional_int16);
           if (header.expectsResponse) {
@@ -2231,7 +2232,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32');
           const result = this.impl.sendOptionalUint32(params.optional_uint32);
           if (header.expectsResponse) {
@@ -2244,7 +2245,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt32');
           const result = this.impl.sendOptionalInt32(params.optional_int32);
           if (header.expectsResponse) {
@@ -2257,7 +2258,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint64');
           const result = this.impl.sendOptionalUint64(params.optional_uint64);
           if (header.expectsResponse) {
@@ -2270,7 +2271,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt64');
           const result = this.impl.sendOptionalInt64(params.optional_int64);
           if (header.expectsResponse) {
@@ -2283,7 +2284,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalFloat');
           const result = this.impl.sendOptionalFloat(params.optional_float);
           if (header.expectsResponse) {
@@ -2296,7 +2297,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDouble');
           const result = this.impl.sendOptionalDouble(params.optional_double);
           if (header.expectsResponse) {
@@ -2309,7 +2310,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnum');
           const result = this.impl.sendOptionalEnum(params.optional_enum);
           if (header.expectsResponse) {
@@ -2322,7 +2323,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBools');
           const result = this.impl.sendOptionalBools(params.optional_enums);
           if (header.expectsResponse) {
@@ -2335,7 +2336,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16s');
           const result = this.impl.sendOptionalInt16s(params.optional_int16s);
           if (header.expectsResponse) {
@@ -2348,7 +2349,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32s');
           const result = this.impl.sendOptionalUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
@@ -2361,7 +2362,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubles');
           const result = this.impl.sendOptionalDoubles(params.optional_doubles);
           if (header.expectsResponse) {
@@ -2374,7 +2375,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnums');
           const result = this.impl.sendOptionalEnums(params.optional_enums);
           if (header.expectsResponse) {
@@ -2387,7 +2388,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBoolMap');
           const result = this.impl.sendOptionalBoolMap(params.values);
           if (header.expectsResponse) {
@@ -2400,7 +2401,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubleMap');
           const result = this.impl.sendOptionalDoubleMap(params.values);
           if (header.expectsResponse) {
@@ -2413,7 +2414,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnumMap');
           const result = this.impl.sendOptionalEnumMap(params.values);
           if (header.expectsResponse) {
@@ -2426,7 +2427,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullStructWithOptionalNumerics');
           const result = this.impl.sendNullStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
@@ -2439,7 +2440,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithNullOptionalNumerics');
           const result = this.impl.sendStructWithNullOptionalNumerics(params.s);
           if (header.expectsResponse) {
@@ -2452,7 +2453,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithOptionalNumerics');
           const result = this.impl.sendStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
@@ -4054,7 +4055,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullBool');
           const result = this.impl.getNullBool();
           if (header.expectsResponse) {
@@ -4067,7 +4068,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint8');
           const result = this.impl.getNullUint8();
           if (header.expectsResponse) {
@@ -4080,7 +4081,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt8');
           const result = this.impl.getNullInt8();
           if (header.expectsResponse) {
@@ -4093,7 +4094,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint16');
           const result = this.impl.getNullUint16();
           if (header.expectsResponse) {
@@ -4106,7 +4107,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt16');
           const result = this.impl.getNullInt16();
           if (header.expectsResponse) {
@@ -4119,7 +4120,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint32');
           const result = this.impl.getNullUint32();
           if (header.expectsResponse) {
@@ -4132,7 +4133,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt32');
           const result = this.impl.getNullInt32();
           if (header.expectsResponse) {
@@ -4145,7 +4146,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint64');
           const result = this.impl.getNullUint64();
           if (header.expectsResponse) {
@@ -4158,7 +4159,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt64');
           const result = this.impl.getNullInt64();
           if (header.expectsResponse) {
@@ -4171,7 +4172,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullFloat');
           const result = this.impl.getNullFloat();
           if (header.expectsResponse) {
@@ -4184,7 +4185,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullDouble');
           const result = this.impl.getNullDouble();
           if (header.expectsResponse) {
@@ -4197,7 +4198,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullEnum');
           const result = this.impl.getNullEnum();
           if (header.expectsResponse) {
@@ -4210,7 +4211,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullBools');
           const result = this.impl.getNullBools();
           if (header.expectsResponse) {
@@ -4223,7 +4224,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt16s');
           const result = this.impl.getNullInt16s();
           if (header.expectsResponse) {
@@ -4236,7 +4237,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullUint32s');
           const result = this.impl.getNullUint32s();
           if (header.expectsResponse) {
@@ -4249,7 +4250,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullDoubles');
           const result = this.impl.getNullDoubles();
           if (header.expectsResponse) {
@@ -4262,7 +4263,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullEnums');
           const result = this.impl.getNullEnums();
           if (header.expectsResponse) {
@@ -4275,7 +4276,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullBoolMap');
           const result = this.impl.getNullBoolMap();
           if (header.expectsResponse) {
@@ -4288,7 +4289,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullInt32Map');
           const result = this.impl.getNullInt32Map();
           if (header.expectsResponse) {
@@ -4301,7 +4302,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullEnumMap');
           const result = this.impl.getNullEnumMap();
           if (header.expectsResponse) {
@@ -4314,7 +4315,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBool');
           const result = this.impl.getOptionalBool(params.value);
           if (header.expectsResponse) {
@@ -4327,7 +4328,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint8');
           const result = this.impl.getOptionalUint8(params.value);
           if (header.expectsResponse) {
@@ -4340,7 +4341,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt8');
           const result = this.impl.getOptionalInt8(params.value);
           if (header.expectsResponse) {
@@ -4353,7 +4354,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint16');
           const result = this.impl.getOptionalUint16(params.value);
           if (header.expectsResponse) {
@@ -4366,7 +4367,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16');
           const result = this.impl.getOptionalInt16(params.value);
           if (header.expectsResponse) {
@@ -4379,7 +4380,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32');
           const result = this.impl.getOptionalUint32(params.value);
           if (header.expectsResponse) {
@@ -4392,7 +4393,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt32');
           const result = this.impl.getOptionalInt32(params.value);
           if (header.expectsResponse) {
@@ -4405,7 +4406,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint64');
           const result = this.impl.getOptionalUint64(params.value);
           if (header.expectsResponse) {
@@ -4418,7 +4419,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt64');
           const result = this.impl.getOptionalInt64(params.value);
           if (header.expectsResponse) {
@@ -4431,7 +4432,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloat');
           const result = this.impl.getOptionalFloat(params.value);
           if (header.expectsResponse) {
@@ -4444,7 +4445,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDouble');
           const result = this.impl.getOptionalDouble(params.value);
           if (header.expectsResponse) {
@@ -4457,7 +4458,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnum');
           const result = this.impl.getOptionalEnum(params.value);
           if (header.expectsResponse) {
@@ -4470,7 +4471,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBools');
           const result = this.impl.getOptionalBools(params.value);
           if (header.expectsResponse) {
@@ -4483,7 +4484,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16s');
           const result = this.impl.getOptionalInt16s(params.value);
           if (header.expectsResponse) {
@@ -4496,7 +4497,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32s');
           const result = this.impl.getOptionalUint32s(params.value);
           if (header.expectsResponse) {
@@ -4509,7 +4510,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDoubles');
           const result = this.impl.getOptionalDoubles(params.value);
           if (header.expectsResponse) {
@@ -4522,7 +4523,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnums');
           const result = this.impl.getOptionalEnums(params.value);
           if (header.expectsResponse) {
@@ -4535,7 +4536,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBoolMap');
           const result = this.impl.getOptionalBoolMap(params.key, params.value);
           if (header.expectsResponse) {
@@ -4548,7 +4549,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloatMap');
           const result = this.impl.getOptionalFloatMap(params.key, params.value);
           if (header.expectsResponse) {
@@ -4561,7 +4562,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnumMap');
           const result = this.impl.getOptionalEnumMap(params.key, params.value);
           if (header.expectsResponse) {
@@ -4574,7 +4575,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNullStructWithOptionalNumerics');
           const result = this.impl.getNullStructWithOptionalNumerics();
           if (header.expectsResponse) {
@@ -4587,7 +4588,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStructWithNullOptionalNumerics');
           const result = this.impl.getStructWithNullOptionalNumerics();
           if (header.expectsResponse) {
@@ -4600,7 +4601,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStructWithOptionalNumerics');
           const result = this.impl.getStructWithOptionalNumerics(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
@@ -4792,7 +4793,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
           const result = this.impl.methodWithVersionedParams();
           if (header.expectsResponse) {
@@ -4805,7 +4806,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {
@@ -5043,7 +5044,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
           const result = this.impl.methodWithVersionedParams(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
@@ -5056,7 +5057,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec);
+          const params = decoder.decodeStructInline(content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {

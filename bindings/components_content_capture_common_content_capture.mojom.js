@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -292,28 +293,28 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCompleteBatchCaptureContent');
           const result = this.impl.didCompleteBatchCaptureContent();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCaptureContent');
           const result = this.impl.didCaptureContent(params.data, params.first_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateContent');
           const result = this.impl.didUpdateContent(params.data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didRemoveContent');
           const result = this.impl.didRemoveContent(params.ids);
           break;
@@ -487,14 +488,14 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startCapture');
           const result = this.impl.startCapture();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec);
+          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopCapture');
           const result = this.impl.stopCapture();
           break;

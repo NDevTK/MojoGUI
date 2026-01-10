@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -275,7 +276,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lastCallHasNext');
           const result = this.impl.lastCallHasNext();
           if (header.expectsResponse) {
@@ -288,7 +289,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitLastCall');
           const result = this.impl.waitLastCall();
           if (header.expectsResponse) {
@@ -301,7 +302,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fulfillLastCallCallback');
           const result = this.impl.fulfillLastCallCallback();
           break;
@@ -479,14 +480,14 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindContext');
           const result = this.impl.bindContext(params.remote, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestProvider');
           const result = this.impl.bindTestProvider(params.interface_name, params.receiver);
           break;

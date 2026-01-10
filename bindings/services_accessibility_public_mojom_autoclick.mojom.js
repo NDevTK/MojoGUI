@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -207,7 +208,7 @@ ax.mojom.AutoclickReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestScrollableBoundsForPoint');
           const result = this.impl.requestScrollableBoundsForPoint(params.point);
           break;
@@ -388,14 +389,14 @@ ax.mojom.AutoclickClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleScrollableBoundsForPointFound');
           const result = this.impl.handleScrollableBoundsForPointFound(params.bounds);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAutoclick');
           const result = this.impl.bindAutoclick();
           if (header.expectsResponse) {

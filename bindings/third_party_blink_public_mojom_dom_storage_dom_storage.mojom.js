@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -211,7 +212,7 @@ blink.mojom.DomStorageProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDomStorage');
           const result = this.impl.bindDomStorage(params.receiver, params.client);
           break;
@@ -421,21 +422,21 @@ blink.mojom.DomStorageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openLocalStorage');
           const result = this.impl.openLocalStorage(params.storage_key, params.local_frame_token, params.area);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageNamespace');
           const result = this.impl.bindSessionStorageNamespace(params.namespace_id, params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageArea');
           const result = this.impl.bindSessionStorageArea(params.storage_key, params.local_frame_token, params.namespace_id, params.session_namespace);
           break;
@@ -609,14 +610,14 @@ blink.mojom.DomStorageClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetSessionStorageConnections');
           const result = this.impl.resetSessionStorageConnections();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetLocalStorageConnections');
           const result = this.impl.resetLocalStorageConnections();
           break;

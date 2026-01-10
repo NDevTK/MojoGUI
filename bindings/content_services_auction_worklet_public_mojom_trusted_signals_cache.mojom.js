@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -252,14 +253,14 @@ auction_worklet.mojom.TrustedSignalsCacheClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSuccess');
           const result = this.impl.onSuccess(params.compression_scheme, params.compression_group_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error_message);
           break;
@@ -408,7 +409,7 @@ auction_worklet.mojom.TrustedSignalsCacheReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTrustedSignals');
           const result = this.impl.getTrustedSignals(params.compression_group_token, params.client);
           break;

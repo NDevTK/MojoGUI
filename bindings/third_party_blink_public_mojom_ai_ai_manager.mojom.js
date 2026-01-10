@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -289,14 +290,14 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.writer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -473,14 +474,14 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.rewriter);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -657,14 +658,14 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.summarizer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -841,14 +842,14 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.proofreader);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -1344,7 +1345,7 @@ blink.mojom.AIManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateLanguageModel');
           const result = this.impl.canCreateLanguageModel(params.options);
           if (header.expectsResponse) {
@@ -1357,14 +1358,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateLanguageModel_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLanguageModel');
           const result = this.impl.createLanguageModel(params.client, params.options);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateSummarizer');
           const result = this.impl.canCreateSummarizer(params.options);
           if (header.expectsResponse) {
@@ -1377,14 +1378,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateSummarizer_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSummarizer');
           const result = this.impl.createSummarizer(params.client, params.options);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLanguageModelParams');
           const result = this.impl.getLanguageModelParams();
           if (header.expectsResponse) {
@@ -1397,7 +1398,7 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateWriter_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateWriter');
           const result = this.impl.canCreateWriter(params.options);
           if (header.expectsResponse) {
@@ -1410,14 +1411,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateWriter_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWriter');
           const result = this.impl.createWriter(params.client, params.options);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateRewriter_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateRewriter');
           const result = this.impl.canCreateRewriter(params.options);
           if (header.expectsResponse) {
@@ -1430,14 +1431,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateRewriter_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateRewriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRewriter');
           const result = this.impl.createRewriter(params.client, params.options);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateProofreader_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateProofreader');
           const result = this.impl.canCreateProofreader(params.options);
           if (header.expectsResponse) {
@@ -1450,14 +1451,14 @@ blink.mojom.AIManagerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateProofreader_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_CreateProofreader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProofreader');
           const result = this.impl.createProofreader(params.client, params.options);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addModelDownloadProgressObserver');
           const result = this.impl.addModelDownloadProgressObserver(params.observer_remote);
           break;

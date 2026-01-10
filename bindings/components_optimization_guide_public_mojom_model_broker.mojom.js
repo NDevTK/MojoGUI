@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -313,21 +314,21 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSession');
           const result = this.impl.createSession(params.session, params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTextSafetySession');
           const result = this.impl.createTextSafetySession(params.session);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportHealthyCompletion');
           const result = this.impl.reportHealthyCompletion();
           break;
@@ -504,14 +505,14 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unavailable');
           const result = this.impl.unavailable(params.reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.available');
           const result = this.impl.available(params.config, params.solution);
           break;
@@ -660,7 +661,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec);
+          const params = decoder.decodeStructInline(optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.options, params.subcriber);
           break;

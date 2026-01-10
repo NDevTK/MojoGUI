@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -700,7 +701,7 @@ filesystem.mojom.DirectoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Read_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read();
           if (header.expectsResponse) {
@@ -713,7 +714,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_OpenFileHandle_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_OpenFileHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileHandle');
           const result = this.impl.openFileHandle(params.path, params.open_flags);
           if (header.expectsResponse) {
@@ -726,7 +727,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_OpenFileHandles_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_OpenFileHandles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileHandles');
           const result = this.impl.openFileHandles(params.files);
           if (header.expectsResponse) {
@@ -739,7 +740,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_OpenDirectory_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_OpenDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDirectory');
           const result = this.impl.openDirectory(params.path, params.directory, params.open_flags);
           if (header.expectsResponse) {
@@ -752,7 +753,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Rename_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Rename_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rename');
           const result = this.impl.rename(params.path, params.new_path);
           if (header.expectsResponse) {
@@ -765,7 +766,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Replace_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Replace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replace');
           const result = this.impl.replace(params.path, params.new_path);
           if (header.expectsResponse) {
@@ -778,7 +779,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Delete_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.path, params.delete_flags);
           if (header.expectsResponse) {
@@ -791,7 +792,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Exists_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Exists_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exists');
           const result = this.impl.exists(params.path);
           if (header.expectsResponse) {
@@ -804,7 +805,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_IsWritable_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_IsWritable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isWritable');
           const result = this.impl.isWritable(params.path);
           if (header.expectsResponse) {
@@ -817,7 +818,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
@@ -830,7 +831,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_StatFile_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_StatFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.statFile');
           const result = this.impl.statFile(params.path);
           if (header.expectsResponse) {
@@ -843,14 +844,14 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.directory);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_ReadEntireFile_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_ReadEntireFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readEntireFile');
           const result = this.impl.readEntireFile(params.path);
           if (header.expectsResponse) {
@@ -863,7 +864,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(filesystem.mojom.Directory_WriteFile_ParamsSpec);
+          const params = decoder.decodeStructInline(filesystem.mojom.Directory_WriteFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeFile');
           const result = this.impl.writeFile(params.path, params.data);
           if (header.expectsResponse) {

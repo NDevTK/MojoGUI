@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -259,14 +260,14 @@ storage.mojom.IndexedDBObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIndexedDBListChanged');
           const result = this.impl.onIndexedDBListChanged(params.bucket_locator);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIndexedDBContentChanged');
           const result = this.impl.onIndexedDBContentChanged(params.bucket_locator, params.database_name, params.object_store_name);
           break;
@@ -699,14 +700,14 @@ storage.mojom.IndexedDBControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindIndexedDB');
           const result = this.impl.bindIndexedDB(params.bucket_locator, params.client_info, params.client_state_checker_remote, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_ForceClose_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceClose');
           const result = this.impl.forceClose(params.bucket_id, params.reason);
           if (header.expectsResponse) {
@@ -719,7 +720,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadBucketData');
           const result = this.impl.downloadBucketData(params.bucket_id);
           if (header.expectsResponse) {
@@ -732,7 +733,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllBucketsDetails');
           const result = this.impl.getAllBucketsDetails();
           if (header.expectsResponse) {
@@ -745,7 +746,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMetadataRecording');
           const result = this.impl.startMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
@@ -758,7 +759,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopMetadataRecording');
           const result = this.impl.stopMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
@@ -771,28 +772,28 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setForceKeepSessionState');
           const result = this.impl.setForceKeepSessionState();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterfaceForTesting');
           const result = this.impl.bindTestInterfaceForTesting(params.receiver);
           break;

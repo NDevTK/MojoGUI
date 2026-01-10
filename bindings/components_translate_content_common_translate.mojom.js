@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -282,7 +283,7 @@ translate.mojom.TranslateAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translateFrame');
           const result = this.impl.translateFrame(params.translate_script, params.source_lang, params.target_lang);
           if (header.expectsResponse) {
@@ -295,7 +296,7 @@ translate.mojom.TranslateAgentReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec);
+          const params = decoder.decodeStructInline(translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revertTranslation');
           const result = this.impl.revertTranslation();
           break;
@@ -445,7 +446,7 @@ translate.mojom.ContentTranslateDriverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec);
+          const params = decoder.decodeStructInline(translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPage');
           const result = this.impl.registerPage(params.translate_agent, params.details, params.translation_critiera_met);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -347,7 +348,7 @@ blink.mojom.WebUsbServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_GetDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_GetDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -360,14 +361,14 @@ blink.mojom.WebUsbServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_GetDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_GetDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevice');
           const result = this.impl.getDevice(params.guid, params.device_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_GetPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_GetPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPermission');
           const result = this.impl.getPermission(params.options);
           if (header.expectsResponse) {
@@ -380,7 +381,7 @@ blink.mojom.WebUsbServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_ForgetDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_ForgetDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forgetDevice');
           const result = this.impl.forgetDevice(params.guid);
           if (header.expectsResponse) {
@@ -393,7 +394,7 @@ blink.mojom.WebUsbServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebUsbService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;

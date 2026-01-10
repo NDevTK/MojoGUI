@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -282,21 +283,21 @@ arc.mojom.PrivacyItemsHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrivacyItemsChanged');
           const result = this.impl.onPrivacyItemsChanged(params.privacy_items);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMicCameraIndicatorRequirementChanged');
           const result = this.impl.onMicCameraIndicatorRequirementChanged(params.flag);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocationIndicatorRequirementChanged');
           const result = this.impl.onLocationIndicatorRequirementChanged(params.flag);
           break;
@@ -478,7 +479,7 @@ arc.mojom.PrivacyItemsInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -491,7 +492,7 @@ arc.mojom.PrivacyItemsInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStaticPrivacyIndicatorBoundsChanged');
           const result = this.impl.onStaticPrivacyIndicatorBoundsChanged(params.displayId, params.bounds);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -273,7 +274,7 @@ network.mojom.NetLogExporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetLogExporter_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetLogExporter_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.destination, params.extra_constants, params.capture_mode, params.max_file_size);
           if (header.expectsResponse) {
@@ -286,7 +287,7 @@ network.mojom.NetLogExporterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetLogExporter_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetLogExporter_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.polled_values);
           if (header.expectsResponse) {
@@ -440,7 +441,7 @@ network.mojom.NetLogProxySourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCaptureModes');
           const result = this.impl.updateCaptureModes(params.modes);
           break;
@@ -592,7 +593,7 @@ network.mojom.NetLogProxySinkReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetLogProxySink_AddEntry_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
           const result = this.impl.addEntry(params.type, params.net_log_source, params.phase, params.time, params.params);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -416,35 +417,35 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPotentialHostExistsForNewUser');
           const result = this.impl.onPotentialHostExistsForNewUser();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNoLongerNewUser');
           const result = this.impl.onNoLongerNewUser();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectedHostSwitchedForExistingUser');
           const result = this.impl.onConnectedHostSwitchedForExistingUser(params.new_host_device_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewChromebookAddedForExistingUser');
           const result = this.impl.onNewChromebookAddedForExistingUser(params.new_host_device_name);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBecameEligibleForWifiSync');
           const result = this.impl.onBecameEligibleForWifiSync();
           break;
@@ -593,7 +594,7 @@ ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStatusChanged');
           const result = this.impl.onHostStatusChanged(params.host_status, params.host_device);
           break;
@@ -741,7 +742,7 @@ ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFeatureStatesChanged');
           const result = this.impl.onFeatureStatesChanged(params.feature_states_map);
           break;
@@ -1304,28 +1305,28 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccountStatusChangeDelegate');
           const result = this.impl.setAccountStatusChangeDelegate(params.delegate);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addHostStatusObserver');
           const result = this.impl.addHostStatusObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFeatureStateObserver');
           const result = this.impl.addFeatureStateObserver(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEligibleHostDevices');
           const result = this.impl.getEligibleHostDevices();
           if (header.expectsResponse) {
@@ -1338,7 +1339,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEligibleActiveHostDevices');
           const result = this.impl.getEligibleActiveHostDevices();
           if (header.expectsResponse) {
@@ -1351,7 +1352,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHostDevice');
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id, params.auth_token);
           if (header.expectsResponse) {
@@ -1364,14 +1365,14 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeHostDevice');
           const result = this.impl.removeHostDevice();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHostStatus');
           const result = this.impl.getHostStatus();
           if (header.expectsResponse) {
@@ -1384,7 +1385,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFeatureEnabledState');
           const result = this.impl.setFeatureEnabledState(params.feature, params.enabled, params.auth_token);
           if (header.expectsResponse) {
@@ -1397,7 +1398,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeatureStates');
           const result = this.impl.getFeatureStates();
           if (header.expectsResponse) {
@@ -1410,7 +1411,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retrySetHostNow');
           const result = this.impl.retrySetHostNow();
           if (header.expectsResponse) {
@@ -1423,7 +1424,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerEventForDebugging');
           const result = this.impl.triggerEventForDebugging(params.type);
           if (header.expectsResponse) {
@@ -1436,14 +1437,14 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setQuickStartPhoneInstanceID');
           const result = this.impl.setQuickStartPhoneInstanceID(params.qs_phone_instance_id);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuickStartPhoneInstanceID');
           const result = this.impl.getQuickStartPhoneInstanceID();
           if (header.expectsResponse) {
@@ -1603,7 +1604,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHostDevice');
           const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id);
           if (header.expectsResponse) {

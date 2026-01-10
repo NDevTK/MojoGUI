@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -531,7 +532,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readResponseHead');
           const result = this.impl.readResponseHead();
           if (header.expectsResponse) {
@@ -544,7 +545,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareReadData');
           const result = this.impl.prepareReadData(params.size);
           if (header.expectsResponse) {
@@ -557,7 +558,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readData');
           const result = this.impl.readData();
           if (header.expectsResponse) {
@@ -751,7 +752,7 @@ storage.mojom.ServiceWorkerResourceWriterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeResponseHead');
           const result = this.impl.writeResponseHead(params.response_head);
           if (header.expectsResponse) {
@@ -764,7 +765,7 @@ storage.mojom.ServiceWorkerResourceWriterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeData');
           const result = this.impl.writeData(params.data);
           if (header.expectsResponse) {
@@ -924,7 +925,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeMetadata');
           const result = this.impl.writeMetadata(params.data);
           if (header.expectsResponse) {
@@ -2527,7 +2528,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disable');
           const result = this.impl.disable();
           if (header.expectsResponse) {
@@ -2540,7 +2541,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete();
           if (header.expectsResponse) {
@@ -2553,7 +2554,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recover');
           const result = this.impl.recover(params.versions);
           if (header.expectsResponse) {
@@ -2566,7 +2567,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegisteredStorageKeys');
           const result = this.impl.getRegisteredStorageKeys();
           if (header.expectsResponse) {
@@ -2579,7 +2580,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findRegistrationForClientUrl');
           const result = this.impl.findRegistrationForClientUrl(params.client_url, params.key);
           if (header.expectsResponse) {
@@ -2592,7 +2593,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findRegistrationForScope');
           const result = this.impl.findRegistrationForScope(params.scope, params.key);
           if (header.expectsResponse) {
@@ -2605,7 +2606,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findRegistrationForId');
           const result = this.impl.findRegistrationForId(params.registration_id, params.key);
           if (header.expectsResponse) {
@@ -2618,7 +2619,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistrationsForStorageKey');
           const result = this.impl.getRegistrationsForStorageKey(params.key);
           if (header.expectsResponse) {
@@ -2631,7 +2632,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUsageForStorageKey');
           const result = this.impl.getUsageForStorageKey(params.key);
           if (header.expectsResponse) {
@@ -2644,7 +2645,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllRegistrationsDeprecated');
           const result = this.impl.getAllRegistrationsDeprecated();
           if (header.expectsResponse) {
@@ -2657,7 +2658,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFakeRegistrationForClientUrl');
           const result = this.impl.getFakeRegistrationForClientUrl(params.client_url, params.key);
           if (header.expectsResponse) {
@@ -2670,7 +2671,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeRegistration');
           const result = this.impl.storeRegistration(params.registration, params.resources);
           if (header.expectsResponse) {
@@ -2683,7 +2684,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRegistration');
           const result = this.impl.deleteRegistration(params.registration_id, params.key);
           if (header.expectsResponse) {
@@ -2696,7 +2697,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateToActiveState');
           const result = this.impl.updateToActiveState(params.registration_id, params.key);
           if (header.expectsResponse) {
@@ -2709,7 +2710,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLastUpdateCheckTime');
           const result = this.impl.updateLastUpdateCheckTime(params.registration_id, params.key, params.last_update_check_time);
           if (header.expectsResponse) {
@@ -2722,7 +2723,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNavigationPreloadEnabled');
           const result = this.impl.updateNavigationPreloadEnabled(params.registration_id, params.key, params.enable);
           if (header.expectsResponse) {
@@ -2735,7 +2736,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNavigationPreloadHeader');
           const result = this.impl.updateNavigationPreloadHeader(params.registration_id, params.key, params.value);
           if (header.expectsResponse) {
@@ -2748,7 +2749,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateFetchHandlerType');
           const result = this.impl.updateFetchHandlerType(params.registration_id, params.key, params.type);
           if (header.expectsResponse) {
@@ -2761,7 +2762,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateResourceSha256Checksums');
           const result = this.impl.updateResourceSha256Checksums(params.registratation_id, params.key, params.updated_sha256_checksums);
           if (header.expectsResponse) {
@@ -2774,7 +2775,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewRegistrationId');
           const result = this.impl.getNewRegistrationId();
           if (header.expectsResponse) {
@@ -2787,7 +2788,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewVersionId');
           const result = this.impl.getNewVersionId();
           if (header.expectsResponse) {
@@ -2800,7 +2801,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewResourceId');
           const result = this.impl.getNewResourceId();
           if (header.expectsResponse) {
@@ -2813,28 +2814,28 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceReader');
           const result = this.impl.createResourceReader(params.resource_id, params.reader);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceWriter');
           const result = this.impl.createResourceWriter(params.resource_id, params.writer);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceMetadataWriter');
           const result = this.impl.createResourceMetadataWriter(params.resource_id, params.writer);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeUncommittedResourceId');
           const result = this.impl.storeUncommittedResourceId(params.resource_id);
           if (header.expectsResponse) {
@@ -2847,7 +2848,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doomUncommittedResources');
           const result = this.impl.doomUncommittedResources(params.resource_ids);
           if (header.expectsResponse) {
@@ -2860,7 +2861,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserData');
           const result = this.impl.getUserData(params.registration_id, params.keys);
           if (header.expectsResponse) {
@@ -2873,7 +2874,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeUserData');
           const result = this.impl.storeUserData(params.registration_id, params.key, params.user_data);
           if (header.expectsResponse) {
@@ -2886,7 +2887,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserData');
           const result = this.impl.clearUserData(params.registration_id, params.keys);
           if (header.expectsResponse) {
@@ -2899,7 +2900,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataByKeyPrefix');
           const result = this.impl.getUserDataByKeyPrefix(params.registration_id, params.key_prefix);
           if (header.expectsResponse) {
@@ -2912,7 +2913,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserKeysAndDataByKeyPrefix');
           const result = this.impl.getUserKeysAndDataByKeyPrefix(params.registration_id, params.key_prefix);
           if (header.expectsResponse) {
@@ -2925,7 +2926,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserDataByKeyPrefixes');
           const result = this.impl.clearUserDataByKeyPrefixes(params.registratation_id, params.key_prefixes);
           if (header.expectsResponse) {
@@ -2938,7 +2939,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataForAllRegistrations');
           const result = this.impl.getUserDataForAllRegistrations(params.key);
           if (header.expectsResponse) {
@@ -2951,7 +2952,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataForAllRegistrationsByKeyPrefix');
           const result = this.impl.getUserDataForAllRegistrationsByKeyPrefix(params.key_prefix);
           if (header.expectsResponse) {
@@ -2964,7 +2965,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserDataForAllRegistrationsByKeyPrefix');
           const result = this.impl.clearUserDataForAllRegistrationsByKeyPrefix(params.key_prefix);
           if (header.expectsResponse) {
@@ -2977,7 +2978,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performStorageCleanup');
           const result = this.impl.performStorageCleanup();
           if (header.expectsResponse) {
@@ -2990,7 +2991,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           if (header.expectsResponse) {
@@ -3003,7 +3004,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPurgingResourceIdsForTest');
           const result = this.impl.getPurgingResourceIdsForTest();
           if (header.expectsResponse) {
@@ -3016,7 +3017,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPurgingResourceIdsForLiveVersionForTest');
           const result = this.impl.getPurgingResourceIdsForLiveVersionForTest(params.version_id);
           if (header.expectsResponse) {
@@ -3029,7 +3030,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPurgeableResourceIdsForTest');
           const result = this.impl.getPurgeableResourceIdsForTest();
           if (header.expectsResponse) {
@@ -3042,7 +3043,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUncommittedResourceIdsForTest');
           const result = this.impl.getUncommittedResourceIdsForTest();
           if (header.expectsResponse) {
@@ -3055,7 +3056,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPurgingCompleteCallbackForTest');
           const result = this.impl.setPurgingCompleteCallbackForTest();
           if (header.expectsResponse) {

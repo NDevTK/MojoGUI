@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -462,63 +463,63 @@ viz.mojom.VizMainReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrameSinkManager');
           const result = this.impl.createFrameSinkManager(params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateGpuService_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateGpuService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGpuService');
           const result = this.impl.createGpuService(params.gpu_service, params.gpu_host, params.gpu_logging, params.discardable_memory_manager, params.use_shader_cache_shm_count, params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_SetRenderParams_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_SetRenderParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRenderParams');
           const result = this.impl.setRenderParams(params.subpixel_rendering, params.text_contrast, params.text_gamma);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInfoCollectionGpuService');
           const result = this.impl.createInfoCollectionGpuService(params.info_collection_gpu_service);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_SetHostProcessId_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHostProcessId');
           const result = this.impl.setHostProcessId(params.pid);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyWorkloadIncrease');
           const result = this.impl.notifyWorkloadIncrease();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_StartDebugStream_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDebugStream');
           const result = this.impl.startDebugStream(params.viz_debug);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_FilterDebugStream_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.filterDebugStream');
           const result = this.impl.filterDebugStream(params.filterData);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.VizMain_StopDebugStream_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDebugStream');
           const result = this.impl.stopDebugStream();
           break;

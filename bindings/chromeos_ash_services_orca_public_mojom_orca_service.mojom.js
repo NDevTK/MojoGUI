@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -822,7 +823,7 @@ ash.orca.mojom.EditorClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPresetTextQueries');
           const result = this.impl.getPresetTextQueries();
           if (header.expectsResponse) {
@@ -835,7 +836,7 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPresetRewrite');
           const result = this.impl.requestPresetRewrite(params.text_query_id, params.text_override);
           if (header.expectsResponse) {
@@ -848,7 +849,7 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformRewrite');
           const result = this.impl.requestFreeformRewrite(params.input, params.text_override);
           if (header.expectsResponse) {
@@ -861,7 +862,7 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformWrite');
           const result = this.impl.requestFreeformWrite(params.input);
           if (header.expectsResponse) {
@@ -874,63 +875,63 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_InsertText_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.approveConsent');
           const result = this.impl.approveConsent();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.declineConsent');
           const result = this.impl.declineConsent();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissConsent');
           const result = this.impl.dismissConsent();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_ShowUI_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_CloseUI_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_CloseUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_AppendText_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.appendText');
           const result = this.impl.appendText(params.text);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewFeedback');
           const result = this.impl.previewFeedback(params.result_id);
           if (header.expectsResponse) {
@@ -943,21 +944,21 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.result_id, params.user_description);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
           const result = this.impl.onTrigger(params.trigger_context);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
@@ -1105,7 +1106,7 @@ ash.orca.mojom.EditorClientConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEditorClient');
           const result = this.impl.bindEditorClient(params.editor_client);
           break;
@@ -1253,7 +1254,7 @@ ash.orca.mojom.EditorEventSinkReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUpdated');
           const result = this.impl.onContextUpdated(params.context);
           break;
@@ -1621,63 +1622,63 @@ ash.orca.mojom.SystemActuatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_InsertText_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.approveConsent');
           const result = this.impl.approveConsent();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.declineConsent');
           const result = this.impl.declineConsent();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.description);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
           const result = this.impl.onTrigger(params.trigger_context);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
@@ -1831,7 +1832,7 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.TextQueryProvider_Process_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.process');
           const result = this.impl.process(params.request);
           if (header.expectsResponse) {
@@ -1989,7 +1990,7 @@ ash.orca.mojom.OrcaServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.orca.mojom.OrcaService_BindEditor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEditor');
           const result = this.impl.bindEditor(params.system_actuator, params.text_query_provider, params.client_connector, params.event_sink, params.editor_config);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -611,7 +612,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGeneralProperties');
           const result = this.impl.getGeneralProperties();
           if (header.expectsResponse) {
@@ -624,7 +625,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLastFetchProperties');
           const result = this.impl.getLastFetchProperties();
           if (header.expectsResponse) {
@@ -637,28 +638,28 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshForYouFeed');
           const result = this.impl.refreshForYouFeed();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshFollowingFeed');
           const result = this.impl.refreshFollowingFeed();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshWebFeedSuggestions');
           const result = this.impl.refreshWebFeedSuggestions();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeedProcessScopeDump');
           const result = this.impl.getFeedProcessScopeDump();
           if (header.expectsResponse) {
@@ -671,7 +672,7 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeedHistograms');
           const result = this.impl.getFeedHistograms();
           if (header.expectsResponse) {
@@ -684,42 +685,42 @@ feed_internals.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideFeedHost');
           const result = this.impl.overrideFeedHost(params.host);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideDiscoverApiEndpoint');
           const result = this.impl.overrideDiscoverApiEndpoint(params.endpoint_url);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideFeedStreamData');
           const result = this.impl.overrideFeedStreamData(params.data);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebFeedFollowIntroDebugEnabled');
           const result = this.impl.setWebFeedFollowIntroDebugEnabled(params.enabled);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseFeedQueryRequests');
           const result = this.impl.setUseFeedQueryRequests(params.use_legacy);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec);
+          const params = decoder.decodeStructInline(feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFollowingFeedOrder');
           const result = this.impl.setFollowingFeedOrder(params.order);
           break;

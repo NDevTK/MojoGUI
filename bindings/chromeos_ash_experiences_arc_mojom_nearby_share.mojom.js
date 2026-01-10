@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -346,7 +347,7 @@ arc.mojom.NearbyShareSessionInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNearbyShareViewClosed');
           const result = this.impl.onNearbyShareViewClosed();
           break;
@@ -502,7 +503,7 @@ arc.mojom.NearbyShareHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNearbyShare');
           const result = this.impl.startNearbyShare(params.task_id, params.info, params.instance);
           if (header.expectsResponse) {
@@ -661,7 +662,7 @@ arc.mojom.NearbyShareInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.NearbyShareInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.NearbyShareInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

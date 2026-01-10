@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -346,7 +347,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTouchscreenDevices');
           const result = this.impl.getTouchscreenDevices();
           if (header.expectsResponse) {
@@ -359,7 +360,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTouchpadLibraryName');
           const result = this.impl.getTouchpadLibraryName();
           if (header.expectsResponse) {
@@ -372,7 +373,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrivacyScreenState');
           const result = this.impl.setPrivacyScreenState(params.state);
           if (header.expectsResponse) {
@@ -385,7 +386,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_SetAudioOutputMute');
           const result = this.impl.dEPRECATED_SetAudioOutputMute(params.mute_on);
           if (header.expectsResponse) {

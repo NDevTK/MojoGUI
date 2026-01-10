@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -424,7 +425,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findFamily');
           const result = this.impl.findFamily(params.family_name);
           if (header.expectsResponse) {
@@ -437,7 +438,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFamilyCount');
           const result = this.impl.getFamilyCount();
           if (header.expectsResponse) {
@@ -450,7 +451,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFamilyNames');
           const result = this.impl.getFamilyNames(params.family_index);
           if (header.expectsResponse) {
@@ -463,7 +464,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFontFileHandles');
           const result = this.impl.getFontFileHandles(params.family_index);
           if (header.expectsResponse) {
@@ -476,7 +477,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchUniqueFont');
           const result = this.impl.matchUniqueFont(params.font_unique_name);
           if (header.expectsResponse) {
@@ -489,7 +490,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mapCharacters');
           const result = this.impl.mapCharacters(params.text, params.font_style, params.locale_name, params.reading_direction, params.base_family_name);
           if (header.expectsResponse) {

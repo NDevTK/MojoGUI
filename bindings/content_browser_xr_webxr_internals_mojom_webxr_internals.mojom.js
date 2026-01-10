@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -344,7 +345,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo();
           if (header.expectsResponse) {
@@ -357,7 +358,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getActiveRuntimes');
           const result = this.impl.getActiveRuntimes();
           if (header.expectsResponse) {
@@ -370,7 +371,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToEvents');
           const result = this.impl.subscribeToEvents(params.listener);
           break;
@@ -714,56 +715,56 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionRequested');
           const result = this.impl.logXrSessionRequested(params.session_requested_record);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionRejected');
           const result = this.impl.logXrSessionRejected(params.session_rejected_record);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionStarted');
           const result = this.impl.logXrSessionStarted(params.session_started_record);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrSessionStopped');
           const result = this.impl.logXrSessionStopped(params.session_stopped_record);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrRuntimeAdded');
           const result = this.impl.logXrRuntimeAdded(params.runtime_added_record);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logXrRuntimeRemoved');
           const result = this.impl.logXrRuntimeRemoved(params.device_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logFrameData');
           const result = this.impl.logFrameData(params.xrframe_statistics);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec);
+          const params = decoder.decodeStructInline(webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logConsoleMessages');
           const result = this.impl.logConsoleMessages(params.xrlogging_statistics);
           break;

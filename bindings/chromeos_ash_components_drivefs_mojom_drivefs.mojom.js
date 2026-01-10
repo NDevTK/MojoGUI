@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -832,7 +833,7 @@ drivefs.mojom.DriveFsBootstrapReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.config, params.drive_fs, params.delegate);
           break;
@@ -2145,7 +2146,7 @@ drivefs.mojom.DriveFsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadata_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetadata');
           const result = this.impl.getMetadata(params.path);
           if (header.expectsResponse) {
@@ -2158,7 +2159,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinned_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinned_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinned');
           const result = this.impl.setPinned(params.path, params.pinned);
           if (header.expectsResponse) {
@@ -2171,14 +2172,14 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkState');
           const result = this.impl.updateNetworkState(params.pause_syncing, params.is_offline);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ResetCache_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ResetCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetCache');
           const result = this.impl.resetCache();
           if (header.expectsResponse) {
@@ -2191,7 +2192,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getThumbnail');
           const result = this.impl.getThumbnail(params.path, params.crop_to_square);
           if (header.expectsResponse) {
@@ -2204,7 +2205,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CopyFile_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CopyFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyFile');
           const result = this.impl.copyFile(params.source, params.target);
           if (header.expectsResponse) {
@@ -2217,28 +2218,28 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSearchQuery');
           const result = this.impl.startSearchQuery(params.query, params.query_params);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchAllChangeLogs');
           const result = this.impl.fetchAllChangeLogs();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchChangeLog');
           const result = this.impl.fetchChangeLog(params.options);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNativeMessageRequest');
           const result = this.impl.sendNativeMessageRequest(params.request);
           if (header.expectsResponse) {
@@ -2251,7 +2252,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStartupArguments');
           const result = this.impl.setStartupArguments(params.arguments);
           if (header.expectsResponse) {
@@ -2264,7 +2265,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStartupArguments');
           const result = this.impl.getStartupArguments();
           if (header.expectsResponse) {
@@ -2277,49 +2278,49 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTracingEnabled');
           const result = this.impl.setTracingEnabled(params.enabled);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNetworkingEnabled');
           const result = this.impl.setNetworkingEnabled(params.enabled);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forcePauseSyncing');
           const result = this.impl.forcePauseSyncing(params.enable);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpAccountSettings');
           const result = this.impl.dumpAccountSettings();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadAccountSettings');
           const result = this.impl.loadAccountSettings();
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNativeHostSession');
           const result = this.impl.createNativeHostSession(params.params, params.host, params.port);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.locateFilesByItemIds');
           const result = this.impl.locateFilesByItemIds(params.item_ids);
           if (header.expectsResponse) {
@@ -2332,7 +2333,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaUsage');
           const result = this.impl.getQuotaUsage();
           if (header.expectsResponse) {
@@ -2345,7 +2346,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleMirroring');
           const result = this.impl.toggleMirroring(params.enabled);
           if (header.expectsResponse) {
@@ -2358,7 +2359,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleSyncForPath');
           const result = this.impl.toggleSyncForPath(params.path, params.status);
           if (header.expectsResponse) {
@@ -2371,7 +2372,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSyncingPaths');
           const result = this.impl.getSyncingPaths();
           if (header.expectsResponse) {
@@ -2384,14 +2385,14 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pollHostedFilePinStates');
           const result = this.impl.pollHostedFilePinStates();
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPooledQuotaUsage');
           const result = this.impl.getPooledQuotaUsage();
           if (header.expectsResponse) {
@@ -2404,7 +2405,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPinnedByStableId');
           const result = this.impl.setPinnedByStableId(params.stable_id, params.pinned);
           if (header.expectsResponse) {
@@ -2417,7 +2418,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetadataByStableId');
           const result = this.impl.getMetadataByStableId(params.stable_id);
           if (header.expectsResponse) {
@@ -2430,14 +2431,14 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelUploadByPath');
           const result = this.impl.cancelUploadByPath(params.path, params.cancel_mode);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDocsOfflineEnabled');
           const result = this.impl.setDocsOfflineEnabled(params.enabled);
           if (header.expectsResponse) {
@@ -2450,7 +2451,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOfflineFilesSpaceUsage');
           const result = this.impl.getOfflineFilesSpaceUsage();
           if (header.expectsResponse) {
@@ -2463,7 +2464,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearOfflineFiles');
           const result = this.impl.clearOfflineFiles();
           if (header.expectsResponse) {
@@ -2476,7 +2477,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.immediatelyUpload');
           const result = this.impl.immediatelyUpload(params.path);
           if (header.expectsResponse) {
@@ -2489,7 +2490,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateFromPairedDoc');
           const result = this.impl.updateFromPairedDoc(params.path);
           if (header.expectsResponse) {
@@ -2502,7 +2503,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getItemFromCloudStore');
           const result = this.impl.getItemFromCloudStore(params.path);
           if (header.expectsResponse) {
@@ -2515,7 +2516,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDocsOfflineStats');
           const result = this.impl.getDocsOfflineStats();
           if (header.expectsResponse) {
@@ -2528,7 +2529,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMirrorSyncStatusForFile');
           const result = this.impl.getMirrorSyncStatusForFile(params.path);
           if (header.expectsResponse) {
@@ -2541,7 +2542,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMirrorSyncStatusForDirectory');
           const result = this.impl.getMirrorSyncStatusForDirectory(params.path);
           if (header.expectsResponse) {
@@ -3264,7 +3265,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccessToken');
           const result = this.impl.getAccessToken(params.client_id, params.app_id, params.scopes);
           if (header.expectsResponse) {
@@ -3277,70 +3278,70 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMounted');
           const result = this.impl.onMounted();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMountFailed');
           const result = this.impl.onMountFailed(params.retry_delay);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnmounted');
           const result = this.impl.onUnmounted(params.retry_delay);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSyncingStatusUpdate');
           const result = this.impl.onSyncingStatusUpdate(params.status);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFilesChanged');
           const result = this.impl.onFilesChanged(params.changes);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTeamDrivesListReady');
           const result = this.impl.onTeamDrivesListReady(params.team_drive_ids);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTeamDriveChanged');
           const result = this.impl.onTeamDriveChanged(params.team_drive_id, params.change_type);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHeartbeat');
           const result = this.impl.onHeartbeat();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToExtension');
           const result = this.impl.connectToExtension(params.params, params.port, params.host);
           if (header.expectsResponse) {
@@ -3353,7 +3354,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayConfirmDialog');
           const result = this.impl.displayConfirmDialog(params.reason);
           if (header.expectsResponse) {
@@ -3366,14 +3367,14 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeHttpRequest');
           const result = this.impl.executeHttpRequest(params.request, params.delegate);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMachineRootID');
           const result = this.impl.getMachineRootID();
           if (header.expectsResponse) {
@@ -3386,28 +3387,28 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.persistMachineRootID');
           const result = this.impl.persistMachineRootID(params.doc_id);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirrorSyncingStatusUpdate');
           const result = this.impl.onMirrorSyncingStatusUpdate(params.status);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onItemProgress');
           const result = this.impl.onItemProgress(params.progress_event);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccessTokenWithExpiry');
           const result = this.impl.getAccessTokenWithExpiry(params.client_id, params.app_id, params.scopes);
           if (header.expectsResponse) {
@@ -3420,14 +3421,14 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationReceived');
           const result = this.impl.onNotificationReceived(params.notification);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirrorSyncError');
           const result = this.impl.onMirrorSyncError(params.error_list);
           break;
@@ -3581,7 +3582,7 @@ drivefs.mojom.SearchQueryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNextPage');
           const result = this.impl.getNextPage();
           if (header.expectsResponse) {
@@ -3819,28 +3820,28 @@ drivefs.mojom.HttpDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRequestBody');
           const result = this.impl.getRequestBody(params.request_body);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveResponse');
           const result = this.impl.onReceiveResponse(params.response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveBody');
           const result = this.impl.onReceiveBody(params.response_body);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
           const result = this.impl.onRequestComplete(params.status);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -439,14 +440,14 @@ device.mojom.SerialPortManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortManager_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortManager_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortManager_GetDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortManager_GetDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -459,7 +460,7 @@ device.mojom.SerialPortManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortManager_OpenPort_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortManager_OpenPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openPort');
           const result = this.impl.openPort(params.token, params.use_alternate_path, params.options, params.client, params.watcher);
           if (header.expectsResponse) {
@@ -669,21 +670,21 @@ device.mojom.SerialPortManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortAdded');
           const result = this.impl.onPortAdded(params.port_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortRemoved');
           const result = this.impl.onPortRemoved(params.port_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
           const result = this.impl.onPortConnectedStateChanged(params.port_info);
           break;
@@ -1091,21 +1092,21 @@ device.mojom.SerialPortReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_StartWriting_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_StartWriting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startWriting');
           const result = this.impl.startWriting(params.consumer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_StartReading_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_StartReading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReading');
           const result = this.impl.startReading(params.producer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush(params.mode);
           if (header.expectsResponse) {
@@ -1118,7 +1119,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_Drain_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_Drain_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.drain');
           const result = this.impl.drain();
           if (header.expectsResponse) {
@@ -1131,7 +1132,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_GetControlSignals_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_GetControlSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getControlSignals');
           const result = this.impl.getControlSignals();
           if (header.expectsResponse) {
@@ -1144,7 +1145,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_SetControlSignals_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_SetControlSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setControlSignals');
           const result = this.impl.setControlSignals(params.signals);
           if (header.expectsResponse) {
@@ -1157,7 +1158,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_ConfigurePort_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_ConfigurePort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configurePort');
           const result = this.impl.configurePort(params.options);
           if (header.expectsResponse) {
@@ -1170,7 +1171,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_GetPortInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_GetPortInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPortInfo');
           const result = this.impl.getPortInfo();
           if (header.expectsResponse) {
@@ -1183,7 +1184,7 @@ device.mojom.SerialPortReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPort_Close_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPort_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close(params.flush);
           if (header.expectsResponse) {
@@ -1365,14 +1366,14 @@ device.mojom.SerialPortClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortClient_OnReadError_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortClient_OnReadError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadError');
           const result = this.impl.onReadError(params.error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SerialPortClient_OnSendError_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SerialPortClient_OnSendError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSendError');
           const result = this.impl.onSendError(params.error);
           break;

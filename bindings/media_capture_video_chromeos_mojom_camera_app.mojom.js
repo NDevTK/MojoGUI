@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -368,7 +369,7 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCameraAppDevice');
           const result = this.impl.getCameraAppDevice(params.source_id);
           if (header.expectsResponse) {
@@ -381,7 +382,7 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
           const result = this.impl.isSupported();
           if (header.expectsResponse) {
@@ -394,7 +395,7 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isDeviceInUse');
           const result = this.impl.isDeviceInUse(params.source_id);
           if (header.expectsResponse) {
@@ -657,7 +658,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCameraAppDevice');
           const result = this.impl.getCameraAppDevice(params.device_id);
           if (header.expectsResponse) {
@@ -670,7 +671,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
           const result = this.impl.isSupported();
           if (header.expectsResponse) {
@@ -683,7 +684,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVirtualDeviceEnabled');
           const result = this.impl.setVirtualDeviceEnabled(params.device_id, params.enabled);
           if (header.expectsResponse) {
@@ -696,7 +697,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isDeviceInUse');
           const result = this.impl.isDeviceInUse(params.device_id);
           if (header.expectsResponse) {
@@ -1253,7 +1254,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takePortraitModePhoto');
           const result = this.impl.takePortraitModePhoto(params.observer);
           if (header.expectsResponse) {
@@ -1266,7 +1267,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFpsRange');
           const result = this.impl.setFpsRange(params.fps_range);
           if (header.expectsResponse) {
@@ -1279,7 +1280,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStillCaptureResolution');
           const result = this.impl.setStillCaptureResolution(params.resolution);
           if (header.expectsResponse) {
@@ -1292,7 +1293,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCaptureIntent');
           const result = this.impl.setCaptureIntent(params.intent);
           if (header.expectsResponse) {
@@ -1305,7 +1306,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addResultMetadataObserver');
           const result = this.impl.addResultMetadataObserver(params.observer, params.stream_type);
           if (header.expectsResponse) {
@@ -1318,7 +1319,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCameraEventObserver');
           const result = this.impl.addCameraEventObserver(params.observer);
           if (header.expectsResponse) {
@@ -1331,7 +1332,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCameraFrameRotationEnabledAtSource');
           const result = this.impl.setCameraFrameRotationEnabledAtSource(params.is_enabled);
           if (header.expectsResponse) {
@@ -1344,7 +1345,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCameraFrameRotation');
           const result = this.impl.getCameraFrameRotation();
           if (header.expectsResponse) {
@@ -1357,7 +1358,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDocumentCornersObserver');
           const result = this.impl.registerDocumentCornersObserver(params.observer);
           if (header.expectsResponse) {
@@ -1370,7 +1371,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMultipleStreamsEnabled');
           const result = this.impl.setMultipleStreamsEnabled(params.enabled);
           if (header.expectsResponse) {
@@ -1383,7 +1384,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerCameraInfoObserver');
           const result = this.impl.registerCameraInfoObserver(params.observer);
           if (header.expectsResponse) {
@@ -1396,7 +1397,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCropRegion');
           const result = this.impl.setCropRegion(params.crop_region);
           if (header.expectsResponse) {
@@ -1409,7 +1410,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetCropRegion');
           const result = this.impl.resetCropRegion();
           if (header.expectsResponse) {
@@ -1563,7 +1564,7 @@ cros.mojom.ResultMetadataObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMetadataAvailable');
           const result = this.impl.onMetadataAvailable(params.camera_metadata);
           break;
@@ -1710,7 +1711,7 @@ cros.mojom.CameraEventObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShutterDone');
           const result = this.impl.onShutterDone();
           break;
@@ -1858,7 +1859,7 @@ cros.mojom.DocumentCornersObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDocumentCornersUpdated');
           const result = this.impl.onDocumentCornersUpdated(params.corners);
           break;
@@ -2006,7 +2007,7 @@ cros.mojom.CameraInfoObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCameraInfoUpdated');
           const result = this.impl.onCameraInfoUpdated(params.camera_info);
           break;
@@ -2156,7 +2157,7 @@ cros.mojom.StillCaptureResultObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStillCaptureDone');
           const result = this.impl.onStillCaptureDone(params.effect, params.status, params.blob);
           break;

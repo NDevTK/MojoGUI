@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -383,7 +384,7 @@ media.mojom.SpeechRecognitionContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindRecognizer');
           const result = this.impl.bindRecognizer(params.receiver, params.client, params.options);
           if (header.expectsResponse) {
@@ -396,7 +397,7 @@ media.mojom.SpeechRecognitionContextReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebSpeechRecognizer');
           const result = this.impl.bindWebSpeechRecognizer(params.session_receiver, params.session_client, params.audio_forwarder, params.channel_count, params.sample_rate, params.options, params.continuous);
           break;
@@ -656,35 +657,35 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAudioToSpeechRecognitionService');
           const result = this.impl.sendAudioToSpeechRecognitionService(params.buffer, params.media_start_pts);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.markDone');
           const result = this.impl.markDone();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLanguageChanged');
           const result = this.impl.onLanguageChanged(params.language);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMaskOffensiveWordsChanged');
           const result = this.impl.onMaskOffensiveWordsChanged(params.mask_offensive_words);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRecognitionContext');
           const result = this.impl.updateRecognitionContext(params.recognition_context);
           break;
@@ -920,7 +921,7 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionRecognitionEvent');
           const result = this.impl.onSpeechRecognitionRecognitionEvent(params.result);
           if (header.expectsResponse) {
@@ -933,21 +934,21 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionStopped');
           const result = this.impl.onSpeechRecognitionStopped();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionError');
           const result = this.impl.onSpeechRecognitionError();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLanguageIdentificationEvent');
           const result = this.impl.onLanguageIdentificationEvent(params.event);
           break;
@@ -1151,21 +1152,21 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speechRecognitionAvailabilityChanged');
           const result = this.impl.speechRecognitionAvailabilityChanged(params.is_speech_recognition_available);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speechRecognitionLanguageChanged');
           const result = this.impl.speechRecognitionLanguageChanged(params.language);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speechRecognitionMaskOffensiveWordsChanged');
           const result = this.impl.speechRecognitionMaskOffensiveWordsChanged(params.mask_offensive_words);
           break;
@@ -1345,14 +1346,14 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activate');
           const result = this.impl.activate();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBounds');
           const result = this.impl.getBounds();
           if (header.expectsResponse) {
@@ -1532,14 +1533,14 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionEnded');
           const result = this.impl.onSessionEnded();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFullscreenToggled');
           const result = this.impl.onFullscreenToggled();
           break;
@@ -1742,21 +1743,21 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSpeechRecognitionBrowserObserver');
           const result = this.impl.bindSpeechRecognitionBrowserObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_1');
           const result = this.impl.rEMOVED_1();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_2');
           const result = this.impl.rEMOVED_2(params.observer);
           break;

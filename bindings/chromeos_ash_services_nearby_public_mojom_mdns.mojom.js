@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -250,14 +251,14 @@ sharing.mojom.MdnsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serviceFound');
           const result = this.impl.serviceFound(params.service_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serviceLost');
           const result = this.impl.serviceLost(params.service_info);
           break;
@@ -473,14 +474,14 @@ sharing.mojom.MdnsManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscoverySession');
           const result = this.impl.startDiscoverySession(params.service_type);
           if (header.expectsResponse) {
@@ -493,7 +494,7 @@ sharing.mojom.MdnsManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDiscoverySession');
           const result = this.impl.stopDiscoverySession(params.service_type);
           if (header.expectsResponse) {

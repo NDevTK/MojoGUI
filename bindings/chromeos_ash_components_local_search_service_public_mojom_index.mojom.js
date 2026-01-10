@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -423,7 +424,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_GetSize_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSize');
           const result = this.impl.getSize();
           if (header.expectsResponse) {
@@ -436,7 +437,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOrUpdate');
           const result = this.impl.addOrUpdate(params.data);
           if (header.expectsResponse) {
@@ -449,7 +450,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_Delete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.ids);
           if (header.expectsResponse) {
@@ -462,7 +463,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDocuments');
           const result = this.impl.updateDocuments(params.data);
           if (header.expectsResponse) {
@@ -475,7 +476,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_Find_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_Find_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.find');
           const result = this.impl.find(params.query, params.max_results);
           if (header.expectsResponse) {
@@ -488,7 +489,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearIndex');
           const result = this.impl.clearIndex();
           if (header.expectsResponse) {
@@ -501,7 +502,7 @@ ash.local_search_service.mojom.IndexReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSearchParams');
           const result = this.impl.setSearchParams(params.search_params);
           if (header.expectsResponse) {

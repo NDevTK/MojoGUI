@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -383,49 +384,49 @@ blink.mojom.ResourceLoadInfoNotifierReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUpdateUserGestureCarryoverInfo');
           const result = this.impl.notifyUpdateUserGestureCarryoverInfo();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceRedirectReceived');
           const result = this.impl.notifyResourceRedirectReceived(params.redirect_info, params.redirect_response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceResponseReceived');
           const result = this.impl.notifyResourceResponseReceived(params.request_id, params.final_response_url, params.head, params.request_destination, params.is_ad_resource);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceTransferSizeUpdated');
           const result = this.impl.notifyResourceTransferSizeUpdated(params.request_id, params.transfer_size_diff);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceLoadCompleted');
           const result = this.impl.notifyResourceLoadCompleted(params.resource_load_info, params.status);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceLoadCanceled');
           const result = this.impl.notifyResourceLoadCanceled(params.request_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.pending_resource_load_info_notifier);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -238,7 +239,7 @@ cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createURLLoaderFactory');
           const result = this.impl.createURLLoaderFactory(params.url_loader_factory);
           break;
@@ -482,21 +483,21 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableNetworkAccess');
           const result = this.impl.enableNetworkAccess(params.url_loader_factory, params.reconnector);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verify');
           const result = this.impl.verify(params.params, params.net_log_source, params.cert_verifier_request);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verify2QwacBinding');
           const result = this.impl.verify2QwacBinding(params.binding, params.hostname, params.tls_certificate, params.net_log_source);
           if (header.expectsResponse) {
@@ -509,7 +510,7 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfig');
           const result = this.impl.setConfig(params.config);
           break;
@@ -656,7 +657,7 @@ cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCertVerifierChanged');
           const result = this.impl.onCertVerifierChanged();
           break;
@@ -805,7 +806,7 @@ cert_verifier.mojom.CertVerifierRequestReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec);
+          const params = decoder.decodeStructInline(cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.result, params.net_error);
           break;

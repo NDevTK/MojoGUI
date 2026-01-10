@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -491,21 +492,21 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeEnabledStateChanges');
           const result = this.impl.observeEnabledStateChanges(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHotspotInfo');
           const result = this.impl.getHotspotInfo();
           if (header.expectsResponse) {
@@ -518,7 +519,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHotspotConfig');
           const result = this.impl.setHotspotConfig(params.config);
           if (header.expectsResponse) {
@@ -531,7 +532,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableHotspot');
           const result = this.impl.enableHotspot();
           if (header.expectsResponse) {
@@ -544,7 +545,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableHotspot');
           const result = this.impl.disableHotspot();
           if (header.expectsResponse) {
@@ -697,7 +698,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHotspotInfoChanged');
           const result = this.impl.onHotspotInfoChanged();
           break;
@@ -872,14 +873,14 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHotspotTurnedOn');
           const result = this.impl.onHotspotTurnedOn();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHotspotTurnedOff');
           const result = this.impl.onHotspotTurnedOff(params.reason);
           break;

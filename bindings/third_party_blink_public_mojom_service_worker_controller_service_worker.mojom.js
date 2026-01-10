@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -274,7 +275,7 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchFetchEventForSubresource');
           const result = this.impl.dispatchFetchEventForSubresource(params.params, params.response_callback);
           if (header.expectsResponse) {
@@ -287,7 +288,7 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver, params.cross_origin_embedder_policy, params.coep_reporter, params.document_isolation_policy, params.dip_reporter);
           break;
@@ -435,7 +436,7 @@ blink.mojom.ControllerServiceWorkerConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateController');
           const result = this.impl.updateController(params.controller);
           break;

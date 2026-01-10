@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -556,21 +557,21 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec);
+          const params = decoder.decodeStructInline(page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTiming');
           const result = this.impl.updateTiming(params.page_load_timing, params.frame_metadata, params.new_features, params.resources, params.render_data, params.cpu_load_timing, params.input_timing_delta, params.subresource_load_metrics, params.soft_navigation_metrics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec);
+          const params = decoder.decodeStructInline(page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');
           const result = this.impl.setUpSharedMemoryForDroppedFrames(params.dropped_frames_memory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec);
+          const params = decoder.decodeStructInline(page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCustomUserTiming');
           const result = this.impl.addCustomUserTiming(params.custom_user_timing);
           break;

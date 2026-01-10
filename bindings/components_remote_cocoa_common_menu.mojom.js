@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -309,14 +310,14 @@ remote_cocoa.mojom.MenuHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commandActivated');
           const result = this.impl.commandActivated(params.command_id, params.event_flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.menuClosed');
           const result = this.impl.menuClosed();
           break;
@@ -494,14 +495,14 @@ remote_cocoa.mojom.MenuReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Menu_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMenuItem');
           const result = this.impl.updateMenuItem(params.command_id, params.enabled, params.visible, params.label);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -373,42 +374,42 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWaylandBufferManagerGpu');
           const result = this.impl.setWaylandBufferManagerGpu(params.buffer_manager_gpu_associated);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDmabufBasedBuffer');
           const result = this.impl.createDmabufBasedBuffer(params.dmabuf_fd, params.size, params.strides, params.offsets, params.modifiers, params.format, params.planes_count, params.color_space, params.hdr_metadata, params.buffer_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createShmBasedBuffer');
           const result = this.impl.createShmBasedBuffer(params.shm_fd, params.length, params.size, params.buffer_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSinglePixelBuffer');
           const result = this.impl.createSinglePixelBuffer(params.color, params.buffer_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyBuffer');
           const result = this.impl.destroyBuffer(params.buffer_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitOverlays');
           const result = this.impl.commitOverlays(params.widget, params.frame_id, params.data, params.overlays);
           break;
@@ -623,21 +624,21 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.remote_host, params.shared_image_formats_with_modifiers, params.supports_dma_buf, params.supports_viewporter, params.supports_acquire_fence, params.supports_overlays, params.supports_single_pixel_buffer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmission');
           const result = this.impl.onSubmission(params.widget, params.frame_id, params.swap_result, params.release_fence_handle, params.presentation_infos);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPresentation');
           const result = this.impl.onPresentation(params.widget, params.presentation_infos);
           break;

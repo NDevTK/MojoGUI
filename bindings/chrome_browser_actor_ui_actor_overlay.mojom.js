@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -231,7 +232,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.receiver);
           break;
@@ -412,14 +413,14 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHoverStatusChanged');
           const result = this.impl.onHoverStatusChanged(params.is_hovering);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCurrentBorderGlowVisibility');
           const result = this.impl.getCurrentBorderGlowVisibility();
           if (header.expectsResponse) {
@@ -694,28 +695,28 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScrimBackground');
           const result = this.impl.setScrimBackground(params.is_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBorderGlowVisibility');
           const result = this.impl.setBorderGlowVisibility(params.is_visible);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
           const result = this.impl.setTheme(params.theme);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCursorTo');
           const result = this.impl.moveCursorTo(params.point);
           if (header.expectsResponse) {
@@ -728,7 +729,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec);
+          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerClickAnimation');
           const result = this.impl.triggerClickAnimation();
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -232,7 +233,7 @@ media.mojom.CdmContextEventCallbackReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.eventCallback');
           const result = this.impl.eventCallback(params.event);
           break;
@@ -591,7 +592,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHwKeyData');
           const result = this.impl.getHwKeyData(params.decrypt_config, params.hw_identifier);
           if (header.expectsResponse) {
@@ -604,14 +605,14 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerEventCallback');
           const result = this.impl.registerEventCallback(params.callback);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHwConfigData');
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
@@ -624,7 +625,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getScreenResolutions');
           const result = this.impl.getScreenResolutions();
           if (header.expectsResponse) {
@@ -637,7 +638,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
@@ -650,7 +651,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {
@@ -663,7 +664,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptVideoBuffer');
           const result = this.impl.decryptVideoBuffer(params.buffer, params.bytes);
           if (header.expectsResponse) {

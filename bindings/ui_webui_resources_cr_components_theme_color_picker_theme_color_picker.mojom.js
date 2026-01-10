@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -250,7 +251,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createThemeColorPickerHandler');
           const result = this.impl.createThemeColorPickerHandler(params.handler, params.client);
           break;
@@ -569,7 +570,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getChromeColors');
           const result = this.impl.getChromeColors(params.is_dark_mode);
           if (header.expectsResponse) {
@@ -582,42 +583,42 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTheme');
           const result = this.impl.updateTheme();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDefaultColor');
           const result = this.impl.setDefaultColor();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setGreyDefaultColor');
           const result = this.impl.setGreyDefaultColor();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeedColor');
           const result = this.impl.setSeedColor(params.seed_color, params.variant);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeedColorFromHue');
           const result = this.impl.setSeedColorFromHue(params.hue);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBackgroundImage');
           const result = this.impl.removeBackgroundImage();
           break;
@@ -765,7 +766,7 @@ theme_color_picker.mojom.ThemeColorPickerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec);
+          const params = decoder.decodeStructInline(theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
           const result = this.impl.setTheme(params.theme);
           break;

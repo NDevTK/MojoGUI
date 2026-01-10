@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -284,21 +285,21 @@ blink.mojom.TextSuggestionHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSuggestionMenuTimer');
           const result = this.impl.startSuggestionMenuTimer();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSpellCheckSuggestionMenu');
           const result = this.impl.showSpellCheckSuggestionMenu(params.caret_x, params.caret_y, params.marked_text, params.suggestions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showTextSuggestionMenu');
           const result = this.impl.showTextSuggestionMenu(params.caret_x, params.caret_y, params.marked_text, params.suggestions);
           break;

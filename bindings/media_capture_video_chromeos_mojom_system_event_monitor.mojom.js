@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -241,7 +242,7 @@ cros.mojom.CrosDisplayObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayRotationChanged');
           const result = this.impl.onDisplayRotationChanged(params.rotation);
           break;
@@ -389,7 +390,7 @@ cros.mojom.CrosLidObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.new_state);
           break;
@@ -568,7 +569,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemSuspend');
           const result = this.impl.onSystemSuspend();
           if (header.expectsResponse) {
@@ -581,7 +582,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemResume');
           const result = this.impl.onSystemResume();
           break;
@@ -814,28 +815,28 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDisplayObserver');
           const result = this.impl.addDisplayObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLidObserver');
           const result = this.impl.addLidObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPowerObserver');
           const result = this.impl.addPowerObserver(params.client_name, params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyDeviceChanged');
           const result = this.impl.notifyDeviceChanged(params.type);
           break;

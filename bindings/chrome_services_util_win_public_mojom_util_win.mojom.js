@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -545,7 +546,7 @@ chrome.mojom.UtilWinReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isPinnedToTaskbar');
           const result = this.impl.isPinnedToTaskbar();
           if (header.expectsResponse) {
@@ -558,7 +559,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unpinShortcuts');
           const result = this.impl.unpinShortcuts(params.shortcut_paths);
           if (header.expectsResponse) {
@@ -571,7 +572,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOrUpdateShortcuts');
           const result = this.impl.createOrUpdateShortcuts(params.shortcut_paths, params.properties, params.operation);
           if (header.expectsResponse) {
@@ -584,7 +585,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.callExecuteSelectFile');
           const result = this.impl.callExecuteSelectFile(params.type, params.owner, params.title, params.default_path, params.filter, params.file_type_index, params.default_extension);
           if (header.expectsResponse) {
@@ -597,7 +598,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_InspectModule_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inspectModule');
           const result = this.impl.inspectModule(params.module_path);
           if (header.expectsResponse) {
@@ -610,7 +611,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAntiVirusProducts');
           const result = this.impl.getAntiVirusProducts(params.report_full_names);
           if (header.expectsResponse) {
@@ -623,7 +624,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTpmIdentifier');
           const result = this.impl.getTpmIdentifier();
           if (header.expectsResponse) {
@@ -781,7 +782,7 @@ chrome.mojom.ProcessorMetricsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordProcessorMetrics');
           const result = this.impl.recordProcessorMetrics();
           if (header.expectsResponse) {

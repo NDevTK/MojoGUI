@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -535,7 +536,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestChromeMemoryDump');
           const result = this.impl.requestChromeMemoryDump(params.args);
           if (header.expectsResponse) {
@@ -548,7 +549,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestOSMemoryDump');
           const result = this.impl.requestOSMemoryDump(params.option, params.flags, params.pids);
           if (header.expectsResponse) {
@@ -709,7 +710,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpProcessesForTracing');
           const result = this.impl.dumpProcessesForTracing(params.strip_path_from_mapped_files, params.write_proto);
           if (header.expectsResponse) {
@@ -869,7 +870,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVmRegionsForHeapProfiler');
           const result = this.impl.getVmRegionsForHeapProfiler(params.pids);
           if (header.expectsResponse) {
@@ -1141,7 +1142,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDump');
           const result = this.impl.requestGlobalMemoryDump(params.dump_type, params.level_of_detail, params.determinism, params.allocator_dump_names);
           if (header.expectsResponse) {
@@ -1154,7 +1155,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpForPid');
           const result = this.impl.requestGlobalMemoryDumpForPid(params.pid, params.allocator_dump_names);
           if (header.expectsResponse) {
@@ -1167,7 +1168,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrivateMemoryFootprint');
           const result = this.impl.requestPrivateMemoryFootprint(params.pid);
           if (header.expectsResponse) {
@@ -1180,7 +1181,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpAndAppendToTrace');
           const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.dump_type, params.level_of_detail, params.determinism);
           if (header.expectsResponse) {
@@ -1335,7 +1336,7 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec);
+          const params = decoder.decodeStructInline(memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerCoordinatorClient');
           const result = this.impl.registerCoordinatorClient(params.receiver, params.client_process);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -287,28 +288,28 @@ dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleDistillerOpenSettingsCall');
           const result = this.impl.handleDistillerOpenSettingsCall();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleStoreThemePref');
           const result = this.impl.handleStoreThemePref(params.theme);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleStoreFontFamilyPref');
           const result = this.impl.handleStoreFontFamilyPref(params.font_family);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec);
+          const params = decoder.decodeStructInline(dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleStoreFontScalingPref');
           const result = this.impl.handleStoreFontScalingPref(params.font_scale);
           break;

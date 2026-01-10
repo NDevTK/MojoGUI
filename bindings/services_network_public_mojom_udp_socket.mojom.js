@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -611,7 +612,7 @@ network.mojom.UDPSocketReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Bind_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Bind_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bind');
           const result = this.impl.bind(params.local_addr, params.socket_options);
           if (header.expectsResponse) {
@@ -624,7 +625,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.remote_addr, params.socket_options);
           if (header.expectsResponse) {
@@ -637,7 +638,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SetBroadcast_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SetBroadcast_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBroadcast');
           const result = this.impl.setBroadcast(params.broadcast);
           if (header.expectsResponse) {
@@ -650,7 +651,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSendBufferSize');
           const result = this.impl.setSendBufferSize(params.send_buffer_size);
           if (header.expectsResponse) {
@@ -663,7 +664,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReceiveBufferSize');
           const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
           if (header.expectsResponse) {
@@ -676,7 +677,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_JoinGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_JoinGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.joinGroup');
           const result = this.impl.joinGroup(params.group_address);
           if (header.expectsResponse) {
@@ -689,7 +690,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_LeaveGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_LeaveGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveGroup');
           const result = this.impl.leaveGroup(params.group_address);
           if (header.expectsResponse) {
@@ -702,21 +703,21 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_ReceiveMore_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_ReceiveMore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveMore');
           const result = this.impl.receiveMore(params.num_additional_datagrams);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveMoreWithBufferSize');
           const result = this.impl.receiveMoreWithBufferSize(params.num_additional_datagrams, params.buffer_size);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SendTo_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_SendTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendTo');
           const result = this.impl.sendTo(params.dest_addr, params.data, params.traffic_annotation);
           if (header.expectsResponse) {
@@ -729,7 +730,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Send_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.data, params.traffic_annotation);
           if (header.expectsResponse) {
@@ -742,7 +743,7 @@ network.mojom.UDPSocketReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Close_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocket_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
@@ -892,7 +893,7 @@ network.mojom.UDPSocketListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.UDPSocketListener_OnReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.UDPSocketListener_OnReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceived');
           const result = this.impl.onReceived(params.result, params.src_addr, params.data);
           break;

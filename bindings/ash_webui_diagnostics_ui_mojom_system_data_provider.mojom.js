@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -324,7 +325,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatteryChargeStatusUpdated');
           const result = this.impl.onBatteryChargeStatusUpdated(params.battery_charge_status);
           break;
@@ -472,7 +473,7 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatteryHealthUpdated');
           const result = this.impl.onBatteryHealthUpdated(params.battery_health);
           break;
@@ -620,7 +621,7 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMemoryUsageUpdated');
           const result = this.impl.onMemoryUsageUpdated(params.memory_usage);
           break;
@@ -768,7 +769,7 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCpuUsageUpdated');
           const result = this.impl.onCpuUsageUpdated(params.cpu_usage);
           break;
@@ -1066,7 +1067,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSystemInfo');
           const result = this.impl.getSystemInfo();
           if (header.expectsResponse) {
@@ -1079,7 +1080,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBatteryInfo');
           const result = this.impl.getBatteryInfo();
           if (header.expectsResponse) {
@@ -1092,28 +1093,28 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryChargeStatus');
           const result = this.impl.observeBatteryChargeStatus(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryHealth');
           const result = this.impl.observeBatteryHealth(params.observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeMemoryUsage');
           const result = this.impl.observeMemoryUsage(params.observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeCpuUsage');
           const result = this.impl.observeCpuUsage(params.observer);
           break;

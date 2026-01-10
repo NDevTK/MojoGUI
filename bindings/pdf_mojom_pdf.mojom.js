@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -261,7 +262,7 @@ pdf.mojom.SaveDataBufferHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.offset, params.block_size);
           if (header.expectsResponse) {
@@ -610,28 +611,28 @@ pdf.mojom.PdfListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCaretPosition');
           const result = this.impl.setCaretPosition(params.position);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveRangeSelectionExtent');
           const result = this.impl.moveRangeSelectionExtent(params.extent);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelectionBounds');
           const result = this.impl.setSelectionBounds(params.base, params.extent);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPdfBytes');
           const result = this.impl.getPdfBytes(params.size_limit);
           if (header.expectsResponse) {
@@ -644,7 +645,7 @@ pdf.mojom.PdfListenerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetPageText_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetPageText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPageText');
           const result = this.impl.getPageText(params.page_index);
           if (header.expectsResponse) {
@@ -657,7 +658,7 @@ pdf.mojom.PdfListenerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMostVisiblePageIndex');
           const result = this.impl.getMostVisiblePageIndex();
           if (header.expectsResponse) {
@@ -670,7 +671,7 @@ pdf.mojom.PdfListenerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSaveDataBufferHandlerForDrive');
           const result = this.impl.getSaveDataBufferHandlerForDrive(params.request_type);
           if (header.expectsResponse) {
@@ -994,49 +995,49 @@ pdf.mojom.PdfHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SetListener_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SetListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setListener');
           const result = this.impl.setListener(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDocumentLoadComplete');
           const result = this.impl.onDocumentLoadComplete();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateContentRestrictions');
           const result = this.impl.updateContentRestrictions(params.restrictions);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveUrlAs');
           const result = this.impl.saveUrlAs(params.url, params.policy);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SelectionChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectionChanged');
           const result = this.impl.selectionChanged(params.left, params.left_height, params.right, params.right_height);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPluginCanSave');
           const result = this.impl.setPluginCanSave(params.can_save);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchifyStarted');
           const result = this.impl.onSearchifyStarted();
           break;

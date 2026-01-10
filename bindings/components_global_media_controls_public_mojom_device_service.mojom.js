@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -253,7 +254,7 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectDevice');
           const result = this.impl.selectDevice(params.device_id);
           break;
@@ -428,14 +429,14 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDevicesUpdated');
           const result = this.impl.onDevicesUpdated(params.devices);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPermissionRejected');
           const result = this.impl.onPermissionRejected();
           break;
@@ -642,21 +643,21 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceListHostForSession');
           const result = this.impl.getDeviceListHostForSession(params.session_id, params.host_receiver, params.client_remote);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceListHostForPresentation');
           const result = this.impl.getDeviceListHostForPresentation(params.host_receiver, params.client_remote);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDevicePickerProvider');
           const result = this.impl.setDevicePickerProvider(params.provider_remote);
           break;
@@ -1024,63 +1025,63 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createItem');
           const result = this.impl.createItem(params.source_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteItem');
           const result = this.impl.deleteItem();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showItem');
           const result = this.impl.showItem();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideItem');
           const result = this.impl.hideItem();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMetadataChanged');
           const result = this.impl.onMetadataChanged(params.metadata);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onArtworkImageChanged');
           const result = this.impl.onArtworkImageChanged(params.artwork_image);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFaviconImageChanged');
           const result = this.impl.onFaviconImageChanged(params.favicon_image);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideMediaUI');
           const result = this.impl.hideMediaUI();
           break;
@@ -1308,28 +1309,28 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaUIOpened');
           const result = this.impl.onMediaUIOpened();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaUIClosed');
           const result = this.impl.onMediaUIClosed();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaUIUpdated');
           const result = this.impl.onMediaUIUpdated();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec);
+          const params = decoder.decodeStructInline(global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPickerDismissed');
           const result = this.impl.onPickerDismissed();
           break;

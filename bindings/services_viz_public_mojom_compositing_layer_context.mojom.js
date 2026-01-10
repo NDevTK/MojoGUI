@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -354,21 +355,21 @@ viz.mojom.LayerContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.LayerContext_SetVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContext_SetVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVisible');
           const result = this.impl.setVisible(params.visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTree');
           const result = this.impl.updateDisplayTree(params.update);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTiling');
           const result = this.impl.updateDisplayTiling(params.tiling);
           break;
@@ -545,14 +546,14 @@ viz.mojom.LayerContextClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCommitForFrame');
           const result = this.impl.onRequestCommitForFrame(params.args);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTilingsReadyForCleanup');
           const result = this.impl.onTilingsReadyForCleanup(params.layer_id, params.tiling_scales_to_clean_up);
           break;

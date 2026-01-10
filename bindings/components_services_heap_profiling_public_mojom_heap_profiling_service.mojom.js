@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -257,7 +258,7 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addProfilingClient');
           const result = this.impl.addProfilingClient(params.pid, params.client, params.process_type, params.params);
           if (header.expectsResponse) {
@@ -270,7 +271,7 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec);
+          const params = decoder.decodeStructInline(heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProfiledPids');
           const result = this.impl.getProfiledPids();
           if (header.expectsResponse) {

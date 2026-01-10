@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -391,49 +392,49 @@ mirroring.mojom.SessionObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_DidStart_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_DidStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStart');
           const result = this.impl.didStart();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_DidStop_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_DidStop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStop');
           const result = this.impl.didStop();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logInfoMessage');
           const result = this.impl.logInfoMessage(params.message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logErrorMessage');
           const result = this.impl.logErrorMessage(params.message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSourceChanged');
           const result = this.impl.onSourceChanged();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotingStateChanged');
           const result = this.impl.onRemotingStateChanged(params.is_remoting);
           break;

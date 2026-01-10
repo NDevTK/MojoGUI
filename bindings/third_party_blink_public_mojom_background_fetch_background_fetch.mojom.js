@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -369,21 +370,21 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.upload_total, params.uploaded, params.download_total, params.downloaded, params.result, params.failure_reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordsUnavailable');
           const result = this.impl.onRecordsUnavailable();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCompleted');
           const result = this.impl.onRequestCompleted(params.request, params.response);
           break;
@@ -647,7 +648,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_Fetch_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetch');
           const result = this.impl.fetch(params.service_worker_registration_id, params.developer_id, params.requests, params.options, params.icon, params.ukm_data);
           if (header.expectsResponse) {
@@ -660,7 +661,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistration');
           const result = this.impl.getRegistration(params.service_worker_registration_id, params.developer_id);
           if (header.expectsResponse) {
@@ -673,7 +674,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeveloperIds');
           const result = this.impl.getDeveloperIds(params.service_worker_registration_id);
           if (header.expectsResponse) {
@@ -686,7 +687,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIconDisplaySize');
           const result = this.impl.getIconDisplaySize();
           if (header.expectsResponse) {
@@ -944,7 +945,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUI');
           const result = this.impl.updateUI(params.title, params.icon);
           if (header.expectsResponse) {
@@ -957,7 +958,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort();
           if (header.expectsResponse) {
@@ -970,7 +971,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchRequests');
           const result = this.impl.matchRequests(params.request_to_match, params.cache_query_options, params.match_all);
           if (header.expectsResponse) {
@@ -983,7 +984,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addRegistrationObserver');
           const result = this.impl.addRegistrationObserver(params.observer);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -412,14 +413,14 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
@@ -432,7 +433,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSystemAppsThatUseCamera');
           const result = this.impl.getSystemAppsThatUseCamera();
           if (header.expectsResponse) {
@@ -445,7 +446,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSystemAppsThatUseMicrophone');
           const result = this.impl.getSystemAppsThatUseMicrophone();
           if (header.expectsResponse) {
@@ -458,21 +459,21 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openBrowserPermissionSettings');
           const result = this.impl.openBrowserPermissionSettings(params.permission_type);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openNativeSettings');
           const result = this.impl.openNativeSettings(params.app_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPermission');
           const result = this.impl.setPermission(params.app_id, params.permission);
           break;
@@ -648,14 +649,14 @@ ash.settings.app_permission.mojom.AppPermissionsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppRemoved');
           const result = this.impl.onAppRemoved(params.app_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppUpdated');
           const result = this.impl.onAppUpdated(params.app);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -256,7 +257,7 @@ remoting.mojom.WebAuthnRequestCancellerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
@@ -485,7 +486,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isUserVerifyingPlatformAuthenticatorAvailable');
           const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
           if (header.expectsResponse) {
@@ -498,7 +499,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Create_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.request_data, params.request_canceller);
           if (header.expectsResponse) {
@@ -511,7 +512,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Get_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
           const result = this.impl.get(params.request_data, params.request_canceller);
           if (header.expectsResponse) {

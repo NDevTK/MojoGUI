@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -259,7 +260,7 @@ blink.mojom.SpeechSynthesisVoiceListObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSetVoiceList');
           const result = this.impl.onSetVoiceList(params.voice_list);
           break;
@@ -573,49 +574,49 @@ blink.mojom.SpeechSynthesisClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartedSpeaking');
           const result = this.impl.onStartedSpeaking();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFinishedSpeaking');
           const result = this.impl.onFinishedSpeaking(params.error_code);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPausedSpeaking');
           const result = this.impl.onPausedSpeaking();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResumedSpeaking');
           const result = this.impl.onResumedSpeaking();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEncounteredWordBoundary');
           const result = this.impl.onEncounteredWordBoundary(params.char_index, params.char_length);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEncounteredSentenceBoundary');
           const result = this.impl.onEncounteredSentenceBoundary(params.char_index, params.char_length);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEncounteredSpeakingError');
           const result = this.impl.onEncounteredSpeakingError();
           break;
@@ -873,35 +874,35 @@ blink.mojom.SpeechSynthesisReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVoiceListObserver');
           const result = this.impl.addVoiceListObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Speak_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.utterance, params.client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Pause_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Resume_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;

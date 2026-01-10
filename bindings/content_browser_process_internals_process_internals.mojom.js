@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -489,7 +490,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProcessCountInfo');
           const result = this.impl.getProcessCountInfo();
           if (header.expectsResponse) {
@@ -502,7 +503,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIsolationMode');
           const result = this.impl.getIsolationMode();
           if (header.expectsResponse) {
@@ -515,7 +516,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProcessPerSiteMode');
           const result = this.impl.getProcessPerSiteMode();
           if (header.expectsResponse) {
@@ -528,7 +529,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserTriggeredIsolatedOrigins');
           const result = this.impl.getUserTriggeredIsolatedOrigins();
           if (header.expectsResponse) {
@@ -541,7 +542,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWebTriggeredIsolatedOrigins');
           const result = this.impl.getWebTriggeredIsolatedOrigins();
           if (header.expectsResponse) {
@@ -554,7 +555,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGloballyIsolatedOrigins');
           const result = this.impl.getGloballyIsolatedOrigins();
           if (header.expectsResponse) {
@@ -567,7 +568,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllWebContentsInfo');
           const result = this.impl.getAllWebContentsInfo();
           if (header.expectsResponse) {

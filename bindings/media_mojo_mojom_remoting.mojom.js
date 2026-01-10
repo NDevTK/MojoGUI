@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -240,7 +241,7 @@ media.mojom.RemoterFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemoterFactory_Create_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemoterFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.source, params.remoter);
           break;
@@ -420,7 +421,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFrame');
           const result = this.impl.sendFrame(params.frame);
           if (header.expectsResponse) {
@@ -433,7 +434,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelInFlightData');
           const result = this.impl.cancelInFlightData();
           break;
@@ -727,42 +728,42 @@ media.mojom.RemoterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startWithPermissionAlreadyGranted');
           const result = this.impl.startWithPermissionAlreadyGranted();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_StartDataStreams_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_StartDataStreams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataStreams');
           const result = this.impl.startDataStreams(params.audio_pipe, params.video_pipe, params.audio_sender, params.video_sender);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.reason);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_SendMessageToSink_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_SendMessageToSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessageToSink');
           const result = this.impl.sendMessageToSink(params.message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.estimateTransmissionCapacity');
           const result = this.impl.estimateTransmissionCapacity();
           if (header.expectsResponse) {
@@ -1054,42 +1055,42 @@ media.mojom.RemotingSourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSinkAvailable');
           const result = this.impl.onSinkAvailable(params.metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkGone_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnSinkGone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSinkGone');
           const result = this.impl.onSinkGone();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStartFailed_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStartFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartFailed');
           const result = this.impl.onStartFailed(params.reason);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageFromSink');
           const result = this.impl.onMessageFromSink(params.message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSource_OnStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped(params.reason);
           break;
@@ -1351,35 +1352,35 @@ media.mojom.RemoteeReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotingSinkReady');
           const result = this.impl.onRemotingSinkReady(params.sink);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_SendMessageToSource_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_SendMessageToSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessageToSource');
           const result = this.impl.sendMessageToSource(params.message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_StartDataStreams_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_StartDataStreams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataStreams');
           const result = this.impl.startDataStreams(params.audio_stream, params.video_stream);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_OnFlushUntil_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_OnFlushUntil_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFlushUntil');
           const result = this.impl.onFlushUntil(params.audio_frame_count, params.video_frame_count);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoNaturalSizeChange');
           const result = this.impl.onVideoNaturalSizeChange(params.size);
           break;
@@ -1527,7 +1528,7 @@ media.mojom.RemotingSinkReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageFromSource');
           const result = this.impl.onMessageFromSource(params.message);
           break;
@@ -1732,21 +1733,21 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeDataPipe');
           const result = this.impl.initializeDataPipe(params.data_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.receiveFrame');
           const result = this.impl.receiveFrame(params.frame_count, params.buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushUntil');
           const result = this.impl.flushUntil(params.frame_count);
           break;

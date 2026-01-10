@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -279,7 +280,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUniqueNameLookupTable');
           const result = this.impl.getUniqueNameLookupTable();
           if (header.expectsResponse) {
@@ -292,7 +293,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchLocalFontByUniqueName');
           const result = this.impl.matchLocalFontByUniqueName(params.font_unique_name);
           if (header.expectsResponse) {
@@ -305,7 +306,7 @@ blink.mojom.AndroidFontLookupReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchAllFontFiles');
           const result = this.impl.fetchAllFontFiles();
           if (header.expectsResponse) {

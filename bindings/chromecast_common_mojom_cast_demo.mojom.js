@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -223,7 +224,7 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.volumeChanged');
           const result = this.impl.volumeChanged(params.level);
           break;
@@ -732,28 +733,28 @@ chromecast.shell.mojom.CastDemoReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordEvent');
           const result = this.impl.recordEvent(params.event_name, params.data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRetailerName');
           const result = this.impl.setRetailerName(params.retailer_name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStoreId');
           const result = this.impl.setStoreId(params.store_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRetailerName');
           const result = this.impl.getRetailerName();
           if (header.expectsResponse) {
@@ -766,7 +767,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStoreId');
           const result = this.impl.getStoreId();
           if (header.expectsResponse) {
@@ -779,14 +780,14 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDefaultVolumeLevel');
           const result = this.impl.setDefaultVolumeLevel(params.level);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDefaultVolumeLevel');
           const result = this.impl.getDefaultVolumeLevel();
           if (header.expectsResponse) {
@@ -799,21 +800,21 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyDefaultVolume');
           const result = this.impl.applyDefaultVolume();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWifiCredentials');
           const result = this.impl.setWifiCredentials(params.ssid, params.psk);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAvailableWifiNetworks');
           const result = this.impl.getAvailableWifiNetworks();
           if (header.expectsResponse) {
@@ -826,7 +827,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConnectionStatus');
           const result = this.impl.getConnectionStatus();
           if (header.expectsResponse) {
@@ -839,14 +840,14 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVolumeChangeObserver');
           const result = this.impl.addVolumeChangeObserver(params.observer);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.persistLocalStorage');
           const result = this.impl.persistLocalStorage();
           break;

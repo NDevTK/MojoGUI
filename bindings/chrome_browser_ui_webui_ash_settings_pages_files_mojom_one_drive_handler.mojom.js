@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -218,7 +219,7 @@ ash.settings.one_drive.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -470,7 +471,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserEmailAddress');
           const result = this.impl.getUserEmailAddress();
           if (header.expectsResponse) {
@@ -483,7 +484,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToOneDrive');
           const result = this.impl.connectToOneDrive();
           if (header.expectsResponse) {
@@ -496,7 +497,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnectFromOneDrive');
           const result = this.impl.disconnectFromOneDrive();
           if (header.expectsResponse) {
@@ -509,7 +510,7 @@ ash.settings.one_drive.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openOneDriveFolder');
           const result = this.impl.openOneDriveFolder();
           if (header.expectsResponse) {
@@ -690,14 +691,14 @@ ash.settings.one_drive.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onODFSMountOrUnmount');
           const result = this.impl.onODFSMountOrUnmount();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAllowUserToRemoveODFSChanged');
           const result = this.impl.onAllowUserToRemoveODFSChanged(params.is_allowed);
           break;

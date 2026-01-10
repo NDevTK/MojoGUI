@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -238,14 +239,14 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
           const result = this.impl.setCursor(params.window, params.bitmaps, params.point, params.frame_delay);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCursor');
           const result = this.impl.moveCursor(params.window, params.point);
           break;

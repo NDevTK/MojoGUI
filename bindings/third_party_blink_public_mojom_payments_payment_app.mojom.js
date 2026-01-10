@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -615,14 +616,14 @@ payments.mojom.PaymentManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.context_url, params.service_worker_scope);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletePaymentInstrument');
           const result = this.impl.deletePaymentInstrument(params.instrument_key);
           if (header.expectsResponse) {
@@ -635,7 +636,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPaymentInstrument');
           const result = this.impl.getPaymentInstrument(params.instrument_key);
           if (header.expectsResponse) {
@@ -648,7 +649,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keysOfPaymentInstruments');
           const result = this.impl.keysOfPaymentInstruments();
           if (header.expectsResponse) {
@@ -661,7 +662,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasPaymentInstrument');
           const result = this.impl.hasPaymentInstrument(params.instrument_key);
           if (header.expectsResponse) {
@@ -674,7 +675,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPaymentInstrument');
           const result = this.impl.setPaymentInstrument(params.instrument_key, params.instrument);
           if (header.expectsResponse) {
@@ -687,7 +688,7 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearPaymentInstruments');
           const result = this.impl.clearPaymentInstruments();
           if (header.expectsResponse) {
@@ -700,14 +701,14 @@ payments.mojom.PaymentManagerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_SetUserHint_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserHint');
           const result = this.impl.setUserHint(params.user_hint);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_EnableDelegations_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDelegations');
           const result = this.impl.enableDelegations(params.delegations);
           if (header.expectsResponse) {
@@ -917,21 +918,21 @@ payments.mojom.PaymentHandlerResponseCallbackReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseForAbortPayment');
           const result = this.impl.onResponseForAbortPayment(params.payment_aborted);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseForCanMakePayment');
           const result = this.impl.onResponseForCanMakePayment(params.response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseForPaymentRequest');
           const result = this.impl.onResponseForPaymentRequest(params.response);
           break;

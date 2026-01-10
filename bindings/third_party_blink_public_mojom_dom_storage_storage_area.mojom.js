@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -350,35 +351,35 @@ blink.mojom.StorageAreaObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keyChanged');
           const result = this.impl.keyChanged(params.key, params.new_value, params.old_value, params.source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keyChangeFailed');
           const result = this.impl.keyChangeFailed(params.key, params.source);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keyDeleted');
           const result = this.impl.keyDeleted(params.key, params.old_value, params.source);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allDeleted');
           const result = this.impl.allDeleted(params.was_nonempty, params.source);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldSendOldValueOnMutations');
           const result = this.impl.shouldSendOldValueOnMutations(params.value);
           break;
@@ -703,14 +704,14 @@ blink.mojom.StorageAreaReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageArea_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageArea_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageArea_Put_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageArea_Put_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.put');
           const result = this.impl.put(params.key, params.value, params.client_old_value, params.source);
           if (header.expectsResponse) {
@@ -723,7 +724,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageArea_Delete_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageArea_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.key, params.client_old_value, params.source);
           if (header.expectsResponse) {
@@ -736,7 +737,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageArea_DeleteAll_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageArea_DeleteAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAll');
           const result = this.impl.deleteAll(params.source, params.new_observer);
           if (header.expectsResponse) {
@@ -749,7 +750,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageArea_Get_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageArea_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
           const result = this.impl.get(params.key);
           if (header.expectsResponse) {
@@ -762,7 +763,7 @@ blink.mojom.StorageAreaReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageArea_GetAll_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageArea_GetAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAll');
           const result = this.impl.getAll(params.new_observer);
           if (header.expectsResponse) {

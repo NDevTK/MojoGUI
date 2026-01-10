@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -694,14 +695,14 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayLayoutInfo');
           const result = this.impl.getDisplayLayoutInfo();
           if (header.expectsResponse) {
@@ -714,7 +715,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayLayoutInfo');
           const result = this.impl.setDisplayLayoutInfo(params.info);
           if (header.expectsResponse) {
@@ -727,7 +728,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayUnitInfoList');
           const result = this.impl.getDisplayUnitInfoList(params.single_unified);
           if (header.expectsResponse) {
@@ -740,7 +741,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDisplayProperties');
           const result = this.impl.setDisplayProperties(params.id, params.properties, params.source);
           if (header.expectsResponse) {
@@ -753,14 +754,14 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUnifiedDesktopEnabled');
           const result = this.impl.setUnifiedDesktopEnabled(params.enabled);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overscanCalibration');
           const result = this.impl.overscanCalibration(params.display_id, params.op, params.delta);
           if (header.expectsResponse) {
@@ -773,7 +774,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.touchCalibration');
           const result = this.impl.touchCalibration(params.display_id, params.op, params.calibration);
           if (header.expectsResponse) {
@@ -786,14 +787,14 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.highlightDisplay');
           const result = this.impl.highlightDisplay(params.id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dragDisplayDelta');
           const result = this.impl.dragDisplayDelta(params.display_id, params.delta_x, params.delta_y);
           break;
@@ -940,7 +941,7 @@ crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayConfigChanged');
           const result = this.impl.onDisplayConfigChanged();
           break;

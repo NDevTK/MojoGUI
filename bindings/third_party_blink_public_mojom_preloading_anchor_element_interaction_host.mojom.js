@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -330,35 +331,35 @@ blink.mojom.AnchorElementInteractionHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerDown');
           const result = this.impl.onPointerDown(params.target);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverEager');
           const result = this.impl.onPointerHoverEager(params.target, params.mouse_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverModerate');
           const result = this.impl.onPointerHoverModerate(params.target, params.mouse_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModerateViewportHeuristicTriggered');
           const result = this.impl.onModerateViewportHeuristicTriggered(params.target);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEagerViewportHeuristicTriggered');
           const result = this.impl.onEagerViewportHeuristicTriggered(params.targets);
           break;

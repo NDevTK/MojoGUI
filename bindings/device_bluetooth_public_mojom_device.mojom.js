@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -589,14 +590,14 @@ bluetooth.mojom.DeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_Disconnect_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_Disconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInfo');
           const result = this.impl.getInfo();
           if (header.expectsResponse) {
@@ -609,7 +610,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetServices_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetServices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getServices');
           const result = this.impl.getServices();
           if (header.expectsResponse) {
@@ -622,7 +623,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetCharacteristics_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCharacteristics');
           const result = this.impl.getCharacteristics(params.service_id);
           if (header.expectsResponse) {
@@ -635,7 +636,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readValueForCharacteristic');
           const result = this.impl.readValueForCharacteristic(params.service_id, params.characteristic_id);
           if (header.expectsResponse) {
@@ -648,7 +649,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeValueForCharacteristic');
           const result = this.impl.writeValueForCharacteristic(params.service_id, params.characteristic_id, params.value);
           if (header.expectsResponse) {
@@ -661,7 +662,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetDescriptors_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDescriptors');
           const result = this.impl.getDescriptors(params.service_id, params.characteristic_id);
           if (header.expectsResponse) {
@@ -674,7 +675,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readValueForDescriptor');
           const result = this.impl.readValueForDescriptor(params.service_id, params.characteristic_id, params.descriptor_id);
           if (header.expectsResponse) {
@@ -687,7 +688,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec);
+          const params = decoder.decodeStructInline(bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeValueForDescriptor');
           const result = this.impl.writeValueForDescriptor(params.service_id, params.characteristic_id, params.descriptor_id, params.value);
           if (header.expectsResponse) {

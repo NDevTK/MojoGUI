@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -237,14 +238,14 @@ network.mojom.P2PTrustedSocketManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invalidSocketPortRangeRequested');
           const result = this.impl.invalidSocketPortRangeRequested();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpPacket');
           const result = this.impl.dumpPacket(params.packet_header, params.packet_length, params.incoming);
           break;
@@ -476,28 +477,28 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startRtpDump');
           const result = this.impl.startRtpDump(params.incoming, params.outgoing);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopRtpDump');
           const result = this.impl.stopRtpDump(params.incoming, params.outgoing);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pauseNetworkChangeNotifications');
           const result = this.impl.pauseNetworkChangeNotifications();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resumeNetworkChangeNotifications');
           const result = this.impl.resumeNetworkChangeNotifications();
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -460,7 +461,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormData');
           const result = this.impl.passFormData(params.s);
           if (header.expectsResponse) {
@@ -473,7 +474,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormFieldData');
           const result = this.impl.passFormFieldData(params.s);
           if (header.expectsResponse) {
@@ -486,7 +487,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormDataPredictions');
           const result = this.impl.passFormDataPredictions(params.s);
           if (header.expectsResponse) {
@@ -499,7 +500,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormFieldDataPredictions');
           const result = this.impl.passFormFieldDataPredictions(params.s);
           if (header.expectsResponse) {
@@ -512,7 +513,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordFormFillData');
           const result = this.impl.passPasswordFormFillData(params.s);
           if (header.expectsResponse) {
@@ -525,7 +526,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordFormGenerationData');
           const result = this.impl.passPasswordFormGenerationData(params.s);
           if (header.expectsResponse) {
@@ -538,7 +539,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordGenerationUIData');
           const result = this.impl.passPasswordGenerationUIData(params.s);
           if (header.expectsResponse) {
@@ -551,7 +552,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordSuggestionRequest');
           const result = this.impl.passPasswordSuggestionRequest(params.s);
           if (header.expectsResponse) {

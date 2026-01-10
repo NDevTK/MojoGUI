@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -322,7 +323,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveCredentials');
           const result = this.impl.saveCredentials(params.local_credentials, params.shared_credentials, params.public_credential_type);
           if (header.expectsResponse) {
@@ -335,7 +336,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPublicCredentials');
           const result = this.impl.getPublicCredentials(params.public_credential_type);
           if (header.expectsResponse) {
@@ -348,7 +349,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrivateCredentials');
           const result = this.impl.getPrivateCredentials();
           if (header.expectsResponse) {
@@ -361,7 +362,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalCredential');
           const result = this.impl.updateLocalCredential(params.local_credential);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -351,7 +352,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrintPreview');
           const result = this.impl.requestPrintPreview(params.token, params.params);
           if (header.expectsResponse) {
@@ -364,7 +365,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreviewDone');
           const result = this.impl.printPreviewDone(params.token);
           if (header.expectsResponse) {
@@ -559,7 +560,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generatePrintPreview');
           const result = this.impl.generatePrintPreview(params.token, params.settings);
           if (header.expectsResponse) {
@@ -572,7 +573,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleDialogClosed');
           const result = this.impl.handleDialogClosed(params.token);
           if (header.expectsResponse) {

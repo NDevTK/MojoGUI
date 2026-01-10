@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -257,7 +258,7 @@ whats_new.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -1002,7 +1003,7 @@ whats_new.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getServerUrl');
           const result = this.impl.getServerUrl(params.is_staging);
           if (header.expectsResponse) {
@@ -1015,147 +1016,147 @@ whats_new.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordTimeToLoadContent');
           const result = this.impl.recordTimeToLoadContent(params.time);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVersionPageLoaded');
           const result = this.impl.recordVersionPageLoaded(params.is_auto_open);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordEditionPageLoaded');
           const result = this.impl.recordEditionPageLoaded(params.page_uid, params.is_auto_open);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleImpression');
           const result = this.impl.recordModuleImpression(params.module_name, params.position);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordExploreMoreToggled');
           const result = this.impl.recordExploreMoreToggled(params.expanded);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordScrollDepth');
           const result = this.impl.recordScrollDepth(params.depth);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordTimeOnPage');
           const result = this.impl.recordTimeOnPage(params.time);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleLinkClicked');
           const result = this.impl.recordModuleLinkClicked(params.module_name, params.position);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleVideoStarted');
           const result = this.impl.recordModuleVideoStarted(params.module_name, params.position);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleVideoEnded');
           const result = this.impl.recordModuleVideoEnded(params.module_name, params.position);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModulePlayClicked');
           const result = this.impl.recordModulePlayClicked(params.module_name, params.position);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModulePauseClicked');
           const result = this.impl.recordModulePauseClicked(params.module_name, params.position);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordModuleRestartClicked');
           const result = this.impl.recordModuleRestartClicked(params.module_name, params.position);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordBrowserCommandExecuted');
           const result = this.impl.recordBrowserCommandExecuted();
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordQrCodeToggled');
           const result = this.impl.recordQrCodeToggled(params.expanded);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordNavClick');
           const result = this.impl.recordNavClick();
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordFeatureTileNavigation');
           const result = this.impl.recordFeatureTileNavigation();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordCarouselScrollButtonClick');
           const result = this.impl.recordCarouselScrollButtonClick();
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordExpandMediaToggled');
           const result = this.impl.recordExpandMediaToggled(params.module_name, params.expanded);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordCtaClick');
           const result = this.impl.recordCtaClick();
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec);
+          const params = decoder.decodeStructInline(whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordNextButtonClick');
           const result = this.impl.recordNextButtonClick();
           break;

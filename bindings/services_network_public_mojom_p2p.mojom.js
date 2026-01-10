@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -250,7 +251,7 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.networkListChanged');
           const result = this.impl.networkListChanged(params.networks, params.default_ipv4_local_address, params.default_ipv6_local_address);
           break;
@@ -469,14 +470,14 @@ network.mojom.P2PSocketManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNetworkNotifications');
           const result = this.impl.startNetworkNotifications(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHostAddress');
           const result = this.impl.getHostAddress(params.host_name, params.address_family, params.enable_mdns);
           if (header.expectsResponse) {
@@ -489,7 +490,7 @@ network.mojom.P2PSocketManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocketManager_CreateSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSocket');
           const result = this.impl.createSocket(params.type, params.local_address, params.port_range, params.remote_address, params.traffic_annotation, params.devtools_token, params.client, params.socket);
           break;
@@ -695,21 +696,21 @@ network.mojom.P2PSocketReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocket_Send_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocket_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.data, params.packet_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocket_SendBatch_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocket_SendBatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBatch');
           const result = this.impl.sendBatch(params.packet_batch);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocket_SetOption_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocket_SetOption_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOption');
           const result = this.impl.setOption(params.option, params.value);
           break;
@@ -942,28 +943,28 @@ network.mojom.P2PSocketClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_SocketCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.socketCreated');
           const result = this.impl.socketCreated(params.local_address, params.remote_address);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_SendComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendComplete');
           const result = this.impl.sendComplete(params.send_metrics);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBatchComplete');
           const result = this.impl.sendBatchComplete(params.send_metrics_batch);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_DataReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dataReceived');
           const result = this.impl.dataReceived(params.packets);
           break;

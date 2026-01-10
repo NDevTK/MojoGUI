@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -378,49 +379,49 @@ data_decoder.mojom.DataDecoderServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindImageDecoder');
           const result = this.impl.bindImageDecoder(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindXmlParser');
           const result = this.impl.bindXmlParser(params.reciever);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebBundleParserFactory');
           const result = this.impl.bindWebBundleParserFactory(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGzipper');
           const result = this.impl.bindGzipper(params.receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStructuredHeadersParser');
           const result = this.impl.bindStructuredHeadersParser(params.receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindCborParser');
           const result = this.impl.bindCborParser(params.receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPixCodeValidator');
           const result = this.impl.bindPixCodeValidator(params.receiver);
           break;

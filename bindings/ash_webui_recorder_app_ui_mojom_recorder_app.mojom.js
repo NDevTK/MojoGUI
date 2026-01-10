@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -292,7 +293,7 @@ ash.recorder_app.mojom.ModelStateMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.state);
           break;
@@ -440,7 +441,7 @@ ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.in_quiet_mode);
           break;
@@ -1126,7 +1127,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getModelInfo');
           const result = this.impl.getModelInfo(params.feature);
           if (header.expectsResponse) {
@@ -1139,7 +1140,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
           const result = this.impl.loadModel(params.model_id, params.model);
           if (header.expectsResponse) {
@@ -1152,7 +1153,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.formatModelInput');
           const result = this.impl.formatModelInput(params.uuid, params.feature, params.fields);
           if (header.expectsResponse) {
@@ -1165,7 +1166,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
           const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
           if (header.expectsResponse) {
@@ -1178,7 +1179,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addModelMonitor');
           const result = this.impl.addModelMonitor(params.model_id, params.monitor);
           if (header.expectsResponse) {
@@ -1191,7 +1192,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAvailableLangPacks');
           const result = this.impl.getAvailableLangPacks();
           if (header.expectsResponse) {
@@ -1204,7 +1205,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDefaultLanguage');
           const result = this.impl.getDefaultLanguage();
           if (header.expectsResponse) {
@@ -1217,7 +1218,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSodaMonitor');
           const result = this.impl.addSodaMonitor(params.language, params.monitor);
           if (header.expectsResponse) {
@@ -1230,7 +1231,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installSoda');
           const result = this.impl.installSoda(params.language);
           if (header.expectsResponse) {
@@ -1243,7 +1244,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadSpeechRecognizer');
           const result = this.impl.loadSpeechRecognizer(params.language, params.soda_client, params.soda_recognizer);
           if (header.expectsResponse) {
@@ -1256,14 +1257,14 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAiFeedbackDialog');
           const result = this.impl.openAiFeedbackDialog(params.description_template);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMicrophoneInfo');
           const result = this.impl.getMicrophoneInfo(params.source_id);
           if (header.expectsResponse) {
@@ -1276,7 +1277,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addQuietModeMonitor');
           const result = this.impl.addQuietModeMonitor(params.monitor);
           if (header.expectsResponse) {
@@ -1289,14 +1290,14 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setQuietMode');
           const result = this.impl.setQuietMode(params.quiet_mode);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canUseSpeakerLabel');
           const result = this.impl.canUseSpeakerLabel();
           if (header.expectsResponse) {
@@ -1309,14 +1310,14 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordSpeakerLabelConsent');
           const result = this.impl.recordSpeakerLabelConsent(params.consent_given, params.consent_description_names, params.consent_confirmation_name);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCaptureSystemAudioWithLoopback');
           const result = this.impl.canCaptureSystemAudioWithLoopback();
           if (header.expectsResponse) {

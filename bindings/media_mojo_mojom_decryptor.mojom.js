@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -478,14 +479,14 @@ media.mojom.DecryptorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_Initialize_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.audio_pipe, params.video_pipe, params.decrypt_pipe, params.decrypted_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_Decrypt_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_Decrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decrypt');
           const result = this.impl.decrypt(params.stream_type, params.encrypted);
           if (header.expectsResponse) {
@@ -498,14 +499,14 @@ media.mojom.DecryptorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_CancelDecrypt_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelDecrypt');
           const result = this.impl.cancelDecrypt(params.stream_type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeAudioDecoder');
           const result = this.impl.initializeAudioDecoder(params.config);
           if (header.expectsResponse) {
@@ -518,7 +519,7 @@ media.mojom.DecryptorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeVideoDecoder');
           const result = this.impl.initializeVideoDecoder(params.config);
           if (header.expectsResponse) {
@@ -531,7 +532,7 @@ media.mojom.DecryptorReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptAndDecodeAudio');
           const result = this.impl.decryptAndDecodeAudio(params.encrypted);
           if (header.expectsResponse) {
@@ -544,7 +545,7 @@ media.mojom.DecryptorReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptAndDecodeVideo');
           const result = this.impl.decryptAndDecodeVideo(params.encrypted);
           if (header.expectsResponse) {
@@ -557,14 +558,14 @@ media.mojom.DecryptorReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_ResetDecoder_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_ResetDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetDecoder');
           const result = this.impl.resetDecoder(params.stream_type);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deinitializeDecoder');
           const result = this.impl.deinitializeDecoder(params.stream_type);
           break;

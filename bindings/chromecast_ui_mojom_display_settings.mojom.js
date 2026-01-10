@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -437,63 +438,63 @@ chromecast.mojom.DisplaySettingsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperature');
           const result = this.impl.setColorTemperature(params.kelvin);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorTemperatureSmooth');
           const result = this.impl.setColorTemperatureSmooth(params.kelvin, params.duration);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetColorTemperature');
           const result = this.impl.resetColorTemperature();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBrightness');
           const result = this.impl.setBrightness(params.brightness);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBrightnessSmooth');
           const result = this.impl.setBrightnessSmooth(params.brightness, params.duration);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetBrightness');
           const result = this.impl.resetBrightness();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenOn');
           const result = this.impl.setScreenOn(params.display_on);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAllowScreenPowerOff');
           const result = this.impl.setAllowScreenPowerOff(params.allow_power_off);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDisplaySettingsObserver');
           const result = this.impl.addDisplaySettingsObserver(params.observer);
           break;
@@ -641,7 +642,7 @@ chromecast.mojom.DisplaySettingsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
           const result = this.impl.onDisplayBrightnessChanged(params.brightness);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -396,7 +397,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDiskAvailabilityAndTempPoolSize');
           const result = this.impl.getDiskAvailabilityAndTempPoolSize();
           if (header.expectsResponse) {
@@ -409,7 +410,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatistics');
           const result = this.impl.getStatistics();
           if (header.expectsResponse) {
@@ -422,14 +423,14 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.simulateStoragePressure');
           const result = this.impl.simulateStoragePressure(params.origin_url);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retrieveBucketsTable');
           const result = this.impl.retrieveBucketsTable();
           if (header.expectsResponse) {
@@ -442,7 +443,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGlobalUsageForInternals');
           const result = this.impl.getGlobalUsageForInternals();
           if (header.expectsResponse) {
@@ -455,7 +456,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSimulateStoragePressureAvailable');
           const result = this.impl.isSimulateStoragePressureAvailable();
           if (header.expectsResponse) {

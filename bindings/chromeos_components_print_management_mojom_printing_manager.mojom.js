@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -325,14 +326,14 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAllPrintJobsDeleted');
           const result = this.impl.onAllPrintJobsDeleted();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintJobUpdate');
           const result = this.impl.onPrintJobUpdate(params.print_job);
           break;
@@ -652,7 +653,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observePrintJobs');
           const result = this.impl.observePrintJobs(params.observer);
           if (header.expectsResponse) {
@@ -665,7 +666,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrintJobs');
           const result = this.impl.getPrintJobs();
           if (header.expectsResponse) {
@@ -678,7 +679,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllPrintJobs');
           const result = this.impl.deleteAllPrintJobs();
           if (header.expectsResponse) {
@@ -691,7 +692,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPrintJob');
           const result = this.impl.cancelPrintJob(params.id);
           if (header.expectsResponse) {
@@ -704,7 +705,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeletePrintJobHistoryAllowedByPolicy');
           const result = this.impl.getDeletePrintJobHistoryAllowedByPolicy();
           if (header.expectsResponse) {
@@ -717,7 +718,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrintJobHistoryExpirationPeriod');
           const result = this.impl.getPrintJobHistoryExpirationPeriod();
           if (header.expectsResponse) {
@@ -899,14 +900,14 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchPrinterSettings');
           const result = this.impl.launchPrinterSettings(params.source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordGetPrintJobsRequestDuration');
           const result = this.impl.recordGetPrintJobsRequestDuration(params.duration);
           break;

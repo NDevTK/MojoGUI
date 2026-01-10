@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -218,7 +219,7 @@ ash.crostini_installer.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -483,35 +484,35 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.install');
           const result = this.impl.install(params.disk_size, params.username);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelBeforeStart');
           const result = this.impl.cancelBeforeStart();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageClosed');
           const result = this.impl.onPageClosed();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAmountOfFreeDiskSpace');
           const result = this.impl.requestAmountOfFreeDiskSpace();
           if (header.expectsResponse) {
@@ -748,28 +749,28 @@ ash.crostini_installer.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgressUpdate');
           const result = this.impl.onProgressUpdate(params.install_state, params.progress_fraction);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallFinished');
           const result = this.impl.onInstallFinished(params.error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanceled');
           const result = this.impl.onCanceled();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           break;

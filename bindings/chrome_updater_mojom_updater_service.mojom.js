@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -832,7 +833,7 @@ updater.mojom.UpdateServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetVersion_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVersion');
           const result = this.impl.getVersion();
           if (header.expectsResponse) {
@@ -845,7 +846,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_FetchPolicies_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchPolicies');
           const result = this.impl.fetchPolicies(params.reason);
           if (header.expectsResponse) {
@@ -858,7 +859,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RegisterApp_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RegisterApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerApp');
           const result = this.impl.registerApp(params.request);
           if (header.expectsResponse) {
@@ -871,7 +872,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetAppStates_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetAppStates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppStates');
           const result = this.impl.getAppStates();
           if (header.expectsResponse) {
@@ -884,7 +885,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runPeriodicTasks');
           const result = this.impl.runPeriodicTasks();
           if (header.expectsResponse) {
@@ -897,7 +898,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_UpdateAll_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_UpdateAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAll');
           const result = this.impl.updateAll();
           if (header.expectsResponse) {
@@ -910,7 +911,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_Update_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.app_id, params.install_data_index, params.priority, params.policy_same_version_update, params.do_update_check_only, params.language);
           if (header.expectsResponse) {
@@ -923,7 +924,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_Install_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_Install_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.install');
           const result = this.impl.install(params.registration, params.client_install_data, params.install_data_index, params.priority, params.language);
           if (header.expectsResponse) {
@@ -936,14 +937,14 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_CancelInstalls_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelInstalls');
           const result = this.impl.cancelInstalls(params.app_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RunInstaller_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_RunInstaller_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runInstaller');
           const result = this.impl.runInstaller(params.app_id, params.installer_path, params.install_args, params.install_data, params.install_settings, params.language);
           if (header.expectsResponse) {
@@ -956,7 +957,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_CheckForUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkForUpdate');
           const result = this.impl.checkForUpdate(params.app_id, params.priority, params.policy_same_version_update, params.language);
           if (header.expectsResponse) {
@@ -969,7 +970,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterState_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUpdaterState');
           const result = this.impl.getUpdaterState();
           if (header.expectsResponse) {
@@ -982,7 +983,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUpdaterPolicies');
           const result = this.impl.getUpdaterPolicies();
           if (header.expectsResponse) {
@@ -995,7 +996,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetAppPolicies_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAppPolicies');
           const result = this.impl.getAppPolicies();
           if (header.expectsResponse) {
@@ -1177,14 +1178,14 @@ updater.mojom.StateChangeObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStateChange');
           const result = this.impl.onStateChange(params.state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.result);
           break;

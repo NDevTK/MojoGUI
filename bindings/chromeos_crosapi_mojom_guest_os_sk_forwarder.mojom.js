@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -205,7 +206,7 @@ crosapi.mojom.GuestOsSkForwarderFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGuestOsSkForwarder');
           const result = this.impl.bindGuestOsSkForwarder(params.remote);
           break;
@@ -359,7 +360,7 @@ crosapi.mojom.GuestOsSkForwarderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardRequest');
           const result = this.impl.forwardRequest(params.message);
           if (header.expectsResponse) {

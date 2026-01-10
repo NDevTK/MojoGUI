@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -406,49 +407,49 @@ blink.mojom.LCPCriticalPathPredictorHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLcpUpdated');
           const result = this.impl.onLcpUpdated(params.lcp_element);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLcpTimingPredictedForTesting');
           const result = this.impl.onLcpTimingPredictedForTesting(params.element_locator);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLcpInfluencerScriptUrls');
           const result = this.impl.setLcpInfluencerScriptUrls(params.lcp_influencer_scripts);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPreconnectOrigin');
           const result = this.impl.addPreconnectOrigin(params.origin);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyFetchedFont');
           const result = this.impl.notifyFetchedFont(params.font_url, params.hit);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyFetchedSubresource');
           const result = this.impl.notifyFetchedSubresource(params.subresource_url, params.subresource_load_start, params.request_destination);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUnusedPreloads');
           const result = this.impl.setUnusedPreloads(params.unused_preloads);
           break;

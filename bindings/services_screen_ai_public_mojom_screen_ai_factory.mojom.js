@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -210,7 +211,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shuttingDownOnIdle');
           const result = this.impl.shuttingDownOnIdle();
           break;
@@ -430,7 +431,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeOCR');
           const result = this.impl.initializeOCR(params.library_path, params.model_files, params.ocr_service_receiver);
           if (header.expectsResponse) {
@@ -443,7 +444,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeMainContentExtraction');
           const result = this.impl.initializeMainContentExtraction(params.library_path, params.model_files, params.main_content_extractor_service);
           if (header.expectsResponse) {
@@ -456,7 +457,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindShutdownHandler');
           const result = this.impl.bindShutdownHandler(params.shutdown_handler);
           break;

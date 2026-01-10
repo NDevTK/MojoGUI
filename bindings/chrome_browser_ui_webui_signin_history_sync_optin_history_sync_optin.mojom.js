@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -237,7 +238,7 @@ history_sync_optin.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHistorySyncOptinHandler');
           const result = this.impl.createHistorySyncOptinHandler(params.page, params.handler);
           break;
@@ -466,28 +467,28 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Accept_ParamsSpec);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Reject_ParamsSpec);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestAccountInfo');
           const result = this.impl.requestAccountInfo();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDialogHeight');
           const result = this.impl.updateDialogHeight(params.height);
           break;
@@ -663,14 +664,14 @@ history_sync_optin.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAccountInfo');
           const result = this.impl.sendAccountInfo(params.account_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec);
+          const params = decoder.decodeStructInline(history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendScreenMode');
           const result = this.impl.sendScreenMode(params.screen_mode);
           break;

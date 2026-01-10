@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -478,42 +479,42 @@ remote_cocoa.mojom.ApplicationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateAlert_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAlert');
           const result = this.impl.createAlert(params.alert_bridge_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNativeWidgetNSWindow');
           const result = this.impl.createNativeWidgetNSWindow(params.bridge_id, params.window_receiver, params.host, params.text_input_host);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRenderWidgetHostNSView');
           const result = this.impl.createRenderWidgetHostNSView(params.view_id, params.host, params.view_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSystemMediaControlsBridge');
           const result = this.impl.createSystemMediaControlsBridge(params.receiver, params.host);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebContentsNSView');
           const result = this.impl.createWebContentsNSView(params.view_id, params.host, params.view_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardCutCopyPaste');
           const result = this.impl.forwardCutCopyPaste(params.command);
           break;

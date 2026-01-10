@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -218,7 +219,7 @@ reload_button.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -423,21 +424,21 @@ reload_button.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_Reload_ParamsSpec);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_Reload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload(params.ignore_cache, params.flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_StopReload_ParamsSpec);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_StopReload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopReload');
           const result = this.impl.stopReload();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.offset_x, params.offset_y);
           break;
@@ -586,7 +587,7 @@ reload_button.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reload_button.mojom.Page_SetReloadButtonState_ParamsSpec);
+          const params = decoder.decodeStructInline(reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReloadButtonState');
           const result = this.impl.setReloadButtonState(params.is_loading, params.is_menu_enabled);
           break;

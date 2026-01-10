@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -210,7 +211,7 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getController');
           const result = this.impl.getController(params.receiver, params.client);
           break;
@@ -358,7 +359,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateMediaPerception');
           const result = this.impl.activateMediaPerception(params.receiver);
           break;
@@ -506,7 +507,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToVideoCaptureService');
           const result = this.impl.connectToVideoCaptureService(params.receiver);
           break;

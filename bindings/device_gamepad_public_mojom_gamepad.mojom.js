@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -414,21 +415,21 @@ device.mojom.GamepadObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadConnected_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadConnected');
           const result = this.impl.gamepadConnected(params.index, params.gamepad);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadDisconnected');
           const result = this.impl.gamepadDisconnected(params.index, params.gamepad);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadRawInputChanged');
           const result = this.impl.gamepadRawInputChanged(params.index, params.gamepad);
           break;
@@ -641,7 +642,7 @@ device.mojom.GamepadMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadStartPolling');
           const result = this.impl.gamepadStartPolling();
           if (header.expectsResponse) {
@@ -654,7 +655,7 @@ device.mojom.GamepadMonitorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gamepadStopPolling');
           const result = this.impl.gamepadStopPolling();
           if (header.expectsResponse) {
@@ -667,7 +668,7 @@ device.mojom.GamepadMonitorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_SetObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setObserver');
           const result = this.impl.setObserver(params.gamepad_observer);
           break;
@@ -857,7 +858,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.playVibrationEffectOnce');
           const result = this.impl.playVibrationEffectOnce(params.pad_index, params.type, params.params);
           if (header.expectsResponse) {
@@ -870,7 +871,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetVibrationActuator');
           const result = this.impl.resetVibrationActuator(params.pad_index);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -460,14 +461,14 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayNotification');
           const result = this.impl.displayNotification(params.notification);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayedNotifications');
           const result = this.impl.getDisplayedNotifications(params.profile, params.origin);
           if (header.expectsResponse) {
@@ -480,28 +481,28 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeNotification');
           const result = this.impl.closeNotification(params.identifier);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeNotificationsForProfile');
           const result = this.impl.closeNotificationsForProfile(params.profile);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeAllNotifications');
           const result = this.impl.closeAllNotifications();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.okayToTerminateService');
           const result = this.impl.okayToTerminateService();
           if (header.expectsResponse) {
@@ -655,7 +656,7 @@ mac_notifications.mojom.MacNotificationActionHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationAction');
           const result = this.impl.onNotificationAction(params.info);
           break;
@@ -804,7 +805,7 @@ mac_notifications.mojom.MacNotificationProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec);
+          const params = decoder.decodeStructInline(mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNotificationService');
           const result = this.impl.bindNotificationService(params.service, params.handler);
           break;

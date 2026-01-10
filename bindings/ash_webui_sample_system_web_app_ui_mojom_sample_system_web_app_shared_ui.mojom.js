@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -206,7 +207,7 @@ ash.mojom.sample_swa.ChildUntrustedPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doSomethingForParent');
           const result = this.impl.doSomethingForParent(params.task);
           break;
@@ -360,7 +361,7 @@ ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doSomethingForChild');
           const result = this.impl.doSomethingForChild(params.task);
           if (header.expectsResponse) {

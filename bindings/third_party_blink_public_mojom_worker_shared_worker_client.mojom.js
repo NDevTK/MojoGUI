@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -317,35 +318,35 @@ blink.mojom.SharedWorkerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCreated');
           const result = this.impl.onCreated(params.creation_context_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnected');
           const result = this.impl.onConnected(params.features_used);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoadFailed');
           const result = this.impl.onScriptLoadFailed(params.error_message);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportException');
           const result = this.impl.onReportException(params.details);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFeatureUsed');
           const result = this.impl.onFeatureUsed(params.feature);
           break;

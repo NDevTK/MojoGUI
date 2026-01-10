@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -306,7 +307,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPropertiesUpdated');
           const result = this.impl.onPropertiesUpdated(params.properties);
           break;
@@ -789,91 +790,91 @@ ash.audio_config.mojom.CrosAudioConfigReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeAudioSystemProperties');
           const result = this.impl.observeAudioSystemProperties(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputMuted');
           const result = this.impl.setOutputMuted(params.muted);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputVolumePercent');
           const result = this.impl.setOutputVolumePercent(params.volume);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputGainPercent');
           const result = this.impl.setInputGainPercent(params.gain);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActiveDevice');
           const result = this.impl.setActiveDevice(params.device);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputMuted');
           const result = this.impl.setInputMuted(params.muted);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationEnabledChange');
           const result = this.impl.recordVoiceIsolationEnabledChange();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationPreferredEffectChange');
           const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.preferred_effect);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNoiseCancellationEnabled');
           const result = this.impl.setNoiseCancellationEnabled(params.enabled);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStyleTransferEnabled');
           const result = this.impl.setStyleTransferEnabled(params.enabled);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setForceRespectUiGainsEnabled');
           const result = this.impl.setForceRespectUiGainsEnabled(params.enabled);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHfpMicSrEnabled');
           const result = this.impl.setHfpMicSrEnabled(params.enabled);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSpatialAudioEnabled');
           const result = this.impl.setSpatialAudioEnabled(params.enabled);
           break;

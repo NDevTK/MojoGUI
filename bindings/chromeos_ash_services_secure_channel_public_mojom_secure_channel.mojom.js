@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -404,7 +405,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.message);
           if (header.expectsResponse) {
@@ -417,7 +418,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPayloadFile');
           const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
           if (header.expectsResponse) {
@@ -430,7 +431,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConnectionMetadata');
           const result = this.impl.getConnectionMetadata();
           if (header.expectsResponse) {
@@ -584,7 +585,7 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageReceived');
           const result = this.impl.onMessageReceived(params.message);
           break;
@@ -762,14 +763,14 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionAttemptFailure');
           const result = this.impl.onConnectionAttemptFailure(params.reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnection');
           const result = this.impl.onConnection(params.channel, params.message_receiver_receiver, params.nearby_connection_state_listener_receiver);
           break;
@@ -975,21 +976,21 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logDiscoveryAttempt');
           const result = this.impl.logDiscoveryAttempt(params.result, params.error_code);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logNearbyConnectionState');
           const result = this.impl.logNearbyConnectionState(params.step, params.status);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logSecureChannelState');
           const result = this.impl.logSecureChannelState(params.state);
           break;
@@ -1238,28 +1239,28 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listenForConnectionFromDevice');
           const result = this.impl.listenForConnectionFromDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiateConnectionToDevice');
           const result = this.impl.initiateConnectionToDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate, params.secure_channel_structured_metrics_logger);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNearbyConnector');
           const result = this.impl.setNearbyConnector(params.nearby_connector);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLastSeenTimestamp');
           const result = this.impl.getLastSeenTimestamp(params.remote_device_id);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -223,7 +224,7 @@ mojom.DebugLogsChangeHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeDebugLogsState');
           const result = this.impl.changeDebugLogsState(params.should_debug_logs_be_enabled);
           break;
@@ -608,7 +609,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAdapter');
           const result = this.impl.getAdapter();
           if (header.expectsResponse) {
@@ -621,7 +622,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDebugLogsChangeHandler');
           const result = this.impl.getDebugLogsChangeHandler();
           if (header.expectsResponse) {
@@ -634,7 +635,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkSystemPermissions');
           const result = this.impl.checkSystemPermissions();
           if (header.expectsResponse) {
@@ -647,7 +648,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSystemPermissions');
           const result = this.impl.requestSystemPermissions();
           if (header.expectsResponse) {
@@ -660,7 +661,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLocationServices');
           const result = this.impl.requestLocationServices();
           if (header.expectsResponse) {
@@ -673,7 +674,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restartSystemBluetooth');
           const result = this.impl.restartSystemBluetooth();
           if (header.expectsResponse) {
@@ -686,7 +687,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startBtsnoop');
           const result = this.impl.startBtsnoop();
           if (header.expectsResponse) {
@@ -699,7 +700,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isBtsnoopFeatureEnabled');
           const result = this.impl.isBtsnoopFeatureEnabled();
           if (header.expectsResponse) {
@@ -858,7 +859,7 @@ mojom.BluetoothBtsnoopReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojom.BluetoothBtsnoop_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(mojom.BluetoothBtsnoop_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           if (header.expectsResponse) {

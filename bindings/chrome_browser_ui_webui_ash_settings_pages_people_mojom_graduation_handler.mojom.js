@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -234,14 +235,14 @@ ash.settings.graduation.mojom.GraduationHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchGraduationApp');
           const result = this.impl.launchGraduationApp();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
@@ -389,7 +390,7 @@ ash.settings.graduation.mojom.GraduationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGraduationAppUpdated');
           const result = this.impl.onGraduationAppUpdated(params.is_app_enabled);
           break;

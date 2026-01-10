@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -447,7 +448,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enumerateDevicesAndSetClient');
           const result = this.impl.enumerateDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -460,7 +461,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices(params.options);
           if (header.expectsResponse) {
@@ -473,21 +474,21 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevice');
           const result = this.impl.getDevice(params.guid, params.blocked_interface_classes, params.device_receiver, params.device_client);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSecurityKeyDevice');
           const result = this.impl.getSecurityKeyDevice(params.guid, params.device_receiver, params.device_client);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshDeviceInfo');
           const result = this.impl.refreshDeviceInfo(params.guid);
           if (header.expectsResponse) {
@@ -500,7 +501,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkAccess');
           const result = this.impl.checkAccess(params.guid);
           if (header.expectsResponse) {
@@ -513,7 +514,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileDescriptor');
           const result = this.impl.openFileDescriptor(params.guid, params.allowed_interfaces_mask, params.lifeline_fd);
           if (header.expectsResponse) {
@@ -526,7 +527,7 @@ device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;

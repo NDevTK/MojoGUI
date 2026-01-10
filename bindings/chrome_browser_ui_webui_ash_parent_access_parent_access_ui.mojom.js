@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -480,7 +481,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec);
+          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOauthToken');
           const result = this.impl.getOauthToken();
           if (header.expectsResponse) {
@@ -493,7 +494,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessCallbackReceived');
           const result = this.impl.onParentAccessCallbackReceived(params.encoded_parent_access_callback_proto);
           if (header.expectsResponse) {
@@ -506,7 +507,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec);
+          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getParentAccessParams');
           const result = this.impl.getParentAccessParams();
           if (header.expectsResponse) {
@@ -519,7 +520,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getParentAccessUrl');
           const result = this.impl.getParentAccessUrl();
           if (header.expectsResponse) {
@@ -532,7 +533,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec);
+          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessDone');
           const result = this.impl.onParentAccessDone(params.result);
           if (header.expectsResponse) {
@@ -545,7 +546,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec);
+          const params = decoder.decodeStructInline(parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBeforeScreenDone');
           const result = this.impl.onBeforeScreenDone();
           if (header.expectsResponse) {

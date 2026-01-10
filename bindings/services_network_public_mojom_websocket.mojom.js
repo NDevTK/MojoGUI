@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -270,7 +271,7 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
           const result = this.impl.onAuthRequired(params.info, params.headers, params.remote_endpoint);
           if (header.expectsResponse) {
@@ -486,21 +487,21 @@ network.mojom.WebSocketHandshakeClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOpeningHandshakeStarted');
           const result = this.impl.onOpeningHandshakeStarted(params.request);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFailure');
           const result = this.impl.onFailure(params.message, params.net_error, params.response_code);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionEstablished');
           const result = this.impl.onConnectionEstablished(params.socket, params.client_receiver, params.response, params.readable, params.writable);
           break;
@@ -707,21 +708,21 @@ network.mojom.WebSocketClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocketClient_OnDataFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDataFrame');
           const result = this.impl.onDataFrame(params.fin, params.type, params.data_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocketClient_OnDropChannel_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDropChannel');
           const result = this.impl.onDropChannel(params.was_clean, params.code, params.reason);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClosingHandshake');
           const result = this.impl.onClosingHandshake();
           break;
@@ -926,21 +927,21 @@ network.mojom.WebSocketReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocket_SendMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocket_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.type, params.data_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocket_StartReceiving_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocket_StartReceiving_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReceiving');
           const result = this.impl.startReceiving();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.WebSocket_StartClosingHandshake_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startClosingHandshake');
           const result = this.impl.startClosingHandshake(params.code, params.reason);
           break;

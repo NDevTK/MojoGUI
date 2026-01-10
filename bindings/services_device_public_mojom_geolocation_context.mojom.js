@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -300,28 +301,28 @@ device.mojom.GeolocationContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_BindGeolocation_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocation');
           const result = this.impl.bindGeolocation(params.receiver, params.requesting_url, params.client_id, params.has_precise_permission);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPermissionUpdated');
           const result = this.impl.onPermissionUpdated(params.origin, params.permission_level);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_SetOverride_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_SetOverride_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOverride');
           const result = this.impl.setOverride(params.result);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_ClearOverride_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearOverride');
           const result = this.impl.clearOverride();
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -459,7 +460,7 @@ audio.mojom.SystemInfoReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInputStreamParameters');
           const result = this.impl.getInputStreamParameters(params.device_id);
           if (header.expectsResponse) {
@@ -472,7 +473,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOutputStreamParameters');
           const result = this.impl.getOutputStreamParameters(params.device_id);
           if (header.expectsResponse) {
@@ -485,7 +486,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_HasInputDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_HasInputDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasInputDevices');
           const result = this.impl.hasInputDevices();
           if (header.expectsResponse) {
@@ -498,7 +499,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasOutputDevices');
           const result = this.impl.hasOutputDevices();
           if (header.expectsResponse) {
@@ -511,7 +512,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInputDeviceDescriptions');
           const result = this.impl.getInputDeviceDescriptions();
           if (header.expectsResponse) {
@@ -524,7 +525,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOutputDeviceDescriptions');
           const result = this.impl.getOutputDeviceDescriptions();
           if (header.expectsResponse) {
@@ -537,7 +538,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedOutputDeviceID');
           const result = this.impl.getAssociatedOutputDeviceID(params.input_device_id);
           if (header.expectsResponse) {
@@ -550,7 +551,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInputDeviceInfo');
           const result = this.impl.getInputDeviceInfo(params.input_device_id);
           if (header.expectsResponse) {

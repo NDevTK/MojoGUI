@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -309,28 +310,28 @@ media.mojom.AudioOutputStreamReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_Play_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_Play_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.play');
           const result = this.impl.play();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_Pause_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_SetVolume_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
@@ -532,21 +533,21 @@ media.mojom.AudioOutputStreamObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStartPlaying');
           const result = this.impl.didStartPlaying();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStopPlaying');
           const result = this.impl.didStopPlaying();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeAudibleState');
           const result = this.impl.didChangeAudibleState(params.is_audible);
           break;
@@ -695,7 +696,7 @@ media.mojom.AudioOutputStreamProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquire');
           const result = this.impl.acquire(params.params, params.client);
           break;
@@ -844,7 +845,7 @@ media.mojom.AudioOutputStreamProviderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.created');
           const result = this.impl.created(params.stream, params.data_pipe);
           break;
@@ -992,7 +993,7 @@ media.mojom.DeviceSwitchInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchAudioOutputDeviceId');
           const result = this.impl.switchAudioOutputDeviceId(params.output_device_id);
           break;

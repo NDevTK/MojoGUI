@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -230,7 +231,7 @@ ukm.mojom.SingularUkmInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ukm.mojom.SingularUkmInterface_Submit_ParamsSpec);
+          const params = decoder.decodeStructInline(ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submit');
           const result = this.impl.submit(params.entry);
           break;
@@ -378,7 +379,7 @@ ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec);
+          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setParameters');
           const result = this.impl.setParameters(params.params);
           break;
@@ -555,14 +556,14 @@ ukm.mojom.UkmRecorderInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec);
+          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
           const result = this.impl.addEntry(params.entry);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec);
+          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSourceURL');
           const result = this.impl.updateSourceURL(params.source_id, params.url);
           break;
@@ -711,7 +712,7 @@ ukm.mojom.UkmRecorderFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec);
+          const params = decoder.decodeStructInline(ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUkmRecorder');
           const result = this.impl.createUkmRecorder(params.receiver, params.client_remote);
           break;

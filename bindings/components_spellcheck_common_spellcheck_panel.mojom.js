@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -234,14 +235,14 @@ spellcheck.mojom.SpellCheckPanelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleSpellPanel');
           const result = this.impl.toggleSpellPanel(params.visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.advanceToNextMisspelling');
           const result = this.impl.advanceToNextMisspelling();
           break;
@@ -417,14 +418,14 @@ spellcheck.mojom.SpellCheckPanelHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSpellingPanel');
           const result = this.impl.showSpellingPanel(params.show);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec);
+          const params = decoder.decodeStructInline(spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSpellingPanelWithMisspelledWord');
           const result = this.impl.updateSpellingPanelWithMisspelledWord(params.word);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -409,7 +410,7 @@ echo.mojom.EchoServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(echo.mojom.EchoService_EchoString_ParamsSpec);
+          const params = decoder.decodeStructInline(echo.mojom.EchoService_EchoString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoString');
           const result = this.impl.echoString(params.input);
           if (header.expectsResponse) {
@@ -422,35 +423,35 @@ echo.mojom.EchoServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec);
+          const params = decoder.decodeStructInline(echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringToSharedMemory');
           const result = this.impl.echoStringToSharedMemory(params.input, params.region);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(echo.mojom.EchoService_Quit_ParamsSpec);
+          const params = decoder.decodeStructInline(echo.mojom.EchoService_Quit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.quit');
           const result = this.impl.quit();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(echo.mojom.EchoService_Crash_ParamsSpec);
+          const params = decoder.decodeStructInline(echo.mojom.EchoService_Crash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.crash');
           const result = this.impl.crash();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(echo.mojom.EchoService_DelayLoad_ParamsSpec);
+          const params = decoder.decodeStructInline(echo.mojom.EchoService_DelayLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delayLoad');
           const result = this.impl.delayLoad();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec);
+          const params = decoder.decodeStructInline(echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadNativeLibrary');
           const result = this.impl.loadNativeLibrary(params.library, params.call_winmm_delayload);
           if (header.expectsResponse) {
@@ -463,7 +464,7 @@ echo.mojom.EchoServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(echo.mojom.EchoService_DecryptEncrypt_ParamsSpec);
+          const params = decoder.decodeStructInline(echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptEncrypt');
           const result = this.impl.decryptEncrypt(params.encryptor, params.input);
           if (header.expectsResponse) {

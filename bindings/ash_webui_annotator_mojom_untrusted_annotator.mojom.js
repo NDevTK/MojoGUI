@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -293,28 +294,28 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clear');
           const result = this.impl.clear();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.redo');
           const result = this.impl.redo();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTool');
           const result = this.impl.setTool(params.tool);
           break;
@@ -491,14 +492,14 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUndoRedoAvailabilityChanged');
           const result = this.impl.onUndoRedoAvailabilityChanged(params.undo_available, params.redo_available);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanvasInitialized');
           const result = this.impl.onCanvasInitialized(params.success);
           break;
@@ -647,7 +648,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.handler, params.annotator);
           break;

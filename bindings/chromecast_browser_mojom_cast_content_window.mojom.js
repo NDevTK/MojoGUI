@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -262,14 +263,14 @@ chromecast.mojom.CastContentWindowObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityChange');
           const result = this.impl.onVisibilityChange(params.visibility_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowDestroyed');
           const result = this.impl.onWindowDestroyed();
           break;
@@ -556,42 +557,42 @@ chromecast.mojom.CastContentWindowReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWindow');
           const result = this.impl.createWindow(params.z_order, params.priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.grantScreenAccess');
           const result = this.impl.grantScreenAccess();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokeScreenAccess');
           const result = this.impl.revokeScreenAccess();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVisibility');
           const result = this.impl.requestVisibility(params.priority);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableTouchInput');
           const result = this.impl.enableTouchInput(params.enabled);
           break;

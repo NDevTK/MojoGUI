@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -304,7 +305,7 @@ ash.auth.mojom.FactorObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFactorChanged');
           const result = this.impl.onFactorChanged(params.factor);
           break;
@@ -620,14 +621,14 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeFactorChanges');
           const result = this.impl.observeFactorChanges(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
           const result = this.impl.isSupported(params.auth_token, params.factor);
           if (header.expectsResponse) {
@@ -640,7 +641,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isConfigured');
           const result = this.impl.isConfigured(params.auth_token, params.factor);
           if (header.expectsResponse) {
@@ -653,7 +654,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getManagementType');
           const result = this.impl.getManagementType(params.auth_token, params.factor);
           if (header.expectsResponse) {
@@ -666,7 +667,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isEditable');
           const result = this.impl.isEditable(params.auth_token, params.factor);
           if (header.expectsResponse) {
@@ -679,7 +680,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLocalAuthFactorsComplexity');
           const result = this.impl.getLocalAuthFactorsComplexity(params.auth_token);
           break;
@@ -834,7 +835,7 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configure');
           const result = this.impl.configure(params.auth_token, params.enabled);
           if (header.expectsResponse) {
@@ -1133,7 +1134,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPin');
           const result = this.impl.setPin(params.auth_token, params.pin);
           if (header.expectsResponse) {
@@ -1146,7 +1147,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePin');
           const result = this.impl.updatePin(params.auth_token, params.pin);
           if (header.expectsResponse) {
@@ -1159,7 +1160,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePin');
           const result = this.impl.removePin(params.auth_token);
           if (header.expectsResponse) {
@@ -1172,7 +1173,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConfiguredPinFactor');
           const result = this.impl.getConfiguredPinFactor(params.auth_token);
           if (header.expectsResponse) {
@@ -1185,7 +1186,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkPinComplexity');
           const result = this.impl.checkPinComplexity(params.auth_token, params.pin);
           if (header.expectsResponse) {
@@ -1519,7 +1520,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetLocalPassword');
           const result = this.impl.updateOrSetLocalPassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
@@ -1532,7 +1533,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetOnlinePassword');
           const result = this.impl.updateOrSetOnlinePassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
@@ -1545,7 +1546,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLocalPassword');
           const result = this.impl.setLocalPassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
@@ -1558,7 +1559,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOnlinePassword');
           const result = this.impl.setOnlinePassword(params.auth_token, params.new_password);
           if (header.expectsResponse) {
@@ -1571,7 +1572,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkLocalPasswordComplexity');
           const result = this.impl.checkLocalPasswordComplexity(params.password);
           if (header.expectsResponse) {
@@ -1584,7 +1585,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePassword');
           const result = this.impl.removePassword(params.auth_token);
           if (header.expectsResponse) {

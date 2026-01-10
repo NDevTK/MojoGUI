@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -244,14 +245,14 @@ extensions.mojom.ServiceWorkerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePermissions');
           const result = this.impl.updatePermissions(params.active_permissions, params.withheld_permissions);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchOnConnect');
           const result = this.impl.dispatchOnConnect(params.port_id, params.channel_type, params.channel_name, params.tab_info, params.external_connection_info, params.port, params.port_host);
           if (header.expectsResponse) {

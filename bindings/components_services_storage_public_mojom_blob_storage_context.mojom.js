@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -286,7 +287,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.BlobDataItemReader_Read_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.BlobDataItemReader_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.offset, params.length, params.pipe);
           if (header.expectsResponse) {
@@ -299,7 +300,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readSideData');
           const result = this.impl.readSideData();
           if (header.expectsResponse) {
@@ -550,21 +551,21 @@ storage.mojom.BlobStorageContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFromDataItem');
           const result = this.impl.registerFromDataItem(params.blob, params.uuid, params.item);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFromMemory');
           const result = this.impl.registerFromMemory(params.blob, params.uuid, params.data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeBlobToFile');
           const result = this.impl.writeBlobToFile(params.blob, params.path, params.flush_on_write, params.last_modified);
           if (header.expectsResponse) {
@@ -577,7 +578,7 @@ storage.mojom.BlobStorageContextReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.BlobStorageContext_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;

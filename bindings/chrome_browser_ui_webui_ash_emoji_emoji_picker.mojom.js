@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -267,7 +268,7 @@ emoji_picker.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -862,28 +863,28 @@ emoji_picker.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertEmoji');
           const result = this.impl.insertEmoji(params.emoji, params.is_variant, params.search_length);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertGif');
           const result = this.impl.insertGif(params.gif);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isIncognitoTextField');
           const result = this.impl.isIncognitoTextField();
           if (header.expectsResponse) {
@@ -896,7 +897,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeatureList');
           const result = this.impl.getFeatureList();
           if (header.expectsResponse) {
@@ -909,7 +910,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCategories');
           const result = this.impl.getCategories();
           if (header.expectsResponse) {
@@ -922,7 +923,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeaturedGifs');
           const result = this.impl.getFeaturedGifs(params.pos);
           if (header.expectsResponse) {
@@ -935,7 +936,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.searchGifs');
           const result = this.impl.searchGifs(params.query, params.pos);
           if (header.expectsResponse) {
@@ -948,7 +949,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGifsByIds');
           const result = this.impl.getGifsByIds(params.ids);
           if (header.expectsResponse) {
@@ -961,14 +962,14 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUiFullyLoaded');
           const result = this.impl.onUiFullyLoaded();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInitialCategory');
           const result = this.impl.getInitialCategory();
           if (header.expectsResponse) {
@@ -981,7 +982,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInitialQuery');
           const result = this.impl.getInitialQuery();
           if (header.expectsResponse) {
@@ -994,21 +995,21 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateHistoryInPrefs');
           const result = this.impl.updateHistoryInPrefs(params.category, params.history);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePreferredVariantsInPrefs');
           const result = this.impl.updatePreferredVariantsInPrefs(params.preferred_variants);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec);
+          const params = decoder.decodeStructInline(emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHistoryFromPrefs');
           const result = this.impl.getHistoryFromPrefs(params.category);
           if (header.expectsResponse) {

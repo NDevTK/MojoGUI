@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -565,7 +566,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchJapaneseDictionary');
           const result = this.impl.fetchJapaneseDictionary();
           if (header.expectsResponse) {
@@ -578,7 +579,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addJapaneseDictionaryEntry');
           const result = this.impl.addJapaneseDictionaryEntry(params.dict_id, params.entry);
           if (header.expectsResponse) {
@@ -591,7 +592,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.editJapaneseDictionaryEntry');
           const result = this.impl.editJapaneseDictionaryEntry(params.dict_id, params.entry_index, params.entry);
           if (header.expectsResponse) {
@@ -604,7 +605,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionaryEntry');
           const result = this.impl.deleteJapaneseDictionaryEntry(params.dict_id, params.entry_index);
           if (header.expectsResponse) {
@@ -617,7 +618,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createJapaneseDictionary');
           const result = this.impl.createJapaneseDictionary(params.dictionary_name);
           if (header.expectsResponse) {
@@ -630,7 +631,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameJapaneseDictionary');
           const result = this.impl.renameJapaneseDictionary(params.dict_id, params.dictionary_name);
           if (header.expectsResponse) {
@@ -643,7 +644,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionary');
           const result = this.impl.deleteJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
@@ -656,7 +657,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportJapaneseDictionary');
           const result = this.impl.exportJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
@@ -669,7 +670,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importJapaneseDictionary');
           const result = this.impl.importJapaneseDictionary(params.dict_id, params.tsv_data);
           if (header.expectsResponse) {
@@ -682,7 +683,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearJapanesePersonalizationData');
           const result = this.impl.clearJapanesePersonalizationData(params.clear_conversion_history, params.clear_suggestion_history);
           if (header.expectsResponse) {

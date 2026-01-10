@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -396,14 +397,14 @@ blink.mojom.HidServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.HidService_RegisterClient_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.HidService_RegisterClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerClient');
           const result = this.impl.registerClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.HidService_GetDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.HidService_GetDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -416,7 +417,7 @@ blink.mojom.HidServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.HidService_RequestDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.HidService_RequestDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestDevice');
           const result = this.impl.requestDevice(params.filters, params.exclusion_filters);
           if (header.expectsResponse) {
@@ -429,7 +430,7 @@ blink.mojom.HidServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.HidService_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.HidService_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_guid, params.client);
           if (header.expectsResponse) {
@@ -442,7 +443,7 @@ blink.mojom.HidServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.HidService_Forget_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.HidService_Forget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forget');
           const result = this.impl.forget(params.device_info);
           if (header.expectsResponse) {

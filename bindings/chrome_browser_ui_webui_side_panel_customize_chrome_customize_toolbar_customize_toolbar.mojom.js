@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -279,7 +280,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCustomizeToolbarHandler');
           const result = this.impl.createCustomizeToolbarHandler(params.client, params.handler);
           break;
@@ -554,7 +555,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listActions');
           const result = this.impl.listActions();
           if (header.expectsResponse) {
@@ -567,7 +568,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listCategories');
           const result = this.impl.listCategories();
           if (header.expectsResponse) {
@@ -580,14 +581,14 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pinAction');
           const result = this.impl.pinAction(params.action_id, params.pinned);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIsCustomized');
           const result = this.impl.getIsCustomized();
           if (header.expectsResponse) {
@@ -600,7 +601,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetToDefault');
           const result = this.impl.resetToDefault();
           break;
@@ -776,14 +777,14 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActionPinned');
           const result = this.impl.setActionPinned(params.action_id, params.pinned);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyActionsUpdated');
           const result = this.impl.notifyActionsUpdated();
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -400,7 +401,7 @@ chrome.mojom.MediaParserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseMediaMetadata');
           const result = this.impl.parseMediaMetadata(params.mime_type, params.total_size, params.get_attached_images, params.media_data_source);
           if (header.expectsResponse) {
@@ -413,7 +414,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractVideoFrame');
           const result = this.impl.extractVideoFrame(params.mime_type, params.total_size, params.media_data_source);
           if (header.expectsResponse) {
@@ -426,7 +427,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkMediaFile');
           const result = this.impl.checkMediaFile(params.decode_time, params.file);
           if (header.expectsResponse) {
@@ -439,7 +440,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCpuInfo');
           const result = this.impl.getCpuInfo();
           if (header.expectsResponse) {
@@ -600,7 +601,7 @@ chrome.mojom.MediaParserFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMediaParser');
           const result = this.impl.createMediaParser(params.libyuv_cpu_flags, params.libavutil_cpu_flags);
           if (header.expectsResponse) {
@@ -761,7 +762,7 @@ chrome.mojom.MediaDataSourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.MediaDataSource_Read_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.position, params.length);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -208,7 +209,7 @@ webui_examples.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -413,21 +414,21 @@ webui_examples.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_Navigate_ParamsSpec);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigate');
           const result = this.impl.navigate(params.guest_contents_id, params.src);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoBack_ParamsSpec);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack(params.guest_contents_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoForward_ParamsSpec);
+          const params = decoder.decodeStructInline(webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goForward');
           const result = this.impl.goForward(params.guest_contents_id);
           break;

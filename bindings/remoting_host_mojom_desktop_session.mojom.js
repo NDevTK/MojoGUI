@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -696,21 +697,21 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectDesktopChannel');
           const result = this.impl.connectDesktopChannel(params.desktop_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectSecureAttentionSequence');
           const result = this.impl.injectSecureAttentionSequence();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.crashNetworkProcess');
           const result = this.impl.crashNetworkProcess();
           break;
@@ -917,21 +918,21 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDesktopSession');
           const result = this.impl.createDesktopSession(params.terminal_id, params.screen_resolution, params.is_virtual_terminal);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDesktopSession');
           const result = this.impl.closeDesktopSession(params.terminal_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.terminal_id, params.screen_resolution);
           break;
@@ -1087,7 +1088,7 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionAgent_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.authenticated_jid, params.resolution, params.options);
           if (header.expectsResponse) {
@@ -1280,7 +1281,7 @@ remoting.mojom.FileWriterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.FileWriter_WriteChunk_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeChunk');
           const result = this.impl.writeChunk(params.data);
           if (header.expectsResponse) {
@@ -1293,7 +1294,7 @@ remoting.mojom.FileWriterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.FileWriter_CloseFile_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.FileWriter_CloseFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeFile');
           const result = this.impl.closeFile();
           if (header.expectsResponse) {
@@ -1453,7 +1454,7 @@ remoting.mojom.FileReaderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.FileReader_ReadChunk_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.FileReader_ReadChunk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readChunk');
           const result = this.impl.readChunk(params.bytes_to_read);
           if (header.expectsResponse) {
@@ -1983,7 +1984,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoCapturer');
           const result = this.impl.createVideoCapturer(params.desktop_display_id);
           if (header.expectsResponse) {
@@ -1996,77 +1997,77 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.new_resolution);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lockWorkstation');
           const result = this.impl.lockWorkstation();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectSendAttentionSequence');
           const result = this.impl.injectSendAttentionSequence();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectClipboardEvent');
           const result = this.impl.injectClipboardEvent(params.event);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectKeyEvent');
           const result = this.impl.injectKeyEvent(params.event);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectMouseEvent');
           const result = this.impl.injectMouseEvent(params.event);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectTextEvent');
           const result = this.impl.injectTextEvent(params.event);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectTouchEvent');
           const result = this.impl.injectTouchEvent(params.event);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpUrlForwarder');
           const result = this.impl.setUpUrlForwarder();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.signalWebAuthnExtension');
           const result = this.impl.signalWebAuthnExtension();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginFileRead');
           const result = this.impl.beginFileRead();
           if (header.expectsResponse) {
@@ -2079,7 +2080,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginFileWrite');
           const result = this.impl.beginFileWrite(params.file_path);
           if (header.expectsResponse) {
@@ -2092,7 +2093,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHostCursorRenderedByClient');
           const result = this.impl.setHostCursorRenderedByClient();
           break;
@@ -2267,14 +2268,14 @@ remoting.mojom.VideoCapturerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.captureFrame');
           const result = this.impl.captureFrame();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComposeEnabled');
           const result = this.impl.setComposeEnabled(params.enabled);
           break;
@@ -2480,21 +2481,21 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionCreated');
           const result = this.impl.onSharedMemoryRegionCreated(params.id, params.region, params.size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionReleased');
           const result = this.impl.onSharedMemoryRegionReleased(params.id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCaptureResult');
           const result = this.impl.onCaptureResult(params.result);
           break;
@@ -2866,63 +2867,63 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClipboardEvent');
           const result = this.impl.onClipboardEvent(params.event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUrlForwarderStateChange');
           const result = this.impl.onUrlForwarderStateChange(params.state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioPacket');
           const result = this.impl.onAudioPacket(params.audio_packet);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDesktopDisplayChanged');
           const result = this.impl.onDesktopDisplayChanged(params.layout);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMouseCursorChanged');
           const result = this.impl.onMouseCursorChanged(params.mouse_cursor);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMouseCursorFractionalPositionChanged');
           const result = this.impl.onMouseCursorFractionalPositionChanged(params.position);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardLayoutChanged');
           const result = this.impl.onKeyboardLayoutChanged(params.keyboard_layout);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalMouseMoveDetected');
           const result = this.impl.onLocalMouseMoveDetected(params.new_position);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalKeyboardInputDetected');
           const result = this.impl.onLocalKeyboardInputDetected(params.usb_keycode);
           break;
@@ -3072,7 +3073,7 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnectSession');
           const result = this.impl.disconnectSession(params.error_code, params.error_details, params.error_location);
           break;
@@ -3222,7 +3223,7 @@ remoting.mojom.WorkerProcessControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.crashProcess');
           const result = this.impl.crashProcess(params.function_name, params.file_name, params.line_number);
           break;

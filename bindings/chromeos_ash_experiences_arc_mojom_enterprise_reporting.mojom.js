@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -229,7 +230,7 @@ arc.mojom.EnterpriseReportingHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCloudDpcOperationTime');
           const result = this.impl.reportCloudDpcOperationTime(params.time_ms, params.op, params.success);
           break;
@@ -416,7 +417,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -429,7 +430,7 @@ arc.mojom.EnterpriseReportingInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatus');
           const result = this.impl.getStatus();
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -361,14 +362,14 @@ ash.personalization_app.mojom.SeaPenObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSelectedSeaPenImageChanged');
           const result = this.impl.onSelectedSeaPenImageChanged(params.id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextQueryHistoryChanged');
           const result = this.impl.onTextQueryHistoryChanged(params.entries);
           break;
@@ -930,14 +931,14 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeaPenObserver');
           const result = this.impl.setSeaPenObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSeaPenThumbnails');
           const result = this.impl.getSeaPenThumbnails(params.query);
           if (header.expectsResponse) {
@@ -950,7 +951,7 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectSeaPenThumbnail');
           const result = this.impl.selectSeaPenThumbnail(params.id, params.preview_mode);
           if (header.expectsResponse) {
@@ -963,7 +964,7 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecentSeaPenImageIds');
           const result = this.impl.getRecentSeaPenImageIds();
           if (header.expectsResponse) {
@@ -976,7 +977,7 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectRecentSeaPenImage');
           const result = this.impl.selectRecentSeaPenImage(params.id, params.preview_mode);
           if (header.expectsResponse) {
@@ -989,7 +990,7 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecentSeaPenImageThumbnail');
           const result = this.impl.getRecentSeaPenImageThumbnail(params.id);
           if (header.expectsResponse) {
@@ -1002,7 +1003,7 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRecentSeaPenImage');
           const result = this.impl.deleteRecentSeaPenImage(params.id);
           if (header.expectsResponse) {
@@ -1015,14 +1016,14 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog(params.metadata);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldShowSeaPenIntroductionDialog');
           const result = this.impl.shouldShowSeaPenIntroductionDialog();
           if (header.expectsResponse) {
@@ -1035,14 +1036,14 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleSeaPenIntroductionDialogClosed');
           const result = this.impl.handleSeaPenIntroductionDialogClosed();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldShowSeaPenFreeformIntroductionDialog');
           const result = this.impl.shouldShowSeaPenFreeformIntroductionDialog();
           if (header.expectsResponse) {
@@ -1055,14 +1056,14 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleSeaPenFreeformIntroductionDialogClosed');
           const result = this.impl.handleSeaPenFreeformIntroductionDialogClosed();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isInTabletMode');
           const result = this.impl.isInTabletMode();
           if (header.expectsResponse) {
@@ -1075,7 +1076,7 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeTransparent');
           const result = this.impl.makeTransparent();
           break;

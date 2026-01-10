@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -672,21 +673,21 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWindowFeatures');
           const result = this.impl.setWindowFeatures(params.window_features);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestReloadImageForContextNode');
           const result = this.impl.requestReloadImageForContextNode();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBitmapForContextNode');
           const result = this.impl.requestBitmapForContextNode();
           if (header.expectsResponse) {
@@ -699,7 +700,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBitmapForContextNodeWithBoundsHint');
           const result = this.impl.requestBitmapForContextNodeWithBoundsHint();
           if (header.expectsResponse) {
@@ -712,7 +713,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBoundsHintForAllImages');
           const result = this.impl.requestBoundsHintForAllImages();
           if (header.expectsResponse) {
@@ -725,7 +726,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestImageForContextNode');
           const result = this.impl.requestImageForContextNode(params.image_min_area_pixels, params.image_max_size_pixels, params.image_format, params.quality);
           if (header.expectsResponse) {
@@ -738,21 +739,21 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeWebUIJavaScript');
           const result = this.impl.executeWebUIJavaScript(params.javascript);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCCTClientHeader');
           const result = this.impl.setCCTClientHeader(params.header);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaFeedURL');
           const result = this.impl.getMediaFeedURL();
           if (header.expectsResponse) {
@@ -765,21 +766,21 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadBlockedPlugins');
           const result = this.impl.loadBlockedPlugins(params.identifier);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShouldDeferMediaLoad');
           const result = this.impl.setShouldDeferMediaLoad(params.should_defer);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokeTool');
           const result = this.impl.invokeTool(params.request);
           if (header.expectsResponse) {
@@ -792,21 +793,21 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelTool');
           const result = this.impl.cancelTool(params.task_id);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startActorJournal');
           const result = this.impl.startActorJournal(params.client);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageStabilityMonitor');
           const result = this.impl.createPageStabilityMonitor(params.monitor, params.task_id, params.supports_paint_stability);
           break;

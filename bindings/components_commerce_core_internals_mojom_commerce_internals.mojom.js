@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -262,7 +263,7 @@ commerce.mojom.CommerceInternalsHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCommerceInternalsHandler');
           const result = this.impl.createCommerceInternalsHandler(params.page, params.handler);
           break;
@@ -602,7 +603,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIsShoppingListEligible');
           const result = this.impl.getIsShoppingListEligible();
           if (header.expectsResponse) {
@@ -615,14 +616,14 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetPriceTrackingEmailPref');
           const result = this.impl.resetPriceTrackingEmailPref();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrl');
           const result = this.impl.getProductInfoForUrl(params.url);
           if (header.expectsResponse) {
@@ -635,7 +636,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSubscriptionDetails');
           const result = this.impl.getSubscriptionDetails();
           if (header.expectsResponse) {
@@ -648,7 +649,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsDetails');
           const result = this.impl.getProductSpecificationsDetails();
           if (header.expectsResponse) {
@@ -661,14 +662,14 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetProductSpecifications');
           const result = this.impl.resetProductSpecifications();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getShoppingEligibilityDetails');
           const result = this.impl.getShoppingEligibilityDetails();
           if (header.expectsResponse) {
@@ -822,7 +823,7 @@ commerce.mojom.CommerceInternalsPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShoppingListEligibilityChanged');
           const result = this.impl.onShoppingListEligibilityChanged(params.eligible);
           break;

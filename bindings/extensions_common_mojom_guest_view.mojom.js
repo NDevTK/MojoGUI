@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -246,14 +247,14 @@ extensions.mojom.GuestViewReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readyToCreateMimeHandlerView');
           const result = this.impl.readyToCreateMimeHandlerView(params.success);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canExecuteContentScript');
           const result = this.impl.canExecuteContentScript(params.script_id);
           if (header.expectsResponse) {
@@ -497,14 +498,14 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInternalId');
           const result = this.impl.setInternalId(params.token_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBeforeUnloadControl');
           const result = this.impl.createBeforeUnloadControl();
           if (header.expectsResponse) {
@@ -517,14 +518,14 @@ extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyFrameContainer');
           const result = this.impl.destroyFrameContainer(params.element_instance_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didLoad');
           const result = this.impl.didLoad(params.mime_handler_view_guest_element_instance_id, params.resource_url);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -384,7 +385,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPropertiesUpdated');
           const result = this.impl.onPropertiesUpdated(params.properties);
           break;
@@ -588,21 +589,21 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDevicePaired');
           const result = this.impl.onDevicePaired(params.device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceConnected');
           const result = this.impl.onDeviceConnected(params.device);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceDisconnected');
           const result = this.impl.onDeviceDisconnected(params.device);
           break;
@@ -750,7 +751,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHasAtLeastOneDiscoverySessionChanged');
           const result = this.impl.onHasAtLeastOneDiscoverySessionChanged(params.has_at_least_one_discovery_session);
           break;
@@ -898,7 +899,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleKeyEntered');
           const result = this.impl.handleKeyEntered(params.num_keys_entered);
           break;
@@ -1209,7 +1210,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPinCode');
           const result = this.impl.requestPinCode();
           if (header.expectsResponse) {
@@ -1222,7 +1223,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPasskey');
           const result = this.impl.requestPasskey();
           if (header.expectsResponse) {
@@ -1235,21 +1236,21 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayPinCode');
           const result = this.impl.displayPinCode(params.pin_code, params.handler);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayPasskey');
           const result = this.impl.displayPasskey(params.passkey, params.handler);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.confirmPasskey');
           const result = this.impl.confirmPasskey(params.passkey);
           if (header.expectsResponse) {
@@ -1262,7 +1263,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.authorizePairing');
           const result = this.impl.authorizePairing();
           if (header.expectsResponse) {
@@ -1457,7 +1458,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pairDevice');
           const result = this.impl.pairDevice(params.device_id, params.delegate);
           if (header.expectsResponse) {
@@ -1470,7 +1471,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchDevice');
           const result = this.impl.fetchDevice(params.device_address);
           if (header.expectsResponse) {
@@ -1679,21 +1680,21 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBluetoothDiscoveryStarted');
           const result = this.impl.onBluetoothDiscoveryStarted(params.handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBluetoothDiscoveryStopped');
           const result = this.impl.onBluetoothDiscoveryStopped();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDiscoveredDevicesListChanged');
           const result = this.impl.onDiscoveredDevicesListChanged(params.discovered_devices);
           break;
@@ -2139,56 +2140,56 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeSystemProperties');
           const result = this.impl.observeSystemProperties(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeDeviceStatusChanges');
           const result = this.impl.observeDeviceStatusChanges(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeDiscoverySessionStatusChanges');
           const result = this.impl.observeDiscoverySessionStatusChanges(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBluetoothEnabledState');
           const result = this.impl.setBluetoothEnabledState(params.enabled);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBluetoothEnabledWithoutPersistence');
           const result = this.impl.setBluetoothEnabledWithoutPersistence();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBluetoothHidDetectionInactive');
           const result = this.impl.setBluetoothHidDetectionInactive(params.is_using_bluetooth);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscovery');
           const result = this.impl.startDiscovery(params.delegate);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_id);
           if (header.expectsResponse) {
@@ -2201,7 +2202,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect(params.device_id);
           if (header.expectsResponse) {
@@ -2214,7 +2215,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forget');
           const result = this.impl.forget(params.device_id);
           if (header.expectsResponse) {
@@ -2227,7 +2228,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeviceNickname');
           const result = this.impl.setDeviceNickname(params.device_id, params.nickname);
           break;

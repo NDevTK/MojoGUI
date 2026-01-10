@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -318,7 +319,7 @@ data_decoder.mojom.GzipperReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Deflate_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deflate');
           const result = this.impl.deflate(params.data);
           if (header.expectsResponse) {
@@ -331,7 +332,7 @@ data_decoder.mojom.GzipperReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Inflate_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inflate');
           const result = this.impl.inflate(params.data, params.max_uncompressed_size);
           if (header.expectsResponse) {
@@ -344,7 +345,7 @@ data_decoder.mojom.GzipperReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Compress_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Compress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.compress');
           const result = this.impl.compress(params.data);
           if (header.expectsResponse) {
@@ -357,7 +358,7 @@ data_decoder.mojom.GzipperReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Uncompress_ParamsSpec);
+          const params = decoder.decodeStructInline(data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uncompress');
           const result = this.impl.uncompress(params.compressed_data);
           if (header.expectsResponse) {

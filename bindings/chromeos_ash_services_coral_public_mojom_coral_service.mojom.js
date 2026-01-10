@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -374,7 +375,7 @@ coral.mojom.TitleObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.titleUpdated');
           const result = this.impl.titleUpdated(params.group_id, params.title);
           break;
@@ -563,7 +564,7 @@ coral.mojom.CoralProcessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(coral.mojom.CoralProcessor_Group_ParamsSpec);
+          const params = decoder.decodeStructInline(coral.mojom.CoralProcessor_Group_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.group');
           const result = this.impl.group(params.request, params.observer);
           if (header.expectsResponse) {
@@ -576,7 +577,7 @@ coral.mojom.CoralProcessorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec);
+          const params = decoder.decodeStructInline(coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddings');
           const result = this.impl.cacheEmbeddings(params.request);
           if (header.expectsResponse) {
@@ -828,7 +829,7 @@ coral.mojom.CoralServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(coral.mojom.CoralService_GroupDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.groupDeprecated');
           const result = this.impl.groupDeprecated(params.request, params.observer);
           if (header.expectsResponse) {
@@ -841,7 +842,7 @@ coral.mojom.CoralServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddingsDeprecated');
           const result = this.impl.cacheEmbeddingsDeprecated(params.request);
           if (header.expectsResponse) {
@@ -854,14 +855,14 @@ coral.mojom.CoralServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(coral.mojom.CoralService_PrepareResource_ParamsSpec);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_PrepareResource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareResource');
           const result = this.impl.prepareResource();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(coral.mojom.CoralService_Initialize_ParamsSpec);
+          const params = decoder.decodeStructInline(coral.mojom.CoralService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.ml_service, params.processor, params.language_code);
           break;

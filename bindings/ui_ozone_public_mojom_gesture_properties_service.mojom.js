@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -362,7 +363,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listDevices');
           const result = this.impl.listDevices();
           if (header.expectsResponse) {
@@ -375,7 +376,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listProperties');
           const result = this.impl.listProperties(params.device_id);
           if (header.expectsResponse) {
@@ -388,7 +389,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProperty');
           const result = this.impl.getProperty(params.device_id, params.name);
           if (header.expectsResponse) {
@@ -401,7 +402,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec);
+          const params = decoder.decodeStructInline(ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProperty');
           const result = this.impl.setProperty(params.device_id, params.name, params.value);
           if (header.expectsResponse) {

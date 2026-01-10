@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -250,7 +251,7 @@ batch_upload.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBatchUploadHandler');
           const result = this.impl.createBatchUploadHandler(params.page, params.handler);
           break;
@@ -453,21 +454,21 @@ batch_upload.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec);
+          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateViewHeight');
           const result = this.impl.updateViewHeight(params.height);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec);
+          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveToAccount');
           const result = this.impl.saveToAccount(params.idsToMove);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandler_Close_ParamsSpec);
+          const params = decoder.decodeStructInline(batch_upload.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
@@ -615,7 +616,7 @@ batch_upload.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec);
+          const params = decoder.decodeStructInline(batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBatchUploadData');
           const result = this.impl.sendBatchUploadData(params.data);
           break;

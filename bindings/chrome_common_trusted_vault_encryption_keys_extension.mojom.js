@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -254,7 +255,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEncryptionKeys');
           const result = this.impl.setEncryptionKeys(params.gaia_id, params.encryption_keys);
           if (header.expectsResponse) {
@@ -267,7 +268,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTrustedRecoveryMethod');
           const result = this.impl.addTrustedRecoveryMethod(params.gaia_id, params.public_key, params.method_type_hint);
           if (header.expectsResponse) {

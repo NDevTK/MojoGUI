@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -258,7 +259,7 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWavFile');
           const result = this.impl.createWavFile(params.stream_type, params.id);
           if (header.expectsResponse) {
@@ -271,7 +272,7 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAecdumpFile');
           const result = this.impl.createAecdumpFile(params.id);
           if (header.expectsResponse) {
@@ -425,7 +426,7 @@ audio.mojom.DebugRecordingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.DebugRecording_Enable_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.DebugRecording_Enable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enable');
           const result = this.impl.enable(params.file_provider);
           break;

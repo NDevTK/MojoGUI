@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -365,7 +366,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getURLVisits');
           const result = this.impl.getURLVisits();
           if (header.expectsResponse) {
@@ -378,35 +379,35 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissModule');
           const result = this.impl.dismissModule(params.url_visits);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissURLVisit');
           const result = this.impl.dismissURLVisit(params.url_visit);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreModule');
           const result = this.impl.restoreModule(params.url_visits);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreURLVisit');
           const result = this.impl.restoreURLVisit(params.url_visit);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordAction');
           const result = this.impl.recordAction(params.action, params.url_key, params.visit_request_id);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -475,7 +476,7 @@ arc.mojom.KeymasterHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterHost_GetServer_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterHost_GetServer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getServer');
           const result = this.impl.getServer();
           if (header.expectsResponse) {
@@ -634,7 +635,7 @@ arc.mojom.KeymasterInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1230,14 +1231,14 @@ arc.mojom.KeymasterServerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemVersion');
           const result = this.impl.setSystemVersion(params.os_version, params.os_patchlevel);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addRngEntropy');
           const result = this.impl.addRngEntropy(params.data);
           if (header.expectsResponse) {
@@ -1250,7 +1251,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getKeyCharacteristics');
           const result = this.impl.getKeyCharacteristics(params.request);
           if (header.expectsResponse) {
@@ -1263,7 +1264,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_GenerateKey_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_GenerateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateKey');
           const result = this.impl.generateKey(params.key_params);
           if (header.expectsResponse) {
@@ -1276,7 +1277,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_ImportKey_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_ImportKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importKey');
           const result = this.impl.importKey(params.request);
           if (header.expectsResponse) {
@@ -1289,7 +1290,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_ExportKey_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_ExportKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportKey');
           const result = this.impl.exportKey(params.request);
           if (header.expectsResponse) {
@@ -1302,7 +1303,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_AttestKey_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_AttestKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attestKey');
           const result = this.impl.attestKey(params.request);
           if (header.expectsResponse) {
@@ -1315,7 +1316,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeKey');
           const result = this.impl.upgradeKey(params.request);
           if (header.expectsResponse) {
@@ -1328,7 +1329,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_DeleteKey_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_DeleteKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteKey');
           const result = this.impl.deleteKey(params.key_blob);
           if (header.expectsResponse) {
@@ -1341,7 +1342,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
           const result = this.impl.deleteAllKeys();
           if (header.expectsResponse) {
@@ -1354,7 +1355,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Begin_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Begin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.begin');
           const result = this.impl.begin(params.request);
           if (header.expectsResponse) {
@@ -1367,7 +1368,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Update_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.request);
           if (header.expectsResponse) {
@@ -1380,7 +1381,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Finish_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Finish_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finish');
           const result = this.impl.finish(params.request);
           if (header.expectsResponse) {
@@ -1393,7 +1394,7 @@ arc.mojom.KeymasterServerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Abort_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.KeymasterServer_Abort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort(params.op_handle);
           if (header.expectsResponse) {

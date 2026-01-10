@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -290,7 +291,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.display_name, params.package_name);
           if (header.expectsResponse) {
@@ -303,14 +304,14 @@ arc.mojom.ScreenCaptureHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.testModeAcceptPermission');
           const result = this.impl.testModeAcceptPermission(params.package_name);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSession');
           const result = this.impl.openSession(params.notifier, params.package_name, params.size);
           if (header.expectsResponse) {
@@ -506,7 +507,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputBufferDeprecated');
           const result = this.impl.setOutputBufferDeprecated(params.graphics_buffer, params.stride);
           if (header.expectsResponse) {
@@ -519,7 +520,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputBuffer');
           const result = this.impl.setOutputBuffer(params.graphics_buffer, params.buffer_format, params.buffer_format_modifier, params.stride);
           if (header.expectsResponse) {
@@ -678,7 +679,7 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -831,7 +832,7 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceUpdate');
           const result = this.impl.forceUpdate();
           break;

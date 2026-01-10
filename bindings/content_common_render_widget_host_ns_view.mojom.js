@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -296,7 +297,7 @@ remote_cocoa.mojom.PopupMenuRunnerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hide');
           const result = this.impl.hide();
           break;
@@ -1160,154 +1161,154 @@ remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initAsPopup');
           const result = this.impl.initAsPopup(params.content_rect, params.popup_parent_ns_view_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setParentWebContentsNSView');
           const result = this.impl.setParentWebContentsNSView(params.parent_ns_view_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableDisplay');
           const result = this.impl.disableDisplay();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeFirstResponder');
           const result = this.impl.makeFirstResponder();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBounds');
           const result = this.impl.setBounds(params.rect);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCALayerParams');
           const result = this.impl.setCALayerParams(params.ca_layer_params);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundColor');
           const result = this.impl.setBackgroundColor(params.color);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVisible');
           const result = this.impl.setVisible(params.visible);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTooltipText');
           const result = this.impl.setTooltipText(params.display_text);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextInputState');
           const result = this.impl.setTextInputState(params.text_input_type, params.flags);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextSelection');
           const result = this.impl.setTextSelection(params.text, params.offset, params.range);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionRangeInfo');
           const result = this.impl.setCompositionRangeInfo(params.range);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelComposition');
           const result = this.impl.cancelComposition();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShowingContextMenu');
           const result = this.impl.setShowingContextMenu(params.showing);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayCursor');
           const result = this.impl.displayCursor(params.cursor);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursorLocked');
           const result = this.impl.setCursorLocked(params.locked);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursorLockedUnacceleratedMovement');
           const result = this.impl.setCursorLockedUnacceleratedMovement(params.unaccelerated_movement);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showDictionaryOverlayForSelection');
           const result = this.impl.showDictionaryOverlayForSelection();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showDictionaryOverlay');
           const result = this.impl.showDictionaryOverlay(params.attributed_string, params.baseline_point);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lockKeyboard');
           const result = this.impl.lockKeyboard(params.dom_codes);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unlockKeyboard');
           const result = this.impl.unlockKeyboard();
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSharingServicePicker');
           const result = this.impl.showSharingServicePicker(params.title, params.text, params.url, params.file_paths);
           if (header.expectsResponse) {
@@ -1320,28 +1321,28 @@ remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroy');
           const result = this.impl.destroy();
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gestureScrollEventAck');
           const result = this.impl.gestureScrollEventAck(params.event, params.consumed);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didOverscroll');
           const result = this.impl.didOverscroll(params.params);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayPopupMenu');
           const result = this.impl.displayPopupMenu(params.menu);
           if (header.expectsResponse) {
@@ -2611,7 +2612,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.syncIsWidgetForMainFrame');
           const result = this.impl.syncIsWidgetForMainFrame();
           if (header.expectsResponse) {
@@ -2624,161 +2625,161 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestShutdown');
           const result = this.impl.requestShutdown();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFirstResponderChanged');
           const result = this.impl.onFirstResponderChanged(params.is_first_responder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowIsKeyChanged');
           const result = this.impl.onWindowIsKeyChanged(params.is_key);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBoundsInWindowChanged');
           const result = this.impl.onBoundsInWindowChanged(params.view_bounds_in_window_dip, params.attached_to_window);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowFrameInScreenChanged');
           const result = this.impl.onWindowFrameInScreenChanged(params.window_frame_in_screen_dip);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenInfosChanged');
           const result = this.impl.onScreenInfosChanged(params.screen_infos);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginKeyboardEvent');
           const result = this.impl.beginKeyboardEvent();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endKeyboardEvent');
           const result = this.impl.endKeyboardEvent();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardKeyboardEventWithCommands');
           const result = this.impl.forwardKeyboardEventWithCommands(params.event, params.native_event_data, params.skip_if_unhandled, params.commands);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.routeOrProcessMouseEvent');
           const result = this.impl.routeOrProcessMouseEvent(params.event);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.routeOrProcessTouchEvent');
           const result = this.impl.routeOrProcessTouchEvent(params.event);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.routeOrProcessWheelEvent');
           const result = this.impl.routeOrProcessWheelEvent(params.event);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardMouseEvent');
           const result = this.impl.forwardMouseEvent(params.event);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardWheelEvent');
           const result = this.impl.forwardWheelEvent(params.event);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pinchEvent');
           const result = this.impl.pinchEvent(params.event, params.is_synthetically_injected);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.smartMagnifyEvent');
           const result = this.impl.smartMagnifyEvent(params.event);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeSetComposition');
           const result = this.impl.imeSetComposition(params.text, params.ime_text_spans, params.replacement_range, params.selection_start, params.selection_end);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeCommitText');
           const result = this.impl.imeCommitText(params.text, params.replacement_range);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeFinishComposingText');
           const result = this.impl.imeFinishComposingText();
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.imeCancelCompositionFromCocoa');
           const result = this.impl.imeCancelCompositionFromCocoa();
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lookUpDictionaryOverlayAtPoint');
           const result = this.impl.lookUpDictionaryOverlayAtPoint(params.root_point);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lookUpDictionaryOverlayFromRange');
           const result = this.impl.lookUpDictionaryOverlayFromRange(params.range);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.syncGetCharacterIndexAtPoint');
           const result = this.impl.syncGetCharacterIndexAtPoint(params.root_point);
           if (header.expectsResponse) {
@@ -2791,7 +2792,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.syncGetFirstRectForRange');
           const result = this.impl.syncGetFirstRectForRange(params.requested_range);
           if (header.expectsResponse) {
@@ -2804,91 +2805,91 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeEditCommand');
           const result = this.impl.executeEditCommand(params.command);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.redo');
           const result = this.impl.redo();
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cut');
           const result = this.impl.cut();
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copy');
           const result = this.impl.copy();
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyToFindPboard');
           const result = this.impl.copyToFindPboard();
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.centerSelection');
           const result = this.impl.centerSelection();
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.paste');
           const result = this.impl.paste();
           break;
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pasteAndMatchStyle');
           const result = this.impl.pasteAndMatchStyle();
           break;
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectAll');
           const result = this.impl.selectAll();
           break;
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSpeaking');
           const result = this.impl.startSpeaking();
           break;
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopSpeaking');
           const result = this.impl.stopSpeaking();
           break;
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.syncIsSpeaking');
           const result = this.impl.syncIsSpeaking();
           if (header.expectsResponse) {
@@ -2901,7 +2902,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRenderWidgetAccessibilityToken');
           const result = this.impl.getRenderWidgetAccessibilityToken();
           if (header.expectsResponse) {
@@ -2914,7 +2915,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRemoteAccessibilityWindowToken');
           const result = this.impl.setRemoteAccessibilityWindowToken(params.window_token);
           break;

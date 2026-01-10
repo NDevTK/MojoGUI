@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -235,7 +236,7 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSignoutConfirmationHandler');
           const result = this.impl.createSignoutConfirmationHandler(params.page, params.handler);
           break;
@@ -493,35 +494,35 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateViewHeight');
           const result = this.impl.updateViewHeight(params.height);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Accept_ParamsSpec);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.uninstall_account_extensions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.uninstall_account_extensions);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performReauth');
           const result = this.impl.performReauth();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Close_ParamsSpec);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
@@ -669,7 +670,7 @@ signout_confirmation.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec);
+          const params = decoder.decodeStructInline(signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSignoutConfirmationData');
           const result = this.impl.sendSignoutConfirmationData(params.data);
           break;

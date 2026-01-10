@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -212,7 +213,7 @@ codelabs.mojom.ObjectAReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(codelabs.mojom.ObjectA_DoA_ParamsSpec);
+          const params = decoder.decodeStructInline(codelabs.mojom.ObjectA_DoA_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doA');
           const result = this.impl.doA();
           break;
@@ -359,7 +360,7 @@ codelabs.mojom.ObjectBReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(codelabs.mojom.ObjectB_DoB_ParamsSpec);
+          const params = decoder.decodeStructInline(codelabs.mojom.ObjectB_DoB_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doB');
           const result = this.impl.doB();
           break;
@@ -507,7 +508,7 @@ codelabs.mojom.AssociatedProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec);
+          const params = decoder.decodeStructInline(codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProcess');
           const result = this.impl.setProcess(params.process);
           break;
@@ -796,14 +797,14 @@ codelabs.mojom.ProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(codelabs.mojom.Process_SayHello_ParamsSpec);
+          const params = decoder.decodeStructInline(codelabs.mojom.Process_SayHello_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sayHello');
           const result = this.impl.sayHello();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec);
+          const params = decoder.decodeStructInline(codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
           const result = this.impl.getAssociatedInterface(params.name, params.receiver);
           break;

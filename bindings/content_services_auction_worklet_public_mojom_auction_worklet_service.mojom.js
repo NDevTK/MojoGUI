@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -237,7 +238,7 @@ auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sellerWorkletLoaded');
           const result = this.impl.sellerWorkletLoaded(params.trusted_signals_url_allowed);
           break;
@@ -468,21 +469,21 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTrustedSignalsCache');
           const result = this.impl.setTrustedSignalsCache(params.trusted_signals_cache);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadBidderWorklet');
           const result = this.impl.loadBidderWorklet(params.bidder_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.wasm_helper_load, params.trusted_bidding_signals_url, params.trusted_bidding_signals_slot_size_param, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.public_key);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec);
+          const params = decoder.decodeStructInline(auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadSellerWorklet');
           const result = this.impl.loadSellerWorklet(params.seller_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.trusted_scoring_signals_url, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.send_creative_scanning_metadata, params.public_key, params.load_seller_worklet_client);
           break;

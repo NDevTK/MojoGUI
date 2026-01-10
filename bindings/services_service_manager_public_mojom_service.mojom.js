@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -286,7 +287,7 @@ service_manager.mojom.ServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.Service_OnStart_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.Service_OnStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStart');
           const result = this.impl.onStart(params.identity);
           if (header.expectsResponse) {
@@ -299,7 +300,7 @@ service_manager.mojom.ServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.Service_OnBindInterface_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.Service_OnBindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBindInterface');
           const result = this.impl.onBindInterface(params.source, params.interface_name, params.interface_pipe);
           if (header.expectsResponse) {
@@ -312,7 +313,7 @@ service_manager.mojom.ServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPackagedServiceInstance');
           const result = this.impl.createPackagedServiceInstance(params.identity, params.receiver, params.metadata);
           break;

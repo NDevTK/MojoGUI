@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -225,7 +226,7 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferUserfaultFD');
           const result = this.impl.transferUserfaultFD(params.uffd_error, params.uffd_handle, params.mmap_error, params.swap_area);
           if (header.expectsResponse) {
@@ -442,21 +443,21 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.movePTEsLeavingMapping');
           const result = this.impl.movePTEsLeavingMapping(params.src, params.dest);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mapArea');
           const result = this.impl.mapArea(params.area);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec);
+          const params = decoder.decodeStructInline(userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPartitionAllocSuperPagesUsed');
           const result = this.impl.getPartitionAllocSuperPagesUsed(params.max_superpages);
           if (header.expectsResponse) {

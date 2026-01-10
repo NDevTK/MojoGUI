@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -266,21 +267,21 @@ shape_detection.mojom.ShapeDetectionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBarcodeDetectionProvider');
           const result = this.impl.bindBarcodeDetectionProvider(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindFaceDetectionProvider');
           const result = this.impl.bindFaceDetectionProvider(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec);
+          const params = decoder.decodeStructInline(shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTextDetection');
           const result = this.impl.bindTextDetection(params.receiver);
           break;

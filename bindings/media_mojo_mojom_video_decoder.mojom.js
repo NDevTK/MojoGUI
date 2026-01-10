@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -260,7 +261,7 @@ media.mojom.VideoFrameHandleReleaserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseVideoFrame');
           const result = this.impl.releaseVideoFrame(params.release_token, params.release_sync_token);
           break;
@@ -581,7 +582,7 @@ media.mojom.VideoDecoderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSupportedConfigs');
           const result = this.impl.getSupportedConfigs();
           if (header.expectsResponse) {
@@ -594,14 +595,14 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Construct_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Construct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.construct');
           const result = this.impl.construct(params.client, params.media_log, params.video_frame_handle_releaser, params.decoder_buffer_pipe, params.command_buffer_id, params.target_color_space);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Initialize_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.low_delay, params.cdm);
           if (header.expectsResponse) {
@@ -614,7 +615,7 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Decode_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Decode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.buffer);
           if (header.expectsResponse) {
@@ -627,7 +628,7 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Reset_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_Reset_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset();
           if (header.expectsResponse) {
@@ -640,7 +641,7 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOverlayInfoChanged');
           const result = this.impl.onOverlayInfoChanged(params.overlay_info);
           break;
@@ -845,21 +846,21 @@ media.mojom.VideoDecoderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoFrameDecoded');
           const result = this.impl.onVideoFrameDecoded(params.frame, params.can_read_without_stalling, params.release_token);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWaiting');
           const result = this.impl.onWaiting(params.reason);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestOverlayInfo');
           const result = this.impl.requestOverlayInfo();
           break;

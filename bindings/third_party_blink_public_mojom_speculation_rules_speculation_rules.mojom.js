@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -312,21 +313,21 @@ blink.mojom.SpeculationHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSpeculationCandidates');
           const result = this.impl.updateSpeculationCandidates(params.candidates, params.enable_cross_origin_prerender_iframes);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLCPPredicted');
           const result = this.impl.onLCPPredicted();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiatePreview');
           const result = this.impl.initiatePreview(params.url);
           break;

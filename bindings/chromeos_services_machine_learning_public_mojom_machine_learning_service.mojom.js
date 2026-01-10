@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -655,14 +656,14 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadBuiltinModel');
           const result = this.impl.loadBuiltinModel(params.spec, params.receiver);
           if (header.expectsResponse) {
@@ -675,7 +676,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadFlatBufferModel');
           const result = this.impl.loadFlatBufferModel(params.spec, params.receiver);
           if (header.expectsResponse) {
@@ -688,7 +689,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadTextClassifier');
           const result = this.impl.loadTextClassifier(params.receiver);
           if (header.expectsResponse) {
@@ -701,7 +702,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadHandwritingModel');
           const result = this.impl.loadHandwritingModel(params.spec, params.receiver);
           if (header.expectsResponse) {
@@ -714,7 +715,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadSpeechRecognizer');
           const result = this.impl.loadSpeechRecognizer(params.config, params.soda_client, params.soda_recognizer);
           if (header.expectsResponse) {
@@ -727,7 +728,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadGrammarChecker');
           const result = this.impl.loadGrammarChecker(params.receiver);
           if (header.expectsResponse) {
@@ -740,7 +741,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadTextSuggester');
           const result = this.impl.loadTextSuggester(params.receiver, params.spec);
           if (header.expectsResponse) {
@@ -753,7 +754,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadWebPlatformHandwritingModel');
           const result = this.impl.loadWebPlatformHandwritingModel(params.constraint, params.receiver);
           if (header.expectsResponse) {
@@ -766,7 +767,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadDocumentScanner');
           const result = this.impl.loadDocumentScanner(params.receiver, params.config);
           if (header.expectsResponse) {
@@ -779,7 +780,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadImageAnnotator');
           const result = this.impl.loadImageAnnotator(params.config, params.receiver);
           if (header.expectsResponse) {
@@ -792,7 +793,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadHeatmapPalmRejection');
           const result = this.impl.loadHeatmapPalmRejection(params.config, params.client);
           if (header.expectsResponse) {
@@ -805,7 +806,7 @@ chromeos.machine_learning.mojom.MachineLearningServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_4');
           const result = this.impl.rEMOVED_4(params.spec, params.receiver);
           if (header.expectsResponse) {

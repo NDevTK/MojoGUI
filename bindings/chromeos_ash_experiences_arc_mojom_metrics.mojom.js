@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1496,231 +1497,231 @@ arc.mojom.MetricsHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportBootProgress');
           const result = this.impl.reportBootProgress(params.events, params.boot_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportNativeBridge');
           const result = this.impl.reportNativeBridge(params.native_bridge_type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCompanionLibApiUsage');
           const result = this.impl.reportCompanionLibApiUsage(params.api_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppKill_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppKill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppKill');
           const result = this.impl.reportAppKill(params.app_kill);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigEvent');
           const result = this.impl.reportArcCorePriAbiMigEvent(params.event);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigFailedTries');
           const result = this.impl.reportArcCorePriAbiMigFailedTries(params.failed_attempts);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigDowngradeDelay');
           const result = this.impl.reportArcCorePriAbiMigDowngradeDelay(params.delay);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigBootTime');
           const result = this.impl.reportArcCorePriAbiMigBootTime(params.duration);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAnr_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAnr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnr');
           const result = this.impl.reportAnr(params.anr);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcSystemHealthUpgrade');
           const result = this.impl.reportArcSystemHealthUpgrade(params.duration, params.packages_deleted);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportLowLatencyStylusLibApiUsage');
           const result = this.impl.reportLowLatencyStylusLibApiUsage(params.api_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportLowLatencyStylusLibPredictionTarget');
           const result = this.impl.reportLowLatencyStylusLibPredictionTarget(params.prediction_target);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDnsQueryResult');
           const result = this.impl.reportDnsQueryResult(params.query, params.success);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportMainAccountHashMigrationMetrics');
           const result = this.impl.reportMainAccountHashMigrationMetrics(params.status);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcNetworkEvent');
           const result = this.impl.reportArcNetworkEvent(params.event);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcNetworkError');
           const result = this.impl.reportArcNetworkError(params.error);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppPrimaryAbi');
           const result = this.impl.reportAppPrimaryAbi(params.abi);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDataRestore');
           const result = this.impl.reportDataRestore(params.status, params.duration_ms);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportMemoryPressure');
           const result = this.impl.reportMemoryPressure(params.psi_file_contents);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportProvisioningPreSignIn');
           const result = this.impl.reportProvisioningPreSignIn();
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportWaylandLateTimingEvent');
           const result = this.impl.reportWaylandLateTimingEvent(params.event, params.duration);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportWebViewProcessStarted');
           const result = this.impl.reportWebViewProcessStarted();
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportVpnServiceBuilderCompatApiUsage');
           const result = this.impl.reportVpnServiceBuilderCompatApiUsage(params.api_id);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportNewQosSocketCount');
           const result = this.impl.reportNewQosSocketCount(params.count);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportQosSocketPercentage');
           const result = this.impl.reportQosSocketPercentage(params.perc);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcKeyMintError');
           const result = this.impl.reportArcKeyMintError(params.error);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDragResizeLatency');
           const result = this.impl.reportDragResizeLatency(params.durations);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppErrorDialogType');
           const result = this.impl.reportAppErrorDialogType(params.type);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportApkCacheHit');
           const result = this.impl.reportApkCacheHit(params.hit);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppCategoryDataSizeList');
           const result = this.impl.reportAppCategoryDataSizeList(params.list);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDataDirectorySizeList');
           const result = this.impl.reportDataDirectorySizeList(params.list);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcKeyMintErrorForOperation');
           const result = this.impl.reportArcKeyMintErrorForOperation(params.error, params.operation);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCertificateSigningResult');
           const result = this.impl.reportCertificateSigningResult(params.result);
           break;
@@ -1907,7 +1908,7 @@ arc.mojom.MetricsInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1920,7 +1921,7 @@ arc.mojom.MetricsInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGfxMetrics');
           const result = this.impl.getGfxMetrics(params.packageName);
           if (header.expectsResponse) {

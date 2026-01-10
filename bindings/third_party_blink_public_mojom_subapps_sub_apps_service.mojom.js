@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -331,7 +332,7 @@ blink.mojom.SubAppsServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_Add_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_Add_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.add');
           const result = this.impl.add(params.sub_apps_to_add);
           if (header.expectsResponse) {
@@ -344,7 +345,7 @@ blink.mojom.SubAppsServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_List_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_List_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.list');
           const result = this.impl.list();
           if (header.expectsResponse) {
@@ -357,7 +358,7 @@ blink.mojom.SubAppsServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_Remove_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_Remove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.remove');
           const result = this.impl.remove(params.manifest_id_paths);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -244,7 +245,7 @@ unzip.mojom.UnzipFilterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec);
+          const params = decoder.decodeStructInline(unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldUnzipFile');
           const result = this.impl.shouldUnzipFile(params.path);
           if (header.expectsResponse) {
@@ -398,7 +399,7 @@ unzip.mojom.UnzipListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unzip.mojom.UnzipListener_OnProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.bytes);
           break;
@@ -659,7 +660,7 @@ unzip.mojom.UnzipperReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_Unzip_ParamsSpec);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_Unzip_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unzip');
           const result = this.impl.unzip(params.zip_file, params.output_dir, params.options, params.filter, params.listener);
           if (header.expectsResponse) {
@@ -672,7 +673,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_DetectEncoding_ParamsSpec);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectEncoding');
           const result = this.impl.detectEncoding(params.zip_file);
           if (header.expectsResponse) {
@@ -685,7 +686,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getExtractedInfo');
           const result = this.impl.getExtractedInfo(params.zip_file);
           if (header.expectsResponse) {
@@ -698,7 +699,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_DecodeXz_ParamsSpec);
+          const params = decoder.decodeStructInline(unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeXz');
           const result = this.impl.decodeXz(params.in_file, params.out_file);
           if (header.expectsResponse) {

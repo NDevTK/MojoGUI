@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -701,14 +702,14 @@ autofill.mojom.AutofillAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerFormExtraction');
           const result = this.impl.triggerFormExtraction();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerFormExtractionWithResponse');
           const result = this.impl.triggerFormExtractionWithResponse();
           if (header.expectsResponse) {
@@ -721,21 +722,21 @@ autofill.mojom.AutofillAgentReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyFieldsAction');
           const result = this.impl.applyFieldsAction(params.action_type, params.action_persistence, params.fields, params.fill_id, params.supports_refill);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyFieldAction');
           const result = this.impl.applyFieldAction(params.action_type, params.action_persistence, params.field, params.value);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractFormWithField');
           const result = this.impl.extractFormWithField(params.field_id);
           if (header.expectsResponse) {
@@ -748,7 +749,7 @@ autofill.mojom.AutofillAgentReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractLabeledTextNodeValue');
           const result = this.impl.extractLabeledTextNodeValue(params.value_regex, params.label_regex, params.number_of_ancestor_levels_to_search);
           if (header.expectsResponse) {
@@ -761,63 +762,63 @@ autofill.mojom.AutofillAgentReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fieldTypePredictionsAvailable');
           const result = this.impl.fieldTypePredictionsAvailable(params.forms);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exposeDomNodeIds');
           const result = this.impl.exposeDomNodeIds();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearPreviewedForm');
           const result = this.impl.clearPreviewedForm();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerSuggestions');
           const result = this.impl.triggerSuggestions(params.field, params.trigger_source);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSuggestionAvailability');
           const result = this.impl.setSuggestionAvailability(params.field, params.suggestion_availability);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acceptDataListSuggestion');
           const result = this.impl.acceptDataListSuggestion(params.field, params.value);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordSuggestion');
           const result = this.impl.previewPasswordSuggestion(params.username, params.password);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordGenerationSuggestion');
           const result = this.impl.previewPasswordGenerationSuggestion(params.password);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPotentialLastFourCombinationsForStandaloneCvc');
           const result = this.impl.getPotentialLastFourCombinationsForStandaloneCvc();
           if (header.expectsResponse) {
@@ -830,7 +831,7 @@ autofill.mojom.AutofillAgentReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchEmailVerifiedEvent');
           const result = this.impl.dispatchEmailVerifiedEvent(params.field_id, params.presentation_token);
           break;
@@ -1353,14 +1354,14 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyFillDataOnParsingCompletion');
           const result = this.impl.applyFillDataOnParsingCompletion(params.form_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fillPasswordSuggestion');
           const result = this.impl.fillPasswordSuggestion(params.username, params.password);
           if (header.expectsResponse) {
@@ -1373,42 +1374,42 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fillPasswordSuggestionById');
           const result = this.impl.fillPasswordSuggestionById(params.username_element_id, params.password_element_id, params.username, params.password, params.suggestion_source);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordSuggestionById');
           const result = this.impl.previewPasswordSuggestionById(params.username_element_id, params.password_element_id, params.username, params.password);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.informNoSavedCredentials');
           const result = this.impl.informNoSavedCredentials(params.should_show_popup_without_passwords);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fillIntoFocusedField');
           const result = this.impl.fillIntoFocusedField(params.is_password, params.credential);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewField');
           const result = this.impl.previewField(params.field_id, params.value);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fillField');
           const result = this.impl.fillField(params.field_id, params.value, params.field_properties);
           if (header.expectsResponse) {
@@ -1421,7 +1422,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fillChangePasswordForm');
           const result = this.impl.fillChangePasswordForm(params.password_element_id, params.new_password_element_id, params.confirm_password_element_id, params.old_password, params.new_password);
           if (header.expectsResponse) {
@@ -1434,28 +1435,28 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLoggingState');
           const result = this.impl.setLoggingState(params.active);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerFormSubmission');
           const result = this.impl.triggerFormSubmission();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotateFieldsWithParsingResult');
           const result = this.impl.annotateFieldsWithParsingResult(params.parsing_result);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkViewAreaVisible');
           const result = this.impl.checkViewAreaVisible(params.field_id);
           if (header.expectsResponse) {
@@ -1724,21 +1725,21 @@ autofill.mojom.PasswordGenerationAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generatedPasswordAccepted');
           const result = this.impl.generatedPasswordAccepted(params.generated_password);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generatedPasswordRejected');
           const result = this.impl.generatedPasswordRejected();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggeredGeneratePassword');
           const result = this.impl.triggeredGeneratePassword();
           if (header.expectsResponse) {
@@ -1751,14 +1752,14 @@ autofill.mojom.PasswordGenerationAgentReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.foundFormEligibleForGeneration');
           const result = this.impl.foundFormEligibleForGeneration(params.form);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusNextFieldAfterPasswords');
           const result = this.impl.focusNextFieldAfterPasswords();
           break;

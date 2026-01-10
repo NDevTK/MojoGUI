@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -252,14 +253,14 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.source, params.target, params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verify');
           const result = this.impl.verify(params.source, params.target, params.client);
           break;
@@ -435,14 +436,14 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.error);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -634,98 +635,98 @@ media.mojom.MediaPlayerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestPlay_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestPlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPlay');
           const result = this.impl.requestPlay();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestPause_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestPause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPause');
           const result = this.impl.requestPause(params.triggered_by_user);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSeekForward');
           const result = this.impl.requestSeekForward(params.seek_time);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSeekBackward');
           const result = this.impl.requestSeekBackward(params.seek_time);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSeekTo');
           const result = this.impl.requestSeekTo(params.seek_time);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestEnterPictureInPicture');
           const result = this.impl.requestEnterPictureInPicture();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestMute_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestMute');
           const result = this.impl.requestMute(params.mute);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolumeMultiplier');
           const result = this.impl.setVolumeMultiplier(params.multiplier);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetPersistentState_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetPersistentState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPersistentState');
           const result = this.impl.setPersistentState(params.persistent);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPowerExperimentState');
           const result = this.impl.setPowerExperimentState(params.enabled);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioSinkId');
           const result = this.impl.setAudioSinkId(params.sink_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspendForFrameClosed');
           const result = this.impl.suspendForFrameClosed();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestMediaRemoting');
           const result = this.impl.requestMediaRemoting();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestVisibility_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RequestVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVisibility');
           const result = this.impl.requestVisibility();
           if (header.expectsResponse) {
@@ -738,7 +739,7 @@ media.mojom.MediaPlayerReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordAutoPictureInPictureInfo');
           const result = this.impl.recordAutoPictureInPictureInfo(params.auto_picture_in_picture_info);
           break;
@@ -891,7 +892,7 @@ media.mojom.MediaPlayerObserverClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHasPlayedBefore');
           const result = this.impl.getHasPlayedBefore();
           if (header.expectsResponse) {
@@ -1381,91 +1382,91 @@ media.mojom.MediaPlayerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaPlaying');
           const result = this.impl.onMediaPlaying();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaPaused');
           const result = this.impl.onMediaPaused(params.stream_ended);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMutedStatusChanged');
           const result = this.impl.onMutedStatusChanged(params.muted);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaMetadataChanged');
           const result = this.impl.onMediaMetadataChanged(params.has_audio, params.has_video, params.content_type);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaPositionStateChanged');
           const result = this.impl.onMediaPositionStateChanged(params.media_position);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaEffectivelyFullscreenChanged');
           const result = this.impl.onMediaEffectivelyFullscreenChanged(params.status);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaSizeChanged');
           const result = this.impl.onMediaSizeChanged(params.size);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPictureInPictureAvailabilityChanged');
           const result = this.impl.onPictureInPictureAvailabilityChanged(params.available);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioOutputSinkChanged');
           const result = this.impl.onAudioOutputSinkChanged(params.hashed_device_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUseAudioServiceChanged');
           const result = this.impl.onUseAudioServiceChanged(params.uses_audio_service);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioOutputSinkChangingDisabled');
           const result = this.impl.onAudioOutputSinkChangingDisabled();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotePlaybackMetadataChange');
           const result = this.impl.onRemotePlaybackMetadataChange(params.remote_playback_metadata);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoVisibilityChanged');
           const result = this.impl.onVideoVisibilityChanged(params.meets_visibility_threshold);
           break;
@@ -1615,7 +1616,7 @@ media.mojom.MediaPlayerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaPlayerAdded');
           const result = this.impl.onMediaPlayerAdded(params.player_remote, params.observer, params.player_id);
           break;

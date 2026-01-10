@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -640,14 +641,14 @@ crosapi.mojom.PrintServerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintServersChanged');
           const result = this.impl.onPrintServersChanged(params.config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServerPrintersChanged');
           const result = this.impl.onServerPrintersChanged();
           break;
@@ -827,14 +828,14 @@ crosapi.mojom.PrintJobObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintJobUpdateDeprecated');
           const result = this.impl.onPrintJobUpdateDeprecated(params.printer_id, params.job_id, params.status);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintJobUpdate');
           const result = this.impl.onPrintJobUpdate(params.printer_id, params.job_id, params.update);
           break;
@@ -982,7 +983,7 @@ crosapi.mojom.LocalPrintersObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalPrintersUpdated');
           const result = this.impl.onLocalPrintersUpdated(params.printers);
           break;
@@ -1671,7 +1672,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrinters');
           const result = this.impl.getPrinters();
           if (header.expectsResponse) {
@@ -1684,7 +1685,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCapability');
           const result = this.impl.getCapability(params.printer_id);
           if (header.expectsResponse) {
@@ -1697,7 +1698,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEulaUrl');
           const result = this.impl.getEulaUrl(params.printer_id);
           if (header.expectsResponse) {
@@ -1710,7 +1711,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatus');
           const result = this.impl.getStatus(params.printer_id);
           if (header.expectsResponse) {
@@ -1723,7 +1724,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSystemPrintSettings');
           const result = this.impl.showSystemPrintSettings();
           if (header.expectsResponse) {
@@ -1736,7 +1737,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPrintJob');
           const result = this.impl.createPrintJob(params.job);
           if (header.expectsResponse) {
@@ -1749,7 +1750,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPrintJob');
           const result = this.impl.cancelPrintJob(params.printer_id, params.job_id);
           if (header.expectsResponse) {
@@ -1762,7 +1763,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrintServersConfig');
           const result = this.impl.getPrintServersConfig();
           if (header.expectsResponse) {
@@ -1775,7 +1776,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.choosePrintServers');
           const result = this.impl.choosePrintServers(params.print_server_ids);
           if (header.expectsResponse) {
@@ -1788,7 +1789,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPrintServerObserver');
           const result = this.impl.addPrintServerObserver(params.observer);
           if (header.expectsResponse) {
@@ -1801,7 +1802,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPolicies');
           const result = this.impl.getPolicies();
           if (header.expectsResponse) {
@@ -1814,7 +1815,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUsernamePerPolicy');
           const result = this.impl.getUsernamePerPolicy();
           if (header.expectsResponse) {
@@ -1827,7 +1828,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrinterTypeDenyList');
           const result = this.impl.getPrinterTypeDenyList();
           if (header.expectsResponse) {
@@ -1840,7 +1841,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPrintJobObserver');
           const result = this.impl.addPrintJobObserver(params.observer, params.source);
           if (header.expectsResponse) {
@@ -1853,7 +1854,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOAuthAccessToken');
           const result = this.impl.getOAuthAccessToken(params.printer_id);
           if (header.expectsResponse) {
@@ -1866,7 +1867,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIppClientInfo');
           const result = this.impl.getIppClientInfo(params.printer_id);
           if (header.expectsResponse) {
@@ -1879,7 +1880,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLocalPrintersObserver');
           const result = this.impl.addLocalPrintersObserver(params.observer);
           if (header.expectsResponse) {

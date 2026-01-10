@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -209,7 +210,7 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPaidContentMetadataChanged');
           const result = this.impl.onPaidContentMetadataChanged(params.has_paid_content);
           break;
@@ -357,7 +358,7 @@ blink.mojom.MetaTagsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMetaTagsChanged');
           const result = this.impl.onMetaTagsChanged(params.meta_tags);
           break;
@@ -534,14 +535,14 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPaidContentMetadataObserver');
           const result = this.impl.addPaidContentMetadataObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMetaTagsObserver');
           const result = this.impl.addMetaTagsObserver(params.names, params.observer);
           break;

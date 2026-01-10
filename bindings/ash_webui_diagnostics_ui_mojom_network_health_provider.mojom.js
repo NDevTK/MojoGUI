@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -345,7 +346,7 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkListChanged');
           const result = this.impl.onNetworkListChanged(params.network_guids, params.active_guid);
           break;
@@ -493,7 +494,7 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkStateChanged');
           const result = this.impl.onNetworkStateChanged(params.network);
           break;
@@ -670,14 +671,14 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeNetworkList');
           const result = this.impl.observeNetworkList(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeNetwork');
           const result = this.impl.observeNetwork(params.observer, params.guid);
           break;

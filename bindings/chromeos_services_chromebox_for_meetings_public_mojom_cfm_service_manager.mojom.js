@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -377,7 +378,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.provideAdaptor');
           const result = this.impl.provideAdaptor(params.interface_name, params.adaptor_remote);
           if (header.expectsResponse) {
@@ -390,7 +391,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBindService');
           const result = this.impl.requestBindService(params.interface_name, params.receiver_pipe);
           if (header.expectsResponse) {
@@ -544,7 +545,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBindService');
           const result = this.impl.onBindService(params.receiver_pipe);
           break;

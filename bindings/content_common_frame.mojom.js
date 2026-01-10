@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -503,14 +504,14 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didReceiveData');
           const result = this.impl.didReceiveData(params.data_buffer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.done');
           const result = this.impl.done();
           break;
@@ -906,7 +907,7 @@ content.mojom.FrameReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitSameDocumentNavigation');
           const result = this.impl.commitSameDocumentNavigation(params.common_params, params.request_params);
           if (header.expectsResponse) {
@@ -919,49 +920,49 @@ content.mojom.FrameReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSubresourceLoaderFactories');
           const result = this.impl.updateSubresourceLoaderFactories(params.subresource_loader_factories);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWantErrorMessageStackTrace');
           const result = this.impl.setWantErrorMessageStackTrace();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_Unload_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_Unload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unload');
           const result = this.impl.unload(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces, params.devtools_frame_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_Delete_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.intention);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_UndoCommitNavigation_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoCommitNavigation');
           const result = this.impl.undoCommitNavigation(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_GetInterfaceProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInterfaceProvider');
           const result = this.impl.getInterfaceProvider(params.interfaces);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.snapshotAccessibilityTree');
           const result = this.impl.snapshotAccessibilityTree(params.params);
           if (header.expectsResponse) {
@@ -974,7 +975,7 @@ content.mojom.FrameReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSerializedHtmlWithLocalLinks');
           const result = this.impl.getSerializedHtmlWithLocalLinks(params.url_map, params.frame_token_map, params.save_with_empty_url, params.handler_remote);
           break;
@@ -1207,28 +1208,28 @@ content.mojom.FrameBindingsControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowBindings');
           const result = this.impl.allowBindings(params.enabled_bindings_flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableMojoJsBindings');
           const result = this.impl.enableMojoJsBindings(params.features);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableMojoJsBindingsWithBroker');
           const result = this.impl.enableMojoJsBindingsWithBroker(params.broker);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebUI');
           const result = this.impl.bindWebUI(params.receiver, params.remote);
           break;
@@ -1375,7 +1376,7 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rendererCancellationWindowEnded');
           const result = this.impl.rendererCancellationWindowEnded();
           break;
@@ -1940,7 +1941,7 @@ content.mojom.FrameHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_CreateNewWindow_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNewWindow');
           const result = this.impl.createNewWindow(params.params);
           if (header.expectsResponse) {
@@ -1953,98 +1954,98 @@ content.mojom.FrameHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_CreateChildFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createChildFrame');
           const result = this.impl.createChildFrame(params.child_frame_token, params.frame, params.browser_interface_broker, params.policy_container_bind_params, params.associated_interface_provider, params.scope, params.frame_name, params.frame_unique_name, params.is_created_by_script, params.frame_policy, params.frame_owner_properties, params.child_frame_owner_element_type, params.document_ukm_source_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCommitProvisionalLoad');
           const result = this.impl.didCommitProvisionalLoad(params.params, params.interface_params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCommitSameDocumentNavigation');
           const result = this.impl.didCommitSameDocumentNavigation(params.params, params.same_document_params);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didOpenDocumentInputStream');
           const result = this.impl.didOpenDocumentInputStream(params.url);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_BeginNavigation_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_BeginNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginNavigation');
           const result = this.impl.beginNavigation(params.common_params, params.begin_params, params.blob_url_token, params.navigation_client, params.initiator_navigation_state_keep_alive_handle, params.renderer_cancellation_listener);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subresourceResponseStarted');
           const result = this.impl.subresourceResponseStarted(params.final_response_url, params.cert_status);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resourceLoadComplete');
           const result = this.impl.resourceLoadComplete(params.url_load_info);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidChangeName_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidChangeName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeName');
           const result = this.impl.didChangeName(params.name, params.unique_name);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelInitialHistoryLoad');
           const result = this.impl.cancelInitialHistoryLoad();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateEncoding_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateEncoding');
           const result = this.impl.updateEncoding(params.encoding_name);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserGestureCarryoverInfo');
           const result = this.impl.updateUserGestureCarryoverInfo();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateState_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_UpdateState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.state);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_OpenURL_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_OpenURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.params);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidStopLoading_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStopLoading');
           const result = this.impl.didStopLoading();
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -251,7 +252,7 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec);
+          const params = decoder.decodeStructInline(language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLanguageDetectionModel');
           const result = this.impl.getLanguageDetectionModel();
           if (header.expectsResponse) {
@@ -264,7 +265,7 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLanguageDetectionModelStatus');
           const result = this.impl.getLanguageDetectionModelStatus();
           if (header.expectsResponse) {

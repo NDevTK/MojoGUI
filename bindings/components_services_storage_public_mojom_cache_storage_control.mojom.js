@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -245,14 +246,14 @@ storage.mojom.CacheStorageObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCacheListChanged');
           const result = this.impl.onCacheListChanged(params.bucket_locator);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCacheContentChanged');
           const result = this.impl.onCacheContentChanged(params.bucket_locator, params.cache_name);
           break;
@@ -462,21 +463,21 @@ storage.mojom.CacheStorageControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
           const result = this.impl.addReceiver(params.cross_origin_embedder_policy, params.coep_reporter, params.document_isolation_policy, params.dip_reporter, params.bucket_locator, params.owner, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;

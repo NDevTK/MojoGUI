@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1189,7 +1190,7 @@ viz.mojom.GpuServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGpuChannel');
           const result = this.impl.establishGpuChannel(params.client_id, params.client_tracing_id, params.is_gpu_host, params.enable_extra_handles_validation);
           if (header.expectsResponse) {
@@ -1202,56 +1203,56 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_SetChannelClientPid_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_SetChannelClientPid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setChannelClientPid');
           const result = this.impl.setChannelClientPid(params.client_id, params.client_pid);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setChannelDiskCacheHandle');
           const result = this.impl.setChannelDiskCacheHandle(params.client_id, params.cache_handle);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setChannelPersistentCachePendingBackend');
           const result = this.impl.setChannelPersistentCachePendingBackend(params.client_id, params.cache_handle, params.pending_backend);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDiskCacheHandleDestoyed');
           const result = this.impl.onDiskCacheHandleDestoyed(params.cache_handle);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_CloseChannel_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_CloseChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeChannel');
           const result = this.impl.closeChannel(params.client_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createJpegDecodeAccelerator');
           const result = this.impl.createJpegDecodeAccelerator(params.jda);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createJpegEncodeAccelerator');
           const result = this.impl.createJpegEncodeAccelerator(params.jea);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDCOMPSurfaceHandle');
           const result = this.impl.registerDCOMPSurfaceHandle(params.surface_handle);
           if (header.expectsResponse) {
@@ -1264,28 +1265,28 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterDCOMPSurfaceHandle');
           const result = this.impl.unregisterDCOMPSurfaceHandle(params.token);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAcceleratorProvider');
           const result = this.impl.createVideoEncodeAcceleratorProvider(params.vea_provider);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebNNContextProvider');
           const result = this.impl.bindWebNNContextProvider(params.receiver, params.client_id);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoMemoryUsageStats');
           const result = this.impl.getVideoMemoryUsageStats();
           if (header.expectsResponse) {
@@ -1298,14 +1299,14 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPeakMemoryMonitor');
           const result = this.impl.startPeakMemoryMonitor(params.sequence_num);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPeakMemoryUsage');
           const result = this.impl.getPeakMemoryUsage(params.sequence_num);
           if (header.expectsResponse) {
@@ -1318,7 +1319,7 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestDXGIInfo');
           const result = this.impl.requestDXGIInfo();
           if (header.expectsResponse) {
@@ -1331,84 +1332,84 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_LoadedBlob_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_LoadedBlob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadedBlob');
           const result = this.impl.loadedBlob(params.cache_handle, params.key, params.data);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_WakeUpGpu_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_WakeUpGpu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.wakeUpGpu');
           const result = this.impl.wakeUpGpu();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_GpuSwitched_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_GpuSwitched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gpuSwitched');
           const result = this.impl.gpuSwitched();
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_DisplayAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_DisplayAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayAdded');
           const result = this.impl.displayAdded();
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_DisplayRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_DisplayRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayRemoved');
           const result = this.impl.displayRemoved();
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displayMetricsChanged');
           const result = this.impl.displayMetricsChanged();
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_DestroyAllChannels_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_DestroyAllChannels_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyAllChannels');
           const result = this.impl.destroyAllChannels();
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBackgroundCleanup');
           const result = this.impl.onBackgroundCleanup();
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnBackgrounded_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnBackgrounded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBackgrounded');
           const result = this.impl.onBackgrounded();
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnForegrounded_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_OnForegrounded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onForegrounded');
           const result = this.impl.onForegrounded();
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_BeginCATransaction_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_BeginCATransaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginCATransaction');
           const result = this.impl.beginCATransaction();
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_CommitCATransaction_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_CommitCATransaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitCATransaction');
           const result = this.impl.commitCATransaction();
           if (header.expectsResponse) {
@@ -1421,7 +1422,7 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
           const result = this.impl.writeClangProfilingProfile();
           if (header.expectsResponse) {
@@ -1434,7 +1435,7 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_GetDawnInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_GetDawnInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDawnInfo');
           const result = this.impl.getDawnInfo(params.collect_metrics);
           if (header.expectsResponse) {
@@ -1447,21 +1448,21 @@ viz.mojom.GpuServiceReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_Crash_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_Crash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.crash');
           const result = this.impl.crash();
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_Hang_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_Hang_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hang');
           const result = this.impl.hang();
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.GpuService_ThrowJavaException_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.GpuService_ThrowJavaException_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.throwJavaException');
           const result = this.impl.throwJavaException();
           break;

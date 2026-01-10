@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -438,7 +439,7 @@ device.mojom.SensorProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SensorProvider_GetSensor_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SensorProvider_GetSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSensor');
           const result = this.impl.getSensor(params.type);
           if (header.expectsResponse) {
@@ -451,7 +452,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVirtualSensor');
           const result = this.impl.createVirtualSensor(params.type, params.metadata);
           if (header.expectsResponse) {
@@ -464,7 +465,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVirtualSensor');
           const result = this.impl.updateVirtualSensor(params.type, params.reading);
           if (header.expectsResponse) {
@@ -477,7 +478,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVirtualSensor');
           const result = this.impl.removeVirtualSensor(params.type);
           if (header.expectsResponse) {
@@ -490,7 +491,7 @@ device.mojom.SensorProviderReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVirtualSensorInformation');
           const result = this.impl.getVirtualSensorInformation(params.type);
           if (header.expectsResponse) {

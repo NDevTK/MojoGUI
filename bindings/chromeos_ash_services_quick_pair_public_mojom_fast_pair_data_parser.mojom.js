@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -525,7 +526,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHexModelIdFromServiceData');
           const result = this.impl.getHexModelIdFromServiceData(params.service_data);
           if (header.expectsResponse) {
@@ -538,7 +539,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedResponse');
           const result = this.impl.parseDecryptedResponse(params.aes_key, params.encrypted_response_bytes);
           if (header.expectsResponse) {
@@ -551,7 +552,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedPasskey');
           const result = this.impl.parseDecryptedPasskey(params.aes_key, params.encrypted_passkey_bytes);
           if (header.expectsResponse) {
@@ -564,7 +565,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseNotDiscoverableAdvertisement');
           const result = this.impl.parseNotDiscoverableAdvertisement(params.service_data, params.address);
           if (header.expectsResponse) {
@@ -577,7 +578,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseMessageStreamMessages');
           const result = this.impl.parseMessageStreamMessages(params.message_bytes);
           if (header.expectsResponse) {

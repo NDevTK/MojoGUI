@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -513,14 +514,14 @@ on_device_model.mojom.StreamingResponderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponse');
           const result = this.impl.onResponse(params.chunk);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.summary);
           break;
@@ -668,7 +669,7 @@ on_device_model.mojom.ContextClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.ContextClient_OnComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.ContextClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.tokens_processed);
           break;
@@ -1034,21 +1035,21 @@ on_device_model.mojom.SessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Append_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Append_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.append');
           const result = this.impl.append(params.options, params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Generate_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Generate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generate');
           const result = this.impl.generate(params.options, params.responder);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSizeInTokens');
           const result = this.impl.getSizeInTokens(params.input);
           if (header.expectsResponse) {
@@ -1061,7 +1062,7 @@ on_device_model.mojom.SessionReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Score_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Score_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.score');
           const result = this.impl.score(params.text);
           if (header.expectsResponse) {
@@ -1074,14 +1075,14 @@ on_device_model.mojom.SessionReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.session);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProbabilitiesBlocking');
           const result = this.impl.getProbabilitiesBlocking(params.text);
           if (header.expectsResponse) {
@@ -1094,14 +1095,14 @@ on_device_model.mojom.SessionReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_SetPriority_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_SetPriority_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPriority');
           const result = this.impl.setPriority(params.priority);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.Session_AsrStream_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.Session_AsrStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.asrStream');
           const result = this.impl.asrStream(params.options, params.stream, params.responder);
           break;
@@ -1353,14 +1354,14 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.session, params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.text);
           if (header.expectsResponse) {
@@ -1373,7 +1374,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectLanguage');
           const result = this.impl.detectLanguage(params.text);
           if (header.expectsResponse) {
@@ -1386,7 +1387,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadAdaptation');
           const result = this.impl.loadAdaptation(params.params, params.model);
           if (header.expectsResponse) {
@@ -1608,7 +1609,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.text);
           if (header.expectsResponse) {
@@ -1621,7 +1622,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectLanguage');
           const result = this.impl.detectLanguage(params.text);
           if (header.expectsResponse) {
@@ -1634,7 +1635,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetySession_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetySession_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.session);
           break;
@@ -1782,7 +1783,7 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.session);
           break;
@@ -1930,7 +1931,7 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponse');
           const result = this.impl.onResponse(params.result);
           break;
@@ -2078,7 +2079,7 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAudioChunk');
           const result = this.impl.addAudioChunk(params.data);
           break;

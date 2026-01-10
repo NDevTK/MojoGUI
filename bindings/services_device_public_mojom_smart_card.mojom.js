@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -519,7 +520,7 @@ device.mojom.SmartCardTransactionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endTransaction');
           const result = this.impl.endTransaction(params.disposition);
           if (header.expectsResponse) {
@@ -884,7 +885,7 @@ device.mojom.SmartCardConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Disconnect_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect(params.disposition);
           if (header.expectsResponse) {
@@ -897,7 +898,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Transmit_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Transmit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transmit');
           const result = this.impl.transmit(params.protocol, params.data);
           if (header.expectsResponse) {
@@ -910,7 +911,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Control_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Control_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.control');
           const result = this.impl.control(params.control_code, params.data);
           if (header.expectsResponse) {
@@ -923,7 +924,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_GetAttrib_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAttrib');
           const result = this.impl.getAttrib(params.id);
           if (header.expectsResponse) {
@@ -936,7 +937,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_SetAttrib_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAttrib');
           const result = this.impl.setAttrib(params.id, params.data);
           if (header.expectsResponse) {
@@ -949,7 +950,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Status_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_Status_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.status');
           const result = this.impl.status();
           if (header.expectsResponse) {
@@ -962,7 +963,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginTransaction');
           const result = this.impl.beginTransaction();
           if (header.expectsResponse) {
@@ -1115,7 +1116,7 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyConnectionUsed');
           const result = this.impl.notifyConnectionUsed();
           break;
@@ -1373,7 +1374,7 @@ device.mojom.SmartCardContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_ListReaders_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_ListReaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listReaders');
           const result = this.impl.listReaders();
           if (header.expectsResponse) {
@@ -1386,7 +1387,7 @@ device.mojom.SmartCardContextReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_GetStatusChange_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatusChange');
           const result = this.impl.getStatusChange(params.timeout, params.reader_states);
           if (header.expectsResponse) {
@@ -1399,7 +1400,7 @@ device.mojom.SmartCardContextReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
@@ -1412,7 +1413,7 @@ device.mojom.SmartCardContextReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardContext_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.reader, params.share_mode, params.preferred_protocols, params.connection_watcher);
           if (header.expectsResponse) {
@@ -1571,7 +1572,7 @@ device.mojom.SmartCardContextFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createContext');
           const result = this.impl.createContext();
           if (header.expectsResponse) {

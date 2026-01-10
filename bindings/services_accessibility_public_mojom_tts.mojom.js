@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -289,7 +290,7 @@ ax.mojom.TtsUtteranceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.event);
           break;
@@ -591,7 +592,7 @@ ax.mojom.TtsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Tts_Speak_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Tts_Speak_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.utterance, params.options);
           if (header.expectsResponse) {
@@ -604,28 +605,28 @@ ax.mojom.TtsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Tts_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Tts_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Tts_Pause_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Tts_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Tts_Resume_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Tts_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Tts_IsSpeaking_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Tts_IsSpeaking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSpeaking');
           const result = this.impl.isSpeaking();
           if (header.expectsResponse) {
@@ -638,7 +639,7 @@ ax.mojom.TtsReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Tts_GetVoices_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Tts_GetVoices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVoices');
           const result = this.impl.getVoices();
           if (header.expectsResponse) {

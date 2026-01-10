@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -461,7 +462,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
@@ -474,28 +475,28 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateApp');
           const result = this.impl.updateApp(params.app_id, params.is_blocked);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onControlsDisabled');
           const result = this.impl.onControlsDisabled();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validatePin');
           const result = this.impl.validatePin(params.pin);
           if (header.expectsResponse) {
@@ -508,7 +509,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpPin');
           const result = this.impl.setUpPin(params.pin);
           if (header.expectsResponse) {
@@ -521,7 +522,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verifyPin');
           const result = this.impl.verifyPin(params.pin);
           if (header.expectsResponse) {
@@ -534,7 +535,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSetupCompleted');
           const result = this.impl.isSetupCompleted();
           if (header.expectsResponse) {
@@ -716,14 +717,14 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverReceiver = c
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppInstalledOrUpdated');
           const result = this.impl.onAppInstalledOrUpdated(params.app);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppUninstalled');
           const result = this.impl.onAppUninstalled(params.app);
           break;

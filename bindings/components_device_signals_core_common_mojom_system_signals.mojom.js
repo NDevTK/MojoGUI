@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -349,7 +350,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec);
+          const params = decoder.decodeStructInline(device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileSystemSignals');
           const result = this.impl.getFileSystemSignals(params.requests);
           if (header.expectsResponse) {
@@ -362,7 +363,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec);
+          const params = decoder.decodeStructInline(device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAntiVirusSignals');
           const result = this.impl.getAntiVirusSignals();
           if (header.expectsResponse) {
@@ -375,7 +376,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec);
+          const params = decoder.decodeStructInline(device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHotfixSignals');
           const result = this.impl.getHotfixSignals();
           if (header.expectsResponse) {

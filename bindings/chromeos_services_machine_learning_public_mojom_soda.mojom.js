@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -465,21 +466,21 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStart');
           const result = this.impl.onStart();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStop');
           const result = this.impl.onStop();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognizerEvent');
           const result = this.impl.onSpeechRecognizerEvent(params.event);
           break;
@@ -708,28 +709,28 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAudio');
           const result = this.impl.addAudio(params.audio);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.markDone');
           const result = this.impl.markDone();
           break;

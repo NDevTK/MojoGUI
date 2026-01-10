@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1101,14 +1102,14 @@ ash.ime.mojom.InputMethodReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocusDeprecated');
           const result = this.impl.onFocusDeprecated(params.input_field_info, params.settings);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocus');
           const result = this.impl.onFocus(params.input_field_info, params.deprecated_settings);
           if (header.expectsResponse) {
@@ -1121,14 +1122,14 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBlur');
           const result = this.impl.onBlur();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processKeyEvent');
           const result = this.impl.processKeyEvent(params.event);
           if (header.expectsResponse) {
@@ -1141,35 +1142,35 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSurroundingTextChanged');
           const result = this.impl.onSurroundingTextChanged(params.text, params.offset, params.selection_range);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompositionCanceledBySystem');
           const result = this.impl.onCompositionCanceledBySystem();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCandidateSelected');
           const result = this.impl.onCandidateSelected(params.selected_candidate_index);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQuickSettingsUpdated');
           const result = this.impl.onQuickSettingsUpdated(params.settings);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isReadyForTesting');
           const result = this.impl.isReadyForTesting();
           if (header.expectsResponse) {
@@ -1182,7 +1183,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAssistiveWindowChanged');
           const result = this.impl.onAssistiveWindowChanged(params.window);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -332,7 +333,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
           const result = this.impl.requestToken(params.reason, params.prompt);
           if (header.expectsResponse) {
@@ -345,7 +346,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkToken');
           const result = this.impl.checkToken(params.reason, params.token);
           if (header.expectsResponse) {
@@ -358,14 +359,14 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invalidateToken');
           const result = this.impl.invalidateToken(params.token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLegacyWebAuthn');
           const result = this.impl.requestLegacyWebAuthn(params.rp_id, params.window_id);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -411,7 +412,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUnitId');
           const result = this.impl.getUnitId(params.id, params.guid);
           if (header.expectsResponse) {
@@ -424,7 +425,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mapCtrl');
           const result = this.impl.mapCtrl(params.id, params.mapping_ctrl);
           if (header.expectsResponse) {
@@ -437,7 +438,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCtrl');
           const result = this.impl.getCtrl(params.id, params.ctrl, params.fn);
           if (header.expectsResponse) {
@@ -450,7 +451,7 @@ ash.cfm.mojom.XuCameraReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCtrl');
           const result = this.impl.setCtrl(params.id, params.ctrl, params.data);
           if (header.expectsResponse) {
