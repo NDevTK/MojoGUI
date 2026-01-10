@@ -279,6 +279,9 @@ jobs:
               optional = '?' in param_str
               param_str = param_str.replace('?', '').strip()
               
+              if param_str.endswith('&'):
+                  param_str = f"pending_receiver<{param_str[:-1].strip()}>"
+              
               parts = param_str.split()
               if len(parts) >= 2:
                   param_type = ' '.join(parts[:-1])
@@ -393,19 +396,20 @@ jobs:
                   # Recursive handling for pending types
                   if type_name.startswith('pending_remote<'):
                       inner = type_name[15:-1].strip()
-                      return f"mojo.internal.InterfaceProxy({resolve_mojo_type(inner)})"
+                      # Return InterfaceProxy(...) directly but tell recursive call not to wrap
+                      return f"mojo.internal.InterfaceProxy({resolve_mojo_type_raw(inner)})"
                   
                   if type_name.startswith('pending_receiver<'):
                       inner = type_name[17:-1].strip()
-                      return f"mojo.internal.InterfaceRequest({resolve_mojo_type(inner)})"
+                      return f"mojo.internal.InterfaceRequest({resolve_mojo_type_raw(inner)})"
                   
                   if type_name.startswith('pending_associated_remote<'):
                       inner = type_name[26:-1].strip()
-                      return f"mojo.internal.AssociatedInterfaceProxy({resolve_mojo_type(inner)})"
-
+                      return f"mojo.internal.AssociatedInterfaceProxy({resolve_mojo_type_raw(inner)})"
+ 
                   if type_name.startswith('pending_associated_receiver<'):
                       inner = type_name[28:-1].strip()
-                      return f"mojo.internal.AssociatedInterfaceRequest({resolve_mojo_type(inner)})"
+                      return f"mojo.internal.AssociatedInterfaceRequest({resolve_mojo_type_raw(inner)})"
 
                   # Check local types
                   clean_name = type_name.replace('?', '').strip()
@@ -415,20 +419,46 @@ jobs:
                   kind = global_kind_map.get(fq_name) or global_kind_map.get(clean_name)
                   
                   suffix = 'Spec'
+                  is_iface = False
                   if kind == 'interface':
                       suffix = 'Remote'
+                      is_iface = True
+                  
+                  res_type = ""
+                  if clean_name in valid_types:
+                      res_type = f"{current_ns}.{clean_name}{suffix}"
+                  elif '.' in clean_name:
+                      res_type = f"{clean_name}{suffix}"
+                  elif clean_name and clean_name[0].isupper() and clean_name not in TYPE_MAPPING:
+                      # Heuristic: Uppercase unqualified
+                      res_type = f"{current_ns}.{clean_name}{suffix}"
+                  else:
+                      return 'mojo.internal.Pointer'
+                  
+                  if is_iface:
+                      return f"mojo.internal.InterfaceProxy({res_type})"
+                  return res_type
+
+              def resolve_mojo_type_raw(type_name):
+                  """Helper to get the raw Spec/Remote name without Proxy/Request wrappers."""
+                  type_name = type_name.strip()
+                  clean_name = type_name.replace('?', '').strip()
+                  
+                  # Basics
+                  if type_name in TYPE_MAPPING: return TYPE_MAPPING[type_name]
+                  
+                  fq_name = f"{module}.{clean_name}"
+                  kind = global_kind_map.get(fq_name) or global_kind_map.get(clean_name)
+                  
+                  suffix = 'Spec'
+                  if kind == 'interface': suffix = 'Remote'
                   
                   if clean_name in valid_types:
-                      return f"{module}.{clean_name}{suffix}"
-                      
-                  if '.' in clean_name:
+                      return f"{current_ns}.{clean_name}{suffix}"
+                  elif '.' in clean_name:
                       return f"{clean_name}{suffix}"
-
-                  # Heuristic: Uppercase
-                  if clean_name and clean_name[0].isupper() and clean_name not in TYPE_MAPPING:
-                      return f"{module}.{clean_name}{suffix}"
-                  
-                  # Fallback
+                  elif clean_name and clean_name[0].isupper():
+                      return f"{current_ns}.{clean_name}{suffix}"
                   return 'mojo.internal.Pointer'
 
               def get_struct_layout(params):
@@ -950,49 +980,10 @@ jobs:
                   js_code += "  return remote.$;\n"
                   js_code += "};\n\n"
                   
-                  # Generate ParamsSpec placeholders for each method
-                  for idx, method in enumerate(interface.get('methods', [])):
-                      # Calculate layout for Params
-                      params_code, params_size, params_versions = get_struct_layout(method.get('params', []))
-                      
-                      js_code += f"// ParamsSpec for {method['name']}\n"
-                      js_code += f"{full_name}_{method['name']}_ParamsSpec = {{\n"
-                      js_code += "  $: {\n"
-                      js_code += "    structSpec: {\n"
-                      js_code += f"      name: '{interface_string}.{method['name']}_Params',\n"
-                      js_code += f"      packedSize: {params_size},\n"
-                      js_code += "      fields: [\n"
-                      for field in params_code:
-                          js_code += f"        {field},\n"
-                      js_code += "      ],\n"
-                      js_code += f"      versions: {params_versions}\n"
-                      js_code += "    }\n"
-                      js_code += "  }\n"
-                      js_code += "};\n\n"
-                      
-                      if method.get('returns'):
-                          # Calculate layout for ResponseParams
-                          ret_code, ret_size, ret_versions = get_struct_layout(method.get('returns', []))
-                          
-                          js_code += f"{full_name}_{method['name']}_ResponseParamsSpec = {{\n"
-                          js_code += "  $: {\n"
-                          js_code += "    structSpec: {\n"
-                          js_code += f"      name: '{interface_string}.{method['name']}_ResponseParams',\n"
-                          js_code += f"      packedSize: {ret_size},\n"
-                          js_code += "      fields: [\n"
-                          for field in ret_code:
-                              js_code += f"        {field},\n"
-                          js_code += "      ],\n"
-                          js_code += f"      versions: {ret_versions}\n"
-                          js_code += "    }\n"
-                          js_code += "  }\n"
-                          js_code += "};\n\n"
-                  
-                  # Also add legacy-style Ptr class for compatibility
-                  js_code += f"// Legacy compatibility\n"
-                  js_code += f"{full_name}Ptr = {full_name}Remote;\n"
-                  js_code += f"{full_name}Request = {full_name}PendingReceiver;\n\n"
-              
+                   # Legacy compatibility
+                   js_code += f"{full_name}Ptr = {full_name}Remote;\n"
+                   js_code += f"{full_name}Request = {full_name}PendingReceiver;\n\n"
+               
               return js_code
 
 
