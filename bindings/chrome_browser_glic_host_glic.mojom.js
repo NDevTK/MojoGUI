@@ -685,8 +685,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.GetContextResultWithActionResultCodeSpec, 'glic.mojom.GetContextResultWithActionResultCode', [
       mojo.internal.StructField('get_context_result', 0, 0, glic.mojom.GetContextResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action_result_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'action_result_$value', originalFieldName: 'action_result' }),
-      mojo.internal.StructField('action_result_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'action_result_$flag', originalFieldName: 'action_result' }),
+      mojo.internal.StructField('action_result_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'action_result_$value', originalFieldName: 'action_result' }),
+      mojo.internal.StructField('action_result_$value', 20, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'action_result_$flag', originalFieldName: 'action_result' }),
     ],
     [[0, 32]]);
 
@@ -705,67 +705,67 @@ mojo.internal.Struct(
 // Struct: WebClientInitialState
 mojo.internal.Struct(
     glic.mojom.WebClientInitialStateSpec, 'glic.mojom.WebClientInitialState', [
-      mojo.internal.StructField('panel_state', 16, 0, glic.mojom.PanelStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('focused_tab_data', 0, 0, glic.mojom.FocusedTabDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('microphone_permission_enabled', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('location_permission_enabled', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('tab_context_permission_enabled', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('os_location_permission_enabled', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('hotkey', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('chrome_version', 32, 0, mojo_base.mojom.VersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('platform', 56, 0, glic.mojom.PlatformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('can_attach', 60, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('panel_is_active', 60, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('browser_is_open', 60, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('instance_is_active', 60, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('always_detached_mode', 61, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_zero_state_suggestions', 61, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_act_in_focused_tab', 61, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_scroll_to', 61, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_default_tab_context_setting_feature', 61, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('default_tab_context_setting_enabled', 61, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_closed_captioning_feature', 61, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('closed_captioning_setting_enabled', 61, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_maybe_refresh_user_status', 62, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_multi_tab', 62, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_get_context_actor', 62, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('host_capabilities', 40, 0, mojo.internal.Array(glic.mojom.HostCapabilitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('enable_get_page_metadata', 62, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_api_activation_gating', 62, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_capture_region', 62, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_web_actuation_setting_feature', 62, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('actuation_on_web_setting_enabled', 62, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_act_on_web', 63, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_activate_tab', 63, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_get_tab_by_id', 63, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_open_password_manager_settings_page', 63, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_load_and_extract_content', 63, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_trust_first_onboarding', 63, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('onboarding_completed', 63, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_skills', 63, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('skill_previews', 48, 0, mojo.internal.Array(glic.mojom.SkillPreviewSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('panel_state', 0, 0, glic.mojom.PanelStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('focused_tab_data', 8, 0, glic.mojom.FocusedTabDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('microphone_permission_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('location_permission_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('tab_context_permission_enabled', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('os_location_permission_enabled', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hotkey', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('chrome_version', 40, 0, mojo_base.mojom.VersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('platform', 48, 0, glic.mojom.PlatformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('can_attach', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('panel_is_active', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('browser_is_open', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('instance_is_active', 52, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('always_detached_mode', 52, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_zero_state_suggestions', 52, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_act_in_focused_tab', 52, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_scroll_to', 52, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_default_tab_context_setting_feature', 53, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('default_tab_context_setting_enabled', 53, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_closed_captioning_feature', 53, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('closed_captioning_setting_enabled', 53, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_maybe_refresh_user_status', 53, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_multi_tab', 53, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_get_context_actor', 53, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('host_capabilities', 56, 0, mojo.internal.Array(glic.mojom.HostCapabilitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('enable_get_page_metadata', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_api_activation_gating', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_capture_region', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_web_actuation_setting_feature', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('actuation_on_web_setting_enabled', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_act_on_web', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_activate_tab', 64, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_get_tab_by_id', 64, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_open_password_manager_settings_page', 65, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_load_and_extract_content', 65, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_trust_first_onboarding', 65, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('onboarding_completed', 65, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_skills', 65, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('skill_previews', 72, 0, mojo.internal.Array(glic.mojom.SkillPreviewSpec, false), null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 88]]);
 
 // Struct: GetTabContextOptions
 mojo.internal.Struct(
     glic.mojom.GetTabContextOptionsSpec, 'glic.mojom.GetTabContextOptions', [
-      mojo.internal.StructField('include_inner_text', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('inner_text_bytes_limit', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('include_viewport_screenshot', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('include_annotated_page_content', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_meta_tags', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('include_pdf', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pdf_size_limit', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('annotated_page_content_mode', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('include_inner_text', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('inner_text_bytes_limit', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('include_viewport_screenshot', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_annotated_page_content', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_meta_tags', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('include_pdf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pdf_size_limit', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('annotated_page_content_mode', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: GetPinCandidatesOptions
 mojo.internal.Struct(
     glic.mojom.GetPinCandidatesOptionsSpec, 'glic.mojom.GetPinCandidatesOptions', [
-      mojo.internal.StructField('max_candidates', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('max_candidates', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('query', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -773,9 +773,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.ScrollToParamsSpec, 'glic.mojom.ScrollToParams', [
       mojo.internal.StructField('selector', 0, 0, glic.mojom.ScrollToSelectorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('highlight', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('document_id', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('highlight', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('document_id', 24, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -783,8 +783,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.ScrollToTextSelectorSpec, 'glic.mojom.ScrollToTextSelector', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('search_range_start_node_id_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' }),
-      mojo.internal.StructField('search_range_start_node_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
+      mojo.internal.StructField('search_range_start_node_id_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' }),
+      mojo.internal.StructField('search_range_start_node_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
     ],
     [[0, 24]]);
 
@@ -793,8 +793,8 @@ mojo.internal.Struct(
     glic.mojom.ScrollToTextFragmentSelectorSpec, 'glic.mojom.ScrollToTextFragmentSelector', [
       mojo.internal.StructField('text_start', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('text_end', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('search_range_start_node_id_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' }),
-      mojo.internal.StructField('search_range_start_node_id_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
+      mojo.internal.StructField('search_range_start_node_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' }),
+      mojo.internal.StructField('search_range_start_node_id_$value', 20, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
     ],
     [[0, 32]]);
 
@@ -848,8 +848,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.ZeroStateSuggestionsSpec, 'glic.mojom.ZeroStateSuggestions', [
       mojo.internal.StructField('suggestions', 0, 0, mojo.internal.Array(glic.mojom.SuggestionContentSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('tab_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tab_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tab_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -864,8 +864,8 @@ mojo.internal.Struct(
 // Struct: ZeroStateSuggestionsOptions
 mojo.internal.Struct(
     glic.mojom.ZeroStateSuggestionsOptionsSpec, 'glic.mojom.ZeroStateSuggestionsOptions', [
-      mojo.internal.StructField('is_first_run', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('supported_tools', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_first_run', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supported_tools', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -903,11 +903,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.PanelOpeningDataSpec, 'glic.mojom.PanelOpeningData', [
       mojo.internal.StructField('panel_state', 0, 0, glic.mojom.PanelStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('invocation_source', 40, 0, glic.mojom.InvocationSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('prompt_suggestion', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('skill_to_invoke', 16, 0, glic.mojom.SkillSpec, null, true, 0, undefined),
-      mojo.internal.StructField('recently_active_conversations', 24, 0, mojo.internal.Array(glic.mojom.ConversationInfoSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('conversation_info', 32, 0, glic.mojom.ConversationInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('invocation_source', 8, 0, glic.mojom.InvocationSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prompt_suggestion', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('skill_to_invoke', 24, 0, glic.mojom.SkillSpec, null, true, 0, undefined),
+      mojo.internal.StructField('recently_active_conversations', 32, 0, mojo.internal.Array(glic.mojom.ConversationInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('conversation_info', 40, 0, glic.mojom.ConversationInfoSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -915,8 +915,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.PanelStateSpec, 'glic.mojom.PanelState', [
       mojo.internal.StructField('kind', 0, 0, glic.mojom.PanelStateKindSpec, null, false, 0, undefined),
-      mojo.internal.StructField('window_id_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'window_id_$value', originalFieldName: 'window_id' }),
-      mojo.internal.StructField('window_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'window_id_$flag', originalFieldName: 'window_id' }),
+      mojo.internal.StructField('window_id_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'window_id_$value', originalFieldName: 'window_id' }),
+      mojo.internal.StructField('window_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'window_id_$flag', originalFieldName: 'window_id' }),
     ],
     [[0, 24]]);
 
@@ -930,18 +930,18 @@ mojo.internal.Struct(
 // Struct: OpenPanelInfo
 mojo.internal.Struct(
     glic.mojom.OpenPanelInfoSpec, 'glic.mojom.OpenPanelInfo', [
-      mojo.internal.StructField('web_client_mode', 16, 0, glic.mojom.WebClientModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('panelSize', 0, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('resizeDuration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('can_user_resize', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('web_client_mode', 0, 0, glic.mojom.WebClientModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('panelSize', 8, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('resizeDuration', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('can_user_resize', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: ContextData
 mojo.internal.Struct(
     glic.mojom.ContextDataSpec, 'glic.mojom.ContextData', [
-      mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -949,11 +949,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.AdditionalContextSpec, 'glic.mojom.AdditionalContext', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('tab_id_$flag', 36, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'tab_id_$value', originalFieldName: 'tab_id' }),
-      mojo.internal.StructField('tab_id_$value', 32, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'tab_id_$flag', originalFieldName: 'tab_id' }),
-      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('frameUrl', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('parts', 24, 0, mojo.internal.Array(glic.mojom.AdditionalContextPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tab_id_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'tab_id_$value', originalFieldName: 'tab_id' }),
+      mojo.internal.StructField('tab_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'tab_id_$flag', originalFieldName: 'tab_id' }),
+      mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('frameUrl', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('parts', 32, 0, mojo.internal.Array(glic.mojom.AdditionalContextPartSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -996,13 +996,13 @@ mojo.internal.Struct(
 // Struct: TabData
 mojo.internal.Struct(
     glic.mojom.TabDataSpec, 'glic.mojom.TabData', [
-      mojo.internal.StructField('tab_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('window_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('favicon', 16, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('favicon_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('document_mime_type', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('window_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('favicon', 24, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('favicon_url', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('document_mime_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_observable_$flag', 48, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_observable_$value', originalFieldName: 'is_observable' }),
       mojo.internal.StructField('is_observable_$value', 48, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_observable_$flag', originalFieldName: 'is_observable' }),
       mojo.internal.StructField('is_media_active_$flag', 48, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_media_active_$value', originalFieldName: 'is_media_active' }),
@@ -1048,19 +1048,19 @@ mojo.internal.Struct(
 // Struct: CaptureRegionResult
 mojo.internal.Struct(
     glic.mojom.CaptureRegionResultSpec, 'glic.mojom.CaptureRegionResult', [
-      mojo.internal.StructField('tab_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('region', 0, 0, glic.mojom.CapturedRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('region', 8, 0, glic.mojom.CapturedRegionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: Screenshot
 mojo.internal.Struct(
     glic.mojom.ScreenshotSpec, 'glic.mojom.Screenshot', [
-      mojo.internal.StructField('width_pixels', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height_pixels', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('origin_annotations', 16, 0, glic.mojom.ImageOriginAnnotationsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width_pixels', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height_pixels', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('origin_annotations', 24, 0, glic.mojom.ImageOriginAnnotationsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1774,9 +1774,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_CreateTab_ParamsSpec, 'glic.mojom.WebClientHandler_CreateTab_Params', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('open_in_background', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('window_id_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'window_id_$value', originalFieldName: 'window_id' }),
-      mojo.internal.StructField('window_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'window_id_$flag', originalFieldName: 'window_id' }),
+      mojo.internal.StructField('open_in_background', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_id_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'window_id_$value', originalFieldName: 'window_id' }),
+      mojo.internal.StructField('window_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'window_id_$flag', originalFieldName: 'window_id' }),
     ],
     [[0, 24]]);
 
@@ -1861,8 +1861,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec, 'glic.mojom.WebClientHandler_GetContextFromTab_Params', [
-      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('options', 0, 0, glic.mojom.GetTabContextOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, glic.mojom.GetTabContextOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1874,8 +1874,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec, 'glic.mojom.WebClientHandler_GetContextForActorFromTab_Params', [
-      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('options', 0, 0, glic.mojom.GetTabContextOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, glic.mojom.GetTabContextOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2007,15 +2007,15 @@ mojo.internal.Struct(
     glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec, 'glic.mojom.WebClientHandler_PauseActorTask_Params', [
       mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('pause_reason', 4, 0, glic.mojom.ActorTaskPauseReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tab_id_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'tab_id_$value', originalFieldName: 'tab_id' }),
-      mojo.internal.StructField('tab_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'tab_id_$flag', originalFieldName: 'tab_id' }),
+      mojo.internal.StructField('tab_id_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'tab_id_$value', originalFieldName: 'tab_id' }),
+      mojo.internal.StructField('tab_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'tab_id_$flag', originalFieldName: 'tab_id' }),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec, 'glic.mojom.WebClientHandler_ResumeActorTask_Params', [
-      mojo.internal.StructField('task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('context_options', 0, 0, glic.mojom.GetTabContextOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('context_options', 8, 0, glic.mojom.GetTabContextOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2040,13 +2040,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec, 'glic.mojom.WebClientHandler_CreateActorTab_Params', [
       mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('open_in_background', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('initiator_tab_id_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'initiator_tab_id_$value', originalFieldName: 'initiator_tab_id' }),
-      mojo.internal.StructField('initiator_tab_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'initiator_tab_id_$flag', originalFieldName: 'initiator_tab_id' }),
-      mojo.internal.StructField('initiator_window_id_$flag', 12, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'initiator_window_id_$value', originalFieldName: 'initiator_window_id' }),
-      mojo.internal.StructField('initiator_window_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'initiator_window_id_$flag', originalFieldName: 'initiator_window_id' }),
+      mojo.internal.StructField('open_in_background', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('initiator_tab_id_$flag', 4, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'initiator_tab_id_$value', originalFieldName: 'initiator_tab_id' }),
+      mojo.internal.StructField('initiator_tab_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'initiator_tab_id_$flag', originalFieldName: 'initiator_tab_id' }),
+      mojo.internal.StructField('initiator_window_id_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'initiator_window_id_$value', originalFieldName: 'initiator_window_id' }),
+      mojo.internal.StructField('initiator_window_id_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'initiator_window_id_$flag', originalFieldName: 'initiator_window_id' }),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec, 'glic.mojom.WebClientHandler_CreateActorTab_ResponseParams', [
@@ -2226,9 +2226,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec, 'glic.mojom.WebClientHandler_LogBeginAsyncEvent_Params', [
       mojo.internal.StructField('event_async_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('task_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('event', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('details', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('event', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('details', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -2241,9 +2241,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec, 'glic.mojom.WebClientHandler_LogInstantEvent_Params', [
-      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('event', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('details', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('event', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('details', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -2278,8 +2278,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec, 'glic.mojom.WebClientHandler_JournalRecordFeedback_Params', [
-      mojo.internal.StructField('positive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('reason', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('positive', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2323,8 +2323,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec, 'glic.mojom.WebClientHandler_OnTurnCompleted_Params', [
-      mojo.internal.StructField('model', 8, 0, glic.mojom.WebClientModelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model', 0, 0, glic.mojom.WebClientModelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2394,8 +2394,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec, 'glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_Params', [
-      mojo.internal.StructField('is_live', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('options', 0, 0, glic.mojom.ZeroStateSuggestionsOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_live', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, glic.mojom.ZeroStateSuggestionsOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2442,8 +2442,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec, 'glic.mojom.WebClientHandler_SubscribeToPageMetadata_Params', [
-      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2484,8 +2484,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec, 'glic.mojom.WebClientHandler_SubscribeToTabData_Params', [
-      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceProxy(glic.mojom.TabDataHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceProxy(glic.mojom.TabDataHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -3528,8 +3528,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec, 'glic.mojom.WebClient_NotifyPageMetadataChanged_Params', [
-      mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('metadata', 0, 0, blink.mojom.PageMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, blink.mojom.PageMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

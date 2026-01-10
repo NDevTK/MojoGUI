@@ -48,8 +48,8 @@ mojo.internal.Struct(
 // Struct: SubAppsServiceListResult
 mojo.internal.Struct(
     blink.mojom.SubAppsServiceListResultSpec, 'blink.mojom.SubAppsServiceListResult', [
-      mojo.internal.StructField('result_code', 8, 0, blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sub_apps_list', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sub_apps_list', 8, 0, mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

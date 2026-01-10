@@ -377,9 +377,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('buffer_type', 8, 0, media.mojom.VideoCaptureBufferTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('resolution_change_policy', 12, 0, media.mojom.ResolutionChangePolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('power_line_frequency', 16, 0, media.mojom.PowerLineFrequencySpec, null, false, 0, undefined),
-      mojo.internal.StructField('enable_face_detection', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_high_dpi_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('capture_version_source', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('enable_face_detection', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_high_dpi_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('capture_version_source', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -387,14 +387,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoCaptureFeedbackSpec, 'media.mojom.VideoCaptureFeedback', [
       mojo.internal.StructField('resource_utilization', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('max_framerate_fps', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('max_pixels', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('require_mapped_frame', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('DEPRECATED_mapped_sizes', 8, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('frame_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('has_frame_id', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_framerate_fps', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('max_pixels', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('require_mapped_frame', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('DEPRECATED_mapped_sizes', 24, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('frame_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('has_frame_id', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: PlaneStrides
 mojo.internal.Struct(
@@ -409,9 +409,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('model_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('facing_mode', 32, 0, media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capture_api', 36, 0, media.mojom.VideoCaptureApiSpec, null, false, 0, undefined),
-      mojo.internal.StructField('control_support', 24, 0, media.mojom.VideoCaptureControlSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('facing_mode', 24, 0, media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_api', 28, 0, media.mojom.VideoCaptureApiSpec, null, false, 0, undefined),
+      mojo.internal.StructField('control_support', 32, 0, media.mojom.VideoCaptureControlSupportSpec, null, false, 0, undefined),
       mojo.internal.StructField('transport_type', 40, 0, media.mojom.VideoCaptureTransportTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('availability', 44, 0, media.mojom.CameraAvailabilitySpec, null, true, 0, undefined),
     ],

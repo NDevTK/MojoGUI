@@ -111,8 +111,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('syncing_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('syncing_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

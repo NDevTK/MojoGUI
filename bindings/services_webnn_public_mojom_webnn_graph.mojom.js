@@ -511,9 +511,9 @@ mojo.internal.Union(
 // Struct: OperandDescriptor
 mojo.internal.Struct(
     webnn.mojom.OperandDescriptorSpec, 'webnn.mojom.OperandDescriptor', [
-      mojo.internal.StructField('data_type', 16, 0, webnn.mojom.DataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shape', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('pending_permutation', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_type', 0, 0, webnn.mojom.DataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shape', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('pending_permutation', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -547,19 +547,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('output_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('scale_operand_id', 32, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('bias_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('axis', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('epsilon', 60, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('epsilon', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: Clamp
 mojo.internal.Struct(
     webnn.mojom.ClampSpec, 'webnn.mojom.Clamp', [
-      mojo.internal.StructField('input_operand_id', 32, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('min_value', 0, 0, webnn.mojom.NumberSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_value', 16, 0, webnn.mojom.NumberSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_value', 16, 0, webnn.mojom.NumberSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_value', 32, 0, webnn.mojom.NumberSpec, null, false, 0, undefined),
       mojo.internal.StructField('label', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -569,8 +569,8 @@ mojo.internal.Struct(
     webnn.mojom.ConcatSpec, 'webnn.mojom.Concat', [
       mojo.internal.StructField('input_operand_ids', 0, 0, mojo.internal.Array(webnn.mojom.OperandIdSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('axis', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -602,10 +602,10 @@ mojo.internal.Struct(
     webnn.mojom.CumulativeSumSpec, 'webnn.mojom.CumulativeSum', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('axis', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('exclusive', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('reversed', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('exclusive', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reversed', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -669,8 +669,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('scale_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('bias_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('epsilon', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('epsilon', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -687,11 +687,11 @@ mojo.internal.Struct(
 // Struct: Pad
 mojo.internal.Struct(
     webnn.mojom.PadSpec, 'webnn.mojom.Pad', [
-      mojo.internal.StructField('input_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('beginning_padding', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('ending_padding', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('mode', 0, 0, webnn.mojom.PaddingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('beginning_padding', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('ending_padding', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('mode', 32, 0, webnn.mojom.PaddingModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('label', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -734,8 +734,8 @@ mojo.internal.Struct(
     webnn.mojom.EluSpec, 'webnn.mojom.Elu', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -745,8 +745,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('indices_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('axis', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -756,8 +756,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('indices_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('axis', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -786,18 +786,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('weight_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('recurrent_weight_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('steps', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('hidden_size', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('output_operand_ids', 24, 0, mojo.internal.Array(webnn.mojom.OperandIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('bias_operand_id', 32, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('recurrent_bias_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('initial_hidden_state_operand_id', 48, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('reset_after', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('return_sequence', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('direction', 80, 0, webnn.mojom.RecurrentNetworkDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('layout', 84, 0, webnn.mojom.GruWeightLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activations', 56, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 2Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('label', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('steps', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hidden_size', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('output_operand_ids', 32, 0, mojo.internal.Array(webnn.mojom.OperandIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bias_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('recurrent_bias_operand_id', 48, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('initial_hidden_state_operand_id', 56, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reset_after', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('return_sequence', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('direction', 68, 0, webnn.mojom.RecurrentNetworkDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layout', 72, 0, webnn.mojom.GruWeightLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activations', 80, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 2Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('label', 88, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 104]]);
 
@@ -808,14 +808,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('weight_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('recurrent_weight_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('hidden_state_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hidden_size', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('output_operand_id', 32, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bias_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('recurrent_bias_operand_id', 48, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('reset_after', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('layout', 76, 0, webnn.mojom.GruWeightLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activations', 56, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 2Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('label', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('hidden_size', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('output_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bias_operand_id', 48, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('recurrent_bias_operand_id', 56, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reset_after', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('layout', 68, 0, webnn.mojom.GruWeightLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activations', 72, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 2Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('label', 80, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -826,11 +826,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('b_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('c_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('alpha', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('beta', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('a_transpose', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('b_transpose', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpha', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('beta', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('a_transpose', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('b_transpose', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('label', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -839,9 +839,9 @@ mojo.internal.Struct(
     webnn.mojom.HardSigmoidSpec, 'webnn.mojom.HardSigmoid', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('beta', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('beta', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -862,8 +862,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('scale_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('bias_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('axes', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('epsilon', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('epsilon', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -872,8 +872,8 @@ mojo.internal.Struct(
     webnn.mojom.LeakyReluSpec, 'webnn.mojom.LeakyRelu', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -882,9 +882,9 @@ mojo.internal.Struct(
     webnn.mojom.LinearSpec, 'webnn.mojom.Linear', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('beta', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('beta', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -895,18 +895,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('weight_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('recurrent_weight_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_ids', 24, 0, mojo.internal.Array(webnn.mojom.OperandIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('steps', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('hidden_size', 92, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('bias_operand_id', 32, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('recurrent_bias_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('peephole_weight_operand_id', 48, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('initial_hidden_state_operand_id', 56, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('initial_cell_state_operand_id', 64, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('return_sequence', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('direction', 96, 0, webnn.mojom.RecurrentNetworkDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('layout', 100, 0, webnn.mojom.LstmWeightLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activations', 72, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 3Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('label', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('steps', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hidden_size', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bias_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('recurrent_bias_operand_id', 48, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('peephole_weight_operand_id', 56, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('initial_hidden_state_operand_id', 64, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('initial_cell_state_operand_id', 72, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('return_sequence', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('direction', 84, 0, webnn.mojom.RecurrentNetworkDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layout', 88, 0, webnn.mojom.LstmWeightLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activations', 96, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 3Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('label', 104, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 120]]);
 
@@ -919,15 +919,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('hidden_state_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('cell_state_operand_id', 32, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_ids', 40, 0, mojo.internal.Array(webnn.mojom.OperandId, 2Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('hidden_size', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('bias_operand_id', 48, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('recurrent_bias_operand_id', 56, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('peephole_weight_operand_id', 64, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('layout', 92, 0, webnn.mojom.LstmWeightLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activations', 72, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 3Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('label', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('hidden_size', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bias_operand_id', 56, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('recurrent_bias_operand_id', 64, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('peephole_weight_operand_id', 72, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('layout', 80, 0, webnn.mojom.LstmWeightLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activations', 88, 0, mojo.internal.Array(webnn.mojom.RecurrentNetworkActivation, 3Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('label', 96, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 112]]);
 
 // Struct: Prelu
 mojo.internal.Struct(
@@ -985,8 +985,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('indices_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('updates_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('axis', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -1015,8 +1015,8 @@ mojo.internal.Struct(
     webnn.mojom.SoftmaxSpec, 'webnn.mojom.Softmax', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('axis', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1043,8 +1043,8 @@ mojo.internal.Struct(
     webnn.mojom.SplitSpec, 'webnn.mojom.Split', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_ids', 8, 0, mojo.internal.Array(webnn.mojom.OperandIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('axis', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('axis', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1082,9 +1082,9 @@ mojo.internal.Struct(
     webnn.mojom.TriangularSpec, 'webnn.mojom.Triangular', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('upper', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('diagonal', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('upper', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('diagonal', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

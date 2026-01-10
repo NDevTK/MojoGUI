@@ -59,22 +59,22 @@ ash.language.mojom.ErrorCode = {
 // Struct: LanguagePackInfo
 mojo.internal.Struct(
     ash.language.mojom.LanguagePackInfoSpec, 'ash.language.mojom.LanguagePackInfo', [
-      mojo.internal.StructField('pack_state', 8, 0, ash.language.mojom.PackStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 12, 0, ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('feature_id', 24, 0, ash.language.mojom.FeatureIdSpec, null, false, 3, undefined),
-      mojo.internal.StructField('locale', 16, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('pack_state', 0, 0, ash.language.mojom.PackStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('feature_id', 20, 0, ash.language.mojom.FeatureIdSpec, null, false, 3, undefined),
+      mojo.internal.StructField('locale', 24, 0, mojo.internal.String, null, true, 3, undefined),
     ],
-    [[0, 24], [2, 24], [3, 40]]);
+    [[0, 24], [2, 32], [3, 40]]);
 
 // Struct: BasePackInfo
 mojo.internal.Struct(
     ash.language.mojom.BasePackInfoSpec, 'ash.language.mojom.BasePackInfo', [
-      mojo.internal.StructField('pack_state', 8, 0, ash.language.mojom.PackStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 12, 0, ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('pack_state', 0, 0, ash.language.mojom.PackStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
     ],
-    [[0, 24], [2, 24]]);
+    [[0, 24], [2, 32]]);
 
 // Interface: LanguagePacksObserver
 mojo.internal.Struct(
@@ -143,8 +143,8 @@ ash.language.mojom.LanguagePacksObserverRequest = ash.language.mojom.LanguagePac
 // Interface: LanguagePacks
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec, 'ash.language.mojom.LanguagePacks_GetPackInfo_Params', [
-      mojo.internal.StructField('feature_id', 8, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('language', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -156,8 +156,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec, 'ash.language.mojom.LanguagePacks_InstallPack_Params', [
-      mojo.internal.StructField('feature_id', 8, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('language', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -181,8 +181,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec, 'ash.language.mojom.LanguagePacks_UninstallPack_Params', [
-      mojo.internal.StructField('feature_id', 8, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('language', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

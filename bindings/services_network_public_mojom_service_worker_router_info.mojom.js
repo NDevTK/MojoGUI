@@ -34,13 +34,13 @@ network.mojom.ServiceWorkerStatus = {
 // Struct: ServiceWorkerRouterInfo
 mojo.internal.Struct(
     network.mojom.ServiceWorkerRouterInfoSpec, 'network.mojom.ServiceWorkerRouterInfo', [
-      mojo.internal.StructField('rule_id_matched_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'rule_id_matched_$value', originalFieldName: 'rule_id_matched' }),
-      mojo.internal.StructField('rule_id_matched_$value', 24, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'rule_id_matched_$flag', originalFieldName: 'rule_id_matched' }),
-      mojo.internal.StructField('matched_source_type', 28, 0, network.mojom.ServiceWorkerRouterSourceTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('actual_source_type', 32, 0, network.mojom.ServiceWorkerRouterSourceTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('route_rule_num', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('router_evaluation_time', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('cache_lookup_time', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('evaluation_worker_status', 36, 0, network.mojom.ServiceWorkerStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('rule_id_matched_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'rule_id_matched_$value', originalFieldName: 'rule_id_matched' }),
+      mojo.internal.StructField('rule_id_matched_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'rule_id_matched_$flag', originalFieldName: 'rule_id_matched' }),
+      mojo.internal.StructField('matched_source_type', 8, 0, network.mojom.ServiceWorkerRouterSourceTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('actual_source_type', 12, 0, network.mojom.ServiceWorkerRouterSourceTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('route_rule_num', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('router_evaluation_time', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_lookup_time', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('evaluation_worker_status', 40, 0, network.mojom.ServiceWorkerStatusSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);

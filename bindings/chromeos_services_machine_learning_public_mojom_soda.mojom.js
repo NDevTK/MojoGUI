@@ -121,19 +121,19 @@ mojo.internal.Union(
 // Struct: SodaMultilangConfig
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaMultilangConfigSpec, 'chromeos.machine_learning.mojom.SodaMultilangConfig', [
-      mojo.internal.StructField('rewind_when_switching_language', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('locale_to_language_pack_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('rewind_when_switching_language', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('locale_to_language_pack_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SodaConfig
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaConfigSpec, 'chromeos.machine_learning.mojom.SodaConfig', [
-      mojo.internal.StructField('channel_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('sample_rate', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('api_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('library_dlc_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('language_dlc_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('channel_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('sample_rate', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('api_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('library_dlc_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('language_dlc_path', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('enable_formatting', 32, 0, chromeos.machine_learning.mojom.OptionalBoolSpec, null, false, 2, undefined),
       mojo.internal.StructField('recognition_mode', 36, 0, chromeos.machine_learning.mojom.SodaRecognitionModeSpec, null, false, 3, undefined),
       mojo.internal.StructField('mask_offensive_words', 40, 0, mojo.internal.Bool, false, false, 4, undefined),
@@ -141,9 +141,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('include_logging_output', 40, 2, mojo.internal.Bool, false, false, 6, undefined),
       mojo.internal.StructField('multi_lang_config', 48, 0, chromeos.machine_learning.mojom.SodaMultilangConfigSpec, null, true, 7, undefined),
       mojo.internal.StructField('kSpeakerDiarizationModeOffDefault', 56, 0, chromeos.machine_learning.mojom.SpeakerDiarizationMode speaker_diarization_mode =Spec, null, false, 9, undefined),
-      mojo.internal.StructField('max_speaker_count', 44, 0, mojo.internal.Uint32, 0, false, 9, undefined),
+      mojo.internal.StructField('max_speaker_count', 64, 0, mojo.internal.Uint32, 0, false, 9, undefined),
     ],
-    [[0, 40], [2, 48], [3, 48], [4, 56], [5, 56], [6, 56], [7, 64], [9, 72]]);
+    [[0, 40], [2, 48], [3, 48], [4, 56], [5, 56], [6, 56], [7, 64], [9, 80]]);
 
 // Struct: TimingInfo
 mojo.internal.Struct(
@@ -153,16 +153,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('elapsed_wall_time', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('event_end_time', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('latency', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('normalized_latency', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('word_alignments', 40, 0, mojo.internal.Array(mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('normalized_latency', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('word_alignments', 48, 0, mojo.internal.Array(mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: EndpointerEvent
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.EndpointerEventSpec, 'chromeos.machine_learning.mojom.EndpointerEvent', [
-      mojo.internal.StructField('endpointer_type', 8, 0, chromeos.machine_learning.mojom.EndpointerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timing_event', 0, 0, chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('endpointer_type', 0, 0, chromeos.machine_learning.mojom.EndpointerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timing_event', 8, 0, chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -191,8 +191,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.FinalResultSpec, 'chromeos.machine_learning.mojom.FinalResult', [
       mojo.internal.StructField('final_hypotheses', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('endpoint_reason', 16, 0, chromeos.machine_learning.mojom.EndpointReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timing_event', 8, 0, chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('endpoint_reason', 8, 0, chromeos.machine_learning.mojom.EndpointReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timing_event', 16, 0, chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('hypothesis_part', 24, 0, mojo.internal.Array(chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), null, true, 1, undefined),
     ],
     [[0, 32], [1, 40]]);

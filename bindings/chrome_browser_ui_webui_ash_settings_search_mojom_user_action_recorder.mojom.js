@@ -74,8 +74,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [
-      mojo.internal.StructField('setting', 16, 0, chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, ash.settings.mojom.SettingChangeValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('setting', 0, 0, chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, ash.settings.mojom.SettingChangeValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -37,26 +37,26 @@ blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = { $: 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterDataSpec, 'blink.mojom.ServiceWorkerRouterData', [
       mojo.internal.StructField('router_rules', 0, 0, blink.mojom.ServiceWorkerRouterRulesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('initial_running_status', 24, 0, blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, true, 0, undefined),
-      mojo.internal.StructField('running_status_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerRunningStatusCallbackRemote), null, true, 0, undefined),
-      mojo.internal.StructField('remote_cache_storage', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('initial_running_status', 8, 0, blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('running_status_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerRunningStatusCallbackRemote), null, true, 0, undefined),
+      mojo.internal.StructField('remote_cache_storage', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ControllerServiceWorkerInfo
 mojo.internal.Struct(
     blink.mojom.ControllerServiceWorkerInfoSpec, 'blink.mojom.ControllerServiceWorkerInfo', [
-      mojo.internal.StructField('fetch_handler_bypass_option', 56, 0, blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sha256_script_checksum', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('need_router_evaluate', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('router_data', 8, 0, blink.mojom.ServiceWorkerRouterDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('remote_controller', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.ControllerServiceWorkerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('client_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('fetch_request_window_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('object_info', 40, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('used_features', 48, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('fetch_handler_bypass_option', 0, 0, blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sha256_script_checksum', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('need_router_evaluate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('router_data', 24, 0, blink.mojom.ServiceWorkerRouterDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_controller', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.ControllerServiceWorkerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_request_window_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('object_info', 56, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('used_features', 64, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 
 // Interface: ControllerServiceWorker
 mojo.internal.Struct(

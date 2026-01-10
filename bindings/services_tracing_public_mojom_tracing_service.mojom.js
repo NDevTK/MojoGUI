@@ -24,8 +24,8 @@ tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kService;
 // Struct: ClientInfo
 mojo.internal.Struct(
     tracing.mojom.ClientInfoSpec, 'tracing.mojom.ClientInfo', [
-      mojo.internal.StructField('pid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('process', 0, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracedProcessRemote), null, false, 0, undefined),
+      mojo.internal.StructField('pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('process', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracedProcessRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

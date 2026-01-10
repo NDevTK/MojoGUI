@@ -46,11 +46,11 @@ mojo.internal.Struct(
 // Struct: MapCharactersResult
 mojo.internal.Struct(
     blink.mojom.MapCharactersResultSpec, 'blink.mojom.MapCharactersResult', [
-      mojo.internal.StructField('family_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('family_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('mapped_length', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('scale', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('font_style', 8, 0, blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('family_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('family_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('mapped_length', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('font_style', 24, 0, blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -120,8 +120,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('font_style', 8, 0, blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
       mojo.internal.StructField('locale_name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('reading_direction', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('base_family_name', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('reading_direction', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('base_family_name', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

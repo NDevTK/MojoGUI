@@ -38,10 +38,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_Params', [
       mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('codec', 32, 0, data_decoder.mojom.ImageCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shrink_to_fit', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_size_in_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('desired_image_frame_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('codec', 16, 0, data_decoder.mojom.ImageCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shrink_to_fit', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('desired_image_frame_size', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -55,8 +55,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_Params', [
       mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shrink_to_fit', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_size_in_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('shrink_to_fit', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

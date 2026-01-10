@@ -27,9 +27,9 @@ blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = { $: {} 
 mojo.internal.Struct(
     blink.mojom.LcpElementSpec, 'blink.mojom.LcpElement', [
       mojo.internal.StructField('locator', 0, 0, mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_image', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('predicted_index_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'predicted_index_$value', originalFieldName: 'predicted_index' }),
-      mojo.internal.StructField('predicted_index_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'predicted_index_$flag', originalFieldName: 'predicted_index' }),
+      mojo.internal.StructField('is_image', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('predicted_index_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'predicted_index_$value', originalFieldName: 'predicted_index' }),
+      mojo.internal.StructField('predicted_index_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'predicted_index_$flag', originalFieldName: 'predicted_index' }),
     ],
     [[0, 24]]);
 

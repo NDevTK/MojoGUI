@@ -94,9 +94,9 @@ mojo.internal.Struct(
     chrome.mojom.ProfileMenuItemSpec, 'chrome.mojom.ProfileMenuItem', [
       mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('icon', 8, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('menu_index', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('active', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('profile_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('menu_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('active', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('profile_path', 24, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -114,13 +114,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('profile_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('app_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('launch_type', 48, 0, chrome.mojom.AppShimLaunchTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('login_item_restore_state', 52, 0, chrome.mojom.AppShimLoginItemRestoreStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('urls', 32, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('notification_action_handler', 40, 0, mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('launch_type', 24, 0, chrome.mojom.AppShimLaunchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('files', 32, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('login_item_restore_state', 40, 0, chrome.mojom.AppShimLoginItemRestoreStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('urls', 48, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('notification_action_handler', 56, 0, mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: FeatureState
 mojo.internal.Struct(
@@ -526,9 +526,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParams', [
-      mojo.internal.StructField('launch_result', 16, 0, chrome.mojom.AppShimLaunchResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('feature_state', 0, 0, chrome.mojom.FeatureStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('app_shim_receiver', 8, 0, mojo.internal.InterfaceRequest(chrome.mojom.AppShimRemote), null, false, 0, undefined),
+      mojo.internal.StructField('launch_result', 0, 0, chrome.mojom.AppShimLaunchResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature_state', 8, 0, chrome.mojom.FeatureStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_shim_receiver', 16, 0, mojo.internal.InterfaceRequest(chrome.mojom.AppShimRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

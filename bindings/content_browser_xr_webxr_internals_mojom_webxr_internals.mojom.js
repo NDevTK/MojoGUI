@@ -54,10 +54,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     webxr.mojom.SessionRejectedRecordSpec, 'webxr.mojom.SessionRejectedRecord', [
       mojo.internal.StructField('trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('failure_reason', 32, 0, device.mojom.RequestSessionErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('rejected_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('failure_reason_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('rejected_features', 24, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('failure_reason', 8, 0, device.mojom.RequestSessionErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rejected_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('failure_reason_description', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('rejected_features', 32, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -65,8 +65,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     webxr.mojom.SessionStartedRecordSpec, 'webxr.mojom.SessionStartedRecord', [
       mojo.internal.StructField('trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('device_id', 16, 0, device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('started_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_id', 8, 0, device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('started_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -81,11 +81,11 @@ mojo.internal.Struct(
 // Struct: RuntimeInfo
 mojo.internal.Struct(
     webxr.mojom.RuntimeInfoSpec, 'webxr.mojom.RuntimeInfo', [
-      mojo.internal.StructField('device_id', 8, 0, device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('supported_features', 0, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_ar_blend_mode_supported', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_id', 0, 0, device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('supported_features', 8, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_ar_blend_mode_supported', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: WebXrInternalsHandler
 mojo.internal.Struct(

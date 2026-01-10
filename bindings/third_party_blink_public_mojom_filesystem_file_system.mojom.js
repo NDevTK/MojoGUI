@@ -334,8 +334,8 @@ mojo.internal.Struct(
     blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec, 'blink.mojom.FileSystemManager_ResolveURL_ResponseParams', [
       mojo.internal.StructField('info', 0, 0, blink.mojom.FileSystemInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('file_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_directory', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_code', 16, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_directory', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_code', 20, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -501,8 +501,8 @@ mojo.internal.Struct(
     blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec, 'blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParams', [
       mojo.internal.StructField('file_info', 0, 0, mojo_base.mojom.FileInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('platform_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_code', 24, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('snapshot_listener', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.ReceivedSnapshotListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('error_code', 16, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('snapshot_listener', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.ReceivedSnapshotListenerRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

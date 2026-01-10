@@ -123,8 +123,8 @@ mojo.internal.Struct(
     ash.device_sync.mojom.DeviceActivityStatusSpec, 'ash.device_sync.mojom.DeviceActivityStatus', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('last_activity_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connectivity_status', 24, 0, ash.device_sync.mojom.ConnectivityStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_update_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connectivity_status', 16, 0, ash.device_sync.mojom.ConnectivityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_update_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -133,14 +133,14 @@ mojo.internal.Struct(
     ash.device_sync.mojom.DebugInfoSpec, 'ash.device_sync.mojom.DebugInfo', [
       mojo.internal.StructField('last_enrollment_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('time_to_next_enrollment_attempt', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_recovering_from_enrollment_failure', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_enrollment_in_progress', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('last_sync_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('time_to_next_sync_attempt', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_recovering_from_sync_failure', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_sync_in_progress', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_recovering_from_enrollment_failure', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_enrollment_in_progress', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_sync_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time_to_next_sync_attempt', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_recovering_from_sync_failure', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_sync_in_progress', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Interface: DeviceSyncObserver
 mojo.internal.Struct(
@@ -334,8 +334,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParams', [
-      mojo.internal.StructField('result_code', 8, 0, ash.device_sync.mojom.NetworkRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response', 0, 0, ash.device_sync.mojom.FindEligibleDevicesResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, ash.device_sync.mojom.NetworkRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, ash.device_sync.mojom.FindEligibleDevicesResponseSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -360,8 +360,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParams', [
-      mojo.internal.StructField('result_code', 8, 0, ash.device_sync.mojom.NetworkRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_activity_statuses', 0, 0, mojo.internal.Array(ash.device_sync.mojom.DeviceActivityStatusSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, ash.device_sync.mojom.NetworkRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_activity_statuses', 8, 0, mojo.internal.Array(ash.device_sync.mojom.DeviceActivityStatusSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

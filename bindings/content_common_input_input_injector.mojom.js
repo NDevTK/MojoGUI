@@ -76,77 +76,77 @@ content.mojom.InputEventPattern = {
 // Struct: SyntheticSmoothDrag
 mojo.internal.Struct(
     content.mojom.SyntheticSmoothDragSpec, 'content.mojom.SyntheticSmoothDrag', [
-      mojo.internal.StructField('gesture_source_type', 16, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('start_point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('distances', 8, 0, mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('speed_in_pixels_s', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('vsync_offset_ms', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('input_event_pattern', 28, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gesture_source_type', 0, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_point', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('distances', 16, 0, mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('speed_in_pixels_s', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('vsync_offset_ms', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('input_event_pattern', 32, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: SyntheticSmoothScroll
 mojo.internal.Struct(
     content.mojom.SyntheticSmoothScrollSpec, 'content.mojom.SyntheticSmoothScroll', [
-      mojo.internal.StructField('gesture_source_type', 24, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('anchor', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('distances', 8, 0, mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('prevent_fling', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('gesture_source_type', 0, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('anchor', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('distances', 16, 0, mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('prevent_fling', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('speed_in_pixels_s', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('fling_velocity_x', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('fling_velocity_y', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('granularity', 16, 0, ui.mojom.ScrollGranularitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('modifiers', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('vsync_offset_ms', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('input_event_pattern', 48, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+      mojo.internal.StructField('granularity', 40, 0, ui.mojom.ScrollGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('vsync_offset_ms', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('input_event_pattern', 56, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: SyntheticPinch
 mojo.internal.Struct(
     content.mojom.SyntheticPinchSpec, 'content.mojom.SyntheticPinch', [
-      mojo.internal.StructField('scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('anchor', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('relative_pointer_speed_in_pixels_s', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('vsync_offset_ms', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('input_event_pattern', 20, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('anchor', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_pointer_speed_in_pixels_s', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('vsync_offset_ms', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('input_event_pattern', 24, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: SyntheticTap
 mojo.internal.Struct(
     content.mojom.SyntheticTapSpec, 'content.mojom.SyntheticTap', [
-      mojo.internal.StructField('gesture_source_type', 8, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration_ms', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('gesture_source_type', 0, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: SyntheticPointerActionParams
 mojo.internal.Struct(
     content.mojom.SyntheticPointerActionParamsSpec, 'content.mojom.SyntheticPointerActionParams', [
-      mojo.internal.StructField('pointer_action_type', 24, 0, content.mojom.PointerActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pointer_id', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('button', 32, 0, content.mojom.SyntheticButtonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_modifiers', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('width', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('rotation_angle', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('force', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('tangential_pressure', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('tilt_x', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tilt_y', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_action_type', 0, 0, content.mojom.PointerActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('button', 20, 0, content.mojom.SyntheticButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_modifiers', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('rotation_angle', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('force', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tangential_pressure', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_x', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_y', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 56, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 64, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: SyntheticPointerAction
 mojo.internal.Struct(
     content.mojom.SyntheticPointerActionSpec, 'content.mojom.SyntheticPointerAction', [
-      mojo.internal.StructField('gesture_source_type', 8, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 0, 0, mojo.internal.Array(mojo.internal.Array(content.mojom.SyntheticPointerActionParamsSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('gesture_source_type', 0, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, mojo.internal.Array(mojo.internal.Array(content.mojom.SyntheticPointerActionParamsSpec, false), false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

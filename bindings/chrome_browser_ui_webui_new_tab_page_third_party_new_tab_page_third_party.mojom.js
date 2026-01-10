@@ -25,15 +25,15 @@ new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     new_tab_page_third_party.mojom.ThemeSpec, 'new_tab_page_third_party.mojom.Theme', [
       mojo.internal.StructField('text_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_dark', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('color_background', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('background_tiling', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('background_position', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_custom_background', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('most_visited', 40, 0, most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_dark', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('color_background', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('background_tiling', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('background_position', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_custom_background', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('most_visited', 56, 0, most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(

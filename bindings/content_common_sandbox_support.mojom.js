@@ -79,20 +79,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_ResponseParams', [
-      mojo.internal.StructField('digit_substitution', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('digits', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('decimal', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('thousand', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('negative_sign', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('negnumber', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('digit_substitution', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('digits', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('decimal', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('thousand', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('negative_sign', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('negnumber', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     content.mojom.SandboxSupport_LocaleString_ParamsSpec, 'content.mojom.SandboxSupport_LocaleString_Params', [
       mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('defaults', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, content.mojom.LcTypeStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, content.mojom.LcTypeStringSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -105,8 +105,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.SandboxSupport_LocaleStrings_ParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_Params', [
       mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('defaults', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('collection', 4, 0, content.mojom.LcTypeStringsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('collection', 8, 0, content.mojom.LcTypeStringsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

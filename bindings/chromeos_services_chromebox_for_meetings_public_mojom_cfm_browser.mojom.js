@@ -33,19 +33,19 @@ mojo.internal.Struct(
 // Struct: ProcessMemoryInformation
 mojo.internal.Struct(
     chromeos.cfm.mojom.ProcessMemoryInformationSpec, 'chromeos.cfm.mojom.ProcessMemoryInformation', [
-      mojo.internal.StructField('pid', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('product_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('num_processes', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('process_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('num_open_fds', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('open_fds_soft_limit', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('renderer_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('titles', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('product_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('num_processes', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('process_type', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('num_open_fds', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('open_fds_soft_limit', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('renderer_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('titles', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('private_memory_footprint_kb', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('extension_info', 40, 0, mojo.internal.Array(chromeos.cfm.mojom.ExtensionDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('extension_info', 72, 0, mojo.internal.Array(chromeos.cfm.mojom.ExtensionDataSpec, false), null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: ProcessData
 mojo.internal.Struct(

@@ -27,9 +27,9 @@ network.mojom.CrossOriginEmbedderPolicyValue = {
 // Struct: CrossOriginEmbedderPolicy
 mojo.internal.Struct(
     network.mojom.CrossOriginEmbedderPolicySpec, 'network.mojom.CrossOriginEmbedderPolicy', [
-      mojo.internal.StructField('value', 16, 0, network.mojom.CrossOriginEmbedderPolicyValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, network.mojom.CrossOriginEmbedderPolicyValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

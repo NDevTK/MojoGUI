@@ -28,9 +28,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('details', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('task_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('track', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('screenshot', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('task_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('track', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('screenshot', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 72]]);
 

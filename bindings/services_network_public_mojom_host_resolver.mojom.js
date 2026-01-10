@@ -164,9 +164,9 @@ mojo.internal.Struct(
 // Struct: ResolveHostParameters
 mojo.internal.Struct(
     network.mojom.ResolveHostParametersSpec, 'network.mojom.ResolveHostParameters', [
-      mojo.internal.StructField('dns_query_type', 8, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('initial_priority', 12, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('ANY', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('dns_query_type', 0, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initial_priority', 4, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('ANY', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -237,10 +237,10 @@ network.mojom.ResolveHostHandleRequest = network.mojom.ResolveHostHandlePendingR
 // Interface: ResolveHostClient
 mojo.internal.Struct(
     network.mojom.ResolveHostClient_OnComplete_ParamsSpec, 'network.mojom.ResolveHostClient_OnComplete_Params', [
-      mojo.internal.StructField('result', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('resolve_error_info', 0, 0, network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('resolved_addresses', 8, 0, network.mojom.AddressListSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alternative_endpoints', 16, 0, mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resolve_error_info', 8, 0, network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resolved_addresses', 16, 0, network.mojom.AddressListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alternative_endpoints', 24, 0, mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -334,25 +334,25 @@ network.mojom.ResolveHostClientRequest = network.mojom.ResolveHostClientPendingR
 // Interface: MdnsListenClient
 mojo.internal.Struct(
     network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnAddressResult_Params', [
-      mojo.internal.StructField('update_type', 8, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('query_type', 12, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('endpoint', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_type', 0, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 4, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.MdnsListenClient_OnTextResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnTextResult_Params', [
-      mojo.internal.StructField('update_type', 8, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('query_type', 12, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text_records', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('update_type', 0, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 4, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_records', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnHostnameResult_Params', [
-      mojo.internal.StructField('update_type', 8, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('query_type', 12, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('host', 0, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_type', 0, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 4, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -460,8 +460,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.HostResolver_MdnsListen_ParamsSpec, 'network.mojom.HostResolver_MdnsListen_Params', [
       mojo.internal.StructField('host', 0, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('query_type', 16, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response_client', 8, 0, mojo.internal.InterfaceProxy(network.mojom.MdnsListenClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 8, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_client', 16, 0, mojo.internal.InterfaceProxy(network.mojom.MdnsListenClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

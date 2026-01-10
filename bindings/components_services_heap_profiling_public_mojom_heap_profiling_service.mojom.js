@@ -32,8 +32,8 @@ mojo.internal.Struct(
     heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec, 'heap_profiling.mojom.ProfilingService_AddProfilingClient_Params', [
       mojo.internal.StructField('pid', 0, 0, mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(heap_profiling.mojom.ProfilingClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('process_type', 24, 0, heap_profiling.mojom.ProcessTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 16, 0, heap_profiling.mojom.ProfilingParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('process_type', 16, 0, heap_profiling.mojom.ProcessTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 24, 0, heap_profiling.mojom.ProfilingParamsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

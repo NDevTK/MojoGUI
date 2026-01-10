@@ -29,9 +29,9 @@ blink.mojom.PrerenderTriggerType = {
 mojo.internal.Struct(
     blink.mojom.PrerenderAttributesSpec, 'blink.mojom.PrerenderAttributes', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('trigger_type', 24, 0, blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('referrer', 8, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('view_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_type', 8, 0, blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('view_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

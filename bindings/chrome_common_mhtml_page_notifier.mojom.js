@@ -17,9 +17,9 @@ offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec = 
 // Interface: MhtmlPageNotifier
 mojo.internal.Struct(
     offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec, 'offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_Params', [
-      mojo.internal.StructField('load_result', 16, 0, blink.mojom.MHTMLLoadResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('date', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('load_result', 0, 0, blink.mojom.MHTMLLoadResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('date', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

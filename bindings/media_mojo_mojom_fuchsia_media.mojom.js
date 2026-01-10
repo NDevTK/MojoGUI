@@ -110,8 +110,8 @@ media.mojom.FuchsiaMediaCdmProviderRequest = media.mojom.FuchsiaMediaCdmProvider
 mojo.internal.Struct(
     media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_Params', [
       mojo.internal.StructField('codec', 0, 0, media.mojom.VideoCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('secure_mode', 16, 0, media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('stream_processor_request', 8, 0, media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('secure_mode', 8, 0, media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_processor_request', 16, 0, media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

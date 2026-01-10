@@ -105,15 +105,15 @@ remote_cocoa.mojom.HitTestResult = {
 // Struct: ValidateUserInterfaceItemResult
 mojo.internal.Struct(
     remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec, 'remote_cocoa.mojom.ValidateUserInterfaceItemResult', [
-      mojo.internal.StructField('enable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('disable_if_has_no_key_equivalent', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_title', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('set_hidden_state', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_hidden_state', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('set_toggle_state', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_toggle_state', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_if_has_no_key_equivalent', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_title', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('set_hidden_state', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_hidden_state', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('set_toggle_state', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_toggle_state', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: NativeWidgetNSWindowHost
 mojo.internal.Struct(
@@ -394,12 +394,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParams', [
-      mojo.internal.StructField('button_exists', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('is_button_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_button_default', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('button_exists', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('is_button_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_button_default', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_Params', [
@@ -463,8 +463,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParams', [
-      mojo.internal.StructField('override_titlebar_height', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('titlebar_height', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('override_titlebar_height', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('titlebar_height', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

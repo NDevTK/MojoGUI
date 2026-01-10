@@ -43,11 +43,11 @@ android_webview.mojom.HitTestDataType = {
 // Struct: HitTestData
 mojo.internal.Struct(
     android_webview.mojom.HitTestDataSpec, 'android_webview.mojom.HitTestData', [
-      mojo.internal.StructField('type', 32, 0, android_webview.mojom.HitTestDataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('extra_data_for_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('href', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('anchor_text', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('img_src', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, android_webview.mojom.HitTestDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extra_data_for_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('href', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_text', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('img_src', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -82,9 +82,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec, 'android_webview.mojom.LocalMainFrame_SmoothScroll_Params', [
-      mojo.internal.StructField('target_x', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('target_y', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

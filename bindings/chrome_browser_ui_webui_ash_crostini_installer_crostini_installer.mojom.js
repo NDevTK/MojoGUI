@@ -225,8 +225,8 @@ ash.crostini_installer.mojom.PageHandlerRequest = ash.crostini_installer.mojom.P
 // Interface: Page
 mojo.internal.Struct(
     ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec, 'ash.crostini_installer.mojom.Page_OnProgressUpdate_Params', [
-      mojo.internal.StructField('install_state', 8, 0, crostini.mojom.InstallerStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('progress_fraction', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('install_state', 0, 0, crostini.mojom.InstallerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('progress_fraction', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

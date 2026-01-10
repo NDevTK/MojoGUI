@@ -15,8 +15,8 @@ os_crypt_async.mojom.EncryptorSpec = { $: {} };
 // Struct: Key
 mojo.internal.Struct(
     os_crypt_async.mojom.KeySpec, 'os_crypt_async.mojom.Key', [
-      mojo.internal.StructField('algorithm', 8, 0, os_crypt_async.mojom.AlgorithmSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 0, 0, os_crypt_async.mojom.AlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

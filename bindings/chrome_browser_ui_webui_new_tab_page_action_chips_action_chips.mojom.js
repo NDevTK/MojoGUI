@@ -33,10 +33,10 @@ action_chips.mojom.ChipType = {
 // Struct: TabInfo
 mojo.internal.Struct(
     action_chips.mojom.TabInfoSpec, 'action_chips.mojom.TabInfo', [
-      mojo.internal.StructField('tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_active_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -45,8 +45,8 @@ mojo.internal.Struct(
     action_chips.mojom.ActionChipSpec, 'action_chips.mojom.ActionChip', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tab', 16, 0, action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 24, 0, action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

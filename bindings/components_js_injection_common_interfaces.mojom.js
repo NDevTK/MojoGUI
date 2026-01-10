@@ -63,11 +63,11 @@ mojo.internal.Struct(
 // Struct: JavaScriptExecutable
 mojo.internal.Struct(
     js_injection.mojom.JavaScriptExecutableSpec, 'js_injection.mojom.JavaScriptExecutable', [
-      mojo.internal.StructField('script_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('script', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('origin_matcher', 8, 0, origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
-      mojo.internal.StructField('injection_time', 20, 0, js_injection.mojom.DocumentInjectionTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('js_world', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('script_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('script', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('origin_matcher', 16, 0, origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
+      mojo.internal.StructField('injection_time', 24, 0, js_injection.mojom.DocumentInjectionTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('js_world', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -75,8 +75,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     js_injection.mojom.JsWebMessageArrayBufferValueSpec, 'js_injection.mojom.JsWebMessageArrayBufferValue', [
       mojo.internal.StructField('array_buffer_value', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_resizable_by_user_javascript', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_byte_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_resizable_by_user_javascript', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_byte_length', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

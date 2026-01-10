@@ -559,8 +559,8 @@ mojo.internal.Union(
 // Struct: MemoryRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.MemoryRoutineArgumentSpec, 'ash.cros_healthd.mojom.MemoryRoutineArgument', [
-      mojo.internal.StructField('max_testing_mem_kib_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_testing_mem_kib_$value', originalFieldName: 'max_testing_mem_kib' }),
-      mojo.internal.StructField('max_testing_mem_kib_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_testing_mem_kib_$flag', originalFieldName: 'max_testing_mem_kib' }),
+      mojo.internal.StructField('max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_testing_mem_kib_$value', originalFieldName: 'max_testing_mem_kib' }),
+      mojo.internal.StructField('max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_testing_mem_kib_$flag', originalFieldName: 'max_testing_mem_kib' }),
     ],
     [[0, 16]]);
 
@@ -586,11 +586,11 @@ mojo.internal.Struct(
 // Struct: DiskReadRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.DiskReadRoutineArgumentSpec, 'ash.cros_healthd.mojom.DiskReadRoutineArgument', [
-      mojo.internal.StructField('type', 8, 0, ash.cros_healthd.mojom.DiskReadTypeEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('disk_read_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_size_mib', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.cros_healthd.mojom.DiskReadTypeEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('disk_read_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_size_mib', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: CpuCacheRoutineArgument
 mojo.internal.Struct(
@@ -710,8 +710,8 @@ mojo.internal.Struct(
 // Struct: RoutineState
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineStateSpec, 'ash.cros_healthd.mojom.RoutineState', [
-      mojo.internal.StructField('percentage', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('state_union', 0, 0, ash.cros_healthd.mojom.RoutineStateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('percentage', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('state_union', 8, 0, ash.cros_healthd.mojom.RoutineStateUnionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -783,8 +783,8 @@ mojo.internal.Struct(
 // Struct: RoutineStateFinished
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineStateFinishedSpec, 'ash.cros_healthd.mojom.RoutineStateFinished', [
-      mojo.internal.StructField('has_passed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('detail', 0, 0, ash.cros_healthd.mojom.RoutineDetailSpec, null, true, 0, undefined),
+      mojo.internal.StructField('has_passed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('detail', 8, 0, ash.cros_healthd.mojom.RoutineDetailSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -919,8 +919,8 @@ mojo.internal.Struct(
 // Struct: SensitiveSensorInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.SensitiveSensorInfoSpec, 'ash.cros_healthd.mojom.SensitiveSensorInfo', [
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

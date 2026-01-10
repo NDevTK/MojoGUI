@@ -493,12 +493,12 @@ mojo.internal.Struct(
 // Struct: PhysicalKeyEvent
 mojo.internal.Struct(
     ash.ime.mojom.PhysicalKeyEventSpec, 'ash.ime.mojom.PhysicalKeyEvent', [
-      mojo.internal.StructField('type', 24, 0, ash.ime.mojom.KeyEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key', 0, 0, ash.ime.mojom.DomKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('code', 28, 0, ash.ime.mojom.DomCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('modifier_state', 16, 0, ash.ime.mojom.ModifierStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.KeyEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 8, 0, ash.ime.mojom.DomKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('code', 24, 0, ash.ime.mojom.DomCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('modifier_state', 32, 0, ash.ime.mojom.ModifierStateSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: SelectionRange
 mojo.internal.Struct(
@@ -521,8 +521,8 @@ mojo.internal.Struct(
 // Struct: KoreanSettings
 mojo.internal.Struct(
     ash.ime.mojom.KoreanSettingsSpec, 'ash.ime.mojom.KoreanSettings', [
-      mojo.internal.StructField('input_multiple_syllables', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('layout', 0, 0, ash.ime.mojom.KoreanLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_multiple_syllables', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('layout', 4, 0, ash.ime.mojom.KoreanLayoutSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -600,9 +600,9 @@ mojo.internal.Struct(
 // Struct: SuggestionCandidate
 mojo.internal.Struct(
     ash.ime.mojom.SuggestionCandidateSpec, 'ash.ime.mojom.SuggestionCandidate', [
-      mojo.internal.StructField('mode', 8, 0, ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 12, 0, ash.ime.mojom.SuggestionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 4, 0, ash.ime.mojom.SuggestionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('confirmed_length', 16, 0, mojo.internal.Int32, 0, false, 13, undefined),
     ],
     [[0, 24], [13, 32]]);
@@ -617,8 +617,8 @@ mojo.internal.Struct(
 // Struct: AssistiveWindow
 mojo.internal.Struct(
     ash.ime.mojom.AssistiveWindowSpec, 'ash.ime.mojom.AssistiveWindow', [
-      mojo.internal.StructField('type', 8, 0, ash.ime.mojom.AssistiveWindowTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('candidates', 0, 0, mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.AssistiveWindowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('candidates', 8, 0, mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -653,8 +653,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnFocus_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_Params', [
-      mojo.internal.StructField('input_field_info', 16, 0, ash.ime.mojom.InputFieldInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('deprecated_settings', 0, 0, ash.ime.mojom.InputMethodSettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('input_field_info', 0, 0, ash.ime.mojom.InputFieldInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deprecated_settings', 8, 0, ash.ime.mojom.InputMethodSettingsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -685,8 +685,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnSurroundingTextChanged_Params', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 8, 0, ash.ime.mojom.SelectionRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 16, 0, ash.ime.mojom.SelectionRangeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

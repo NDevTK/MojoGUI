@@ -180,8 +180,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.Directory_GetEntries_ResponseParamsSpec, 'storage.mojom.Directory_GetEntries_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('entries', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -196,8 +196,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.Directory_OpenFile_ResponseParamsSpec, 'storage.mojom.Directory_OpenFile_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 8, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -270,8 +270,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.Directory_LockFile_ResponseParamsSpec, 'storage.mojom.Directory_LockFile_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('lock', 0, 0, mojo.internal.InterfaceProxy(storage.mojom.FileLockRemote), null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lock', 8, 0, mojo.internal.InterfaceProxy(storage.mojom.FileLockRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

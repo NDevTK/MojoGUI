@@ -37,10 +37,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('data', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('status', 48, 0, suggest_internals.mojom.RequestStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('start_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('end_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 24, 0, suggest_internals.mojom.RequestStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
 

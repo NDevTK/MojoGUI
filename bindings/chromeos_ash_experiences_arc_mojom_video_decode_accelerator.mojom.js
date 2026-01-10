@@ -61,17 +61,17 @@ mojo.internal.Struct(
 // Struct: Picture
 mojo.internal.Struct(
     arc.mojom.PictureSpec, 'arc.mojom.Picture', [
-      mojo.internal.StructField('picture_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bitstream_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('crop_rect', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('picture_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bitstream_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('crop_rect', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PictureBufferFormat
 mojo.internal.Struct(
     arc.mojom.PictureBufferFormatSpec, 'arc.mojom.PictureBufferFormat', [
-      mojo.internal.StructField('min_num_buffers', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 0, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_num_buffers', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -118,10 +118,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_Params', [
-      mojo.internal.StructField('picture_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('format', 12, 0, arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('handle_fd', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('planes', 0, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('picture_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('format', 4, 0, arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('handle_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('planes', 16, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('modifier', 24, 0, arc.mojom.BufferModifierSpec, null, true, 4, undefined),
     ],
     [[0, 32], [4, 40]]);

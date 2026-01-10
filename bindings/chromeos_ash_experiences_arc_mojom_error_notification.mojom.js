@@ -37,8 +37,8 @@ mojo.internal.Struct(
     arc.mojom.ErrorDetailsSpec, 'arc.mojom.ErrorDetails', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, arc.mojom.ErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('buttonLabels', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, arc.mojom.ErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buttonLabels', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

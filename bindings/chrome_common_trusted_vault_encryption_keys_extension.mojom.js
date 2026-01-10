@@ -19,8 +19,8 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Respon
 // Struct: TrustedVaultKey
 mojo.internal.Struct(
     chrome.mojom.TrustedVaultKeySpec, 'chrome.mojom.TrustedVaultKey', [
-      mojo.internal.StructField('version', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

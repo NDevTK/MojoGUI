@@ -31,8 +31,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('transcript_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('text_index', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_final', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('language', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_final', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('language', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -51,8 +51,8 @@ mojo.internal.Struct(
 // Struct: StreamStatus
 mojo.internal.Struct(
     ash.babelorca.mojom.StreamStatusSpec, 'ash.babelorca.mojom.StreamStatus', [
-      mojo.internal.StructField('code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -65,9 +65,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParams', [
-      mojo.internal.StructField('state', 16, 0, ash.babelorca.mojom.ParsingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('messages', 0, 0, mojo.internal.Array(ash.babelorca.mojom.BabelOrcaMessageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('stream_status', 8, 0, ash.babelorca.mojom.StreamStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.babelorca.mojom.ParsingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('messages', 8, 0, mojo.internal.Array(ash.babelorca.mojom.BabelOrcaMessageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('stream_status', 16, 0, ash.babelorca.mojom.StreamStatusSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

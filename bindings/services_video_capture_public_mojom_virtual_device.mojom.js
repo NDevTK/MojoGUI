@@ -36,8 +36,8 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = { 
 mojo.internal.Struct(
     video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec, 'video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_Params', [
       mojo.internal.StructField('dimension', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pixel_format', 16, 0, media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('strides', 8, 0, media.mojom.PlaneStridesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pixel_format', 8, 0, media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('strides', 16, 0, media.mojom.PlaneStridesSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -49,8 +49,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec, 'video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_info', 0, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_info', 8, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -123,8 +123,8 @@ video_capture.mojom.SharedMemoryVirtualDeviceRequest = video_capture.mojom.Share
 // Interface: TextureVirtualDevice
 mojo.internal.Struct(
     video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec, 'video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_Params', [
-      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('shared_image_handle', 0, 0, media.mojom.SharedImageBufferHandleSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('shared_image_handle', 8, 0, media.mojom.SharedImageBufferHandleSetSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -136,8 +136,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec, 'video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_info', 0, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_info', 8, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -234,8 +234,8 @@ video_capture.mojom.TextureVirtualDeviceRequest = video_capture.mojom.TextureVir
 // Interface: GpuMemoryBufferVirtualDevice
 mojo.internal.Struct(
     video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec, 'video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_Params', [
-      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('gmb_handle', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('gmb_handle', 8, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -247,8 +247,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec, 'video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_info', 0, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_info', 8, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -89,17 +89,17 @@ mojo.internal.Struct(
 // Struct: KeyEventData
 mojo.internal.Struct(
     arc.mojom.KeyEventDataSpec, 'arc.mojom.KeyEventData', [
-      mojo.internal.StructField('pressed', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('key_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_shift_down', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_control_down', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_alt_down', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capslock_on', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('scan_code', 8, 0, mojo.internal.Uint32, 0, false, 16, undefined),
-      mojo.internal.StructField('is_alt_gr_down', 4, 5, mojo.internal.Bool, false, false, 20, undefined),
-      mojo.internal.StructField('is_repeat', 4, 6, mojo.internal.Bool, false, false, 23, undefined),
+      mojo.internal.StructField('pressed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('key_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_shift_down', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_control_down', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_alt_down', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_capslock_on', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('scan_code', 12, 0, mojo.internal.Uint32, 0, false, 16, undefined),
+      mojo.internal.StructField('is_alt_gr_down', 16, 0, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('is_repeat', 16, 1, mojo.internal.Bool, false, false, 23, undefined),
     ],
-    [[0, 16], [16, 24], [20, 16], [23, 16]]);
+    [[0, 24], [16, 24], [20, 32], [23, 32]]);
 
 // Interface: ImeHost
 mojo.internal.Struct(

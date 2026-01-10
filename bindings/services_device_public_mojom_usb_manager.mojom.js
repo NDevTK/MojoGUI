@@ -96,8 +96,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec, 'device.mojom.UsbDeviceManager_OpenFileDescriptor_Params', [
       mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('allowed_interfaces_mask', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('lifeline_fd', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('allowed_interfaces_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('lifeline_fd', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

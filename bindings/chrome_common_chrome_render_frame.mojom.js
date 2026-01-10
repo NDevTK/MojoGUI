@@ -97,10 +97,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_Params', [
-      mojo.internal.StructField('image_min_area_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('image_max_size_pixels', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_format', 12, 0, chrome.mojom.ImageFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quality', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('image_min_area_pixels', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('image_max_size_pixels', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_format', 16, 0, chrome.mojom.ImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quality', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

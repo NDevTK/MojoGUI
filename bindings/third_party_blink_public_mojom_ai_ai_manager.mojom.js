@@ -87,8 +87,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateWriterClient_OnError_Params', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 0, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -167,8 +167,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateRewriterClient_OnError_Params', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 0, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -247,8 +247,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateSummarizerClient_OnError_Params', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 0, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -327,8 +327,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateProofreaderClient_OnError_Params', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 0, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

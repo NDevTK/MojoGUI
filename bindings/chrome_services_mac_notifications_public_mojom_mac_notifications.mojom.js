@@ -81,9 +81,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mac_notifications.mojom.NotificationMetadataSpec, 'mac_notifications.mojom.NotificationMetadata', [
       mojo.internal.StructField('id', 0, 0, mac_notifications.mojom.NotificationIdentifierSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('origin_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('user_data_dir', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('origin_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_data_dir', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -91,9 +91,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mac_notifications.mojom.NotificationActionInfoSpec, 'mac_notifications.mojom.NotificationActionInfo', [
       mojo.internal.StructField('meta', 0, 0, mac_notifications.mojom.NotificationMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('operation', 16, 0, mac_notifications.mojom.NotificationOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('button_index', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('reply', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('operation', 8, 0, mac_notifications.mojom.NotificationOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('button_index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('reply', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -112,10 +112,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('subtitle', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('body', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('renotify', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('show_settings_button', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('buttons', 32, 0, mojo.internal.Array(mac_notifications.mojom.NotificationActionButtonSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('icon', 40, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('renotify', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_settings_button', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('buttons', 40, 0, mojo.internal.Array(mac_notifications.mojom.NotificationActionButtonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('icon', 48, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
     ],
     [[0, 64]]);
 

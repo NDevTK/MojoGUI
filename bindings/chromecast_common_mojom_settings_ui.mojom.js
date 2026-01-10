@@ -39,9 +39,9 @@ chromecast.mojom.SideSwipeOrigin = {
 // Interface: SettingsClient
 mojo.internal.Struct(
     chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec, 'chromecast.mojom.SettingsClient_HandleSideSwipe_Params', [
-      mojo.internal.StructField('event', 8, 0, chromecast.mojom.SideSwipeEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 12, 0, chromecast.mojom.SideSwipeOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('touch_location', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, chromecast.mojom.SideSwipeEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 4, 0, chromecast.mojom.SideSwipeOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_location', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

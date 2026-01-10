@@ -109,17 +109,17 @@ dlp_internals.mojom.UserType = {
 // Struct: DataTransferEndpoint
 mojo.internal.Struct(
     dlp_internals.mojom.DataTransferEndpointSpec, 'dlp_internals.mojom.DataTransferEndpoint', [
-      mojo.internal.StructField('type', 8, 0, dlp_internals.mojom.EndpointTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, dlp_internals.mojom.EndpointTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ContentRestrictionInfo
 mojo.internal.Struct(
     dlp_internals.mojom.ContentRestrictionInfoSpec, 'dlp_internals.mojom.ContentRestrictionInfo', [
-      mojo.internal.StructField('restriction', 8, 0, dlp_internals.mojom.ContentRestrictionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('level', 12, 0, dlp_internals.mojom.LevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('restriction', 0, 0, dlp_internals.mojom.ContentRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('level', 4, 0, dlp_internals.mojom.LevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -157,14 +157,14 @@ mojo.internal.Struct(
 // Struct: FileDatabaseEntry
 mojo.internal.Struct(
     dlp_internals.mojom.FileDatabaseEntrySpec, 'dlp_internals.mojom.FileDatabaseEntry', [
-      mojo.internal.StructField('inode_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'inode_$value', originalFieldName: 'inode' }),
-      mojo.internal.StructField('inode_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'inode_$flag', originalFieldName: 'inode' }),
-      mojo.internal.StructField('crtime_$flag', 32, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'crtime_$value', originalFieldName: 'crtime' }),
-      mojo.internal.StructField('crtime_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'crtime_$flag', originalFieldName: 'crtime' }),
-      mojo.internal.StructField('source_url', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('referrer_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('inode_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'inode_$value', originalFieldName: 'inode' }),
+      mojo.internal.StructField('inode_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'inode_$flag', originalFieldName: 'inode' }),
+      mojo.internal.StructField('crtime_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'crtime_$value', originalFieldName: 'crtime' }),
+      mojo.internal.StructField('crtime_$value', 24, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'crtime_$flag', originalFieldName: 'crtime' }),
+      mojo.internal.StructField('source_url', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('referrer_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Interface: ReportingObserver
 mojo.internal.Struct(

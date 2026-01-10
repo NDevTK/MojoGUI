@@ -15,9 +15,9 @@ viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = { $: {} };
 // Interface: GpuLogging
 mojo.internal.Struct(
     viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec, 'viz.mojom.GpuLogging_RecordLogMessage_Params', [
-      mojo.internal.StructField('severity', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('header', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('severity', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('header', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

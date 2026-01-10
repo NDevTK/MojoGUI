@@ -289,8 +289,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('session', 16, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('session_info', 24, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 40, 0, media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('group_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 

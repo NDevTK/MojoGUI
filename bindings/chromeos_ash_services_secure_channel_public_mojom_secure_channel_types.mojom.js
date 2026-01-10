@@ -36,9 +36,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.secure_channel.mojom.FileTransferUpdateSpec, 'ash.secure_channel.mojom.FileTransferUpdate', [
       mojo.internal.StructField('payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 24, 0, ash.secure_channel.mojom.FileTransferStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('bytes_transferred', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, ash.secure_channel.mojom.FileTransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_bytes', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('bytes_transferred', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

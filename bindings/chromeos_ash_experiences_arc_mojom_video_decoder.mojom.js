@@ -69,8 +69,8 @@ mojo.internal.Struct(
 // Struct: VideoDecoderConfig
 mojo.internal.Struct(
     arc.mojom.VideoDecoderConfigSpec, 'arc.mojom.VideoDecoderConfig', [
-      mojo.internal.StructField('profile', 8, 0, arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 0, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -204,9 +204,9 @@ arc.mojom.VideoDecoderRequest = arc.mojom.VideoDecoderPendingReceiver;
 // Interface: VideoDecoderClient
 mojo.internal.Struct(
     arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
-      mojo.internal.StructField('video_frame_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('visible_rect', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('video_frame_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('visible_rect', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

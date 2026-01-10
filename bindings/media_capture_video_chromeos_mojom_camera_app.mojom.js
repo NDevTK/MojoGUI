@@ -118,8 +118,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -230,8 +230,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -924,9 +924,9 @@ cros.mojom.CameraInfoObserverRequest = cros.mojom.CameraInfoObserverPendingRecei
 // Interface: StillCaptureResultObserver
 mojo.internal.Struct(
     cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec, 'cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_Params', [
-      mojo.internal.StructField('effect', 8, 0, cros.mojom.EffectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('blob', 0, 0, media.mojom.BlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('effect', 0, 0, cros.mojom.EffectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('blob', 8, 0, media.mojom.BlobSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

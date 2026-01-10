@@ -46,11 +46,11 @@ mojo.internal.Struct(
     on_device_internals.mojom.PageDataSpec, 'on_device_internals.mojom.PageData', [
       mojo.internal.StructField('base_model', 0, 0, on_device_internals.mojom.BaseModelStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('supp_models', 8, 0, mojo.internal.Array(on_device_internals.mojom.SupplementaryModelInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('model_crash_count', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_model_crash_count', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('feature_adaptations', 16, 0, mojo.internal.Array(on_device_internals.mojom.FeatureAdaptationInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('performance_info', 24, 0, on_device_model.mojom.DevicePerformanceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('min_vram_mb', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('model_crash_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_model_crash_count', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('feature_adaptations', 24, 0, mojo.internal.Array(on_device_internals.mojom.FeatureAdaptationInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('performance_info', 32, 0, on_device_model.mojom.DevicePerformanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_vram_mb', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -87,11 +87,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_internals.mojom.FeatureAdaptationInfoSpec, 'on_device_internals.mojom.FeatureAdaptationInfo', [
       mojo.internal.StructField('feature_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('feature_key', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('is_recently_used', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_key', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('version', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_recently_used', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
@@ -162,15 +162,15 @@ on_device_internals.mojom.PageHandlerFactoryRequest = on_device_internals.mojom.
 mojo.internal.Struct(
     on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec, 'on_device_internals.mojom.PageHandler_LoadModel_Params', [
       mojo.internal.StructField('model_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('performance_hint', 16, 0, on_device_model.mojom.ModelPerformanceHintSpec, null, false, 0, undefined),
-      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('performance_hint', 8, 0, on_device_model.mojom.ModelPerformanceHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model', 16, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_LoadModel_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, on_device_model.mojom.LoadModelResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capabilities', 0, 0, on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.LoadModelResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capabilities', 8, 0, on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

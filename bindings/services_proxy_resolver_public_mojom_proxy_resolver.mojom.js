@@ -76,17 +76,17 @@ mojo.internal.Struct(
 // Struct: SystemProxyResolutionStatus
 mojo.internal.Struct(
     proxy_resolver.mojom.SystemProxyResolutionStatusSpec, 'proxy_resolver.mojom.SystemProxyResolutionStatus', [
-      mojo.internal.StructField('is_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('os_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('win_http_status', 4, 0, proxy_resolver.mojom.WinHttpStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('os_error', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('win_http_status', 8, 0, proxy_resolver.mojom.WinHttpStatusSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: HostResolverRequestClient
 mojo.internal.Struct(
     proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.HostResolverRequestClient_ReportResult_Params', [
-      mojo.internal.StructField('error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(network.mojom.IPAddressSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, mojo.internal.Array(network.mojom.IPAddressSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -150,8 +150,8 @@ proxy_resolver.mojom.HostResolverRequestClientRequest = proxy_resolver.mojom.Hos
 // Interface: ProxyResolver
 mojo.internal.Struct(
     proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec, 'proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_Params', [
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('network_anonymization_key', 0, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_anonymization_key', 8, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(proxy_resolver.mojom.ProxyResolverRequestClientRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -216,8 +216,8 @@ proxy_resolver.mojom.ProxyResolverRequest = proxy_resolver.mojom.ProxyResolverPe
 // Interface: ProxyResolverRequestClient
 mojo.internal.Struct(
     proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_Params', [
-      mojo.internal.StructField('error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('proxy_info', 0, 0, proxy_resolver.mojom.ProxyInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('proxy_info', 8, 0, proxy_resolver.mojom.ProxyInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -229,17 +229,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_OnError_Params', [
-      mojo.internal.StructField('line_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('line_number', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_Params', [
-      mojo.internal.StructField('host', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('operation', 32, 0, proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('network_anonymization_key', 0, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('operation', 8, 0, proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_anonymization_key', 16, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 32, 0, mojo.internal.InterfaceProxy(proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -408,17 +408,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_Params', [
-      mojo.internal.StructField('line_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('line_number', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_Params', [
-      mojo.internal.StructField('host', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('operation', 32, 0, proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('network_anonymization_key', 0, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('operation', 8, 0, proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_anonymization_key', 16, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 32, 0, mojo.internal.InterfaceProxy(proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 

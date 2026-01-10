@@ -26,11 +26,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('original_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('stream_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('tab_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('response_headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('embedded', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('response_headers', 32, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('embedded', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: PdfPluginAttributes
 mojo.internal.Struct(

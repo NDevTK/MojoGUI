@@ -28,9 +28,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('viewport_intersection', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('main_frame_intersection', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('compositor_visible_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('occlusion_state', 48, 0, blink.mojom.FrameOcclusionStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('outermost_main_frame_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('outermost_main_frame_scroll_position', 32, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('main_frame_transform', 40, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('occlusion_state', 24, 0, blink.mojom.FrameOcclusionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outermost_main_frame_size', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outermost_main_frame_scroll_position', 40, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('main_frame_transform', 48, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);

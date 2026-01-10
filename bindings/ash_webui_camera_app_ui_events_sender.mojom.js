@@ -327,32 +327,32 @@ mojo.internal.Struct(
 // Struct: VideoDetails
 mojo.internal.Struct(
     ash.camera_app.mojom.VideoDetailsSpec, 'ash.camera_app.mojom.VideoDetails', [
-      mojo.internal.StructField('is_muted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('fps', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ever_paused', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('duration', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('record_type_details', 0, 0, ash.camera_app.mojom.RecordTypeDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('fps', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ever_paused', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('duration', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('record_type_details', 16, 0, ash.camera_app.mojom.RecordTypeDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: CaptureEventParams
 mojo.internal.Struct(
     ash.camera_app.mojom.CaptureEventParamsSpec, 'ash.camera_app.mojom.CaptureEventParams', [
-      mojo.internal.StructField('mode', 24, 0, ash.camera_app.mojom.ModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('facing', 28, 0, ash.camera_app.mojom.FacingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_mirrored', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('grid_type', 32, 0, ash.camera_app.mojom.GridTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timer_type', 36, 0, ash.camera_app.mojom.TimerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shutter_type', 40, 0, ash.camera_app.mojom.ShutterTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('android_intent_result_type', 44, 0, ash.camera_app.mojom.AndroidIntentResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_window_maximized', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_window_portrait', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('resolution_width', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('resolution_height', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('resolution_level', 56, 0, ash.camera_app.mojom.ResolutionLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('aspect_ratio_set', 60, 0, ash.camera_app.mojom.AspectRatioSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capture_details', 0, 0, ash.camera_app.mojom.CaptureDetailsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('zoom_ratio', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, ash.camera_app.mojom.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('facing', 4, 0, ash.camera_app.mojom.FacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_mirrored', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('grid_type', 12, 0, ash.camera_app.mojom.GridTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timer_type', 16, 0, ash.camera_app.mojom.TimerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shutter_type', 20, 0, ash.camera_app.mojom.ShutterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('android_intent_result_type', 24, 0, ash.camera_app.mojom.AndroidIntentResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_window_maximized', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_window_portrait', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resolution_width', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resolution_height', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resolution_level', 40, 0, ash.camera_app.mojom.ResolutionLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('aspect_ratio_set', 44, 0, ash.camera_app.mojom.AspectRatioSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_details', 48, 0, ash.camera_app.mojom.CaptureDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('zoom_ratio', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -443,8 +443,8 @@ mojo.internal.Struct(
 // Struct: MemoryUsageEventParams
 mojo.internal.Struct(
     ash.camera_app.mojom.MemoryUsageEventParamsSpec, 'ash.camera_app.mojom.MemoryUsageEventParams', [
-      mojo.internal.StructField('behaviors_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('memory_usage', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('behaviors_mask', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('memory_usage', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -452,9 +452,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.camera_app.mojom.OcrEventParamsSpec, 'ash.camera_app.mojom.OcrEventParams', [
       mojo.internal.StructField('event_type', 0, 0, ash.camera_app.mojom.OcrEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_primary_language', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('line_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('word_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_primary_language', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('line_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('word_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

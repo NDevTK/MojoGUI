@@ -42,18 +42,18 @@ network.mojom.UDPSocketListener_OnReceived_ParamsSpec = { $: {} };
 // Struct: UDPSocketOptions
 mojo.internal.Struct(
     network.mojom.UDPSocketOptionsSpec, 'network.mojom.UDPSocketOptions', [
-      mojo.internal.StructField('allow_address_reuse', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_broadcast', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_address_sharing_for_multicast', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('multicast_interface', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('multicast_time_to_live', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('multicast_loopback_mode', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('send_buffer_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('receive_buffer_size', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ipv6_only_$flag', 16, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'ipv6_only_$value', originalFieldName: 'ipv6_only' }),
-      mojo.internal.StructField('ipv6_only_$value', 16, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'ipv6_only_$flag', originalFieldName: 'ipv6_only' }),
+      mojo.internal.StructField('allow_address_reuse', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_broadcast', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_address_sharing_for_multicast', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('multicast_interface', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('multicast_time_to_live', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('multicast_loopback_mode', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('send_buffer_size', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('receive_buffer_size', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ipv6_only_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'ipv6_only_$value', originalFieldName: 'ipv6_only' }),
+      mojo.internal.StructField('ipv6_only_$value', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'ipv6_only_$flag', originalFieldName: 'ipv6_only' }),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: UDPSocket
 mojo.internal.Struct(
@@ -65,8 +65,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_Bind_ResponseParamsSpec, 'network.mojom.UDPSocket_Bind_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_addr_out', 0, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -79,8 +79,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_Connect_ResponseParamsSpec, 'network.mojom.UDPSocket_Connect_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_addr_out', 0, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -348,9 +348,9 @@ network.mojom.UDPSocketRequest = network.mojom.UDPSocketPendingReceiver;
 // Interface: UDPSocketListener
 mojo.internal.Struct(
     network.mojom.UDPSocketListener_OnReceived_ParamsSpec, 'network.mojom.UDPSocketListener_OnReceived_Params', [
-      mojo.internal.StructField('result', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('src_addr', 0, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('src_addr', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -134,8 +134,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_Params', [
-      mojo.internal.StructField('command_id', 8, 0, browser_command.mojom.CommandSpec, null, false, 0, undefined),
-      mojo.internal.StructField('click_info', 0, 0, browser_command.mojom.ClickInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command_id', 0, 0, browser_command.mojom.CommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('click_info', 8, 0, browser_command.mojom.ClickInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

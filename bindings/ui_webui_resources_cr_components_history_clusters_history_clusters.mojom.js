@@ -417,8 +417,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec, 'history_clusters.mojom.Page_OnClusterImageUpdated_Params', [
-      mojo.internal.StructField('cluster_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cluster_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('image_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

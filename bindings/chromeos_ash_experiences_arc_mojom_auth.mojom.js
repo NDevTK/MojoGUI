@@ -323,8 +323,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec, 'arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, arc.mojom.ArcAuthCodeStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('account_info', 0, 0, arc.mojom.AccountInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcAuthCodeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_info', 8, 0, arc.mojom.AccountInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -336,11 +336,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec, 'arc.mojom.AuthHost_RequestAccountInfo_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, arc.mojom.ArcAuthCodeStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('account_info', 0, 0, arc.mojom.AccountInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('persistent_error', 12, 0, mojo.internal.Bool, false, false, 24, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcAuthCodeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_info', 8, 0, arc.mojom.AccountInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('persistent_error', 16, 0, mojo.internal.Bool, false, false, 24, undefined),
     ],
-    [[0, 24], [24, 24]]);
+    [[0, 24], [24, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec, 'arc.mojom.AuthHost_IsAccountManagerAvailable_Params', [

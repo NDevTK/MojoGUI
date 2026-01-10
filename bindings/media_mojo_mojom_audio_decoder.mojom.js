@@ -63,8 +63,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Initialize_ResponseParamsSpec, 'media.mojom.AudioDecoder_Initialize_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, media.mojom.DecoderStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('needs_bitstream_conversion', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('decoder_type', 8, 0, media.mojom.AudioDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('needs_bitstream_conversion', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('decoder_type', 16, 0, media.mojom.AudioDecoderTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

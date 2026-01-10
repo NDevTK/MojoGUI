@@ -29,8 +29,8 @@ blink.mojom.FileSystemAccessStatus = {
 // Struct: FileSystemAccessError
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessErrorSpec, 'blink.mojom.FileSystemAccessError', [
-      mojo.internal.StructField('status', 8, 0, blink.mojom.FileSystemAccessStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_error', 12, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.FileSystemAccessStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_error', 4, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

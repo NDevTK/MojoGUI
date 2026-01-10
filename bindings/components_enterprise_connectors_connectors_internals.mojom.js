@@ -89,10 +89,10 @@ mojo.internal.Struct(
 // Struct: LoadedKeyInfo
 mojo.internal.Struct(
     connectors_internals.mojom.LoadedKeyInfoSpec, 'connectors_internals.mojom.LoadedKeyInfo', [
-      mojo.internal.StructField('trust_level', 24, 0, connectors_internals.mojom.KeyTrustLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_type', 28, 0, connectors_internals.mojom.KeyTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('encoded_spki_hash', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('key_upload_status', 0, 0, connectors_internals.mojom.KeyUploadStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('trust_level', 0, 0, connectors_internals.mojom.KeyTrustLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_type', 4, 0, connectors_internals.mojom.KeyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encoded_spki_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('key_upload_status', 16, 0, connectors_internals.mojom.KeyUploadStatusSpec, null, true, 0, undefined),
       mojo.internal.StructField('has_ssl_key', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -100,11 +100,11 @@ mojo.internal.Struct(
 // Struct: KeyInfo
 mojo.internal.Struct(
     connectors_internals.mojom.KeyInfoSpec, 'connectors_internals.mojom.KeyInfo', [
-      mojo.internal.StructField('is_key_manager_initialized', 8, 0, connectors_internals.mojom.KeyManagerInitializedValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('loaded_key_info', 0, 0, connectors_internals.mojom.LoadedKeyInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('permanent_failure', 12, 0, connectors_internals.mojom.KeyManagerPermanentFailureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_key_manager_initialized', 0, 0, connectors_internals.mojom.KeyManagerInitializedValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('loaded_key_info', 8, 0, connectors_internals.mojom.LoadedKeyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('permanent_failure', 16, 0, connectors_internals.mojom.KeyManagerPermanentFailureSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: ConsentMetadata
 mojo.internal.Struct(
@@ -117,11 +117,11 @@ mojo.internal.Struct(
 // Struct: DeviceTrustState
 mojo.internal.Struct(
     connectors_internals.mojom.DeviceTrustStateSpec, 'connectors_internals.mojom.DeviceTrustState', [
-      mojo.internal.StructField('is_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('policy_enabled_levels', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_info', 8, 0, connectors_internals.mojom.KeyInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('signals_json', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('consent_metadata', 24, 0, connectors_internals.mojom.ConsentMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('policy_enabled_levels', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_info', 16, 0, connectors_internals.mojom.KeyInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signals_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('consent_metadata', 32, 0, connectors_internals.mojom.ConsentMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -159,14 +159,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     connectors_internals.mojom.SignalsReportingStateSpec, 'connectors_internals.mojom.SignalsReportingState', [
       mojo.internal.StructField('error_info', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('status_report_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('signals_report_enabled', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('last_upload_attempt_timestamp', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_upload_success_timestamp', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_signals_upload_config', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('can_collect_all_fields', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('status_report_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('signals_report_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_upload_attempt_timestamp', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_upload_success_timestamp', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_signals_upload_config', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('can_collect_all_fields', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Interface: PageHandler
 mojo.internal.Struct(

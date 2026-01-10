@@ -41,10 +41,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_ResponseParams', [
-      mojo.internal.StructField('success', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('signed_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('signed_data_signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('platform_key_certificate', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('signed_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signed_data_signature', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('platform_key_certificate', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -56,8 +56,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_ResponseParams', [
-      mojo.internal.StructField('version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('storage_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('storage_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -106,8 +106,8 @@ mojo.internal.Struct(
 // Struct: FileSystemAccessChange
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeSpec, 'blink.mojom.FileSystemAccessChange', [
-      mojo.internal.StructField('metadata', 16, 0, blink.mojom.FileSystemAccessChangeMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 0, 0, blink.mojom.FileSystemAccessChangeTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, blink.mojom.FileSystemAccessChangeMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, blink.mojom.FileSystemAccessChangeTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

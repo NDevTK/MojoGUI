@@ -50,8 +50,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityLocationChange_Params', [
       mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bounds', 16, 0, ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bounds', 24, 0, ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

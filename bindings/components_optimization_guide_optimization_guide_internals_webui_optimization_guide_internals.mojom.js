@@ -178,10 +178,10 @@ optimization_guide_internals.mojom.PageHandlerFactoryRequest = optimization_guid
 mojo.internal.Struct(
     optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'optimization_guide_internals.mojom.Page_OnLogMessageAdded_Params', [
       mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('log_source', 32, 0, optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('log_source', 8, 0, optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_line', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

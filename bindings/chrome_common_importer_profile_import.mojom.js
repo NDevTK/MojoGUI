@@ -55,8 +55,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnImportFinished_Params', [
-      mojo.internal.StructField('succeeded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_msg', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -328,9 +328,9 @@ chrome.mojom.ProfileImportObserverRequest = chrome.mojom.ProfileImportObserverPe
 mojo.internal.Struct(
     chrome.mojom.ProfileImport_StartImport_ParamsSpec, 'chrome.mojom.ProfileImport_StartImport_Params', [
       mojo.internal.StructField('source_profile', 0, 0, chrome.mojom.SourceProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('items', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('localized_strings', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('items', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('localized_strings', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

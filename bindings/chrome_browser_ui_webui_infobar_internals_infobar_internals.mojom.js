@@ -32,9 +32,9 @@ infobar_internals.mojom.InfoBarType = {
 // Struct: InfoBarEntry
 mojo.internal.Struct(
     infobar_internals.mojom.InfoBarEntrySpec, 'infobar_internals.mojom.InfoBarEntry', [
-      mojo.internal.StructField('type', 16, 0, infobar_internals.mojom.InfoBarTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, infobar_internals.mojom.InfoBarTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

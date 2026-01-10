@@ -109,12 +109,12 @@ mojo.internal.Struct(
     remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_StartDrag_Params', [
       mojo.internal.StructField('drop_data', 0, 0, content.mojom.DropDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('source_origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('operation_mask', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('image', 16, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('image_offset', 24, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_privileged', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('operation_mask', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('image', 24, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image_offset', 32, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_privileged', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSView_Destroy_Params', [
@@ -324,9 +324,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_Params', [
-      mojo.internal.StructField('drag_operation', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('screen_point', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('drag_operation', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('local_point', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen_point', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

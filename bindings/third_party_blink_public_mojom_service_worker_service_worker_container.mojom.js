@@ -66,9 +66,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_Register_ResponseParams', [
-      mojo.internal.StructField('error', 16, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('registration', 8, 0, blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('registration', 16, 0, blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -80,9 +80,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParams', [
-      mojo.internal.StructField('error', 16, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('registration', 8, 0, blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('registration', 16, 0, blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -93,9 +93,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('error', 16, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('infos', 8, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('infos', 16, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

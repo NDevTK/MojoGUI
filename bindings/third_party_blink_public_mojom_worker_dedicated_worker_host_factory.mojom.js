@@ -143,13 +143,13 @@ mojo.internal.Struct(
     blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params', [
       mojo.internal.StructField('token', 0, 0, blink.mojom.DedicatedWorkerTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('script_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('credentials_mode', 40, 0, network.mojom.CredentialsModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('outside_fetch_client_settings_object', 16, 0, blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('blob_url_token', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
-      mojo.internal.StructField('client', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 44, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credentials_mode', 16, 0, network.mojom.CredentialsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outside_fetch_client_settings_object', 24, 0, blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blob_url_token', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 48, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 blink.mojom.DedicatedWorkerHostFactoryPendingReceiver = class {
   constructor(handle) {

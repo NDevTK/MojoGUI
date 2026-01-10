@@ -198,9 +198,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParams', [
-      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('client', 0, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_msg', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -212,9 +212,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParams', [
-      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('client', 0, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_msg', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -246,9 +246,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParams', [
-      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('client', 0, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, blink.mojom.ServiceWorkerClientInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_msg', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -270,8 +270,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec, 'blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_msg', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -451,9 +451,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('associated_interfaces_from_browser', 16, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('registration_info', 24, 0, blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('service_worker_info', 32, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('fetch_handler_existence', 48, 0, blink.mojom.FetchHandlerExistenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ancestor_frame_type', 52, 0, blink.mojom.AncestorFrameTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_key', 40, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_handler_existence', 40, 0, blink.mojom.FetchHandlerExistenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ancestor_frame_type', 44, 0, blink.mojom.AncestorFrameTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 48, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -557,8 +557,8 @@ mojo.internal.Struct(
     blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchNotificationClickEvent_Params', [
       mojo.internal.StructField('notification_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('reply', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('action_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('reply', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -601,8 +601,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec, 'blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('requested_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requested_urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -622,8 +622,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchSyncEvent_Params', [
       mojo.internal.StructField('tag', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_chance', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_chance', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('timeout', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -736,8 +736,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec, 'blink.mojom.ServiceWorker_AddMessageToConsole_Params', [
-      mojo.internal.StructField('level', 8, 0, blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('level', 0, 0, blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

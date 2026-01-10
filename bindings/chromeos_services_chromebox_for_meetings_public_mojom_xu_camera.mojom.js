@@ -71,8 +71,8 @@ mojo.internal.Union(
 // Struct: MenuInfo
 mojo.internal.Struct(
     ash.cfm.mojom.MenuInfoSpec, 'ash.cfm.mojom.MenuInfo', [
-      mojo.internal.StructField('value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -86,17 +86,17 @@ mojo.internal.Struct(
 // Struct: ControlMapping
 mojo.internal.Struct(
     ash.cfm.mojom.ControlMappingSpec, 'ash.cfm.mojom.ControlMapping', [
-      mojo.internal.StructField('id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('guid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('selector', 36, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('size', 37, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('offset', 38, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('guid', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('selector', 24, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 25, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 26, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('v4l2_type', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data_type', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('menu_entries', 16, 0, ash.cfm.mojom.MenuEntriesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('menu_entries', 40, 0, ash.cfm.mojom.MenuEntriesSpec, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: ControlQuery
 mojo.internal.Struct(
@@ -144,8 +144,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_GetCtrl_ResponseParams', [
-      mojo.internal.StructField('error_code', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

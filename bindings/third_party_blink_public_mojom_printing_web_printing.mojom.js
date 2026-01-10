@@ -254,30 +254,30 @@ mojo.internal.Struct(
 // Struct: WebPrinterAttributes
 mojo.internal.Struct(
     blink.mojom.WebPrinterAttributesSpec, 'blink.mojom.WebPrinterAttributes', [
-      mojo.internal.StructField('copies_default', 120, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('copies_supported', 0, 0, blink.mojom.WebPrintingRangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('media_col_default', 8, 0, blink.mojom.WebPrintingMediaCollectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('media_col_database', 16, 0, mojo.internal.Array(blink.mojom.WebPrintingMediaCollectionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('media_source_default', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('media_source_supported', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('multiple_document_handling_default', 124, 0, blink.mojom.WebPrintingMultipleDocumentHandlingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('multiple_document_handling_supported', 40, 0, mojo.internal.Array(blink.mojom.WebPrintingMultipleDocumentHandlingSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('orientation_requested_default', 128, 0, blink.mojom.WebPrintingOrientationRequestedSpec, null, false, 0, undefined),
-      mojo.internal.StructField('orientation_requested_supported', 48, 0, mojo.internal.Array(blink.mojom.WebPrintingOrientationRequestedSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('printer_resolution_default', 56, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('printer_resolution_supported', 64, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('print_color_mode_default', 132, 0, blink.mojom.WebPrintColorModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('print_color_mode_supported', 72, 0, mojo.internal.Array(blink.mojom.WebPrintColorModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('print_quality_default', 136, 0, blink.mojom.WebPrintQualitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('print_quality_supported', 80, 0, mojo.internal.Array(blink.mojom.WebPrintQualitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('printer_state', 140, 0, blink.mojom.WebPrinterStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('printer_state_message', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('printer_state_reasons', 96, 0, mojo.internal.Array(blink.mojom.WebPrinterStateReasonSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('sides_default', 144, 0, blink.mojom.WebPrintingSidesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('sides_supported', 104, 0, mojo.internal.Array(blink.mojom.WebPrintingSidesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('printer_id', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('copies_default', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('copies_supported', 8, 0, blink.mojom.WebPrintingRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_col_default', 16, 0, blink.mojom.WebPrintingMediaCollectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_col_database', 24, 0, mojo.internal.Array(blink.mojom.WebPrintingMediaCollectionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('media_source_default', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('media_source_supported', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('multiple_document_handling_default', 48, 0, blink.mojom.WebPrintingMultipleDocumentHandlingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('multiple_document_handling_supported', 56, 0, mojo.internal.Array(blink.mojom.WebPrintingMultipleDocumentHandlingSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('orientation_requested_default', 64, 0, blink.mojom.WebPrintingOrientationRequestedSpec, null, false, 0, undefined),
+      mojo.internal.StructField('orientation_requested_supported', 72, 0, mojo.internal.Array(blink.mojom.WebPrintingOrientationRequestedSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('printer_resolution_default', 80, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printer_resolution_supported', 88, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('print_color_mode_default', 96, 0, blink.mojom.WebPrintColorModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('print_color_mode_supported', 104, 0, mojo.internal.Array(blink.mojom.WebPrintColorModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('print_quality_default', 112, 0, blink.mojom.WebPrintQualitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('print_quality_supported', 120, 0, mojo.internal.Array(blink.mojom.WebPrintQualitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('printer_state', 128, 0, blink.mojom.WebPrinterStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printer_state_message', 136, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('printer_state_reasons', 144, 0, mojo.internal.Array(blink.mojom.WebPrinterStateReasonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sides_default', 152, 0, blink.mojom.WebPrintingSidesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('sides_supported', 160, 0, mojo.internal.Array(blink.mojom.WebPrintingSidesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('printer_id', 168, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 160]]);
+    [[0, 184]]);
 
 // Struct: WebPrintingMediaCollectionRequested
 mojo.internal.Struct(
@@ -290,17 +290,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WebPrintJobTemplateAttributesSpec, 'blink.mojom.WebPrintJobTemplateAttributes', [
       mojo.internal.StructField('job_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('copies', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('media_col', 8, 0, blink.mojom.WebPrintingMediaCollectionRequestedSpec, null, true, 0, undefined),
-      mojo.internal.StructField('media_source', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('multiple_document_handling', 36, 0, blink.mojom.WebPrintingMultipleDocumentHandlingSpec, null, true, 0, undefined),
-      mojo.internal.StructField('orientation_requested', 40, 0, blink.mojom.WebPrintingOrientationRequestedSpec, null, true, 0, undefined),
-      mojo.internal.StructField('printer_resolution', 24, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('print_color_mode', 44, 0, blink.mojom.WebPrintColorModeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('print_quality', 48, 0, blink.mojom.WebPrintQualitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('sides', 52, 0, blink.mojom.WebPrintingSidesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('copies', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('media_col', 16, 0, blink.mojom.WebPrintingMediaCollectionRequestedSpec, null, true, 0, undefined),
+      mojo.internal.StructField('media_source', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('multiple_document_handling', 32, 0, blink.mojom.WebPrintingMultipleDocumentHandlingSpec, null, true, 0, undefined),
+      mojo.internal.StructField('orientation_requested', 36, 0, blink.mojom.WebPrintingOrientationRequestedSpec, null, true, 0, undefined),
+      mojo.internal.StructField('printer_resolution', 40, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('print_color_mode', 48, 0, blink.mojom.WebPrintColorModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('print_quality', 52, 0, blink.mojom.WebPrintQualitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('sides', 56, 0, blink.mojom.WebPrintingSidesSpec, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: WebPrintJobUpdate
 mojo.internal.Struct(
@@ -314,9 +314,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WebPrintJobInfoSpec, 'blink.mojom.WebPrintJobInfo', [
       mojo.internal.StructField('job_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('job_pages', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.WebPrintJobStateObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('controller', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrintJobControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('job_pages', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.WebPrintJobStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrintJobControllerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

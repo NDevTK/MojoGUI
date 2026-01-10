@@ -138,8 +138,8 @@ mojo.internal.Struct(
 // Struct: TitleGenerationOptions
 mojo.internal.Struct(
     coral.mojom.TitleGenerationOptionsSpec, 'coral.mojom.TitleGenerationOptions', [
-      mojo.internal.StructField('max_characters', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('language_code', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('max_characters', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('language_code', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -120,21 +120,21 @@ ash.diagnostics.mojom.NumpadLayout = {
 // Struct: KeyboardInfo
 mojo.internal.Struct(
     ash.diagnostics.mojom.KeyboardInfoSpec, 'ash.diagnostics.mojom.KeyboardInfo', [
-      mojo.internal.StructField('id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('connection_type', 28, 0, ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('physical_layout', 32, 0, ash.diagnostics.mojom.PhysicalLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mechanical_layout', 36, 0, ash.diagnostics.mojom.MechanicalLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('region_code', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('number_pad_present', 40, 0, ash.diagnostics.mojom.NumberPadPresenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_row_keys', 16, 0, mojo.internal.Array(ash.diagnostics.mojom.TopRowKeySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('top_right_key', 44, 0, ash.diagnostics.mojom.TopRightKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_assistant_key', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('bottom_left_layout', 52, 0, ash.diagnostics.mojom.BottomLeftLayoutSpec, null, false, 1, undefined),
-      mojo.internal.StructField('bottom_right_layout', 56, 0, ash.diagnostics.mojom.BottomRightLayoutSpec, null, false, 1, undefined),
-      mojo.internal.StructField('numpad_layout', 60, 0, ash.diagnostics.mojom.NumpadLayoutSpec, null, false, 1, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('connection_type', 4, 0, ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('physical_layout', 16, 0, ash.diagnostics.mojom.PhysicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mechanical_layout', 20, 0, ash.diagnostics.mojom.MechanicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('region_code', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('number_pad_present', 32, 0, ash.diagnostics.mojom.NumberPadPresenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_row_keys', 40, 0, mojo.internal.Array(ash.diagnostics.mojom.TopRowKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('top_right_key', 48, 0, ash.diagnostics.mojom.TopRightKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_assistant_key', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bottom_left_layout', 56, 0, ash.diagnostics.mojom.BottomLeftLayoutSpec, null, false, 1, undefined),
+      mojo.internal.StructField('bottom_right_layout', 60, 0, ash.diagnostics.mojom.BottomRightLayoutSpec, null, false, 1, undefined),
+      mojo.internal.StructField('numpad_layout', 64, 0, ash.diagnostics.mojom.NumpadLayoutSpec, null, false, 1, undefined),
     ],
-    [[0, 64], [1, 72]]);
+    [[0, 64], [1, 80]]);
 
 // Struct: KeyboardDiagnosticEventInfo
 mojo.internal.Struct(

@@ -57,9 +57,9 @@ media.mojom.MediaURLScheme = {
 // Interface: MediaMetricsProvider
 mojo.internal.Struct(
     media.mojom.MediaMetricsProvider_Initialize_ParamsSpec, 'media.mojom.MediaMetricsProvider_Initialize_Params', [
-      mojo.internal.StructField('is_mse', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('url_scheme', 0, 0, media.mojom.MediaURLSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('stream_type', 4, 0, media.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_mse', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('url_scheme', 4, 0, media.mojom.MediaURLSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 8, 0, media.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

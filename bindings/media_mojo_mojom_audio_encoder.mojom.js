@@ -41,10 +41,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioEncoderConfigSpec, 'media.mojom.AudioEncoderConfig', [
       mojo.internal.StructField('codec', 0, 0, media.mojom.AudioCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('channel_count', 24, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('sample_rate', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('bitrate', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('aac', 8, 0, media.mojom.AacAudioEncoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_count', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('sample_rate', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bitrate', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('aac', 24, 0, media.mojom.AacAudioEncoderConfigSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

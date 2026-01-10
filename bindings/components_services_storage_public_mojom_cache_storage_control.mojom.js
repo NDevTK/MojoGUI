@@ -123,8 +123,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('document_isolation_policy', 16, 0, network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('dip_reporter', 24, 0, mojo.internal.InterfaceProxy(network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
       mojo.internal.StructField('bucket_locator', 32, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('owner', 48, 0, storage.mojom.CacheStorageOwnerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 40, 0, mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('owner', 40, 0, storage.mojom.CacheStorageOwnerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 48, 0, mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
     ],
     [[0, 64]]);
 

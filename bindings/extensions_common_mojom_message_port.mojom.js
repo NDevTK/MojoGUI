@@ -74,17 +74,17 @@ mojo.internal.Struct(
     extensions.mojom.PortIdSpec, 'extensions.mojom.PortId', [
       mojo.internal.StructField('context_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('port_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_opener', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('serialization_format', 12, 0, extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_opener', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('serialization_format', 16, 0, extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: MessagingEndpoint
 mojo.internal.Struct(
     extensions.mojom.MessagingEndpointSpec, 'extensions.mojom.MessagingEndpoint', [
-      mojo.internal.StructField('type', 16, 0, extensions.mojom.MessagingEndpointTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('extension_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('native_app_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, extensions.mojom.MessagingEndpointTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extension_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('native_app_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -92,9 +92,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mojom.TabConnectionInfoSpec, 'extensions.mojom.TabConnectionInfo', [
       mojo.internal.StructField('tab', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('document_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('document_lifecycle', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('document_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_lifecycle', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -202,8 +202,8 @@ extensions.mojom.MessagePortRequest = extensions.mojom.MessagePortPendingReceive
 // Interface: MessagePortHost
 mojo.internal.Struct(
     extensions.mojom.MessagePortHost_ClosePort_ParamsSpec, 'extensions.mojom.MessagePortHost_ClosePort_Params', [
-      mojo.internal.StructField('close_channel', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('close_channel', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

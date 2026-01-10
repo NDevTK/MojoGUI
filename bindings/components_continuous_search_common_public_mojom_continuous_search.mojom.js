@@ -49,8 +49,8 @@ mojo.internal.Struct(
 // Struct: ResultGroup
 mojo.internal.Struct(
     continuous_search.mojom.ResultGroupSpec, 'continuous_search.mojom.ResultGroup', [
-      mojo.internal.StructField('type', 8, 0, continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -58,8 +58,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     continuous_search.mojom.CategoryResultsSpec, 'continuous_search.mojom.CategoryResults', [
       mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('category_type', 16, 0, continuous_search.mojom.CategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('groups', 8, 0, mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('category_type', 8, 0, continuous_search.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('groups', 16, 0, mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -72,8 +72,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, continuous_search.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 0, 0, continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, continuous_search.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

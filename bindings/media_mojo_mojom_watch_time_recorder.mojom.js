@@ -27,15 +27,15 @@ media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = { $: {} };
 // Struct: PlaybackProperties
 mojo.internal.Struct(
     media.mojom.PlaybackPropertiesSpec, 'media.mojom.PlaybackProperties', [
-      mojo.internal.StructField('has_audio', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_video', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_background', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_muted', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_eme', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_embedded_media_experience', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('media_stream_type', 0, 0, media.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('renderer_type', 4, 0, media.mojom.RendererTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('demuxer_type', 8, 0, media.mojom.DemuxerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_audio', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_video', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_background', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_muted', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_eme', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_embedded_media_experience', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('media_stream_type', 4, 0, media.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_type', 8, 0, media.mojom.RendererTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('demuxer_type', 12, 0, media.mojom.DemuxerTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -107,8 +107,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_Params', [
-      mojo.internal.StructField('total_completed_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('total_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_completed_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('total_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

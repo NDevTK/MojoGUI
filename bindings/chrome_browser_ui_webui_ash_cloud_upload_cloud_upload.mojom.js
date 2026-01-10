@@ -112,10 +112,10 @@ mojo.internal.Union(
 // Struct: DialogTask
 mojo.internal.Struct(
     ash.cloud_upload.mojom.DialogTaskSpec, 'ash.cloud_upload.mojom.DialogTask', [
-      mojo.internal.StructField('position', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -42,7 +42,7 @@ mojo.internal.Union(
 // Struct: RegistrationHeaderError
 mojo.internal.Struct(
     attribution_reporting.mojom.RegistrationHeaderErrorSpec, 'attribution_reporting.mojom.RegistrationHeaderError', [
-      mojo.internal.StructField('header_value', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error_details', 0, 0, attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('header_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_details', 8, 0, attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

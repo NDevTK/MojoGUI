@@ -31,33 +31,33 @@ printing.mojom.Status = {
 // Interface: PdfNupConverter
 mojo.internal.Struct(
     printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec, 'printing.mojom.PdfNupConverter_NupPageConvert_Params', [
-      mojo.internal.StructField('pages_per_sheet', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('printable_area', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pdf_page_regions', 16, 0, mojo.internal.Array(mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pages_per_sheet', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printable_area', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_page_regions', 24, 0, mojo.internal.Array(mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec, 'printing.mojom.PdfNupConverter_NupPageConvert_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec, 'printing.mojom.PdfNupConverter_NupDocumentConvert_Params', [
-      mojo.internal.StructField('pages_per_sheet', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('printable_area', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('src_pdf_region', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pages_per_sheet', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printable_area', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('src_pdf_region', 24, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec, 'printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

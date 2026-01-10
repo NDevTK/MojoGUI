@@ -97,8 +97,8 @@ mojo.internal.Struct(
 // Struct: SelectAudioOutputResult
 mojo.internal.Struct(
     blink.mojom.SelectAudioOutputResultSpec, 'blink.mojom.SelectAudioOutputResult', [
-      mojo.internal.StructField('status', 8, 0, blink.mojom.AudioOutputStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_info', 0, 0, blink.mojom.MediaDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.AudioOutputStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 8, 0, blink.mojom.MediaDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -108,10 +108,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('parameters', 16, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_valid', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('channels', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('sample_rate', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('latency', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_valid', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('channels', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sample_rate', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('latency', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -182,10 +182,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_Params', [
-      mojo.internal.StructField('subscribe_audio_input', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('subscribe_video_input', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('subscribe_audio_output', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.MediaDevicesListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('subscribe_audio_input', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subscribe_video_input', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subscribe_audio_output', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('listener', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.MediaDevicesListenerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -387,8 +387,8 @@ blink.mojom.MediaDevicesDispatcherHostRequest = blink.mojom.MediaDevicesDispatch
 // Interface: MediaDevicesListener
 mojo.internal.Struct(
     blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec, 'blink.mojom.MediaDevicesListener_OnDevicesChanged_Params', [
-      mojo.internal.StructField('type', 8, 0, blink.mojom.MediaDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_infos', 0, 0, mojo.internal.Array(blink.mojom.MediaDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.MediaDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_infos', 8, 0, mojo.internal.Array(blink.mojom.MediaDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

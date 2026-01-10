@@ -41,9 +41,9 @@ content.mojom.ChooserEventType = {
 // Struct: FakeBluetoothChooserEvent
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooserEventSpec, 'content.mojom.FakeBluetoothChooserEvent', [
-      mojo.internal.StructField('type', 16, 0, content.mojom.ChooserEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('peripheral_address', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, content.mojom.ChooserEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('peripheral_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

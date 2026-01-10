@@ -34,8 +34,8 @@ prefs.mojom.ValueState = {
 // Interface: TrackedPreferenceValidationDelegate
 mojo.internal.Struct(
     prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
-      mojo.internal.StructField('pref_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('value_state', 24, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('external_validation_value_state', 28, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),

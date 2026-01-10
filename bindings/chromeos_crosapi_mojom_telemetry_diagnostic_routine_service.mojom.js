@@ -353,8 +353,8 @@ mojo.internal.Union(
 // Struct: TelemetryDiagnosticMemoryRoutineArgument
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgument', [
-      mojo.internal.StructField('max_testing_mem_kib_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_testing_mem_kib_$value', originalFieldName: 'max_testing_mem_kib' }),
-      mojo.internal.StructField('max_testing_mem_kib_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_testing_mem_kib_$flag', originalFieldName: 'max_testing_mem_kib' }),
+      mojo.internal.StructField('max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_testing_mem_kib_$value', originalFieldName: 'max_testing_mem_kib' }),
+      mojo.internal.StructField('max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_testing_mem_kib_$flag', originalFieldName: 'max_testing_mem_kib' }),
     ],
     [[0, 16]]);
 
@@ -499,16 +499,16 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticRoutineStateFinished
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateFinished', [
-      mojo.internal.StructField('has_passed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('detail', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec, null, true, 0, undefined),
+      mojo.internal.StructField('has_passed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('detail', 8, 0, crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: TelemetryDiagnosticRoutineState
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineStateSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineState', [
-      mojo.internal.StructField('percentage', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('state_union', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('percentage', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('state_union', 8, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

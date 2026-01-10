@@ -38,23 +38,23 @@ mojo.internal.Struct(
 // Interface: SelectFileDialog
 mojo.internal.Struct(
     remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_Params', [
-      mojo.internal.StructField('type', 32, 0, remote_cocoa.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('file_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_types', 16, 0, remote_cocoa.mojom.SelectFileTypeInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('file_type_index', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('default_extension', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, remote_cocoa.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('file_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_types', 24, 0, remote_cocoa.mojom.SelectFileTypeInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file_type_index', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('default_extension', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_ResponseParams', [
-      mojo.internal.StructField('was_cancelled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('was_cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('files', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('file_tags', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_tags', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 remote_cocoa.mojom.SelectFileDialogPendingReceiver = class {
   constructor(handle) {

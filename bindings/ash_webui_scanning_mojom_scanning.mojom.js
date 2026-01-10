@@ -93,11 +93,11 @@ ash.scanning.mojom.ScanResult = {
 // Struct: ScanSource
 mojo.internal.Struct(
     ash.scanning.mojom.ScanSourceSpec, 'ash.scanning.mojom.ScanSource', [
-      mojo.internal.StructField('type', 32, 0, ash.scanning.mojom.SourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('page_sizes', 8, 0, mojo.internal.Array(ash.scanning.mojom.PageSizeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('color_modes', 16, 0, mojo.internal.Array(ash.scanning.mojom.ColorModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('resolutions', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.scanning.mojom.SourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('page_sizes', 16, 0, mojo.internal.Array(ash.scanning.mojom.PageSizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('color_modes', 24, 0, mojo.internal.Array(ash.scanning.mojom.ColorModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resolutions', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -145,8 +145,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnScanComplete_Params', [
-      mojo.internal.StructField('result', 8, 0, ash.scanning.mojom.ScanResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scanned_file_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.scanning.mojom.ScanResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scanned_file_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -131,9 +131,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveResponse_Params', [
-      mojo.internal.StructField('head', 16, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('body', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('cached_metadata', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('head', 0, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('body', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('cached_metadata', 16, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

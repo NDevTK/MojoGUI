@@ -30,19 +30,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('touchscreen_emulation', 0, 3, mojo.internal.Bool, false, false, 2, undefined),
       mojo.internal.StructField('rounded_window_compat_strategy', 4, 0, arc.mojom.RoundedWindowCompatStrategySpec, null, false, 3, undefined),
       mojo.internal.StructField('rounded_window_radius', 8, 0, mojo.internal.Int32, 0, false, 3, undefined),
-      mojo.internal.StructField('xdg_mode', 0, 4, mojo.internal.Bool, false, false, 4, undefined),
-      mojo.internal.StructField('enable_pip_double_tap', 0, 5, mojo.internal.Bool, false, false, 5, undefined),
-      mojo.internal.StructField('render_arc_notifications_by_chrome', 0, 6, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('game_dashboard', 0, 7, mojo.internal.Bool, false, false, 7, undefined),
-      mojo.internal.StructField('resize_compat', 1, 0, mojo.internal.Bool, false, false, 8, undefined),
-      mojo.internal.StructField('ignore_hover_event_anr', 1, 1, mojo.internal.Bool, false, false, 9, undefined),
-      mojo.internal.StructField('extend_input_anr_timeout', 1, 2, mojo.internal.Bool, false, false, 10, undefined),
-      mojo.internal.StructField('notification_width_increase', 1, 3, mojo.internal.Bool, false, false, 11, undefined),
-      mojo.internal.StructField('enable_friendlier_error_dialog', 1, 4, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('extend_service_anr_timeout', 1, 5, mojo.internal.Bool, false, false, 13, undefined),
-      mojo.internal.StructField('extend_intent_anr_timeout', 1, 6, mojo.internal.Bool, false, false, 14, undefined),
+      mojo.internal.StructField('xdg_mode', 12, 0, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('enable_pip_double_tap', 12, 1, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('render_arc_notifications_by_chrome', 12, 2, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('game_dashboard', 12, 3, mojo.internal.Bool, false, false, 7, undefined),
+      mojo.internal.StructField('resize_compat', 12, 4, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('ignore_hover_event_anr', 12, 5, mojo.internal.Bool, false, false, 9, undefined),
+      mojo.internal.StructField('extend_input_anr_timeout', 12, 6, mojo.internal.Bool, false, false, 10, undefined),
+      mojo.internal.StructField('notification_width_increase', 12, 7, mojo.internal.Bool, false, false, 11, undefined),
+      mojo.internal.StructField('enable_friendlier_error_dialog', 13, 0, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('extend_service_anr_timeout', 13, 1, mojo.internal.Bool, false, false, 13, undefined),
+      mojo.internal.StructField('extend_intent_anr_timeout', 13, 2, mojo.internal.Bool, false, false, 14, undefined),
     ],
-    [[0, 16], [2, 16], [3, 24], [4, 16], [5, 16], [6, 16], [7, 16], [8, 16], [9, 16], [10, 16], [11, 16], [12, 16], [13, 16], [14, 16]]);
+    [[0, 16], [2, 16], [3, 24], [4, 24], [5, 24], [6, 24], [7, 24], [8, 24], [9, 24], [10, 24], [11, 24], [12, 24], [13, 24], [14, 24]]);
 
 // Interface: ChromeFeatureFlagsInstance
 mojo.internal.Struct(

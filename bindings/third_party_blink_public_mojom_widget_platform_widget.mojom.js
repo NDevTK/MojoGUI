@@ -135,8 +135,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_Params', [
       mojo.internal.StructField('tooltip_text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('text_direction_hint', 16, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_direction_hint', 8, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -154,13 +154,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec, 'blink.mojom.WidgetHost_SelectionBoundsChanged_Params', [
       mojo.internal.StructField('anchor_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('anchor_dir', 24, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('focus_rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('focus_dir', 28, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bounding_box_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_anchor_first', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('anchor_dir', 8, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('focus_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('focus_dir', 24, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_anchor_first', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec, 'blink.mojom.WidgetHost_CreateFrameSink_Params', [
@@ -333,8 +333,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.Widget_WasShown_ParamsSpec, 'blink.mojom.Widget_WasShown_Params', [
-      mojo.internal.StructField('was_evicted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('record_tab_switch_time_request', 0, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('was_evicted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('record_tab_switch_time_request', 8, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -486,8 +486,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec, 'blink.mojom.RenderInputRouterClient_ShowContextMenu_Params', [
-      mojo.internal.StructField('source_type', 8, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('location', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_type', 0, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

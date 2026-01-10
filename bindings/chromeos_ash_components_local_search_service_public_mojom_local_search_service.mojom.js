@@ -113,10 +113,10 @@ ash.local_search_service.mojom.SearchMetricsReporterRequest = ash.local_search_s
 // Interface: LocalSearchService
 mojo.internal.Struct(
     ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_Params', [
-      mojo.internal.StructField('index_id', 16, 0, ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('backend', 20, 0, ash.local_search_service.mojom.BackendSpec, null, false, 0, undefined),
-      mojo.internal.StructField('index_receiver', 0, 0, mojo.internal.InterfaceRequest(ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
-      mojo.internal.StructField('reporter_remote', 8, 0, mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('index_id', 0, 0, ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('backend', 4, 0, ash.local_search_service.mojom.BackendSpec, null, false, 0, undefined),
+      mojo.internal.StructField('index_receiver', 8, 0, mojo.internal.InterfaceRequest(ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
+      mojo.internal.StructField('reporter_remote', 16, 0, mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

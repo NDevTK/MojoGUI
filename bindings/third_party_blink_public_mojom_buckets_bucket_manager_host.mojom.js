@@ -57,15 +57,15 @@ blink.mojom.BucketError = {
 // Struct: BucketPolicies
 mojo.internal.Struct(
     blink.mojom.BucketPoliciesSpec, 'blink.mojom.BucketPolicies', [
-      mojo.internal.StructField('persisted', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_persisted', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('durability', 16, 0, blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_durability', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('quota', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('has_quota', 20, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('expires', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('persisted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_persisted', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('durability', 4, 0, blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_durability', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('quota', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('has_quota', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('expires', 32, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Interface: BucketHost
 mojo.internal.Struct(

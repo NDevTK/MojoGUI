@@ -502,8 +502,8 @@ mojo.internal.Struct(
 // Struct: KeyParameter
 mojo.internal.Struct(
     arc.mojom.keymint.KeyParameterSpec, 'arc.mojom.keymint.KeyParameter', [
-      mojo.internal.StructField('tag', 16, 0, arc.mojom.keymint.TagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, arc.mojom.keymint.KeyParameterValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tag', 0, 0, arc.mojom.keymint.TagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, arc.mojom.keymint.KeyParameterValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -534,8 +534,8 @@ mojo.internal.Struct(
 // Struct: KeyCharacteristics
 mojo.internal.Struct(
     arc.mojom.keymint.KeyCharacteristicsSpec, 'arc.mojom.keymint.KeyCharacteristics', [
-      mojo.internal.StructField('security_level', 8, 0, arc.mojom.keymint.SecurityLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('authorizations', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('security_level', 0, 0, arc.mojom.keymint.SecurityLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('authorizations', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -551,9 +551,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.keymint.ImportKeyRequestSpec, 'arc.mojom.keymint.ImportKeyRequest', [
       mojo.internal.StructField('key_params', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_format', 24, 0, arc.mojom.keymint.KeyFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('attestation_key', 16, 0, arc.mojom.keymint.AttestationKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('key_format', 8, 0, arc.mojom.keymint.KeyFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('attestation_key', 24, 0, arc.mojom.keymint.AttestationKeySpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -580,10 +580,10 @@ mojo.internal.Struct(
 // Struct: BeginRequest
 mojo.internal.Struct(
     arc.mojom.keymint.BeginRequestSpec, 'arc.mojom.keymint.BeginRequest', [
-      mojo.internal.StructField('key_purpose', 24, 0, arc.mojom.keymint.KeyPurposeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_blob', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('params', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('auth_token', 16, 0, arc.mojom.keymint.HardwareAuthTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('key_purpose', 0, 0, arc.mojom.keymint.KeyPurposeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_blob', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('params', 16, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('auth_token', 24, 0, arc.mojom.keymint.HardwareAuthTokenSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -602,9 +602,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('challenge', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('user_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('authenticator_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('authenticator_type', 40, 0, arc.mojom.keymint.HardwareAuthenticatorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 24, 0, arc.mojom.keymint.TimestampSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mac', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('authenticator_type', 24, 0, arc.mojom.keymint.HardwareAuthenticatorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, arc.mojom.keymint.TimestampSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mac', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -680,10 +680,10 @@ mojo.internal.Struct(
 // Struct: CertificateRequest
 mojo.internal.Struct(
     arc.mojom.keymint.CertificateRequestSpec, 'arc.mojom.keymint.CertificateRequest', [
-      mojo.internal.StructField('test_mode', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keys_to_sign', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyMintBlobSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('encryption_cert_chain', 8, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
-      mojo.internal.StructField('challenge', 16, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
+      mojo.internal.StructField('test_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('keys_to_sign', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyMintBlobSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('encryption_cert_chain', 16, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
+      mojo.internal.StructField('challenge', 24, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -950,8 +950,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_DeviceLocked_Params', [
-      mojo.internal.StructField('password_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('timestamp_token', 0, 0, arc.mojom.keymint.TimeStampTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('timestamp_token', 8, 0, arc.mojom.keymint.TimeStampTokenSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

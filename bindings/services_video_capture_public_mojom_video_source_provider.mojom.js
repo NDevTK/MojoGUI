@@ -39,8 +39,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, video_capture.mojom.GetSourceInfosResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_infos', 0, 0, mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, video_capture.mojom.GetSourceInfosResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_infos', 8, 0, mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

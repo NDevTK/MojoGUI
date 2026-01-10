@@ -48,11 +48,11 @@ mojo.internal.Struct(
     blink.mojom.ScrollIntoViewParamsSpec, 'blink.mojom.ScrollIntoViewParams', [
       mojo.internal.StructField('align_x', 0, 0, blink.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
       mojo.internal.StructField('align_y', 8, 0, blink.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, blink.mojom.ScrollTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('make_visible_in_visual_viewport', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('behavior', 28, 0, blink.mojom.ScrollBehaviorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_for_scroll_sequence', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('for_focused_editable', 16, 0, blink.mojom.FocusedEditableParamsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('cross_origin_boundaries', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, blink.mojom.ScrollTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('make_visible_in_visual_viewport', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('behavior', 24, 0, blink.mojom.ScrollBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_for_scroll_sequence', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('for_focused_editable', 32, 0, blink.mojom.FocusedEditableParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cross_origin_boundaries', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);

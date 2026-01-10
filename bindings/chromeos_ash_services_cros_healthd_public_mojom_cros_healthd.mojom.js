@@ -226,8 +226,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_Params', [
-      mojo.internal.StructField('expected_status', 8, 0, ash.cros_healthd.mojom.AcPowerStatusEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('expected_power_type', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('expected_status', 0, 0, ash.cros_healthd.mojom.AcPowerStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expected_power_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -363,8 +363,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_Params', [
-      mojo.internal.StructField('max_testing_mem_kib_$flag', 4, 0, mojo.internal.Bool, false, false, 10, { isPrimary: true, linkedValueFieldName: 'max_testing_mem_kib_$value', originalFieldName: 'max_testing_mem_kib' }),
-      mojo.internal.StructField('max_testing_mem_kib_$value', 0, 0, mojo.internal.Uint32, 0, false, 10, { isPrimary: false, linkedValueFieldName: 'max_testing_mem_kib_$flag', originalFieldName: 'max_testing_mem_kib' }),
+      mojo.internal.StructField('max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 10, { isPrimary: true, linkedValueFieldName: 'max_testing_mem_kib_$value', originalFieldName: 'max_testing_mem_kib' }),
+      mojo.internal.StructField('max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 10, { isPrimary: false, linkedValueFieldName: 'max_testing_mem_kib_$flag', originalFieldName: 'max_testing_mem_kib' }),
     ],
     [[0, 8], [10, 16]]);
 
@@ -587,9 +587,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_Params', [
-      mojo.internal.StructField('name', 8, 0, ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color', 12, 0, ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('replier', 0, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color', 4, 0, ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('replier', 8, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1263,8 +1263,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_Params', [
-      mojo.internal.StructField('category', 8, 0, ash.cros_healthd.mojom.EventCategoryEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.EventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, ash.cros_healthd.mojom.EventCategoryEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.EventObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

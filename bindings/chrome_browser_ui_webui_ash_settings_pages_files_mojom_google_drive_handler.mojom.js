@@ -35,11 +35,11 @@ mojo.internal.Struct(
     ash.settings.google_drive.mojom.StatusSpec, 'ash.settings.google_drive.mojom.Status', [
       mojo.internal.StructField('required_space', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('free_space', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('stage', 24, 0, drivefs.pinning_manager_types.mojom.StageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('listed_files', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('is_error', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('stage', 16, 0, drivefs.pinning_manager_types.mojom.StageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listed_files', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_error', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(

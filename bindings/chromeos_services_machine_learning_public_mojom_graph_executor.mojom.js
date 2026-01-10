@@ -41,8 +41,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, chromeos.machine_learning.mojom.ExecuteResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('outputs', 0, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TensorSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.ExecuteResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outputs', 8, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TensorSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

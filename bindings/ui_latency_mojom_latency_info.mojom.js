@@ -32,10 +32,10 @@ mojo.internal.Struct(
     ui.mojom.LatencyInfoSpec, 'ui.mojom.LatencyInfo', [
       mojo.internal.StructField('latency_components', 0, 0, mojo.internal.Map(ui.mojom.LatencyComponentTypeSpec, mojo_base.mojom.TimeTicksSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('coalesced', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('began', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('terminated', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('gesture_scroll_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('touch_trace_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('coalesced', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('began', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('terminated', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('gesture_scroll_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('touch_trace_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 48]]);

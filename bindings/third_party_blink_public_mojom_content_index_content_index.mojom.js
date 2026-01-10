@@ -62,9 +62,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('category', 40, 0, blink.mojom.ContentCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('icons', 24, 0, mojo.internal.Array(blink.mojom.ContentIconDefinitionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('launch_url', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('category', 24, 0, blink.mojom.ContentCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('icons', 32, 0, mojo.internal.Array(blink.mojom.ContentIconDefinitionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('launch_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -117,8 +117,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec, 'blink.mojom.ContentIndexService_GetDescriptions_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('descriptions', 0, 0, mojo.internal.Array(blink.mojom.ContentDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('descriptions', 8, 0, mojo.internal.Array(blink.mojom.ContentDescriptionSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -187,8 +187,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.MtpManager_CreateDirectory_ParamsSpec, 'device.mojom.MtpManager_CreateDirectory_Params', [
       mojo.internal.StructField('storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('parent_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('directory_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parent_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('directory_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -245,8 +245,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.MtpManager_RenameObject_ParamsSpec, 'device.mojom.MtpManager_RenameObject_Params', [
       mojo.internal.StructField('storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('object_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('new_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('object_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('new_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -260,8 +260,8 @@ mojo.internal.Struct(
     device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec, 'device.mojom.MtpManager_CopyFileFromLocal_Params', [
       mojo.internal.StructField('storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('source_file_descriptor', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('parent_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('file_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parent_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('file_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

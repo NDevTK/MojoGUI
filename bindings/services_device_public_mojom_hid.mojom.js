@@ -282,39 +282,39 @@ mojo.internal.Struct(
 // Struct: HidReportItem
 mojo.internal.Struct(
     device.mojom.HidReportItemSpec, 'device.mojom.HidReportItem', [
-      mojo.internal.StructField('is_range', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_constant', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_variable', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_relative', 72, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('wrap', 72, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_non_linear', 72, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('no_preferred_state', 72, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_null_position', 72, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_volatile', 73, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_buffered_bytes', 73, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('usages', 0, 0, mojo.internal.Array(device.mojom.HidUsageAndPageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('usage_minimum', 8, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('usage_maximum', 16, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('designator_minimum', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('designator_maximum', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('string_minimum', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('string_maximum', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('logical_minimum', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('logical_maximum', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('physical_minimum', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('physical_maximum', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('unit_exponent', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('unit', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('report_size', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('report_count', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_range', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_constant', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_variable', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_relative', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('wrap', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_non_linear', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('no_preferred_state', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_null_position', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_volatile', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_buffered_bytes', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('usages', 8, 0, mojo.internal.Array(device.mojom.HidUsageAndPageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('usage_minimum', 16, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('usage_maximum', 24, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('designator_minimum', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('designator_maximum', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('string_minimum', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('string_maximum', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('logical_minimum', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('logical_maximum', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('physical_minimum', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('physical_maximum', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('unit_exponent', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('unit', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('report_size', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('report_count', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 88]]);
 
 // Struct: HidReportDescription
 mojo.internal.Struct(
     device.mojom.HidReportDescriptionSpec, 'device.mojom.HidReportDescription', [
-      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('items', 0, 0, mojo.internal.Array(device.mojom.HidReportItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('items', 8, 0, mojo.internal.Array(device.mojom.HidReportItemSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -323,11 +323,11 @@ mojo.internal.Struct(
     device.mojom.HidCollectionInfoSpec, 'device.mojom.HidCollectionInfo', [
       mojo.internal.StructField('usage', 0, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
       mojo.internal.StructField('report_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('collection_type', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('input_reports', 16, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('output_reports', 24, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('feature_reports', 32, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('children', 40, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('collection_type', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('input_reports', 24, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_reports', 32, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('feature_reports', 40, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('children', 48, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -336,24 +336,24 @@ mojo.internal.Struct(
     device.mojom.HidDeviceInfoSpec, 'device.mojom.HidDeviceInfo', [
       mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('physical_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('vendor_id', 84, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('product_id', 86, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('product_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('serial_number', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bus_type', 80, 0, device.mojom.HidBusTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('report_descriptor', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('collections', 40, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('has_report_id', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_input_report_size', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('max_output_report_size', 56, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('max_feature_report_size', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('device_node', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('protected_input_report_ids', 96, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
-      mojo.internal.StructField('protected_output_report_ids', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
-      mojo.internal.StructField('protected_feature_report_ids', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
-      mojo.internal.StructField('is_excluded_by_blocklist', 88, 1, mojo.internal.Bool, false, false, 3, undefined),
+      mojo.internal.StructField('vendor_id', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('product_id', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('product_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('serial_number', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bus_type', 40, 0, device.mojom.HidBusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_descriptor', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('collections', 56, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_report_id', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_input_report_size', 72, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('max_output_report_size', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('max_feature_report_size', 88, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('device_node', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('protected_input_report_ids', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('protected_output_report_ids', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('protected_feature_report_ids', 120, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('is_excluded_by_blocklist', 128, 0, mojo.internal.Bool, false, false, 3, undefined),
     ],
-    [[0, 104], [1, 128], [3, 104]]);
+    [[0, 112], [1, 136], [3, 144]]);
 
 // Interface: HidManagerClient
 mojo.internal.Struct(
@@ -587,16 +587,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.HidConnection_Read_ResponseParamsSpec, 'device.mojom.HidConnection_Read_ResponseParams', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('report_id', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('report_id', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.HidConnection_Write_ParamsSpec, 'device.mojom.HidConnection_Write_Params', [
-      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -614,15 +614,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec, 'device.mojom.HidConnection_GetFeatureReport_ResponseParams', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.HidConnection_SendFeatureReport_ParamsSpec, 'device.mojom.HidConnection_SendFeatureReport_Params', [
-      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -719,8 +719,8 @@ device.mojom.HidConnectionRequest = device.mojom.HidConnectionPendingReceiver;
 // Interface: HidConnectionClient
 mojo.internal.Struct(
     device.mojom.HidConnectionClient_OnInputReport_ParamsSpec, 'device.mojom.HidConnectionClient_OnInputReport_Params', [
-      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -291,8 +291,8 @@ mojo.internal.Struct(
     device.mojom.SmartCardReaderStateOutSpec, 'device.mojom.SmartCardReaderStateOut', [
       mojo.internal.StructField('reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('event_state', 8, 0, device.mojom.SmartCardReaderStateFlagsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('event_count', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('answer_to_reset', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('event_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('answer_to_reset', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -309,9 +309,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SmartCardStatusSpec, 'device.mojom.SmartCardStatus', [
       mojo.internal.StructField('reader_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('state', 16, 0, device.mojom.SmartCardConnectionStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('protocol', 20, 0, device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('answer_to_reset', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, device.mojom.SmartCardConnectionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 12, 0, device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('answer_to_reset', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -408,8 +408,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SmartCardConnection_Transmit_ParamsSpec, 'device.mojom.SmartCardConnection_Transmit_Params', [
-      mojo.internal.StructField('protocol', 8, 0, device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 0, 0, device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -421,8 +421,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SmartCardConnection_Control_ParamsSpec, 'device.mojom.SmartCardConnection_Control_Params', [
-      mojo.internal.StructField('control_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('control_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -446,8 +446,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SmartCardConnection_SetAttrib_ParamsSpec, 'device.mojom.SmartCardConnection_SetAttrib_Params', [
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -692,9 +692,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SmartCardContext_Connect_ParamsSpec, 'device.mojom.SmartCardContext_Connect_Params', [
       mojo.internal.StructField('reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('share_mode', 24, 0, device.mojom.SmartCardShareModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('preferred_protocols', 8, 0, device.mojom.SmartCardProtocolsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connection_watcher', 16, 0, mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('share_mode', 8, 0, device.mojom.SmartCardShareModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preferred_protocols', 16, 0, device.mojom.SmartCardProtocolsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_watcher', 24, 0, mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

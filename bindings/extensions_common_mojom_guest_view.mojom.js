@@ -134,8 +134,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec, 'extensions.mojom.MimeHandlerViewContainerManager_DidLoad_Params', [
-      mojo.internal.StructField('mime_handler_view_guest_element_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('resource_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_handler_view_guest_element_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resource_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

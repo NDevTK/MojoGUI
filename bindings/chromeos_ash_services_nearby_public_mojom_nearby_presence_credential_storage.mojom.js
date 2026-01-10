@@ -47,8 +47,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shared_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_credentials', 8, 0, mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -59,8 +59,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_credentials', 0, 0, mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local_credentials', 8, 0, mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

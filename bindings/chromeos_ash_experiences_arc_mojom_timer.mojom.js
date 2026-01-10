@@ -59,8 +59,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.TimerHost_StartTimer_ParamsSpec, 'arc.mojom.TimerHost_StartTimer_Params', [
-      mojo.internal.StructField('clock_id', 8, 0, arc.mojom.ClockIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('absolute_expiration_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('absolute_expiration_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

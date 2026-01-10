@@ -52,9 +52,9 @@ chromeos.machine_learning.mojom.LoadHandwritingModelResult = {
 // Struct: InkPoint
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.InkPointSpec, 'chromeos.machine_learning.mojom.InkPoint', [
-      mojo.internal.StructField('x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('t', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('t', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -120,8 +120,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizerCandidate', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('score', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('segmentation', 8, 0, chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('segmentation', 16, 0, chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

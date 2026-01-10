@@ -47,18 +47,18 @@ mojo.internal.Struct(
 // Struct: PlaybackData
 mojo.internal.Struct(
     ash.focus_mode.mojom.PlaybackDataSpec, 'ash.focus_mode.mojom.PlaybackData', [
-      mojo.internal.StructField('state', 32, 0, ash.focus_mode.mojom.PlaybackStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('client_current_time', 16, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('playback_start_offset', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('media_time_current', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('media_start', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('media_end', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('client_start_time', 24, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('initial_playback', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.focus_mode.mojom.PlaybackStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_current_time', 24, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('playback_start_offset', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('media_time_current', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('media_start', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('media_end', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('client_start_time', 48, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initial_playback', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Interface: MediaClient
 mojo.internal.Struct(

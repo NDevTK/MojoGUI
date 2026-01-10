@@ -129,8 +129,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('field_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('caret_bounds', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('trigger_source', 32, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('password_request', 24, 0, autofill.mojom.PasswordSuggestionRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('trigger_source', 24, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password_request', 32, 0, autofill.mojom.PasswordSuggestionRequestSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 

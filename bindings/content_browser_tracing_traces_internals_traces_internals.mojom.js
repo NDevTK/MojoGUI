@@ -100,24 +100,24 @@ mojo.internal.Struct(
       mojo.internal.StructField('creation_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('scenario_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('upload_rule_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('upload_rule_value_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'upload_rule_value_$value', originalFieldName: 'upload_rule_value' }),
-      mojo.internal.StructField('upload_rule_value_$value', 48, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'upload_rule_value_$flag', originalFieldName: 'upload_rule_value' }),
-      mojo.internal.StructField('total_size', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('upload_state', 52, 0, traces_internals.mojom.ReportUploadStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('upload_time', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('skip_reason', 56, 0, traces_internals.mojom.SkipUploadReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_trace_content', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('upload_rule_value_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'upload_rule_value_$value', originalFieldName: 'upload_rule_value' }),
+      mojo.internal.StructField('upload_rule_value_$value', 36, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'upload_rule_value_$flag', originalFieldName: 'upload_rule_value' }),
+      mojo.internal.StructField('total_size', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('upload_state', 48, 0, traces_internals.mojom.ReportUploadStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('upload_time', 56, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('skip_reason', 64, 0, traces_internals.mojom.SkipUploadReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_trace_content', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 
 // Struct: Scenario
 mojo.internal.Struct(
     traces_internals.mojom.ScenarioSpec, 'traces_internals.mojom.Scenario', [
       mojo.internal.StructField('scenario_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_local_scenario', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('current_state', 16, 0, traces_internals.mojom.TracingScenarioStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_local_scenario', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('current_state', 20, 0, traces_internals.mojom.TracingScenarioStateSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -125,9 +125,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     traces_internals.mojom.TraceCategorySpec, 'traces_internals.mojom.TraceCategory', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_group', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('tags', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_group', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tags', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -251,11 +251,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParams', [
-      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('percent_full', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('data_loss', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('percent_full', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('data_loss', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec, 'traces_internals.mojom.PageHandler_GetAllTraceReports_Params', [

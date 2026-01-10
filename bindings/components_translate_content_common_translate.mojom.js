@@ -41,18 +41,18 @@ mojo.internal.Struct(
     translate.mojom.LanguageDetectionDetailsSpec, 'translate.mojom.LanguageDetectionDetails', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('adopted_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_notranslate', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_run_lang_detection', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_language', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('model_detected_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_model_reliable', 68, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('html_root_language', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('contents', 48, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('model_reliability_score', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('detection_model_version', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_notranslate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_run_lang_detection', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('model_detected_language', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_model_reliable', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('html_root_language', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('contents', 64, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('model_reliability_score', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('detection_model_version', 80, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 96]]);
 
 // Interface: TranslateAgent
 mojo.internal.Struct(
@@ -65,12 +65,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec, 'translate.mojom.TranslateAgent_TranslateFrame_ResponseParams', [
-      mojo.internal.StructField('cancelled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('original_lang', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('translated_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, translate.mojom.TranslateErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('original_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('translated_lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 24, 0, translate.mojom.TranslateErrorSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec, 'translate.mojom.TranslateAgent_RevertTranslation_Params', [

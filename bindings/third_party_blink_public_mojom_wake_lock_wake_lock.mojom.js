@@ -16,10 +16,10 @@ blink.mojom.WakeLockService_GetWakeLock_ParamsSpec = { $: {} };
 // Interface: WakeLockService
 mojo.internal.Struct(
     blink.mojom.WakeLockService_GetWakeLock_ParamsSpec, 'blink.mojom.WakeLockService_GetWakeLock_Params', [
-      mojo.internal.StructField('type', 16, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 20, 0, device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('wake_lock', 8, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 4, 0, device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('wake_lock', 16, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

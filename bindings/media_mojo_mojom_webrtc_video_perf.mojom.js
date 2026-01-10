@@ -21,12 +21,12 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 // Struct: WebrtcPredictionFeatures
 mojo.internal.Struct(
     media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [
-      mojo.internal.StructField('is_decode_stats', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('profile', 0, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('video_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('hardware_accelerated', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_decode_stats', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('profile', 8, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_pixels', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hardware_accelerated', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: WebrtcVideoStats
 mojo.internal.Struct(

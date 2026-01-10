@@ -152,12 +152,12 @@ mojo.internal.Struct(
     payments.mojom.PaymentHandlerResponseSpec, 'payments.mojom.PaymentHandlerResponse', [
       mojo.internal.StructField('method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('stringified_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('response_type', 56, 0, payments.mojom.PaymentEventResponseTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('payer_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('payer_email', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('payer_phone', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('shipping_address', 40, 0, payments.mojom.PaymentAddressSpec, null, true, 0, undefined),
-      mojo.internal.StructField('shipping_option', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('response_type', 16, 0, payments.mojom.PaymentEventResponseTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payer_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('payer_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('payer_phone', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_address', 48, 0, payments.mojom.PaymentAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_option', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 72]]);
 

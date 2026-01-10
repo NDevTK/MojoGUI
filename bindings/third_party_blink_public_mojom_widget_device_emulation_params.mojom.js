@@ -24,17 +24,17 @@ blink.mojom.EmulatedScreenType = {
 // Struct: DeviceEmulationParams
 mojo.internal.Struct(
     blink.mojom.DeviceEmulationParamsSpec, 'blink.mojom.DeviceEmulationParams', [
-      mojo.internal.StructField('screen_type', 40, 0, blink.mojom.EmulatedScreenTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('screen_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('view_position', 8, 0, gfx.mojom.PointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('view_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_scale_factor', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('scale', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('viewport_offset', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('viewport_scale', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('screen_orientation_type', 56, 0, display.mojom.ScreenOrientationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('screen_orientation_angle', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('viewport_segments', 32, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('device_posture', 64, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen_type', 0, 0, blink.mojom.EmulatedScreenTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('view_position', 16, 0, gfx.mojom.PointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('view_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('scale', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('viewport_offset', 40, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('viewport_scale', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('screen_orientation_type', 52, 0, display.mojom.ScreenOrientationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen_orientation_angle', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('viewport_segments', 64, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_posture', 72, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);

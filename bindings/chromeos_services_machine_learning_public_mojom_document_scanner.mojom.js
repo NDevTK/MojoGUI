@@ -43,16 +43,16 @@ mojo.internal.Struct(
 // Struct: DetectCornersResult
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.DetectCornersResultSpec, 'chromeos.machine_learning.mojom.DetectCornersResult', [
-      mojo.internal.StructField('status', 8, 0, chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('corners', 0, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DoPostProcessingResult
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.DoPostProcessingResultSpec, 'chromeos.machine_learning.mojom.DoPostProcessingResult', [
-      mojo.internal.StructField('status', 8, 0, chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('processed_jpeg_image', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('processed_jpeg_image', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

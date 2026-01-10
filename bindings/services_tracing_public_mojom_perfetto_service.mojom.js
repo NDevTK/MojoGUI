@@ -120,21 +120,21 @@ mojo.internal.Struct(
 // Struct: ChunkPatch
 mojo.internal.Struct(
     tracing.mojom.ChunkPatchSpec, 'tracing.mojom.ChunkPatch', [
-      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ChunksToPatch
 mojo.internal.Struct(
     tracing.mojom.ChunksToPatchSpec, 'tracing.mojom.ChunksToPatch', [
-      mojo.internal.StructField('target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('writer_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('chunk_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('patches', 0, 0, mojo.internal.Array(tracing.mojom.ChunkPatchSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('has_more_patches', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('target_buffer', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('writer_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('chunk_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('patches', 16, 0, mojo.internal.Array(tracing.mojom.ChunkPatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_more_patches', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: CommitDataRequest
 mojo.internal.Struct(
@@ -175,16 +175,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.DataSourceConfigSpec, 'tracing.mojom.DataSourceConfig', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('target_buffer', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('trace_duration_ms', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('tracing_session_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('chrome_config', 16, 0, tracing.mojom.ChromeConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('interceptor_config', 24, 0, tracing.mojom.InterceptorConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('legacy_config', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('track_event_config_raw', 40, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('etw_config_raw', 48, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('system_metrics_config_raw', 56, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('histogram_samples_config_raw', 64, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('trace_duration_ms', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('tracing_session_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('chrome_config', 24, 0, tracing.mojom.ChromeConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interceptor_config', 32, 0, tracing.mojom.InterceptorConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('legacy_config', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('track_event_config_raw', 48, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('etw_config_raw', 56, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('system_metrics_config_raw', 64, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('histogram_samples_config_raw', 72, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -218,11 +218,11 @@ mojo.internal.Struct(
 // Struct: PerfettoBuiltinDataSource
 mojo.internal.Struct(
     tracing.mojom.PerfettoBuiltinDataSourceSpec, 'tracing.mojom.PerfettoBuiltinDataSource', [
-      mojo.internal.StructField('disable_clock_snapshotting', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('disable_trace_config', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('disable_system_info', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('disable_service_events', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('primary_trace_clock_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('disable_clock_snapshotting', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_trace_config', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_system_info', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_service_events', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('primary_trace_clock_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -240,10 +240,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('perfetto_builtin_data_source', 8, 0, tracing.mojom.PerfettoBuiltinDataSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('buffers', 16, 0, mojo.internal.Array(tracing.mojom.BufferConfigSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('incremental_state_config', 24, 0, tracing.mojom.IncrementalStateConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration_ms', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('write_into_file', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('trace_uuid', 32, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('unique_session_name', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('duration_ms', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('write_into_file', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trace_uuid', 40, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('unique_session_name', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -599,9 +599,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_ResponseParams', [
-      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('uuid', 8, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('uuid', 16, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -701,11 +701,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParams', [
-      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('percent_full', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('data_loss', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('percent_full', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('data_loss', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_Params', [

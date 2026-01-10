@@ -276,9 +276,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     gpu.mojom.GLESCreationAttribsSpec, 'gpu.mojom.GLESCreationAttribs', [
       mojo.internal.StructField('gpu_preference', 0, 0, gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('fail_if_major_perf_caveat', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('lose_context_when_out_of_memory', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('context_type', 4, 0, gpu.mojom.ContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fail_if_major_perf_caveat', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('lose_context_when_out_of_memory', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('context_type', 8, 0, gpu.mojom.ContextTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -291,22 +291,22 @@ mojo.internal.Struct(
 // Struct: CreateCommandBufferParams
 mojo.internal.Struct(
     gpu.mojom.CreateCommandBufferParamsSpec, 'gpu.mojom.CreateCommandBufferParams', [
-      mojo.internal.StructField('stream_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('stream_priority', 36, 0, gpu.mojom.SchedulingPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('attribs', 0, 0, gpu.mojom.ContextCreationAttribsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('active_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_priority', 4, 0, gpu.mojom.SchedulingPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('attribs', 8, 0, gpu.mojom.ContextCreationAttribsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('active_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: CommandBufferState
 mojo.internal.Struct(
     gpu.mojom.CommandBufferStateSpec, 'gpu.mojom.CommandBufferState', [
-      mojo.internal.StructField('get_offset', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('token', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('release_count', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, gpu.mojom.ErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('context_lost_reason', 16, 0, gpu.mojom.ContextLostReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('get_offset', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('token', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('release_count', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, gpu.mojom.ErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_lost_reason', 24, 0, gpu.mojom.ContextLostReasonSpec, null, false, 0, undefined),
       mojo.internal.StructField('generation', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('set_get_buffer_count', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -324,17 +324,17 @@ mojo.internal.Struct(
 // Struct: DeferredCommandBufferRequest
 mojo.internal.Struct(
     gpu.mojom.DeferredCommandBufferRequestSpec, 'gpu.mojom.DeferredCommandBufferRequest', [
-      mojo.internal.StructField('routing_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('params', 0, 0, gpu.mojom.DeferredCommandBufferRequestParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, gpu.mojom.DeferredCommandBufferRequestParamsSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AsyncFlushParams
 mojo.internal.Struct(
     gpu.mojom.AsyncFlushParamsSpec, 'gpu.mojom.AsyncFlushParams', [
-      mojo.internal.StructField('put_offset', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('flush_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('sync_token_fences', 0, 0, mojo.internal.Array(gpu.mojom.SyncTokenSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('put_offset', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('flush_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('sync_token_fences', 8, 0, mojo.internal.Array(gpu.mojom.SyncTokenSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -485,18 +485,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec, 'gpu.mojom.GpuChannel_CreateCommandBuffer_Params', [
       mojo.internal.StructField('params', 0, 0, gpu.mojom.CreateCommandBufferParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('routing_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('shared_state', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(gpu.mojom.CommandBufferRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 24, 0, mojo.internal.AssociatedInterfaceProxy(gpu.mojom.CommandBufferClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('shared_state', 16, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 24, 0, mojo.internal.AssociatedInterfaceRequest(gpu.mojom.CommandBufferRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 32, 0, mojo.internal.AssociatedInterfaceProxy(gpu.mojom.CommandBufferClientRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec, 'gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParams', [
-      mojo.internal.StructField('result', 16, 0, gpu.mojom.ContextResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capabilties', 0, 0, gpu.mojom.CapabilitiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('gl_capabilities', 8, 0, gpu.mojom.GLCapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, gpu.mojom.ContextResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capabilties', 8, 0, gpu.mojom.CapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gl_capabilities', 16, 0, gpu.mojom.GLCapabilitiesSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -520,8 +520,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec, 'gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_Params', [
-      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('format', 0, 0, viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 8, 0, viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('buffer_usage', 24, 0, gfx.mojom.BufferUsageSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -534,8 +534,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec, 'gpu.mojom.GpuChannel_CreateDCOMPTexture_Params', [
-      mojo.internal.StructField('route_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(gpu.mojom.DCOMPTextureRemote), null, false, 0, undefined),
+      mojo.internal.StructField('route_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(gpu.mojom.DCOMPTextureRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -589,9 +589,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec, 'gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_Params', [
-      mojo.internal.StructField('service_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('sysmem_token', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('format', 0, 0, viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('sysmem_token', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('format', 16, 0, viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('usage', 32, 0, gfx.mojom.BufferUsageSpec, null, false, 0, undefined),
       mojo.internal.StructField('register_with_image_pipe', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -825,15 +825,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec, 'gpu.mojom.CommandBuffer_RegisterTransferBuffer_Params', [
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec, 'gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_Params', [
-      mojo.internal.StructField('gpu_fence_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('fence_handle', 0, 0, gfx.mojom.GpuFenceHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_fence_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('fence_handle', 8, 0, gfx.mojom.GpuFenceHandleSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -992,8 +992,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec, 'gpu.mojom.CommandBufferClient_OnSignalAck_Params', [
-      mojo.internal.StructField('signal_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 0, 0, gpu.mojom.CommandBufferStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signal_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, gpu.mojom.CommandBufferStateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

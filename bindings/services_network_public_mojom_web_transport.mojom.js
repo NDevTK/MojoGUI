@@ -48,9 +48,9 @@ network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = { $: {}
 // Struct: WebTransportError
 mojo.internal.Struct(
     network.mojom.WebTransportErrorSpec, 'network.mojom.WebTransportError', [
-      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('quic_error', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('details', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('quic_error', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('safe_to_report_details', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -66,8 +66,8 @@ mojo.internal.Struct(
 // Struct: WebTransportCloseInfo
 mojo.internal.Struct(
     network.mojom.WebTransportCloseInfoSpec, 'network.mojom.WebTransportCloseInfo', [
-      mojo.internal.StructField('code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('reason', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -106,8 +106,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.WebTransport_CreateStream_ResponseParamsSpec, 'network.mojom.WebTransport_CreateStream_ResponseParams', [
-      mojo.internal.StructField('succeeded', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -118,9 +118,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec, 'network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParams', [
-      mojo.internal.StructField('stream_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('readable', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('writable', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('readable', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('writable', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -131,8 +131,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec, 'network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParams', [
-      mojo.internal.StructField('stream_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('readable', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('readable', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

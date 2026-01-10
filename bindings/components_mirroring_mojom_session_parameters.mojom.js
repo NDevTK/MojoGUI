@@ -22,14 +22,14 @@ mirroring.mojom.SessionType = {
 // Struct: SessionParameters
 mojo.internal.Struct(
     mirroring.mojom.SessionParametersSpec, 'mirroring.mojom.SessionParameters', [
-      mojo.internal.StructField('type', 40, 0, mirroring.mojom.SessionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('receiver_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
-      mojo.internal.StructField('receiver_friendly_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('source_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('destination_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('target_playout_delay', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_remote_playback', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('force_letterboxing', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_rtcp_reporting', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, mirroring.mojom.SessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver_address', 8, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver_friendly_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('destination_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target_playout_delay', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_remote_playback', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_letterboxing', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_rtcp_reporting', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);

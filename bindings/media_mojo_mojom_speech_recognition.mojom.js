@@ -122,8 +122,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionResultSpec, 'media.mojom.SpeechRecognitionResult', [
       mojo.internal.StructField('transcription', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_final', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('timing_information', 8, 0, media.mojom.TimingInformationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_final', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('timing_information', 16, 0, media.mojom.TimingInformationSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -139,18 +139,18 @@ mojo.internal.Struct(
 // Struct: SpeechRecognitionOptions
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionOptionsSpec, 'media.mojom.SpeechRecognitionOptions', [
-      mojo.internal.StructField('recognition_mode', 8, 0, media.mojom.SpeechRecognitionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enable_formatting', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('language', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('is_server_based', 12, 1, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('recognizer_client_type', 16, 0, media.mojom.RecognizerClientTypeSpec, null, false, 1, undefined),
-      mojo.internal.StructField('skip_continuously_empty_audio', 12, 2, mojo.internal.Bool, false, false, 4, undefined),
-      mojo.internal.StructField('experiment_recognizer_routing_key', 24, 0, mojo.internal.String, null, true, 5, undefined),
-      mojo.internal.StructField('channel_count', 20, 0, mojo.internal.Int32, 0, false, 6, undefined),
-      mojo.internal.StructField('sample_rate', 32, 0, mojo.internal.Int32, 0, false, 6, undefined),
-      mojo.internal.StructField('recognition_context', 40, 0, media.mojom.SpeechRecognitionRecognitionContextSpec, null, true, 8, undefined),
+      mojo.internal.StructField('recognition_mode', 0, 0, media.mojom.SpeechRecognitionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enable_formatting', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_server_based', 16, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('recognizer_client_type', 20, 0, media.mojom.RecognizerClientTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('skip_continuously_empty_audio', 24, 0, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('experiment_recognizer_routing_key', 32, 0, mojo.internal.String, null, true, 5, undefined),
+      mojo.internal.StructField('channel_count', 40, 0, mojo.internal.Int32, 0, false, 6, undefined),
+      mojo.internal.StructField('sample_rate', 44, 0, mojo.internal.Int32, 0, false, 6, undefined),
+      mojo.internal.StructField('recognition_context', 48, 0, media.mojom.SpeechRecognitionRecognitionContextSpec, null, true, 8, undefined),
     ],
-    [[0, 24], [1, 32], [4, 24], [5, 40], [6, 48], [8, 56]]);
+    [[0, 24], [1, 32], [4, 40], [5, 48], [6, 56], [8, 64]]);
 
 // Interface: SpeechRecognitionContext
 mojo.internal.Struct(
@@ -172,9 +172,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('session_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('session_client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionSessionClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('audio_forwarder', 16, 0, mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionAudioForwarderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('channel_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('sample_rate', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('options', 24, 0, media.mojom.SpeechRecognitionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sample_rate', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('options', 32, 0, media.mojom.SpeechRecognitionOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('continuous', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);

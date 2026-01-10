@@ -69,22 +69,22 @@ device.mojom.NSRawTypeNameFormat = {
 // Struct: NDEFError
 mojo.internal.Struct(
     device.mojom.NDEFErrorSpec, 'device.mojom.NDEFError', [
-      mojo.internal.StructField('error_type', 8, 0, device.mojom.NDEFErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_type', 0, 0, device.mojom.NDEFErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NDEFRecord
 mojo.internal.Struct(
     device.mojom.NDEFRecordSpec, 'device.mojom.NDEFRecord', [
-      mojo.internal.StructField('category', 56, 0, device.mojom.NDEFRecordTypeCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('record_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('media_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('encoding', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('lang', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('data', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('payload_message', 48, 0, device.mojom.NDEFMessageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, device.mojom.NDEFRecordTypeCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('record_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('id', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('encoding', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lang', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('data', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('payload_message', 56, 0, device.mojom.NDEFMessageSpec, null, true, 0, undefined),
     ],
     [[0, 72]]);
 

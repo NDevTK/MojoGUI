@@ -87,8 +87,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device_test.mojom.ViewDataSpec, 'device_test.mojom.ViewData', [
       mojo.internal.StructField('color', 0, 0, device_test.mojom.ColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('eye', 16, 0, device_test.mojom.EyeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('viewport', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('eye', 8, 0, device_test.mojom.EyeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('viewport', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -111,17 +111,17 @@ mojo.internal.Struct(
 // Struct: ControllerFrameData
 mojo.internal.Struct(
     device_test.mojom.ControllerFrameDataSpec, 'device_test.mojom.ControllerFrameData', [
-      mojo.internal.StructField('packet_number', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('buttons_pressed', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('buttons_touched', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('supported_buttons', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('axis_data', 24, 0, mojo.internal.Array(device_test.mojom.ControllerAxisData, 5Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('pose_data', 32, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
-      mojo.internal.StructField('role', 52, 0, device_test.mojom.ControllerRoleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hand_data', 40, 0, device.mojom.XRHandTrackingDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_valid', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('packet_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('buttons_pressed', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('buttons_touched', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('supported_buttons', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('axis_data', 32, 0, mojo.internal.Array(device_test.mojom.ControllerAxisData, 5Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pose_data', 40, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
+      mojo.internal.StructField('role', 48, 0, device_test.mojom.ControllerRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hand_data', 56, 0, device.mojom.XRHandTrackingDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_valid', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 
 // Struct: EventData
 mojo.internal.Struct(

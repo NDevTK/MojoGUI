@@ -13,9 +13,9 @@ device.mojom.BatteryStatusSpec = { $: {} };
 // Struct: BatteryStatus
 mojo.internal.Struct(
     device.mojom.BatteryStatusSpec, 'device.mojom.BatteryStatus', [
-      mojo.internal.StructField('charging', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('charging_time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('discharging_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('level', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('charging', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('charging_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('discharging_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('level', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 40]]);

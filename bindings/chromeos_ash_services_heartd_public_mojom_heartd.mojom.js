@@ -64,8 +64,8 @@ mojo.internal.Struct(
 // Struct: Action
 mojo.internal.Struct(
     ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
-      mojo.internal.StructField('failure_count', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('action', 0, 0, ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('failure_count', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('action', 4, 0, ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -170,9 +170,9 @@ ash.heartd.mojom.HeartdControlRequest = ash.heartd.mojom.HeartdControlPendingRec
 // Interface: HeartbeatService
 mojo.internal.Struct(
     ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
-      mojo.internal.StructField('name', 16, 0, ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('argument', 0, 0, ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('argument', 8, 0, ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -18,9 +18,9 @@ blink.mojom.FramePolicySpec = { $: {} };
 // Struct: FramePolicy
 mojo.internal.Struct(
     blink.mojom.FramePolicySpec, 'blink.mojom.FramePolicy', [
-      mojo.internal.StructField('sandbox_flags', 16, 0, network.mojom.WebSandboxFlagsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('container_policy', 0, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('required_document_policy', 8, 0, mojo.internal.Map(blink.mojom.DocumentPolicyFeatureSpec, blink.mojom.PolicyValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('deferred_fetch_policy', 20, 0, blink.mojom.DeferredFetchPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('sandbox_flags', 0, 0, network.mojom.WebSandboxFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('container_policy', 8, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('required_document_policy', 16, 0, mojo.internal.Map(blink.mojom.DocumentPolicyFeatureSpec, blink.mojom.PolicyValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('deferred_fetch_policy', 24, 0, blink.mojom.DeferredFetchPolicySpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);

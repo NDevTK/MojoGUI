@@ -20,16 +20,16 @@ viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = { $: {} };
 // Struct: CopyOutputRequest
 mojo.internal.Struct(
     viz.mojom.CopyOutputRequestSpec, 'viz.mojom.CopyOutputRequest', [
-      mojo.internal.StructField('result_format', 64, 0, viz.mojom.CopyOutputResultFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('result_destination', 68, 0, viz.mojom.CopyOutputResultDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('send_result_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale_from', 8, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale_to', 16, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source', 24, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('area', 32, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('result_selection', 40, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('blit_request', 48, 0, viz.mojom.BlitRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('result_sender', 56, 0, mojo.internal.InterfaceProxy(viz.mojom.CopyOutputResultSenderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('result_format', 0, 0, viz.mojom.CopyOutputResultFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_destination', 4, 0, viz.mojom.CopyOutputResultDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('send_result_delay', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_from', 16, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_to', 24, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('area', 40, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result_selection', 48, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('blit_request', 56, 0, viz.mojom.BlitRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result_sender', 64, 0, mojo.internal.InterfaceProxy(viz.mojom.CopyOutputResultSenderRemote), null, false, 0, undefined),
     ],
     [[0, 80]]);
 

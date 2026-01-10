@@ -122,8 +122,8 @@ mojo.internal.Struct(
 // Struct: Error
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ErrorSpec, 'chromeos.mojo_service_manager.mojom.Error', [
-      mojo.internal.StructField('code', 8, 0, chromeos.mojo_service_manager.mojom.ErrorCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, chromeos.mojo_service_manager.mojom.ErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

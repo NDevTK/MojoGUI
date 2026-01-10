@@ -83,14 +83,14 @@ mojo.internal.Struct(
     ash.firmware_update.mojom.FirmwareUpdateSpec, 'ash.firmware_update.mojom.FirmwareUpdate', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('device_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('needs_reboot', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('device_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('device_description', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 48, 0, ash.firmware_update.mojom.UpdatePrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('filepath', 32, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('checksum', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('needs_reboot', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_description', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 40, 0, ash.firmware_update.mojom.UpdatePrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('filepath', 48, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('checksum', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: InstallationProgress
 mojo.internal.Struct(

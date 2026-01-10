@@ -43,21 +43,21 @@ extensions.mojom.Renderer_WatchPages_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     extensions.mojom.ExtensionLoadedParamsSpec, 'extensions.mojom.ExtensionLoadedParams', [
       mojo.internal.StructField('manifest', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('location', 80, 0, extensions.mojom.ManifestLocationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('active_permissions', 16, 0, extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('withheld_permissions', 24, 0, extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tab_specific_permissions', 32, 0, mojo.internal.Map(mojo.internal.Int32, extensions.mojom.PermissionSetSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('policy_blocked_hosts', 40, 0, extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('policy_allowed_hosts', 48, 0, extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uses_default_policy_blocked_allowed_hosts', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('user_scripts_allowed', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('id', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('worker_activation_token', 64, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('creation_flags', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('guid', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('location', 8, 0, extensions.mojom.ManifestLocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('active_permissions', 24, 0, extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('withheld_permissions', 32, 0, extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_specific_permissions', 40, 0, mojo.internal.Map(mojo.internal.Int32, extensions.mojom.PermissionSetSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_blocked_hosts', 48, 0, extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_allowed_hosts', 56, 0, extensions.mojom.URLPatternSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uses_default_policy_blocked_allowed_hosts', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_scripts_allowed', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('id', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('worker_activation_token', 80, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('creation_flags', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('guid', 96, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 112]]);
 
 // Struct: UserScriptWorldInfo
 mojo.internal.Struct(

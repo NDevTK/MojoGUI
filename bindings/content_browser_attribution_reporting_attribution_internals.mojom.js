@@ -167,8 +167,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     attribution_internals.mojom.AggregatableHistogramContributionSpec, 'attribution_internals.mojom.AggregatableHistogramContribution', [
       mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('filtering_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('filtering_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -190,34 +190,34 @@ mojo.internal.Struct(
 // Struct: WebUIReport
 mojo.internal.Struct(
     attribution_internals.mojom.WebUIReportSpec, 'attribution_internals.mojom.WebUIReport', [
-      mojo.internal.StructField('id', 32, 0, attribution_internals.mojom.ReportIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('report_url', 40, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('trigger_time', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('report_time', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('report_body', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('status', 0, 0, attribution_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 16, 0, attribution_internals.mojom.WebUIReportDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, attribution_internals.mojom.ReportIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('report_time', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('report_body', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 40, 0, attribution_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 56, 0, attribution_internals.mojom.WebUIReportDataSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: WebUIDebugReport
 mojo.internal.Struct(
     attribution_internals.mojom.WebUIDebugReportSpec, 'attribution_internals.mojom.WebUIDebugReport', [
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('time', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('body', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('status', 0, 0, attribution_internals.mojom.NetworkStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('body', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 24, 0, attribution_internals.mojom.NetworkStatusSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: WebUIAggregatableDebugReport
 mojo.internal.Struct(
     attribution_internals.mojom.WebUIAggregatableDebugReportSpec, 'attribution_internals.mojom.WebUIAggregatableDebugReport', [
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('time', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('body', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('process_result', 40, 0, attribution_reporting.mojom.ProcessAggregatableDebugReportResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('send_result', 0, 0, attribution_internals.mojom.SendAggregatableDebugReportResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('body', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('process_result', 24, 0, attribution_reporting.mojom.ProcessAggregatableDebugReportResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('send_result', 32, 0, attribution_internals.mojom.SendAggregatableDebugReportResultSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -233,27 +233,27 @@ mojo.internal.Struct(
       mojo.internal.StructField('expiry_time', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('event_report_windows', 56, 0, attribution_reporting.mojom.EventReportWindowsSpec, null, false, 0, undefined),
       mojo.internal.StructField('trigger_data', 64, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('max_event_level_reports', 168, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('aggregatable_report_window_time', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('source_type', 172, 0, attribution_reporting.mojom.SourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('debug_key_$flag', 188, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'debug_key_$value', originalFieldName: 'debug_key' }),
-      mojo.internal.StructField('debug_key_$value', 88, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'debug_key_$flag', originalFieldName: 'debug_key' }),
-      mojo.internal.StructField('dedup_keys', 96, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('filter_data', 104, 0, attribution_reporting.mojom.FilterDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('aggregation_keys', 112, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('remaining_aggregatable_attribution_budget', 176, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('aggregatable_dedup_keys', 120, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('trigger_data_matching', 180, 0, attribution_reporting.mojom.TriggerDataMatchingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('event_level_epsilon', 128, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('cookie_based_debug_allowed', 188, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('remaining_aggregatable_debug_budget', 184, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('aggregatable_debug_key_piece', 136, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('attribution_scopes_data_json', 144, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('aggregatable_named_budgets', 152, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('kAttributable', 160, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('max_event_level_reports', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('aggregatable_report_window_time', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('source_type', 88, 0, attribution_reporting.mojom.SourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 96, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('debug_key_$flag', 104, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'debug_key_$value', originalFieldName: 'debug_key' }),
+      mojo.internal.StructField('debug_key_$value', 112, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'debug_key_$flag', originalFieldName: 'debug_key' }),
+      mojo.internal.StructField('dedup_keys', 120, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('filter_data', 128, 0, attribution_reporting.mojom.FilterDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('aggregation_keys', 136, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('remaining_aggregatable_attribution_budget', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('aggregatable_dedup_keys', 152, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('trigger_data_matching', 160, 0, attribution_reporting.mojom.TriggerDataMatchingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_level_epsilon', 168, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('cookie_based_debug_allowed', 176, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('remaining_aggregatable_debug_budget', 180, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('aggregatable_debug_key_piece', 184, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('attribution_scopes_data_json', 192, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('aggregatable_named_budgets', 200, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('kAttributable', 208, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 200]]);
+    [[0, 224]]);
 
 // Struct: WebUIRegistration
 mojo.internal.Struct(
@@ -262,8 +262,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('context_origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('reporting_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('registration_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('cleared_debug_key_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'cleared_debug_key_$value', originalFieldName: 'cleared_debug_key' }),
-      mojo.internal.StructField('cleared_debug_key_$value', 32, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'cleared_debug_key_$flag', originalFieldName: 'cleared_debug_key' }),
+      mojo.internal.StructField('cleared_debug_key_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'cleared_debug_key_$value', originalFieldName: 'cleared_debug_key' }),
+      mojo.internal.StructField('cleared_debug_key_$value', 40, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'cleared_debug_key_$flag', originalFieldName: 'cleared_debug_key' }),
     ],
     [[0, 56]]);
 
@@ -291,10 +291,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('registration_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('top_level_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_debug_key_allowed', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('debug_reporting', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, attribution_reporting.mojom.RegistrationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('result', 28, 0, attribution_reporting.mojom.OsRegistrationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_debug_key_allowed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('debug_reporting', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 28, 0, attribution_reporting.mojom.RegistrationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 32, 0, attribution_reporting.mojom.OsRegistrationResultSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -490,8 +490,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec, 'attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParams', [
-      mojo.internal.StructField('enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('attribution_support', 0, 0, network.mojom.AttributionSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('attribution_support', 4, 0, network.mojom.AttributionSupportSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

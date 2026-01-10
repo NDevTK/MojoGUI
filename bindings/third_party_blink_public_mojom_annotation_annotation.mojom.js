@@ -200,12 +200,12 @@ blink.mojom.AnnotationAgentHostRequest = blink.mojom.AnnotationAgentHostPendingR
 // Interface: AnnotationAgentContainer
 mojo.internal.Struct(
     blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec, 'blink.mojom.AnnotationAgentContainer_CreateAgent_Params', [
-      mojo.internal.StructField('host_remote', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.AnnotationAgentHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('agent_receiver', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('type', 32, 0, blink.mojom.AnnotationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('selector', 0, 0, blink.mojom.SelectorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AnnotationAgentHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, blink.mojom.AnnotationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selector', 24, 0, blink.mojom.SelectorSpec, null, false, 0, undefined),
       mojo.internal.StructField('search_range_start_node_id_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'search_range_start_node_id_$value', originalFieldName: 'search_range_start_node_id' }),
-      mojo.internal.StructField('search_range_start_node_id_$value', 36, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
+      mojo.internal.StructField('search_range_start_node_id_$value', 44, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'search_range_start_node_id_$flag', originalFieldName: 'search_range_start_node_id' }),
     ],
     [[0, 56]]);
 

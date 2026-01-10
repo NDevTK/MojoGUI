@@ -67,8 +67,8 @@ mojo.internal.Struct(
     ash.ime.mojom.JapaneseDictionaryEntrySpec, 'ash.ime.mojom.JapaneseDictionaryEntry', [
       mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('pos', 24, 0, ash.ime.mojom.JpPosTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('comment', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pos', 16, 0, ash.ime.mojom.JpPosTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('comment', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

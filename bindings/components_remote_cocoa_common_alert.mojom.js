@@ -44,11 +44,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec, 'remote_cocoa.mojom.AlertBridge_Show_ResponseParams', [
-      mojo.internal.StructField('disposition', 8, 0, remote_cocoa.mojom.AlertDispositionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text_field_value', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('check_box_value', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disposition', 0, 0, remote_cocoa.mojom.AlertDispositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_field_value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('check_box_value', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec, 'remote_cocoa.mojom.AlertBridge_Dismiss_Params', [

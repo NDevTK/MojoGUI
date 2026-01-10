@@ -24,8 +24,8 @@ blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.CookieChangeSubscriptionSpec, 'blink.mojom.CookieChangeSubscription', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('match_type', 16, 0, network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('match_type', 8, 0, network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

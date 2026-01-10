@@ -385,9 +385,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('key_path', 16, 0, blink.mojom.IDBKeyPathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('auto_increment', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_index_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('indexes', 32, 0, mojo.internal.Map(mojo.internal.Int64, blink.mojom.IDBIndexMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('auto_increment', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_index_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('indexes', 40, 0, mojo.internal.Map(mojo.internal.Int64, blink.mojom.IDBIndexMetadataSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -448,8 +448,8 @@ mojo.internal.Struct(
 // Struct: IDBReturnValue
 mojo.internal.Struct(
     blink.mojom.IDBReturnValueSpec, 'blink.mojom.IDBReturnValue', [
-      mojo.internal.StructField('value', 16, 0, blink.mojom.IDBValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('primary_key', 0, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, blink.mojom.IDBValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('primary_key', 8, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('key_path', 24, 0, blink.mojom.IDBKeyPathSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -458,16 +458,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.IDBRecordSpec, 'blink.mojom.IDBRecord', [
       mojo.internal.StructField('primary_key', 0, 0, blink.mojom.IDBKeySpec, null, true, 0, undefined),
-      mojo.internal.StructField('return_value', 32, 0, blink.mojom.IDBReturnValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('index_key', 16, 0, blink.mojom.IDBKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('return_value', 16, 0, blink.mojom.IDBReturnValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('index_key', 24, 0, blink.mojom.IDBKeySpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: IDBError
 mojo.internal.Struct(
     blink.mojom.IDBErrorSpec, 'blink.mojom.IDBError', [
-      mojo.internal.StructField('error_code', 8, 0, blink.mojom.IDBExceptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_message', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 0, 0, blink.mojom.IDBExceptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -483,9 +483,9 @@ mojo.internal.Struct(
 // Struct: IDBDatabaseOpenCursorValue
 mojo.internal.Struct(
     blink.mojom.IDBDatabaseOpenCursorValueSpec, 'blink.mojom.IDBDatabaseOpenCursorValue', [
-      mojo.internal.StructField('cursor', 32, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBCursorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('key', 0, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('primary_key', 16, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('cursor', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBCursorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('key', 8, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('primary_key', 24, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('value', 40, 0, blink.mojom.IDBValueSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
@@ -493,8 +493,8 @@ mojo.internal.Struct(
 // Interface: IDBFactoryClient
 mojo.internal.Struct(
     blink.mojom.IDBFactoryClient_Error_ParamsSpec, 'blink.mojom.IDBFactoryClient_Error_Params', [
-      mojo.internal.StructField('code', 8, 0, blink.mojom.IDBExceptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, blink.mojom.IDBExceptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -508,9 +508,9 @@ mojo.internal.Struct(
     blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec, 'blink.mojom.IDBFactoryClient_UpgradeNeeded_Params', [
       mojo.internal.StructField('pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBDatabaseRemote), null, false, 0, undefined),
       mojo.internal.StructField('old_version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('data_loss', 32, 0, blink.mojom.IDBDataLossSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data_loss_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('db_metadata', 24, 0, blink.mojom.IDBDatabaseMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_loss', 16, 0, blink.mojom.IDBDataLossSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_loss_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('db_metadata', 32, 0, blink.mojom.IDBDatabaseMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -636,8 +636,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec, 'blink.mojom.IDBDatabaseCallbacks_Abort_Params', [
       mojo.internal.StructField('transaction_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('code', 16, 0, blink.mojom.IDBExceptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('code', 8, 0, blink.mojom.IDBExceptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -877,11 +877,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBTransaction_Put_ParamsSpec, 'blink.mojom.IDBTransaction_Put_Params', [
-      mojo.internal.StructField('object_store_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 24, 0, blink.mojom.IDBValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key', 0, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 40, 0, blink.mojom.IDBPutModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('index_keys', 32, 0, mojo.internal.Array(blink.mojom.IDBIndexKeysSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('object_store_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, blink.mojom.IDBValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 16, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 32, 0, blink.mojom.IDBPutModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('index_keys', 40, 0, mojo.internal.Array(blink.mojom.IDBIndexKeysSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -893,8 +893,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec, 'blink.mojom.IDBTransaction_SetIndexKeys_Params', [
-      mojo.internal.StructField('object_store_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('primary_key', 0, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('object_store_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('primary_key', 8, 0, blink.mojom.IDBKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('index_keys', 24, 0, blink.mojom.IDBIndexKeysSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -1157,8 +1157,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('index_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('key_range', 24, 0, blink.mojom.IDBKeyRangeSpec, null, false, 0, undefined),
       mojo.internal.StructField('direction', 32, 0, blink.mojom.IDBCursorDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_only', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('task_type', 36, 0, blink.mojom.IDBTaskTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_only', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('task_type', 40, 0, blink.mojom.IDBTaskTypeSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -1179,8 +1179,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBDatabase_Count_ResponseParamsSpec, 'blink.mojom.IDBDatabase_Count_ResponseParams', [
-      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

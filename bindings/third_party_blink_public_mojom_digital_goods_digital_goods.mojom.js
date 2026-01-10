@@ -33,8 +33,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec, 'payments.mojom.DigitalGoods_GetDetails_ResponseParams', [
-      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('item_details_list', 0, 0, mojo.internal.Array(payments.mojom.ItemDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('item_details_list', 8, 0, mojo.internal.Array(payments.mojom.ItemDetailsSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -45,8 +45,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec, 'payments.mojom.DigitalGoods_ListPurchases_ResponseParams', [
-      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('purchase_reference_list', 0, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_reference_list', 8, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -57,8 +57,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec, 'payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParams', [
-      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('purchase_reference_list', 0, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_reference_list', 8, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -167,8 +167,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec, 'payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParams', [
-      mojo.internal.StructField('code', 8, 0, payments.mojom.CreateDigitalGoodsResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('digital_goods', 0, 0, mojo.internal.InterfaceProxy(payments.mojom.DigitalGoodsRemote), null, true, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, payments.mojom.CreateDigitalGoodsResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('digital_goods', 8, 0, mojo.internal.InterfaceProxy(payments.mojom.DigitalGoodsRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

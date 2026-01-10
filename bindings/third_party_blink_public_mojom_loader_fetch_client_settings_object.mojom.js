@@ -22,8 +22,8 @@ blink.mojom.InsecureRequestsPolicy = {
 // Struct: FetchClientSettingsObject
 mojo.internal.Struct(
     blink.mojom.FetchClientSettingsObjectSpec, 'blink.mojom.FetchClientSettingsObject', [
-      mojo.internal.StructField('referrer_policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('outgoing_referrer', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('insecure_requests_policy', 12, 0, blink.mojom.InsecureRequestsPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 0, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('outgoing_referrer', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('insecure_requests_policy', 16, 0, blink.mojom.InsecureRequestsPolicySpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

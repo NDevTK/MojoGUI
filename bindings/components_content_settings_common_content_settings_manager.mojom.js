@@ -41,10 +41,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params', [
       mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_type', 32, 0, content_settings.mojom.StorageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_type', 8, 0, content_settings.mojom.StorageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 24, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 32, 0, url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

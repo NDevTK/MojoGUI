@@ -152,8 +152,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec, 'emoji_picker.mojom.PageHandler_InsertEmoji_Params', [
       mojo.internal.StructField('emoji', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_variant', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('search_length', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('is_variant', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('search_length', 10, 0, mojo.internal.Int16, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -192,8 +192,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetCategories_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('gif_categories', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gif_categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -205,8 +205,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('featured_gifs', 0, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('featured_gifs', 8, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -219,8 +219,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_SearchGifs_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('search_gifs', 0, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('search_gifs', 8, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -232,8 +232,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('selected_gifs', 0, 0, mojo.internal.Array(tenor.mojom.GifResponseSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selected_gifs', 8, 0, mojo.internal.Array(tenor.mojom.GifResponseSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -266,8 +266,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_Params', [
-      mojo.internal.StructField('category', 8, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('history', 0, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('history', 8, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -43,10 +43,10 @@ mojo.internal.Struct(
     network.mojom.CorsOriginPatternSpec, 'network.mojom.CorsOriginPattern', [
       mojo.internal.StructField('protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('port', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('domain_match_mode', 16, 0, network.mojom.CorsDomainMatchModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('port_match_mode', 20, 0, network.mojom.CorsPortMatchModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 24, 0, network.mojom.CorsOriginAccessMatchPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('domain_match_mode', 20, 0, network.mojom.CorsDomainMatchModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port_match_mode', 24, 0, network.mojom.CorsPortMatchModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 28, 0, network.mojom.CorsOriginAccessMatchPrioritySpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

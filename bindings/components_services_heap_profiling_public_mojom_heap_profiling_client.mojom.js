@@ -43,11 +43,11 @@ mojo.internal.Struct(
 // Struct: HeapProfileSample
 mojo.internal.Struct(
     heap_profiling.mojom.HeapProfileSampleSpec, 'heap_profiling.mojom.HeapProfileSample', [
-      mojo.internal.StructField('allocator', 32, 0, heap_profiling.mojom.AllocatorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('context_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('stack', 24, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('allocator', 0, 0, heap_profiling.mojom.AllocatorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('total', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('context_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('stack', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 

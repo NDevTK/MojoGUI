@@ -190,9 +190,9 @@ mojo.internal.Struct(
 // Struct: MediaImageBitmap
 mojo.internal.Struct(
     media_session.mojom.MediaImageBitmapSpec, 'media_session.mojom.MediaImageBitmap', [
-      mojo.internal.StructField('width', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('pixel_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('pixel_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('color_type', 16, 0, media_session.mojom.MediaImageBitmapColorTypeSpec, null, false, 5, undefined),
     ],
     [[0, 24], [5, 32]]);
@@ -216,9 +216,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('remote_playback_disabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('remote_playback_started', 16, 1, mojo.internal.Bool, false, false, 17, undefined),
       mojo.internal.StructField('unused_field', 24, 0, mojo.internal.String, null, true, 17, undefined),
-      mojo.internal.StructField('is_encrypted_media', 16, 2, mojo.internal.Bool, false, false, 18, undefined),
+      mojo.internal.StructField('is_encrypted_media', 32, 0, mojo.internal.Bool, false, false, 18, undefined),
     ],
-    [[0, 32], [17, 40], [18, 32]]);
+    [[0, 32], [17, 40], [18, 48]]);
 
 // Struct: MediaSessionInfo
 mojo.internal.Struct(

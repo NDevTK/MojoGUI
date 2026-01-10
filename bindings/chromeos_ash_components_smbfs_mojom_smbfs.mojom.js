@@ -130,8 +130,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('smbfs', 0, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('smbfs', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

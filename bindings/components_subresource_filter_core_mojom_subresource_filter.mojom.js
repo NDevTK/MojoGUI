@@ -60,12 +60,12 @@ mojo.internal.Struct(
 // Struct: DocumentLoadStatistics
 mojo.internal.Struct(
     subresource_filter.mojom.DocumentLoadStatisticsSpec, 'subresource_filter.mojom.DocumentLoadStatistics', [
-      mojo.internal.StructField('num_loads_total', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('num_loads_evaluated', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('num_loads_matching_rules', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('num_loads_disallowed', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('evaluation_total_wall_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('evaluation_total_cpu_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('num_loads_total', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_loads_evaluated', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_loads_matching_rules', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_loads_disallowed', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('evaluation_total_wall_duration', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('evaluation_total_cpu_duration', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

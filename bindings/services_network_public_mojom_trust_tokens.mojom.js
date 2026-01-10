@@ -109,15 +109,15 @@ network.mojom.DeleteStoredTrustTokensStatus = {
 // Struct: TrustTokenParams
 mojo.internal.Struct(
     network.mojom.TrustTokenParamsSpec, 'network.mojom.TrustTokenParams', [
-      mojo.internal.StructField('operation', 40, 0, network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('refresh_policy', 44, 0, network.mojom.TrustTokenRefreshPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('custom_key_commitment', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('custom_issuer', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('sign_request_data', 48, 0, network.mojom.TrustTokenSignRequestDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('include_timestamp_header', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('issuers', 16, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('additional_signed_headers', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('possibly_unsafe_additional_signing_data', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('operation', 0, 0, network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('refresh_policy', 4, 0, network.mojom.TrustTokenRefreshPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('custom_key_commitment', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('custom_issuer', 16, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('sign_request_data', 24, 0, network.mojom.TrustTokenSignRequestDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('include_timestamp_header', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('issuers', 32, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('additional_signed_headers', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('possibly_unsafe_additional_signing_data', 48, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -148,11 +148,11 @@ mojo.internal.Struct(
 // Struct: TrustTokenKeyCommitmentResult
 mojo.internal.Struct(
     network.mojom.TrustTokenKeyCommitmentResultSpec, 'network.mojom.TrustTokenKeyCommitmentResult', [
-      mojo.internal.StructField('protocol_version', 16, 0, network.mojom.TrustTokenProtocolVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('batch_size', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(network.mojom.TrustTokenVerificationKeySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('kAndroid', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('protocol_version', 0, 0, network.mojom.TrustTokenProtocolVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('batch_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('keys', 16, 0, mojo.internal.Array(network.mojom.TrustTokenVerificationKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('kAndroid', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -174,10 +174,10 @@ mojo.internal.Struct(
 // Struct: TrustTokenOperationResult
 mojo.internal.Struct(
     network.mojom.TrustTokenOperationResultSpec, 'network.mojom.TrustTokenOperationResult', [
-      mojo.internal.StructField('operation', 16, 0, network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 20, 0, network.mojom.TrustTokenOperationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('issuer', 0, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('top_level_origin', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('operation', 0, 0, network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 4, 0, network.mojom.TrustTokenOperationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('issuer', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('top_level_origin', 16, 0, url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('issued_token_count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);

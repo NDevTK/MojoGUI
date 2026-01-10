@@ -75,7 +75,7 @@ mojo.internal.Struct(
 // Struct: TelemetryExtensionUnsupported
 mojo.internal.Struct(
     crosapi.mojom.TelemetryExtensionUnsupportedSpec, 'crosapi.mojom.TelemetryExtensionUnsupported', [
-      mojo.internal.StructField('debug_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 0, 0, crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

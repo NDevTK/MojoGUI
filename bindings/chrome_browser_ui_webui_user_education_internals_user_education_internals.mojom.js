@@ -67,12 +67,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('display_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('internal_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('added_milestone', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('supported_platforms', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('required_features', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('instructions', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('followed_by_internal_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 64, 0, mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('added_milestone', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('supported_platforms', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('required_features', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('instructions', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('followed_by_internal_name', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 72, 0, mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -81,9 +81,9 @@ mojo.internal.Struct(
     mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec, 'mojom.user_education_internals.WhatsNewModuleDemoPageInfo', [
       mojo.internal.StructField('display_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('module_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_browser_command', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_feature_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('queue_position', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('has_browser_command', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_feature_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('queue_position', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -92,9 +92,9 @@ mojo.internal.Struct(
     mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec, 'mojom.user_education_internals.WhatsNewEditionDemoPageInfo', [
       mojo.internal.StructField('display_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('edition_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_feature_enabled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_been_used', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('version_used', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_feature_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_been_used', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('version_used', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

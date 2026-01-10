@@ -57,9 +57,9 @@ mojo.internal.Union(
 // Struct: Annotation
 mojo.internal.Struct(
     image_annotation.mojom.AnnotationSpec, 'image_annotation.mojom.Annotation', [
-      mojo.internal.StructField('type', 16, 0, image_annotation.mojom.AnnotationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('score', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, image_annotation.mojom.AnnotationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('text', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

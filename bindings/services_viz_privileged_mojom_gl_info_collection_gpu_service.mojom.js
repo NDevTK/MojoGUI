@@ -23,10 +23,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams', [
-      mojo.internal.StructField('d3d12_feature_level', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('highest_shader_model_version', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('directml_feature_level', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('device_perf_info', 0, 0, gpu.mojom.DevicePerfInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('d3d12_feature_level', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('highest_shader_model_version', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('directml_feature_level', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_perf_info', 16, 0, gpu.mojom.DevicePerfInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

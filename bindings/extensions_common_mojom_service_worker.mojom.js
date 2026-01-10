@@ -25,12 +25,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_Params', [
       mojo.internal.StructField('port_id', 0, 0, extensions.mojom.PortIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('channel_type', 48, 0, extensions.mojom.ChannelTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('channel_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('tab_info', 16, 0, extensions.mojom.TabConnectionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('external_connection_info', 24, 0, extensions.mojom.ExternalConnectionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('port', 32, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('port_host', 40, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('channel_type', 8, 0, extensions.mojom.ChannelTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tab_info', 24, 0, extensions.mojom.TabConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('external_connection_info', 32, 0, extensions.mojom.ExternalConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port', 40, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 48, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
     ],
     [[0, 64]]);
 

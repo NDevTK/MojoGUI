@@ -90,14 +90,14 @@ mojo.internal.Struct(
 // Struct: CertManagementMetadata
 mojo.internal.Struct(
     certificate_manager.mojom.CertManagementMetadataSpec, 'certificate_manager.mojom.CertManagementMetadata', [
-      mojo.internal.StructField('include_system_trust_store', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('num_user_added_system_certs', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('is_include_system_trust_store_managed', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('num_policy_certs', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('num_user_certs', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('show_user_certs_ui', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_system_trust_store', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('num_user_added_system_certs', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('is_include_system_trust_store_managed', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('num_policy_certs', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('num_user_certs', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('show_user_certs_ui', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: CertificateManagerPageHandlerFactory
 mojo.internal.Struct(
@@ -190,8 +190,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_Params', [
-      mojo.internal.StructField('source', 8, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sha256_hash_hex', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sha256_hash_hex', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -227,9 +227,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params', [
-      mojo.internal.StructField('source', 16, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('sha256_hash_hex', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sha256_hash_hex', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

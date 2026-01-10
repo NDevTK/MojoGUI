@@ -50,18 +50,18 @@ mojo.internal.Union(
 // Struct: TextEntity
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.TextEntitySpec, 'chromeos.machine_learning.mojom.TextEntity', [
-      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('confidence_score', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, chromeos.machine_learning.mojom.TextEntityDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('confidence_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, chromeos.machine_learning.mojom.TextEntityDataSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: TextAnnotation
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.TextAnnotationSpec, 'chromeos.machine_learning.mojom.TextAnnotation', [
-      mojo.internal.StructField('start_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('end_offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TextEntitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('start_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('entities', 8, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TextEntitySpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -71,13 +71,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('default_locales', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('detected_text_language_tags', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('annotation_usecase', 48, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reference_time', 24, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('reference_timezone', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('enabled_entities', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('trigger_dictionary_on_beginner_words', 52, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('annotation_usecase', 24, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reference_time', 32, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reference_timezone', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('enabled_entities', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('trigger_dictionary_on_beginner_words', 56, 0, mojo.internal.Bool, false, false, 1, undefined),
     ],
-    [[0, 64], [1, 64]]);
+    [[0, 64], [1, 72]]);
 
 // Struct: CodepointSpan
 mojo.internal.Struct(

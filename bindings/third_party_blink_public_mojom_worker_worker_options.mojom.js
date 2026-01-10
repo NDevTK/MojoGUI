@@ -15,7 +15,7 @@ blink.mojom.WorkerOptionsSpec = { $: {} };
 // Struct: WorkerOptions
 mojo.internal.Struct(
     blink.mojom.WorkerOptionsSpec, 'blink.mojom.WorkerOptions', [
-      mojo.internal.StructField('type', 8, 0, blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -47,15 +47,15 @@ most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = { 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedTileSpec, 'most_visited.mojom.MostVisitedTile', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('title_direction', 16, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_query_tile', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_user_edit', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_user_delete', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source', 20, 0, ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title_source', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('title_direction', 8, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_query_tile', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_user_edit', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_user_delete', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('source', 28, 0, ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title_source', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: MostVisitedTheme
 mojo.internal.Struct(
@@ -69,10 +69,10 @@ mojo.internal.Struct(
 // Struct: MostVisitedInfo
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedInfoSpec, 'most_visited.mojom.MostVisitedInfo', [
-      mojo.internal.StructField('custom_links_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enterprise_shortcuts_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('visible', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('tiles', 0, 0, mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('custom_links_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enterprise_shortcuts_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('tiles', 8, 0, mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -192,17 +192,17 @@ mojo.internal.Struct(
 // Struct: NonInteractiveRoutineUpdate
 mojo.internal.Struct(
     ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate', [
-      mojo.internal.StructField('status', 8, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RoutineUpdate
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineUpdateSpec, 'ash.cros_healthd.mojom.RoutineUpdate', [
-      mojo.internal.StructField('progress_percent', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('output', 20, 0, mojo.internal.Handle, null, true, 0, undefined),
-      mojo.internal.StructField('routine_update_union', 0, 0, ash.cros_healthd.mojom.RoutineUpdateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('progress_percent', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('output', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('routine_update_union', 8, 0, ash.cros_healthd.mojom.RoutineUpdateUnionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

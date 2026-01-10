@@ -272,8 +272,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec, 'blink.mojom.ClipboardHost_ReadDataTransferCustomData_Params', [
-      mojo.internal.StructField('buffer', 8, 0, blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, blink.mojom.ClipboardBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -351,8 +351,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec, 'blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_Params', [
-      mojo.internal.StructField('format', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

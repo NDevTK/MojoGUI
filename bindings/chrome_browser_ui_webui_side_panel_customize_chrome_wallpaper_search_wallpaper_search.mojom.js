@@ -135,10 +135,10 @@ mojo.internal.Struct(
 // Struct: InspirationDescriptors
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.InspirationDescriptorsSpec, 'side_panel.customize_chrome.mojom.InspirationDescriptors', [
-      mojo.internal.StructField('subject', 16, 0, side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
-      mojo.internal.StructField('style', 24, 0, side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
-      mojo.internal.StructField('mood', 32, 0, side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
-      mojo.internal.StructField('color', 0, 0, side_panel.customize_chrome.mojom.DescriptorDValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subject', 0, 0, side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('style', 8, 0, side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('mood', 16, 0, side_panel.customize_chrome.mojom.KeyLabelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('color', 24, 0, side_panel.customize_chrome.mojom.DescriptorDValueSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -162,10 +162,10 @@ mojo.internal.Struct(
 // Struct: ResultDescriptors
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.ResultDescriptorsSpec, 'side_panel.customize_chrome.mojom.ResultDescriptors', [
-      mojo.internal.StructField('subject', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('style', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('mood', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('color', 0, 0, side_panel.customize_chrome.mojom.DescriptorDValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subject', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('style', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('mood', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('color', 24, 0, side_panel.customize_chrome.mojom.DescriptorDValueSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -265,8 +265,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.WallpaperSearchResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.WallpaperSearchResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

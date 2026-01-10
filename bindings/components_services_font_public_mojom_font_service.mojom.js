@@ -47,18 +47,18 @@ font_service.mojom.RenderStyleSwitch = {
 // Struct: TypefaceStyle
 mojo.internal.Struct(
     font_service.mojom.TypefaceStyleSpec, 'font_service.mojom.TypefaceStyle', [
-      mojo.internal.StructField('weight', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('width', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('slant', 0, 0, font_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
+      mojo.internal.StructField('weight', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('slant', 4, 0, font_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FontIdentity
 mojo.internal.Struct(
     font_service.mojom.FontIdentitySpec, 'font_service.mojom.FontIdentity', [
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('ttc_index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('filepath', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ttc_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('filepath', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -68,10 +68,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('use_bitmaps', 0, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
       mojo.internal.StructField('use_autohint', 4, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
       mojo.internal.StructField('use_hinting', 8, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hint_style', 24, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('use_antialias', 12, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('use_subpixel_rendering', 16, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('use_subpixel_positioning', 20, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hint_style', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('use_antialias', 16, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_subpixel_rendering', 20, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_subpixel_positioning', 24, 0, font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -105,8 +105,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec, 'font_service.mojom.FontService_FallbackFontForCharacter_Params', [
-      mojo.internal.StructField('character', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('character', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -123,9 +123,9 @@ mojo.internal.Struct(
     font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec, 'font_service.mojom.FontService_FontRenderStyleForStrike_Params', [
       mojo.internal.StructField('family', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_italic', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_bold', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('device_scale_factor', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('is_italic', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_bold', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -161,10 +161,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec, 'font_service.mojom.FontService_MatchFontWithFallback_Params', [
       mojo.internal.StructField('family', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_bold', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_italic', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('charset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('fallback_family_type', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_bold', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_italic', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('charset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('fallback_family_type', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

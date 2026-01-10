@@ -209,9 +209,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('nested_configs', 80, 0, blink.mojom.PotentiallyOpaqueConfigVectorSpec, null, true, 0, undefined),
       mojo.internal.StructField('shared_storage_budget_metadata', 96, 0, blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec, null, true, 0, undefined),
       mojo.internal.StructField('urn_uuid', 112, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 136, 0, blink.mojom.DeprecatedFencedFrameModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('effective_enabled_permissions', 120, 0, mojo.internal.Array(network.mojom.PermissionsPolicyFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('parent_permissions_info', 128, 0, blink.mojom.ParentPermissionsInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('mode', 120, 0, blink.mojom.DeprecatedFencedFrameModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('effective_enabled_permissions', 128, 0, mojo.internal.Array(network.mojom.PermissionsPolicyFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('parent_permissions_info', 136, 0, blink.mojom.ParentPermissionsInfoSpec, null, true, 0, undefined),
     ],
     [[0, 152]]);
 
@@ -225,11 +225,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('ad_auction_data', 64, 0, blink.mojom.PotentiallyOpaqueAdAuctionDataSpec, null, true, 0, undefined),
       mojo.internal.StructField('nested_urn_config_pairs', 80, 0, blink.mojom.PotentiallyOpaqueURNConfigVectorSpec, null, true, 0, undefined),
       mojo.internal.StructField('shared_storage_budget_metadata', 96, 0, blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('mode', 128, 0, blink.mojom.DeprecatedFencedFrameModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('effective_enabled_permissions', 112, 0, mojo.internal.Array(network.mojom.PermissionsPolicyFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('parent_permissions_info', 120, 0, blink.mojom.ParentPermissionsInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('can_disable_untrusted_network', 132, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_cross_origin_content', 132, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_cross_origin_event_reporting', 132, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mode', 112, 0, blink.mojom.DeprecatedFencedFrameModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('effective_enabled_permissions', 120, 0, mojo.internal.Array(network.mojom.PermissionsPolicyFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('parent_permissions_info', 128, 0, blink.mojom.ParentPermissionsInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('can_disable_untrusted_network', 136, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_cross_origin_content', 136, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_cross_origin_event_reporting', 136, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 144]]);
+    [[0, 152]]);

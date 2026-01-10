@@ -47,8 +47,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.MahiContextMenuRequestSpec, 'crosapi.mojom.MahiContextMenuRequest', [
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('action_type', 16, 0, crosapi.mojom.MahiContextMenuActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('question', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('action_type', 8, 0, crosapi.mojom.MahiContextMenuActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('question', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
       mojo.internal.StructField('mahi_menu_bounds', 24, 0, gfx.mojom.RectSpec, null, true, 1, undefined),
     ],
     [[0, 32], [1, 40]]);

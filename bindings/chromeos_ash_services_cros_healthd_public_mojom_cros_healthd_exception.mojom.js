@@ -76,7 +76,7 @@ mojo.internal.Struct(
 // Struct: Unsupported
 mojo.internal.Struct(
     ash.cros_healthd.mojom.UnsupportedSpec, 'ash.cros_healthd.mojom.Unsupported', [
-      mojo.internal.StructField('debug_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 0, 0, ash.cros_healthd.mojom.UnsupportedReasonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, ash.cros_healthd.mojom.UnsupportedReasonSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

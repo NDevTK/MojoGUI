@@ -24,8 +24,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

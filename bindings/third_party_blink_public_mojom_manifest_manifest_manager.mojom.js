@@ -24,8 +24,8 @@ blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = { $: {}
 // Struct: RequestManifestError
 mojo.internal.Struct(
     blink.mojom.RequestManifestErrorSpec, 'blink.mojom.RequestManifestError', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 0, 0, mojo.internal.Array(blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, mojo.internal.Array(blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -37,9 +37,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_ResponseParams', [
-      mojo.internal.StructField('result', 16, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('manifest', 8, 0, blink.mojom.ManifestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manifest', 16, 0, blink.mojom.ManifestSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

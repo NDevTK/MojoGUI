@@ -40,8 +40,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec, 'media.mojom.MediaDrmStorage_Initialize_ResponseParams', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('origin_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('origin_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

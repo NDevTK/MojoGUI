@@ -45,8 +45,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParams', [
-      mojo.internal.StructField('channel_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('channel_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

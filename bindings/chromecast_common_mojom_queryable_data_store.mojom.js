@@ -16,8 +16,8 @@ chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = { $: {} };
 // Interface: QueryableDataStore
 mojo.internal.Struct(
     chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec, 'chromecast.shell.mojom.QueryableDataStore_Set_Params', [
-      mojo.internal.StructField('key', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

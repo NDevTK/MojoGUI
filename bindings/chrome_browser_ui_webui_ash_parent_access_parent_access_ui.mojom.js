@@ -127,8 +127,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('oauth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -29,15 +29,15 @@ content_settings.mojom.ContentSetting = {
 mojo.internal.Struct(
     content_settings.mojom.PatternPartsSpec, 'content_settings.mojom.PatternParts', [
       mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_scheme_wildcard', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('host', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_domain_wildcard', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('port', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_port_wildcard', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('path', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_path_wildcard', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_scheme_wildcard', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('host', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_domain_wildcard', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('port', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_port_wildcard', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('path', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_path_wildcard', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 72]]);
 
 // Struct: ContentSettingsPattern
 mojo.internal.Struct(
@@ -50,25 +50,25 @@ mojo.internal.Struct(
 // Struct: RuleMetaData
 mojo.internal.Struct(
     content_settings.mojom.RuleMetaDataSpec, 'content_settings.mojom.RuleMetaData', [
-      mojo.internal.StructField('last_modified', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_used', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_visited', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('expiration', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session_model', 56, 0, content_settings.mojom.SessionModelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('lifetime', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tpcd_metadata_rule_source', 60, 0, content_settings.mojom.TpcdMetadataRuleSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tpcd_metadata_cohort', 64, 0, content_settings.mojom.TpcdMetadataCohortSpec, null, false, 0, undefined),
-      mojo.internal.StructField('decided_by_related_website_sets', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('rule_options', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_modified', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_used', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_visited', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expiration', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_model', 32, 0, content_settings.mojom.SessionModelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lifetime', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tpcd_metadata_rule_source', 48, 0, content_settings.mojom.TpcdMetadataRuleSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tpcd_metadata_cohort', 52, 0, content_settings.mojom.TpcdMetadataCohortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decided_by_related_website_sets', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rule_options', 64, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: ContentSettingPatternSource
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingPatternSourceSpec, 'content_settings.mojom.ContentSettingPatternSource', [
-      mojo.internal.StructField('primary_pattern', 16, 0, content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
-      mojo.internal.StructField('secondary_pattern', 24, 0, content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
-      mojo.internal.StructField('setting_value', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('primary_pattern', 0, 0, content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
+      mojo.internal.StructField('secondary_pattern', 8, 0, content_settings.mojom.ContentSettingsPatternSpec, null, false, 0, undefined),
+      mojo.internal.StructField('setting_value', 16, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
       mojo.internal.StructField('metadata', 32, 0, content_settings.mojom.RuleMetaDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('source', 40, 0, content_settings.mojom.ProviderTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('incognito', 44, 0, mojo.internal.Bool, false, false, 0, undefined),

@@ -26,10 +26,10 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerObjectInfoSpec, 'blink.mojom.ServiceWorkerObjectInfo', [
       mojo.internal.StructField('version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 32, 0, blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('host_remote', 16, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerObjectHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 24, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerObjectHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerObjectRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 

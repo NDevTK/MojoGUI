@@ -40,8 +40,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParams', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

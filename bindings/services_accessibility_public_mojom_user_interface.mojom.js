@@ -42,14 +42,14 @@ ax.mojom.FocusRingStackingOrder = {
 mojo.internal.Struct(
     ax.mojom.FocusRingInfoSpec, 'ax.mojom.FocusRingInfo', [
       mojo.internal.StructField('rects', 0, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('type', 40, 0, ax.mojom.FocusTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color', 8, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('secondary_color', 16, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('background_color', 24, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('stacking_order', 44, 0, ax.mojom.FocusRingStackingOrderSpec, null, true, 0, undefined),
-      mojo.internal.StructField('id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ax.mojom.FocusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color', 16, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('secondary_color', 24, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 32, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('stacking_order', 40, 0, ax.mojom.FocusRingStackingOrderSpec, null, true, 0, undefined),
+      mojo.internal.StructField('id', 48, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Interface: UserInterface
 mojo.internal.Struct(

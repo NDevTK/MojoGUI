@@ -230,58 +230,58 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.MakeCredentialAuthenticatorResponseSpec, 'blink.mojom.MakeCredentialAuthenticatorResponse', [
       mojo.internal.StructField('info', 0, 0, blink.mojom.CommonCredentialInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('authenticator_attachment', 56, 0, blink.mojom.AuthenticatorAttachmentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('attestation_object', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('transports', 16, 0, mojo.internal.Array(blink.mojom.AuthenticatorTransportSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('echo_hmac_create_secret', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('hmac_create_secret', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('echo_prf', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prf', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prf_results', 24, 0, blink.mojom.PRFValuesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('echo_cred_blob', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cred_blob', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('public_key_der', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('public_key_algo', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('echo_cred_props', 64, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_cred_props_rk', 64, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cred_props_rk', 65, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('echo_large_blob', 65, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('supports_large_blob', 65, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('supplemental_pub_keys', 40, 0, blink.mojom.SupplementalPubKeysResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('payment', 48, 0, blink.mojom.AuthenticationExtensionsPaymentResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('authenticator_attachment', 8, 0, blink.mojom.AuthenticatorAttachmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attestation_object', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('transports', 24, 0, mojo.internal.Array(blink.mojom.AuthenticatorTransportSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('echo_hmac_create_secret', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hmac_create_secret', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('echo_prf', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prf', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prf_results', 40, 0, blink.mojom.PRFValuesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('echo_cred_blob', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cred_blob', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('public_key_der', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('public_key_algo', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('echo_cred_props', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_cred_props_rk', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cred_props_rk', 68, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('echo_large_blob', 68, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_large_blob', 68, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supplemental_pub_keys', 72, 0, blink.mojom.SupplementalPubKeysResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('payment', 80, 0, blink.mojom.AuthenticationExtensionsPaymentResponseSpec, null, true, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 96]]);
 
 // Struct: GetAssertionAuthenticatorResponse
 mojo.internal.Struct(
     blink.mojom.GetAssertionAuthenticatorResponseSpec, 'blink.mojom.GetAssertionAuthenticatorResponse', [
       mojo.internal.StructField('info', 0, 0, blink.mojom.CommonCredentialInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('authenticator_attachment', 32, 0, blink.mojom.AuthenticatorAttachmentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('user_handle', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('extensions', 24, 0, blink.mojom.AuthenticationExtensionsClientOutputsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('authenticator_attachment', 8, 0, blink.mojom.AuthenticatorAttachmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_handle', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('extensions', 32, 0, blink.mojom.AuthenticationExtensionsClientOutputsSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: AuthenticationExtensionsClientOutputs
 mojo.internal.Struct(
     blink.mojom.AuthenticationExtensionsClientOutputsSpec, 'blink.mojom.AuthenticationExtensionsClientOutputs', [
-      mojo.internal.StructField('echo_appid_extension', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('appid_extension', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('echo_user_verification_methods', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('user_verification_methods', 0, 0, mojo.internal.Array(blink.mojom.UvmEntrySpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('echo_prf', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prf_results', 8, 0, blink.mojom.PRFValuesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('prf_not_evaluated', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('echo_large_blob', 48, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('large_blob', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('echo_large_blob_written', 48, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('large_blob_written', 48, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('get_cred_blob', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('supplemental_pub_keys', 32, 0, blink.mojom.SupplementalPubKeysResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('payment', 40, 0, blink.mojom.AuthenticationExtensionsPaymentResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('echo_appid_extension', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('appid_extension', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('echo_user_verification_methods', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('user_verification_methods', 8, 0, mojo.internal.Array(blink.mojom.UvmEntrySpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('echo_prf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prf_results', 24, 0, blink.mojom.PRFValuesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('prf_not_evaluated', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('echo_large_blob', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('large_blob', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('echo_large_blob_written', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('large_blob_written', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('get_cred_blob', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('supplemental_pub_keys', 64, 0, blink.mojom.SupplementalPubKeysResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('payment', 72, 0, blink.mojom.AuthenticationExtensionsPaymentResponseSpec, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 88]]);
 
 // Struct: PublicKeyCredentialRpEntity
 mojo.internal.Struct(
@@ -311,12 +311,12 @@ mojo.internal.Struct(
 // Struct: CableAuthentication
 mojo.internal.Struct(
     blink.mojom.CableAuthenticationSpec, 'blink.mojom.CableAuthentication', [
-      mojo.internal.StructField('version', 40, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('client_eid', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
-      mojo.internal.StructField('authenticator_eid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
-      mojo.internal.StructField('session_pre_key', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
-      mojo.internal.StructField('server_link_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('experiments', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('version', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('client_eid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('authenticator_eid', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('session_pre_key', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('server_link_data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('experiments', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -346,8 +346,8 @@ mojo.internal.Struct(
     blink.mojom.PaymentCredentialInstrumentSpec, 'blink.mojom.PaymentCredentialInstrument', [
       mojo.internal.StructField('display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('icon', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('iconMustBeShown', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('details', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('iconMustBeShown', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('details', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -370,10 +370,10 @@ mojo.internal.Struct(
 // Struct: SupplementalPubKeysRequest
 mojo.internal.Struct(
     blink.mojom.SupplementalPubKeysRequestSpec, 'blink.mojom.SupplementalPubKeysRequest', [
-      mojo.internal.StructField('device_scope_requested', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('provider_scope_requested', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('attestation', 8, 0, blink.mojom.AttestationConveyancePreferenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('attestation_formats', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_scope_requested', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('provider_scope_requested', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('attestation', 4, 0, blink.mojom.AttestationConveyancePreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attestation_formats', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -386,8 +386,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('relying_party_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('allow_credentials', 32, 0, mojo.internal.Array(blink.mojom.PublicKeyCredentialDescriptorSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('hints', 40, 0, mojo.internal.Array(blink.mojom.HintSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('user_verification', 56, 0, blink.mojom.UserVerificationRequirementSpec, null, false, 0, undefined),
-      mojo.internal.StructField('extensions', 48, 0, blink.mojom.AuthenticationExtensionsClientInputsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_verification', 48, 0, blink.mojom.UserVerificationRequirementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extensions', 56, 0, blink.mojom.AuthenticationExtensionsClientInputsSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -396,26 +396,26 @@ mojo.internal.Struct(
     blink.mojom.AuthenticationExtensionsClientInputsSpec, 'blink.mojom.AuthenticationExtensionsClientInputs', [
       mojo.internal.StructField('appid', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('cable_authentication_data', 8, 0, mojo.internal.Array(blink.mojom.CableAuthenticationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('user_verification_methods', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prf', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prf_inputs', 16, 0, mojo.internal.Array(blink.mojom.PRFValuesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('large_blob_read', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('large_blob_write', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('get_cred_blob', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('remote_desktop_client_override', 32, 0, blink.mojom.RemoteDesktopClientOverrideSpec, null, true, 0, undefined),
-      mojo.internal.StructField('supplemental_pub_keys', 40, 0, blink.mojom.SupplementalPubKeysRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('payment_browser_bound_key_parameters', 48, 0, mojo.internal.Array(blink.mojom.PublicKeyCredentialParametersSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('user_verification_methods', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prf', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prf_inputs', 24, 0, mojo.internal.Array(blink.mojom.PRFValuesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('large_blob_read', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('large_blob_write', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('get_cred_blob', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('remote_desktop_client_override', 56, 0, blink.mojom.RemoteDesktopClientOverrideSpec, null, true, 0, undefined),
+      mojo.internal.StructField('supplemental_pub_keys', 64, 0, blink.mojom.SupplementalPubKeysRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('payment_browser_bound_key_parameters', 72, 0, mojo.internal.Array(blink.mojom.PublicKeyCredentialParametersSpec, false), null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 88]]);
 
 // Struct: GetCredentialOptions
 mojo.internal.Struct(
     blink.mojom.GetCredentialOptionsSpec, 'blink.mojom.GetCredentialOptions', [
-      mojo.internal.StructField('mediation', 8, 0, blink.mojom.MediationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('public_key', 0, 0, blink.mojom.PublicKeyCredentialRequestOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('password', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mediation', 0, 0, blink.mojom.MediationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('public_key', 8, 0, blink.mojom.PublicKeyCredentialRequestOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: AuthenticatorSelectionCriteria
 mojo.internal.Struct(
@@ -437,32 +437,32 @@ mojo.internal.Struct(
       mojo.internal.StructField('exclude_credentials', 40, 0, mojo.internal.Array(blink.mojom.PublicKeyCredentialDescriptorSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('authenticator_selection', 48, 0, blink.mojom.AuthenticatorSelectionCriteriaSpec, null, true, 0, undefined),
       mojo.internal.StructField('hints', 56, 0, mojo.internal.Array(blink.mojom.HintSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('attestation', 120, 0, blink.mojom.AttestationConveyancePreferenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hmac_create_secret', 132, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prf_enable', 132, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prf_input', 64, 0, blink.mojom.PRFValuesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('protection_policy', 124, 0, blink.mojom.ProtectionPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('enforce_protection_policy', 132, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('appid_exclude', 72, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('cred_props', 132, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('large_blob_enable', 128, 0, blink.mojom.LargeBlobSupportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_payment_credential_creation', 132, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cred_blob', 80, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('min_pin_length_requested', 132, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('remote_desktop_client_override', 88, 0, blink.mojom.RemoteDesktopClientOverrideSpec, null, true, 0, undefined),
-      mojo.internal.StructField('supplemental_pub_keys', 96, 0, blink.mojom.SupplementalPubKeysRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('payment_browser_bound_key_parameters', 104, 0, mojo.internal.Array(blink.mojom.PublicKeyCredentialParametersSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('attestation_formats', 112, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_conditional', 132, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('attestation', 64, 0, blink.mojom.AttestationConveyancePreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hmac_create_secret', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prf_enable', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prf_input', 72, 0, blink.mojom.PRFValuesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('protection_policy', 80, 0, blink.mojom.ProtectionPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('enforce_protection_policy', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('appid_exclude', 88, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('cred_props', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('large_blob_enable', 100, 0, blink.mojom.LargeBlobSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_payment_credential_creation', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cred_blob', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('min_pin_length_requested', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('remote_desktop_client_override', 128, 0, blink.mojom.RemoteDesktopClientOverrideSpec, null, true, 0, undefined),
+      mojo.internal.StructField('supplemental_pub_keys', 136, 0, blink.mojom.SupplementalPubKeysRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('payment_browser_bound_key_parameters', 144, 0, mojo.internal.Array(blink.mojom.PublicKeyCredentialParametersSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('attestation_formats', 152, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_conditional', 160, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 144]]);
+    [[0, 176]]);
 
 // Struct: PublicKeyCredentialDescriptor
 mojo.internal.Struct(
     blink.mojom.PublicKeyCredentialDescriptorSpec, 'blink.mojom.PublicKeyCredentialDescriptor', [
-      mojo.internal.StructField('type', 16, 0, blink.mojom.PublicKeyCredentialTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('transports', 8, 0, mojo.internal.Array(blink.mojom.AuthenticatorTransportSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.PublicKeyCredentialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('transports', 16, 0, mojo.internal.Array(blink.mojom.AuthenticatorTransportSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -512,9 +512,9 @@ mojo.internal.Struct(
 // Struct: GetAssertionResponse
 mojo.internal.Struct(
     blink.mojom.GetAssertionResponseSpec, 'blink.mojom.GetAssertionResponse', [
-      mojo.internal.StructField('status', 16, 0, blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('credential', 0, 0, blink.mojom.GetAssertionAuthenticatorResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('dom_exception_details', 8, 0, blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credential', 8, 0, blink.mojom.GetAssertionAuthenticatorResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('dom_exception_details', 16, 0, blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -527,9 +527,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec, 'blink.mojom.Authenticator_MakeCredential_ResponseParams', [
-      mojo.internal.StructField('status', 16, 0, blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('credential', 0, 0, blink.mojom.MakeCredentialAuthenticatorResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('dom_exception_details', 8, 0, blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credential', 8, 0, blink.mojom.MakeCredentialAuthenticatorResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('dom_exception_details', 16, 0, blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -575,8 +575,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.Authenticator_Report_ResponseParamsSpec, 'blink.mojom.Authenticator_Report_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dom_exception_details', 0, 0, blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dom_exception_details', 8, 0, blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

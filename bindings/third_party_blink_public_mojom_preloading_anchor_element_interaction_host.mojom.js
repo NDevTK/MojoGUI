@@ -21,9 +21,9 @@ blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Param
 // Struct: AnchorElementPointerData
 mojo.internal.Struct(
     blink.mojom.AnchorElementPointerDataSpec, 'blink.mojom.AnchorElementPointerData', [
-      mojo.internal.StructField('is_mouse_pointer', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mouse_velocity', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('mouse_acceleration', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('is_mouse_pointer', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mouse_velocity', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('mouse_acceleration', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

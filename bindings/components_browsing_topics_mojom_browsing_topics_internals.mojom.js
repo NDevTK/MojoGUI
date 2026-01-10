@@ -59,36 +59,36 @@ mojo.internal.Union(
 // Struct: WebUIBrowsingTopicsConfiguration
 mojo.internal.Struct(
     browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec, 'browsing_topics.mojom.WebUIBrowsingTopicsConfiguration', [
-      mojo.internal.StructField('browsing_topics_enabled', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('privacy_sandbox_ads_apis_override_enabled', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('override_privacy_sandbox_settings_local_testing_enabled', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('browsing_topics_bypass_ip_is_publicly_routable_check_enabled', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('browsing_topics_document_api_enabled', 60, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('config_version', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('browsing_topics_parameters_enabled', 60, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('number_of_epochs_to_expose', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('time_period_per_epoch', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('number_of_top_topics_per_epoch', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('use_random_topic_probability_percent', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_epoch_introduction_delay', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('browsing_topics_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('privacy_sandbox_ads_apis_override_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('override_privacy_sandbox_settings_local_testing_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('browsing_topics_bypass_ip_is_publicly_routable_check_enabled', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('browsing_topics_document_api_enabled', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('config_version', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('browsing_topics_parameters_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('number_of_epochs_to_expose', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('time_period_per_epoch', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('number_of_top_topics_per_epoch', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('use_random_topic_probability_percent', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_epoch_introduction_delay', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('number_of_epochs_of_observation_data_to_use_for_filtering', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('max_number_of_api_usage_context_domains_to_keep_per_topic', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('max_number_of_api_usage_context_entries_to_load_per_epoch', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('max_number_of_api_usage_context_domains_to_store_per_page_load', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('taxonomy_version', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('disabled_topics_list', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('disabled_topics_list', 64, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 
 // Struct: WebUITopic
 mojo.internal.Struct(
     browsing_topics.mojom.WebUITopicSpec, 'browsing_topics.mojom.WebUITopic', [
-      mojo.internal.StructField('topic_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('topic_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('is_real_topic', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('observed_by_domains', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('topic_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('topic_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('is_real_topic', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('observed_by_domains', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: WebUIEpoch
 mojo.internal.Struct(

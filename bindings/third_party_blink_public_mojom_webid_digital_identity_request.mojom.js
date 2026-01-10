@@ -33,16 +33,16 @@ blink.mojom.RequestDigitalIdentityStatus = {
 // Struct: DigitalCredentialGetRequest
 mojo.internal.Struct(
     blink.mojom.DigitalCredentialGetRequestSpec, 'blink.mojom.DigitalCredentialGetRequest', [
-      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: DigitalCredentialCreateRequest
 mojo.internal.Struct(
     blink.mojom.DigitalCredentialCreateRequestSpec, 'blink.mojom.DigitalCredentialCreateRequest', [
-      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -55,9 +55,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_ResponseParams', [
-      mojo.internal.StructField('status', 24, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -69,9 +69,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_ResponseParams', [
-      mojo.internal.StructField('status', 24, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('protocol', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

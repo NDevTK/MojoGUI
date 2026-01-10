@@ -15,10 +15,10 @@ media.stable.mojom.NativePixmapHandleSpec = { $: {} };
 // Struct: NativePixmapPlane
 mojo.internal.Struct(
     media.stable.mojom.NativePixmapPlaneSpec, 'media.stable.mojom.NativePixmapPlane', [
-      mojo.internal.StructField('stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('stride', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

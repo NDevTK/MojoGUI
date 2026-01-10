@@ -50,9 +50,9 @@ blink.mojom.DeviceThermalState = {
 // Struct: PeerConnectionInfo
 mojo.internal.Struct(
     blink.mojom.PeerConnectionInfoSpec, 'blink.mojom.PeerConnectionInfo', [
-      mojo.internal.StructField('lid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('rtc_configuration', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('rtc_configuration', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -238,91 +238,91 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_Params', [
-      mojo.internal.StructField('lid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_Params', [
-      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetUserMedia_Params', [
-      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('audio', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('video', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('audio_constraints', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('video_constraints', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('audio', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('video', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_constraints', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_constraints', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_Params', [
-      mojo.internal.StructField('request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('audio_track_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('video_track_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('audio_track_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_track_info', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_Params', [
-      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_Params', [
-      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('audio', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('video', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('audio_constraints', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('video_constraints', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('audio', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('video', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_constraints', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_constraints', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_Params', [
-      mojo.internal.StructField('request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('audio_track_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('video_track_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('audio_track_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('video_track_info', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_Params', [
-      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_Params', [
-      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('output', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_Params', [
-      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('output', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_AddStandardStats_Params', [
-      mojo.internal.StructField('lid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

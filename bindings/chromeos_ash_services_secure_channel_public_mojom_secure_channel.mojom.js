@@ -508,9 +508,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('device_to_connect', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
       mojo.internal.StructField('local_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
       mojo.internal.StructField('feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('connection_medium', 32, 0, ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connection_priority', 36, 0, ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 24, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('connection_medium', 24, 0, ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_priority', 28, 0, ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 32, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -519,10 +519,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('device_to_connect', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
       mojo.internal.StructField('local_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
       mojo.internal.StructField('feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('connection_medium', 40, 0, ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connection_priority', 44, 0, ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 24, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
-      mojo.internal.StructField('secure_channel_structured_metrics_logger', 32, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('connection_medium', 24, 0, ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_priority', 28, 0, ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 32, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('secure_channel_structured_metrics_logger', 40, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote), null, true, 0, undefined),
     ],
     [[0, 56]]);
 

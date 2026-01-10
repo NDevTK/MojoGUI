@@ -39,8 +39,8 @@ mojo.internal.Struct(
 // Struct: DebugModeDetails
 mojo.internal.Struct(
     blink.mojom.DebugModeDetailsSpec, 'blink.mojom.DebugModeDetails', [
-      mojo.internal.StructField('is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('debug_key', 0, 0, blink.mojom.DebugKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('debug_key', 8, 0, blink.mojom.DebugKeySpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -53,8 +53,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec, 'blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_Params', [
-      mojo.internal.StructField('error_event', 8, 0, blink.mojom.PrivateAggregationErrorEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('contributions', 0, 0, mojo.internal.Array(blink.mojom.AggregatableReportHistogramContributionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error_event', 0, 0, blink.mojom.PrivateAggregationErrorEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contributions', 8, 0, mojo.internal.Array(blink.mojom.AggregatableReportHistogramContributionSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

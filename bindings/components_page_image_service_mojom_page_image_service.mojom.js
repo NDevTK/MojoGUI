@@ -46,9 +46,9 @@ mojo.internal.Struct(
 // Interface: PageImageServiceHandler
 mojo.internal.Struct(
     page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params', [
-      mojo.internal.StructField('client_id', 16, 0, page_image_service.mojom.ClientIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, page_image_service.mojom.OptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 0, 0, page_image_service.mojom.ClientIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, page_image_service.mojom.OptionsSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

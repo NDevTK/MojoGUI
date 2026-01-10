@@ -104,8 +104,8 @@ mojo.internal.Struct(
 // Struct: PresentationError
 mojo.internal.Struct(
     blink.mojom.PresentationErrorSpec, 'blink.mojom.PresentationError', [
-      mojo.internal.StructField('error_type', 8, 0, blink.mojom.PresentationErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_type', 0, 0, blink.mojom.PresentationErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -437,8 +437,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec, 'blink.mojom.PresentationController_OnConnectionClosed_Params', [
       mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 16, 0, blink.mojom.PresentationConnectionCloseReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, blink.mojom.PresentationConnectionCloseReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

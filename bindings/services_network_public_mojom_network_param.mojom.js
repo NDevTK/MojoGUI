@@ -32,12 +32,12 @@ network.mojom.ProxyScheme = {
 // Struct: AuthChallengeInfo
 mojo.internal.Struct(
     network.mojom.AuthChallengeInfoSpec, 'network.mojom.AuthChallengeInfo', [
-      mojo.internal.StructField('is_proxy', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('challenger', 0, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scheme', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('realm', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('challenge', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('path', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_proxy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('challenger', 8, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scheme', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('realm', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('challenge', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('path', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -60,8 +60,8 @@ mojo.internal.Struct(
 // Struct: ProxyServer
 mojo.internal.Struct(
     network.mojom.ProxyServerSpec, 'network.mojom.ProxyServer', [
-      mojo.internal.StructField('scheme', 8, 0, network.mojom.ProxySchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('host_and_port', 0, 0, network.mojom.HostPortPairSpec, null, true, 0, undefined),
+      mojo.internal.StructField('scheme', 0, 0, network.mojom.ProxySchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_and_port', 8, 0, network.mojom.HostPortPairSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -85,17 +85,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.SSLCertRequestInfoSpec, 'network.mojom.SSLCertRequestInfo', [
       mojo.internal.StructField('host_and_port', 0, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_proxy', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cert_authorities', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('signature_algorithms', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_proxy', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cert_authorities', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('signature_algorithms', 24, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: NetLogSource
 mojo.internal.Struct(
     network.mojom.NetLogSourceSpec, 'network.mojom.NetLogSource', [
-      mojo.internal.StructField('source_type', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('source_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('start_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('source_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('start_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

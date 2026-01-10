@@ -95,8 +95,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParams', [
-      mojo.internal.StructField('is_supported', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('key_system_capability', 0, 0, media.mojom.KeySystemCapabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('key_system_capability', 8, 0, media.mojom.KeySystemCapabilitySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

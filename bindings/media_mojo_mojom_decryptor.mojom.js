@@ -39,15 +39,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Decryptor_Decrypt_ParamsSpec, 'media.mojom.Decryptor_Decrypt_Params', [
-      mojo.internal.StructField('stream_type', 16, 0, media.mojom.StreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('encrypted', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encrypted', 8, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_Decrypt_ResponseParamsSpec, 'media.mojom.Decryptor_Decrypt_ResponseParams', [
-      mojo.internal.StructField('status', 16, 0, media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, media.mojom.DecoderBufferSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -89,8 +89,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('audio_buffers', 0, 0, mojo.internal.Array(media.mojom.AudioBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('audio_buffers', 8, 0, mojo.internal.Array(media.mojom.AudioBufferSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -102,9 +102,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParams', [
-      mojo.internal.StructField('status', 16, 0, media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('video_frame', 0, 0, media.mojom.VideoFrameSpec, null, true, 0, undefined),
-      mojo.internal.StructField('releaser', 8, 0, mojo.internal.InterfaceProxy(media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_frame', 8, 0, media.mojom.VideoFrameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('releaser', 16, 0, mojo.internal.InterfaceProxy(media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

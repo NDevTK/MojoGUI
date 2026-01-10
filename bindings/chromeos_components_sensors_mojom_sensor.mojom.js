@@ -147,8 +147,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDevice_Params', [
-      mojo.internal.StructField('iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('device_request', 0, 0, mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('iio_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_request', 8, 0, mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -507,8 +507,8 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest = chromeos.sensors.moj
 // Interface: SensorServiceNewDevicesObserver
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec, 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_Params', [
-      mojo.internal.StructField('iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('types', 0, 0, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('iio_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('types', 8, 0, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

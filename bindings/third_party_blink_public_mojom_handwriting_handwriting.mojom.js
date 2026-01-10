@@ -80,9 +80,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     handwriting.mojom.HandwritingSegmentSpec, 'handwriting.mojom.HandwritingSegment', [
       mojo.internal.StructField('grapheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('begin_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('end_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('drawing_segments', 8, 0, mojo.internal.Array(handwriting.mojom.HandwritingDrawingSegmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('begin_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_index', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('drawing_segments', 16, 0, mojo.internal.Array(handwriting.mojom.HandwritingDrawingSegmentSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -117,9 +117,9 @@ mojo.internal.Struct(
 // Struct: QueryHandwritingRecognizerResult
 mojo.internal.Struct(
     handwriting.mojom.QueryHandwritingRecognizerResultSpec, 'handwriting.mojom.QueryHandwritingRecognizerResult', [
-      mojo.internal.StructField('text_alternatives', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('text_segmentation', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('hints', 0, 0, handwriting.mojom.HandwritingHintsQueryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_alternatives', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text_segmentation', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hints', 8, 0, handwriting.mojom.HandwritingHintsQueryResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -210,8 +210,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec, 'handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, handwriting.mojom.CreateHandwritingRecognizerResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('handwriting_recognizer', 0, 0, mojo.internal.InterfaceProxy(handwriting.mojom.HandwritingRecognizerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, handwriting.mojom.CreateHandwritingRecognizerResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('handwriting_recognizer', 8, 0, mojo.internal.InterfaceProxy(handwriting.mojom.HandwritingRecognizerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

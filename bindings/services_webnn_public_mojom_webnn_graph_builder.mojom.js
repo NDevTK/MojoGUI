@@ -32,9 +32,9 @@ mojo.internal.Struct(
 // Interface: WebNNGraphBuilder
 mojo.internal.Struct(
     webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec, 'webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_Params', [
-      mojo.internal.StructField('constant_handle', 16, 0, blink.mojom.WebNNPendingConstantTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data_type', 24, 0, webnn.mojom.DataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('constant_handle', 0, 0, blink.mojom.WebNNPendingConstantTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_type', 8, 0, webnn.mojom.DataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

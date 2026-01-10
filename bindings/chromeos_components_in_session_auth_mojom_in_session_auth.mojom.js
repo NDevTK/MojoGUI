@@ -53,8 +53,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_CheckToken_Params', [
-      mojo.internal.StructField('reason', 8, 0, chromeos.auth.mojom.ReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, chromeos.auth.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

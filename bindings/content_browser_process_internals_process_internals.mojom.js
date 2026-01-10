@@ -51,31 +51,31 @@ mojo.internal.Struct(
 // Struct: SiteInstanceInfo
 mojo.internal.Struct(
     mojom.SiteInstanceInfoSpec, 'mojom.SiteInstanceInfo', [
-      mojo.internal.StructField('id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('site_instance_group_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('browsing_instance_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('locked', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('site_url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('process_lock_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('requires_origin_keyed_process', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_sandbox_for_iframes', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_guest', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_pdf', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('are_javascript_optimizers_enabled', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('storage_partition', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('site_instance_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('browsing_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('locked', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('site_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('process_lock_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('requires_origin_keyed_process', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_sandbox_for_iframes', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_guest', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_pdf', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('are_javascript_optimizers_enabled', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('storage_partition', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: FrameInfo
 mojo.internal.Struct(
     mojom.FrameInfoSpec, 'mojom.FrameInfo', [
-      mojo.internal.StructField('routing_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('agent_scheduling_group_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('process_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('site_instance', 0, 0, mojom.SiteInstanceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_committed_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('subframes', 16, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('kActive', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('agent_scheduling_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('process_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('site_instance', 16, 0, mojom.SiteInstanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_committed_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subframes', 32, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('kActive', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 56]]);
 

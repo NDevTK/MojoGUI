@@ -680,8 +680,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_ReceiveFrame_Params', [
-      mojo.internal.StructField('frame_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

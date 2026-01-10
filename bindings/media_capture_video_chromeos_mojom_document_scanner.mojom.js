@@ -19,8 +19,8 @@ cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
 // Struct: DetectCornersResult
 mojo.internal.Struct(
     cros.mojom.DetectCornersResultSpec, 'cros.mojom.DetectCornersResult', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('corners', 0, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

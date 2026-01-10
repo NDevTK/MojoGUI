@@ -81,8 +81,8 @@ mojo.internal.Union(
 // Struct: CacheStorageVerboseError
 mojo.internal.Struct(
     blink.mojom.CacheStorageVerboseErrorSpec, 'blink.mojom.CacheStorageVerboseError', [
-      mojo.internal.StructField('value', 8, 0, blink.mojom.CacheStorageErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, blink.mojom.CacheStorageErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -106,10 +106,10 @@ mojo.internal.Struct(
 // Struct: BatchOperation
 mojo.internal.Struct(
     blink.mojom.BatchOperationSpec, 'blink.mojom.BatchOperation', [
-      mojo.internal.StructField('operation_type', 24, 0, blink.mojom.OperationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response', 8, 0, blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('match_options', 16, 0, blink.mojom.CacheQueryOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('operation_type', 0, 0, blink.mojom.OperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 16, 0, blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('match_options', 24, 0, blink.mojom.CacheQueryOptionsSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -135,9 +135,9 @@ mojo.internal.Struct(
     blink.mojom.CacheStorageCache_Match_ParamsSpec, 'blink.mojom.CacheStorageCache_Match_Params', [
       mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
       mojo.internal.StructField('query_options', 8, 0, blink.mojom.CacheQueryOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('in_related_fetch_event', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_range_fetch_event', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -180,9 +180,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec, 'blink.mojom.CacheStorageCache_WriteSideData_Params', [
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('expected_response_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expected_response_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
       mojo.internal.StructField('trace_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -338,9 +338,9 @@ mojo.internal.Struct(
     blink.mojom.CacheStorage_Match_ParamsSpec, 'blink.mojom.CacheStorage_Match_Params', [
       mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
       mojo.internal.StructField('match_options', 8, 0, blink.mojom.MultiCacheQueryOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('in_related_fetch_event', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_range_fetch_event', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

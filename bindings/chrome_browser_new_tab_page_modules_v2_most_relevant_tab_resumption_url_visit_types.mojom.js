@@ -44,24 +44,24 @@ ntp.most_relevant_tab_resumption.mojom.VisitSource = {
 // Struct: Decoration
 mojo.internal.Struct(
     ntp.most_relevant_tab_resumption.mojom.DecorationSpec, 'ntp.most_relevant_tab_resumption.mojom.Decoration', [
-      mojo.internal.StructField('type', 8, 0, ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('display_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_string', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: URLVisit
 mojo.internal.Struct(
     ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, 'ntp.most_relevant_tab_resumption.mojom.URLVisit', [
-      mojo.internal.StructField('form_factor', 64, 0, ntp.most_relevant_tab_resumption.mojom.FormFactorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_known_to_sync', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source', 68, 0, ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('decoration', 24, 0, ntp.most_relevant_tab_resumption.mojom.DecorationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('relative_time', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 40, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('url_key', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('training_request_id', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('form_factor', 0, 0, ntp.most_relevant_tab_resumption.mojom.FormFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_known_to_sync', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('decoration', 40, 0, ntp.most_relevant_tab_resumption.mojom.DecorationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_time', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 56, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url_key', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('training_request_id', 72, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 88]]);

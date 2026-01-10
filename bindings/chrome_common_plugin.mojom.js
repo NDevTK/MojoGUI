@@ -38,11 +38,11 @@ chrome.mojom.PluginStatus = {
 // Struct: PluginInfo
 mojo.internal.Struct(
     chrome.mojom.PluginInfoSpec, 'chrome.mojom.PluginInfo', [
-      mojo.internal.StructField('status', 32, 0, chrome.mojom.PluginStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('plugin', 0, 0, content.mojom.WebPluginInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('actual_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('group_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('group_name', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chrome.mojom.PluginStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('plugin', 8, 0, content.mojom.WebPluginInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('actual_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_identifier', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_name', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

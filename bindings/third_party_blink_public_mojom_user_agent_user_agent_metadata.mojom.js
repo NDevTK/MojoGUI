@@ -30,12 +30,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('platform_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('architecture', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('model', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mobile', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('bitness', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('wow64', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('form_factors', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('mobile', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bitness', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('wow64', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('form_factors', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 96]]);
 
 // Struct: UserAgentOverride
 mojo.internal.Struct(

@@ -28,8 +28,8 @@ segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = { $: {} };
 // Struct: ServiceStatus
 mojo.internal.Struct(
     segmentation_internals.mojom.ServiceStatusSpec, 'segmentation_internals.mojom.ServiceStatus', [
-      mojo.internal.StructField('is_initialized', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('intialization_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('intialization_status', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -37,13 +37,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     segmentation_internals.mojom.SegmentInfoSpec, 'segmentation_internals.mojom.SegmentInfo', [
       mojo.internal.StructField('segment_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('segment_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('segment_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('can_execute_segment', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('prediction_result', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('prediction_timestamp', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('segment_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('segment_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('can_execute_segment', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prediction_result', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('prediction_timestamp', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: ClientInfo
 mojo.internal.Struct(
@@ -232,8 +232,8 @@ segmentation_internals.mojom.PageHandlerRequest = segmentation_internals.mojom.P
 // Interface: Page
 mojo.internal.Struct(
     segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec, 'segmentation_internals.mojom.Page_OnServiceStatusChanged_Params', [
-      mojo.internal.StructField('is_initialized', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('status_flag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('status_flag', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -108,8 +108,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec, 'blink.mojom.IdleManager_AddMonitor_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.IdleManagerErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('state', 0, 0, blink.mojom.IdleStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.IdleManagerErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, blink.mojom.IdleStateSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

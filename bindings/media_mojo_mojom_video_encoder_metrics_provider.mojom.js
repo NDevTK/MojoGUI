@@ -30,11 +30,11 @@ media.mojom.VideoEncoderUseCase = {
 mojo.internal.Struct(
     media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Initialize_Params', [
       mojo.internal.StructField('encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('encoder_use_case', 24, 0, media.mojom.VideoEncoderUseCaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile', 8, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('encode_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encoder_use_case', 8, 0, media.mojom.VideoEncoderUseCaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 16, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encode_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('is_hardware_encoder', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('svc_mode', 28, 0, media.mojom.SVCScalabilityModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('svc_mode', 36, 0, media.mojom.SVCScalabilityModeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

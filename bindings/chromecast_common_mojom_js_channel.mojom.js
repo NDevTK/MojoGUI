@@ -166,8 +166,8 @@ chromecast.mojom.JsChannelClientRequest = chromecast.mojom.JsChannelClientPendin
 // Interface: JsChannelBindingProvider
 mojo.internal.Struct(
     chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec, 'chromecast.mojom.JsChannelBindingProvider_Register_Params', [
-      mojo.internal.StructField('routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.JsChannelClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.JsChannelClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

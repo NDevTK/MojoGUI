@@ -108,9 +108,9 @@ blink.mojom.Format = {
 mojo.internal.Struct(
     blink.mojom.IdentityProviderConfigSpec, 'blink.mojom.IdentityProviderConfig', [
       mojo.internal.StructField('config_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('from_idp_registration_api', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('from_idp_registration_api', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('client_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -191,13 +191,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec, 'blink.mojom.FederatedAuthRequest_RequestToken_ResponseParams', [
-      mojo.internal.StructField('status', 32, 0, blink.mojom.RequestTokenStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('selected_identity_provider_config_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('error', 24, 0, blink.mojom.TokenErrorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_auto_selected', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selected_identity_provider_config_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 32, 0, blink.mojom.TokenErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_auto_selected', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec, 'blink.mojom.FederatedAuthRequest_RequestUserInfo_Params', [
@@ -207,8 +207,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec, 'blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, blink.mojom.RequestUserInfoStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('user_info', 0, 0, mojo.internal.Array(blink.mojom.IdentityUserInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestUserInfoStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_info', 8, 0, mojo.internal.Array(blink.mojom.IdentityUserInfoSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -219,8 +219,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec, 'blink.mojom.FederatedAuthRequest_ResolveTokenRequest_Params', [
-      mojo.internal.StructField('account_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -233,8 +233,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec, 'blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_Params', [
       mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 16, 0, blink.mojom.IdpSigninStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.LoginStatusOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, blink.mojom.IdpSigninStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, blink.mojom.LoginStatusOptionsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

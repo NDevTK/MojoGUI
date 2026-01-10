@@ -71,10 +71,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DragItemBinarySpec, 'blink.mojom.DragItemBinary', [
       mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_image_accessible', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('filename_extension', 24, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_disposition', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_image_accessible', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('source_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filename_extension', 32, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_disposition', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 56]]);
 

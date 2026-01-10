@@ -16,8 +16,8 @@ network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = { $: {} };
 // Interface: ProxyLookupClient
 mojo.internal.Struct(
     network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec, 'network.mojom.ProxyLookupClient_OnProxyLookupComplete_Params', [
-      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('proxy_info', 0, 0, proxy_resolver.mojom.ProxyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('proxy_info', 8, 0, proxy_resolver.mojom.ProxyInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

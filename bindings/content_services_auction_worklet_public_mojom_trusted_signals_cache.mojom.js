@@ -36,8 +36,8 @@ mojo.internal.Struct(
 // Interface: TrustedSignalsCacheClient
 mojo.internal.Struct(
     auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_Params', [
-      mojo.internal.StructField('compression_scheme', 16, 0, auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('compression_group_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compression_scheme', 0, 0, auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compression_group_data', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

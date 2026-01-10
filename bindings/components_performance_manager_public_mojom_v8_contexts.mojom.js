@@ -35,9 +35,9 @@ mojo.internal.Struct(
 // Struct: V8ContextDescription
 mojo.internal.Struct(
     performance_manager.mojom.V8ContextDescriptionSpec, 'performance_manager.mojom.V8ContextDescription', [
-      mojo.internal.StructField('token', 16, 0, blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('world_type', 32, 0, performance_manager.mojom.V8ContextWorldTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('world_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('execution_context_token', 0, 0, blink.mojom.ExecutionContextTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('world_type', 8, 0, performance_manager.mojom.V8ContextWorldTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('world_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('execution_context_token', 24, 0, blink.mojom.ExecutionContextTokenSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);

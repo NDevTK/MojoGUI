@@ -29,12 +29,12 @@ mojo.internal.Struct(
 // Struct: DateTimeDialogValue
 mojo.internal.Struct(
     blink.mojom.DateTimeDialogValueSpec, 'blink.mojom.DateTimeDialogValue', [
-      mojo.internal.StructField('dialog_type', 40, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('minimum', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('maximum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('step', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('suggestions', 32, 0, mojo.internal.Array(blink.mojom.DateTimeSuggestionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('dialog_type', 0, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dialog_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('minimum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('maximum', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('step', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 40, 0, mojo.internal.Array(blink.mojom.DateTimeSuggestionSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -47,8 +47,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParams', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dialog_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

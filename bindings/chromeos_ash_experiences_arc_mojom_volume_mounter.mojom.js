@@ -41,15 +41,15 @@ arc.mojom.DeviceType = {
 // Struct: MountPointInfo
 mojo.internal.Struct(
     arc.mojom.MountPointInfoSpec, 'arc.mojom.MountPointInfo', [
-      mojo.internal.StructField('mount_event', 32, 0, arc.mojom.MountEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mount_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('fs_uuid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('device_type', 36, 0, arc.mojom.DeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('visible', 40, 0, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('mount_event', 0, 0, arc.mojom.MountEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mount_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('fs_uuid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_type', 40, 0, arc.mojom.DeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible', 44, 0, mojo.internal.Bool, false, false, 2, undefined),
     ],
-    [[0, 48], [2, 56]]);
+    [[0, 56], [2, 56]]);
 
 // Interface: VolumeMounterHost
 mojo.internal.Struct(

@@ -46,11 +46,11 @@ device.mojom.XRHandJoint = {
 // Struct: XRHandJointData
 mojo.internal.Struct(
     device.mojom.XRHandJointDataSpec, 'device.mojom.XRHandJointData', [
-      mojo.internal.StructField('joint', 8, 0, device.mojom.XRHandJointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mojo_from_joint', 0, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
-      mojo.internal.StructField('radius', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('joint', 0, 0, device.mojom.XRHandJointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mojo_from_joint', 8, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
+      mojo.internal.StructField('radius', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: XRHandTrackingData
 mojo.internal.Struct(

@@ -70,18 +70,18 @@ mojo.internal.Union(
 // Struct: SearchResult
 mojo.internal.Struct(
     ash.settings.mojom.SearchResultSpec, 'ash.settings.mojom.SearchResult', [
-      mojo.internal.StructField('text', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('canonical_text', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url_path_with_parameters', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon', 56, 0, ash.settings.mojom.SearchResultIconSpec, null, false, 0, undefined),
-      mojo.internal.StructField('relevance_score', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('settings_page_hierarchy', 48, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('default_rank', 60, 0, ash.settings.mojom.SearchResultDefaultRankSpec, null, false, 0, undefined),
-      mojo.internal.StructField('was_generated_from_text_match', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 64, 0, ash.settings.mojom.SearchResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 0, 0, ash.settings.mojom.SearchResultIdentifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('canonical_text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url_path_with_parameters', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 24, 0, ash.settings.mojom.SearchResultIconSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relevance_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_rank', 48, 0, ash.settings.mojom.SearchResultDefaultRankSpec, null, false, 0, undefined),
+      mojo.internal.StructField('was_generated_from_text_match', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 56, 0, ash.settings.mojom.SearchResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 64, 0, ash.settings.mojom.SearchResultIdentifierSpec, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Interface: SearchResultsObserver
 mojo.internal.Struct(

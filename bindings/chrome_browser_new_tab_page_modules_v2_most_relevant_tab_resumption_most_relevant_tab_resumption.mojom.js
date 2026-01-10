@@ -67,9 +67,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_Params', [
-      mojo.internal.StructField('action', 16, 0, ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('visit_request_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('visit_request_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

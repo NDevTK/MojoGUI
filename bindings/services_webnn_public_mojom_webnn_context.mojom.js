@@ -55,8 +55,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     webnn.mojom.WebNNContext_CreateTensor_ParamsSpec, 'webnn.mojom.WebNNContext_CreateTensor_Params', [
-      mojo.internal.StructField('tensor_info', 16, 0, webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tensor_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tensor_info', 0, 0, webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tensor_data', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

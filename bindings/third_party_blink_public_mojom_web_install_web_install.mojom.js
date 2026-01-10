@@ -42,8 +42,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebInstallService_Install_ResponseParamsSpec, 'blink.mojom.WebInstallService_Install_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, blink.mojom.WebInstallServiceResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('manifest_id', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.WebInstallServiceResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manifest_id', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -55,8 +55,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec, 'blink.mojom.WebInstallService_InstallFromElement_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, blink.mojom.WebInstallServiceResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('manifest_id', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.WebInstallServiceResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('manifest_id', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

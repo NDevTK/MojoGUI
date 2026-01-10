@@ -58,8 +58,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('plain_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('text_separator', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('geometry', 16, 0, lens.mojom.GeometrySpec, null, true, 0, undefined),
-      mojo.internal.StructField('writing_direction', 32, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('formula_metadata', 24, 0, lens.mojom.FormulaMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('writing_direction', 24, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('formula_metadata', 32, 0, lens.mojom.FormulaMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -75,10 +75,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     lens.mojom.BackgroundImageDataSpec, 'lens.mojom.BackgroundImageData', [
       mojo.internal.StructField('background_image', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_size', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('vertical_padding', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('horizontal_padding', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('text_mask', 16, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('vertical_padding', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('horizontal_padding', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('text_mask', 32, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -99,9 +99,9 @@ mojo.internal.Struct(
     lens.mojom.TranslatedParagraphSpec, 'lens.mojom.TranslatedParagraph', [
       mojo.internal.StructField('lines', 0, 0, mojo.internal.Array(lens.mojom.TranslatedLineSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('resized_bitmap_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alignment', 24, 0, lens.mojom.AlignmentSpec, null, true, 0, undefined),
-      mojo.internal.StructField('writing_direction', 28, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('content_language', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('alignment', 16, 0, lens.mojom.AlignmentSpec, null, true, 0, undefined),
+      mojo.internal.StructField('writing_direction', 20, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('content_language', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -111,8 +111,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('lines', 0, 0, mojo.internal.Array(lens.mojom.LineSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('translation', 8, 0, lens.mojom.TranslatedParagraphSpec, null, true, 0, undefined),
       mojo.internal.StructField('geometry', 16, 0, lens.mojom.GeometrySpec, null, true, 0, undefined),
-      mojo.internal.StructField('writing_direction', 32, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('content_language', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('writing_direction', 24, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('content_language', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 

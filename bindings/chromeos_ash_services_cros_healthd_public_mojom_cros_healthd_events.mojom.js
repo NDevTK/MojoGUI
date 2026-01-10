@@ -372,10 +372,10 @@ mojo.internal.Struct(
     ash.cros_healthd.mojom.UsbEventInfoSpec, 'ash.cros_healthd.mojom.UsbEventInfo', [
       mojo.internal.StructField('vendor', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('vid', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('pid', 34, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('categories', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('vid', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('pid', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('categories', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -439,12 +439,12 @@ mojo.internal.Struct(
 // Struct: TouchPointInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.TouchPointInfoSpec, 'ash.cros_healthd.mojom.TouchPointInfo', [
-      mojo.internal.StructField('tracking_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('x', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('pressure', 0, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('touch_major', 8, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('touch_minor', 16, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('tracking_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('x', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pressure', 16, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('touch_major', 24, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('touch_minor', 32, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -458,10 +458,10 @@ mojo.internal.Struct(
 // Struct: TouchpadConnectedEvent
 mojo.internal.Struct(
     ash.cros_healthd.mojom.TouchpadConnectedEventSpec, 'ash.cros_healthd.mojom.TouchpadConnectedEvent', [
-      mojo.internal.StructField('max_x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_pressure', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('buttons', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.InputTouchButtonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('max_x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_pressure', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('buttons', 16, 0, mojo.internal.Array(ash.cros_healthd.mojom.InputTouchButtonSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -498,9 +498,9 @@ mojo.internal.Struct(
 // Struct: StylusTouchPointInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.StylusTouchPointInfoSpec, 'ash.cros_healthd.mojom.StylusTouchPointInfo', [
-      mojo.internal.StructField('x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('pressure', 0, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pressure', 8, 0, ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

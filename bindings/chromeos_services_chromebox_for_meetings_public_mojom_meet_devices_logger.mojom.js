@@ -60,8 +60,8 @@ chromeos.cfm.mojom.LoggerState = {
 // Struct: LoggerStatus
 mojo.internal.Struct(
     chromeos.cfm.mojom.LoggerStatusSpec, 'chromeos.cfm.mojom.LoggerStatus', [
-      mojo.internal.StructField('code', 8, 0, chromeos.cfm.mojom.LoggerErrorCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, chromeos.cfm.mojom.LoggerErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

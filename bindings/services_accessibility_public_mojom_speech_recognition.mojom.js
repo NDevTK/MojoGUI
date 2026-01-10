@@ -67,12 +67,12 @@ mojo.internal.Struct(
 // Struct: StartOptions
 mojo.internal.Struct(
     ax.mojom.StartOptionsSpec, 'ax.mojom.StartOptions', [
-      mojo.internal.StructField('type', 8, 0, ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('locale', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('interim_results_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'interim_results_$value', originalFieldName: 'interim_results' }),
-      mojo.internal.StructField('interim_results_$value', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'interim_results_$flag', originalFieldName: 'interim_results' }),
+      mojo.internal.StructField('type', 0, 0, ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('locale', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('interim_results_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'interim_results_$value', originalFieldName: 'interim_results' }),
+      mojo.internal.StructField('interim_results_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'interim_results_$flag', originalFieldName: 'interim_results' }),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: StopOptions
 mojo.internal.Struct(
@@ -84,8 +84,8 @@ mojo.internal.Struct(
 // Struct: SpeechRecognitionStartInfo
 mojo.internal.Struct(
     ax.mojom.SpeechRecognitionStartInfoSpec, 'ax.mojom.SpeechRecognitionStartInfo', [
-      mojo.internal.StructField('type', 16, 0, ax.mojom.SpeechRecognitionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('observer_or_error', 0, 0, ax.mojom.ObserverOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ax.mojom.SpeechRecognitionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer_or_error', 8, 0, ax.mojom.ObserverOrErrorSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

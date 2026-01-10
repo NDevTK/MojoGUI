@@ -17,8 +17,8 @@ extensions.mojom.PermissionSetSpec = { $: {} };
 // Struct: APIPermission
 mojo.internal.Struct(
     extensions.mojom.APIPermissionSpec, 'extensions.mojom.APIPermission', [
-      mojo.internal.StructField('id', 16, 0, extensions.mojom.APIPermissionIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, extensions.mojom.APIPermissionIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -32,8 +32,8 @@ mojo.internal.Struct(
 // Struct: ManifestPermission
 mojo.internal.Struct(
     extensions.mojom.ManifestPermissionSpec, 'extensions.mojom.ManifestPermission', [
-      mojo.internal.StructField('id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

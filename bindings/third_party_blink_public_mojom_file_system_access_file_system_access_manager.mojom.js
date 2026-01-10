@@ -126,9 +126,9 @@ mojo.internal.Struct(
 // Struct: FilePickerOptions
 mojo.internal.Struct(
     blink.mojom.FilePickerOptionsSpec, 'blink.mojom.FilePickerOptions', [
-      mojo.internal.StructField('type_specific_options', 16, 0, blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('starting_directory_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('start_in_options', 0, 0, blink.mojom.FilePickerStartInOptionsUnionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type_specific_options', 0, 0, blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('starting_directory_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_in_options', 16, 0, blink.mojom.FilePickerStartInOptionsUnionSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

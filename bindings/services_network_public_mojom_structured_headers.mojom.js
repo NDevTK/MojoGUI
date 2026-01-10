@@ -58,8 +58,8 @@ mojo.internal.Union(
 // Struct: StructuredHeadersParameter
 mojo.internal.Struct(
     network.mojom.StructuredHeadersParameterSpec, 'network.mojom.StructuredHeadersParameter', [
-      mojo.internal.StructField('key', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('item', 0, 0, network.mojom.StructuredHeadersItemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('item', 8, 0, network.mojom.StructuredHeadersItemSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -75,8 +75,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.StructuredHeadersParameterizedMemberSpec, 'network.mojom.StructuredHeadersParameterizedMember', [
       mojo.internal.StructField('member', 0, 0, mojo.internal.Array(network.mojom.StructuredHeadersParameterizedItemSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('member_is_inner_list', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('parameters', 8, 0, mojo.internal.Array(network.mojom.StructuredHeadersParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('member_is_inner_list', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('parameters', 16, 0, mojo.internal.Array(network.mojom.StructuredHeadersParameterSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

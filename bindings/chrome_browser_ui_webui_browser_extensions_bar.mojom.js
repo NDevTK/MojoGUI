@@ -32,8 +32,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('accessible_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('tooltip', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_visible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('data_url_for_icon', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_visible', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data_url_for_icon', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -111,8 +111,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'extensions_bar.mojom.PageHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('source', 8, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

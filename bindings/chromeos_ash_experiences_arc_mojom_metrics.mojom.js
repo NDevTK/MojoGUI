@@ -516,8 +516,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataRestore_Params', [
-      mojo.internal.StructField('status', 8, 0, arc.mojom.DataRestoreStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.DataRestoreStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -534,8 +534,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_Params', [
-      mojo.internal.StructField('event', 8, 0, arc.mojom.WaylandTimingEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, arc.mojom.WaylandTimingEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

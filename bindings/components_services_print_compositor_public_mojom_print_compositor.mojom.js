@@ -77,8 +77,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositePage_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('document_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -93,8 +93,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('document_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -118,8 +118,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec, 'printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('document_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

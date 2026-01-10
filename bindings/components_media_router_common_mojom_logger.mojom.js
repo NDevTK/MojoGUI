@@ -27,34 +27,34 @@ media_router.mojom.LogCategory = {
 // Interface: Logger
 mojo.internal.Struct(
     media_router.mojom.Logger_LogInfo_ParamsSpec, 'media_router.mojom.Logger_LogInfo_Params', [
-      mojo.internal.StructField('category', 40, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('component', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('media_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('component', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     media_router.mojom.Logger_LogWarning_ParamsSpec, 'media_router.mojom.Logger_LogWarning_Params', [
-      mojo.internal.StructField('category', 40, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('component', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('media_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('component', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     media_router.mojom.Logger_LogError_ParamsSpec, 'media_router.mojom.Logger_LogError_Params', [
-      mojo.internal.StructField('category', 40, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('component', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('media_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('component', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 

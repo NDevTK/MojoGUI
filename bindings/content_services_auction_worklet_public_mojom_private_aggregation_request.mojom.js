@@ -138,29 +138,29 @@ mojo.internal.Struct(
 // Struct: SignalBucket
 mojo.internal.Struct(
     auction_worklet.mojom.SignalBucketSpec, 'auction_worklet.mojom.SignalBucket', [
-      mojo.internal.StructField('base_value', 16, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('offset', 8, 0, auction_worklet.mojom.BucketOffsetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 16, 0, auction_worklet.mojom.BucketOffsetSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SignalValue
 mojo.internal.Struct(
     auction_worklet.mojom.SignalValueSpec, 'auction_worklet.mojom.SignalValue', [
-      mojo.internal.StructField('base_value', 8, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('offset', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: AggregatableReportForEventContribution
 mojo.internal.Struct(
     auction_worklet.mojom.AggregatableReportForEventContributionSpec, 'auction_worklet.mojom.AggregatableReportForEventContribution', [
       mojo.internal.StructField('bucket', 0, 0, auction_worklet.mojom.ForEventSignalBucketSpec, null, false, 0, undefined),
       mojo.internal.StructField('value', 16, 0, auction_worklet.mojom.ForEventSignalValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('filtering_id_$flag', 56, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' }),
-      mojo.internal.StructField('filtering_id_$value', 48, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' }),
-      mojo.internal.StructField('event_type', 32, 0, auction_worklet.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filtering_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' }),
+      mojo.internal.StructField('filtering_id_$value', 40, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' }),
+      mojo.internal.StructField('event_type', 48, 0, auction_worklet.mojom.EventTypeSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 

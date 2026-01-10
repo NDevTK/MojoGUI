@@ -28,11 +28,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('email', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('role', 56, 0, data_sharing.mojom.MemberRoleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('avatar_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('given_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('creation_time', 40, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_updated_time', 48, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('role', 24, 0, data_sharing.mojom.MemberRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('avatar_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('given_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 48, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_updated_time', 56, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 

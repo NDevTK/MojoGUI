@@ -40,11 +40,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpNativeCrash_Params', [
       mojo.internal.StructField('exec_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('pid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('minidump_fd', 20, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('pid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('minidump_fd', 24, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpKernelCrash_Params', [

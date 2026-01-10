@@ -51,21 +51,21 @@ blink.mojom.PagehideDispatch = {
 // Struct: PageLifecycleState
 mojo.internal.Struct(
     blink.mojom.PageLifecycleStateSpec, 'blink.mojom.PageLifecycleState', [
-      mojo.internal.StructField('is_frozen', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('visibility', 0, 0, blink.mojom.PageVisibilityStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_in_back_forward_cache', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pagehide_dispatch', 4, 0, blink.mojom.PagehideDispatchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('eviction_enabled', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_frozen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('visibility', 4, 0, blink.mojom.PageVisibilityStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_in_back_forward_cache', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pagehide_dispatch', 12, 0, blink.mojom.PagehideDispatchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('eviction_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: PageRestoreParams
 mojo.internal.Struct(
     blink.mojom.PageRestoreParamsSpec, 'blink.mojom.PageRestoreParams', [
       mojo.internal.StructField('navigation_start', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pending_history_list_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('current_history_list_length', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('view_transition_state', 8, 0, blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pending_history_list_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('current_history_list_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('view_transition_state', 16, 0, blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -81,9 +81,9 @@ mojo.internal.Struct(
 // Struct: PrerenderPageActivationParams
 mojo.internal.Struct(
     blink.mojom.PrerenderPageActivationParamsSpec, 'blink.mojom.PrerenderPageActivationParams', [
-      mojo.internal.StructField('was_user_activated', 16, 0, blink.mojom.WasActivatedOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activation_start', 0, 0, mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('view_transition_state', 8, 0, blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('was_user_activated', 0, 0, blink.mojom.WasActivatedOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activation_start', 8, 0, mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('view_transition_state', 16, 0, blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -144,14 +144,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec, 'blink.mojom.PageBroadcast_CreateRemoteMainFrame_Params', [
-      mojo.internal.StructField('token', 16, 0, blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('opener_frame_token', 0, 0, blink.mojom.FrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('opener_frame_token', 8, 0, blink.mojom.FrameTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('replication_state', 24, 0, blink.mojom.FrameReplicationStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_loading', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('devtools_frame_token', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('navigation_metrics_token', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('remote_frame_interfaces', 48, 0, blink.mojom.RemoteFrameInterfacesFromBrowserSpec, null, false, 0, undefined),
-      mojo.internal.StructField('remote_main_frame_interfaces', 56, 0, blink.mojom.RemoteMainFrameInterfacesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_loading', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('devtools_frame_token', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_metrics_token', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_frame_interfaces', 56, 0, blink.mojom.RemoteFrameInterfacesFromBrowserSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_main_frame_interfaces', 64, 0, blink.mojom.RemoteMainFrameInterfacesSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 

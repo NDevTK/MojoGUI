@@ -50,8 +50,8 @@ ash.cros_safety.mojom.SafetyRuleset = {
 // Interface: CloudSafetySession
 mojo.internal.Struct(
     ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_Params', [
-      mojo.internal.StructField('rules', 8, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('rules', 0, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -63,9 +63,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_Params', [
-      mojo.internal.StructField('rules', 24, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('prompt', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('image', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rules', 0, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prompt', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('image', 16, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -144,8 +144,8 @@ ash.cros_safety.mojom.CloudSafetySessionRequest = ash.cros_safety.mojom.CloudSaf
 // Interface: OnDeviceSafetySession
 mojo.internal.Struct(
     ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_Params', [
-      mojo.internal.StructField('rules', 8, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('rules', 0, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -157,8 +157,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_Params', [
-      mojo.internal.StructField('rules', 16, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rules', 0, 0, ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

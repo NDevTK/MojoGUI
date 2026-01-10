@@ -251,17 +251,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec, 'printing.mojom.PrintBackendService_UpdatePrintSettings_Params', [
-      mojo.internal.StructField('context_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('job_settings', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('job_settings', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_StartPrinting_ParamsSpec, 'printing.mojom.PrintBackendService_StartPrinting_Params', [
-      mojo.internal.StructField('context_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('document_cookie', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('document_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, printing.mojom.PrintSettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('context_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('document_cookie', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('document_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 16, 0, printing.mojom.PrintSettingsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -274,15 +274,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec, 'printing.mojom.PrintBackendService_RenderPrintedPage_Params', [
-      mojo.internal.StructField('document_cookie', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_index', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_data_type', 32, 0, printing.mojom.MetafileDataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('serialized_page', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_content_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shrink_factor', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_data_type', 8, 0, printing.mojom.MetafileDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('serialized_page', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_content_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shrink_factor', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec, 'printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParams', [
@@ -292,10 +292,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec, 'printing.mojom.PrintBackendService_RenderPrintedDocument_Params', [
-      mojo.internal.StructField('document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_type', 16, 0, printing.mojom.MetafileDataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('serialized_doc', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data_type', 8, 0, printing.mojom.MetafileDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('serialized_doc', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

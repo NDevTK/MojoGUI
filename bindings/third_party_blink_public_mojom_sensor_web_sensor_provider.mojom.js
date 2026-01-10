@@ -24,8 +24,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('init_params', 0, 0, device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('init_params', 8, 0, device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

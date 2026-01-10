@@ -49,12 +49,12 @@ blink.mojom.CredentialManagerError = {
 // Struct: CredentialInfo
 mojo.internal.Struct(
     blink.mojom.CredentialInfoSpec, 'blink.mojom.CredentialInfo', [
-      mojo.internal.StructField('type', 40, 0, blink.mojom.CredentialTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('icon', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('password', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('federation', 32, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.CredentialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('icon', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password', 32, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('federation', 40, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -82,16 +82,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.CredentialManager_Get_ParamsSpec, 'blink.mojom.CredentialManager_Get_Params', [
-      mojo.internal.StructField('mediation', 8, 0, blink.mojom.CredentialMediationRequirementSpec, null, false, 0, undefined),
-      mojo.internal.StructField('include_passwords', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('federations', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('mediation', 0, 0, blink.mojom.CredentialMediationRequirementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('include_passwords', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('federations', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.CredentialManager_Get_ResponseParamsSpec, 'blink.mojom.CredentialManager_Get_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, blink.mojom.CredentialManagerErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('credential', 0, 0, blink.mojom.CredentialInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.CredentialManagerErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credential', 8, 0, blink.mojom.CredentialInfoSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

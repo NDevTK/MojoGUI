@@ -49,11 +49,11 @@ mojo.internal.Struct(
 // Struct: SiteDataValue
 mojo.internal.Struct(
     discards.mojom.SiteDataValueSpec, 'discards.mojom.SiteDataValue', [
-      mojo.internal.StructField('last_loaded', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('updates_favicon_in_background', 0, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('updates_title_in_background', 8, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uses_audio_in_background', 16, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('load_time_estimates', 24, 0, discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
+      mojo.internal.StructField('last_loaded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('updates_favicon_in_background', 8, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('updates_title_in_background', 16, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uses_audio_in_background', 24, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('load_time_estimates', 32, 0, discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -61,8 +61,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     discards.mojom.SiteDataEntrySpec, 'discards.mojom.SiteDataEntry', [
       mojo.internal.StructField('origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_dirty', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_dirty', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

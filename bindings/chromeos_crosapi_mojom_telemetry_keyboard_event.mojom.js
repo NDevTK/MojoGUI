@@ -92,17 +92,17 @@ crosapi.mojom.TelemetryKeyboardTopRightKey = {
 mojo.internal.Struct(
     crosapi.mojom.TelemetryKeyboardInfoSpec, 'crosapi.mojom.TelemetryKeyboardInfo', [
       mojo.internal.StructField('id', 0, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('connection_type', 40, 0, crosapi.mojom.TelemetryKeyboardConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('physical_layout', 44, 0, crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mechanical_layout', 48, 0, crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('region_code', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('number_pad_present', 52, 0, crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_row_keys', 24, 0, mojo.internal.Array(crosapi.mojom.TelemetryKeyboardTopRowKeySpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('connection_type', 8, 0, crosapi.mojom.TelemetryKeyboardConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('physical_layout', 24, 0, crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mechanical_layout', 28, 0, crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('region_code', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('number_pad_present', 40, 0, crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_row_keys', 48, 0, mojo.internal.Array(crosapi.mojom.TelemetryKeyboardTopRowKeySpec, false), null, true, 0, undefined),
       mojo.internal.StructField('top_right_key', 56, 0, crosapi.mojom.TelemetryKeyboardTopRightKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_assistant_key', 32, 0, crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('has_assistant_key', 64, 0, crosapi.mojom.BoolValueSpec, null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 
 // Struct: TelemetryKeyboardDiagnosticEventInfo
 mojo.internal.Struct(

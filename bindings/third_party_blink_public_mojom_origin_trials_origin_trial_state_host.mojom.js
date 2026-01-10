@@ -19,8 +19,8 @@ blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = { $: {} };
 // Struct: OriginTrialFeatureState
 mojo.internal.Struct(
     blink.mojom.OriginTrialFeatureStateSpec, 'blink.mojom.OriginTrialFeatureState', [
-      mojo.internal.StructField('is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('tokens', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('tokens', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

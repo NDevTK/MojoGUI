@@ -78,25 +78,25 @@ mojo.internal.Struct(
       mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.SensorClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('memory', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('buffer_offset', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('mode', 64, 0, device.mojom.ReportingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('default_configuration', 32, 0, device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('maximum_frequency', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('minimum_frequency', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('kReadBufferSizeForTests', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 32, 0, device.mojom.ReportingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('default_configuration', 40, 0, device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('maximum_frequency', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('minimum_frequency', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('kReadBufferSizeForTests', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: VirtualSensorMetadata
 mojo.internal.Struct(
     device.mojom.VirtualSensorMetadataSpec, 'device.mojom.VirtualSensorMetadata', [
-      mojo.internal.StructField('available', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('maximum_frequency_$flag', 20, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'maximum_frequency_$value', originalFieldName: 'maximum_frequency' }),
-      mojo.internal.StructField('maximum_frequency_$value', 0, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'maximum_frequency_$flag', originalFieldName: 'maximum_frequency' }),
-      mojo.internal.StructField('minimum_frequency_$flag', 20, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'minimum_frequency_$value', originalFieldName: 'minimum_frequency' }),
-      mojo.internal.StructField('minimum_frequency_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'minimum_frequency_$flag', originalFieldName: 'minimum_frequency' }),
-      mojo.internal.StructField('reporting_mode', 16, 0, device.mojom.ReportingModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('maximum_frequency_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'maximum_frequency_$value', originalFieldName: 'maximum_frequency' }),
+      mojo.internal.StructField('maximum_frequency_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'maximum_frequency_$flag', originalFieldName: 'maximum_frequency' }),
+      mojo.internal.StructField('minimum_frequency_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'minimum_frequency_$value', originalFieldName: 'minimum_frequency' }),
+      mojo.internal.StructField('minimum_frequency_$value', 24, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'minimum_frequency_$flag', originalFieldName: 'minimum_frequency' }),
+      mojo.internal.StructField('reporting_mode', 32, 0, device.mojom.ReportingModeSpec, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: VirtualSensorInformation
 mojo.internal.Struct(
@@ -114,15 +114,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SensorProvider_GetSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_GetSensor_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('init_params', 0, 0, device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('init_params', 8, 0, device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_CreateVirtualSensor_Params', [
-      mojo.internal.StructField('type', 8, 0, device.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('metadata', 0, 0, device.mojom.VirtualSensorMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, device.mojom.VirtualSensorMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -134,8 +134,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_UpdateVirtualSensor_Params', [
-      mojo.internal.StructField('type', 8, 0, device.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reading', 0, 0, device.mojom.SensorReadingRawSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reading', 8, 0, device.mojom.SensorReadingRawSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

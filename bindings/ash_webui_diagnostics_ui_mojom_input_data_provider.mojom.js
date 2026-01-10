@@ -76,13 +76,13 @@ mojo.internal.Struct(
 // Struct: TouchDeviceInfo
 mojo.internal.Struct(
     ash.diagnostics.mojom.TouchDeviceInfoSpec, 'ash.diagnostics.mojom.TouchDeviceInfo', [
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('connection_type', 12, 0, ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, ash.diagnostics.mojom.TouchDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('testable', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('connection_type', 4, 0, ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ash.diagnostics.mojom.TouchDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('testable', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: ConnectedDevices
 mojo.internal.Struct(
@@ -505,8 +505,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_Params', [
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.KeyboardObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.KeyboardObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -19,8 +19,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('top_level_site', 8, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
       mojo.internal.StructField('nonce', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('ancestor_chain_bit', 32, 0, blink.mojom.AncestorChainBitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_level_site_if_third_party_enabled', 24, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ancestor_chain_bit_if_third_party_enabled', 36, 0, blink.mojom.AncestorChainBitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ancestor_chain_bit', 24, 0, blink.mojom.AncestorChainBitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_level_site_if_third_party_enabled', 32, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ancestor_chain_bit_if_third_party_enabled', 40, 0, blink.mojom.AncestorChainBitSpec, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);

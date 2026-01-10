@@ -54,8 +54,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     filesystem.mojom.FileOpenResultSpec, 'filesystem.mojom.FileOpenResult', [
       mojo.internal.StructField('path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_handle', 8, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_handle', 16, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -67,8 +67,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     filesystem.mojom.Directory_Read_ResponseParamsSpec, 'filesystem.mojom.Directory_Read_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('directory_contents', 0, 0, mojo.internal.Array(filesystem.mojom.DirectoryEntrySpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('directory_contents', 8, 0, mojo.internal.Array(filesystem.mojom.DirectoryEntrySpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -81,8 +81,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec, 'filesystem.mojom.Directory_OpenFileHandle_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_handle', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_handle', 8, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -196,8 +196,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     filesystem.mojom.Directory_StatFile_ResponseParamsSpec, 'filesystem.mojom.Directory_StatFile_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_information', 0, 0, filesystem.mojom.FileInformationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_information', 8, 0, filesystem.mojom.FileInformationSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -215,8 +215,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec, 'filesystem.mojom.Directory_ReadEntireFile_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

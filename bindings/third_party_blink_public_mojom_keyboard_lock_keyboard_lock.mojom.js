@@ -38,8 +38,8 @@ blink.mojom.GetKeyboardLayoutMapStatus = {
 // Struct: GetKeyboardLayoutMapResult
 mojo.internal.Struct(
     blink.mojom.GetKeyboardLayoutMapResultSpec, 'blink.mojom.GetKeyboardLayoutMapResult', [
-      mojo.internal.StructField('status', 8, 0, blink.mojom.GetKeyboardLayoutMapStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('layout_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.GetKeyboardLayoutMapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layout_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

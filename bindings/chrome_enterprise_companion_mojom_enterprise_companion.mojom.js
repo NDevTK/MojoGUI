@@ -19,9 +19,9 @@ enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec 
 // Struct: Status
 mojo.internal.Struct(
     enterprise_companion.mojom.StatusSpec, 'enterprise_companion.mojom.Status', [
-      mojo.internal.StructField('space', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('code', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('space', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

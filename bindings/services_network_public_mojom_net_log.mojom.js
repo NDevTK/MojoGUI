@@ -46,8 +46,8 @@ mojo.internal.Struct(
     network.mojom.NetLogExporter_Start_ParamsSpec, 'network.mojom.NetLogExporter_Start_Params', [
       mojo.internal.StructField('destination', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
       mojo.internal.StructField('extra_constants', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capture_mode', 24, 0, network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_file_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('capture_mode', 16, 0, network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_file_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -202,13 +202,13 @@ network.mojom.NetLogProxySourceRequest = network.mojom.NetLogProxySourcePendingR
 // Interface: NetLogProxySink
 mojo.internal.Struct(
     network.mojom.NetLogProxySink_AddEntry_ParamsSpec, 'network.mojom.NetLogProxySink_AddEntry_Params', [
-      mojo.internal.StructField('type', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('net_log_source', 0, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('phase', 28, 0, network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 16, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('phase', 16, 0, network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 32, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 network.mojom.NetLogProxySinkPendingReceiver = class {
   constructor(handle) {

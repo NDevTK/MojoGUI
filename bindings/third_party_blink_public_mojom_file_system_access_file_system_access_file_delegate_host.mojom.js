@@ -56,8 +56,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('length', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

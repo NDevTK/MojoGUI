@@ -36,12 +36,12 @@ viz.mojom.VizMain_StopDebugStream_ParamsSpec = { $: {} };
 // Struct: FrameSinkManagerParams
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerParamsSpec, 'viz.mojom.FrameSinkManagerParams', [
-      mojo.internal.StructField('restart_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('use_activation_deadline', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('activation_deadline_in_frames', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_manager', 0, 0, mojo.internal.InterfaceRequest(viz.mojom.FrameSinkManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_manager_client', 8, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkManagerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('debug_renderer_settings', 16, 0, viz.mojom.DebugRendererSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('restart_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('use_activation_deadline', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('activation_deadline_in_frames', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_manager', 16, 0, mojo.internal.InterfaceRequest(viz.mojom.FrameSinkManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_manager_client', 24, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('debug_renderer_settings', 32, 0, viz.mojom.DebugRendererSettingsSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

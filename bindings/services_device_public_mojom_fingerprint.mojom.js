@@ -109,8 +109,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec, 'device.mojom.FingerprintObserver_OnEnrollScanDone_Params', [
       mojo.internal.StructField('scan_result', 0, 0, device.mojom.ScanResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_complete', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('percent_complete', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_complete', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('percent_complete', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

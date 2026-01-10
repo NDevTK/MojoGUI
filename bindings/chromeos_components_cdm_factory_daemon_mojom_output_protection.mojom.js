@@ -45,9 +45,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParams', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('link_mask', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('protection', 4, 0, chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('link_mask', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('protection', 8, 0, chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -58,13 +58,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mojom.JSInjectionSpec, 'extensions.mojom.JSInjection', [
       mojo.internal.StructField('sources', 0, 0, mojo.internal.Array(extensions.mojom.JSSourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('world', 16, 0, extensions.mojom.ExecutionWorldSpec, null, false, 0, undefined),
-      mojo.internal.StructField('world_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('wants_result', 20, 0, blink.mojom.WantResultOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('user_gesture', 24, 0, blink.mojom.UserActivationOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('wait_for_promise', 28, 0, blink.mojom.PromiseResultOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('world', 8, 0, extensions.mojom.ExecutionWorldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('world_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('wants_result', 24, 0, blink.mojom.WantResultOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 28, 0, blink.mojom.UserActivationOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wait_for_promise', 32, 0, blink.mojom.PromiseResultOptionSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: CSSInjection
 mojo.internal.Struct(

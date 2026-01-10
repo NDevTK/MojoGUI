@@ -115,10 +115,10 @@ mojo.internal.Struct(
 // Struct: IwaDevModeAppInfo
 mojo.internal.Struct(
     mojom.IwaDevModeAppInfoSpec, 'mojom.IwaDevModeAppInfo', [
-      mojo.internal.StructField('app_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('web_bundle_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('location', 0, 0, mojom.IwaDevModeLocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('web_bundle_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('location', 24, 0, mojom.IwaDevModeLocationSpec, null, false, 0, undefined),
       mojo.internal.StructField('installed_version', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('update_info', 48, 0, mojom.UpdateInfoSpec, null, true, 0, undefined),
     ],
@@ -288,8 +288,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec, 'mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_Params', [
-      mojo.internal.StructField('allow_downgrades', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('allow_downgrades', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

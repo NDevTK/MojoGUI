@@ -419,13 +419,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('access_token', 8, 0, mojo.internal.String, null, true, 1, undefined),
       mojo.internal.StructField('enable_metrics', 16, 0, mojo.internal.Bool, false, false, 2, undefined),
       mojo.internal.StructField('lost_and_found_directory_name', 24, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('enable_experimental_mirroring', 16, 1, mojo.internal.Bool, false, false, 4, undefined),
-      mojo.internal.StructField('enable_verbose_logging', 16, 2, mojo.internal.Bool, false, false, 5, undefined),
-      mojo.internal.StructField('cse_support', 20, 0, drivefs.mojom.CSESupportSpec, null, false, 7, undefined),
-      mojo.internal.StructField('fetch_modifying_user_metadata', 16, 3, mojo.internal.Bool, false, false, 8, undefined),
-      mojo.internal.StructField('fetch_sharing_user_metadata', 16, 4, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('enable_experimental_mirroring', 32, 0, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('enable_verbose_logging', 32, 1, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('cse_support', 36, 0, drivefs.mojom.CSESupportSpec, null, false, 7, undefined),
+      mojo.internal.StructField('fetch_modifying_user_metadata', 40, 0, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('fetch_sharing_user_metadata', 40, 1, mojo.internal.Bool, false, false, 8, undefined),
     ],
-    [[0, 16], [1, 24], [2, 32], [3, 40], [4, 32], [5, 32], [7, 32], [8, 32]]);
+    [[0, 16], [1, 24], [2, 32], [3, 40], [4, 48], [5, 48], [7, 48], [8, 56]]);
 
 // Struct: AccessToken
 mojo.internal.Struct(
@@ -573,13 +573,13 @@ mojo.internal.Struct(
 // Struct: PooledQuotaUsage
 mojo.internal.Struct(
     drivefs.mojom.PooledQuotaUsageSpec, 'drivefs.mojom.PooledQuotaUsage', [
-      mojo.internal.StructField('user_type', 24, 0, drivefs.mojom.UserTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('used_user_bytes', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('total_user_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('organization_limit_exceeded', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('organization_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_type', 0, 0, drivefs.mojom.UserTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('used_user_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('total_user_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('organization_limit_exceeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('organization_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: QuotaUsage
 mojo.internal.Struct(
@@ -610,16 +610,16 @@ mojo.internal.Struct(
 // Struct: HttpResponse
 mojo.internal.Struct(
     drivefs.mojom.HttpResponseSpec, 'drivefs.mojom.HttpResponse', [
-      mojo.internal.StructField('response_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('headers', 0, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('response_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('headers', 8, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: HttpCompletionStatus
 mojo.internal.Struct(
     drivefs.mojom.HttpCompletionStatusSpec, 'drivefs.mojom.HttpCompletionStatus', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.NetErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response_body_bytes', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.NetErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_body_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -720,8 +720,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetMetadata_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('metadata', 0, 0, drivefs.mojom.FileMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, drivefs.mojom.FileMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -808,8 +808,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec, 'drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -891,8 +891,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota', 0, 0, drivefs.mojom.QuotaUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quota', 8, 0, drivefs.mojom.QuotaUsageSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -928,8 +928,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -945,8 +945,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota', 0, 0, drivefs.mojom.PooledQuotaUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quota', 8, 0, drivefs.mojom.PooledQuotaUsageSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -971,8 +971,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('metadata', 0, 0, drivefs.mojom.FileMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, drivefs.mojom.FileMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1003,8 +1003,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('space_used', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('space_used', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1062,8 +1062,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('counts', 0, 0, drivefs.mojom.DocsOfflineStatsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('counts', 8, 0, drivefs.mojom.DocsOfflineStatsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1483,8 +1483,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec, 'drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, drivefs.mojom.AccessTokenStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('access_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.AccessTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1613,8 +1613,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec, 'drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, drivefs.mojom.AccessTokenStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('access_token', 0, 0, drivefs.mojom.AccessTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.AccessTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 8, 0, drivefs.mojom.AccessTokenSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1866,8 +1866,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec, 'drivefs.mojom.SearchQuery_GetNextPage_ResponseParams', [
-      mojo.internal.StructField('error', 8, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(drivefs.mojom.QueryItemSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(drivefs.mojom.QueryItemSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

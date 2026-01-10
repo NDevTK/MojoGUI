@@ -236,15 +236,15 @@ mojo.internal.Struct(
     cros.mojom.CameraBufferHandleSpec, 'cros.mojom.CameraBufferHandle', [
       mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('fds', 8, 0, mojo.internal.Array(mojo.internal.Handle, false), null, false, 0, undefined),
-      mojo.internal.StructField('drm_format', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('hal_pixel_format', 36, 0, cros.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('width', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('drm_format', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hal_pixel_format', 20, 0, cros.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('strides', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('offsets', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('sizes', 48, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 3, undefined),
-      mojo.internal.StructField('has_modifier', 64, 0, mojo.internal.Bool, false, false, 7, undefined),
-      mojo.internal.StructField('modifier', 56, 0, mojo.internal.Uint64, 0, false, 7, undefined),
+      mojo.internal.StructField('has_modifier', 56, 0, mojo.internal.Bool, false, false, 7, undefined),
+      mojo.internal.StructField('modifier', 64, 0, mojo.internal.Uint64, 0, false, 7, undefined),
     ],
     [[0, 56], [3, 64], [7, 80]]);
 
@@ -263,25 +263,25 @@ mojo.internal.Struct(
 // Struct: Camera3ErrorMsg
 mojo.internal.Struct(
     cros.mojom.Camera3ErrorMsgSpec, 'cros.mojom.Camera3ErrorMsg', [
-      mojo.internal.StructField('frame_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('error_stream_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('error_code', 12, 0, cros.mojom.Camera3ErrorMsgCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_stream_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('error_code', 16, 0, cros.mojom.Camera3ErrorMsgCodeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: Camera3ShutterMsg
 mojo.internal.Struct(
     cros.mojom.Camera3ShutterMsgSpec, 'cros.mojom.Camera3ShutterMsg', [
-      mojo.internal.StructField('frame_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Camera3NotifyMsg
 mojo.internal.Struct(
     cros.mojom.Camera3NotifyMsgSpec, 'cros.mojom.Camera3NotifyMsg', [
-      mojo.internal.StructField('type', 16, 0, cros.mojom.Camera3MsgTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, cros.mojom.Camera3NotifyMsgMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, cros.mojom.Camera3MsgTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, cros.mojom.Camera3NotifyMsgMessageSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -297,26 +297,26 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.Camera3StreamBufferRetSpec, 'cros.mojom.Camera3StreamBufferRet', [
       mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 16, 0, cros.mojom.Camera3StreamBufferReqStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_buffers', 8, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, cros.mojom.Camera3StreamBufferReqStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_buffers', 16, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: Camera3PhyscamMetadata
 mojo.internal.Struct(
     cros.mojom.Camera3PhyscamMetadataSpec, 'cros.mojom.Camera3PhyscamMetadata', [
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('metadata', 0, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Camera3CaptureRequest
 mojo.internal.Struct(
     cros.mojom.Camera3CaptureRequestSpec, 'cros.mojom.Camera3CaptureRequest', [
-      mojo.internal.StructField('frame_number', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('settings', 0, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('input_buffer', 8, 0, cros.mojom.Camera3StreamBufferSpec, null, true, 0, undefined),
-      mojo.internal.StructField('output_buffers', 16, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('frame_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_buffer', 16, 0, cros.mojom.Camera3StreamBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('output_buffers', 24, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('physcam_settings', 32, 0, mojo.internal.Array(cros.mojom.Camera3PhyscamMetadataSpec, false), null, true, 4, undefined),
     ],
     [[0, 40], [4, 48]]);
@@ -324,14 +324,14 @@ mojo.internal.Struct(
 // Struct: Camera3CaptureResult
 mojo.internal.Struct(
     cros.mojom.Camera3CaptureResultSpec, 'cros.mojom.Camera3CaptureResult', [
-      mojo.internal.StructField('frame_number', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('result', 0, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_buffers', 8, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('input_buffer', 16, 0, cros.mojom.Camera3StreamBufferSpec, null, true, 0, undefined),
-      mojo.internal.StructField('partial_result', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('physcam_metadata', 32, 0, mojo.internal.Array(cros.mojom.Camera3PhyscamMetadataSpec, false), null, true, 4, undefined),
+      mojo.internal.StructField('frame_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_buffers', 16, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('input_buffer', 24, 0, cros.mojom.Camera3StreamBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('partial_result', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('physcam_metadata', 40, 0, mojo.internal.Array(cros.mojom.Camera3PhyscamMetadataSpec, false), null, true, 4, undefined),
     ],
-    [[0, 40], [4, 48]]);
+    [[0, 48], [4, 56]]);
 
 // Interface: Camera3CallbackOps
 mojo.internal.Struct(
@@ -354,8 +354,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec, 'cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, cros.mojom.Camera3BufferRequestStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('returned_buf_reqs', 0, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferRetSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, cros.mojom.Camera3BufferRequestStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('returned_buf_reqs', 8, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferRetSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -470,8 +470,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('updated_config', 0, 0, cros.mojom.Camera3StreamConfigurationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('updated_config', 8, 0, cros.mojom.Camera3StreamConfigurationSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -519,14 +519,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec, 'cros.mojom.Camera3DeviceOps_RegisterBuffer_Params', [
       mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 32, 0, cros.mojom.BufferTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('fds', 8, 0, mojo.internal.Array(mojo.internal.Handle, false), null, false, 0, undefined),
-      mojo.internal.StructField('drm_format', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('hal_pixel_format', 40, 0, cros.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('width', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, cros.mojom.BufferTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fds', 16, 0, mojo.internal.Array(mojo.internal.Handle, false), null, false, 0, undefined),
+      mojo.internal.StructField('drm_format', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hal_pixel_format', 28, 0, cros.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('strides', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('offsets', 48, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -555,9 +555,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParams', [
-      mojo.internal.StructField('result', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('updated_config', 0, 0, cros.mojom.Camera3StreamConfigurationSpec, null, true, 0, undefined),
-      mojo.internal.StructField('allocated_buffers', 8, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('updated_config', 8, 0, cros.mojom.Camera3StreamConfigurationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('allocated_buffers', 16, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

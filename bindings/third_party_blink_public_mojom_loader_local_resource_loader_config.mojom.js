@@ -32,9 +32,9 @@ mojo.internal.Union(
 mojo.internal.Struct(
     blink.mojom.LocalResourceSourceSpec, 'blink.mojom.LocalResourceSource', [
       mojo.internal.StructField('headers', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('should_replace_i18n_in_js', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('path_to_resource_map', 8, 0, mojo.internal.Map(mojo.internal.String, blink.mojom.LocalResourceValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('replacement_strings', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('should_replace_i18n_in_js', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('path_to_resource_map', 16, 0, mojo.internal.Map(mojo.internal.String, blink.mojom.LocalResourceValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('replacement_strings', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

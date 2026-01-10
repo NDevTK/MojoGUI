@@ -34,8 +34,8 @@ mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppSpec, 'ash.settings.app_permission.mojom.App', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, app_management.mojom.AppTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('permissions', 16, 0, mojo.internal.Map(app_management.mojom.PermissionTypeSpec, app_management.mojom.PermissionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, app_management.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permissions', 24, 0, mojo.internal.Map(app_management.mojom.PermissionTypeSpec, app_management.mojom.PermissionSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

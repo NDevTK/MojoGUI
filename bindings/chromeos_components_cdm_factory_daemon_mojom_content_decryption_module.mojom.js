@@ -123,10 +123,10 @@ chromeos.cdm.mojom.DecryptStatus = {
 // Struct: CdmPromiseResult
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmPromiseResultSpec, 'chromeos.cdm.mojom.CdmPromiseResult', [
-      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('exception', 8, 0, chromeos.cdm.mojom.PromiseExceptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('system_code', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exception', 4, 0, chromeos.cdm.mojom.PromiseExceptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('system_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -158,11 +158,11 @@ mojo.internal.Struct(
 // Struct: DecryptConfig
 mojo.internal.Struct(
     chromeos.cdm.mojom.DecryptConfigSpec, 'chromeos.cdm.mojom.DecryptConfig', [
-      mojo.internal.StructField('encryption_scheme', 32, 0, chromeos.cdm.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('iv', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('subsamples', 16, 0, mojo.internal.Array(chromeos.cdm.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('encryption_pattern', 24, 0, chromeos.cdm.mojom.EncryptionPatternSpec, null, true, 0, undefined),
+      mojo.internal.StructField('encryption_scheme', 0, 0, chromeos.cdm.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('iv', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('subsamples', 24, 0, mojo.internal.Array(chromeos.cdm.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('encryption_pattern', 32, 0, chromeos.cdm.mojom.EncryptionPatternSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -194,9 +194,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_Params', [
-      mojo.internal.StructField('session_type', 8, 0, chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('init_data_type', 12, 0, chromeos.cdm.mojom.EmeInitDataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('init_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('session_type', 0, 0, chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('init_data_type', 4, 0, chromeos.cdm.mojom.EmeInitDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('init_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -209,8 +209,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_Params', [
-      mojo.internal.StructField('session_type', 8, 0, chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_type', 0, 0, chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -267,8 +267,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('decrypted_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -281,8 +281,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParams', [
-      mojo.internal.StructField('status', 8, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -297,9 +297,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParams', [
-      mojo.internal.StructField('status', 16, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('decrypted_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('decrypt_config_out', 8, 0, chromeos.cdm.mojom.DecryptConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('decrypt_config_out', 16, 0, chromeos.cdm.mojom.DecryptConfigSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -445,8 +445,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRequest = chromeos.cdm.mojom.ContentDe
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('message_type', 16, 0, chromeos.cdm.mojom.CdmMessageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('message_type', 8, 0, chromeos.cdm.mojom.CdmMessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -459,8 +459,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('has_additional_usable_key', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keys_info', 8, 0, mojo.internal.Array(chromeos.cdm.mojom.CdmKeyInformationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_additional_usable_key', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('keys_info', 16, 0, mojo.internal.Array(chromeos.cdm.mojom.CdmKeyInformationSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

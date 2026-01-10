@@ -127,9 +127,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_Params', [
-      mojo.internal.StructField('keep_existing_data', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('auto_close', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mode', 0, 0, blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keep_existing_data', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('auto_close', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mode', 4, 0, blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -184,8 +184,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParams', [
-      mojo.internal.StructField('result', 16, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file', 0, 0, blink.mojom.FileSystemAccessAccessHandleFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 8, 0, blink.mojom.FileSystemAccessAccessHandleFileSpec, null, true, 0, undefined),
       mojo.internal.StructField('access_handle_host', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessAccessHandleHostRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);

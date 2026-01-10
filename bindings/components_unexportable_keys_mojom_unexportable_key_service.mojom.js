@@ -63,9 +63,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('key_id', 0, 0, unexportable_keys.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('subject_public_key_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('wrapped_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 40, 0, unexportable_keys.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_tag', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('creation_time', 32, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('algorithm', 24, 0, unexportable_keys.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('creation_time', 40, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 

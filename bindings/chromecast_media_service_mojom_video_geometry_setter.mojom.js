@@ -163,8 +163,8 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRequest = chromecast.media.m
 mojo.internal.Struct(
     chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec, 'chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_Params', [
       mojo.internal.StructField('rect_f', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('transform', 16, 0, gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('overlay_plane_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 8, 0, gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overlay_plane_id', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

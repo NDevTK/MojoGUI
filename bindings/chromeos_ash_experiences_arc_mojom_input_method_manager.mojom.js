@@ -48,26 +48,26 @@ mojo.internal.Struct(
     arc.mojom.ImeInfoSpec, 'arc.mojom.ImeInfo', [
       mojo.internal.StructField('ime_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('settings_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_allowed_in_clamshell_mode', 24, 1, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('settings_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_allowed_in_clamshell_mode', 32, 0, mojo.internal.Bool, false, false, 8, undefined),
     ],
-    [[0, 40], [8, 40]]);
+    [[0, 40], [8, 48]]);
 
 // Struct: TextInputState
 mojo.internal.Struct(
     arc.mojom.TextInputStateSpec, 'arc.mojom.TextInputState', [
-      mojo.internal.StructField('cursor_pos', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('text_range', 8, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 16, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 28, 0, arc.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cursor_pos', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text_range', 16, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 24, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, arc.mojom.TextInputTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('should_do_learning', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('flags', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('first_update_after_operation', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('composition_text_range', 40, 0, arc.mojom.RangeSpec, null, true, 6, undefined),
+      mojo.internal.StructField('flags', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('first_update_after_operation', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('composition_text_range', 48, 0, arc.mojom.RangeSpec, null, true, 6, undefined),
     ],
-    [[0, 48], [6, 56]]);
+    [[0, 56], [6, 64]]);
 
 // Interface: InputConnection
 mojo.internal.Struct(

@@ -248,8 +248,8 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRequest = ash.multidevice
 // Interface: HostStatusObserver
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec, 'ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_Params', [
-      mojo.internal.StructField('host_status', 8, 0, ash.multidevice_setup.mojom.HostStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('host_device', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('host_status', 0, 0, ash.multidevice_setup.mojom.HostStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -440,16 +440,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParams', [
-      mojo.internal.StructField('host_status', 8, 0, ash.multidevice_setup.mojom.HostStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('host_device', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('host_status', 0, 0, ash.multidevice_setup.mojom.HostStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_Params', [
-      mojo.internal.StructField('feature', 8, 0, ash.multidevice_setup.mojom.FeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, ash.multidevice_setup.mojom.FeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('auth_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

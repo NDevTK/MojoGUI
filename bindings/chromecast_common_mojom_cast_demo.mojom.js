@@ -100,8 +100,8 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRequest = chromecast.shell.mo
 // Interface: CastDemo
 mojo.internal.Struct(
     chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec, 'chromecast.shell.mojom.CastDemo_RecordEvent_Params', [
-      mojo.internal.StructField('event_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -47,8 +47,8 @@ mojo.internal.Struct(
     ash.settings.app_notification.mojom.AppSpec, 'ash.settings.app_notification.mojom.App', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('readiness', 24, 0, ash.settings.app_notification.mojom.ReadinessSpec, null, false, 0, undefined),
-      mojo.internal.StructField('notification_permission', 16, 0, app_management.mojom.PermissionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('readiness', 16, 0, ash.settings.app_notification.mojom.ReadinessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('notification_permission', 24, 0, app_management.mojom.PermissionSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -40,8 +40,8 @@ blink.mojom.WaitMode = {
 mojo.internal.Struct(
     blink.mojom.LockInfoSpec, 'blink.mojom.LockInfo', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 16, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('client_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -176,9 +176,9 @@ blink.mojom.LockRequestRequest = blink.mojom.LockRequestPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.LockManager_RequestLock_ParamsSpec, 'blink.mojom.LockManager_RequestLock_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 16, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('wait', 20, 0, blink.mojom.WaitModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), null, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wait', 12, 0, blink.mojom.WaitModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 16, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

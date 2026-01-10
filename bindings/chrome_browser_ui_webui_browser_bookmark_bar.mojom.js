@@ -40,8 +40,8 @@ mojo.internal.Struct(
     bookmark_bar.mojom.BookmarkDataSpec, 'bookmark_bar.mojom.BookmarkData', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_url_for_favicon', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_url_for_favicon', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

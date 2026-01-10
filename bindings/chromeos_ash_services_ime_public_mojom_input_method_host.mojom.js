@@ -134,9 +134,9 @@ mojo.internal.Struct(
 // Struct: SuggestionsRequest
 mojo.internal.Struct(
     ash.ime.mojom.SuggestionsRequestSpec, 'ash.ime.mojom.SuggestionsRequest', [
-      mojo.internal.StructField('mode', 16, 0, ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('completion_candidates', 8, 0, mojo.internal.Array(ash.ime.mojom.CompletionCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('completion_candidates', 16, 0, mojo.internal.Array(ash.ime.mojom.CompletionCandidateSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -243,9 +243,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_Params', [
-      mojo.internal.StructField('num_before_cursor', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('num_after_cursor', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('num_before_cursor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_after_cursor', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

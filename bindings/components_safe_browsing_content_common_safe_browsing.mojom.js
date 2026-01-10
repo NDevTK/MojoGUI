@@ -114,18 +114,18 @@ mojo.internal.Struct(
 // Struct: ThreatDOMDetailsNode
 mojo.internal.Struct(
     safe_browsing.mojom.ThreatDOMDetailsNodeSpec, 'safe_browsing.mojom.ThreatDOMDetailsNode', [
-      mojo.internal.StructField('node_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tag_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('parent', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('parent_node_id', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tag_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parent', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parent_node_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('children', 40, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('child_node_ids', 48, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('attributes', 56, 0, mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('child_frame_token', 0, 0, blink.mojom.FrameTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('inner_html', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('child_frame_token', 64, 0, blink.mojom.FrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('inner_html', 80, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 96]]);
 
 // Interface: SafeBrowsing
 mojo.internal.Struct(
@@ -299,8 +299,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, safe_browsing.mojom.PhishingDetectorResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingDetectorResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -564,8 +564,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, safe_browsing.mojom.PhishingImageEmbeddingResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_embedding_request', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingImageEmbeddingResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_embedding_request', 8, 0, mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

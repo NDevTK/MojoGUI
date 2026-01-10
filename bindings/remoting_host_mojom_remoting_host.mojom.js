@@ -41,9 +41,9 @@ remoting.mojom.TransportRouteType = {
 // Struct: TransportRoute
 mojo.internal.Struct(
     remoting.mojom.TransportRouteSpec, 'remoting.mojom.TransportRoute', [
-      mojo.internal.StructField('type', 16, 0, remoting.mojom.TransportRouteTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('remote_address', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_address', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, remoting.mojom.TransportRouteTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_address', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local_address', 16, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -152,9 +152,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec, 'remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Params', [
-      mojo.internal.StructField('terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('session_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('desktop_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('session_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('desktop_pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

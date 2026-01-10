@@ -222,10 +222,10 @@ mojo.internal.Struct(
 // Struct: SessionParams
 mojo.internal.Struct(
     on_device_model.mojom.SessionParamsSpec, 'on_device_model.mojom.SessionParams', [
-      mojo.internal.StructField('max_tokens', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('capabilities', 0, 0, on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_k', 12, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('temperature', 16, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('max_tokens', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('capabilities', 8, 0, on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_k', 16, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('temperature', 20, 0, mojo.internal.Float, 0, false, 1, undefined),
     ],
     [[0, 24], [1, 32]]);
 
@@ -255,10 +255,10 @@ mojo.internal.Struct(
 // Struct: AudioData
 mojo.internal.Struct(
     on_device_model.mojom.AudioDataSpec, 'on_device_model.mojom.AudioData', [
-      mojo.internal.StructField('channel_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('sample_rate', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('channel_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sample_rate', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -280,17 +280,17 @@ mojo.internal.Struct(
 // Struct: DevicePerformanceInfo
 mojo.internal.Struct(
     on_device_model.mojom.DevicePerformanceInfoSpec, 'on_device_model.mojom.DevicePerformanceInfo', [
-      mojo.internal.StructField('performance_class', 8, 0, on_device_model.mojom.PerformanceClassSpec, null, false, 0, undefined),
-      mojo.internal.StructField('vram_mb', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('performance_class', 0, 0, on_device_model.mojom.PerformanceClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('vram_mb', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DeviceInfo
 mojo.internal.Struct(
     on_device_model.mojom.DeviceInfoSpec, 'on_device_model.mojom.DeviceInfo', [
-      mojo.internal.StructField('vendor_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('device_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('driver_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('vendor_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('driver_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('supports_fp16', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

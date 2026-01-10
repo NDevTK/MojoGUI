@@ -106,9 +106,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_Params', [
-      mojo.internal.StructField('visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('section', 0, 0, side_panel.mojom.CustomizeChromeSectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('trigger', 4, 0, customize_buttons.mojom.SidePanelOpenTriggerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('section', 4, 0, side_panel.mojom.CustomizeChromeSectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger', 8, 0, customize_buttons.mojom.SidePanelOpenTriggerSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

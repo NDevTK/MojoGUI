@@ -129,18 +129,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackContextSpec, 'ash.os_feedback_ui.mojom.FeedbackContext', [
       mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('wifi_debug_logs_allowed', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_linked_cross_device_phone', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_internal_account', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('settings_search_do_not_record_metrics', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('from_autofill', 44, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('autofill_metadata', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('page_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('extra_diagnostics', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('category_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('trace_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('wifi_debug_logs_allowed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_linked_cross_device_phone', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_internal_account', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('settings_search_do_not_record_metrics', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('from_autofill', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('autofill_metadata', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('page_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('extra_diagnostics', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('category_tag', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('trace_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: AttachedFile
 mojo.internal.Struct(

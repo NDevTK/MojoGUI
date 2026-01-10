@@ -190,24 +190,24 @@ mojo.internal.Struct(
 // Struct: MediaStreamDevice
 mojo.internal.Struct(
     blink.mojom.MediaStreamDeviceSpec, 'blink.mojom.MediaStreamDevice', [
-      mojo.internal.StructField('type', 64, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('video_facing', 68, 0, media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('group_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('matched_output_device_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('input', 40, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('display_media_info', 56, 0, media.mojom.DisplayMediaInformationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('video_facing', 24, 0, media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('matched_output_device_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('name', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('input', 56, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 64, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('display_media_info', 72, 0, media.mojom.DisplayMediaInformationSpec, null, true, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: TrackControls
 mojo.internal.Struct(
     blink.mojom.TrackControlsSpec, 'blink.mojom.TrackControls', [
-      mojo.internal.StructField('stream_type', 8, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 0, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -216,20 +216,20 @@ mojo.internal.Struct(
     blink.mojom.StreamControlsSpec, 'blink.mojom.StreamControls', [
       mojo.internal.StructField('audio', 0, 0, blink.mojom.TrackControlsSpec, null, false, 0, undefined),
       mojo.internal.StructField('video', 8, 0, blink.mojom.TrackControlsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hotword_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('disable_local_echo', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('suppress_local_audio_playback', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('restrict_own_audio', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('exclude_system_audio', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('window_audio_preference', 16, 0, blink.mojom.WindowAudioPreferenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('exclude_self_browser_surface', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('request_pan_tilt_zoom_permission', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('request_all_screens', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('preferred_display_surface', 20, 0, blink.mojom.PreferredDisplaySurfaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dynamic_surface_switching_requested', 25, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('exclude_monitor_type_surfaces', 25, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hotword_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_local_echo', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('suppress_local_audio_playback', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('restrict_own_audio', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exclude_system_audio', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_audio_preference', 20, 0, blink.mojom.WindowAudioPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('exclude_self_browser_surface', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('request_pan_tilt_zoom_permission', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('request_all_screens', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preferred_display_surface', 28, 0, blink.mojom.PreferredDisplaySurfaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dynamic_surface_switching_requested', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exclude_monitor_type_surfaces', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: GetOpenDeviceResponse
 mojo.internal.Struct(
@@ -416,21 +416,21 @@ blink.mojom.MediaStreamDeviceObserverRequest = blink.mojom.MediaStreamDeviceObse
 // Interface: MediaStreamDispatcherHost
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_Params', [
-      mojo.internal.StructField('request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('controls', 16, 0, blink.mojom.StreamControlsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('user_gesture', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('audio_stream_selection_info', 0, 0, blink.mojom.StreamSelectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('controls', 8, 0, blink.mojom.StreamControlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('audio_stream_selection_info', 24, 0, blink.mojom.StreamSelectionInfoSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParams', [
-      mojo.internal.StructField('result', 16, 0, blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('stream_devices', 8, 0, blink.mojom.StreamDevicesSetSpec, null, true, 0, undefined),
-      mojo.internal.StructField('pan_tilt_zoom_allowed', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('stream_devices', 16, 0, blink.mojom.StreamDevicesSetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pan_tilt_zoom_allowed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_Params', [
@@ -454,17 +454,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_Params', [
-      mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 12, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParams', [
-      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('device', 8, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device', 16, 0, blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -485,11 +485,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, media.mojom.SubCaptureTargetTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sub_capture_target', 8, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sub_capture_target_version', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, media.mojom.SubCaptureTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sub_capture_target', 16, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sub_capture_target_version', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParams', [
@@ -531,16 +531,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_Params', [
-      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('session_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('transfer_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transfer_id', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response', 0, 0, blink.mojom.GetOpenDeviceResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, blink.mojom.GetOpenDeviceResponseSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

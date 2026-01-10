@@ -136,8 +136,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     service_manager.mojom.Connector_BindInterface_ResponseParamsSpec, 'service_manager.mojom.Connector_BindInterface_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 8, 0, service_manager.mojom.IdentitySpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -161,8 +161,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     service_manager.mojom.Connector_WarmService_ResponseParamsSpec, 'service_manager.mojom.Connector_WarmService_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 8, 0, service_manager.mojom.IdentitySpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

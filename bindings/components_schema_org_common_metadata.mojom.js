@@ -40,8 +40,8 @@ mojo.internal.Union(
 // Struct: Property
 mojo.internal.Struct(
     schema_org.mojom.PropertySpec, 'schema_org.mojom.Property', [
-      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('values', 0, 0, schema_org.mojom.ValuesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('values', 8, 0, schema_org.mojom.ValuesSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

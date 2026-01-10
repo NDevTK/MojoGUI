@@ -22,10 +22,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParams', [
-      mojo.internal.StructField('error', 24, 0, blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('current_usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('current_quota', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('usage_breakdown', 16, 0, blink.mojom.UsageBreakdownSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_usage', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('current_quota', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('usage_breakdown', 24, 0, blink.mojom.UsageBreakdownSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

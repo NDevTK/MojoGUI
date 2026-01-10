@@ -20,7 +20,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('expiration', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('quota', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('persistent', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('durability', 40, 0, blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('persistent', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('durability', 44, 0, blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
     ],
     [[0, 56]]);

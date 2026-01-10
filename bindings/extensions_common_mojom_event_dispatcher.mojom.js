@@ -21,23 +21,23 @@ mojo.internal.Struct(
     extensions.mojom.EventFilteringInfoSpec, 'extensions.mojom.EventFilteringInfo', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('service_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('has_instance_id', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('instance_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('window_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('has_window_exposed_by_default', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('window_exposed_by_default', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_instance_id', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('instance_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('window_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('has_window_exposed_by_default', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_exposed_by_default', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: DispatchEventParams
 mojo.internal.Struct(
     extensions.mojom.DispatchEventParamsSpec, 'extensions.mojom.DispatchEventParams', [
-      mojo.internal.StructField('worker_thread_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('host_id', 0, 0, extensions.mojom.HostIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('event_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_user_gesture', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('filtering_info', 16, 0, extensions.mojom.EventFilteringInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('worker_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('host_id', 8, 0, extensions.mojom.HostIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_user_gesture', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('filtering_info', 32, 0, extensions.mojom.EventFilteringInfoSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

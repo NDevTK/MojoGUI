@@ -105,8 +105,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_Params', [
-      mojo.internal.StructField('pref', 16, 0, ash.projector.mojom.PrefsThatProjectorCanAskForSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pref', 0, 0, ash.projector.mojom.PrefsThatProjectorCanAskForSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -140,14 +140,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_Params', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('method', 32, 0, ash.projector.mojom.RequestTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request_body', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('use_credentials', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('use_api_key', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('account_email', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('method', 8, 0, ash.projector.mojom.RequestTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_body', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('use_credentials', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('use_api_key', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('headers', 32, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('account_email', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParams', [

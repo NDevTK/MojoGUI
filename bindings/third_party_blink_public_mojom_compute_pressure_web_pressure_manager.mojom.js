@@ -22,8 +22,8 @@ blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
 // Interface: WebPressureManager
 mojo.internal.Struct(
     blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
-      mojo.internal.StructField('source', 8, 0, device.mojom.PressureSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -66,10 +66,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_Params', [
-      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('input_format', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('input_planes', 0, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('output_planes', 8, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('input_format', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('input_planes', 8, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_planes', 16, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('exif_handle', 24, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('exif_buffer_size', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('coded_size_width', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),

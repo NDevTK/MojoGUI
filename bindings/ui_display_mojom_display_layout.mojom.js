@@ -41,8 +41,8 @@ mojo.internal.Struct(
 // Struct: DisplayLayout
 mojo.internal.Struct(
     display.mojom.DisplayLayoutSpec, 'display.mojom.DisplayLayout', [
-      mojo.internal.StructField('default_unified', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('primary_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('placement_list', 8, 0, mojo.internal.Array(display.mojom.DisplayPlacementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_unified', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('primary_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('placement_list', 16, 0, mojo.internal.Array(display.mojom.DisplayPlacementSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

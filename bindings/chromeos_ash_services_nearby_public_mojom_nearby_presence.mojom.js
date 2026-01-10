@@ -117,10 +117,10 @@ mojo.internal.Struct(
 // Struct: Metadata
 mojo.internal.Struct(
     ash.nearby.presence.mojom.MetadataSpec, 'ash.nearby.presence.mojom.Metadata', [
-      mojo.internal.StructField('device_type', 24, 0, ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bluetooth_mac_address', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('device_id', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_type', 0, 0, ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bluetooth_mac_address', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_id', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -134,18 +134,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('metadata_encryption_key_tag_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('connection_signature_verification_key', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('advertisement_signature_verification_key', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('identity_type', 120, 0, ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('version', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('credential_type', 124, 0, ash.nearby.presence.mojom.CredentialTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('encrypted_metadata_bytes_v1', 64, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('identity_token_short_salt_adv_hmac_key_v1', 72, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('id', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('dusi', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('signature_version', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('identity_token_extended_salt_adv_hmac_key_v1', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('identity_token_signed_adv_hmac_key_v1', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_type', 56, 0, ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version', 64, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('credential_type', 72, 0, ash.nearby.presence.mojom.CredentialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encrypted_metadata_bytes_v1', 80, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_short_salt_adv_hmac_key_v1', 88, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 96, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('dusi', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signature_version', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_extended_salt_adv_hmac_key_v1', 120, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_signed_adv_hmac_key_v1', 128, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 144]]);
 
 // Struct: PresenceDevice
 mojo.internal.Struct(
@@ -168,11 +168,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('metadata_encryption_key_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('advertisement_signing_key', 40, 0, ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('connection_signing_key', 48, 0, ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('identity_type', 88, 0, ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('consumed_salts', 56, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Bool, false), null, false, 0, undefined),
-      mojo.internal.StructField('identity_token_v1', 64, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('id', 72, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('signature_version', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('identity_type', 56, 0, ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('consumed_salts', 64, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('identity_token_v1', 72, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('signature_version', 88, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 104]]);
 

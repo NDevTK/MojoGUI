@@ -643,8 +643,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToDevice_ResponseParams', [
-      mojo.internal.StructField('result', 8, 0, bluetooth.mojom.ConnectResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device', 0, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

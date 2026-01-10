@@ -448,8 +448,8 @@ mojo.internal.Union(
 // Struct: ProbeError
 mojo.internal.Struct(
     crosapi.mojom.ProbeErrorSpec, 'crosapi.mojom.ProbeError', [
-      mojo.internal.StructField('type', 8, 0, crosapi.mojom.ProbeErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('msg', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, crosapi.mojom.ProbeErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('msg', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -502,8 +502,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('product_id', 32, 0, crosapi.mojom.UInt16ValueSpec, null, false, 0, undefined),
       mojo.internal.StructField('interfaces', 40, 0, mojo.internal.Array(crosapi.mojom.ProbeUsbBusInterfaceInfoSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('fwupd_firmware_version_info', 48, 0, crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('version', 64, 0, crosapi.mojom.ProbeUsbVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('spec_speed', 56, 0, crosapi.mojom.ProbeUsbSpecSpeedSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version', 56, 0, crosapi.mojom.ProbeUsbVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('spec_speed', 64, 0, crosapi.mojom.ProbeUsbSpecSpeedSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -567,8 +567,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.ProbeCpuInfoSpec, 'crosapi.mojom.ProbeCpuInfo', [
       mojo.internal.StructField('num_total_threads', 0, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('architecture', 16, 0, crosapi.mojom.ProbeCpuArchitectureEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('physical_cpus', 8, 0, mojo.internal.Array(crosapi.mojom.ProbePhysicalCpuInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('architecture', 8, 0, crosapi.mojom.ProbeCpuArchitectureEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('physical_cpus', 16, 0, mojo.internal.Array(crosapi.mojom.ProbePhysicalCpuInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -617,13 +617,13 @@ mojo.internal.Struct(
 // Struct: ProbeTpmVersion
 mojo.internal.Struct(
     crosapi.mojom.ProbeTpmVersionSpec, 'crosapi.mojom.ProbeTpmVersion', [
-      mojo.internal.StructField('gsc_version', 48, 0, crosapi.mojom.ProbeTpmGSCVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('family', 0, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('spec_level', 8, 0, crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('manufacturer', 16, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('tpm_model', 24, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('firmware_version', 32, 0, crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('vendor_specific', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('gsc_version', 0, 0, crosapi.mojom.ProbeTpmGSCVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('family', 8, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('spec_level', 16, 0, crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('manufacturer', 24, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tpm_model', 32, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('firmware_version', 40, 0, crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('vendor_specific', 48, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -728,62 +728,62 @@ mojo.internal.Struct(
 // Struct: ProbeEmbeddedDisplayInfo
 mojo.internal.Struct(
     crosapi.mojom.ProbeEmbeddedDisplayInfoSpec, 'crosapi.mojom.ProbeEmbeddedDisplayInfo', [
-      mojo.internal.StructField('privacy_screen_supported_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'privacy_screen_supported_$value', originalFieldName: 'privacy_screen_supported' }),
-      mojo.internal.StructField('privacy_screen_supported_$value', 60, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'privacy_screen_supported_$flag', originalFieldName: 'privacy_screen_supported' }),
-      mojo.internal.StructField('privacy_screen_enabled_$flag', 60, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'privacy_screen_enabled_$value', originalFieldName: 'privacy_screen_enabled' }),
-      mojo.internal.StructField('privacy_screen_enabled_$value', 60, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'privacy_screen_enabled_$flag', originalFieldName: 'privacy_screen_enabled' }),
-      mojo.internal.StructField('display_width_$flag', 60, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' }),
-      mojo.internal.StructField('display_width_$value', 32, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' }),
-      mojo.internal.StructField('display_height_$flag', 60, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' }),
-      mojo.internal.StructField('display_height_$value', 36, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' }),
-      mojo.internal.StructField('resolution_horizontal_$flag', 60, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' }),
-      mojo.internal.StructField('resolution_horizontal_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' }),
-      mojo.internal.StructField('resolution_vertical_$flag', 60, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' }),
-      mojo.internal.StructField('resolution_vertical_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' }),
-      mojo.internal.StructField('refresh_rate_$flag', 61, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' }),
-      mojo.internal.StructField('refresh_rate_$value', 0, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' }),
-      mojo.internal.StructField('manufacturer', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('model_id_$flag', 61, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' }),
-      mojo.internal.StructField('model_id_$value', 56, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' }),
-      mojo.internal.StructField('serial_number_$flag', 61, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' }),
-      mojo.internal.StructField('serial_number_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' }),
-      mojo.internal.StructField('manufacture_week_$flag', 61, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' }),
-      mojo.internal.StructField('manufacture_week_$value', 62, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' }),
-      mojo.internal.StructField('manufacture_year_$flag', 61, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' }),
-      mojo.internal.StructField('manufacture_year_$value', 58, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' }),
-      mojo.internal.StructField('edid_version', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('input_type', 52, 0, crosapi.mojom.ProbeDisplayInputTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('display_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('privacy_screen_supported_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'privacy_screen_supported_$value', originalFieldName: 'privacy_screen_supported' }),
+      mojo.internal.StructField('privacy_screen_supported_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'privacy_screen_supported_$flag', originalFieldName: 'privacy_screen_supported' }),
+      mojo.internal.StructField('privacy_screen_enabled_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'privacy_screen_enabled_$value', originalFieldName: 'privacy_screen_enabled' }),
+      mojo.internal.StructField('privacy_screen_enabled_$value', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'privacy_screen_enabled_$flag', originalFieldName: 'privacy_screen_enabled' }),
+      mojo.internal.StructField('display_width_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' }),
+      mojo.internal.StructField('display_width_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' }),
+      mojo.internal.StructField('display_height_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' }),
+      mojo.internal.StructField('display_height_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' }),
+      mojo.internal.StructField('resolution_horizontal_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' }),
+      mojo.internal.StructField('resolution_horizontal_$value', 20, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' }),
+      mojo.internal.StructField('resolution_vertical_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' }),
+      mojo.internal.StructField('resolution_vertical_$value', 28, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' }),
+      mojo.internal.StructField('refresh_rate_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' }),
+      mojo.internal.StructField('refresh_rate_$value', 40, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' }),
+      mojo.internal.StructField('manufacturer', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('model_id_$flag', 56, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' }),
+      mojo.internal.StructField('model_id_$value', 58, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' }),
+      mojo.internal.StructField('serial_number_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' }),
+      mojo.internal.StructField('serial_number_$value', 64, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' }),
+      mojo.internal.StructField('manufacture_week_$flag', 68, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' }),
+      mojo.internal.StructField('manufacture_week_$value', 69, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' }),
+      mojo.internal.StructField('manufacture_year_$flag', 70, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' }),
+      mojo.internal.StructField('manufacture_year_$value', 72, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' }),
+      mojo.internal.StructField('edid_version', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('input_type', 88, 0, crosapi.mojom.ProbeDisplayInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 96, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 112]]);
 
 // Struct: ProbeExternalDisplayInfo
 mojo.internal.Struct(
     crosapi.mojom.ProbeExternalDisplayInfoSpec, 'crosapi.mojom.ProbeExternalDisplayInfo', [
-      mojo.internal.StructField('display_width_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' }),
-      mojo.internal.StructField('display_width_$value', 32, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' }),
-      mojo.internal.StructField('display_height_$flag', 60, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' }),
-      mojo.internal.StructField('display_height_$value', 36, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' }),
-      mojo.internal.StructField('resolution_horizontal_$flag', 60, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' }),
-      mojo.internal.StructField('resolution_horizontal_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' }),
-      mojo.internal.StructField('resolution_vertical_$flag', 60, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' }),
-      mojo.internal.StructField('resolution_vertical_$value', 44, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' }),
-      mojo.internal.StructField('refresh_rate_$flag', 60, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' }),
-      mojo.internal.StructField('refresh_rate_$value', 0, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' }),
-      mojo.internal.StructField('manufacturer', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('model_id_$flag', 60, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' }),
-      mojo.internal.StructField('model_id_$value', 56, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' }),
-      mojo.internal.StructField('serial_number_$flag', 60, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' }),
-      mojo.internal.StructField('serial_number_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' }),
-      mojo.internal.StructField('manufacture_week_$flag', 60, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' }),
-      mojo.internal.StructField('manufacture_week_$value', 61, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' }),
-      mojo.internal.StructField('manufacture_year_$flag', 62, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' }),
-      mojo.internal.StructField('manufacture_year_$value', 58, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' }),
-      mojo.internal.StructField('edid_version', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('input_type', 52, 0, crosapi.mojom.ProbeDisplayInputTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('display_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('display_width_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_width_$value', originalFieldName: 'display_width' }),
+      mojo.internal.StructField('display_width_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_width_$flag', originalFieldName: 'display_width' }),
+      mojo.internal.StructField('display_height_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_height_$value', originalFieldName: 'display_height' }),
+      mojo.internal.StructField('display_height_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_height_$flag', originalFieldName: 'display_height' }),
+      mojo.internal.StructField('resolution_horizontal_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_horizontal_$value', originalFieldName: 'resolution_horizontal' }),
+      mojo.internal.StructField('resolution_horizontal_$value', 20, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_horizontal_$flag', originalFieldName: 'resolution_horizontal' }),
+      mojo.internal.StructField('resolution_vertical_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'resolution_vertical_$value', originalFieldName: 'resolution_vertical' }),
+      mojo.internal.StructField('resolution_vertical_$value', 28, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'resolution_vertical_$flag', originalFieldName: 'resolution_vertical' }),
+      mojo.internal.StructField('refresh_rate_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'refresh_rate_$value', originalFieldName: 'refresh_rate' }),
+      mojo.internal.StructField('refresh_rate_$value', 40, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'refresh_rate_$flag', originalFieldName: 'refresh_rate' }),
+      mojo.internal.StructField('manufacturer', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('model_id_$flag', 56, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'model_id_$value', originalFieldName: 'model_id' }),
+      mojo.internal.StructField('model_id_$value', 58, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'model_id_$flag', originalFieldName: 'model_id' }),
+      mojo.internal.StructField('serial_number_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'serial_number_$value', originalFieldName: 'serial_number' }),
+      mojo.internal.StructField('serial_number_$value', 64, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'serial_number_$flag', originalFieldName: 'serial_number' }),
+      mojo.internal.StructField('manufacture_week_$flag', 68, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_week_$value', originalFieldName: 'manufacture_week' }),
+      mojo.internal.StructField('manufacture_week_$value', 69, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_week_$flag', originalFieldName: 'manufacture_week' }),
+      mojo.internal.StructField('manufacture_year_$flag', 70, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'manufacture_year_$value', originalFieldName: 'manufacture_year' }),
+      mojo.internal.StructField('manufacture_year_$value', 72, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'manufacture_year_$flag', originalFieldName: 'manufacture_year' }),
+      mojo.internal.StructField('edid_version', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('input_type', 88, 0, crosapi.mojom.ProbeDisplayInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 96, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 112]]);
 
 // Struct: ProbeDisplayInfo
 mojo.internal.Struct(

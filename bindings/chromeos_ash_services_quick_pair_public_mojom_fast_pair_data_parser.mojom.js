@@ -117,23 +117,23 @@ mojo.internal.Union(
 // Struct: DecryptedResponse
 mojo.internal.Struct(
     ash.quick_pair.mojom.DecryptedResponseSpec, 'ash.quick_pair.mojom.DecryptedResponse', [
-      mojo.internal.StructField('message_type', 24, 0, ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('address_bytes', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('salt', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('flags_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'flags_$value', originalFieldName: 'flags' }),
-      mojo.internal.StructField('flags_$value', 29, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'flags_$flag', originalFieldName: 'flags' }),
-      mojo.internal.StructField('num_addresses_$flag', 28, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'num_addresses_$value', originalFieldName: 'num_addresses' }),
-      mojo.internal.StructField('num_addresses_$value', 30, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'num_addresses_$flag', originalFieldName: 'num_addresses' }),
-      mojo.internal.StructField('secondary_address_bytes', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('message_type', 0, 0, ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('address_bytes', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('salt', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('flags_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'flags_$value', originalFieldName: 'flags' }),
+      mojo.internal.StructField('flags_$value', 25, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'flags_$flag', originalFieldName: 'flags' }),
+      mojo.internal.StructField('num_addresses_$flag', 26, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'num_addresses_$value', originalFieldName: 'num_addresses' }),
+      mojo.internal.StructField('num_addresses_$value', 27, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'num_addresses_$flag', originalFieldName: 'num_addresses' }),
+      mojo.internal.StructField('secondary_address_bytes', 32, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: DecryptedPasskey
 mojo.internal.Struct(
     ash.quick_pair.mojom.DecryptedPasskeySpec, 'ash.quick_pair.mojom.DecryptedPasskey', [
-      mojo.internal.StructField('message_type', 8, 0, ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('passkey', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('salt', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('message_type', 0, 0, ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passkey', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('salt', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -148,10 +148,10 @@ mojo.internal.Struct(
 // Struct: BatteryNotification
 mojo.internal.Struct(
     ash.quick_pair.mojom.BatteryNotificationSpec, 'ash.quick_pair.mojom.BatteryNotification', [
-      mojo.internal.StructField('show_ui', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('left_bud_info', 0, 0, ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('right_bud_info', 8, 0, ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('case_info', 16, 0, ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('show_ui', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('left_bud_info', 8, 0, ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('right_bud_info', 16, 0, ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('case_info', 24, 0, ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -175,9 +175,9 @@ mojo.internal.Struct(
 // Struct: AcknowledgementMessage
 mojo.internal.Struct(
     ash.quick_pair.mojom.AcknowledgementMessageSpec, 'ash.quick_pair.mojom.AcknowledgementMessage', [
-      mojo.internal.StructField('action_message_code', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('acknowledgement', 0, 0, ash.quick_pair.mojom.AcknowledgementSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action_message_group', 4, 0, ash.quick_pair.mojom.MessageGroupSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_message_code', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('acknowledgement', 4, 0, ash.quick_pair.mojom.AcknowledgementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_message_group', 8, 0, ash.quick_pair.mojom.MessageGroupSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -186,8 +186,8 @@ mojo.internal.Struct(
     ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, 'ash.quick_pair.mojom.NotDiscoverableAdvertisement', [
       mojo.internal.StructField('account_key_filter', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('salt', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('show_ui', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('battery_notification', 16, 0, ash.quick_pair.mojom.BatteryNotificationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('show_ui', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('battery_notification', 24, 0, ash.quick_pair.mojom.BatteryNotificationSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

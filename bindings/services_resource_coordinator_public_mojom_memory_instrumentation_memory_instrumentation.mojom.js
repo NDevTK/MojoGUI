@@ -163,9 +163,9 @@ mojo.internal.Struct(
 // Struct: RawAllocatorDumpEntry
 mojo.internal.Struct(
     memory_instrumentation.mojom.RawAllocatorDumpEntrySpec, 'memory_instrumentation.mojom.RawAllocatorDumpEntry', [
-      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('units', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 0, 0, memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('units', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -174,18 +174,18 @@ mojo.internal.Struct(
     memory_instrumentation.mojom.RawAllocatorDumpSpec, 'memory_instrumentation.mojom.RawAllocatorDump', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('absolute_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('weak', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('level_of_detail', 24, 0, memory_instrumentation.mojom.LevelOfDetailSpec, null, false, 0, undefined),
-      mojo.internal.StructField('entries', 16, 0, mojo.internal.Array(memory_instrumentation.mojom.RawAllocatorDumpEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('weak', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('level_of_detail', 20, 0, memory_instrumentation.mojom.LevelOfDetailSpec, null, false, 0, undefined),
+      mojo.internal.StructField('entries', 24, 0, mojo.internal.Array(memory_instrumentation.mojom.RawAllocatorDumpEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: RawProcessMemoryDump
 mojo.internal.Struct(
     memory_instrumentation.mojom.RawProcessMemoryDumpSpec, 'memory_instrumentation.mojom.RawProcessMemoryDump', [
-      mojo.internal.StructField('level_of_detail', 16, 0, memory_instrumentation.mojom.LevelOfDetailSpec, null, false, 0, undefined),
-      mojo.internal.StructField('allocator_dump_edges', 0, 0, mojo.internal.Array(memory_instrumentation.mojom.RawAllocatorDumpEdgeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('allocator_dumps', 8, 0, mojo.internal.Array(memory_instrumentation.mojom.RawAllocatorDumpSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('level_of_detail', 0, 0, memory_instrumentation.mojom.LevelOfDetailSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allocator_dump_edges', 8, 0, mojo.internal.Array(memory_instrumentation.mojom.RawAllocatorDumpEdgeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('allocator_dumps', 16, 0, mojo.internal.Array(memory_instrumentation.mojom.RawAllocatorDumpSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -201,15 +201,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('module_timestamp', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('module_debugid', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('module_debug_path', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('protection_flags', 136, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('mapped_file', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('byte_stats_private_dirty_resident', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('byte_stats_private_clean_resident', 88, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('byte_stats_shared_dirty_resident', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('byte_stats_shared_clean_resident', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('byte_stats_swapped', 112, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('byte_locked', 120, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('byte_stats_proportional_resident', 128, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('protection_flags', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('mapped_file', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('byte_stats_private_dirty_resident', 88, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('byte_stats_private_clean_resident', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('byte_stats_shared_dirty_resident', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('byte_stats_shared_clean_resident', 112, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('byte_stats_swapped', 120, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('byte_locked', 128, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('byte_stats_proportional_resident', 136, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 152]]);
 
@@ -228,30 +228,30 @@ mojo.internal.Struct(
 // Struct: RawOSMemDump
 mojo.internal.Struct(
     memory_instrumentation.mojom.RawOSMemDumpSpec, 'memory_instrumentation.mojom.RawOSMemDump', [
-      mojo.internal.StructField('resident_set_kb', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('peak_resident_set_kb', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_peak_rss_resettable', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('platform_private_footprint', 0, 0, memory_instrumentation.mojom.PlatformPrivateFootprintSpec, null, false, 0, undefined),
-      mojo.internal.StructField('memory_maps', 8, 0, mojo.internal.Array(memory_instrumentation.mojom.VmRegionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('native_library_pages_bitmap', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('mappings_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('pss_kb', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('swap_pss_kb', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('resident_set_kb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('peak_resident_set_kb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_peak_rss_resettable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('platform_private_footprint', 16, 0, memory_instrumentation.mojom.PlatformPrivateFootprintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('memory_maps', 24, 0, mojo.internal.Array(memory_instrumentation.mojom.VmRegionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('native_library_pages_bitmap', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('mappings_count', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pss_kb', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('swap_pss_kb', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: OSMemDump
 mojo.internal.Struct(
     memory_instrumentation.mojom.OSMemDumpSpec, 'memory_instrumentation.mojom.OSMemDump', [
       mojo.internal.StructField('resident_set_kb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('peak_resident_set_kb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_peak_rss_resettable', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('private_footprint_kb', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('shared_footprint_kb', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('private_footprint_swap_kb', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('mappings_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('pss_kb', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('swap_pss_kb', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_peak_rss_resettable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('private_footprint_kb', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('shared_footprint_kb', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('private_footprint_swap_kb', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('mappings_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pss_kb', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('swap_pss_kb', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -266,11 +266,11 @@ mojo.internal.Struct(
 // Struct: ProcessMemoryDump
 mojo.internal.Struct(
     memory_instrumentation.mojom.ProcessMemoryDumpSpec, 'memory_instrumentation.mojom.ProcessMemoryDump', [
-      mojo.internal.StructField('process_type', 32, 0, memory_instrumentation.mojom.ProcessTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('os_dump', 0, 0, memory_instrumentation.mojom.OSMemDumpSpec, null, false, 0, undefined),
-      mojo.internal.StructField('chrome_allocator_dumps', 8, 0, mojo.internal.Map(mojo.internal.String, memory_instrumentation.mojom.AllocatorMemDumpSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('pid', 16, 0, mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('service_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('process_type', 0, 0, memory_instrumentation.mojom.ProcessTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('os_dump', 8, 0, memory_instrumentation.mojom.OSMemDumpSpec, null, false, 0, undefined),
+      mojo.internal.StructField('chrome_allocator_dumps', 16, 0, mojo.internal.Map(mojo.internal.String, memory_instrumentation.mojom.AllocatorMemDumpSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pid', 24, 0, mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -309,24 +309,24 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec, 'memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParams', [
-      mojo.internal.StructField('outcome', 16, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dump_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('raw_process_memory_dump', 8, 0, memory_instrumentation.mojom.RawProcessMemoryDumpSpec, null, true, 0, undefined),
+      mojo.internal.StructField('outcome', 0, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dump_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('raw_process_memory_dump', 16, 0, memory_instrumentation.mojom.RawProcessMemoryDumpSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec, 'memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_Params', [
-      mojo.internal.StructField('option', 16, 0, memory_instrumentation.mojom.MemoryMapOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('flags', 0, 0, mojo.internal.Array(memory_instrumentation.mojom.MemDumpFlagsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('pids', 8, 0, mojo.internal.Array(mojo_base.mojom.ProcessIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('option', 0, 0, memory_instrumentation.mojom.MemoryMapOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('flags', 8, 0, mojo.internal.Array(memory_instrumentation.mojom.MemDumpFlagsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pids', 16, 0, mojo.internal.Array(mojo_base.mojom.ProcessIdSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec, 'memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParams', [
-      mojo.internal.StructField('outcome', 8, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dumps', 0, 0, mojo.internal.Map(mojo_base.mojom.ProcessIdSpec, memory_instrumentation.mojom.RawOSMemDumpSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('outcome', 0, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dumps', 8, 0, mojo.internal.Map(mojo_base.mojom.ProcessIdSpec, memory_instrumentation.mojom.RawOSMemDumpSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -540,17 +540,17 @@ memory_instrumentation.mojom.HeapProfilerHelperRequest = memory_instrumentation.
 // Interface: Coordinator
 mojo.internal.Struct(
     memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec, 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_Params', [
-      mojo.internal.StructField('dump_type', 8, 0, memory_instrumentation.mojom.DumpTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('level_of_detail', 12, 0, memory_instrumentation.mojom.LevelOfDetailSpec, null, false, 0, undefined),
-      mojo.internal.StructField('determinism', 16, 0, memory_instrumentation.mojom.DeterminismSpec, null, false, 0, undefined),
-      mojo.internal.StructField('allocator_dump_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('dump_type', 0, 0, memory_instrumentation.mojom.DumpTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('level_of_detail', 4, 0, memory_instrumentation.mojom.LevelOfDetailSpec, null, false, 0, undefined),
+      mojo.internal.StructField('determinism', 8, 0, memory_instrumentation.mojom.DeterminismSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allocator_dump_names', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec, 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParams', [
-      mojo.internal.StructField('outcome', 8, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('global_memory_dump', 0, 0, memory_instrumentation.mojom.GlobalMemoryDumpSpec, null, true, 0, undefined),
+      mojo.internal.StructField('outcome', 0, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('global_memory_dump', 8, 0, memory_instrumentation.mojom.GlobalMemoryDumpSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -563,8 +563,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec, 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParams', [
-      mojo.internal.StructField('outcome', 8, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('global_memory_dump', 0, 0, memory_instrumentation.mojom.GlobalMemoryDumpSpec, null, true, 0, undefined),
+      mojo.internal.StructField('outcome', 0, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('global_memory_dump', 8, 0, memory_instrumentation.mojom.GlobalMemoryDumpSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -576,8 +576,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec, 'memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParams', [
-      mojo.internal.StructField('outcome', 8, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('global_memory_dump', 0, 0, memory_instrumentation.mojom.GlobalMemoryDumpSpec, null, true, 0, undefined),
+      mojo.internal.StructField('outcome', 0, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('global_memory_dump', 8, 0, memory_instrumentation.mojom.GlobalMemoryDumpSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -591,8 +591,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec, 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParams', [
-      mojo.internal.StructField('outcome', 8, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dump_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('outcome', 0, 0, memory_instrumentation.mojom.RequestOutcomeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dump_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

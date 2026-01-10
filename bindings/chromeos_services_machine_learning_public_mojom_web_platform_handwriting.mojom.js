@@ -52,9 +52,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.machine_learning.web_platform.mojom.HandwritingSegmentSpec, 'chromeos.machine_learning.web_platform.mojom.HandwritingSegment', [
       mojo.internal.StructField('grapheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('begin_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('end_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('drawing_segments', 8, 0, mojo.internal.Array(chromeos.machine_learning.web_platform.mojom.HandwritingDrawingSegmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('begin_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_index', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('drawing_segments', 16, 0, mojo.internal.Array(chromeos.machine_learning.web_platform.mojom.HandwritingDrawingSegmentSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

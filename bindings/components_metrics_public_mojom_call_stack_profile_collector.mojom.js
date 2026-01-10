@@ -31,8 +31,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec, 'metrics.mojom.CallStackProfileCollector_Collect_Params', [
       mojo.internal.StructField('start_timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile_type', 16, 0, metrics.mojom.ProfileTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile', 8, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile_type', 8, 0, metrics.mojom.ProfileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 16, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

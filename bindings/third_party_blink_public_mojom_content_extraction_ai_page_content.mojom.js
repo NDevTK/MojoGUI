@@ -193,22 +193,22 @@ mojo.internal.Struct(
 // Struct: AIPageContentSelection
 mojo.internal.Struct(
     blink.mojom.AIPageContentSelectionSpec, 'blink.mojom.AIPageContentSelection', [
-      mojo.internal.StructField('start_dom_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('start_offset', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('end_dom_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('end_offset', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('selected_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_dom_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('start_offset', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_dom_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_offset', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('selected_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AIPageContentPageInteractionInfo
 mojo.internal.Struct(
     blink.mojom.AIPageContentPageInteractionInfoSpec, 'blink.mojom.AIPageContentPageInteractionInfo', [
-      mojo.internal.StructField('focused_dom_node_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'focused_dom_node_id_$value', originalFieldName: 'focused_dom_node_id' }),
-      mojo.internal.StructField('focused_dom_node_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'focused_dom_node_id_$flag', originalFieldName: 'focused_dom_node_id' }),
-      mojo.internal.StructField('accessibility_focused_dom_node_id_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accessibility_focused_dom_node_id_$value', originalFieldName: 'accessibility_focused_dom_node_id' }),
+      mojo.internal.StructField('focused_dom_node_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'focused_dom_node_id_$value', originalFieldName: 'focused_dom_node_id' }),
+      mojo.internal.StructField('focused_dom_node_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'focused_dom_node_id_$flag', originalFieldName: 'focused_dom_node_id' }),
+      mojo.internal.StructField('accessibility_focused_dom_node_id_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accessibility_focused_dom_node_id_$value', originalFieldName: 'accessibility_focused_dom_node_id' }),
       mojo.internal.StructField('accessibility_focused_dom_node_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'accessibility_focused_dom_node_id_$flag', originalFieldName: 'accessibility_focused_dom_node_id' }),
-      mojo.internal.StructField('mouse_position', 0, 0, gfx.mojom.PointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('mouse_position', 16, 0, gfx.mojom.PointSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -223,14 +223,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AIPageContentNodeInteractionInfoSpec, 'blink.mojom.AIPageContentNodeInteractionInfo', [
       mojo.internal.StructField('scroller_info', 0, 0, blink.mojom.AIPageContentScrollerInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_focusable', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('document_scoped_z_order_$flag', 28, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'document_scoped_z_order_$value', originalFieldName: 'document_scoped_z_order' }),
-      mojo.internal.StructField('document_scoped_z_order_$value', 24, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'document_scoped_z_order_$flag', originalFieldName: 'document_scoped_z_order' }),
-      mojo.internal.StructField('clickability_reasons', 8, 0, mojo.internal.Array(blink.mojom.AIPageContentClickabilityReasonSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_disabled', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('interaction_disabled_reasons', 16, 0, mojo.internal.Array(blink.mojom.AIPageContentInteractionDisabledReasonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_focusable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('document_scoped_z_order_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'document_scoped_z_order_$value', originalFieldName: 'document_scoped_z_order' }),
+      mojo.internal.StructField('document_scoped_z_order_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'document_scoped_z_order_$flag', originalFieldName: 'document_scoped_z_order' }),
+      mojo.internal.StructField('clickability_reasons', 16, 0, mojo.internal.Array(blink.mojom.AIPageContentClickabilityReasonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_disabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('interaction_disabled_reasons', 32, 0, mojo.internal.Array(blink.mojom.AIPageContentInteractionDisabledReasonSpec, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: AIPageContentScrollerInfo
 mojo.internal.Struct(
@@ -246,8 +246,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AIPageContentTextStyleSpec, 'blink.mojom.AIPageContentTextStyle', [
       mojo.internal.StructField('text_size', 0, 0, blink.mojom.AIPageContentTextSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_emphasis', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('color', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('has_emphasis', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -311,10 +311,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('frame_interaction_info', 0, 0, blink.mojom.AIPageContentFrameInteractionInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('meta_data', 8, 0, mojo.internal.Array(blink.mojom.AIPageContentMetaSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('contains_paid_content_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'contains_paid_content_$value', originalFieldName: 'contains_paid_content' }),
-      mojo.internal.StructField('contains_paid_content_$value', 40, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'contains_paid_content_$flag', originalFieldName: 'contains_paid_content' }),
-      mojo.internal.StructField('script_tools', 24, 0, mojo.internal.Array(blink.mojom.ScriptToolSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('popup', 32, 0, blink.mojom.AIPageContentPopupSpec, null, true, 0, undefined),
+      mojo.internal.StructField('contains_paid_content_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'contains_paid_content_$value', originalFieldName: 'contains_paid_content' }),
+      mojo.internal.StructField('contains_paid_content_$value', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'contains_paid_content_$flag', originalFieldName: 'contains_paid_content' }),
+      mojo.internal.StructField('script_tools', 32, 0, mojo.internal.Array(blink.mojom.ScriptToolSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('popup', 40, 0, blink.mojom.AIPageContentPopupSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -368,44 +368,44 @@ mojo.internal.Struct(
 // Struct: AIPageContentFormControlData
 mojo.internal.Struct(
     blink.mojom.AIPageContentFormControlDataSpec, 'blink.mojom.AIPageContentFormControlData', [
-      mojo.internal.StructField('form_control_type', 32, 0, blink.mojom.FormControlTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('field_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('field_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('select_options', 16, 0, mojo.internal.Array(blink.mojom.AIPageContentSelectOptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('placeholder', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('form_control_type', 0, 0, blink.mojom.FormControlTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('field_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('select_options', 24, 0, mojo.internal.Array(blink.mojom.AIPageContentSelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('placeholder', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('is_checked', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_required', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('redaction_decision', 36, 0, blink.mojom.AIPageContentRedactionDecisionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redaction_decision', 44, 0, blink.mojom.AIPageContentRedactionDecisionSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: AIPageContentAttributes
 mojo.internal.Struct(
     blink.mojom.AIPageContentAttributesSpec, 'blink.mojom.AIPageContentAttributes', [
-      mojo.internal.StructField('dom_node_id_$flag', 136, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'dom_node_id_$value', originalFieldName: 'dom_node_id' }),
-      mojo.internal.StructField('dom_node_id_$value', 120, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'dom_node_id_$flag', originalFieldName: 'dom_node_id' }),
-      mojo.internal.StructField('attribute_type', 124, 0, blink.mojom.AIPageContentAttributeTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('geometry', 0, 0, blink.mojom.AIPageContentGeometrySpec, null, true, 0, undefined),
-      mojo.internal.StructField('node_interaction_info', 8, 0, blink.mojom.AIPageContentNodeInteractionInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('text_info', 16, 0, blink.mojom.AIPageContentTextInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('image_info', 24, 0, blink.mojom.AIPageContentImageInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('svg_root_data', 32, 0, blink.mojom.AIPageContentSvgRootDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('canvas_data', 40, 0, blink.mojom.AIPageContentCanvasDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('video_data', 48, 0, blink.mojom.AIPageContentVideoDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('anchor_data', 56, 0, blink.mojom.AIPageContentAnchorDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('form_data', 64, 0, blink.mojom.AIPageContentFormDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('form_control_data', 72, 0, blink.mojom.AIPageContentFormControlDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('table_data', 80, 0, blink.mojom.AIPageContentTableDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('iframe_data', 88, 0, blink.mojom.AIPageContentIframeDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('table_row_data', 96, 0, blink.mojom.AIPageContentTableRowDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('annotated_roles', 104, 0, mojo.internal.Array(blink.mojom.AIPageContentAnnotatedRoleSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('label', 112, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('aria_role', 128, 0, ax.mojom.RoleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('label_for_dom_node_id_$flag', 136, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'label_for_dom_node_id_$value', originalFieldName: 'label_for_dom_node_id' }),
-      mojo.internal.StructField('label_for_dom_node_id_$value', 132, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'label_for_dom_node_id_$flag', originalFieldName: 'label_for_dom_node_id' }),
-      mojo.internal.StructField('is_ad_related', 136, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('dom_node_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'dom_node_id_$value', originalFieldName: 'dom_node_id' }),
+      mojo.internal.StructField('dom_node_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'dom_node_id_$flag', originalFieldName: 'dom_node_id' }),
+      mojo.internal.StructField('attribute_type', 8, 0, blink.mojom.AIPageContentAttributeTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('geometry', 16, 0, blink.mojom.AIPageContentGeometrySpec, null, true, 0, undefined),
+      mojo.internal.StructField('node_interaction_info', 24, 0, blink.mojom.AIPageContentNodeInteractionInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('text_info', 32, 0, blink.mojom.AIPageContentTextInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image_info', 40, 0, blink.mojom.AIPageContentImageInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('svg_root_data', 48, 0, blink.mojom.AIPageContentSvgRootDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('canvas_data', 56, 0, blink.mojom.AIPageContentCanvasDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('video_data', 64, 0, blink.mojom.AIPageContentVideoDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('anchor_data', 72, 0, blink.mojom.AIPageContentAnchorDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('form_data', 80, 0, blink.mojom.AIPageContentFormDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('form_control_data', 88, 0, blink.mojom.AIPageContentFormControlDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('table_data', 96, 0, blink.mojom.AIPageContentTableDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('iframe_data', 104, 0, blink.mojom.AIPageContentIframeDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('table_row_data', 112, 0, blink.mojom.AIPageContentTableRowDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('annotated_roles', 120, 0, mojo.internal.Array(blink.mojom.AIPageContentAnnotatedRoleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('label', 128, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('aria_role', 136, 0, ax.mojom.RoleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('label_for_dom_node_id_$flag', 140, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'label_for_dom_node_id_$value', originalFieldName: 'label_for_dom_node_id' }),
+      mojo.internal.StructField('label_for_dom_node_id_$value', 144, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'label_for_dom_node_id_$flag', originalFieldName: 'label_for_dom_node_id' }),
+      mojo.internal.StructField('is_ad_related', 148, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 152]]);
+    [[0, 160]]);
 
 // Struct: AIPageContentNode
 mojo.internal.Struct(
@@ -419,8 +419,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.AIPageContentPopupSpec, 'blink.mojom.AIPageContentPopup', [
       mojo.internal.StructField('root_node', 0, 0, blink.mojom.AIPageContentNodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('opener_dom_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('visible_bounding_box', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('opener_dom_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('visible_bounding_box', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -437,14 +437,14 @@ mojo.internal.Struct(
 // Struct: AIPageContentOptions
 mojo.internal.Struct(
     blink.mojom.AIPageContentOptionsSpec, 'blink.mojom.AIPageContentOptions', [
-      mojo.internal.StructField('mode', 8, 0, blink.mojom.AIPageContentModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('on_critical_path', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_meta_elements', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('include_same_site_only', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('main_frame_view_rect_in_dips', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('include_passwords_for_redaction', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.AIPageContentModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('on_critical_path', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_meta_elements', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('include_same_site_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('main_frame_view_rect_in_dips', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('include_passwords_for_redaction', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: AIPageContentAgent
 mojo.internal.Struct(

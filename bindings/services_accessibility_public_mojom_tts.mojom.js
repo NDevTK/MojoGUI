@@ -61,9 +61,9 @@ mojo.internal.Struct(
     ax.mojom.TtsVoiceSpec, 'ax.mojom.TtsVoice', [
       mojo.internal.StructField('voice_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('lang', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('remote', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('engine_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('event_types', 24, 0, mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('remote', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('engine_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('event_types', 32, 0, mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -73,20 +73,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('pitch', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('rate', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('volume', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('enqueue', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('voice_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('engine_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('lang', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('on_event', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enqueue', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('voice_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('engine_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lang', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('on_event', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: TtsEvent
 mojo.internal.Struct(
     ax.mojom.TtsEventSpec, 'ax.mojom.TtsEvent', [
-      mojo.internal.StructField('type', 8, 0, ax.mojom.TtsEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('char_index', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ax.mojom.TtsEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('char_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_final', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -95,8 +95,8 @@ mojo.internal.Struct(
 // Struct: TtsSpeakResult
 mojo.internal.Struct(
     ax.mojom.TtsSpeakResultSpec, 'ax.mojom.TtsSpeakResult', [
-      mojo.internal.StructField('error', 8, 0, ax.mojom.TtsErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('utterance_client', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.TtsUtteranceClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ax.mojom.TtsErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('utterance_client', 8, 0, mojo.internal.InterfaceRequest(ax.mojom.TtsUtteranceClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

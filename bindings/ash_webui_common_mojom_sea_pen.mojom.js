@@ -104,20 +104,20 @@ mojo.internal.Struct(
 // Struct: SeaPenTemplateQuery
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenTemplateQuerySpec, 'ash.personalization_app.mojom.SeaPenTemplateQuery', [
-      mojo.internal.StructField('id', 16, 0, ash.personalization_app.mojom.SeaPenTemplateIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 0, 0, mojo.internal.Map(ash.personalization_app.mojom.SeaPenTemplateChipSpec, ash.personalization_app.mojom.SeaPenTemplateOptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('user_visible_query', 8, 0, ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, ash.personalization_app.mojom.SeaPenTemplateIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, mojo.internal.Map(ash.personalization_app.mojom.SeaPenTemplateChipSpec, ash.personalization_app.mojom.SeaPenTemplateOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_visible_query', 16, 0, ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SeaPenFeedbackMetadata
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec, 'ash.personalization_app.mojom.SeaPenFeedbackMetadata', [
-      mojo.internal.StructField('is_positive', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('log_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('generation_seed', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_positive', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('log_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('generation_seed', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: RecentSeaPenImageInfo
 mojo.internal.Struct(
@@ -146,8 +146,8 @@ mojo.internal.Struct(
 // Interface: SeaPenObserver
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec, 'ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_Params', [
-      mojo.internal.StructField('id_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' }),
-      mojo.internal.StructField('id_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' }),
+      mojo.internal.StructField('id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' }),
+      mojo.internal.StructField('id_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' }),
     ],
     [[0, 16]]);
 

@@ -41,23 +41,23 @@ viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = { $: {} };
 // Struct: LayerContextSettings
 mojo.internal.Struct(
     viz.mojom.LayerContextSettingsSpec, 'viz.mojom.LayerContextSettings', [
-      mojo.internal.StructField('draw_mode_is_gpu', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_early_damage_check', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('damaged_frame_limit', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('scrollbar_animator', 36, 0, cc.mojom.ScrollbarAnimatorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scrollbar_fade_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scrollbar_fade_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scrollbar_thinning_duration', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('draw_mode_is_gpu', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_early_damage_check', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('damaged_frame_limit', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_animator', 8, 0, cc.mojom.ScrollbarAnimatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_fade_delay', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_fade_duration', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_thinning_duration', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('idle_thickness_scale', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('top_controls_show_threshold', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('top_controls_hide_threshold', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('minimum_occlusion_tracking_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enable_edge_anti_aliasing', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_backface_visibility_interop', 52, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_fluent_scrollbar', 52, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_fluent_overlay_scrollbar', 52, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('minimum_occlusion_tracking_size', 56, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enable_edge_anti_aliasing', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_backface_visibility_interop', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_fluent_scrollbar', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_fluent_overlay_scrollbar', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 80]]);
 
 // Struct: CompositorFrameSinkParams
 mojo.internal.Struct(

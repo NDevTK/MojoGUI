@@ -25,8 +25,8 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = { $
 // Interface: AcceleratorFetcherObserver
 mojo.internal.Struct(
     ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec, 'ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_Params', [
-      mojo.internal.StructField('actionId', 8, 0, ash.mojom.AcceleratorActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('accelerators', 0, 0, mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('actionId', 0, 0, ash.mojom.AcceleratorActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('accelerators', 8, 0, mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -114,9 +114,9 @@ mojo.internal.Struct(
 // Struct: OptionsFromDocumentParams
 mojo.internal.Struct(
     printing.mojom.OptionsFromDocumentParamsSpec, 'printing.mojom.OptionsFromDocumentParams', [
-      mojo.internal.StructField('is_scaling_disabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('copies', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('duplex', 4, 0, printing.mojom.DuplexModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_scaling_disabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('copies', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('duplex', 8, 0, printing.mojom.DuplexModeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -131,13 +131,13 @@ mojo.internal.Struct(
 // Struct: DidStartPreviewParams
 mojo.internal.Struct(
     printing.mojom.DidStartPreviewParamsSpec, 'printing.mojom.DidStartPreviewParams', [
-      mojo.internal.StructField('page_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('pages_to_render', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('pages_per_sheet', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_size', 8, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('fit_to_page_scaling', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pages_to_render', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('pages_per_sheet', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_size', 24, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fit_to_page_scaling', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: DidPreviewPageParams
 mojo.internal.Struct(
@@ -163,34 +163,34 @@ mojo.internal.Struct(
       mojo.internal.StructField('page_size', 0, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
       mojo.internal.StructField('content_size', 8, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
       mojo.internal.StructField('printable_area', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('margin_top', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('margin_left', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('page_orientation', 80, 0, printing.mojom.PageOrientationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dpi', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale_factor', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('document_cookie', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('selection_only', 116, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('preview_ui_id', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('preview_request_id', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_first_request', 116, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('print_scaling_option', 96, 0, printing.mojom.PrintScalingOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('print_to_pdf', 116, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('display_header_footer', 116, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 40, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 48, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('header_template', 56, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('footer_template', 64, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('rasterize_pdf', 116, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('rasterize_pdf_dpi', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('should_print_backgrounds', 116, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('printed_doc_type', 104, 0, printing.mojom.SkiaDocumentTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('prefer_css_page_size', 116, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pages_per_sheet', 108, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('generate_tagged_pdf_$flag', 116, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'generate_tagged_pdf_$value', originalFieldName: 'generate_tagged_pdf' }),
-      mojo.internal.StructField('generate_tagged_pdf_$value', 117, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'generate_tagged_pdf_$flag', originalFieldName: 'generate_tagged_pdf' }),
-      mojo.internal.StructField('generate_document_outline', 112, 0, printing.mojom.GenerateDocumentOutlineSpec, null, false, 0, undefined),
+      mojo.internal.StructField('margin_top', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('margin_left', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('page_orientation', 32, 0, printing.mojom.PageOrientationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dpi', 40, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('document_cookie', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('selection_only', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preview_ui_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('preview_request_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_first_request', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('print_scaling_option', 76, 0, printing.mojom.PrintScalingOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('print_to_pdf', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('display_header_footer', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('title', 88, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 96, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('header_template', 104, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('footer_template', 112, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('rasterize_pdf', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rasterize_pdf_dpi', 124, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('should_print_backgrounds', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('printed_doc_type', 132, 0, printing.mojom.SkiaDocumentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prefer_css_page_size', 136, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pages_per_sheet', 140, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('generate_tagged_pdf_$flag', 144, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'generate_tagged_pdf_$value', originalFieldName: 'generate_tagged_pdf' }),
+      mojo.internal.StructField('generate_tagged_pdf_$value', 144, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'generate_tagged_pdf_$flag', originalFieldName: 'generate_tagged_pdf' }),
+      mojo.internal.StructField('generate_document_outline', 148, 0, printing.mojom.GenerateDocumentOutlineSpec, null, false, 0, undefined),
     ],
-    [[0, 128]]);
+    [[0, 160]]);
 
 // Struct: PrintPagesParams
 mojo.internal.Struct(
@@ -204,10 +204,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.DidPrintDocumentParamsSpec, 'printing.mojom.DidPrintDocumentParams', [
       mojo.internal.StructField('content', 0, 0, printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('document_cookie', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_area', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('physical_offsets', 24, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_area', 24, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('physical_offsets', 32, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -216,9 +216,9 @@ mojo.internal.Struct(
     printing.mojom.ScriptedPrintParamsSpec, 'printing.mojom.ScriptedPrintParams', [
       mojo.internal.StructField('cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('expected_pages_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('has_selection', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_scripted', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('margin_type', 8, 0, printing.mojom.MarginTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_selection', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_scripted', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('margin_type', 12, 0, printing.mojom.MarginTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -355,9 +355,9 @@ mojo.internal.Struct(
     printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_Params', [
       mojo.internal.StructField('page_layout_in_points', 0, 0, printing.mojom.PageSizeMarginsSpec, null, false, 0, undefined),
       mojo.internal.StructField('printable_area_in_points', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('all_pages_have_custom_size', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('all_pages_have_custom_orientation', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('all_pages_have_custom_size', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('all_pages_have_custom_orientation', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('request_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -546,8 +546,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParams', [
-      mojo.internal.StructField('document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('params', 0, 0, printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -829,8 +829,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec, 'printing.mojom.PrintManagerHost_SetAccessibilityTree_Params', [
-      mojo.internal.StructField('cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('accessibility_tree', 0, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('accessibility_tree', 8, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

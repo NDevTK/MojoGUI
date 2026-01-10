@@ -44,8 +44,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParams', [
-      mojo.internal.StructField('enumeration_status', 8, 0, blink.mojom.FontEnumerationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enumeration_table', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('enumeration_status', 0, 0, blink.mojom.FontEnumerationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enumeration_table', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

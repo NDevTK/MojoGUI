@@ -52,13 +52,13 @@ mojo.internal.Struct(
 // Struct: SpellCheckResult
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckResultSpec, 'spellcheck.mojom.SpellCheckResult', [
-      mojo.internal.StructField('decoration', 8, 0, spellcheck.mojom.DecorationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('location', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('replacements', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('should_hide_suggestion_menu', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('decoration', 0, 0, spellcheck.mojom.DecorationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('length', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('replacements', 16, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('should_hide_suggestion_menu', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: SpellChecker
 mojo.internal.Struct(
@@ -221,8 +221,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParams', [
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -113,16 +113,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('printer_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('creation_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('copies', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('pages', 32, 0, mojo.internal.Array(arc.mojom.PrintPageRangeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('attributes', 40, 0, arc.mojom.PrintAttributesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('document_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('document_page_count', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('content_type', 72, 0, arc.mojom.PrintContentTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data_size', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 76, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('copies', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('pages', 40, 0, mojo.internal.Array(arc.mojom.PrintPageRangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('attributes', 48, 0, arc.mojom.PrintAttributesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_page_count', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('content_type', 68, 0, arc.mojom.PrintContentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_size', 72, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 80, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 96]]);
 
 // Struct: PrinterCapabilities
 mojo.internal.Struct(
@@ -130,9 +130,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('media_sizes', 0, 0, mojo.internal.Array(arc.mojom.PrintMediaSizeSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('resolutions', 8, 0, mojo.internal.Array(arc.mojom.PrintResolutionSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('min_margins', 16, 0, arc.mojom.PrintMarginsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color_modes', 32, 0, arc.mojom.PrintColorModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duplex_modes', 36, 0, arc.mojom.PrintDuplexModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('defaults', 24, 0, arc.mojom.PrintAttributesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_modes', 24, 0, arc.mojom.PrintColorModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duplex_modes', 28, 0, arc.mojom.PrintDuplexModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('defaults', 32, 0, arc.mojom.PrintAttributesSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -141,9 +141,9 @@ mojo.internal.Struct(
     arc.mojom.PrinterInfoSpec, 'arc.mojom.PrinterInfo', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('status', 40, 0, arc.mojom.PrinterStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('info_intent', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('capabilities', 32, 0, arc.mojom.PrinterCapabilitiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, arc.mojom.PrinterStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('info_intent', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('capabilities', 40, 0, arc.mojom.PrinterCapabilitiesSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);

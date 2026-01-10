@@ -41,8 +41,8 @@ mojo.internal.Struct(
     shape_detection.mojom.BarcodeDetectionResultSpec, 'shape_detection.mojom.BarcodeDetectionResult', [
       mojo.internal.StructField('raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('format', 24, 0, shape_detection.mojom.BarcodeFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('corner_points', 16, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('format', 16, 0, shape_detection.mojom.BarcodeFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('corner_points', 24, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

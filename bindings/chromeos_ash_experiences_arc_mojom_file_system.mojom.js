@@ -177,8 +177,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('summary', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('icon', 40, 0, arc.mojom.ArcBitmapSpec, null, true, 0, undefined),
-      mojo.internal.StructField('supports_create', 56, 0, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('mime_types', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 12, undefined),
+      mojo.internal.StructField('supports_create', 48, 0, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 12, undefined),
     ],
     [[0, 56], [12, 72]]);
 
@@ -193,9 +193,9 @@ mojo.internal.Struct(
 // Struct: OpenUrlsRequest
 mojo.internal.Struct(
     arc.mojom.OpenUrlsRequestSpec, 'arc.mojom.OpenUrlsRequest', [
-      mojo.internal.StructField('action_type', 16, 0, arc.mojom.ActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activity_name', 0, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('urls', 8, 0, mojo.internal.Array(arc.mojom.ContentUrlWithMimeTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('action_type', 0, 0, arc.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activity_name', 8, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('urls', 16, 0, mojo.internal.Array(arc.mojom.ContentUrlWithMimeTypeSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('extras', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 17, undefined),
     ],
     [[0, 32], [17, 40]]);
@@ -203,17 +203,17 @@ mojo.internal.Struct(
 // Struct: SelectFilesRequest
 mojo.internal.Struct(
     arc.mojom.SelectFilesRequestSpec, 'arc.mojom.SelectFilesRequest', [
-      mojo.internal.StructField('action_type', 40, 0, arc.mojom.SelectFilesActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mime_types', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('openable_only', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_multiple', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('default_file_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('initial_content_uri', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('initial_document_path', 24, 0, arc.mojom.DocumentPathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('task_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('search_query', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('action_type', 0, 0, arc.mojom.SelectFilesActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_types', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('openable_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_multiple', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('default_file_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('initial_content_uri', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('initial_document_path', 40, 0, arc.mojom.DocumentPathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('task_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('search_query', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: DocumentPath
 mojo.internal.Struct(
@@ -235,11 +235,11 @@ mojo.internal.Struct(
 // Struct: FileSelectorEvent
 mojo.internal.Struct(
     arc.mojom.FileSelectorEventSpec, 'arc.mojom.FileSelectorEvent', [
-      mojo.internal.StructField('type', 8, 0, arc.mojom.FileSelectorEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('click_target', 0, 0, arc.mojom.FileSelectorElementSpec, null, false, 0, undefined),
-      mojo.internal.StructField('creator_task_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, arc.mojom.FileSelectorEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('click_target', 8, 0, arc.mojom.FileSelectorElementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creator_task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: GetFileSelectorElementsRequest
 mojo.internal.Struct(
@@ -423,8 +423,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec, 'arc.mojom.FileSystemHost_OnMediaStoreUriAdded_Params', [
-      mojo.internal.StructField('uri', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('metadata', 0, 0, arc.mojom.MediaStoreMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uri', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, arc.mojom.MediaStoreMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

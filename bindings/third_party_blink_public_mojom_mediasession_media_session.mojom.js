@@ -87,8 +87,8 @@ mojo.internal.Struct(
 // Interface: MediaSessionClient
 mojo.internal.Struct(
     blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
-      mojo.internal.StructField('action', 16, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 0, 0, blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

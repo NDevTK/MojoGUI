@@ -36,8 +36,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec, 'network.mojom.WebBundleHandle_OnWebBundleError_Params', [
-      mojo.internal.StructField('type', 8, 0, network.mojom.WebBundleErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.WebBundleErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

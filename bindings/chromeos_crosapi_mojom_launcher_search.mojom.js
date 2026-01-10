@@ -114,37 +114,37 @@ crosapi.mojom.PageTransition = {
 // Struct: SearchResult
 mojo.internal.Struct(
     crosapi.mojom.SearchResultSpec, 'crosapi.mojom.SearchResult', [
-      mojo.internal.StructField('type', 72, 0, crosapi.mojom.SearchResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('relevance', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('destination_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_omnibox_search', 76, 0, crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_answer', 80, 0, crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('omnibox_type', 84, 0, crosapi.mojom.OmniboxTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('answer_type', 88, 0, crosapi.mojom.AnswerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('favicon', 24, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('contents', 32, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('additional_contents', 40, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('description', 48, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('additional_description', 56, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('additional_description_type', 92, 0, crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('kUnset', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('stripped_destination_url', 96, 0, url.mojom.UrlSpec, null, true, 2, undefined),
-      mojo.internal.StructField('page_transition', 104, 0, crosapi.mojom.PageTransitionSpec, null, false, 2, undefined),
-      mojo.internal.StructField('contents_type', 108, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('additional_contents_type', 112, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('description_type', 116, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('description_a11y_label', 120, 0, mojo_base.mojom.String16Spec, null, true, 3, undefined),
+      mojo.internal.StructField('type', 0, 0, crosapi.mojom.SearchResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relevance', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('destination_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_omnibox_search', 24, 0, crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_answer', 28, 0, crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('omnibox_type', 32, 0, crosapi.mojom.OmniboxTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('answer_type', 36, 0, crosapi.mojom.AnswerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 40, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('favicon', 48, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('contents', 56, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('additional_contents', 64, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('description', 72, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('additional_description', 80, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('additional_description_type', 88, 0, crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('kUnset', 96, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('stripped_destination_url', 104, 0, url.mojom.UrlSpec, null, true, 2, undefined),
+      mojo.internal.StructField('page_transition', 112, 0, crosapi.mojom.PageTransitionSpec, null, false, 2, undefined),
+      mojo.internal.StructField('contents_type', 116, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('additional_contents_type', 120, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('description_type', 124, 0, crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('description_a11y_label', 128, 0, mojo_base.mojom.String16Spec, null, true, 3, undefined),
       mojo.internal.StructField('metrics_type', 136, 0, crosapi.mojom.MetricsTypeSpec, null, false, 5, undefined),
-      mojo.internal.StructField('receiver', 128, 0, mojo.internal.InterfaceRequest(crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
+      mojo.internal.StructField('receiver', 144, 0, mojo.internal.InterfaceRequest(crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
     ],
-    [[0, 104], [2, 128], [3, 136], [5, 152]]);
+    [[0, 112], [2, 136], [3, 144], [5, 160]]);
 
 // Interface: SearchResultsPublisher
 mojo.internal.Struct(
     crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec, 'crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_Params', [
-      mojo.internal.StructField('status', 8, 0, crosapi.mojom.SearchStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(crosapi.mojom.SearchResultSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, crosapi.mojom.SearchStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, mojo.internal.Array(crosapi.mojom.SearchResultSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
