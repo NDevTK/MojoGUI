@@ -83,36 +83,35 @@
         if (mojo.internal.interfaceSupport) {
             console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
 
-            // Fix Endpoint globally to capture headers and ensure expectsResponse is valid
-            if (mojo.internal.interfaceSupport && mojo.internal.interfaceSupport.Endpoint) {
-                const OriginalEndpoint = mojo.internal.interfaceSupport.Endpoint;
-                mojo.internal.interfaceSupport.Endpoint = function (router, callback) {
-                    const wrappedCallback = function (message) {
-                        try {
-                            // The generated code (Lite bindings) usually decodes the header itself,
-                            // but some versions pass the decoded header as an argument.
-                            // We hook the callback to ensure we capture the context.
-                            if (message && message.header) {
+            // Mapping of Endpoint -> { header, rawHeader } to store context for createResponder
+            const _endpointContexts = new WeakMap();
+
+            // Intercept ControlMessageHandler to capture headers and fix expectsResponse flag
+            if (typeof mojo.internal.interfaceSupport.getControlMessageHandler === 'function') {
+                const origGetHandler = mojo.internal.interfaceSupport.getControlMessageHandler;
+                mojo.internal.interfaceSupport.getControlMessageHandler = function (endpoint) {
+                    const handler = origGetHandler(endpoint);
+                    if (handler && !handler._interceptor_patched) {
+                        handler._interceptor_patched = true;
+                        const origDecode = handler.decodeMessageHeader;
+                        handler.decodeMessageHeader = function (message) {
+                            const header = origDecode.call(this, message);
+                            if (header) {
                                 // Fix the missing property that causes generated code to skip responses
-                                if (message.header.expectsResponse === undefined) {
-                                    message.header.expectsResponse = !!(message.header.flags & 1);
+                                if (header.expectsResponse === undefined) {
+                                    header.expectsResponse = !!(header.flags & 1);
                                 }
-                                // Store raw header for perfect symmetry in createResponder
-                                this._interceptor_last_header = message.header;
-                                if (message.buffer) {
-                                    this._interceptor_last_raw_header = message.buffer.slice(0, message.header.headerSize);
-                                }
+                                // Store context for perfect symmetry in createResponder
+                                _endpointContexts.set(endpoint, {
+                                    header: header,
+                                    rawHeader: message.buffer ? message.buffer.slice(0, header.headerSize) : null
+                                });
                             }
-                        } catch (e) {
-                            console.warn('[Interceptor] Header capture failed:', e);
-                        }
-                        return callback.apply(this, arguments);
-                    };
-                    const instance = new OriginalEndpoint(router, wrappedCallback);
-                    return instance;
+                            return header;
+                        };
+                    }
+                    return handler;
                 };
-                // Maintain prototype link
-                mojo.internal.interfaceSupport.Endpoint.prototype = OriginalEndpoint.prototype;
             }
 
             // Polyfill createResponder if missing
@@ -122,8 +121,9 @@
                     return function (response) {
                         try {
                             const structSpec = responseParamsSpec.$.structSpec;
-                            const reqHeader = endpoint._interceptor_last_header || { ordinal: ordinal };
-                            const rawHeaderBuffer = endpoint._interceptor_last_raw_header;
+                            const context = _endpointContexts.get(endpoint);
+                            const reqHeader = context ? context.header : { ordinal: ordinal };
+                            const rawHeaderBuffer = context ? context.rawHeader : null;
 
                             // Protocol Symmetry: Match the size and version of the request header
                             const headerSize = reqHeader.headerSize || 32;
@@ -142,7 +142,7 @@
                                 const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
                                 const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
 
-                                view.setUint32(0, headerSize, true); // Header Size (confirmed via sniffer)
+                                view.setUint32(0, headerSize, true); // Header Size
                                 view.setUint32(4, version, true);
                                 view.setUint32(8, interfaceId, true);
                                 view.setUint32(12, ordinal || 0, true);
