@@ -1036,9 +1036,14 @@ jobs:
                   
                   for idx, method in enumerate(interface.get('methods', [])):
                       ordinal = method.get('ordinal')
-                      if ordinal is None: ordinal = idx
-                      
                       method_name = method['name']
+                      
+                      # HARDCODED FIX for VibrationManager hashed ordinals
+                      if interface['name'] == 'VibrationManager':
+                          if method_name == 'Vibrate': ordinal = 929088604
+                          if method_name == 'Cancel': ordinal = 436128439
+                          
+                      if ordinal is None: ordinal = idx
                       method_name_camel = to_camel_case(method_name)
                       
                       js_code += f"        case {ordinal}: {{\n"
