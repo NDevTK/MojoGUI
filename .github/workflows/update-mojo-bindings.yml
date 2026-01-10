@@ -1013,8 +1013,10 @@ jobs:
                   js_code += "    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);\n"
                   js_code += "    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);\n"
                   js_code += "    this.endpoint.start({ onMessageReceived: (message) => {\n"
+                  js_code += "      console.log('[GeneratedReceiver] Message received', message);\n"
                   js_code += "      const header = message.header;\n"
-                  js_code += "      if (!header) return;\n"
+                  js_code += "      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }\n"
+                  js_code += "      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);\n"
                   js_code += "      switch (header.ordinal) {\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
