@@ -612,6 +612,14 @@
         return current;
     }
 
+    function generateDefaultParams(methodName) {
+        // Fallback when we can't find the schema:
+        // Return null so the UI falls back to the "Raw Arguments Array" editor.
+        // This is crucial for methods with unknown signatures, as we need to support
+        // entering multiple arguments [arg1, arg2] via the raw textarea.
+        return null;
+    }
+
     // ========================================
     // Code Generation
     // ========================================
