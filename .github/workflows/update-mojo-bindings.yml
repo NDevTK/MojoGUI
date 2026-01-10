@@ -1019,6 +1019,15 @@ jobs:
                   js_code += "  close() {\n"
                   js_code += "    this.proxy.close();\n"
                   js_code += "  }\n"
+
+                  for method in interface.get('methods', []):
+                      method_name_camel = to_camel_case(method['name'])
+                      params_list = [p['name'] for p in method.get('params', []) if p and p.get('name')]
+                      params_str = ', '.join(params_list)
+                      js_code += f"  {method_name_camel}({params_str}) {{\n"
+                      js_code += f"    return this.$.{method_name_camel}({params_str});\n"
+                      js_code += "  }\n"
+
                   js_code += "};\n\n"
                   
                   # Generate RemoteCallHandler with methods

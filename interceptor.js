@@ -133,8 +133,12 @@
 
                     // If it's a known method or generally a function call
                     if (typeof prop === 'string' && target.realRemote) {
-                        // Check if it's a function on the remote
+                        // Check if it's a function on the remote directly
                         if (typeof target.realRemote[prop] === 'function') {
+                            return (...args) => target.interceptCall(prop, args);
+                        }
+                        // Check the handler property ($) which is common in Lite bindings
+                        if (target.realRemote.$ && typeof target.realRemote.$[prop] === 'function') {
                             return (...args) => target.interceptCall(prop, args);
                         }
                     }
