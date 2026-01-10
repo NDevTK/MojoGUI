@@ -499,27 +499,27 @@
     }
 
     function inferTypeFromMojomType(mojomType) {
-        // Best effort mapping from runtime Mojo types to strings for UI
-        if (!mojomType) return 'any';
+        // Best effort mapping from string types (from parser) or runtime types
+        if (!mojomType) return 'json'; // Default to JSON for unknown/complex
 
-        // generated bindings use mojo.internal.String etc.
-        if (mojomType === mojo.internal.String) return 'string';
-        if (mojomType === mojo.internal.Bool) return 'bool';
-        if (mojomType === mojo.internal.Int8 ||
-            mojomType === mojo.internal.Int16 ||
-            mojomType === mojo.internal.Int32 ||
-            mojomType === mojo.internal.Int64 ||
-            mojomType === mojo.internal.Uint8 ||
-            mojomType === mojo.internal.Uint16 ||
-            mojomType === mojo.internal.Uint32 ||
-            mojomType === mojo.internal.Uint64 ||
-            mojomType === mojo.internal.Float ||
-            mojomType === mojo.internal.Double) return 'number';
+        // Handle runtime objects if passed
+        if (typeof mojo !== 'undefined') {
+            if (mojomType === mojo.internal.String) return 'string';
+            if (mojomType === mojo.internal.Bool) return 'bool';
+            // ... (other runtime checks could go here but we mostly get strings)
+        }
 
-        // Arrays are tricky because they are constructible functions in bindings_lite
-        // We can check if it has array properties or naming convention
+        // Handle string types from Parser
+        if (typeof mojomType === 'string') {
+            const t = mojomType.toLowerCase();
+            if (t === 'string') return 'string';
+            if (t === 'bool' || t === 'boolean') return 'bool';
+            if (t.includes('int') || t.includes('float') || t.includes('double')) return 'number';
+            if (t.includes('array') || t.includes('map')) return 'json';
+        }
 
-        return 'string'; // Default to string input for complex types so user can paste JSON/values
+        // Default to JSON for complex types (Structs, Unions, 'any')
+        return 'json';
     }
 
     function generateDefaultParams(methodName) {
@@ -529,9 +529,9 @@
         if (methodName.toLowerCase().includes('get') || methodName.toLowerCase().includes('fetch')) {
             params.push({ name: 'id', type: 'string', optional: false });
         } else if (methodName.toLowerCase().includes('set') || methodName.toLowerCase().includes('update')) {
-            params.push({ name: 'value', type: 'any', optional: false });
+            params.push({ name: 'value', type: 'json', optional: false });
         } else if (methodName.toLowerCase().includes('create') || methodName.toLowerCase().includes('add')) {
-            params.push({ name: 'options', type: 'object', optional: true });
+            params.push({ name: 'options', type: 'json', optional: true });
         }
 
         return params;
@@ -548,7 +548,12 @@
         }
 
         elements.paramsForm.innerHTML = safeHTML(params.map(param => {
-            const inputType = MojoParser.getInputType(param.type);
+            // Force textarea for 'json' type or complex types
+            let inputType = MojoParser.getInputType(param.type);
+            if (param.type === 'json' || param.type.includes('array') || param.type.includes('map')) {
+                inputType = 'textarea';
+            }
+
             const defaultValue = MojoParser.getDefaultValue(param.type);
 
             if (inputType === 'checkbox') {
@@ -566,6 +571,14 @@
                     </div>
                 `;
             } else if (inputType === 'textarea') {
+                // If default is object/array, stringify it. If null/undefined, use empty string or {}
+                let displayValue = defaultValue;
+                if (typeof defaultValue === 'object' && defaultValue !== null) {
+                    displayValue = JSON.stringify(defaultValue, null, 2);
+                } else if (!defaultValue && param.type === 'json') {
+                    displayValue = '{}';
+                }
+
                 return `
                     <div class="form-group">
                         <label>
@@ -575,7 +588,7 @@
                         </label>
                         <textarea name="${escapeHtml(param.name)}" 
                                   data-type="${escapeHtml(param.type)}"
-                                  placeholder="Enter JSON...">${escapeHtml(JSON.stringify(defaultValue, null, 2))}</textarea>
+                                  placeholder="Enter JSON...">${escapeHtml(displayValue || '')}</textarea>
                     </div>
                 `;
             } else {
@@ -625,10 +638,18 @@
     }
 
     function updateParamValue(name, value, type) {
-        if (type && (type.includes('array') || type.includes('map') || type.includes('object'))) {
+        // Parse JSON for complex types
+        if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
             try {
-                state.paramValues[name] = JSON.parse(value);
-            } catch {
+                // If empty string, generic default
+                if (!value.trim()) {
+                    state.paramValues[name] = null;
+                } else {
+                    state.paramValues[name] = JSON.parse(value);
+                }
+            } catch (e) {
+                // If invalid JSON, store as string but it might fail invocation
+                // Optionally log error or show valid state
                 state.paramValues[name] = value;
             }
         } else {
