@@ -108,7 +108,7 @@ arc.mojom.IioSensorHostRequest = arc.mojom.IioSensorHostPendingReceiver;
 // Interface: IioSensorInstance
 mojo.internal.Struct(
     arc.mojom.IioSensorInstance_Init_ParamsSpec, 'arc.mojom.IioSensorInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IioSensorHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IioSensorHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

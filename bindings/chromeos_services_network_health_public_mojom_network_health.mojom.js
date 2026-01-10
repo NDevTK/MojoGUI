@@ -158,7 +158,7 @@ chromeos.network_health.mojom.NetworkEventsObserverRequest = chromeos.network_he
 // Interface: NetworkHealthService
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_health.mojom.NetworkEventsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_health.mojom.NetworkEventsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -140,8 +140,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'downloads.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(downloads.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(downloads.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(downloads.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(downloads.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

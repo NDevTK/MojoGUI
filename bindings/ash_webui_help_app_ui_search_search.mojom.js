@@ -161,7 +161,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.help_app.mojom.SearchHandler_Observe_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Observe_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.help_app.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.help_app.mojom.SearchResultsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

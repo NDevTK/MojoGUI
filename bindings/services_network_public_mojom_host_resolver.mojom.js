@@ -546,7 +546,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('host', 0, 0, network.mojom.HostResolverHostSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('network_anonymization_key', 8, 0, network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('optional_parameters', 16, 0, network.mojom.ResolveHostParametersSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('response_client', 24, 0, mojo.internal.InterfaceProxy(network.mojom.ResolveHostClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('response_client', 24, 0, mojo.internal.InterfaceProxy(network.mojom.ResolveHostClientSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -554,7 +554,7 @@ mojo.internal.Struct(
     network.mojom.HostResolver_MdnsListen_ParamsSpec, 'network.mojom.HostResolver_MdnsListen_Params', [
       mojo.internal.StructField('host', 0, 0, network.mojom.HostPortPairSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('query_type', 8, 0, network.mojom.DnsQueryTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('response_client', 16, 0, mojo.internal.InterfaceProxy(network.mojom.MdnsListenClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('response_client', 16, 0, mojo.internal.InterfaceProxy(network.mojom.MdnsListenClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -755,7 +755,7 @@ network.mojom.DnsConfigChangeManagerClientRequest = network.mojom.DnsConfigChang
 // Interface: DnsConfigChangeManager
 mojo.internal.Struct(
     network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.DnsConfigChangeManager_RequestNotifications_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.DnsConfigChangeManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.DnsConfigChangeManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

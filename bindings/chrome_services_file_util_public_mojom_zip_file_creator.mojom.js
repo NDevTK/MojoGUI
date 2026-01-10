@@ -134,7 +134,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('src_dir', 0, 0, mojo.internal.InterfaceProxy(filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('relative_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('zip_file', 16, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.ZipListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.ZipListenerSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

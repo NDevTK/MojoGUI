@@ -20,8 +20,8 @@ ash.file_manager.mojom.Page.$interfaceName = 'ash.file_manager.mojom.Page';
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.file_manager.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.file_manager.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.file_manager.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.file_manager.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

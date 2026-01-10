@@ -162,7 +162,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec, 'ash.focus_mode.mojom.TrackProvider_SetMediaClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(ash.focus_mode.mojom.MediaClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(ash.focus_mode.mojom.MediaClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

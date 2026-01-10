@@ -164,7 +164,7 @@ mojo.internal.Struct(
     passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec, 'passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_Params', [
       mojo.internal.StructField('model_params', 0, 0, passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('params', 8, 0, passage_embeddings.mojom.PassageEmbedderParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('model', 16, 0, mojo.internal.InterfaceRequest(passage_embeddings.mojom.PassageEmbedderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('model', 16, 0, mojo.internal.InterfaceRequest(passage_embeddings.mojom.PassageEmbedderSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

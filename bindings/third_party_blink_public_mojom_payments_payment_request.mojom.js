@@ -572,7 +572,7 @@ payments.mojom.PaymentRequestClientRequest = payments.mojom.PaymentRequestClient
 // Interface: PaymentRequest
 mojo.internal.Struct(
     payments.mojom.PaymentRequest_Init_ParamsSpec, 'payments.mojom.PaymentRequest_Init_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(payments.mojom.PaymentRequestClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(payments.mojom.PaymentRequestClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('method_data', 8, 0, mojo.internal.Array(payments.mojom.PaymentMethodDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('details', 16, 0, payments.mojom.PaymentDetailsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('options', 24, 0, payments.mojom.PaymentOptionsSpec.$, null, false, 0, undefined),

@@ -104,7 +104,7 @@ viz.mojom.CompositingModeWatcherRequest = viz.mojom.CompositingModeWatcherPendin
 // Interface: CompositingModeReporter
 mojo.internal.Struct(
     viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec, 'viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_Params', [
-      mojo.internal.StructField('watcher', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.CompositingModeWatcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('watcher', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.CompositingModeWatcherSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

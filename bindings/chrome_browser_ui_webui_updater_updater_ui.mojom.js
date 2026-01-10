@@ -21,8 +21,8 @@ updater_ui.mojom.Page.$interfaceName = 'updater_ui.mojom.Page';
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'updater_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(updater_ui.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(updater_ui.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(updater_ui.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(updater_ui.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

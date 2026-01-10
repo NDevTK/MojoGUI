@@ -166,7 +166,7 @@ audio.mojom.DebugRecordingFileProviderRequest = audio.mojom.DebugRecordingFilePr
 // Interface: DebugRecording
 mojo.internal.Struct(
     audio.mojom.DebugRecording_Enable_ParamsSpec, 'audio.mojom.DebugRecording_Enable_Params', [
-      mojo.internal.StructField('file_provider', 0, 0, mojo.internal.InterfaceProxy(audio.mojom.DebugRecordingFileProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('file_provider', 0, 0, mojo.internal.InterfaceProxy(audio.mojom.DebugRecordingFileProviderSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

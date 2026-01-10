@@ -122,7 +122,7 @@ mojo.internal.Struct(
 // Interface: NFC
 mojo.internal.Struct(
     device.mojom.NFC_SetClient_ParamsSpec, 'device.mojom.NFC_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.NFCClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.NFCClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

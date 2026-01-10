@@ -836,7 +836,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintServerObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.PrintServerObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.PrintServerObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -880,7 +880,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintJobObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.PrintJobObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.PrintJobObserverSpec), null, false, 0, undefined),
       mojo.internal.StructField('source', 8, 0, crosapi.mojom.PrintJobSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -916,7 +916,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.LocalPrintersObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.LocalPrintersObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

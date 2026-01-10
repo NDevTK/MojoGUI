@@ -269,13 +269,13 @@ ash.ime.mojom.PlatformAccessProviderRequest = ash.ime.mojom.PlatformAccessProvid
 // Interface: ImeService
 mojo.internal.Struct(
     ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec, 'ash.ime.mojom.ImeService_SetPlatformAccessProvider_Params', [
-      mojo.internal.StructField('provider', 0, 0, mojo.internal.InterfaceProxy(ash.ime.mojom.PlatformAccessProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('provider', 0, 0, mojo.internal.InterfaceProxy(ash.ime.mojom.PlatformAccessProviderSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputEngineManager_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.ime.mojom.InputEngineManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.ime.mojom.InputEngineManagerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

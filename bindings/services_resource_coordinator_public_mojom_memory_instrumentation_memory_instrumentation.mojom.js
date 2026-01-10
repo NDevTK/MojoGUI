@@ -856,8 +856,8 @@ memory_instrumentation.mojom.CoordinatorRequest = memory_instrumentation.mojom.C
 // Interface: CoordinatorConnector
 mojo.internal.Struct(
     memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec, 'memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(memory_instrumentation.mojom.CoordinatorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_process', 8, 0, mojo.internal.InterfaceProxy(memory_instrumentation.mojom.ClientProcessRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(memory_instrumentation.mojom.CoordinatorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client_process', 8, 0, mojo.internal.InterfaceProxy(memory_instrumentation.mojom.ClientProcessSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

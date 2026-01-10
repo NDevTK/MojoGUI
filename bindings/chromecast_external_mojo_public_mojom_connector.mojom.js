@@ -37,7 +37,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, 'chromecast.external_mojo.mojom.ServiceInstanceInfo', [
       mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_remote', 8, 0, mojo.internal.InterfaceProxy(chromecast.external_mojo.mojom.ExternalServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service_remote', 8, 0, mojo.internal.InterfaceProxy(chromecast.external_mojo.mojom.ExternalServiceSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -146,7 +146,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromecast.external_mojo.mojom.ExternalConnectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromecast.external_mojo.mojom.ExternalConnectorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

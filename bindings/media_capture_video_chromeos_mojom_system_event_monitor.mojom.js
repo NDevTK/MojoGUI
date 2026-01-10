@@ -347,20 +347,20 @@ cros.mojom.CrosPowerObserverRequest = cros.mojom.CrosPowerObserverPendingReceive
 // Interface: CrosSystemEventMonitor
 mojo.internal.Struct(
     cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosDisplayObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosDisplayObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddLidObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosLidObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosLidObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddPowerObserver_Params', [
       mojo.internal.StructField('client_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosPowerObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosPowerObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

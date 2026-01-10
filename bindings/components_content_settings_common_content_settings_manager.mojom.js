@@ -32,7 +32,7 @@ content_settings.mojom.StorageType = {
 // Interface: ContentSettingsManager
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_Clone_Params', [
-      mojo.internal.StructField('clone', 0, 0, mojo.internal.InterfaceRequest(content_settings.mojom.ContentSettingsManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('clone', 0, 0, mojo.internal.InterfaceRequest(content_settings.mojom.ContentSettingsManagerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

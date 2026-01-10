@@ -274,8 +274,8 @@ midi.mojom.MidiSessionClientRequest = midi.mojom.MidiSessionClientPendingReceive
 // Interface: MidiSessionProvider
 mojo.internal.Struct(
     midi.mojom.MidiSessionProvider_StartSession_ParamsSpec, 'midi.mojom.MidiSessionProvider_StartSession_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(midi.mojom.MidiSessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(midi.mojom.MidiSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(midi.mojom.MidiSessionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(midi.mojom.MidiSessionClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

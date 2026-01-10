@@ -274,7 +274,7 @@ mojo.internal.Struct(
 // Interface: PageHandler
 mojo.internal.Struct(
     searchbox.mojom.PageHandler_SetPage_ParamsSpec, 'searchbox.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(searchbox.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(searchbox.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

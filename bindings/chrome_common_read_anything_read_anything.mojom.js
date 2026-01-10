@@ -190,8 +190,8 @@ mojo.internal.Struct(
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec, 'read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(read_anything.mojom.UntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(read_anything.mojom.UntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(read_anything.mojom.UntrustedPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(read_anything.mojom.UntrustedPageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

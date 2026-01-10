@@ -630,8 +630,8 @@ tracing.mojom.ProducerClientRequest = tracing.mojom.ProducerClientPendingReceive
 // Interface: PerfettoService
 mojo.internal.Struct(
     tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec, 'tracing.mojom.PerfettoService_ConnectToProducerHost_Params', [
-      mojo.internal.StructField('producer_client', 0, 0, mojo.internal.InterfaceProxy(tracing.mojom.ProducerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('producer_host_receiver', 8, 0, mojo.internal.InterfaceRequest(tracing.mojom.ProducerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('producer_client', 0, 0, mojo.internal.InterfaceProxy(tracing.mojom.ProducerClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('producer_host_receiver', 8, 0, mojo.internal.InterfaceRequest(tracing.mojom.ProducerHostSpec), null, false, 0, undefined),
       mojo.internal.StructField('shared_memory', 16, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('shared_memory_buffer_page_size_bytes', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -720,8 +720,8 @@ tracing.mojom.PerfettoServiceRequest = tracing.mojom.PerfettoServicePendingRecei
 // Interface: ConsumerHost
 mojo.internal.Struct(
     tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec, 'tracing.mojom.ConsumerHost_EnableTracing_Params', [
-      mojo.internal.StructField('tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('config', 16, 0, tracing.mojom.TraceConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('output_file', 24, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
@@ -729,8 +729,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tracing.mojom.ConsumerHost_CloneSession_ParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_Params', [
-      mojo.internal.StructField('tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('unguessable_name', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('privacy_filtering_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

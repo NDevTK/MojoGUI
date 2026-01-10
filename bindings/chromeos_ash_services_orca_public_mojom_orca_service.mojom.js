@@ -653,7 +653,7 @@ ash.orca.mojom.EditorClientRequest = ash.orca.mojom.EditorClientPendingReceiver;
 // Interface: EditorClientConnector
 mojo.internal.Struct(
     ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec, 'ash.orca.mojom.EditorClientConnector_BindEditorClient_Params', [
-      mojo.internal.StructField('editor_client', 0, 0, mojo.internal.InterfaceRequest(ash.orca.mojom.EditorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('editor_client', 0, 0, mojo.internal.InterfaceRequest(ash.orca.mojom.EditorClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

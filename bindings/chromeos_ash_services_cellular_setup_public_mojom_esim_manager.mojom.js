@@ -121,19 +121,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec, 'ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_Params', [
-      mojo.internal.StructField('euicc', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), null, false, 0, undefined),
+      mojo.internal.StructField('euicc', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec, 'ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_Params', [
-      mojo.internal.StructField('euicc', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), null, false, 0, undefined),
+      mojo.internal.StructField('euicc', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec, 'ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_Params', [
-      mojo.internal.StructField('profile', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), null, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -265,7 +265,7 @@ ash.cellular_setup.mojom.ESimManagerObserverRequest = ash.cellular_setup.mojom.E
 // Interface: ESimManager
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec, 'ash.cellular_setup.mojom.ESimManager_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimManagerObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimManagerObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -276,7 +276,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParams', [
-      mojo.internal.StructField('euiccs', 0, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), false), null, false, 0, undefined),
+      mojo.internal.StructField('euiccs', 0, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccSpec), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -401,7 +401,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParams', [
-      mojo.internal.StructField('profiles', 0, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), false), null, false, 0, undefined),
+      mojo.internal.StructField('profiles', 0, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileSpec), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -439,7 +439,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ProfileInstallResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('profile', 8, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), null, true, 0, undefined),
+      mojo.internal.StructField('profile', 8, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

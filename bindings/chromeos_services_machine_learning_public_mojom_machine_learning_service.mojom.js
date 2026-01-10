@@ -50,7 +50,7 @@ chromeos.machine_learning.mojom.LoadModelResult = {
 // Interface: MachineLearningService
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.MachineLearningServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

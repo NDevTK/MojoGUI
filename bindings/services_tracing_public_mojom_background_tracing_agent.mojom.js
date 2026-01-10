@@ -253,8 +253,8 @@ tracing.mojom.BackgroundTracingAgentRequest = tracing.mojom.BackgroundTracingAge
 mojo.internal.Struct(
     tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentProvider_Create_Params', [
       mojo.internal.StructField('tracing_process_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.BackgroundTracingAgentClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('agent', 16, 0, mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.BackgroundTracingAgentClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('agent', 16, 0, mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

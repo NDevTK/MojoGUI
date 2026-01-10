@@ -51,8 +51,8 @@ access_code_cast.mojom.CastDiscoveryMethod = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(access_code_cast.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(access_code_cast.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(access_code_cast.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(access_code_cast.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

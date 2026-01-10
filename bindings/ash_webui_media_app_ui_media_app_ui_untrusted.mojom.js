@@ -68,7 +68,7 @@ mojo.internal.Union(
     ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, 'ash.media_app_ui.mojom.MantisUntrustedServiceResult', {
       'service': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MantisUntrustedServiceRemote),
+        'type': mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MantisUntrustedServiceSpec),
         'nullable': false,
       },
       'error': {
@@ -89,15 +89,15 @@ mojo.internal.Struct(
 // Interface: UntrustedServiceFactory
 mojo.internal.Struct(
     ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.OcrUntrustedServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.OcrUntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.OcrUntrustedServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.OcrUntrustedPageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.MahiUntrustedServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MahiUntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.MahiUntrustedServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MahiUntrustedPageSpec), null, false, 0, undefined),
       mojo.internal.StructField('file_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -115,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MantisUntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MantisUntrustedPageSpec), null, false, 0, undefined),
       mojo.internal.StructField('dlc_uuid', 8, 0, mojo_base.mojom.UuidSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

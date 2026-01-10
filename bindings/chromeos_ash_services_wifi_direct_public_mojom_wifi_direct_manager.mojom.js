@@ -83,7 +83,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('wifi_direct_connection', 8, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('wifi_direct_connection', 8, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -98,7 +98,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('wifi_direct_connection', 8, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('wifi_direct_connection', 8, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

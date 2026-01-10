@@ -31,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_Clone_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.AcceptCHFrameObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.AcceptCHFrameObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

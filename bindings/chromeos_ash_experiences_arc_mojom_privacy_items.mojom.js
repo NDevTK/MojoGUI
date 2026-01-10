@@ -169,7 +169,7 @@ arc.mojom.PrivacyItemsHostRequest = arc.mojom.PrivacyItemsHostPendingReceiver;
 // Interface: PrivacyItemsInstance
 mojo.internal.Struct(
     arc.mojom.PrivacyItemsInstance_Init_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

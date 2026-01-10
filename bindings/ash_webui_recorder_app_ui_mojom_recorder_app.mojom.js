@@ -334,7 +334,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddModelMonitor_Params', [
       mojo.internal.StructField('model_id', 0, 0, mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('monitor', 8, 0, mojo.internal.InterfaceProxy(ash.recorder_app.mojom.ModelStateMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 8, 0, mojo.internal.InterfaceProxy(ash.recorder_app.mojom.ModelStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -369,7 +369,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddSodaMonitor_Params', [
       mojo.internal.StructField('language', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('monitor', 8, 0, mojo.internal.InterfaceProxy(ash.recorder_app.mojom.ModelStateMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 8, 0, mojo.internal.InterfaceProxy(ash.recorder_app.mojom.ModelStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -424,7 +424,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.recorder_app.mojom.QuietModeMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.recorder_app.mojom.QuietModeMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

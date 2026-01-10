@@ -244,14 +244,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParams', [
-      mojo.internal.StructField('gpu_info_observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.GpuInfoObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('gpu_info_observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.GpuInfoObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
       mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationServiceSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

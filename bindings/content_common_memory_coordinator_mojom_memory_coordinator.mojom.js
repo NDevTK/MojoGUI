@@ -145,7 +145,7 @@ mojo.internal.Struct(
     content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
       mojo.internal.StructField('consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('traits', 8, 0, content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('child_consumer', 16, 0, mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('child_consumer', 16, 0, mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

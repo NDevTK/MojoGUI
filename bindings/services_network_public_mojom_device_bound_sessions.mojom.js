@@ -388,13 +388,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddObserver_Params', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionAccessObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddEventObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionEventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionEventObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -599,7 +599,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec, 'network.mojom.DeviceBoundSessionAccessObserver_Clone_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(network.mojom.DeviceBoundSessionAccessObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

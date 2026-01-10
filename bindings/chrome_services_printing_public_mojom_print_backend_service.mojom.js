@@ -54,7 +54,7 @@ mojo.internal.Struct(
 // Interface: UnsandboxedPrintBackendHost
 mojo.internal.Struct(
     printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec, 'printing.mojom.UnsandboxedPrintBackendHost_BindBackend_Params', [
-      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -141,7 +141,7 @@ printing.mojom.UnsandboxedPrintBackendHostRequest = printing.mojom.UnsandboxedPr
 // Interface: SandboxedPrintBackendHost
 mojo.internal.Struct(
     printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec, 'printing.mojom.SandboxedPrintBackendHost_BindBackend_Params', [
-      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

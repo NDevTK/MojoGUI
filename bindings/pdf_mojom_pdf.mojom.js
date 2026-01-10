@@ -60,7 +60,7 @@ pdf.mojom.GetPdfBytesStatus = {
 // Struct: SaveDataBufferHandlerGetResult
 mojo.internal.Struct(
     pdf.mojom.SaveDataBufferHandlerGetResultSpec, 'pdf.mojom.SaveDataBufferHandlerGetResult', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(pdf.mojom.SaveDataBufferHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(pdf.mojom.SaveDataBufferHandlerSpec), null, false, 0, undefined),
       mojo.internal.StructField('total_file_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -437,7 +437,7 @@ pdf.mojom.PdfListenerRequest = pdf.mojom.PdfListenerPendingReceiver;
 // Interface: PdfHost
 mojo.internal.Struct(
     pdf.mojom.PdfHost_SetListener_ParamsSpec, 'pdf.mojom.PdfHost_SetListener_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(pdf.mojom.PdfListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(pdf.mojom.PdfListenerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

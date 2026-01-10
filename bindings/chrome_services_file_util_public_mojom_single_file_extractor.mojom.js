@@ -22,7 +22,7 @@ mojo.internal.Struct(
     chrome.mojom.SingleFileExtractor_Extract_ParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_Params', [
       mojo.internal.StructField('src_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dst_file', 8, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.SingleFileExtractorListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.SingleFileExtractorListenerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

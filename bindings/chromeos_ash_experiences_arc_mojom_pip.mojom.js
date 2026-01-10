@@ -114,7 +114,7 @@ arc.mojom.PipHostRequest = arc.mojom.PipHostPendingReceiver;
 // Interface: PipInstance
 mojo.internal.Struct(
     arc.mojom.PipInstance_Init_ParamsSpec, 'arc.mojom.PipInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PipHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PipHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

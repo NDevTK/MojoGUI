@@ -55,7 +55,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec, 'on_device_translation.mojom.OnDeviceTranslationServiceConfig', [
       mojo.internal.StructField('packages', 0, 0, mojo.internal.Array(on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('file_operation_proxy', 8, 0, mojo.internal.InterfaceProxy(on_device_translation.mojom.FileOperationProxyRemote), null, false, 0, undefined),
+      mojo.internal.StructField('file_operation_proxy', 8, 0, mojo.internal.InterfaceProxy(on_device_translation.mojom.FileOperationProxySpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

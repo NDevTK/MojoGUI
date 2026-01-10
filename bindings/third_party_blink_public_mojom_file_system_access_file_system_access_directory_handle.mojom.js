@@ -50,7 +50,7 @@ mojo.internal.Union(
       },
       'directory': {
         'ordinal': 1,
-        'type': mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleRemote),
+        'type': mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleSpec),
         'nullable': false,
       },
     });
@@ -202,13 +202,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec, 'blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec, 'blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -33,7 +33,7 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(launcher_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(launcher_internals.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

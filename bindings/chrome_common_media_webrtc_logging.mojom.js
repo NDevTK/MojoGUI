@@ -137,7 +137,7 @@ chrome.mojom.WebRtcLoggingClientRequest = chrome.mojom.WebRtcLoggingClientPendin
 // Interface: WebRtcLoggingAgent
 mojo.internal.Struct(
     chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec, 'chrome.mojom.WebRtcLoggingAgent_Start_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chrome.mojom.WebRtcLoggingClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chrome.mojom.WebRtcLoggingClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

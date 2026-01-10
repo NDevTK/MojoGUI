@@ -489,7 +489,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraModule_SetCallbacks_ParamsSpec, 'cros.mojom.CameraModule_SetCallbacks_Params', [
-      mojo.internal.StructField('callbacks', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraModuleCallbacksRemote), null, false, 0, undefined),
+      mojo.internal.StructField('callbacks', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraModuleCallbacksSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -525,7 +525,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec, 'cros.mojom.CameraModule_GetVendorTagOps_Params', [
-      mojo.internal.StructField('vendor_tag_ops_receiver', 0, 0, mojo.internal.InterfaceRequest(cros.mojom.VendorTagOpsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('vendor_tag_ops_receiver', 0, 0, mojo.internal.InterfaceRequest(cros.mojom.VendorTagOpsSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

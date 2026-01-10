@@ -132,7 +132,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_Register_Params', [
       mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_provider', 8, 0, mojo.internal.InterfaceProxy(chromeos.mojo_service_manager.mojom.ServiceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service_provider', 8, 0, mojo.internal.InterfaceProxy(chromeos.mojo_service_manager.mojom.ServiceProviderSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -158,7 +158,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.mojo_service_manager.mojom.ServiceObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.mojo_service_manager.mojom.ServiceObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

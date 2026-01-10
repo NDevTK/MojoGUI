@@ -223,7 +223,7 @@ blink.mojom.StorageAreaObserverRequest = blink.mojom.StorageAreaObserverPendingR
 // Interface: StorageArea
 mojo.internal.Struct(
     blink.mojom.StorageArea_AddObserver_ParamsSpec, 'blink.mojom.StorageArea_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -259,7 +259,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.StorageArea_DeleteAll_ParamsSpec, 'blink.mojom.StorageArea_DeleteAll_Params', [
       mojo.internal.StructField('source', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('new_observer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('new_observer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -284,7 +284,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.StorageArea_GetAll_ParamsSpec, 'blink.mojom.StorageArea_GetAll_Params', [
-      mojo.internal.StructField('new_observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('new_observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

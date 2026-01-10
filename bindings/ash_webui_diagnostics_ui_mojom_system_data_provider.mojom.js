@@ -508,25 +508,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.BatteryChargeStatusObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.BatteryChargeStatusObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.BatteryHealthObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.BatteryHealthObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.MemoryUsageObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.MemoryUsageObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.CpuUsageObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.CpuUsageObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

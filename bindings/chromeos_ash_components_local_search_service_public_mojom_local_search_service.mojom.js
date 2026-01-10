@@ -141,7 +141,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('index_id', 0, 0, ash.local_search_service.mojom.IndexIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('backend', 8, 0, ash.local_search_service.mojom.BackendSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('index_receiver', 16, 0, mojo.internal.InterfaceRequest(ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
-      mojo.internal.StructField('reporter_remote', 24, 0, mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('reporter_remote', 24, 0, mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterSpec), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -177,7 +177,7 @@ content.mojom.FakeBluetoothChooserRequest = content.mojom.FakeBluetoothChooserPe
 // Interface: FakeBluetoothChooserFactory
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_Params', [
-      mojo.internal.StructField('fake_chooser', 0, 0, mojo.internal.InterfaceRequest(content.mojom.FakeBluetoothChooserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('fake_chooser', 0, 0, mojo.internal.InterfaceRequest(content.mojom.FakeBluetoothChooserSpec), null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);

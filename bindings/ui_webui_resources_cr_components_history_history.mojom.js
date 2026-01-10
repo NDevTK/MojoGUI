@@ -133,7 +133,7 @@ mojo.internal.Struct(
 // Interface: PageHandler
 mojo.internal.Struct(
     history.mojom.PageHandler_SetPage_ParamsSpec, 'history.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -102,8 +102,8 @@ mojo.internal.Struct(
 // Interface: CertificateManagerPageHandlerFactory
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(certificate_manager.mojom.CertificateManagerPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(certificate_manager.mojom.CertificateManagerPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(certificate_manager.mojom.CertificateManagerPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(certificate_manager.mojom.CertificateManagerPageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

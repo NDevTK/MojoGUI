@@ -28,7 +28,7 @@ blink.mojom.DevicePostureType = {
 // Interface: DevicePostureProvider
 mojo.internal.Struct(
     blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevicePostureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevicePostureClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -62,7 +62,7 @@ mojo.internal.Struct(
 // Interface: MeetDevicesInfo
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.PolicyInfoObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.PolicyInfoObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

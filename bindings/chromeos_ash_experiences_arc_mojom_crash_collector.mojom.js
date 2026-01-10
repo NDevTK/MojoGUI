@@ -181,7 +181,7 @@ arc.mojom.CrashCollectorHostRequest = arc.mojom.CrashCollectorHostPendingReceive
 // Interface: CrashCollectorInstance
 mojo.internal.Struct(
     arc.mojom.CrashCollectorInstance_Init_ParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

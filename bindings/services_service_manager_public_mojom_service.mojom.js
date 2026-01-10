@@ -55,7 +55,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec, 'service_manager.mojom.Service_CreatePackagedServiceInstance_Params', [
       mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ServiceSpec), null, false, 0, undefined),
       mojo.internal.StructField('metadata', 16, 0, mojo.internal.InterfaceProxy(service_manager.mojom.ProcessMetadataRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

@@ -1279,7 +1279,7 @@ mojo.internal.Struct(
 // Interface: CrosNetworkConfig
 mojo.internal.Struct(
     chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

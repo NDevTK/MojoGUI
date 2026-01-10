@@ -166,7 +166,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('credentials_mode', 16, 0, network.mojom.CredentialsModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('outside_fetch_client_settings_object', 24, 0, blink.mojom.FetchClientSettingsObjectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('blob_url_token', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
-      mojo.internal.StructField('client', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('storage_access_api_status', 48, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);

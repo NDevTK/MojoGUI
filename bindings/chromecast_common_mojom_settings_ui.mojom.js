@@ -148,7 +148,7 @@ chromecast.mojom.SettingsClientRequest = chromecast.mojom.SettingsClientPendingR
 // Interface: SettingsPlatform
 mojo.internal.Struct(
     chromecast.mojom.SettingsPlatform_Connect_ParamsSpec, 'chromecast.mojom.SettingsPlatform_Connect_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.SettingsClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.SettingsClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

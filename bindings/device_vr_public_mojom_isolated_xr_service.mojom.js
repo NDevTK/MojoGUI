@@ -76,10 +76,10 @@ mojo.internal.Struct(
 // Struct: XRRuntimeSessionResult
 mojo.internal.Struct(
     device.mojom.XRRuntimeSessionResultSpec, 'device.mojom.XRRuntimeSessionResult', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRSessionControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRSessionControllerSpec), null, false, 0, undefined),
       mojo.internal.StructField('session', 8, 0, device.mojom.XRSessionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_sink_id', 16, 0, viz.mojom.FrameSinkIdSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('overlay', 24, 0, mojo.internal.InterfaceProxy(device.mojom.ImmersiveOverlayRemote), null, true, 0, undefined),
+      mojo.internal.StructField('overlay', 24, 0, mojo.internal.InterfaceProxy(device.mojom.ImmersiveOverlaySpec), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -633,7 +633,7 @@ device.mojom.ImmersiveOverlayRequest = device.mojom.ImmersiveOverlayPendingRecei
 // Interface: IsolatedXRRuntimeProviderClient
 mojo.internal.Struct(
     device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_Params', [
-      mojo.internal.StructField('runtime', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRRuntimeRemote), null, false, 0, undefined),
+      mojo.internal.StructField('runtime', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRRuntimeSpec), null, false, 0, undefined),
       mojo.internal.StructField('device_data', 8, 0, device.mojom.XRDeviceDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_id', 16, 0, device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
     ],
@@ -763,7 +763,7 @@ device.mojom.IsolatedXRRuntimeProviderClientRequest = device.mojom.IsolatedXRRun
 // Interface: IsolatedXRRuntimeProvider
 mojo.internal.Struct(
     device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProvider_RequestDevices_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.IsolatedXRRuntimeProviderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.IsolatedXRRuntimeProviderClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -850,8 +850,8 @@ device.mojom.IsolatedXRRuntimeProviderRequest = device.mojom.IsolatedXRRuntimePr
 // Interface: XRDeviceService
 mojo.internal.Struct(
     device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec, 'device.mojom.XRDeviceService_BindRuntimeProvider_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.IsolatedXRRuntimeProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('host', 8, 0, mojo.internal.InterfaceProxy(device.mojom.XRDeviceServiceHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.IsolatedXRRuntimeProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.InterfaceProxy(device.mojom.XRDeviceServiceHostSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

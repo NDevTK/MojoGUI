@@ -176,8 +176,8 @@ ash.cros_healthd.connectivity.mojom.StateRequest = ash.cros_healthd.connectivity
 // Interface: ConnectivityTestProvider
 mojo.internal.Struct(
     ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_Params', [
-      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.connectivity.mojom.StateSpec), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(ash.cros_healthd.connectivity.mojom.StateSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

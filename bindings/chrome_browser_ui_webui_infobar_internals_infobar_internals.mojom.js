@@ -240,8 +240,8 @@ infobar_internals.mojom.PageHandlerRequest = infobar_internals.mojom.PageHandler
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(infobar_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(infobar_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(infobar_internals.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(infobar_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

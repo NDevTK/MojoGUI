@@ -155,7 +155,7 @@ autofill_ml_internals.mojom.PageRequest = autofill_ml_internals.mojom.PagePendin
 // Interface: PageHandler
 mojo.internal.Struct(
     autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec, 'autofill_ml_internals.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(autofill_ml_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(autofill_ml_internals.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -236,7 +236,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec, 'payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParams', [
       mojo.internal.StructField('code', 0, 0, payments.mojom.CreateDigitalGoodsResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('digital_goods', 8, 0, mojo.internal.InterfaceProxy(payments.mojom.DigitalGoodsRemote), null, true, 0, undefined),
+      mojo.internal.StructField('digital_goods', 8, 0, mojo.internal.InterfaceProxy(payments.mojom.DigitalGoodsSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -276,7 +276,7 @@ coral.mojom.TitleObserverRequest = coral.mojom.TitleObserverPendingReceiver;
 mojo.internal.Struct(
     coral.mojom.CoralProcessor_Group_ParamsSpec, 'coral.mojom.CoralProcessor_Group_Params', [
       mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -411,7 +411,7 @@ coral.mojom.CoralProcessorRequest = coral.mojom.CoralProcessorPendingReceiver;
 mojo.internal.Struct(
     coral.mojom.CoralService_GroupDeprecated_ParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_Params', [
       mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -441,7 +441,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [
       mojo.internal.StructField('ml_service', 0, 0, mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('processor', 8, 0, mojo.internal.InterfaceRequest(coral.mojom.CoralProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('processor', 8, 0, mojo.internal.InterfaceRequest(coral.mojom.CoralProcessorSpec), null, false, 0, undefined),
       mojo.internal.StructField('language_code', 16, 0, mojo.internal.String, null, true, 2, undefined),
     ],
     [[0, 24], [2, 32]]);

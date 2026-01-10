@@ -242,8 +242,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('output_dir', 8, 0, mojo.internal.InterfaceProxy(storage.mojom.DirectoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('options', 16, 0, unzip.mojom.UnzipOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('filter', 24, 0, mojo.internal.InterfaceProxy(unzip.mojom.UnzipFilterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(unzip.mojom.UnzipListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('filter', 24, 0, mojo.internal.InterfaceProxy(unzip.mojom.UnzipFilterSpec), null, true, 0, undefined),
+      mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(unzip.mojom.UnzipListenerSpec), null, true, 0, undefined),
     ],
     [[0, 48]]);
 

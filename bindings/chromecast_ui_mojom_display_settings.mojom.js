@@ -75,7 +75,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec, 'chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.DisplaySettingsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.DisplaySettingsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

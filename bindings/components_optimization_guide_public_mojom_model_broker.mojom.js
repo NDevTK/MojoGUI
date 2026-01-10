@@ -207,7 +207,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec, 'optimization_guide.mojom.ModelSubscriber_Available_Params', [
       mojo.internal.StructField('config', 0, 0, optimization_guide.mojom.ModelSolutionConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('solution', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSolutionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('solution', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSolutionSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -310,7 +310,7 @@ optimization_guide.mojom.ModelSubscriberRequest = optimization_guide.mojom.Model
 mojo.internal.Struct(
     optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec, 'optimization_guide.mojom.ModelBroker_Subscribe_Params', [
       mojo.internal.StructField('options', 0, 0, optimization_guide.mojom.ModelSubscriptionOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('subcriber', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSubscriberRemote), null, false, 0, undefined),
+      mojo.internal.StructField('subcriber', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSubscriberSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

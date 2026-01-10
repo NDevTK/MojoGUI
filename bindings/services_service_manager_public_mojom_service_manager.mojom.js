@@ -235,7 +235,7 @@ service_manager.mojom.ServiceManagerListenerRequest = service_manager.mojom.Serv
 // Interface: ServiceManager
 mojo.internal.Struct(
     service_manager.mojom.ServiceManager_AddListener_ParamsSpec, 'service_manager.mojom.ServiceManager_AddListener_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(service_manager.mojom.ServiceManagerListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(service_manager.mojom.ServiceManagerListenerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

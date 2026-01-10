@@ -648,7 +648,7 @@ ax.android.mojom.AccessibilityHelperHostRequest = ax.android.mojom.Accessibility
 // Interface: AccessibilityHelperInstance
 mojo.internal.Struct(
     ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec, 'ax.android.mojom.AccessibilityHelperInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(ax.android.mojom.AccessibilityHelperHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(ax.android.mojom.AccessibilityHelperHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -52,7 +52,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec, 'arc.mojom.ScreenCaptureHost_OpenSession_Params', [
-      mojo.internal.StructField('notifier', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierRemote), null, false, 0, undefined),
+      mojo.internal.StructField('notifier', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierSpec), null, false, 0, undefined),
       mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('size', 16, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
@@ -60,7 +60,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec, 'arc.mojom.ScreenCaptureHost_OpenSession_ResponseParams', [
-      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -327,7 +327,7 @@ arc.mojom.ScreenCaptureSessionRequest = arc.mojom.ScreenCaptureSessionPendingRec
 // Interface: ScreenCaptureInstance
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureInstance_Init_ParamsSpec, 'arc.mojom.ScreenCaptureInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

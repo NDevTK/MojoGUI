@@ -207,7 +207,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRequest = ash.audio_config.m
 // Interface: CrosAudioConfig
 mojo.internal.Struct(
     ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.audio_config.mojom.AudioSystemPropertiesObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.audio_config.mojom.AudioSystemPropertiesObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

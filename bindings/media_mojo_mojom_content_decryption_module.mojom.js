@@ -590,7 +590,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.CdmFactory_CreateCdm_ResponseParams', [
-      mojo.internal.StructField('cdm', 0, 0, mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('cdm', 0, 0, mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleSpec), null, true, 0, undefined),
       mojo.internal.StructField('cdm_context', 8, 0, media.mojom.CdmContextSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('status', 16, 0, media.mojom.CreateCdmStatusSpec.$, null, false, 0, undefined),
     ],

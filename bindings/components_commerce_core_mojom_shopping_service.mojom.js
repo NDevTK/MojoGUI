@@ -175,7 +175,7 @@ mojo.internal.Struct(
 // Interface: ShoppingServiceHandlerFactory
 mojo.internal.Struct(
     shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec, 'shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(shopping_service.mojom.ShoppingServiceHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(shopping_service.mojom.ShoppingServiceHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

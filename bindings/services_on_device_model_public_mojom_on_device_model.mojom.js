@@ -495,14 +495,14 @@ on_device_model.mojom.ContextClientRequest = on_device_model.mojom.ContextClient
 mojo.internal.Struct(
     on_device_model.mojom.Session_Append_ParamsSpec, 'on_device_model.mojom.Session_Append_Params', [
       mojo.internal.StructField('options', 0, 0, on_device_model.mojom.AppendOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.ContextClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.ContextClientSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     on_device_model.mojom.Session_Generate_ParamsSpec, 'on_device_model.mojom.Session_Generate_Params', [
       mojo.internal.StructField('options', 0, 0, on_device_model.mojom.GenerateOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('responder', 8, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.StreamingResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('responder', 8, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.StreamingResponderSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -532,7 +532,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     on_device_model.mojom.Session_Clone_ParamsSpec, 'on_device_model.mojom.Session_Clone_Params', [
-      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.SessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.SessionSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -557,8 +557,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_model.mojom.Session_AsrStream_ParamsSpec, 'on_device_model.mojom.Session_AsrStream_Params', [
       mojo.internal.StructField('options', 0, 0, on_device_model.mojom.AsrStreamOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('stream', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.AsrStreamInputRemote), null, false, 0, undefined),
-      mojo.internal.StructField('responder', 16, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.AsrStreamResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('stream', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.AsrStreamInputSpec), null, false, 0, undefined),
+      mojo.internal.StructField('responder', 16, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.AsrStreamResponderSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -771,7 +771,7 @@ on_device_model.mojom.SessionRequest = on_device_model.mojom.SessionPendingRecei
 // Interface: OnDeviceModel
 mojo.internal.Struct(
     on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_StartSession_Params', [
-      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.SessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.SessionSpec), null, false, 0, undefined),
       mojo.internal.StructField('params', 8, 0, on_device_model.mojom.SessionParamsSpec.$, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
@@ -803,7 +803,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_LoadAdaptation_Params', [
       mojo.internal.StructField('params', 0, 0, on_device_model.mojom.LoadAdaptationParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -986,7 +986,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     on_device_model.mojom.TextSafetySession_Clone_ParamsSpec, 'on_device_model.mojom.TextSafetySession_Clone_Params', [
-      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetySessionSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1117,7 +1117,7 @@ on_device_model.mojom.TextSafetySessionRequest = on_device_model.mojom.TextSafet
 // Interface: TextSafetyModel
 mojo.internal.Struct(
     on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec, 'on_device_model.mojom.TextSafetyModel_StartSession_Params', [
-      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetySessionSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

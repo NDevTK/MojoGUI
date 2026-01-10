@@ -47,7 +47,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.WakeLock_AddClient_ParamsSpec, 'device.mojom.WakeLock_AddClient_Params', [
-      mojo.internal.StructField('wake_lock', 0, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
+      mojo.internal.StructField('wake_lock', 0, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

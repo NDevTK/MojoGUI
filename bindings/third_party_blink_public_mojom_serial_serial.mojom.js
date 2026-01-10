@@ -55,7 +55,7 @@ mojo.internal.Struct(
 // Interface: SerialService
 mojo.internal.Struct(
     blink.mojom.SerialService_SetClient_ParamsSpec, 'blink.mojom.SerialService_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.SerialServiceClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.SerialServiceClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

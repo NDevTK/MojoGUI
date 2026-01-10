@@ -38,7 +38,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec), null, false, 0, undefined),
       mojo.internal.StructField('document', 8, 0, mojo.internal.InterfaceProxy(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

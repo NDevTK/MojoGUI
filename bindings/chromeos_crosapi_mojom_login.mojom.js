@@ -130,7 +130,7 @@ crosapi.mojom.ExternalLogoutRequestObserverRequest = crosapi.mojom.ExternalLogou
 // Interface: Login
 mojo.internal.Struct(
     crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec, 'crosapi.mojom.Login_AddExternalLogoutRequestObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.ExternalLogoutRequestObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.ExternalLogoutRequestObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

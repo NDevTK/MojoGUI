@@ -30,7 +30,7 @@ network.mojom.WebBundleErrorType = {
 // Interface: WebBundleHandle
 mojo.internal.Struct(
     network.mojom.WebBundleHandle_Clone_ParamsSpec, 'network.mojom.WebBundleHandle_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.WebBundleHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.WebBundleHandleSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -23,8 +23,8 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCa
 // Interface: MediaPerceptionService
 mojo.internal.Struct(
     chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionControllerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionControllerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

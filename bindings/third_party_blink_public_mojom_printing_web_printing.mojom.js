@@ -221,7 +221,7 @@ mojo.internal.Struct(
     blink.mojom.WebPrinterInfoSpec, 'blink.mojom.WebPrinterInfo', [
       mojo.internal.StructField('printer_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('printer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('printer_remote', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrinterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('printer_remote', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrinterSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -312,8 +312,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.WebPrintJobInfoSpec, 'blink.mojom.WebPrintJobInfo', [
       mojo.internal.StructField('job_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.WebPrintJobStateObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('controller', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrintJobControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.WebPrintJobStateObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('controller', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrintJobControllerSpec), null, false, 0, undefined),
       mojo.internal.StructField('job_pages', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);

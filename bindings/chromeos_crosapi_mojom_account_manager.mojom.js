@@ -329,7 +329,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec, 'crosapi.mojom.AccountManager_AddObserver_ResponseParams', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.AccountManagerObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.AccountManagerObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -394,7 +394,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParams', [
-      mojo.internal.StructField('access_token_fetcher', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.AccessTokenFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('access_token_fetcher', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.AccessTokenFetcherSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

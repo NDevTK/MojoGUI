@@ -63,8 +63,8 @@ mojo.internal.Struct(
 // Interface: ThemeColorPickerHandlerFactory
 mojo.internal.Struct(
     theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(theme_color_picker.mojom.ThemeColorPickerHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(theme_color_picker.mojom.ThemeColorPickerHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(theme_color_picker.mojom.ThemeColorPickerClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

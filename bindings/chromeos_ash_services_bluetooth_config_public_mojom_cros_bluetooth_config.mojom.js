@@ -611,14 +611,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_Params', [
       mojo.internal.StructField('pin_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.bluetooth_config.mojom.KeyEnteredHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.bluetooth_config.mojom.KeyEnteredHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_Params', [
       mojo.internal.StructField('passkey', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.bluetooth_config.mojom.KeyEnteredHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.bluetooth_config.mojom.KeyEnteredHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -832,7 +832,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRequest = ash.bluetooth_config.m
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.DevicePairingDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.DevicePairingDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -966,7 +966,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRequest = ash.bluetooth_config.mo
 // Interface: BluetoothDiscoveryDelegate
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec, 'ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.DevicePairingHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.DevicePairingHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1094,19 +1094,19 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRequest = ash.bluetooth_con
 // Interface: CrosBluetoothConfig
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.SystemPropertiesObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.SystemPropertiesObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.DiscoverySessionStatusObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1129,7 +1129,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec, 'ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_Params', [
-      mojo.internal.StructField('delegate', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 0, 0, mojo.internal.InterfaceProxy(ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -22,7 +22,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_Params', [
-      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerWorkerClientRegistryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerWorkerClientRegistrySpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

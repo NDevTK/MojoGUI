@@ -183,7 +183,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.MediaDevicesListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.MediaDevicesListenerSpec), null, false, 0, undefined),
       mojo.internal.StructField('subscribe_audio_input', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('subscribe_video_input', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('subscribe_audio_output', 8, 2, mojo.internal.Bool, false, false, 0, undefined),

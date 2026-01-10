@@ -207,7 +207,7 @@ mahi.mojom.ContentExtractionServiceRequest = mahi.mojom.ContentExtractionService
 // Interface: ContentExtractionServiceFactory
 mojo.internal.Struct(
     mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Params', [
-      mojo.internal.StructField('content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mahi.mojom.ContentExtractionServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mahi.mojom.ContentExtractionServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

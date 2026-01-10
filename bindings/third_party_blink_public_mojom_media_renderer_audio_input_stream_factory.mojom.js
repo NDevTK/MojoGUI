@@ -21,7 +21,7 @@ blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = { $
 // Interface: RendererAudioInputStreamFactory
 mojo.internal.Struct(
     blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactory_CreateStream_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RendererAudioInputStreamFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RendererAudioInputStreamFactoryClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('params', 16, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('processing_config', 24, 0, media.mojom.AudioProcessingConfigSpec.$, null, true, 0, undefined),

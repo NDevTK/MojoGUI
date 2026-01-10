@@ -113,8 +113,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PresentationConnectionResultSpec, 'blink.mojom.PresentationConnectionResult', [
       mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('connection_remote', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('connection_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('connection_remote', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationConnectionSpec), null, false, 0, undefined),
+      mojo.internal.StructField('connection_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.PresentationConnectionSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -250,13 +250,13 @@ blink.mojom.PresentationConnectionRequest = blink.mojom.PresentationConnectionPe
 // Interface: PresentationService
 mojo.internal.Struct(
     blink.mojom.PresentationService_SetController_ParamsSpec, 'blink.mojom.PresentationService_SetController_Params', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationControllerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_SetReceiver_ParamsSpec, 'blink.mojom.PresentationService_SetReceiver_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationReceiverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationReceiverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

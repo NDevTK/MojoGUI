@@ -255,9 +255,9 @@ chrome.mojom.ChromeOSListenerRequest = chrome.mojom.ChromeOSListenerPendingRecei
 // Interface: RendererConfiguration
 mojo.internal.Struct(
     chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetInitialConfiguration_Params', [
-      mojo.internal.StructField('chromeos_listener', 0, 0, mojo.internal.InterfaceRequest(chrome.mojom.ChromeOSListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('chromeos_listener', 0, 0, mojo.internal.InterfaceRequest(chrome.mojom.ChromeOSListenerSpec), null, true, 0, undefined),
       mojo.internal.StructField('content_settings_manager', 8, 0, mojo.internal.InterfaceProxy(content_settings.mojom.ContentSettingsManagerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.BoundSessionRequestThrottledHandlerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.BoundSessionRequestThrottledHandlerSpec), null, true, 0, undefined),
       mojo.internal.StructField('is_incognito_process', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);

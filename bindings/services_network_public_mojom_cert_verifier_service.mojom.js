@@ -140,7 +140,7 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRequest = cert_verifier.mojom.URLLo
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_Params', [
       mojo.internal.StructField('url_loader_factory', 0, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('reconnector', 8, 0, mojo.internal.InterfaceProxy(cert_verifier.mojom.URLLoaderFactoryConnectorRemote), null, true, 0, undefined),
+      mojo.internal.StructField('reconnector', 8, 0, mojo.internal.InterfaceProxy(cert_verifier.mojom.URLLoaderFactoryConnectorSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -148,7 +148,7 @@ mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify_Params', [
       mojo.internal.StructField('params', 0, 0, cert_verifier.mojom.RequestParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('cert_verifier_request', 16, 0, mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierRequestRemote), null, false, 0, undefined),
+      mojo.internal.StructField('cert_verifier_request', 16, 0, mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierRequestSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

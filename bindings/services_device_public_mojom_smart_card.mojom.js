@@ -191,7 +191,7 @@ mojo.internal.Union(
     device.mojom.SmartCardCreateContextResultSpec, 'device.mojom.SmartCardCreateContextResult', {
       'context': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy(device.mojom.SmartCardContextRemote),
+        'type': mojo.internal.InterfaceProxy(device.mojom.SmartCardContextSpec),
         'nullable': false,
       },
       'error': {
@@ -319,7 +319,7 @@ mojo.internal.Struct(
 // Struct: SmartCardConnectSuccess
 mojo.internal.Struct(
     device.mojom.SmartCardConnectSuccessSpec, 'device.mojom.SmartCardConnectSuccess', [
-      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionSpec), null, false, 0, undefined),
       mojo.internal.StructField('active_protocol', 8, 0, device.mojom.SmartCardProtocolSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -856,7 +856,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('share_mode', 8, 0, device.mojom.SmartCardShareModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('preferred_protocols', 16, 0, device.mojom.SmartCardProtocolsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('connection_watcher', 24, 0, mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('connection_watcher', 24, 0, mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionWatcherSpec), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

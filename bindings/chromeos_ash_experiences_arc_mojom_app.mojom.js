@@ -801,7 +801,7 @@ arc.mojom.AppHostRequest = arc.mojom.AppHostPendingReceiver;
 // Interface: AppInstance
 mojo.internal.Struct(
     arc.mojom.AppInstance_Init_ParamsSpec, 'arc.mojom.AppInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AppHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AppHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

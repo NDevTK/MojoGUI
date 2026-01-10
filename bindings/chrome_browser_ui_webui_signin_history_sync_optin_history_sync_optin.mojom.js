@@ -50,8 +50,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec, 'history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history_sync_optin.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(history_sync_optin.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history_sync_optin.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(history_sync_optin.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

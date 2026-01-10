@@ -652,7 +652,7 @@ arc.mojom.AuthHostRequest = arc.mojom.AuthHostPendingReceiver;
 // Interface: AuthInstance
 mojo.internal.Struct(
     arc.mojom.AuthInstance_Init_ParamsSpec, 'arc.mojom.AuthInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AuthHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AuthHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -30,8 +30,8 @@ network.mojom.kClientDisconnectReason = 1;
 // Struct: URLLoaderClientEndpoints
 mojo.internal.Struct(
     network.mojom.URLLoaderClientEndpointsSpec, 'network.mojom.URLLoaderClientEndpoints', [
-      mojo.internal.StructField('url_loader', 0, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('url_loader_client', 8, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('url_loader', 0, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('url_loader_client', 8, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

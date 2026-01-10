@@ -31,8 +31,8 @@ reload_button.mojom.ClickDispositionFlag = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'reload_button.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(reload_button.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(reload_button.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(reload_button.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(reload_button.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

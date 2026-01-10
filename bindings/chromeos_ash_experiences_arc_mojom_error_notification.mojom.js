@@ -46,13 +46,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_Params', [
       mojo.internal.StructField('details', 0, 0, arc.mojom.ErrorDetailsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('action_handler', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationActionHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('action_handler', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationActionHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParams', [
-      mojo.internal.StructField('item', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationItemRemote), null, true, 0, undefined),
+      mojo.internal.StructField('item', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationItemSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -146,7 +146,7 @@ arc.mojom.ErrorNotificationHostRequest = arc.mojom.ErrorNotificationHostPendingR
 // Interface: ErrorNotificationInstance
 mojo.internal.Struct(
     arc.mojom.ErrorNotificationInstance_Init_ParamsSpec, 'arc.mojom.ErrorNotificationInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

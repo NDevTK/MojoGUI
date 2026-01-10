@@ -251,7 +251,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AILanguageModel_Fork_ParamsSpec, 'blink.mojom.AILanguageModel_Fork_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateLanguageModelClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateLanguageModelClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

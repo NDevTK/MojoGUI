@@ -115,7 +115,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRequest = chromecast.
 // Interface: ApplicationMediaCapabilities
 mojo.internal.Struct(
     chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

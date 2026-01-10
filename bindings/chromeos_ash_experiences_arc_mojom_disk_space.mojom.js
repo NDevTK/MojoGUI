@@ -331,7 +331,7 @@ arc.mojom.DiskSpaceHostRequest = arc.mojom.DiskSpaceHostPendingReceiver;
 // Interface: DiskSpaceInstance
 mojo.internal.Struct(
     arc.mojom.DiskSpaceInstance_Init_ParamsSpec, 'arc.mojom.DiskSpaceInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.DiskSpaceHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.DiskSpaceHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -44,8 +44,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(unexportable_keys_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(unexportable_keys_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(unexportable_keys_internals.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(unexportable_keys_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

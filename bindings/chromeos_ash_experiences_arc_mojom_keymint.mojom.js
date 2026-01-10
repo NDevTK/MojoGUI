@@ -704,7 +704,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintHost_GetServer_ResponseParams', [
-      mojo.internal.StructField('server_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.keymint.KeyMintServerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('server_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.keymint.KeyMintServerSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -798,7 +798,7 @@ arc.mojom.keymint.KeyMintHostRequest = arc.mojom.keymint.KeyMintHostPendingRecei
 // Interface: KeyMintInstance
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec, 'arc.mojom.keymint.KeyMintInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.keymint.KeyMintHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.keymint.KeyMintHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -118,7 +118,7 @@ arc.mojom.SystemStateHostRequest = arc.mojom.SystemStateHostPendingReceiver;
 // Interface: SystemStateInstance
 mojo.internal.Struct(
     arc.mojom.SystemStateInstance_Init_ParamsSpec, 'arc.mojom.SystemStateInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.SystemStateHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.SystemStateHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

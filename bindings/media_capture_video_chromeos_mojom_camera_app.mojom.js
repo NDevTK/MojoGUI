@@ -115,7 +115,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParams', [
       mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -283,7 +283,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParams', [
       mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -479,7 +479,7 @@ cros.mojom.CameraAppDeviceBridgeRequest = cros.mojom.CameraAppDeviceBridgePendin
 // Interface: CameraAppDevice
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec, 'cros.mojom.CameraAppDevice_TakePortraitModePhoto_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.StillCaptureResultObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.StillCaptureResultObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -524,7 +524,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_AddResultMetadataObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.ResultMetadataObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.ResultMetadataObserverSpec), null, false, 0, undefined),
       mojo.internal.StructField('stream_type', 8, 0, cros.mojom.StreamTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -536,7 +536,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_AddCameraEventObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraEventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraEventObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -570,7 +570,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.DocumentCornersObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.DocumentCornersObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -592,7 +592,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraInfoObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraInfoObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

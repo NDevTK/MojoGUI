@@ -51,7 +51,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('side_data_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('content_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('reader', 32, 0, mojo.internal.InterfaceProxy(storage.mojom.BlobDataItemReaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('reader', 32, 0, mojo.internal.InterfaceProxy(storage.mojom.BlobDataItemReaderSpec), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -225,7 +225,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.BlobStorageContext_Clone_ParamsSpec, 'storage.mojom.BlobStorageContext_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.BlobStorageContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.BlobStorageContextSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

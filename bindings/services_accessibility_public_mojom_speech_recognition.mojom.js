@@ -38,7 +38,7 @@ mojo.internal.Union(
     ax.mojom.ObserverOrErrorSpec, 'ax.mojom.ObserverOrError', {
       'observer': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceRequest(ax.mojom.SpeechRecognitionEventObserverRemote),
+        'type': mojo.internal.InterfaceRequest(ax.mojom.SpeechRecognitionEventObserverSpec),
         'nullable': false,
       },
       'error': {

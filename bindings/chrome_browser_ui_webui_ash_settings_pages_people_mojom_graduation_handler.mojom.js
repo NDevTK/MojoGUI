@@ -26,7 +26,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.graduation.mojom.GraduationObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.graduation.mojom.GraduationObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

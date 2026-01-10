@@ -190,7 +190,7 @@ crosapi.mojom.ChromeKioskLaunchControllerRequest = crosapi.mojom.ChromeKioskLaun
 // Interface: ChromeAppKioskService
 mojo.internal.Struct(
     crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec, 'crosapi.mojom.ChromeAppKioskService_BindLaunchController_Params', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.ChromeKioskLaunchControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.ChromeKioskLaunchControllerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

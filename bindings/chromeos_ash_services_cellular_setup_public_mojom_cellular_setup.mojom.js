@@ -250,13 +250,13 @@ ash.cellular_setup.mojom.ActivationDelegateRequest = ash.cellular_setup.mojom.Ac
 // Interface: CellularSetup
 mojo.internal.Struct(
     ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_Params', [
-      mojo.internal.StructField('delegate', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ActivationDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ActivationDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParams', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.CarrierPortalHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.CarrierPortalHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

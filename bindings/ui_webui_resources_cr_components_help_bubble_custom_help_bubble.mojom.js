@@ -27,7 +27,7 @@ custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
 // Interface: CustomHelpBubbleHandlerFactory
 mojo.internal.Struct(
     custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(custom_help_bubble.mojom.CustomHelpBubbleHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -376,7 +376,7 @@ mojo.internal.Struct(
     blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec, 'blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_Params', [
       mojo.internal.StructField('permissions', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('descriptor', 8, 0, blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedPermissionControlClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedPermissionControlClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -435,7 +435,7 @@ mojo.internal.Struct(
     blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPermissionObserver_Params', [
       mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('last_known_status', 8, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -443,7 +443,7 @@ mojo.internal.Struct(
     blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_Params', [
       mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('last_known_status', 8, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

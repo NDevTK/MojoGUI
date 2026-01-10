@@ -18,7 +18,7 @@ lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = { $: {} };
 // Interface: LensGhostLoaderPageHandlerFactory
 mojo.internal.Struct(
     lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec, 'lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(lens.mojom.LensGhostLoaderPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(lens.mojom.LensGhostLoaderPageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

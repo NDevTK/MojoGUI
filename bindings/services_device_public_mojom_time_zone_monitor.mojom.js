@@ -18,7 +18,7 @@ device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = { $: {} };
 // Interface: TimeZoneMonitor
 mojo.internal.Struct(
     device.mojom.TimeZoneMonitor_AddClient_ParamsSpec, 'device.mojom.TimeZoneMonitor_AddClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.TimeZoneMonitorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.TimeZoneMonitorClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -312,7 +312,7 @@ arc.mojom.ImeHostRequest = arc.mojom.ImeHostPendingReceiver;
 // Interface: ImeInstance
 mojo.internal.Struct(
     arc.mojom.ImeInstance_Init_ParamsSpec, 'arc.mojom.ImeInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ImeHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ImeHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

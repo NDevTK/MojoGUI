@@ -69,7 +69,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

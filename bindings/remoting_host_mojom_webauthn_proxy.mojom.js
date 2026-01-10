@@ -176,7 +176,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.WebAuthnProxy_Create_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_Params', [
       mojo.internal.StructField('request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('request_canceller', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('request_canceller', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -189,7 +189,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.WebAuthnProxy_Get_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_Params', [
       mojo.internal.StructField('request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('request_canceller', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('request_canceller', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

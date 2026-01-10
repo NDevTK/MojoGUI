@@ -196,7 +196,7 @@ arc.mojom.VolumeMounterHostRequest = arc.mojom.VolumeMounterHostPendingReceiver;
 // Interface: VolumeMounterInstance
 mojo.internal.Struct(
     arc.mojom.VolumeMounterInstance_Init_ParamsSpec, 'arc.mojom.VolumeMounterInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VolumeMounterHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VolumeMounterHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

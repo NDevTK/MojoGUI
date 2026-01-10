@@ -31,8 +31,8 @@ ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = { 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.settings.one_drive.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.settings.one_drive.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.settings.one_drive.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.settings.one_drive.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

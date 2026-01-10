@@ -262,21 +262,21 @@ global_media_controls.mojom.DeviceListClientRequest = global_media_controls.mojo
 mojo.internal.Struct(
     global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec, 'global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('host_receiver', 8, 0, mojo.internal.InterfaceRequest(global_media_controls.mojom.DeviceListHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_remote', 16, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DeviceListClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_receiver', 8, 0, mojo.internal.InterfaceRequest(global_media_controls.mojom.DeviceListHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client_remote', 16, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DeviceListClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec, 'global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_Params', [
-      mojo.internal.StructField('host_receiver', 0, 0, mojo.internal.InterfaceRequest(global_media_controls.mojom.DeviceListHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_remote', 8, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DeviceListClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_receiver', 0, 0, mojo.internal.InterfaceRequest(global_media_controls.mojom.DeviceListHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client_remote', 8, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DeviceListClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec, 'global_media_controls.mojom.DeviceService_SetDevicePickerProvider_Params', [
-      mojo.internal.StructField('provider_remote', 0, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DevicePickerProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('provider_remote', 0, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DevicePickerProviderSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -432,7 +432,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DevicePickerObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(global_media_controls.mojom.DevicePickerObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

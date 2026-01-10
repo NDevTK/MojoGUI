@@ -145,7 +145,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_Params', [
       mojo.internal.StructField('filter', 0, 0, ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('watch_dog', 8, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('watch_dog', 8, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -299,7 +299,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_Params', [
       mojo.internal.StructField('source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data_source', 8, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('data_source', 8, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataSourceSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -313,7 +313,7 @@ mojo.internal.Struct(
     ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params', [
       mojo.internal.StructField('source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('filter', 8, 0, ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('watch_dog', 16, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('watch_dog', 16, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

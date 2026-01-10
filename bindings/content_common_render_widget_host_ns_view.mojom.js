@@ -102,7 +102,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('items', 0, 0, mojo.internal.Array(blink.mojom.MenuItemSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('item_font_size', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('receiver', 24, 0, mojo.internal.InterfaceRequest(remote_cocoa.mojom.PopupMenuRunnerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 24, 0, mojo.internal.InterfaceRequest(remote_cocoa.mojom.PopupMenuRunnerSpec), null, false, 0, undefined),
       mojo.internal.StructField('selected_item', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('right_aligned', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

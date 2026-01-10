@@ -58,7 +58,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.GinJavaBridge_SetHost_ParamsSpec, 'content.mojom.GinJavaBridge_SetHost_Params', [
-      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(content.mojom.GinJavaBridgeHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(content.mojom.GinJavaBridgeHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -344,7 +344,7 @@ content.mojom.GinJavaBridgeRemoteObjectRequest = content.mojom.GinJavaBridgeRemo
 // Interface: GinJavaBridgeHost
 mojo.internal.Struct(
     content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec, 'content.mojom.GinJavaBridgeHost_GetObject_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectSpec), null, false, 0, undefined),
       mojo.internal.StructField('object_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

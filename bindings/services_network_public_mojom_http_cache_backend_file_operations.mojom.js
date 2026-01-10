@@ -259,7 +259,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_Params', [
       mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(network.mojom.FileEnumeratorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(network.mojom.FileEnumeratorSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -534,7 +534,7 @@ network.mojom.HttpCacheBackendFileOperationsRequest = network.mojom.HttpCacheBac
 // Interface: HttpCacheBackendFileOperationsFactory
 mojo.internal.Struct(
     network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperationsFactory_Create_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.HttpCacheBackendFileOperationsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.HttpCacheBackendFileOperationsSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

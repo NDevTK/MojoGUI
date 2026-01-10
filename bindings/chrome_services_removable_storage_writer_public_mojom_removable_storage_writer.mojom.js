@@ -36,7 +36,7 @@ mojo.internal.Struct(
     chrome.mojom.RemovableStorageWriter_Write_ParamsSpec, 'chrome.mojom.RemovableStorageWriter_Write_Params', [
       mojo.internal.StructField('source', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('target', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -44,7 +44,7 @@ mojo.internal.Struct(
     chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec, 'chrome.mojom.RemovableStorageWriter_Verify_Params', [
       mojo.internal.StructField('source', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('target', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.RemovableStorageWriterClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

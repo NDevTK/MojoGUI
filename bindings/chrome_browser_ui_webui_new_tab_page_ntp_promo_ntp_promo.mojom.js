@@ -352,8 +352,8 @@ ntp_promo.mojom.NtpPromoClientRequest = ntp_promo.mojom.NtpPromoClientPendingRec
 // Interface: NtpPromoHandlerFactory
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(ntp_promo.mojom.NtpPromoClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ntp_promo.mojom.NtpPromoHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(ntp_promo.mojom.NtpPromoClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ntp_promo.mojom.NtpPromoHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

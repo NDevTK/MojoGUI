@@ -126,7 +126,7 @@ blink.mojom.IdleMonitorRequest = blink.mojom.IdleMonitorPendingReceiver;
 // Interface: IdleManager
 mojo.internal.Struct(
     blink.mojom.IdleManager_AddMonitor_ParamsSpec, 'blink.mojom.IdleManager_AddMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.IdleMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.IdleMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

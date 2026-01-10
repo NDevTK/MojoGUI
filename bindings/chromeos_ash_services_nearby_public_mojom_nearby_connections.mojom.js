@@ -738,7 +738,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('endpoint_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('options', 16, 0, nearby.connections.mojom.AdvertisingOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -764,7 +764,7 @@ mojo.internal.Struct(
     nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartDiscovery_Params', [
       mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('options', 8, 0, nearby.connections.mojom.DiscoveryOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.EndpointDiscoveryListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.EndpointDiscoveryListenerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -807,7 +807,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('endpoint_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('endpoint_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('options', 24, 0, nearby.connections.mojom.ConnectionOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerSpec), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -821,7 +821,7 @@ mojo.internal.Struct(
     nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnection_Params', [
       mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('endpoint_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -929,7 +929,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('remote_device', 8, 0, ash.nearby.presence.mojom.PresenceDeviceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('connection_options', 16, 0, nearby.connections.mojom.ConnectionOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionListenerV3Remote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionListenerV3Spec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -943,7 +943,7 @@ mojo.internal.Struct(
     nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_Params', [
       mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('remote_device', 8, 0, ash.nearby.presence.mojom.PresenceDeviceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerV3Remote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerV3Spec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

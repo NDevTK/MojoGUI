@@ -282,8 +282,8 @@ aim_eligibility.mojom.PageHandlerRequest = aim_eligibility.mojom.PageHandlerPend
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(aim_eligibility.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(aim_eligibility.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(aim_eligibility.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(aim_eligibility.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

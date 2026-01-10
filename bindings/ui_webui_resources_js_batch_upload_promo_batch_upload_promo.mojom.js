@@ -23,8 +23,8 @@ batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = { $: {} };
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec, 'batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(batch_upload_promo.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(batch_upload_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(batch_upload_promo.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(batch_upload_promo.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

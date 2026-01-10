@@ -22,7 +22,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('starter_origin', 8, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('origin_trial_features', 16, 0, mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('devtools_token', 24, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('devtools_host', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.WorkletDevToolsHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('devtools_host', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.WorkletDevToolsHostSpec), null, false, 0, undefined),
       mojo.internal.StructField('code_cache_host', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
       mojo.internal.StructField('browser_interface_broker', 48, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
       mojo.internal.StructField('wait_for_debugger', 56, 0, mojo.internal.Bool, false, false, 0, undefined),

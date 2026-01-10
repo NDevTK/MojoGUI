@@ -462,7 +462,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParams', [
-      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CustomTabSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CustomTabSessionSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -984,7 +984,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_Init_ParamsSpec, 'arc.mojom.IntentHelperInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IntentHelperHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.IntentHelperHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

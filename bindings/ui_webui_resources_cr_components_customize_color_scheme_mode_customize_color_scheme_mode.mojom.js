@@ -30,8 +30,8 @@ customize_color_scheme_mode.mojom.ColorSchemeMode = {
 // Interface: CustomizeColorSchemeModeHandlerFactory
 mojo.internal.Struct(
     customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_Params', [
-      mojo.internal.StructField('pending_client', 0, 0, mojo.internal.InterfaceProxy(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('pending_handler', 8, 0, mojo.internal.InterfaceRequest(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('pending_client', 0, 0, mojo.internal.InterfaceProxy(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('pending_handler', 8, 0, mojo.internal.InterfaceRequest(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

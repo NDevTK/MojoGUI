@@ -363,7 +363,7 @@ nearby_share.mojom.NearbyShareSettingsObserverRequest = nearby_share.mojom.Nearb
 // Interface: NearbyShareSettings
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.NearbyShareSettingsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.NearbyShareSettingsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1017,7 +1017,7 @@ nearby_share.mojom.DownloadContactsObserverRequest = nearby_share.mojom.Download
 // Interface: ContactManager
 mojo.internal.Struct(
     nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec, 'nearby_share.mojom.ContactManager_AddDownloadContactsObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.DownloadContactsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.DownloadContactsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

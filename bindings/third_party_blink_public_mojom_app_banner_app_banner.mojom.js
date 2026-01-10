@@ -30,8 +30,8 @@ blink.mojom.AppBannerPromptReply = {
 // Interface: AppBannerController
 mojo.internal.Struct(
     blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec, 'blink.mojom.AppBannerController_BannerPromptRequest_Params', [
-      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AppBannerServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('event_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.AppBannerEventRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AppBannerServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('event_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.AppBannerEventSpec), null, false, 0, undefined),
       mojo.internal.StructField('platform', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

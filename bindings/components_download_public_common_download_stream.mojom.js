@@ -32,7 +32,7 @@ download.mojom.NetworkRequestStatus = {
 mojo.internal.Struct(
     download.mojom.DownloadStreamHandleSpec, 'download.mojom.DownloadStreamHandle', [
       mojo.internal.StructField('stream', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(download.mojom.DownloadStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(download.mojom.DownloadStreamClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

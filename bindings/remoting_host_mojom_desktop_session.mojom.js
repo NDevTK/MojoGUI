@@ -418,8 +418,8 @@ mojo.internal.Struct(
 // Struct: CreateVideoCapturerResult
 mojo.internal.Struct(
     remoting.mojom.CreateVideoCapturerResultSpec, 'remoting.mojom.CreateVideoCapturerResult', [
-      mojo.internal.StructField('video_capturer', 0, 0, mojo.internal.InterfaceProxy(remoting.mojom.VideoCapturerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('video_capturer_event_handler', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.VideoCapturerEventHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('video_capturer', 0, 0, mojo.internal.InterfaceProxy(remoting.mojom.VideoCapturerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('video_capturer_event_handler', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.VideoCapturerEventHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

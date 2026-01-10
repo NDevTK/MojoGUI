@@ -20,7 +20,7 @@ remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
 // Interface: ChromotingHostServices
 mojo.internal.Struct(
     remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec, 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.ChromotingSessionServicesRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.ChromotingSessionServicesSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

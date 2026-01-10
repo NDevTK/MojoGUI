@@ -225,7 +225,7 @@ arc.mojom.ArcWifiHostRequest = arc.mojom.ArcWifiHostPendingReceiver;
 // Interface: ArcWifiInstance
 mojo.internal.Struct(
     arc.mojom.ArcWifiInstance_Init_ParamsSpec, 'arc.mojom.ArcWifiInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ArcWifiHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ArcWifiHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

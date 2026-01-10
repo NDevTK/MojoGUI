@@ -464,19 +464,19 @@ ash.multidevice_setup.mojom.FeatureStateObserverRequest = ash.multidevice_setup.
 // Interface: MultiDeviceSetup
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_Params', [
-      mojo.internal.StructField('delegate', 0, 0, mojo.internal.InterfaceProxy(ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 0, 0, mojo.internal.InterfaceProxy(ash.multidevice_setup.mojom.AccountStatusChangeDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.multidevice_setup.mojom.HostStatusObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.multidevice_setup.mojom.HostStatusObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.multidevice_setup.mojom.FeatureStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.multidevice_setup.mojom.FeatureStateObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

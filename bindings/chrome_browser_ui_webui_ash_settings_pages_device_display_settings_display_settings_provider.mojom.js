@@ -442,7 +442,7 @@ ash.settings.mojom.AmbientLightSensorObserverRequest = ash.settings.mojom.Ambien
 // Interface: DisplaySettingsProvider
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.TabletModeObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.TabletModeObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -454,13 +454,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.DisplayConfigurationObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.DisplayConfigurationObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.DisplayBrightnessSettingsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.DisplayBrightnessSettingsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -472,7 +472,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.AmbientLightSensorObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.mojom.AmbientLightSensorObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

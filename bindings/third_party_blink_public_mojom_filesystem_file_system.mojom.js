@@ -507,7 +507,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec, 'blink.mojom.FileSystemManager_ReadDirectory_Params', [
       mojo.internal.StructField('path', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('listener', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemOperationListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemOperationListenerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -529,8 +529,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('file_path', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('blob', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('position', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('op_receiver', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemCancellableOperationRemote), null, false, 0, undefined),
-      mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemOperationListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('op_receiver', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemCancellableOperationSpec), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemOperationListenerSpec), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -553,7 +553,7 @@ mojo.internal.Struct(
     blink.mojom.FileSystemManager_Truncate_ParamsSpec, 'blink.mojom.FileSystemManager_Truncate_Params', [
       mojo.internal.StructField('file_path', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('op_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemCancellableOperationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('op_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemCancellableOperationSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -587,7 +587,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('file_info', 0, 0, mojo_base.mojom.FileInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('platform_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_code', 16, 0, mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('snapshot_listener', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.ReceivedSnapshotListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('snapshot_listener', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.ReceivedSnapshotListenerSpec), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

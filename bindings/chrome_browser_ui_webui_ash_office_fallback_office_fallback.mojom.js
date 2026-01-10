@@ -28,7 +28,7 @@ ash.office_fallback.mojom.DialogChoice = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.office_fallback.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.office_fallback.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

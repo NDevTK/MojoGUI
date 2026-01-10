@@ -337,7 +337,7 @@ arc.mojom.PowerHostRequest = arc.mojom.PowerHostPendingReceiver;
 // Interface: PowerInstance
 mojo.internal.Struct(
     arc.mojom.PowerInstance_Init_ParamsSpec, 'arc.mojom.PowerInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PowerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PowerHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

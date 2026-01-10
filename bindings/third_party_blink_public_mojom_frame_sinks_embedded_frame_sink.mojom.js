@@ -138,7 +138,7 @@ blink.mojom.SurfaceEmbedderRequest = blink.mojom.SurfaceEmbedderPendingReceiver;
 // Interface: EmbeddedFrameSinkClient
 mojo.internal.Struct(
     blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_Params', [
-      mojo.internal.StructField('embedder', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.SurfaceEmbedderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('embedder', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.SurfaceEmbedderSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -227,7 +227,7 @@ mojo.internal.Struct(
     blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_Params', [
       mojo.internal.StructField('parent_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedFrameSinkClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedFrameSinkClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -260,7 +260,7 @@ mojo.internal.Struct(
     blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_Params', [
       mojo.internal.StructField('parent_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('surface_client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedFrameSinkClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('surface_client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedFrameSinkClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('sink', 32, 0, mojo.internal.InterfaceRequest(viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
     ],
@@ -269,7 +269,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec, 'blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_Params', [
       mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('embedder', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.SurfaceEmbedderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('embedder', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.SurfaceEmbedderSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

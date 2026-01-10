@@ -1041,7 +1041,7 @@ ash.camera_app.mojom.StorageMonitorRequest = ash.camera_app.mojom.StorageMonitor
 // Interface: WindowStateController
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_AddMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1371,7 +1371,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.TabletModeMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.TabletModeMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1383,7 +1383,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenStateMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1406,7 +1406,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ExternalScreenMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ExternalScreenMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1441,7 +1441,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParams', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateControllerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1525,7 +1525,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.StorageMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.StorageMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1553,7 +1553,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.LidStateMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.LidStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1565,7 +1565,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.SWPrivacySwitchMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.SWPrivacySwitchMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1588,7 +1588,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenLockedMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenLockedMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

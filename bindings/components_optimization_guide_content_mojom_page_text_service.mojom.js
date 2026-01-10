@@ -144,7 +144,7 @@ optimization_guide.mojom.PageTextConsumerRequest = optimization_guide.mojom.Page
 mojo.internal.Struct(
     optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec, 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params', [
       mojo.internal.StructField('request', 0, 0, optimization_guide.mojom.PageTextDumpRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('consumer', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.PageTextConsumerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('consumer', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.PageTextConsumerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

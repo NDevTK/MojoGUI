@@ -713,8 +713,8 @@ attribution_internals.mojom.HandlerRequest = attribution_internals.mojom.Handler
 // Interface: Factory
 mojo.internal.Struct(
     attribution_internals.mojom.Factory_Create_ParamsSpec, 'attribution_internals.mojom.Factory_Create_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(attribution_internals.mojom.ObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(attribution_internals.mojom.HandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(attribution_internals.mojom.ObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(attribution_internals.mojom.HandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

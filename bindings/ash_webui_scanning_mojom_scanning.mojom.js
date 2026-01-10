@@ -331,7 +331,7 @@ mojo.internal.Struct(
     ash.scanning.mojom.ScanService_StartScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_Params', [
       mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -345,13 +345,13 @@ mojo.internal.Struct(
     ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_Params', [
       mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParams', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.MultiPageScanControllerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.MultiPageScanControllerSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

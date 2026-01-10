@@ -139,7 +139,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_Params', [
-      mojo.internal.StructField('shutdown_handler', 0, 0, mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('shutdown_handler', 0, 0, mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

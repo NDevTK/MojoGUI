@@ -65,7 +65,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_Clone_Params', [
-      mojo.internal.StructField('pending_resource_load_info_notifier', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ResourceLoadInfoNotifierRemote), null, false, 0, undefined),
+      mojo.internal.StructField('pending_resource_load_info_notifier', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ResourceLoadInfoNotifierSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

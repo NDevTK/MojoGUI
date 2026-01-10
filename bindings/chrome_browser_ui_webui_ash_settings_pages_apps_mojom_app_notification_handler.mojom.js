@@ -61,7 +61,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec, 'ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.app_notification.mojom.AppNotificationsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.app_notification.mojom.AppNotificationsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

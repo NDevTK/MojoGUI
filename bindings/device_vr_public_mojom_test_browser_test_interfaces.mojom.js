@@ -506,7 +506,7 @@ device_test.mojom.XRTestHookRequest = device_test.mojom.XRTestHookPendingReceive
 // Interface: XRServiceTestHook
 mojo.internal.Struct(
     device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec, 'device_test.mojom.XRServiceTestHook_SetTestHook_Params', [
-      mojo.internal.StructField('hook', 0, 0, mojo.internal.InterfaceProxy(device_test.mojom.XRTestHookRemote), null, true, 0, undefined),
+      mojo.internal.StructField('hook', 0, 0, mojo.internal.InterfaceProxy(device_test.mojom.XRTestHookSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

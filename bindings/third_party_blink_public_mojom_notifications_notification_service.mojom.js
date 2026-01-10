@@ -202,7 +202,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('notification_resources', 16, 0, blink.mojom.NotificationResourcesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('event_listener', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.NonPersistentNotificationListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('event_listener', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.NonPersistentNotificationListenerSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -743,8 +743,8 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = crosapi.mojom.Telemetr
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('routine_argument', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('routine_receiver', 8, 0, mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), null, false, 0, undefined),
-      mojo.internal.StructField('routine_observer', 16, 0, mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('routine_receiver', 8, 0, mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutineControlSpec), null, false, 0, undefined),
+      mojo.internal.StructField('routine_observer', 16, 0, mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryDiagnosticRoutineObserverSpec), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -20,7 +20,7 @@ ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec = { $: 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.settings.magic_boost_handler.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.settings.magic_boost_handler.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

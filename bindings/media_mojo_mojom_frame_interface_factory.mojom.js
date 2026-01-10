@@ -125,7 +125,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_Params', [
-      mojo.internal.StructField('site_mute_observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.MuteStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('site_mute_observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.MuteStateObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

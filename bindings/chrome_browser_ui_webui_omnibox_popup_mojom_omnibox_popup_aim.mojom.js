@@ -29,8 +29,8 @@ omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = { $: {} };
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(omnibox_popup_aim.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(omnibox_popup_aim.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(omnibox_popup_aim.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(omnibox_popup_aim.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

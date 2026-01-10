@@ -188,7 +188,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('data', 0, 0, media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('info', 8, 0, media.mojom.VideoFrameInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('content_rect', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('callbacks', 24, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote), null, false, 0, undefined),
+      mojo.internal.StructField('callbacks', 24, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerFrameCallbacksSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -403,7 +403,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_Start_Params', [
-      mojo.internal.StructField('consumer', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('consumer', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerSpec), null, false, 0, undefined),
       mojo.internal.StructField('buffer_format_preference', 8, 0, viz.mojom.BufferFormatPreferenceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -420,7 +420,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_CreateOverlay_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(viz.mojom.FrameSinkVideoCaptureOverlayRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(viz.mojom.FrameSinkVideoCaptureOverlaySpec), null, false, 0, undefined),
       mojo.internal.StructField('stacking_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

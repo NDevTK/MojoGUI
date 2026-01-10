@@ -164,7 +164,7 @@ arc.mojom.WallpaperHostRequest = arc.mojom.WallpaperHostPendingReceiver;
 // Interface: WallpaperInstance
 mojo.internal.Struct(
     arc.mojom.WallpaperInstance_Init_ParamsSpec, 'arc.mojom.WallpaperInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WallpaperHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WallpaperHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

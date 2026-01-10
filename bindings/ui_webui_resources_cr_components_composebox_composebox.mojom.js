@@ -27,8 +27,8 @@ composebox.mojom.Page.$interfaceName = 'composebox.mojom.Page';
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'composebox.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(composebox.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(composebox.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(composebox.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(composebox.mojom.PageHandlerSpec), null, false, 0, undefined),
       mojo.internal.StructField('searchbox_page', 16, 0, mojo.internal.InterfaceProxy(searchbox.mojom.PageRemote), null, false, 0, undefined),
       mojo.internal.StructField('searchbox_handler', 24, 0, mojo.internal.InterfaceRequest(searchbox.mojom.PageHandlerRemote), null, false, 0, undefined),
     ],

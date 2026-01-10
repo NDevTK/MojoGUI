@@ -183,7 +183,7 @@ translate.mojom.TranslateAgentRequest = translate.mojom.TranslateAgentPendingRec
 // Interface: ContentTranslateDriver
 mojo.internal.Struct(
     translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec, 'translate.mojom.ContentTranslateDriver_RegisterPage_Params', [
-      mojo.internal.StructField('translate_agent', 0, 0, mojo.internal.InterfaceProxy(translate.mojom.TranslateAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('translate_agent', 0, 0, mojo.internal.InterfaceProxy(translate.mojom.TranslateAgentSpec), null, false, 0, undefined),
       mojo.internal.StructField('details', 8, 0, translate.mojom.LanguageDetectionDetailsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('translation_critiera_met', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

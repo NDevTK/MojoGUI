@@ -29,7 +29,7 @@ mojo.internal.Struct(
 // Interface: MediaCaps
 mojo.internal.Struct(
     chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec, 'chromecast.media.mojom.MediaCaps_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.media.mojom.MediaCapsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.media.mojom.MediaCapsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

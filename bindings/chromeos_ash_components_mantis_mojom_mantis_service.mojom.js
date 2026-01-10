@@ -138,7 +138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
-      mojo.internal.StructField('progress_observer', 0, 0, mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('progress_observer', 0, 0, mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverSpec), null, true, 0, undefined),
       mojo.internal.StructField('processor', 8, 0, mojo.internal.InterfaceRequest(mantis.mojom.MantisProcessorRemote), null, false, 0, undefined),
       mojo.internal.StructField('dlc_uuid', 16, 0, mojo_base.mojom.UuidSpec.$, null, true, 3, undefined),
       mojo.internal.StructField('text_classifier', 24, 0, mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),

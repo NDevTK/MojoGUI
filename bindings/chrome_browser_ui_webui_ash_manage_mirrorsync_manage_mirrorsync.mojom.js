@@ -31,7 +31,7 @@ ash.manage_mirrorsync.mojom.GetSyncPathError = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.manage_mirrorsync.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.manage_mirrorsync.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

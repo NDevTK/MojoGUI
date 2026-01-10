@@ -107,7 +107,7 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRequest = ash.common.mojom.Fo
 // Interface: AccessibilityFeatures
 mojo.internal.Struct(
     ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec, 'ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.common.mojom.ForceHiddenElementsVisibleObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.common.mojom.ForceHiddenElementsVisibleObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

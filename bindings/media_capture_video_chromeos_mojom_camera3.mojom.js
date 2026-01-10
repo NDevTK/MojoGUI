@@ -498,7 +498,7 @@ cros.mojom.Camera3CallbackOpsRequest = cros.mojom.Camera3CallbackOpsPendingRecei
 // Interface: Camera3DeviceOps
 mojo.internal.Struct(
     cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec, 'cros.mojom.Camera3DeviceOps_Initialize_Params', [
-      mojo.internal.StructField('callback_ops', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.Camera3CallbackOpsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('callback_ops', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.Camera3CallbackOpsSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

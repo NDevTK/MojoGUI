@@ -168,7 +168,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_Params', [
-      mojo.internal.StructField('pending_observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.LoggerStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('pending_observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.LoggerStateObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

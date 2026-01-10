@@ -118,14 +118,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_Params', [
       mojo.internal.StructField('options', 0, 0, smbfs.mojom.MountOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
       mojo.internal.StructField('error', 0, 0, smbfs.mojom.MountErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('smbfs', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
+      mojo.internal.StructField('smbfs', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

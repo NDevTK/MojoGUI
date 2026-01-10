@@ -36,7 +36,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSessionService_Bind_ParamsSpec, 'media_session.mojom.MediaSessionService_Bind_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.MediaSessionServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.MediaSessionServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

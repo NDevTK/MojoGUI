@@ -27,8 +27,8 @@ ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.settings.date_time.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.settings.date_time.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.settings.date_time.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.settings.date_time.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
