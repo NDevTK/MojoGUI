@@ -121,13 +121,18 @@ arc.mojom.ErrorNotificationHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -136,6 +141,7 @@ arc.mojom.ErrorNotificationHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendErrorDetails');
           const result = this.impl.sendErrorDetails(params.details, params.action_handler);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -145,6 +151,9 @@ arc.mojom.ErrorNotificationHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -233,13 +242,18 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -248,6 +262,7 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -257,6 +272,9 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -339,13 +357,18 @@ arc.mojom.ErrorNotificationItemReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -354,9 +377,13 @@ arc.mojom.ErrorNotificationItemReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeErrorNotification');
           const result = this.impl.closeErrorNotification();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -455,13 +482,18 @@ arc.mojom.ErrorNotificationActionHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -470,14 +502,19 @@ arc.mojom.ErrorNotificationActionHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNotificationButtonClicked');
           const result = this.impl.onNotificationButtonClicked(params.buttonIndex);
           break;
         }
         case 1: {
           const params = arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNotificationClosed');
           const result = this.impl.onNotificationClosed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

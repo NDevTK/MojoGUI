@@ -91,13 +91,18 @@ chromecast.mojom.AssistantMessagePipeReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -106,9 +111,13 @@ chromecast.mojom.AssistantMessagePipeReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -192,13 +201,18 @@ chromecast.mojom.AssistantMessageClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -207,9 +221,13 @@ chromecast.mojom.AssistantMessageClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -295,13 +313,18 @@ chromecast.mojom.AssistantMessageServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -310,9 +333,13 @@ chromecast.mojom.AssistantMessageServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createMessagePipe');
           const result = this.impl.createMessagePipe(params.client_id, params.client, params.pipe);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

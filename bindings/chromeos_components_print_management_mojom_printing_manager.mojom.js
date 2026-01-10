@@ -196,13 +196,18 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -211,14 +216,19 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAllPrintJobsDeleted');
           const result = this.impl.onAllPrintJobsDeleted();
           break;
         }
         case 1: {
           const params = chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPrintJobUpdate');
           const result = this.impl.onPrintJobUpdate(params.print_job);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -414,13 +424,18 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -429,6 +444,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observePrintJobs');
           const result = this.impl.observePrintJobs(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -440,6 +456,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 1: {
           const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPrintJobs');
           const result = this.impl.getPrintJobs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -451,6 +468,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 2: {
           const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAllPrintJobs');
           const result = this.impl.deleteAllPrintJobs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -462,6 +480,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 3: {
           const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelPrintJob');
           const result = this.impl.cancelPrintJob(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -473,6 +492,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 4: {
           const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeletePrintJobHistoryAllowedByPolicy');
           const result = this.impl.getDeletePrintJobHistoryAllowedByPolicy();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -484,6 +504,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
         case 5: {
           const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPrintJobHistoryExpirationPeriod');
           const result = this.impl.getPrintJobHistoryExpirationPeriod();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -493,6 +514,9 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -592,13 +616,18 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -607,14 +636,19 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchPrinterSettings');
           const result = this.impl.launchPrinterSettings(params.source);
           break;
         }
         case 1: {
           const params = chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordGetPrintJobsRequestDuration');
           const result = this.impl.recordGetPrintJobsRequestDuration(params.duration);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

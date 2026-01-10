@@ -340,13 +340,18 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -355,6 +360,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fetchJapaneseDictionary');
           const result = this.impl.fetchJapaneseDictionary();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -366,6 +372,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 1: {
           const params = ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addJapaneseDictionaryEntry');
           const result = this.impl.addJapaneseDictionaryEntry(params.dict_id, params.entry);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -377,6 +384,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 2: {
           const params = ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.editJapaneseDictionaryEntry');
           const result = this.impl.editJapaneseDictionaryEntry(params.dict_id, params.entry_index, params.entry);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -388,6 +396,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 3: {
           const params = ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionaryEntry');
           const result = this.impl.deleteJapaneseDictionaryEntry(params.dict_id, params.entry_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -399,6 +408,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 4: {
           const params = ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createJapaneseDictionary');
           const result = this.impl.createJapaneseDictionary(params.dictionary_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -410,6 +420,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 5: {
           const params = ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.renameJapaneseDictionary');
           const result = this.impl.renameJapaneseDictionary(params.dict_id, params.dictionary_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -421,6 +432,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 6: {
           const params = ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteJapaneseDictionary');
           const result = this.impl.deleteJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -432,6 +444,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 7: {
           const params = ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exportJapaneseDictionary');
           const result = this.impl.exportJapaneseDictionary(params.dict_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -443,6 +456,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 8: {
           const params = ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.importJapaneseDictionary');
           const result = this.impl.importJapaneseDictionary(params.dict_id, params.tsv_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -454,6 +468,7 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
         }
         case 9: {
           const params = ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearJapanesePersonalizationData');
           const result = this.impl.clearJapanesePersonalizationData(params.clear_conversion_history, params.clear_suggestion_history);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -463,6 +478,9 @@ ash.ime.mojom.InputMethodUserDataServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -153,13 +153,18 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -168,24 +173,31 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeclineCellularClicked');
           const result = this.impl.onDeclineCellularClicked();
           break;
         }
         case 1: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAcceptCellularClicked');
           const result = this.impl.onAcceptCellularClicked();
           break;
         }
         case 2: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSkipClicked');
           const result = this.impl.onSkipClicked();
           break;
         }
         case 3: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBackClicked');
           const result = this.impl.onBackClicked();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -334,13 +346,18 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -349,29 +366,37 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showSkipButton');
           const result = this.impl.showSkipButton();
           break;
         }
         case 1: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setLowBatteryWarningVisible');
           const result = this.impl.setLowBatteryWarningVisible(params.visible);
           break;
         }
         case 2: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScreenStep');
           const result = this.impl.setScreenStep(params.step);
           break;
         }
         case 3: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpdateStatusMessage');
           const result = this.impl.setUpdateStatusMessage(params.percent, params.percent_message, params.time_left_message);
           break;
         }
         case 4: {
           const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAutoTransition');
           const result = this.impl.setAutoTransition(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -469,13 +494,18 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -484,14 +514,19 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDontEnrollClicked');
           const result = this.impl.onDontEnrollClicked();
           break;
         }
         case 1: {
           const params = ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEnrollClicked');
           const result = this.impl.onEnrollClicked();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

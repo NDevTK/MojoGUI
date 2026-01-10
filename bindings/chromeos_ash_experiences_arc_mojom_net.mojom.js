@@ -1011,13 +1011,18 @@ arc.mojom.NetHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1026,6 +1031,7 @@ arc.mojom.NetHostReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWifiEnabledState');
           const result = this.impl.getWifiEnabledState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1037,11 +1043,13 @@ arc.mojom.NetHostReceiver = class {
         }
         case 2: {
           const params = arc.mojom.NetHost_StartScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan();
           break;
         }
         case 4: {
           const params = arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWifiEnabledState');
           const result = this.impl.setWifiEnabledState(params.is_enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1053,6 +1061,7 @@ arc.mojom.NetHostReceiver = class {
         }
         case 5: {
           const params = arc.mojom.NetHost_CreateNetwork_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createNetwork');
           const result = this.impl.createNetwork(params.cfg);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1064,6 +1073,7 @@ arc.mojom.NetHostReceiver = class {
         }
         case 6: {
           const params = arc.mojom.NetHost_ForgetNetwork_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forgetNetwork');
           const result = this.impl.forgetNetwork(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1075,6 +1085,7 @@ arc.mojom.NetHostReceiver = class {
         }
         case 20: {
           const params = arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateWifiNetwork');
           const result = this.impl.updateWifiNetwork(params.guid, params.cfg);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1086,6 +1097,7 @@ arc.mojom.NetHostReceiver = class {
         }
         case 7: {
           const params = arc.mojom.NetHost_StartConnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startConnect');
           const result = this.impl.startConnect(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1097,6 +1109,7 @@ arc.mojom.NetHostReceiver = class {
         }
         case 8: {
           const params = arc.mojom.NetHost_StartDisconnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDisconnect');
           const result = this.impl.startDisconnect(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1108,6 +1121,7 @@ arc.mojom.NetHostReceiver = class {
         }
         case 10: {
           const params = arc.mojom.NetHost_GetNetworks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNetworks');
           const result = this.impl.getNetworks(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1119,31 +1133,37 @@ arc.mojom.NetHostReceiver = class {
         }
         case 11: {
           const params = arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.androidVpnConnected');
           const result = this.impl.androidVpnConnected(params.cfg);
           break;
         }
         case 25: {
           const params = arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.androidVpnUpdated');
           const result = this.impl.androidVpnUpdated(params.cfg);
           break;
         }
         case 12: {
           const params = arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AndroidVpnStateChanged');
           const result = this.impl.dEPRECATED_AndroidVpnStateChanged(params.state);
           break;
         }
         case 26: {
           const params = arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.androidVpnDisconnected');
           const result = this.impl.androidVpnDisconnected();
           break;
         }
         case 13: {
           const params = arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAlwaysOnVpn');
           const result = this.impl.setAlwaysOnVpn(params.vpnPackage, params.lockdown);
           break;
         }
         case 21: {
           const params = arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPasspointAppApproval');
           const result = this.impl.requestPasspointAppApproval(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1155,21 +1175,25 @@ arc.mojom.NetHostReceiver = class {
         }
         case 14: {
           const params = arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addPasspointCredentials');
           const result = this.impl.addPasspointCredentials(params.credentials);
           break;
         }
         case 16: {
           const params = arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removePasspointCredentials');
           const result = this.impl.removePasspointCredentials(params.properties);
           break;
         }
         case 17: {
           const params = arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnectHostVpn');
           const result = this.impl.disconnectHostVpn();
           break;
         }
         case 18: {
           const params = arc.mojom.NetHost_StartLohs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startLohs');
           const result = this.impl.startLohs(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1181,24 +1205,31 @@ arc.mojom.NetHostReceiver = class {
         }
         case 19: {
           const params = arc.mojom.NetHost_StopLohs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopLohs');
           const result = this.impl.stopLohs();
           break;
         }
         case 22: {
           const params = arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyAndroidWifiMulticastLockChange');
           const result = this.impl.notifyAndroidWifiMulticastLockChange(params.is_held);
           break;
         }
         case 23: {
           const params = arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySocketConnectionEvent');
           const result = this.impl.notifySocketConnectionEvent(params.msg);
           break;
         }
         case 24: {
           const params = arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyARCVPNSocketConnectionEvent');
           const result = this.impl.notifyARCVPNSocketConnectionEvent(params.msg);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1450,13 +1481,18 @@ arc.mojom.NetInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1465,6 +1501,7 @@ arc.mojom.NetInstanceReceiver = class {
       switch (header.ordinal) {
         case 6: {
           const params = arc.mojom.NetInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1476,31 +1513,37 @@ arc.mojom.NetInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.NetInstance_ScanCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scanCompleted');
           const result = this.impl.scanCompleted();
           break;
         }
         case 3: {
           const params = arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.wifiEnabledStateChanged');
           const result = this.impl.wifiEnabledStateChanged(params.is_enabled);
           break;
         }
         case 4: {
           const params = arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnectAndroidVpn');
           const result = this.impl.disconnectAndroidVpn();
           break;
         }
         case 5: {
           const params = arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.configureAndroidVpn');
           const result = this.impl.configureAndroidVpn();
           break;
         }
         case 7: {
           const params = arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activeNetworksChanged');
           const result = this.impl.activeNetworksChanged(params.network);
           break;
         }
         case 8: {
           const params = arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dnsResolutionTest');
           const result = this.impl.dnsResolutionTest(params.transport_name, params.host_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1512,6 +1555,7 @@ arc.mojom.NetInstanceReceiver = class {
         }
         case 9: {
           const params = arc.mojom.NetInstance_HttpTest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.httpTest');
           const result = this.impl.httpTest(params.transport_name, params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1523,6 +1567,7 @@ arc.mojom.NetInstanceReceiver = class {
         }
         case 10: {
           const params = arc.mojom.NetInstance_PingTest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pingTest');
           const result = this.impl.pingTest(params.transport_name, params.ip_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1534,9 +1579,13 @@ arc.mojom.NetInstanceReceiver = class {
         }
         case 11: {
           const params = arc.mojom.NetInstance_SetUpFlag_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpFlag');
           const result = this.impl.setUpFlag(params.flag, params.value);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

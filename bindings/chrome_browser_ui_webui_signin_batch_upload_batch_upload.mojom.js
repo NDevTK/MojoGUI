@@ -133,13 +133,18 @@ batch_upload.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -148,9 +153,13 @@ batch_upload.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createBatchUploadHandler');
           const result = this.impl.createBatchUploadHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -265,13 +274,18 @@ batch_upload.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -280,19 +294,25 @@ batch_upload.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateViewHeight');
           const result = this.impl.updateViewHeight(params.height);
           break;
         }
         case 1: {
           const params = batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.saveToAccount');
           const result = this.impl.saveToAccount(params.idsToMove);
           break;
         }
         case 2: {
           const params = batch_upload.mojom.PageHandler_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -376,13 +396,18 @@ batch_upload.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -391,9 +416,13 @@ batch_upload.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendBatchUploadData');
           const result = this.impl.sendBatchUploadData(params.data);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

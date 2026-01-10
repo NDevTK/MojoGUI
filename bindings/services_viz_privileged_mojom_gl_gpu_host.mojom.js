@@ -384,13 +384,18 @@ viz.mojom.GpuHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -399,66 +404,79 @@ viz.mojom.GpuHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.GpuHost_DidInitialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didInitialize');
           const result = this.impl.didInitialize(params.gpu_info, params.gpu_feature_info, params.gpu_info_for_hardware_gpu, params.gpu_feature_info_for_hardware_gpu, params.gpu_extra_info);
           break;
         }
         case 1: {
           const params = viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didFailInitialize');
           const result = this.impl.didFailInitialize();
           break;
         }
         case 2: {
           const params = viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCreateContextSuccessfully');
           const result = this.impl.didCreateContextSuccessfully();
           break;
         }
         case 3: {
           const params = viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCreateOffscreenContext');
           const result = this.impl.didCreateOffscreenContext(params.url);
           break;
         }
         case 4: {
           const params = viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didDestroyOffscreenContext');
           const result = this.impl.didDestroyOffscreenContext(params.url);
           break;
         }
         case 5: {
           const params = viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didDestroyChannel');
           const result = this.impl.didDestroyChannel(params.client_id);
           break;
         }
         case 6: {
           const params = viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didDestroyAllChannels');
           const result = this.impl.didDestroyAllChannels();
           break;
         }
         case 7: {
           const params = viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didLoseContext');
           const result = this.impl.didLoseContext(params.reason, params.active_url);
           break;
         }
         case 8: {
           const params = viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didUpdateGPUInfo');
           const result = this.impl.didUpdateGPUInfo(params.gpu_info);
           break;
         }
         case 9: {
           const params = viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didUpdateOverlayInfo');
           const result = this.impl.didUpdateOverlayInfo(params.overlay_info);
           break;
         }
         case 10: {
           const params = viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didUpdateDXGIInfo');
           const result = this.impl.didUpdateDXGIInfo(params.dxgi_info);
           break;
         }
         case 11: {
           const params = viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableGpuCompositing');
           const result = this.impl.disableGpuCompositing();
           break;
         }
         case 12: {
           const params = viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getIsolationKey');
           const result = this.impl.getIsolationKey(params.client_id, params.wgpu_context_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -470,16 +488,19 @@ viz.mojom.GpuHostReceiver = class {
         }
         case 13: {
           const params = viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.storeBlobToDisk');
           const result = this.impl.storeBlobToDisk(params.cache_handle, params.key, params.blob);
           break;
         }
         case 14: {
           const params = viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearGrShaderDiskCache');
           const result = this.impl.clearGrShaderDiskCache();
           break;
         }
         case 15: {
           const params = viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.ensureWebNNExecutionProvidersReady');
           const result = this.impl.ensureWebNNExecutionProvidersReady();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -491,6 +512,7 @@ viz.mojom.GpuHostReceiver = class {
         }
         case 16: {
           const params = viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWebNNWeightsFile');
           const result = this.impl.createWebNNWeightsFile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -500,6 +522,9 @@ viz.mojom.GpuHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

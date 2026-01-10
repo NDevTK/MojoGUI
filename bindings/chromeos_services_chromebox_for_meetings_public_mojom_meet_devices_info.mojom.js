@@ -194,13 +194,18 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -209,11 +214,13 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDeviceSettingsObserver');
           const result = this.impl.addDeviceSettingsObserver(params.observer);
           break;
         }
         case 1: {
           const params = chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPolicyInfo');
           const result = this.impl.getPolicyInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -225,6 +232,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         }
         case 2: {
           const params = chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSysInfo');
           const result = this.impl.getSysInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -236,6 +244,7 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
         }
         case 3: {
           const params = chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMachineStatisticsInfo');
           const result = this.impl.getMachineStatisticsInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -245,6 +254,9 @@ chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -328,13 +340,18 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -343,9 +360,13 @@ chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPolicyInfoChange');
           const result = this.impl.onPolicyInfoChange(params.info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

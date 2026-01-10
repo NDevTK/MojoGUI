@@ -563,13 +563,18 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -578,46 +583,55 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTouchActionFromMain');
           const result = this.impl.setTouchActionFromMain(params.touch_action);
           break;
         }
         case 1: {
           const params = blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPanAction');
           const result = this.impl.setPanAction(params.pan_action);
           break;
         }
         case 2: {
           const params = blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didOverscroll');
           const result = this.impl.didOverscroll(params.params);
           break;
         }
         case 3: {
           const params = blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didStartScrollingViewport');
           const result = this.impl.didStartScrollingViewport();
           break;
         }
         case 4: {
           const params = blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.imeCancelComposition');
           const result = this.impl.imeCancelComposition();
           break;
         }
         case 5: {
           const params = blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.imeCompositionRangeChanged');
           const result = this.impl.imeCompositionRangeChanged(params.range, params.character_bounds);
           break;
         }
         case 6: {
           const params = blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMouseCapture');
           const result = this.impl.setMouseCapture(params.capture);
           break;
         }
         case 7: {
           const params = blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAutoscrollSelectionActiveInMainFrame');
           const result = this.impl.setAutoscrollSelectionActiveInMainFrame(params.autoscroll_selection);
           break;
         }
         case 8: {
           const params = blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestMouseLock');
           const result = this.impl.requestMouseLock(params.from_user_gesture, params.unadjusted_movement);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -627,6 +641,9 @@ blink.mojom.WidgetInputHandlerHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1249,13 +1266,18 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1264,46 +1286,55 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addImeTextSpansToExistingText');
           const result = this.impl.addImeTextSpansToExistingText(params.start, params.end, params.ime_text_spans);
           break;
         }
         case 1: {
           const params = blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearImeTextSpansByType');
           const result = this.impl.clearImeTextSpansByType(params.start, params.end, params.type);
           break;
         }
         case 2: {
           const params = blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCompositionFromExistingText');
           const result = this.impl.setCompositionFromExistingText(params.start, params.end, params.ime_text_spans);
           break;
         }
         case 3: {
           const params = blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.extendSelectionAndDelete');
           const result = this.impl.extendSelectionAndDelete(params.before, params.after);
           break;
         }
         case 4: {
           const params = blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.extendSelectionAndReplace');
           const result = this.impl.extendSelectionAndReplace(params.before, params.after, params.replacement_text);
           break;
         }
         case 5: {
           const params = blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
           const result = this.impl.deleteSurroundingText(params.before, params.after);
           break;
         }
         case 6: {
           const params = blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteSurroundingTextInCodePoints');
           const result = this.impl.deleteSurroundingTextInCodePoints(params.before, params.after);
           break;
         }
         case 7: {
           const params = blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setEditableSelectionOffsets');
           const result = this.impl.setEditableSelectionOffsets(params.start, params.end);
           break;
         }
         case 8: {
           const params = blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleStylusWritingGestureAction');
           const result = this.impl.handleStylusWritingGestureAction(params.gesture_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1315,86 +1346,103 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
         case 9: {
           const params = blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.executeEditCommand');
           const result = this.impl.executeEditCommand(params.command, params.value);
           break;
         }
         case 10: {
           const params = blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
         case 11: {
           const params = blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.redo');
           const result = this.impl.redo();
           break;
         }
         case 12: {
           const params = blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cut');
           const result = this.impl.cut();
           break;
         }
         case 13: {
           const params = blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.copy');
           const result = this.impl.copy();
           break;
         }
         case 14: {
           const params = blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.copyToFindPboard');
           const result = this.impl.copyToFindPboard();
           break;
         }
         case 15: {
           const params = blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.centerSelection');
           const result = this.impl.centerSelection();
           break;
         }
         case 16: {
           const params = blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.paste');
           const result = this.impl.paste();
           break;
         }
         case 17: {
           const params = blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pasteAndMatchStyle');
           const result = this.impl.pasteAndMatchStyle();
           break;
         }
         case 18: {
           const params = blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete();
           break;
         }
         case 19: {
           const params = blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectAll');
           const result = this.impl.selectAll();
           break;
         }
         case 20: {
           const params = blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.collapseSelection');
           const result = this.impl.collapseSelection();
           break;
         }
         case 21: {
           const params = blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.replace');
           const result = this.impl.replace(params.word);
           break;
         }
         case 22: {
           const params = blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.replaceMisspelling');
           const result = this.impl.replaceMisspelling(params.word);
           break;
         }
         case 23: {
           const params = blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectRange');
           const result = this.impl.selectRange(params.base, params.extent);
           break;
         }
         case 24: {
           const params = blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.adjustSelectionByCharacterOffset');
           const result = this.impl.adjustSelectionByCharacterOffset(params.start, params.end, params.behavior);
           break;
         }
         case 25: {
           const params = blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectAroundCaret');
           const result = this.impl.selectAroundCaret(params.granularity, params.should_show_handle, params.should_show_context_menu);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1406,16 +1454,19 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
         case 26: {
           const params = blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.moveRangeSelectionExtent');
           const result = this.impl.moveRangeSelectionExtent(params.extent);
           break;
         }
         case 27: {
           const params = blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scrollFocusedEditableNodeIntoView');
           const result = this.impl.scrollFocusedEditableNodeIntoView();
           break;
         }
         case 28: {
           const params = blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.waitForPageScaleAnimationForTesting');
           const result = this.impl.waitForPageScaleAnimationForTesting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1427,21 +1478,25 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
         case 29: {
           const params = blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.moveCaret');
           const result = this.impl.moveCaret(params.point);
           break;
         }
         case 30: {
           const params = blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startAutoscrollForSelectionToPoint');
           const result = this.impl.startAutoscrollForSelectionToPoint(params.point);
           break;
         }
         case 31: {
           const params = blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopAutoscroll');
           const result = this.impl.stopAutoscroll();
           break;
         }
         case 32: {
           const params = blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rectForEditFieldChars');
           const result = this.impl.rectForEditFieldChars(params.range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1451,6 +1506,9 @@ blink.mojom.FrameWidgetInputHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1815,13 +1873,18 @@ blink.mojom.WidgetInputHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1830,26 +1893,31 @@ blink.mojom.WidgetInputHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFocus');
           const result = this.impl.setFocus(params.state);
           break;
         }
         case 1: {
           const params = blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mouseCaptureLost');
           const result = this.impl.mouseCaptureLost();
           break;
         }
         case 2: {
           const params = blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setEditCommandsForNextKeyEvent');
           const result = this.impl.setEditCommandsForNextKeyEvent(params.commands);
           break;
         }
         case 3: {
           const params = blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cursorVisibilityChanged');
           const result = this.impl.cursorVisibilityChanged(params.visible);
           break;
         }
         case 4: {
           const params = blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.imeSetComposition');
           const result = this.impl.imeSetComposition(params.text, params.ime_text_spans, params.range, params.start, params.end, params.ime_state);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1861,6 +1929,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 5: {
           const params = blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.imeCommitText');
           const result = this.impl.imeCommitText(params.text, params.ime_text_spans, params.range, params.relative_cursor_position);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1872,21 +1941,25 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 6: {
           const params = blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.imeFinishComposingText');
           const result = this.impl.imeFinishComposingText(params.keep_selection);
           break;
         }
         case 7: {
           const params = blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestTextInputStateUpdate');
           const result = this.impl.requestTextInputStateUpdate();
           break;
         }
         case 8: {
           const params = blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestCompositionUpdates');
           const result = this.impl.requestCompositionUpdates(params.immediate_request, params.monitor_request);
           break;
         }
         case 9: {
           const params = blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchEvent');
           const result = this.impl.dispatchEvent(params.event, params.original_event_for_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1898,11 +1971,13 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 10: {
           const params = blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchNonBlockingEvent');
           const result = this.impl.dispatchNonBlockingEvent(params.event);
           break;
         }
         case 11: {
           const params = blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.waitForInputProcessed');
           const result = this.impl.waitForInputProcessed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1914,6 +1989,7 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 12: {
           const params = blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pingMainThread');
           const result = this.impl.pingMainThread();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1925,19 +2001,25 @@ blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 13: {
           const params = blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.attachSynchronousCompositor');
           const result = this.impl.attachSynchronousCompositor(params.control_host, params.host, params.compositor_request);
           break;
         }
         case 14: {
           const params = blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFrameWidgetInputHandler');
           const result = this.impl.getFrameWidgetInputHandler(params.interface_request);
           break;
         }
         case 15: {
           const params = blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateBrowserControlsState');
           const result = this.impl.updateBrowserControlsState(params.constraints, params.current, params.animate, params.offset_tag_modifications);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

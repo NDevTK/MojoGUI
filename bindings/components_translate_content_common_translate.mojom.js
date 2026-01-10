@@ -153,13 +153,18 @@ translate.mojom.TranslateAgentReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -168,6 +173,7 @@ translate.mojom.TranslateAgentReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.translateFrame');
           const result = this.impl.translateFrame(params.translate_script, params.source_lang, params.target_lang);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -179,9 +185,13 @@ translate.mojom.TranslateAgentReceiver = class {
         }
         case 1: {
           const params = translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.revertTranslation');
           const result = this.impl.revertTranslation();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -267,13 +277,18 @@ translate.mojom.ContentTranslateDriverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -282,9 +297,13 @@ translate.mojom.ContentTranslateDriverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerPage');
           const result = this.impl.registerPage(params.translate_agent, params.details, params.translation_critiera_met);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

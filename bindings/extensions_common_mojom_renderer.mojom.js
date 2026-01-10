@@ -524,13 +524,18 @@ extensions.mojom.RendererReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -539,26 +544,31 @@ extensions.mojom.RendererReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activateExtension');
           const result = this.impl.activateExtension(params.extension_id);
           break;
         }
         case 1: {
           const params = extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setActivityLoggingEnabled');
           const result = this.impl.setActivityLoggingEnabled(params.enabled);
           break;
         }
         case 2: {
           const params = extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadExtensions');
           const result = this.impl.loadExtensions(params.params);
           break;
         }
         case 3: {
           const params = extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unloadExtension');
           const result = this.impl.unloadExtension(params.extension_id);
           break;
         }
         case 4: {
           const params = extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.suspendExtension');
           const result = this.impl.suspendExtension(params.extension_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -570,51 +580,61 @@ extensions.mojom.RendererReceiver = class {
         }
         case 5: {
           const params = extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelSuspendExtension');
           const result = this.impl.cancelSuspendExtension(params.extension_id);
           break;
         }
         case 6: {
           const params = extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDeveloperMode');
           const result = this.impl.setDeveloperMode(params.developer_mode_only);
           break;
         }
         case 7: {
           const params = extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUserScriptsAllowed');
           const result = this.impl.setUserScriptsAllowed(params.extension_id, params.allowed);
           break;
         }
         case 8: {
           const params = extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSessionInfo');
           const result = this.impl.setSessionInfo(params.channel, params.session);
           break;
         }
         case 9: {
           const params = extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSystemFont');
           const result = this.impl.setSystemFont(params.font_family, params.font_size);
           break;
         }
         case 10: {
           const params = extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWebViewPartitionID');
           const result = this.impl.setWebViewPartitionID(params.partition_id);
           break;
         }
         case 11: {
           const params = extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScriptingAllowlist');
           const result = this.impl.setScriptingAllowlist(params.extension_ids);
           break;
         }
         case 12: {
           const params = extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateUserScriptWorlds');
           const result = this.impl.updateUserScriptWorlds(params.infos);
           break;
         }
         case 13: {
           const params = extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearUserScriptWorldConfig');
           const result = this.impl.clearUserScriptWorldConfig(params.extension_id, params.world_id);
           break;
         }
         case 14: {
           const params = extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldSuspend');
           const result = this.impl.shouldSuspend();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -626,6 +646,7 @@ extensions.mojom.RendererReceiver = class {
         }
         case 15: {
           const params = extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.transferBlobs');
           const result = this.impl.transferBlobs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -637,39 +658,49 @@ extensions.mojom.RendererReceiver = class {
         }
         case 16: {
           const params = extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updatePermissions');
           const result = this.impl.updatePermissions(params.extension_id, params.active_permissions, params.withheld_permissions, params.policy_blocked_hosts, params.policy_allowed_hosts, params.uses_default_policy_host_restrictions);
           break;
         }
         case 17: {
           const params = extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateDefaultPolicyHostRestrictions');
           const result = this.impl.updateDefaultPolicyHostRestrictions(params.default_policy_blocked_hosts, params.default_policy_allowed_hosts);
           break;
         }
         case 18: {
           const params = extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateUserHostRestrictions');
           const result = this.impl.updateUserHostRestrictions(params.user_blocked_hosts, params.user_allowed_hosts);
           break;
         }
         case 19: {
           const params = extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateTabSpecificPermissions');
           const result = this.impl.updateTabSpecificPermissions(params.extension_id, params.new_hosts, params.tab_id, params.update_origin_allowlist);
           break;
         }
         case 20: {
           const params = extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateUserScripts');
           const result = this.impl.updateUserScripts(params.region, params.owner);
           break;
         }
         case 21: {
           const params = extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearTabSpecificPermissions');
           const result = this.impl.clearTabSpecificPermissions(params.extension_ids, params.tab_id, params.update_origin_allowlist);
           break;
         }
         case 22: {
           const params = extensions.mojom.Renderer_WatchPages_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.watchPages');
           const result = this.impl.watchPages(params.css_selectors);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

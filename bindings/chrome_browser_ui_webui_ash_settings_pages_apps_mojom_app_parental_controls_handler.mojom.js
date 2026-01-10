@@ -260,13 +260,18 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -275,6 +280,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -286,21 +292,25 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 1: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateApp');
           const result = this.impl.updateApp(params.app_id, params.is_blocked);
           break;
         }
         case 2: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 3: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onControlsDisabled');
           const result = this.impl.onControlsDisabled();
           break;
         }
         case 4: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.validatePin');
           const result = this.impl.validatePin(params.pin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -312,6 +322,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 5: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpPin');
           const result = this.impl.setUpPin(params.pin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -323,6 +334,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 6: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.verifyPin');
           const result = this.impl.verifyPin(params.pin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -334,6 +346,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
         case 7: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isSetupCompleted');
           const result = this.impl.isSetupCompleted();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -343,6 +356,9 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -442,13 +458,18 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverReceiver = c
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -457,14 +478,19 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverReceiver = c
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAppInstalledOrUpdated');
           const result = this.impl.onAppInstalledOrUpdated(params.app);
           break;
         }
         case 1: {
           const params = ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAppUninstalled');
           const result = this.impl.onAppUninstalled(params.app);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

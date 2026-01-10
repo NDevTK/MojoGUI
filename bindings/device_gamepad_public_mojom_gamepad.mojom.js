@@ -273,13 +273,18 @@ device.mojom.GamepadObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -288,19 +293,25 @@ device.mojom.GamepadObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.gamepadConnected');
           const result = this.impl.gamepadConnected(params.index, params.gamepad);
           break;
         }
         case 1: {
           const params = device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.gamepadDisconnected');
           const result = this.impl.gamepadDisconnected(params.index, params.gamepad);
           break;
         }
         case 2: {
           const params = device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.gamepadRawInputChanged');
           const result = this.impl.gamepadRawInputChanged(params.index, params.gamepad);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -425,13 +436,18 @@ device.mojom.GamepadMonitorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -440,6 +456,7 @@ device.mojom.GamepadMonitorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.gamepadStartPolling');
           const result = this.impl.gamepadStartPolling();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -451,6 +468,7 @@ device.mojom.GamepadMonitorReceiver = class {
         }
         case 1: {
           const params = device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.gamepadStopPolling');
           const result = this.impl.gamepadStopPolling();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -462,9 +480,13 @@ device.mojom.GamepadMonitorReceiver = class {
         }
         case 2: {
           const params = device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setObserver');
           const result = this.impl.setObserver(params.gamepad_observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -578,13 +600,18 @@ device.mojom.GamepadHapticsManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -593,6 +620,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.playVibrationEffectOnce');
           const result = this.impl.playVibrationEffectOnce(params.pad_index, params.type, params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -604,6 +632,7 @@ device.mojom.GamepadHapticsManagerReceiver = class {
         }
         case 1: {
           const params = device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetVibrationActuator');
           const result = this.impl.resetVibrationActuator(params.pad_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -613,6 +642,9 @@ device.mojom.GamepadHapticsManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -154,13 +154,18 @@ remoting.mojom.RemotingHostControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -169,19 +174,25 @@ remoting.mojom.RemotingHostControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applyHostConfig');
           const result = this.impl.applyHostConfig(params.config);
           break;
         }
         case 1: {
           const params = remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializePairingRegistry');
           const result = this.impl.initializePairingRegistry(params.privileged_handle, params.unprivileged_handle);
           break;
         }
         case 2: {
           const params = remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindChromotingHostServices');
           const result = this.impl.bindChromotingHostServices(params.receiver, params.peer_pid);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -283,13 +294,18 @@ remoting.mojom.DesktopSessionConnectionEventsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -298,14 +314,19 @@ remoting.mojom.DesktopSessionConnectionEventsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTerminalDisconnected');
           const result = this.impl.onTerminalDisconnected(params.terminal_id);
           break;
         }
         case 1: {
           const params = remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDesktopSessionAgentAttached');
           const result = this.impl.onDesktopSessionAgentAttached(params.terminal_id, params.session_id, params.desktop_pipe);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -486,13 +507,18 @@ remoting.mojom.HostStatusObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -501,39 +527,49 @@ remoting.mojom.HostStatusObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClientAccessDenied');
           const result = this.impl.onClientAccessDenied(params.signaling_id);
           break;
         }
         case 1: {
           const params = remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClientAuthenticated');
           const result = this.impl.onClientAuthenticated(params.signaling_id);
           break;
         }
         case 2: {
           const params = remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClientConnected');
           const result = this.impl.onClientConnected(params.signaling_id);
           break;
         }
         case 3: {
           const params = remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClientDisconnected');
           const result = this.impl.onClientDisconnected(params.signaling_id);
           break;
         }
         case 4: {
           const params = remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClientRouteChange');
           const result = this.impl.onClientRouteChange(params.signaling_id, params.channel_name, params.route);
           break;
         }
         case 5: {
           const params = remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStarted');
           const result = this.impl.onHostStarted(params.owner_email);
           break;
         }
         case 6: {
           const params = remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostShutdown');
           const result = this.impl.onHostShutdown();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -258,13 +258,18 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -273,11 +278,13 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activate');
           const result = this.impl.activate();
           break;
         }
         case 1: {
           const params = video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -289,11 +296,13 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 2: {
           const params = video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 3: {
           const params = video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPhotoState');
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -305,6 +314,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 4: {
           const params = video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -316,6 +326,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 5: {
           const params = video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.takePhoto');
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -327,6 +338,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 6: {
           const params = video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -338,9 +350,13 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 7: {
           const params = video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.processFeedback');
           const result = this.impl.processFeedback(params.feedback);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -434,13 +450,18 @@ video_capture.mojom.VideoSourceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -449,6 +470,7 @@ video_capture.mojom.VideoSourceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPushSubscription');
           const result = this.impl.createPushSubscription(params.subscriber, params.requested_settings, params.force_reopen_with_new_settings, params.subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -458,6 +480,9 @@ video_capture.mojom.VideoSourceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

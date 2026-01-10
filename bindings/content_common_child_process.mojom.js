@@ -136,13 +136,18 @@ content.mojom.ChildProcessHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -151,6 +156,7 @@ content.mojom.ChildProcessHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.ChildProcessHost_Ping_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -162,9 +168,13 @@ content.mojom.ChildProcessHostReceiver = class {
         }
         case 1: {
           const params = content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindHostReceiver');
           const result = this.impl.bindHostReceiver(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -463,13 +473,18 @@ content.mojom.ChildProcessReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -478,11 +493,13 @@ content.mojom.ChildProcessReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.processShutdown');
           const result = this.impl.processShutdown();
           break;
         }
         case 1: {
           const params = content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTaskPort');
           const result = this.impl.getTaskPort();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -494,41 +511,49 @@ content.mojom.ChildProcessReceiver = class {
         }
         case 2: {
           const params = content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIPCLoggingEnabled');
           const result = this.impl.setIPCLoggingEnabled(params.on);
           break;
         }
         case 3: {
           const params = content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBackgroundTracingAgentProvider');
           const result = this.impl.getBackgroundTracingAgentProvider(params.receiver);
           break;
         }
         case 4: {
           const params = content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableSystemTracingService');
           const result = this.impl.enableSystemTracingService(params.remote);
           break;
         }
         case 5: {
           const params = content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.crashHungProcess');
           const result = this.impl.crashHungProcess();
           break;
         }
         case 6: {
           const params = content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindServiceInterface');
           const result = this.impl.bindServiceInterface(params.receiver);
           break;
         }
         case 7: {
           const params = content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindReceiver');
           const result = this.impl.bindReceiver(params.receiver);
           break;
         }
         case 8: {
           const params = content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setProfilingFile');
           const result = this.impl.setProfilingFile(params.file);
           break;
         }
         case 9: {
           const params = content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
           const result = this.impl.writeClangProfilingProfile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -540,24 +565,31 @@ content.mojom.ChildProcessReceiver = class {
         }
         case 10: {
           const params = content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPseudonymizationSalt');
           const result = this.impl.setPseudonymizationSalt(params.salt);
           break;
         }
         case 11: {
           const params = content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reinitializeLogging');
           const result = this.impl.reinitializeLogging(params.settings);
           break;
         }
         case 12: {
           const params = content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMemoryPressure');
           const result = this.impl.onMemoryPressure(params.memory_pressure_level);
           break;
         }
         case 13: {
           const params = content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBatterySaverMode');
           const result = this.impl.setBatterySaverMode(params.battery_saver_mode_enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

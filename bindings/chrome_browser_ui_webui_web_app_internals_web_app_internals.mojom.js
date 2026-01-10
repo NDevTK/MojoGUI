@@ -537,13 +537,18 @@ mojom.WebAppInternalsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -552,6 +557,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDebugInfoAsJsonString');
           const result = this.impl.getDebugInfoAsJsonString();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -563,6 +569,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 1: {
           const params = mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installIsolatedWebAppFromDevProxy');
           const result = this.impl.installIsolatedWebAppFromDevProxy(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -574,6 +581,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 2: {
           const params = mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectFileAndInstallIsolatedWebAppFromDevBundle');
           const result = this.impl.selectFileAndInstallIsolatedWebAppFromDevBundle();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -585,6 +593,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 3: {
           const params = mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseUpdateManifestFromUrl');
           const result = this.impl.parseUpdateManifestFromUrl(params.update_manifest_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -596,6 +605,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 4: {
           const params = mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installIsolatedWebAppFromBundleUrl');
           const result = this.impl.installIsolatedWebAppFromBundleUrl(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -607,6 +617,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 5: {
           const params = mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateDevProxyIsolatedWebApp');
           const result = this.impl.updateDevProxyIsolatedWebApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -618,6 +629,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 6: {
           const params = mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectFileAndUpdateIsolatedWebAppFromDevBundle');
           const result = this.impl.selectFileAndUpdateIsolatedWebAppFromDevBundle(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -629,6 +641,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 7: {
           const params = mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateManifestInstalledIsolatedWebApp');
           const result = this.impl.updateManifestInstalledIsolatedWebApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -640,6 +653,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 8: {
           const params = mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteIsolatedWebApp');
           const result = this.impl.deleteIsolatedWebApp(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -651,6 +665,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 9: {
           const params = mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpdateChannelForIsolatedWebApp');
           const result = this.impl.setUpdateChannelForIsolatedWebApp(params.app_id, params.update_channel);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -662,6 +677,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 10: {
           const params = mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPinnedVersionForIsolatedWebApp');
           const result = this.impl.setPinnedVersionForIsolatedWebApp(params.app_id, params.pinned_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -673,16 +689,19 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 11: {
           const params = mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetPinnedVersionForIsolatedWebApp');
           const result = this.impl.resetPinnedVersionForIsolatedWebApp(params.app_id);
           break;
         }
         case 12: {
           const params = mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAllowDowngradesForIsolatedWebApp');
           const result = this.impl.setAllowDowngradesForIsolatedWebApp(params.allow_downgrades, params.app_id);
           break;
         }
         case 13: {
           const params = mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.searchForIsolatedWebAppUpdates');
           const result = this.impl.searchForIsolatedWebAppUpdates();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -694,6 +713,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 14: {
           const params = mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getIsolatedWebAppDevModeAppInfo');
           const result = this.impl.getIsolatedWebAppDevModeAppInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -705,9 +725,13 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
         case 15: {
           const params = mojom.WebAppInternalsHandler_RotateKey_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rotateKey');
           const result = this.impl.rotateKey(params.web_bundle_id, params.rotated_key);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -136,13 +136,18 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -151,6 +156,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allocateProtectedSharedMemory');
           const result = this.impl.allocateProtectedSharedMemory(params.handle_fd, params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -162,6 +168,7 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
         }
         case 1: {
           const params = arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allocateProtectedNativePixmap');
           const result = this.impl.allocateProtectedNativePixmap(params.handle_fd, params.pixel_format, params.picture_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -173,9 +180,13 @@ arc.mojom.VideoProtectedBufferAllocatorReceiver = class {
         }
         case 2: {
           const params = arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.releaseProtectedBuffer');
           const result = this.impl.releaseProtectedBuffer(params.handle_fd);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

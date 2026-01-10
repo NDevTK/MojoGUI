@@ -555,13 +555,18 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -570,19 +575,25 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectDesktopChannel');
           const result = this.impl.connectDesktopChannel(params.desktop_pipe);
           break;
         }
         case 1: {
           const params = remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.injectSecureAttentionSequence');
           const result = this.impl.injectSecureAttentionSequence();
           break;
         }
         case 2: {
           const params = remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.crashNetworkProcess');
           const result = this.impl.crashNetworkProcess();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -701,13 +712,18 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -716,19 +732,25 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDesktopSession');
           const result = this.impl.createDesktopSession(params.terminal_id, params.screen_resolution, params.is_virtual_terminal);
           break;
         }
         case 1: {
           const params = remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeDesktopSession');
           const result = this.impl.closeDesktopSession(params.terminal_id);
           break;
         }
         case 2: {
           const params = remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.terminal_id, params.screen_resolution);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -820,13 +842,18 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -835,6 +862,7 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.authenticated_jid, params.resolution, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -844,6 +872,9 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -954,13 +985,18 @@ remoting.mojom.FileWriterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -969,6 +1005,7 @@ remoting.mojom.FileWriterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeChunk');
           const result = this.impl.writeChunk(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -980,6 +1017,7 @@ remoting.mojom.FileWriterReceiver = class {
         }
         case 1: {
           const params = remoting.mojom.FileWriter_CloseFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeFile');
           const result = this.impl.closeFile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -989,6 +1027,9 @@ remoting.mojom.FileWriterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1078,13 +1119,18 @@ remoting.mojom.FileReaderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1093,6 +1139,7 @@ remoting.mojom.FileReaderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.FileReader_ReadChunk_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readChunk');
           const result = this.impl.readChunk(params.bytes_to_read);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1102,6 +1149,9 @@ remoting.mojom.FileReaderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1405,13 +1455,18 @@ remoting.mojom.DesktopSessionControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1420,6 +1475,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createVideoCapturer');
           const result = this.impl.createVideoCapturer(params.desktop_display_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1431,56 +1487,67 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         }
         case 1: {
           const params = remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.new_resolution);
           break;
         }
         case 2: {
           const params = remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.lockWorkstation');
           const result = this.impl.lockWorkstation();
           break;
         }
         case 3: {
           const params = remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.injectSendAttentionSequence');
           const result = this.impl.injectSendAttentionSequence();
           break;
         }
         case 4: {
           const params = remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.injectClipboardEvent');
           const result = this.impl.injectClipboardEvent(params.event);
           break;
         }
         case 5: {
           const params = remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.injectKeyEvent');
           const result = this.impl.injectKeyEvent(params.event);
           break;
         }
         case 6: {
           const params = remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.injectMouseEvent');
           const result = this.impl.injectMouseEvent(params.event);
           break;
         }
         case 7: {
           const params = remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.injectTextEvent');
           const result = this.impl.injectTextEvent(params.event);
           break;
         }
         case 8: {
           const params = remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.injectTouchEvent');
           const result = this.impl.injectTouchEvent(params.event);
           break;
         }
         case 9: {
           const params = remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpUrlForwarder');
           const result = this.impl.setUpUrlForwarder();
           break;
         }
         case 10: {
           const params = remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.signalWebAuthnExtension');
           const result = this.impl.signalWebAuthnExtension();
           break;
         }
         case 11: {
           const params = remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.beginFileRead');
           const result = this.impl.beginFileRead();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1492,6 +1559,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         }
         case 12: {
           const params = remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.beginFileWrite');
           const result = this.impl.beginFileWrite(params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1503,9 +1571,13 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         }
         case 13: {
           const params = remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHostCursorRenderedByClient');
           const result = this.impl.setHostCursorRenderedByClient();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1604,13 +1676,18 @@ remoting.mojom.VideoCapturerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1619,14 +1696,19 @@ remoting.mojom.VideoCapturerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.captureFrame');
           const result = this.impl.captureFrame();
           break;
         }
         case 1: {
           const params = remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setComposeEnabled');
           const result = this.impl.setComposeEnabled(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1744,13 +1826,18 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1759,19 +1846,25 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionCreated');
           const result = this.impl.onSharedMemoryRegionCreated(params.id, params.region, params.size);
           break;
         }
         case 1: {
           const params = remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSharedMemoryRegionReleased');
           const result = this.impl.onSharedMemoryRegionReleased(params.id);
           break;
         }
         case 2: {
           const params = remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCaptureResult');
           const result = this.impl.onCaptureResult(params.result);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1983,13 +2076,18 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1998,49 +2096,61 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClipboardEvent');
           const result = this.impl.onClipboardEvent(params.event);
           break;
         }
         case 1: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUrlForwarderStateChange');
           const result = this.impl.onUrlForwarderStateChange(params.state);
           break;
         }
         case 2: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAudioPacket');
           const result = this.impl.onAudioPacket(params.audio_packet);
           break;
         }
         case 3: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDesktopDisplayChanged');
           const result = this.impl.onDesktopDisplayChanged(params.layout);
           break;
         }
         case 4: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMouseCursorChanged');
           const result = this.impl.onMouseCursorChanged(params.mouse_cursor);
           break;
         }
         case 5: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMouseCursorFractionalPositionChanged');
           const result = this.impl.onMouseCursorFractionalPositionChanged(params.position);
           break;
         }
         case 6: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyboardLayoutChanged');
           const result = this.impl.onKeyboardLayoutChanged(params.keyboard_layout);
           break;
         }
         case 7: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLocalMouseMoveDetected');
           const result = this.impl.onLocalMouseMoveDetected(params.new_position);
           break;
         }
         case 8: {
           const params = remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLocalKeyboardInputDetected');
           const result = this.impl.onLocalKeyboardInputDetected(params.usb_keycode);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -2126,13 +2236,18 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -2141,9 +2256,13 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnectSession');
           const result = this.impl.disconnectSession(params.error_code, params.error_details, params.error_location);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -2229,13 +2348,18 @@ remoting.mojom.WorkerProcessControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -2244,9 +2368,13 @@ remoting.mojom.WorkerProcessControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.crashProcess');
           const result = this.impl.crashProcess(params.function_name, params.file_name, params.line_number);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

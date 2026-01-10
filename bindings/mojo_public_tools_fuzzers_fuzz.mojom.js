@@ -246,13 +246,18 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -261,9 +266,13 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -463,13 +472,18 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -478,11 +492,13 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fuzzBasic');
           const result = this.impl.fuzzBasic();
           break;
         }
         case 1: {
           const params = fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fuzzBasicResp');
           const result = this.impl.fuzzBasicResp();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -494,6 +510,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 2: {
           const params = fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fuzzBasicSyncResp');
           const result = this.impl.fuzzBasicSyncResp();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -505,11 +522,13 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 3: {
           const params = fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fuzzArgs');
           const result = this.impl.fuzzArgs(params.a, params.b);
           break;
         }
         case 4: {
           const params = fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fuzzArgsResp');
           const result = this.impl.fuzzArgsResp(params.a, params.b);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -521,6 +540,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 5: {
           const params = fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fuzzArgsSyncResp');
           const result = this.impl.fuzzArgsSyncResp(params.a, params.b);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -532,9 +552,13 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
         case 6: {
           const params = fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fuzzAssociated');
           const result = this.impl.fuzzAssociated(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

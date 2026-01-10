@@ -115,13 +115,18 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -130,9 +135,13 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNotify');
           const result = this.impl.onNotify(params.data);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -259,13 +268,18 @@ ash.cfm.mojom.DataSourceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -274,6 +288,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fetch');
           const result = this.impl.fetch();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -285,6 +300,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
         }
         case 1: {
           const params = ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addWatchDog');
           const result = this.impl.addWatchDog(params.filter, params.watch_dog);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -296,9 +312,13 @@ ash.cfm.mojom.DataSourceReceiver = class {
         }
         case 2: {
           const params = ash.cfm.mojom.DataSource_Flush_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -434,13 +454,18 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -449,6 +474,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDataSourceNames');
           const result = this.impl.getDataSourceNames();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -460,6 +486,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
         }
         case 1: {
           const params = ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDataSource');
           const result = this.impl.addDataSource(params.source_name, params.data_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -471,6 +498,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
         }
         case 2: {
           const params = ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addWatchDog');
           const result = this.impl.addWatchDog(params.source_name, params.filter, params.watch_dog);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -480,6 +508,9 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

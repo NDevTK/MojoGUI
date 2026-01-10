@@ -97,13 +97,18 @@ chrome.mojom.SingleFileExtractorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -112,6 +117,7 @@ chrome.mojom.SingleFileExtractorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.SingleFileExtractor_Extract_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.extract');
           const result = this.impl.extract(params.src_file, params.dst_file, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -121,6 +127,9 @@ chrome.mojom.SingleFileExtractorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -205,13 +214,18 @@ chrome.mojom.SingleFileExtractorListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -220,9 +234,13 @@ chrome.mojom.SingleFileExtractorListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.total_bytes, params.progress_bytes);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

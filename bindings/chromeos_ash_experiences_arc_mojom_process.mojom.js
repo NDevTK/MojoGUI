@@ -324,13 +324,18 @@ arc.mojom.ProcessInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -339,11 +344,13 @@ arc.mojom.ProcessInstanceReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.killProcess');
           const result = this.impl.killProcess(params.pid, params.reason);
           break;
         }
         case 5: {
           const params = arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestProcessList');
           const result = this.impl.requestProcessList();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -355,6 +362,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 8: {
           const params = arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestApplicationProcessMemoryInfo');
           const result = this.impl.requestApplicationProcessMemoryInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -366,6 +374,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 9: {
           const params = arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestSystemProcessMemoryInfo');
           const result = this.impl.requestSystemProcessMemoryInfo(params.nspids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -377,6 +386,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 10: {
           const params = arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applyHostMemoryPressureDeprecated');
           const result = this.impl.applyHostMemoryPressureDeprecated(params.level, params.reclaim_target);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -388,6 +398,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 11: {
           const params = arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applyHostMemoryPressure');
           const result = this.impl.applyHostMemoryPressure(params.level, params.reclaim_target);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -399,6 +410,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 12: {
           const params = arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestLowMemoryKillCounts');
           const result = this.impl.requestLowMemoryKillCounts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -408,6 +420,9 @@ arc.mojom.ProcessInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

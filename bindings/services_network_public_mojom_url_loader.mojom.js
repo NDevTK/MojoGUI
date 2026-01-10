@@ -127,13 +127,18 @@ network.mojom.URLLoaderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -142,14 +147,19 @@ network.mojom.URLLoaderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.followRedirect');
           const result = this.impl.followRedirect(params.removed_headers, params.modified_headers, params.modified_cors_exempt_headers, params.new_url);
           break;
         }
         case 1: {
           const params = network.mojom.URLLoader_SetPriority_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPriority');
           const result = this.impl.setPriority(params.priority, params.intra_priority_value);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -322,13 +332,18 @@ network.mojom.URLLoaderClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -337,21 +352,25 @@ network.mojom.URLLoaderClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReceiveEarlyHints');
           const result = this.impl.onReceiveEarlyHints(params.early_hints);
           break;
         }
         case 1: {
           const params = network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReceiveResponse');
           const result = this.impl.onReceiveResponse(params.head, params.body, params.cached_metadata);
           break;
         }
         case 2: {
           const params = network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReceiveRedirect');
           const result = this.impl.onReceiveRedirect(params.redirect_info, params.head);
           break;
         }
         case 3: {
           const params = network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUploadProgress');
           const result = this.impl.onUploadProgress(params.current_position, params.total_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -363,14 +382,19 @@ network.mojom.URLLoaderClientReceiver = class {
         }
         case 4: {
           const params = network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTransferSizeUpdated');
           const result = this.impl.onTransferSizeUpdated(params.transfer_size_diff);
           break;
         }
         case 5: {
           const params = network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.status);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

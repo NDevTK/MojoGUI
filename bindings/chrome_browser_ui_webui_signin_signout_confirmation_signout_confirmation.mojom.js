@@ -118,13 +118,18 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -133,9 +138,13 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSignoutConfirmationHandler');
           const result = this.impl.createSignoutConfirmationHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -281,13 +290,18 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -296,29 +310,37 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateViewHeight');
           const result = this.impl.updateViewHeight(params.height);
           break;
         }
         case 1: {
           const params = signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.uninstall_account_extensions);
           break;
         }
         case 2: {
           const params = signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.uninstall_account_extensions);
           break;
         }
         case 3: {
           const params = signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.performReauth');
           const result = this.impl.performReauth();
           break;
         }
         case 4: {
           const params = signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -402,13 +424,18 @@ signout_confirmation.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -417,9 +444,13 @@ signout_confirmation.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendSignoutConfirmationData');
           const result = this.impl.sendSignoutConfirmationData(params.data);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

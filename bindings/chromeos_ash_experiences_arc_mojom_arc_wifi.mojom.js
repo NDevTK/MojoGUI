@@ -171,13 +171,18 @@ arc.mojom.ArcWifiHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -186,6 +191,7 @@ arc.mojom.ArcWifiHostReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWifiEnabledState');
           const result = this.impl.getWifiEnabledState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -197,6 +203,7 @@ arc.mojom.ArcWifiHostReceiver = class {
         }
         case 2: {
           const params = arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWifiEnabledState');
           const result = this.impl.setWifiEnabledState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -208,11 +215,13 @@ arc.mojom.ArcWifiHostReceiver = class {
         }
         case 3: {
           const params = arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startScan');
           const result = this.impl.startScan();
           break;
         }
         case 4: {
           const params = arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getScanResults');
           const result = this.impl.getScanResults();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -222,6 +231,9 @@ arc.mojom.ArcWifiHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -341,13 +353,18 @@ arc.mojom.ArcWifiInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -356,6 +373,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.ArcWifiInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -367,14 +385,19 @@ arc.mojom.ArcWifiInstanceReceiver = class {
         }
         case 2: {
           const params = arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.wifiEnabledStateChanged');
           const result = this.impl.wifiEnabledStateChanged(params.enabled);
           break;
         }
         case 3: {
           const params = arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scanCompleted');
           const result = this.impl.scanCompleted();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

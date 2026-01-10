@@ -228,13 +228,18 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -243,19 +248,25 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.upload_total, params.uploaded, params.download_total, params.downloaded, params.result, params.failure_reason);
           break;
         }
         case 1: {
           const params = blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRecordsUnavailable');
           const result = this.impl.onRecordsUnavailable();
           break;
         }
         case 2: {
           const params = blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRequestCompleted');
           const result = this.impl.onRequestCompleted(params.request, params.response);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -419,13 +430,18 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -434,6 +450,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fetch');
           const result = this.impl.fetch(params.service_worker_registration_id, params.developer_id, params.requests, params.options, params.icon, params.ukm_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -445,6 +462,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRegistration');
           const result = this.impl.getRegistration(params.service_worker_registration_id, params.developer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -456,6 +474,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 2: {
           const params = blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeveloperIds');
           const result = this.impl.getDeveloperIds(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -467,6 +486,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
         case 3: {
           const params = blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getIconDisplaySize');
           const result = this.impl.getIconDisplaySize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -476,6 +496,9 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -627,13 +650,18 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -642,6 +670,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateUI');
           const result = this.impl.updateUI(params.title, params.icon);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -653,6 +682,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -664,6 +694,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 2: {
           const params = blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.matchRequests');
           const result = this.impl.matchRequests(params.request_to_match, params.cache_query_options, params.match_all);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -675,9 +706,13 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
         case 3: {
           const params = blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addRegistrationObserver');
           const result = this.impl.addRegistrationObserver(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -174,13 +174,18 @@ network.mojom.TCPBoundSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -189,6 +194,7 @@ network.mojom.TCPBoundSocketReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TCPBoundSocket_Listen_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listen');
           const result = this.impl.listen(params.backlog, params.socket);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -200,6 +206,7 @@ network.mojom.TCPBoundSocketReceiver = class {
         }
         case 1: {
           const params = network.mojom.TCPBoundSocket_Connect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.remote_addr_list, params.tcp_connected_socket_options, params.socket, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -209,6 +216,9 @@ network.mojom.TCPBoundSocketReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -394,13 +404,18 @@ network.mojom.TCPConnectedSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -409,6 +424,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
           const result = this.impl.upgradeToTLS(params.host_port_pair, params.options, params.traffic_annotation, params.receiver, params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -420,6 +436,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 1: {
           const params = network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSendBufferSize');
           const result = this.impl.setSendBufferSize(params.send_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -431,6 +448,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 2: {
           const params = network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setReceiveBufferSize');
           const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -442,6 +460,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 3: {
           const params = network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNoDelay');
           const result = this.impl.setNoDelay(params.no_delay);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -453,6 +472,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 4: {
           const params = network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setKeepAlive');
           const result = this.impl.setKeepAlive(params.enable, params.delay_secs);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -462,6 +482,9 @@ network.mojom.TCPConnectedSocketReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -561,13 +584,18 @@ network.mojom.SocketObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -576,14 +604,19 @@ network.mojom.SocketObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.SocketObserver_OnReadError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReadError');
           const result = this.impl.onReadError(params.net_error);
           break;
         }
         case 1: {
           const params = network.mojom.SocketObserver_OnWriteError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWriteError');
           const result = this.impl.onWriteError(params.net_error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -677,13 +710,18 @@ network.mojom.TCPServerSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -692,6 +730,7 @@ network.mojom.TCPServerSocketReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TCPServerSocket_Accept_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -701,6 +740,9 @@ network.mojom.TCPServerSocketReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

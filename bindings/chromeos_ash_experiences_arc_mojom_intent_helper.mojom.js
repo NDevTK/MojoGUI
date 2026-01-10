@@ -414,13 +414,18 @@ arc.mojom.CustomTabSessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -429,9 +434,13 @@ arc.mojom.CustomTabSessionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenInChromeClicked');
           const result = this.impl.onOpenInChromeClicked();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -836,13 +845,18 @@ arc.mojom.IntentHelperHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -851,26 +865,31 @@ arc.mojom.IntentHelperHostReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onIconInvalidated');
           const result = this.impl.onIconInvalidated(params.package_name);
           break;
         }
         case 5: {
           const params = arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onIntentFiltersUpdated');
           const result = this.impl.onIntentFiltersUpdated(params.intent_filters);
           break;
         }
         case 2: {
           const params = arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenDownloads');
           const result = this.impl.onOpenDownloads();
           break;
         }
         case 0: {
           const params = arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenUrl');
           const result = this.impl.onOpenUrl(params.url);
           break;
         }
         case 17: {
           const params = arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenCustomTab');
           const result = this.impl.onOpenCustomTab(params.url, params.task_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -882,46 +901,55 @@ arc.mojom.IntentHelperHostReceiver = class {
         }
         case 3: {
           const params = arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openWallpaperPicker');
           const result = this.impl.openWallpaperPicker();
           break;
         }
         case 6: {
           const params = arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openVolumeControl');
           const result = this.impl.openVolumeControl();
           break;
         }
         case 7: {
           const params = arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenChromePage');
           const result = this.impl.onOpenChromePage(params.page);
           break;
         }
         case 8: {
           const params = arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenWebApp');
           const result = this.impl.onOpenWebApp(params.url);
           break;
         }
         case 11: {
           const params = arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.factoryResetArc');
           const result = this.impl.factoryResetArc();
           break;
         }
         case 12: {
           const params = arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchCameraApp');
           const result = this.impl.launchCameraApp(params.intent_id, params.mode, params.should_handle_result, params.should_down_scale, params.is_secure, params.task_id);
           break;
         }
         case 13: {
           const params = arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onIntentFiltersUpdatedForPackage');
           const result = this.impl.onIntentFiltersUpdatedForPackage(params.package_name, params.intent_filters);
           break;
         }
         case 14: {
           const params = arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeCameraApp');
           const result = this.impl.closeCameraApp();
           break;
         }
         case 15: {
           const params = arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isChromeAppEnabled');
           const result = this.impl.isChromeAppEnabled(params.app);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -933,34 +961,43 @@ arc.mojom.IntentHelperHostReceiver = class {
         }
         case 20: {
           const params = arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSupportedLinksChanged');
           const result = this.impl.onSupportedLinksChanged(params.added_packages, params.removed_packages, params.source);
           break;
         }
         case 18: {
           const params = arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDownloadAddedDeprecated');
           const result = this.impl.onDownloadAddedDeprecated(params.relative_path, params.owner_package_name);
           break;
         }
         case 19: {
           const params = arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenAppWithIntent');
           const result = this.impl.onOpenAppWithIntent(params.start_url, params.intent);
           break;
         }
         case 21: {
           const params = arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenGlobalActions');
           const result = this.impl.onOpenGlobalActions();
           break;
         }
         case 22: {
           const params = arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCloseSystemDialogs');
           const result = this.impl.onCloseSystemDialogs();
           break;
         }
         case 23: {
           const params = arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAndroidSettingChange');
           const result = this.impl.onAndroidSettingChange(params.setting, params.is_enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1336,13 +1373,18 @@ arc.mojom.IntentHelperInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1351,31 +1393,37 @@ arc.mojom.IntentHelperInstanceReceiver = class {
       switch (header.ordinal) {
         case 8: {
           const params = arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addPreferredPackage');
           const result = this.impl.addPreferredPackage(params.package_name);
           break;
         }
         case 21: {
           const params = arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVerifiedLinks');
           const result = this.impl.setVerifiedLinks(params.package_names, params.always_open);
           break;
         }
         case 10: {
           const params = arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleIntent');
           const result = this.impl.handleIntent(params.intent, params.activity);
           break;
         }
         case 20: {
           const params = arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleIntentWithWindowInfo');
           const result = this.impl.handleIntentWithWindowInfo(params.intent, params.activity, params.window_info);
           break;
         }
         case 2: {
           const params = arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleUrl');
           const result = this.impl.handleUrl(params.url, params.package_name);
           break;
         }
         case 13: {
           const params = arc.mojom.IntentHelperInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1387,6 +1435,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 4: {
           const params = arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestActivityIcons');
           const result = this.impl.requestActivityIcons(params.activities, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1398,6 +1447,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 9: {
           const params = arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestIntentHandlerList');
           const result = this.impl.requestIntentHandlerList(params.intent);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1409,6 +1459,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 3: {
           const params = arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestUrlHandlerList');
           const result = this.impl.requestUrlHandlerList(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1420,6 +1471,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 6: {
           const params = arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestUrlListHandlerList');
           const result = this.impl.requestUrlListHandlerList(params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1431,11 +1483,13 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendBroadcast');
           const result = this.impl.sendBroadcast(params.action, params.package_name, params.cls, params.extras);
           break;
         }
         case 15: {
           const params = arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestTextSelectionActions');
           const result = this.impl.requestTextSelectionActions(params.text, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1447,6 +1501,7 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 16: {
           const params = arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleCameraResult');
           const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1458,19 +1513,25 @@ arc.mojom.IntentHelperInstanceReceiver = class {
         }
         case 19: {
           const params = arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestDomainVerificationStatusUpdate');
           const result = this.impl.requestDomainVerificationStatusUpdate();
           break;
         }
         case 22: {
           const params = arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCaptionStyle');
           const result = this.impl.setCaptionStyle(params.style);
           break;
         }
         case 23: {
           const params = arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableAccessibilityFeatures');
           const result = this.impl.enableAccessibilityFeatures(params.features);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

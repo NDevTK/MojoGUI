@@ -248,13 +248,18 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -263,9 +268,13 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.progress');
           const result = this.impl.progress(params.progress);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -417,13 +426,18 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -432,6 +446,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadModel');
           const result = this.impl.loadModel(params.params, params.model);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -443,6 +458,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         }
         case 1: {
           const params = on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCapabilities');
           const result = this.impl.getCapabilities(params.weights);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -454,11 +470,13 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         }
         case 2: {
           const params = on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadTextSafetyModel');
           const result = this.impl.loadTextSafetyModel(params.params, params.model);
           break;
         }
         case 3: {
           const params = on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceAndPerformanceInfo');
           const result = this.impl.getDeviceAndPerformanceInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -468,6 +486,9 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -650,13 +671,18 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -665,6 +691,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadPlatformModel');
           const result = this.impl.loadPlatformModel(params.uuid, params.model, params.progress_observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -676,6 +703,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 1: {
           const params = on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPlatformModelState');
           const result = this.impl.getPlatformModelState(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -687,6 +715,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 2: {
           const params = on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getEstimatedPerformanceClass');
           const result = this.impl.getEstimatedPerformanceClass();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -698,6 +727,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 3: {
           const params = on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.formatInput');
           const result = this.impl.formatInput(params.uuid, params.feature, params.fields);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -709,6 +739,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 4: {
           const params = on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
           const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -718,6 +749,9 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

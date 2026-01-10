@@ -551,13 +551,18 @@ arc.mojom.AuthHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -566,26 +571,31 @@ arc.mojom.AuthHostReceiver = class {
       switch (header.ordinal) {
         case 19: {
           const params = arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAuthorizationResult');
           const result = this.impl.onAuthorizationResult(params.result, params.account);
           break;
         }
         case 8: {
           const params = arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportMetrics');
           const result = this.impl.reportMetrics(params.metrics_type, params.value);
           break;
         }
         case 9: {
           const params = arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAccountCheckStatus');
           const result = this.impl.reportAccountCheckStatus(params.status);
           break;
         }
         case 11: {
           const params = arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportManagementChangeStatus');
           const result = this.impl.reportManagementChangeStatus(params.status);
           break;
         }
         case 18: {
           const params = arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPrimaryAccount');
           const result = this.impl.requestPrimaryAccount();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -597,6 +607,7 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 12: {
           const params = arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPrimaryAccountInfo');
           const result = this.impl.requestPrimaryAccountInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -608,6 +619,7 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 13: {
           const params = arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestAccountInfo');
           const result = this.impl.requestAccountInfo(params.account_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -619,6 +631,7 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 14: {
           const params = arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isAccountManagerAvailable');
           const result = this.impl.isAccountManagerAvailable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -630,24 +643,31 @@ arc.mojom.AuthHostReceiver = class {
         }
         case 15: {
           const params = arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleAddAccountRequest');
           const result = this.impl.handleAddAccountRequest();
           break;
         }
         case 16: {
           const params = arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleRemoveAccountRequest');
           const result = this.impl.handleRemoveAccountRequest(params.account_name);
           break;
         }
         case 17: {
           const params = arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleUpdateCredentialsRequest');
           const result = this.impl.handleUpdateCredentialsRequest(params.account_name);
           break;
         }
         case 20: {
           const params = arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAccountReauthReason');
           const result = this.impl.reportAccountReauthReason(params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -811,13 +831,18 @@ arc.mojom.AuthInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -826,6 +851,7 @@ arc.mojom.AuthInstanceReceiver = class {
       switch (header.ordinal) {
         case 2: {
           const params = arc.mojom.AuthInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -837,11 +863,13 @@ arc.mojom.AuthInstanceReceiver = class {
         }
         case 3: {
           const params = arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAccountUpdated');
           const result = this.impl.onAccountUpdated(params.account_name, params.update_type);
           break;
         }
         case 4: {
           const params = arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getGoogleAccounts');
           const result = this.impl.getGoogleAccounts();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -853,6 +881,7 @@ arc.mojom.AuthInstanceReceiver = class {
         }
         case 5: {
           const params = arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMainAccountResolutionStatus');
           const result = this.impl.getMainAccountResolutionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -864,9 +893,13 @@ arc.mojom.AuthInstanceReceiver = class {
         }
         case 6: {
           const params = arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAccounts');
           const result = this.impl.setAccounts(params.accounts);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

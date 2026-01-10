@@ -181,13 +181,18 @@ arc.mojom.PolicyHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -196,6 +201,7 @@ arc.mojom.PolicyHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPolicies');
           const result = this.impl.getPolicies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -207,6 +213,7 @@ arc.mojom.PolicyHostReceiver = class {
         }
         case 1: {
           const params = arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportCompliance');
           const result = this.impl.reportCompliance(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -218,14 +225,19 @@ arc.mojom.PolicyHostReceiver = class {
         }
         case 7: {
           const params = arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportDPCVersion');
           const result = this.impl.reportDPCVersion(params.version);
           break;
         }
         case 8: {
           const params = arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportPlayStoreLocalPolicySet');
           const result = this.impl.reportPlayStoreLocalPolicySet(params.time, params.package_names);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -351,13 +363,18 @@ arc.mojom.PolicyInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -366,6 +383,7 @@ arc.mojom.PolicyInstanceReceiver = class {
       switch (header.ordinal) {
         case 2: {
           const params = arc.mojom.PolicyInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -377,11 +395,13 @@ arc.mojom.PolicyInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPolicyUpdated');
           const result = this.impl.onPolicyUpdated();
           break;
         }
         case 3: {
           const params = arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCommandReceived');
           const result = this.impl.onCommandReceived(params.command);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -391,6 +411,9 @@ arc.mojom.PolicyInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -284,13 +284,18 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -299,64 +304,79 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleImeTray');
           const result = this.impl.toggleImeTray(params.visible);
           break;
         }
         case 1: {
           const params = ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.togglePaletteTray');
           const result = this.impl.togglePaletteTray(params.visible);
           break;
         }
         case 2: {
           const params = ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleLogoutTray');
           const result = this.impl.toggleLogoutTray(params.visible);
           break;
         }
         case 3: {
           const params = ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleVirtualKeyboardTray');
           const result = this.impl.toggleVirtualKeyboardTray(params.visible);
           break;
         }
         case 4: {
           const params = ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleDictationTray');
           const result = this.impl.toggleDictationTray(params.visible);
           break;
         }
         case 5: {
           const params = ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleVideoConferenceTray');
           const result = this.impl.toggleVideoConferenceTray(params.visible);
           break;
         }
         case 6: {
           const params = ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleAnnotationTray');
           const result = this.impl.toggleAnnotationTray(params.visible);
           break;
         }
         case 7: {
           const params = ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsInUserChildSession');
           const result = this.impl.setIsInUserChildSession(params.in_child_session);
           break;
         }
         case 8: {
           const params = ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.triggerPrivacyIndicators');
           const result = this.impl.triggerPrivacyIndicators(params.app_id, params.app_name, params.is_camera_used, params.is_microphone_used);
           break;
         }
         case 9: {
           const params = ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetHmrConsentStatus');
           const result = this.impl.resetHmrConsentStatus();
           break;
         }
         case 10: {
           const params = ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBatteryIcon');
           const result = this.impl.setBatteryIcon(params.icon);
           break;
         }
         case 11: {
           const params = ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBatteryPercent');
           const result = this.impl.setBatteryPercent(params.percent);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -529,13 +529,18 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -544,6 +549,7 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllSessions');
           const result = this.impl.getAllSessions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -555,11 +561,13 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
         }
         case 1: {
           const params = network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteSession');
           const result = this.impl.deleteSession(params.reason, params.session);
           break;
         }
         case 2: {
           const params = network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteAllSessions');
           const result = this.impl.deleteAllSessions(params.reason, params.created_after_time, params.created_before_time, params.filter);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -571,16 +579,19 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
         }
         case 3: {
           const params = network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.url, params.observer);
           break;
         }
         case 4: {
           const params = network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addEventObserver');
           const result = this.impl.addEventObserver(params.observer);
           break;
         }
         case 5: {
           const params = network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createBoundSessions');
           const result = this.impl.createBoundSessions(params.params, params.wrapped_key, params.cookies_to_set, params.cookie_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -590,6 +601,9 @@ network.mojom.DeviceBoundSessionManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -689,13 +703,18 @@ network.mojom.DeviceBoundSessionAccessObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -704,14 +723,19 @@ network.mojom.DeviceBoundSessionAccessObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionAccessed');
           const result = this.impl.onDeviceBoundSessionAccessed(params.access);
           break;
         }
         case 1: {
           const params = network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -811,13 +835,18 @@ network.mojom.DeviceBoundSessionEventObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -826,14 +855,19 @@ network.mojom.DeviceBoundSessionEventObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionEventReceived');
           const result = this.impl.onDeviceBoundSessionEventReceived(params.event);
           break;
         }
         case 1: {
           const params = network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDeviceBoundSessionDisplays');
           const result = this.impl.addDeviceBoundSessionDisplays(params.session_displays);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

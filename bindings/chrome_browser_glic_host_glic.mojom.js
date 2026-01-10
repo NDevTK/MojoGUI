@@ -1169,13 +1169,18 @@ glic.mojom.PreloadPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1184,9 +1189,13 @@ glic.mojom.PreloadPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setProfileReadyState');
           const result = this.impl.setProfileReadyState(params.ready_state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1301,13 +1310,18 @@ glic.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1316,19 +1330,25 @@ glic.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.Page_IntentToShow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.intentToShow');
           const result = this.impl.intentToShow();
           break;
         }
         case 1: {
           const params = glic.mojom.Page_SetProfileReadyState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setProfileReadyState');
           const result = this.impl.setProfileReadyState(params.ready_state);
           break;
         }
         case 2: {
           const params = glic.mojom.Page_UpdatePageState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updatePageState');
           const result = this.impl.updatePageState(params.panelStateKind);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1417,13 +1437,18 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1432,6 +1457,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1441,6 +1467,9 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1525,13 +1554,18 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1540,9 +1574,13 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPreloadHandler');
           const result = this.impl.createPreloadHandler(params.receiver, params.page);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1627,13 +1665,18 @@ glic.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1642,9 +1685,13 @@ glic.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.receiver, params.page);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1905,13 +1952,18 @@ glic.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1920,11 +1972,13 @@ glic.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PageHandler_CreateWebClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWebClient');
           const result = this.impl.createWebClient(params.web_client_receiver);
           break;
         }
         case 1: {
           const params = glic.mojom.PageHandler_PrepareForClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1936,11 +1990,13 @@ glic.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = glic.mojom.PageHandler_WebviewCommitted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.webviewCommitted');
           const result = this.impl.webviewCommitted(params.url);
           break;
         }
         case 3: {
           const params = glic.mojom.PageHandler_ClosePanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closePanel');
           const result = this.impl.closePanel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1952,21 +2008,25 @@ glic.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const params = glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openProfilePickerAndClosePanel');
           const result = this.impl.openProfilePickerAndClosePanel();
           break;
         }
         case 5: {
           const params = glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDisabledByAdminLinkAndClosePanel');
           const result = this.impl.openDisabledByAdminLinkAndClosePanel();
           break;
         }
         case 6: {
           const params = glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.signInAndClosePanel');
           const result = this.impl.signInAndClosePanel();
           break;
         }
         case 7: {
           const params = glic.mojom.PageHandler_ResizeWidget_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resizeWidget');
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1978,16 +2038,19 @@ glic.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const params = glic.mojom.PageHandler_EnableDragResize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableDragResize');
           const result = this.impl.enableDragResize(params.enabled);
           break;
         }
         case 9: {
           const params = glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.webUiStateChanged');
           const result = this.impl.webUiStateChanged(params.new_state);
           break;
         }
         case 10: {
           const params = glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProfileEnablement');
           const result = this.impl.getProfileEnablement();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1997,6 +2060,9 @@ glic.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -2080,13 +2146,18 @@ glic.mojom.PinCandidatesObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -2095,9 +2166,13 @@ glic.mojom.PinCandidatesObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPinCandidatesChanged');
           const result = this.impl.onPinCandidatesChanged(params.candidates);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -3765,13 +3840,18 @@ glic.mojom.WebClientHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -3780,6 +3860,7 @@ glic.mojom.WebClientHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.webClientCreated');
           const result = this.impl.webClientCreated(params.web_client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3791,16 +3872,19 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 1: {
           const params = glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.webClientInitialized');
           const result = this.impl.webClientInitialized();
           break;
         }
         case 2: {
           const params = glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.webClientInitializeFailed');
           const result = this.impl.webClientInitializeFailed();
           break;
         }
         case 3: {
           const params = glic.mojom.WebClientHandler_CreateTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createTab');
           const result = this.impl.createTab(params.url, params.open_in_background, params.window_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3812,51 +3896,61 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 4: {
           const params = glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openLinkInPopup');
           const result = this.impl.openLinkInPopup(params.url, params.popup_width, params.popup_height);
           break;
         }
         case 5: {
           const params = glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openGlicSettingsPage');
           const result = this.impl.openGlicSettingsPage(params.options);
           break;
         }
         case 6: {
           const params = glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openPasswordManagerSettingsPage');
           const result = this.impl.openPasswordManagerSettingsPage();
           break;
         }
         case 7: {
           const params = glic.mojom.WebClientHandler_ClosePanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closePanel');
           const result = this.impl.closePanel();
           break;
         }
         case 8: {
           const params = glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closePanelAndShutdown');
           const result = this.impl.closePanelAndShutdown();
           break;
         }
         case 9: {
           const params = glic.mojom.WebClientHandler_AttachPanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.attachPanel');
           const result = this.impl.attachPanel();
           break;
         }
         case 10: {
           const params = glic.mojom.WebClientHandler_DetachPanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.detachPanel');
           const result = this.impl.detachPanel();
           break;
         }
         case 11: {
           const params = glic.mojom.WebClientHandler_OnModeChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onModeChange');
           const result = this.impl.onModeChange(params.new_mode);
           break;
         }
         case 12: {
           const params = glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showProfilePicker');
           const result = this.impl.showProfilePicker();
           break;
         }
         case 13: {
           const params = glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getModelQualityClientId');
           const result = this.impl.getModelQualityClientId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3868,6 +3962,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 14: {
           const params = glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getContextFromFocusedTab');
           const result = this.impl.getContextFromFocusedTab(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3879,6 +3974,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 15: {
           const params = glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getContextFromTab');
           const result = this.impl.getContextFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3890,6 +3986,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 16: {
           const params = glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getContextForActorFromTab');
           const result = this.impl.getContextForActorFromTab(params.tab_id, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3901,6 +3998,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 17: {
           const params = glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMaximumNumberOfPinnedTabs');
           const result = this.impl.setMaximumNumberOfPinnedTabs(params.requested_max);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3912,6 +4010,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 18: {
           const params = glic.mojom.WebClientHandler_PinTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pinTabs');
           const result = this.impl.pinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3923,6 +4022,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 19: {
           const params = glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unpinTabs');
           const result = this.impl.unpinTabs(params.tab_ids, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3934,11 +4034,13 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 20: {
           const params = glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unpinAllTabs');
           const result = this.impl.unpinAllTabs(params.options);
           break;
         }
         case 21: {
           const params = glic.mojom.WebClientHandler_CreateSkill_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSkill');
           const result = this.impl.createSkill(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3950,6 +4052,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 22: {
           const params = glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateSkill');
           const result = this.impl.updateSkill(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3961,6 +4064,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 23: {
           const params = glic.mojom.WebClientHandler_GetSkill_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSkill');
           const result = this.impl.getSkill(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3972,21 +4076,25 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 24: {
           const params = glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToPinCandidates');
           const result = this.impl.subscribeToPinCandidates(params.options, params.observer);
           break;
         }
         case 25: {
           const params = glic.mojom.WebClientHandler_CreateTask_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createTask');
           const result = this.impl.createTask(params.task_options);
           break;
         }
         case 26: {
           const params = glic.mojom.WebClientHandler_PerformActions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.performActions');
           const result = this.impl.performActions(params.actions_proto);
           break;
         }
         case 27: {
           const params = glic.mojom.WebClientHandler_CancelActions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelActions');
           const result = this.impl.cancelActions(params.task_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3998,16 +4106,19 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 28: {
           const params = glic.mojom.WebClientHandler_StopActorTask_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopActorTask');
           const result = this.impl.stopActorTask(params.task_id, params.stop_reason);
           break;
         }
         case 29: {
           const params = glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pauseActorTask');
           const result = this.impl.pauseActorTask(params.task_id, params.pause_reason, params.tab_id);
           break;
         }
         case 30: {
           const params = glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resumeActorTask');
           const result = this.impl.resumeActorTask(params.task_id, params.context_options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4019,16 +4130,19 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 31: {
           const params = glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.interruptActorTask');
           const result = this.impl.interruptActorTask(params.task_id);
           break;
         }
         case 32: {
           const params = glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.uninterruptActorTask');
           const result = this.impl.uninterruptActorTask(params.task_id);
           break;
         }
         case 33: {
           const params = glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createActorTab');
           const result = this.impl.createActorTab(params.task_id, params.open_in_background, params.initiator_tab_id, params.initiator_window_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4040,11 +4154,13 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 34: {
           const params = glic.mojom.WebClientHandler_ActivateTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activateTab');
           const result = this.impl.activateTab(params.task_id);
           break;
         }
         case 35: {
           const params = glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resizeWidget');
           const result = this.impl.resizeWidget(params.size, params.duration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4056,6 +4172,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 36: {
           const params = glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.captureScreenshot');
           const result = this.impl.captureScreenshot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4067,11 +4184,13 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 37: {
           const params = glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.captureRegion');
           const result = this.impl.captureRegion(params.observer);
           break;
         }
         case 38: {
           const params = glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAudioDucking');
           const result = this.impl.setAudioDucking(params.enable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4083,6 +4202,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 39: {
           const params = glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPanelDraggableAreas');
           const result = this.impl.setPanelDraggableAreas(params.draggable_areas);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4094,11 +4214,13 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 40: {
           const params = glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMinimumPanelSize');
           const result = this.impl.setMinimumPanelSize(params.size);
           break;
         }
         case 41: {
           const params = glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMicrophonePermissionState');
           const result = this.impl.setMicrophonePermissionState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4110,6 +4232,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 42: {
           const params = glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setLocationPermissionState');
           const result = this.impl.setLocationPermissionState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4121,6 +4244,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 43: {
           const params = glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTabContextPermissionState');
           const result = this.impl.setTabContextPermissionState(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4132,6 +4256,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 44: {
           const params = glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClosedCaptioningSetting');
           const result = this.impl.setClosedCaptioningSetting(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4143,6 +4268,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 45: {
           const params = glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setActuationOnWebSetting');
           const result = this.impl.setActuationOnWebSetting(params.enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4154,6 +4280,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 46: {
           const params = glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldAllowMediaPermissionRequest');
           const result = this.impl.shouldAllowMediaPermissionRequest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4165,6 +4292,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 47: {
           const params = glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldAllowGeolocationPermissionRequest');
           const result = this.impl.shouldAllowGeolocationPermissionRequest();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4176,11 +4304,13 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 48: {
           const params = glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setContextAccessIndicator');
           const result = this.impl.setContextAccessIndicator(params.enabled);
           break;
         }
         case 49: {
           const params = glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUserProfileInfo');
           const result = this.impl.getUserProfileInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4192,6 +4322,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 50: {
           const params = glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.syncCookies');
           const result = this.impl.syncCookies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4203,26 +4334,31 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 51: {
           const params = glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logBeginAsyncEvent');
           const result = this.impl.logBeginAsyncEvent(params.event_async_id, params.task_id, params.event, params.details);
           break;
         }
         case 52: {
           const params = glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logEndAsyncEvent');
           const result = this.impl.logEndAsyncEvent(params.event_async_id, params.details);
           break;
         }
         case 53: {
           const params = glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logInstantEvent');
           const result = this.impl.logInstantEvent(params.task_id, params.event, params.details);
           break;
         }
         case 54: {
           const params = glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.journalClear');
           const result = this.impl.journalClear();
           break;
         }
         case 55: {
           const params = glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.journalSnapshot');
           const result = this.impl.journalSnapshot(params.clear_journal);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4234,81 +4370,97 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 56: {
           const params = glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.journalStart');
           const result = this.impl.journalStart(params.max_bytes, params.capture_screenshots);
           break;
         }
         case 57: {
           const params = glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.journalStop');
           const result = this.impl.journalStop();
           break;
         }
         case 58: {
           const params = glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.journalRecordFeedback');
           const result = this.impl.journalRecordFeedback(params.positive, params.reason);
           break;
         }
         case 59: {
           const params = glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUserInputSubmitted');
           const result = this.impl.onUserInputSubmitted(params.mode);
           break;
         }
         case 60: {
           const params = glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onContextUploadStarted');
           const result = this.impl.onContextUploadStarted();
           break;
         }
         case 61: {
           const params = glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onContextUploadCompleted');
           const result = this.impl.onContextUploadCompleted();
           break;
         }
         case 62: {
           const params = glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReaction');
           const result = this.impl.onReaction(params.reactionType);
           break;
         }
         case 63: {
           const params = glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted();
           break;
         }
         case 64: {
           const params = glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseStopped');
           const result = this.impl.onResponseStopped(params.details);
           break;
         }
         case 65: {
           const params = glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSessionTerminated');
           const result = this.impl.onSessionTerminated();
           break;
         }
         case 66: {
           const params = glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTurnCompleted');
           const result = this.impl.onTurnCompleted(params.model, params.duration);
           break;
         }
         case 67: {
           const params = glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onModelChanged');
           const result = this.impl.onModelChanged(params.model);
           break;
         }
         case 68: {
           const params = glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRecordUseCounter');
           const result = this.impl.onRecordUseCounter(params.counter);
           break;
         }
         case 69: {
           const params = glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResponseRated');
           const result = this.impl.onResponseRated(params.positive);
           break;
         }
         case 70: {
           const params = glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClosedCaptionsShown');
           const result = this.impl.onClosedCaptionsShown();
           break;
         }
         case 71: {
           const params = glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scrollTo');
           const result = this.impl.scrollTo(params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4320,21 +4472,25 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 72: {
           const params = glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dropScrollToHighlight');
           const result = this.impl.dropScrollToHighlight();
           break;
         }
         case 73: {
           const params = glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSyntheticExperimentState');
           const result = this.impl.setSyntheticExperimentState(params.trial_name, params.group_name);
           break;
         }
         case 74: {
           const params = glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openOsPermissionSettingsMenu');
           const result = this.impl.openOsPermissionSettingsMenu(params.type);
           break;
         }
         case 75: {
           const params = glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOsMicrophonePermissionStatus');
           const result = this.impl.getOsMicrophonePermissionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4346,6 +4502,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 76: {
           const params = glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsAndSubscribe');
           const result = this.impl.getZeroStateSuggestionsAndSubscribe(params.is_live, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4357,6 +4514,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 77: {
           const params = glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsForFocusedTab');
           const result = this.impl.getZeroStateSuggestionsForFocusedTab(params.is_first_run);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4368,11 +4526,13 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 78: {
           const params = glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.maybeRefreshUserStatus');
           const result = this.impl.maybeRefreshUserStatus();
           break;
         }
         case 79: {
           const params = glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isDebuggerAttached');
           const result = this.impl.isDebuggerAttached();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4384,11 +4544,13 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 80: {
           const params = glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onViewChanged');
           const result = this.impl.onViewChanged(params.notification);
           break;
         }
         case 81: {
           const params = glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToPageMetadata');
           const result = this.impl.subscribeToPageMetadata(params.tab_id, params.names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4400,6 +4562,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 82: {
           const params = glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.switchConversation');
           const result = this.impl.switchConversation(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4411,6 +4574,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 83: {
           const params = glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerConversation');
           const result = this.impl.registerConversation(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4422,14 +4586,19 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
         case 84: {
           const params = glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOnboardingCompleted');
           const result = this.impl.setOnboardingCompleted();
           break;
         }
         case 85: {
           const params = glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToTabData');
           const result = this.impl.subscribeToTabData(params.tab_id, params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -4513,13 +4682,18 @@ glic.mojom.TabDataHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -4528,9 +4702,13 @@ glic.mojom.TabDataHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTabDataChanged');
           const result = this.impl.onTabDataChanged(params.tab_data);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -5163,13 +5341,18 @@ glic.mojom.WebClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -5178,6 +5361,7 @@ glic.mojom.WebClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPanelWillOpen');
           const result = this.impl.notifyPanelWillOpen(params.panel_opening_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5189,6 +5373,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 1: {
           const params = glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPanelWasClosed');
           const result = this.impl.notifyPanelWasClosed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5200,121 +5385,145 @@ glic.mojom.WebClientReceiver = class {
         }
         case 2: {
           const params = glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPanelStateChange');
           const result = this.impl.notifyPanelStateChange(params.panel_state);
           break;
         }
         case 3: {
           const params = glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPanelActiveChange');
           const result = this.impl.notifyPanelActiveChange(params.panel_active);
           break;
         }
         case 4: {
           const params = glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPanelCanAttachChange');
           const result = this.impl.notifyPanelCanAttachChange(params.can_attach);
           break;
         }
         case 5: {
           const params = glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyMicrophonePermissionStateChanged');
           const result = this.impl.notifyMicrophonePermissionStateChanged(params.enabled);
           break;
         }
         case 6: {
           const params = glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyLocationPermissionStateChanged');
           const result = this.impl.notifyLocationPermissionStateChanged(params.enabled);
           break;
         }
         case 7: {
           const params = glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyTabContextPermissionStateChanged');
           const result = this.impl.notifyTabContextPermissionStateChanged(params.enabled);
           break;
         }
         case 8: {
           const params = glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyOsLocationPermissionStateChanged');
           const result = this.impl.notifyOsLocationPermissionStateChanged(params.enabled);
           break;
         }
         case 9: {
           const params = glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyFocusedTabChanged');
           const result = this.impl.notifyFocusedTabChanged(params.focused_tab_data);
           break;
         }
         case 10: {
           const params = glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyManualResizeChanged');
           const result = this.impl.notifyManualResizeChanged(params.resizing);
           break;
         }
         case 11: {
           const params = glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyOsHotkeyStateChanged');
           const result = this.impl.notifyOsHotkeyStateChanged(params.hotkey);
           break;
         }
         case 12: {
           const params = glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyBrowserIsOpenChanged');
           const result = this.impl.notifyBrowserIsOpenChanged(params.browser_is_open);
           break;
         }
         case 13: {
           const params = glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyInstanceActivationChanged');
           const result = this.impl.notifyInstanceActivationChanged(params.instance_active);
           break;
         }
         case 14: {
           const params = glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyClosedCaptioningSettingChanged');
           const result = this.impl.notifyClosedCaptioningSettingChanged(params.enabled);
           break;
         }
         case 15: {
           const params = glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPinnedTabsChanged');
           const result = this.impl.notifyPinnedTabsChanged(params.tab_data);
           break;
         }
         case 16: {
           const params = glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPinnedTabDataChanged');
           const result = this.impl.notifyPinnedTabDataChanged(params.tab_data);
           break;
         }
         case 17: {
           const params = glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySkillPreviewsChanged');
           const result = this.impl.notifySkillPreviewsChanged(params.skill_previews);
           break;
         }
         case 18: {
           const params = glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySkillPreviewChanged');
           const result = this.impl.notifySkillPreviewChanged(params.skill_preview);
           break;
         }
         case 19: {
           const params = glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySkillToInvokeChanged');
           const result = this.impl.notifySkillToInvokeChanged(params.skill);
           break;
         }
         case 20: {
           const params = glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyZeroStateSuggestionsChanged');
           const result = this.impl.notifyZeroStateSuggestionsChanged(params.suggestions, params.options);
           break;
         }
         case 21: {
           const params = glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyActorTaskStateChanged');
           const result = this.impl.notifyActorTaskStateChanged(params.task_id, params.state);
           break;
         }
         case 22: {
           const params = glic.mojom.WebClient_RequestViewChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestViewChange');
           const result = this.impl.requestViewChange(params.request);
           break;
         }
         case 23: {
           const params = glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyPageMetadataChanged');
           const result = this.impl.notifyPageMetadataChanged(params.tab_id, params.metadata);
           break;
         }
         case 24: {
           const params = glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyDefaultTabContextPermissionStateChanged');
           const result = this.impl.notifyDefaultTabContextPermissionStateChanged(params.enabled);
           break;
         }
         case 25: {
           const params = glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestToShowCredentialSelectionDialog');
           const result = this.impl.requestToShowCredentialSelectionDialog(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5326,6 +5535,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 26: {
           const params = glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestToShowAutofillSuggestionsDialog');
           const result = this.impl.requestToShowAutofillSuggestionsDialog(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5337,6 +5547,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 27: {
           const params = glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestToShowUserConfirmationDialog');
           const result = this.impl.requestToShowUserConfirmationDialog(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5348,6 +5559,7 @@ glic.mojom.WebClientReceiver = class {
         }
         case 28: {
           const params = glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestToConfirmNavigation');
           const result = this.impl.requestToConfirmNavigation(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5359,24 +5571,31 @@ glic.mojom.WebClientReceiver = class {
         }
         case 29: {
           const params = glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyAdditionalContext');
           const result = this.impl.notifyAdditionalContext(params.context);
           break;
         }
         case 30: {
           const params = glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyActuationOnWebSettingChanged');
           const result = this.impl.notifyActuationOnWebSettingChanged(params.enabled);
           break;
         }
         case 31: {
           const params = glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyActOnWebCapabilityChanged');
           const result = this.impl.notifyActOnWebCapabilityChanged(params.can_act_on_web);
           break;
         }
         case 32: {
           const params = glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyOnboardingCompletedChanged');
           const result = this.impl.notifyOnboardingCompletedChanged(params.completed);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -5461,13 +5680,18 @@ glic.mojom.CaptureRegionObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -5476,9 +5700,13 @@ glic.mojom.CaptureRegionObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUpdate');
           const result = this.impl.onUpdate(params.result, params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

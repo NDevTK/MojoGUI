@@ -256,13 +256,18 @@ blink.mojom.RemoteObjectHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -271,19 +276,25 @@ blink.mojom.RemoteObjectHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getObject');
           const result = this.impl.getObject(params.object_id, params.receiver);
           break;
         }
         case 1: {
           const params = blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acquireObject');
           const result = this.impl.acquireObject(params.object_id);
           break;
         }
         case 2: {
           const params = blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.releaseObject');
           const result = this.impl.releaseObject(params.object_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -432,13 +443,18 @@ blink.mojom.RemoteObjectReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -447,6 +463,7 @@ blink.mojom.RemoteObjectReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObject_HasMethod_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasMethod');
           const result = this.impl.hasMethod(params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -458,6 +475,7 @@ blink.mojom.RemoteObjectReceiver = class {
         }
         case 1: {
           const params = blink.mojom.RemoteObject_GetMethods_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMethods');
           const result = this.impl.getMethods();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -469,6 +487,7 @@ blink.mojom.RemoteObjectReceiver = class {
         }
         case 2: {
           const params = blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.invokeMethod');
           const result = this.impl.invokeMethod(params.name, params.arguments);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -480,9 +499,13 @@ blink.mojom.RemoteObjectReceiver = class {
         }
         case 3: {
           const params = blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyReleasedObject');
           const result = this.impl.notifyReleasedObject();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -567,13 +590,18 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -582,9 +610,13 @@ blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createRemoteObjectGateway');
           const result = this.impl.createRemoteObjectGateway(params.host, params.gateway);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -685,13 +717,18 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -700,14 +737,19 @@ blink.mojom.RemoteObjectGatewayReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addNamedObject');
           const result = this.impl.addNamedObject(params.name, params.object_id);
           break;
         }
         case 1: {
           const params = blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeNamedObject');
           const result = this.impl.removeNamedObject(params.name);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -148,13 +148,18 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -163,9 +168,13 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPackStateChanged');
           const result = this.impl.onPackStateChanged(params.info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -339,13 +348,18 @@ ash.language.mojom.LanguagePacksReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -354,6 +368,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPackInfo');
           const result = this.impl.getPackInfo(params.feature_id, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -365,6 +380,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 1: {
           const params = ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installPack');
           const result = this.impl.installPack(params.feature_id, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -376,6 +392,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 2: {
           const params = ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installBasePack');
           const result = this.impl.installBasePack(params.feature_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -387,6 +404,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 3: {
           const params = ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.uninstallPack');
           const result = this.impl.uninstallPack(params.feature_id, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -398,9 +416,13 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 4: {
           const params = ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

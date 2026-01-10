@@ -116,13 +116,18 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -131,9 +136,13 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemotePlayStateChange');
           const result = this.impl.onRemotePlayStateChange(params.state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -261,13 +270,18 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -276,6 +290,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDCOMPSurface');
           const result = this.impl.getDCOMPSurface();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -287,11 +302,13 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
         }
         case 1: {
           const params = media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVideoStreamEnabled');
           const result = this.impl.setVideoStreamEnabled(params.enabled);
           break;
         }
         case 2: {
           const params = media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutputRect');
           const result = this.impl.setOutputRect(params.rect);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -301,6 +318,9 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -368,19 +388,27 @@ media.mojom.MediaFoundationRendererObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -464,13 +492,18 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -479,9 +512,13 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaFoundationRendererCreated');
           const result = this.impl.mediaFoundationRendererCreated(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

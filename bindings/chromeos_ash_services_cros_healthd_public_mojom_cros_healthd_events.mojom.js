@@ -676,13 +676,18 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -691,34 +696,43 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdapterAdded');
           const result = this.impl.onAdapterAdded();
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdapterRemoved');
           const result = this.impl.onAdapterRemoved();
           break;
         }
         case 2: {
           const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdapterPropertyChanged');
           const result = this.impl.onAdapterPropertyChanged();
           break;
         }
         case 3: {
           const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded();
           break;
         }
         case 4: {
           const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved();
           break;
         }
         case 5: {
           const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDevicePropertyChanged');
           const result = this.impl.onDevicePropertyChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -816,13 +830,18 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -831,14 +850,19 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLidClosed');
           const result = this.impl.onLidClosed();
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLidOpened');
           const result = this.impl.onLidOpened();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -966,13 +990,18 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -981,24 +1010,31 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAcInserted');
           const result = this.impl.onAcInserted();
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAcRemoved');
           const result = this.impl.onAcRemoved();
           break;
         }
         case 2: {
           const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOsSuspend');
           const result = this.impl.onOsSuspend();
           break;
         }
         case 3: {
           const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOsResume');
           const result = this.impl.onOsResume();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1096,13 +1132,18 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1111,14 +1152,19 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUnderrun');
           const result = this.impl.onUnderrun();
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSevereUnderrun');
           const result = this.impl.onSevereUnderrun();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1246,13 +1292,18 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1261,24 +1312,31 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
         }
         case 2: {
           const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAuthorized');
           const result = this.impl.onAuthorized();
           break;
         }
         case 3: {
           const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUnAuthorized');
           const result = this.impl.onUnAuthorized();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1378,13 +1436,18 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1393,14 +1456,19 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd(params.info);
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove(params.info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1498,13 +1566,18 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1513,14 +1586,19 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1604,13 +1682,18 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1619,9 +1702,13 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

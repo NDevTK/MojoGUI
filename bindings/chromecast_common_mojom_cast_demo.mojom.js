@@ -106,13 +106,18 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -121,9 +126,13 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.volumeChanged');
           const result = this.impl.volumeChanged(params.level);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -424,13 +433,18 @@ chromecast.shell.mojom.CastDemoReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -439,21 +453,25 @@ chromecast.shell.mojom.CastDemoReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordEvent');
           const result = this.impl.recordEvent(params.event_name, params.data);
           break;
         }
         case 1: {
           const params = chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setRetailerName');
           const result = this.impl.setRetailerName(params.retailer_name);
           break;
         }
         case 2: {
           const params = chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setStoreId');
           const result = this.impl.setStoreId(params.store_id);
           break;
         }
         case 3: {
           const params = chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRetailerName');
           const result = this.impl.getRetailerName();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -465,6 +483,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 4: {
           const params = chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStoreId');
           const result = this.impl.getStoreId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -476,11 +495,13 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 5: {
           const params = chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDefaultVolumeLevel');
           const result = this.impl.setDefaultVolumeLevel(params.level);
           break;
         }
         case 6: {
           const params = chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDefaultVolumeLevel');
           const result = this.impl.getDefaultVolumeLevel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -492,16 +513,19 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 7: {
           const params = chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applyDefaultVolume');
           const result = this.impl.applyDefaultVolume();
           break;
         }
         case 8: {
           const params = chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWifiCredentials');
           const result = this.impl.setWifiCredentials(params.ssid, params.psk);
           break;
         }
         case 9: {
           const params = chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAvailableWifiNetworks');
           const result = this.impl.getAvailableWifiNetworks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -513,6 +537,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 10: {
           const params = chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getConnectionStatus');
           const result = this.impl.getConnectionStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -524,14 +549,19 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
         case 11: {
           const params = chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addVolumeChangeObserver');
           const result = this.impl.addVolumeChangeObserver(params.observer);
           break;
         }
         case 12: {
           const params = chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.persistLocalStorage');
           const result = this.impl.persistLocalStorage();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

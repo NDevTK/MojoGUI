@@ -631,13 +631,18 @@ blink.mojom.IDBFactoryClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -646,29 +651,37 @@ blink.mojom.IDBFactoryClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBFactoryClient_Error_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.error');
           const result = this.impl.error(params.code, params.message);
           break;
         }
         case 1: {
           const params = blink.mojom.IDBFactoryClient_Blocked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.blocked');
           const result = this.impl.blocked(params.existing_version);
           break;
         }
         case 2: {
           const params = blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.upgradeNeeded');
           const result = this.impl.upgradeNeeded(params.pending_database, params.old_version, params.data_loss, params.data_loss_message, params.db_metadata);
           break;
         }
         case 3: {
           const params = blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openSuccess');
           const result = this.impl.openSuccess(params.pending_database, params.metadata);
           break;
         }
         case 4: {
           const params = blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteSuccess');
           const result = this.impl.deleteSuccess(params.old_version);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -802,13 +815,18 @@ blink.mojom.IDBDatabaseCallbacksReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -817,24 +835,31 @@ blink.mojom.IDBDatabaseCallbacksReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forcedClose');
           const result = this.impl.forcedClose();
           break;
         }
         case 1: {
           const params = blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.versionChange');
           const result = this.impl.versionChange(params.old_version, params.new_version);
           break;
         }
         case 2: {
           const params = blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort(params.transaction_id, params.code, params.message);
           break;
         }
         case 3: {
           const params = blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.transaction_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -985,13 +1010,18 @@ blink.mojom.IDBCursorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1000,6 +1030,7 @@ blink.mojom.IDBCursorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBCursor_Advance_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.advance');
           const result = this.impl.advance(params.count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1011,6 +1042,7 @@ blink.mojom.IDBCursorReceiver = class {
         }
         case 1: {
           const params = blink.mojom.IDBCursor_Continue_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.continue');
           const result = this.impl.continue(params.key, params.primary_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1022,6 +1054,7 @@ blink.mojom.IDBCursorReceiver = class {
         }
         case 2: {
           const params = blink.mojom.IDBCursor_Prefetch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prefetch');
           const result = this.impl.prefetch(params.count);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1033,9 +1066,13 @@ blink.mojom.IDBCursorReceiver = class {
         }
         case 3: {
           const params = blink.mojom.IDBCursor_PrefetchReset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prefetchReset');
           const result = this.impl.prefetchReset(params.used_prefetches);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1213,13 +1250,18 @@ blink.mojom.IDBTransactionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1228,16 +1270,19 @@ blink.mojom.IDBTransactionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createObjectStore');
           const result = this.impl.createObjectStore(params.object_store_id, params.name, params.key_path, params.auto_increment);
           break;
         }
         case 1: {
           const params = blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteObjectStore');
           const result = this.impl.deleteObjectStore(params.object_store_id);
           break;
         }
         case 2: {
           const params = blink.mojom.IDBTransaction_Put_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.put');
           const result = this.impl.put(params.object_store_id, params.value, params.key, params.mode, params.index_keys);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1249,19 +1294,25 @@ blink.mojom.IDBTransactionReceiver = class {
         }
         case 3: {
           const params = blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIndexKeys');
           const result = this.impl.setIndexKeys(params.object_store_id, params.primary_key, params.index_keys);
           break;
         }
         case 4: {
           const params = blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIndexKeysDone');
           const result = this.impl.setIndexKeysDone();
           break;
         }
         case 5: {
           const params = blink.mojom.IDBTransaction_Commit_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.commit');
           const result = this.impl.commit(params.num_errors_handled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1362,13 +1413,18 @@ blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1377,14 +1433,19 @@ blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.receiveResults');
           const result = this.impl.receiveResults(params.records, params.done);
           break;
         }
         case 1: {
           const params = blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1786,13 +1847,18 @@ blink.mojom.IDBDatabaseReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1801,21 +1867,25 @@ blink.mojom.IDBDatabaseReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.renameObjectStore');
           const result = this.impl.renameObjectStore(params.transaction_id, params.object_store_id, params.new_name);
           break;
         }
         case 1: {
           const params = blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createTransaction');
           const result = this.impl.createTransaction(params.transaction_receiver, params.transaction_id, params.object_store_ids, params.mode, params.durability);
           break;
         }
         case 2: {
           const params = blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.versionChangeIgnored');
           const result = this.impl.versionChangeIgnored();
           break;
         }
         case 3: {
           const params = blink.mojom.IDBDatabase_Get_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.get');
           const result = this.impl.get(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.key_only);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1827,6 +1897,7 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
         case 4: {
           const params = blink.mojom.IDBDatabase_GetAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAll');
           const result = this.impl.getAll(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.result_type, params.max_count, params.direction);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1838,6 +1909,7 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
         case 5: {
           const params = blink.mojom.IDBDatabase_OpenCursor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openCursor');
           const result = this.impl.openCursor(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.direction, params.key_only, params.task_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1849,6 +1921,7 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
         case 6: {
           const params = blink.mojom.IDBDatabase_Count_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.count');
           const result = this.impl.count(params.transaction_id, params.object_store_id, params.index_id, params.key_range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1860,6 +1933,7 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
         case 7: {
           const params = blink.mojom.IDBDatabase_DeleteRange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteRange');
           const result = this.impl.deleteRange(params.transaction_id, params.object_store_id, params.key_range);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1871,6 +1945,7 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
         case 8: {
           const params = blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getKeyGeneratorCurrentNumber');
           const result = this.impl.getKeyGeneratorCurrentNumber(params.transaction_id, params.object_store_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1882,6 +1957,7 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
         case 9: {
           const params = blink.mojom.IDBDatabase_Clear_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clear');
           const result = this.impl.clear(params.transaction_id, params.object_store_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1893,34 +1969,43 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
         case 10: {
           const params = blink.mojom.IDBDatabase_CreateIndex_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createIndex');
           const result = this.impl.createIndex(params.transaction_id, params.object_store_id, params.index);
           break;
         }
         case 11: {
           const params = blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteIndex');
           const result = this.impl.deleteIndex(params.transaction_id, params.object_store_id, params.index_id);
           break;
         }
         case 12: {
           const params = blink.mojom.IDBDatabase_RenameIndex_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.renameIndex');
           const result = this.impl.renameIndex(params.transaction_id, params.object_store_id, params.index_id, params.new_name);
           break;
         }
         case 13: {
           const params = blink.mojom.IDBDatabase_Abort_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort(params.transaction_id);
           break;
         }
         case 14: {
           const params = blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didBecomeInactive');
           const result = this.impl.didBecomeInactive();
           break;
         }
         case 15: {
           const params = blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updatePriority');
           const result = this.impl.updatePriority(params.new_priority);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -2050,13 +2135,18 @@ blink.mojom.IDBFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -2065,6 +2155,7 @@ blink.mojom.IDBFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDatabaseInfo');
           const result = this.impl.getDatabaseInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2076,14 +2167,19 @@ blink.mojom.IDBFactoryReceiver = class {
         }
         case 1: {
           const params = blink.mojom.IDBFactory_Open_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open(params.client, params.database_callbacks, params.name, params.version, params.version_change_transaction_receiver, params.transaction_id, params.priority);
           break;
         }
         case 2: {
           const params = blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteDatabase');
           const result = this.impl.deleteDatabase(params.client, params.name, params.force_close);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

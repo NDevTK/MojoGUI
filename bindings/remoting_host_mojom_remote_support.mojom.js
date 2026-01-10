@@ -289,13 +289,18 @@ remoting.mojom.SupportHostObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -304,54 +309,67 @@ remoting.mojom.SupportHostObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStateStarting');
           const result = this.impl.onHostStateStarting();
           break;
         }
         case 1: {
           const params = remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStateRequestedAccessCode');
           const result = this.impl.onHostStateRequestedAccessCode();
           break;
         }
         case 2: {
           const params = remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStateReceivedAccessCode');
           const result = this.impl.onHostStateReceivedAccessCode(params.access_code, params.lifetime);
           break;
         }
         case 3: {
           const params = remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStateConnecting');
           const result = this.impl.onHostStateConnecting();
           break;
         }
         case 4: {
           const params = remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStateConnected');
           const result = this.impl.onHostStateConnected(params.remote_username);
           break;
         }
         case 6: {
           const params = remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStateDisconnected');
           const result = this.impl.onHostStateDisconnected(params.disconnect_reason);
           break;
         }
         case 7: {
           const params = remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNatPolicyChanged');
           const result = this.impl.onNatPolicyChanged(params.nat_policy_state);
           break;
         }
         case 8: {
           const params = remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostStateError');
           const result = this.impl.onHostStateError(params.error_code);
           break;
         }
         case 9: {
           const params = remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPolicyError');
           const result = this.impl.onPolicyError();
           break;
         }
         case 10: {
           const params = remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInvalidDomainError');
           const result = this.impl.onInvalidDomainError();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

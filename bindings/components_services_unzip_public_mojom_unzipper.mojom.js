@@ -127,13 +127,18 @@ unzip.mojom.UnzipFilterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -142,6 +147,7 @@ unzip.mojom.UnzipFilterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldUnzipFile');
           const result = this.impl.shouldUnzipFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -151,6 +157,9 @@ unzip.mojom.UnzipFilterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -234,13 +243,18 @@ unzip.mojom.UnzipListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -249,9 +263,13 @@ unzip.mojom.UnzipListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.bytes);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -412,13 +430,18 @@ unzip.mojom.UnzipperReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -427,6 +450,7 @@ unzip.mojom.UnzipperReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = unzip.mojom.Unzipper_Unzip_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unzip');
           const result = this.impl.unzip(params.zip_file, params.output_dir, params.options, params.filter, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -438,6 +462,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 1: {
           const params = unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.detectEncoding');
           const result = this.impl.detectEncoding(params.zip_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -449,6 +474,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 2: {
           const params = unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getExtractedInfo');
           const result = this.impl.getExtractedInfo(params.zip_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -460,6 +486,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
         case 3: {
           const params = unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decodeXz');
           const result = this.impl.decodeXz(params.in_file, params.out_file);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -469,6 +496,9 @@ unzip.mojom.UnzipperReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

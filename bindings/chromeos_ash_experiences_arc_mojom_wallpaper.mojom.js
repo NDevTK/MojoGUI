@@ -129,13 +129,18 @@ arc.mojom.WallpaperHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -144,6 +149,7 @@ arc.mojom.WallpaperHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWallpaper');
           const result = this.impl.getWallpaper();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -155,14 +161,19 @@ arc.mojom.WallpaperHostReceiver = class {
         }
         case 1: {
           const params = arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWallpaper');
           const result = this.impl.setWallpaper(params.data, params.wallpaper_id);
           break;
         }
         case 2: {
           const params = arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDefaultWallpaper');
           const result = this.impl.setDefaultWallpaper();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -267,13 +278,18 @@ arc.mojom.WallpaperInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -282,6 +298,7 @@ arc.mojom.WallpaperInstanceReceiver = class {
       switch (header.ordinal) {
         case 3: {
           const params = arc.mojom.WallpaperInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -293,9 +310,13 @@ arc.mojom.WallpaperInstanceReceiver = class {
         }
         case 1: {
           const params = arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWallpaperChanged');
           const result = this.impl.onWallpaperChanged(params.wallpaper_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

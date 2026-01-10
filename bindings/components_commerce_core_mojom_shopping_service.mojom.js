@@ -244,13 +244,18 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -259,9 +264,13 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createShoppingServiceHandler');
           const result = this.impl.createShoppingServiceHandler(params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -742,13 +751,18 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -757,6 +771,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductInfoForCurrentUrl');
           const result = this.impl.getProductInfoForCurrentUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -768,6 +783,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 1: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrl');
           const result = this.impl.getProductInfoForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -779,6 +795,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 2: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductInfoForUrls');
           const result = this.impl.getProductInfoForUrls(params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -790,6 +807,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 3: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPriceInsightsInfoForCurrentUrl');
           const result = this.impl.getPriceInsightsInfoForCurrentUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -801,6 +819,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 4: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPriceInsightsInfoForUrl');
           const result = this.impl.getPriceInsightsInfoForUrl(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -812,6 +831,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 5: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsForUrls');
           const result = this.impl.getProductSpecificationsForUrls(params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -823,6 +843,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 6: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUrlInfosForProductTabs');
           const result = this.impl.getUrlInfosForProductTabs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -834,6 +855,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 7: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUrlInfosForRecentlyViewedTabs');
           const result = this.impl.getUrlInfosForRecentlyViewedTabs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -845,6 +867,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 8: {
           const params = shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isShoppingListEligible');
           const result = this.impl.isShoppingListEligible();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -856,6 +879,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 9: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPriceTrackingStatusForCurrentUrl');
           const result = this.impl.getPriceTrackingStatusForCurrentUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -867,16 +891,19 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 10: {
           const params = shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openUrlInNewTab');
           const result = this.impl.openUrlInNewTab(params.url);
           break;
         }
         case 11: {
           const params = shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.switchToOrOpenTab');
           const result = this.impl.switchToOrOpenTab(params.url);
           break;
         }
         case 12: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllProductSpecificationsSets');
           const result = this.impl.getAllProductSpecificationsSets();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -888,6 +915,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 13: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsSetByUuid');
           const result = this.impl.getProductSpecificationsSetByUuid(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -899,6 +927,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 14: {
           const params = shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addProductSpecificationsSet');
           const result = this.impl.addProductSpecificationsSet(params.name, params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -910,11 +939,13 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 15: {
           const params = shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteProductSpecificationsSet');
           const result = this.impl.deleteProductSpecificationsSet(params.uuid);
           break;
         }
         case 16: {
           const params = shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNameForProductSpecificationsSet');
           const result = this.impl.setNameForProductSpecificationsSet(params.uuid, params.name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -926,6 +957,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 17: {
           const params = shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUrlsForProductSpecificationsSet');
           const result = this.impl.setUrlsForProductSpecificationsSet(params.uuid, params.urls);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -937,11 +969,13 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
         case 18: {
           const params = shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setProductSpecificationsUserFeedback');
           const result = this.impl.setProductSpecificationsUserFeedback(params.feedback);
           break;
         }
         case 19: {
           const params = shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProductSpecificationsFeatureState');
           const result = this.impl.getProductSpecificationsFeatureState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -951,6 +985,9 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

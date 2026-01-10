@@ -98,13 +98,18 @@ test.mojom.FooReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -113,6 +118,7 @@ test.mojom.FooReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = test.mojom.Foo_GetFoo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFoo');
           const result = this.impl.getFoo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -122,6 +128,9 @@ test.mojom.FooReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -210,13 +219,18 @@ test.mojom.BarReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -225,6 +239,7 @@ test.mojom.BarReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = test.mojom.Bar_GetBar_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBar');
           const result = this.impl.getBar();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -234,6 +249,9 @@ test.mojom.BarReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -322,13 +340,18 @@ test.mojom.BazReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -337,6 +360,7 @@ test.mojom.BazReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = test.mojom.Baz_GetBaz_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBaz');
           const result = this.impl.getBaz();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -346,6 +370,9 @@ test.mojom.BazReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

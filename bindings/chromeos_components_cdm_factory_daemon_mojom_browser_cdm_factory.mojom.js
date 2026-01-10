@@ -235,13 +235,18 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -250,6 +255,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createFactory');
           const result = this.impl.createFactory(params.key_system);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -261,11 +267,13 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 1: {
           const params = chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOutputProtection');
           const result = this.impl.getOutputProtection(params.output_protection);
           break;
         }
         case 2: {
           const params = chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHwConfigData');
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -277,6 +285,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 3: {
           const params = chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getScreenResolutions');
           const result = this.impl.getScreenResolutions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -288,6 +297,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 4: {
           const params = chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
           const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -299,6 +309,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 5: {
           const params = chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -310,6 +321,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 6: {
           const params = chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -319,6 +331,9 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

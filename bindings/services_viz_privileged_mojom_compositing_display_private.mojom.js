@@ -395,13 +395,18 @@ viz.mojom.DisplayPrivateReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -410,11 +415,13 @@ viz.mojom.DisplayPrivateReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDisplayVisible');
           const result = this.impl.setDisplayVisible(params.visible);
           break;
         }
         case 1: {
           const params = viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableSwapUntilResize');
           const result = this.impl.disableSwapUntilResize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -426,84 +433,103 @@ viz.mojom.DisplayPrivateReceiver = class {
         }
         case 2: {
           const params = viz.mojom.DisplayPrivate_Resize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resize');
           const result = this.impl.resize(params.size);
           break;
         }
         case 3: {
           const params = viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDisplayColorMatrix');
           const result = this.impl.setDisplayColorMatrix(params.color_matrix);
           break;
         }
         case 4: {
           const params = viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDisplayColorSpaces');
           const result = this.impl.setDisplayColorSpaces(params.display_color_spaces);
           break;
         }
         case 5: {
           const params = viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutputIsSecure');
           const result = this.impl.setOutputIsSecure(params.secure);
           break;
         }
         case 6: {
           const params = viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVSyncDisplayID');
           const result = this.impl.setVSyncDisplayID(params.display_id);
           break;
         }
         case 7: {
           const params = viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDisplayVSyncParameters');
           const result = this.impl.setDisplayVSyncParameters(params.timebase, params.interval);
           break;
         }
         case 8: {
           const params = viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceImmediateDrawAndSwapIfPossible');
           const result = this.impl.forceImmediateDrawAndSwapIfPossible();
           break;
         }
         case 9: {
           const params = viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateRefreshRate');
           const result = this.impl.updateRefreshRate(params.refresh_rate);
           break;
         }
         case 10: {
           const params = viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAdaptiveRefreshRateInfo');
           const result = this.impl.setAdaptiveRefreshRateInfo(params.has_support, params.suggested_high, params.device_scale_factor);
           break;
         }
         case 11: {
           const params = viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSupportedRefreshRates');
           const result = this.impl.setSupportedRefreshRates(params.refresh_rates);
           break;
         }
         case 12: {
           const params = viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.preserveChildSurfaceControls');
           const result = this.impl.preserveChildSurfaceControls();
           break;
         }
         case 13: {
           const params = viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSwapCompletionCallbackEnabled');
           const result = this.impl.setSwapCompletionCallbackEnabled(params.enable);
           break;
         }
         case 14: {
           const params = viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addVSyncParameterObserver');
           const result = this.impl.addVSyncParameterObserver(params.observer);
           break;
         }
         case 15: {
           const params = viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDelegatedInkPointRenderer');
           const result = this.impl.setDelegatedInkPointRenderer(params.receiver);
           break;
         }
         case 16: {
           const params = viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setStandaloneBeginFrameObserver');
           const result = this.impl.setStandaloneBeginFrameObserver(params.observer);
           break;
         }
         case 17: {
           const params = viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMaxVSyncAndVrr');
           const result = this.impl.setMaxVSyncAndVrr(params.max_vsync_interval, params.vrr_state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -699,13 +725,18 @@ viz.mojom.DisplayClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -714,44 +745,55 @@ viz.mojom.DisplayClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDisplayReceivedCALayerParams');
           const result = this.impl.onDisplayReceivedCALayerParams(params.ca_layer_params);
           break;
         }
         case 1: {
           const params = viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createLayeredWindowUpdater');
           const result = this.impl.createLayeredWindowUpdater(params.receiver);
           break;
         }
         case 2: {
           const params = viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addChildWindowToBrowser');
           const result = this.impl.addChildWindowToBrowser(params.child_window);
           break;
         }
         case 3: {
           const params = viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCompleteSwapWithSize');
           const result = this.impl.didCompleteSwapWithSize(params.size);
           break;
         }
         case 4: {
           const params = viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didCompleteSwapWithNewSize');
           const result = this.impl.didCompleteSwapWithNewSize(params.size);
           break;
         }
         case 5: {
           const params = viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onContextCreationResult');
           const result = this.impl.onContextCreationResult(params.result);
           break;
         }
         case 6: {
           const params = viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWideColorEnabled');
           const result = this.impl.setWideColorEnabled(params.enabled);
           break;
         }
         case 7: {
           const params = viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPreferredRefreshRate');
           const result = this.impl.setPreferredRefreshRate(params.refresh_rate);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

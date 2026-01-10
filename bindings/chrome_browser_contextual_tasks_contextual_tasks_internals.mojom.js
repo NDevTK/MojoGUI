@@ -122,13 +122,18 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRecei
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -137,9 +142,13 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRecei
       switch (header.ordinal) {
         case 0: {
           const params = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -229,13 +238,18 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver = c
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -244,6 +258,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver = c
       switch (header.ordinal) {
         case 0: {
           const params = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRelevantContext');
           const result = this.impl.getRelevantContext(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -253,6 +268,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver = c
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -339,13 +357,18 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -354,9 +377,13 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
           const result = this.impl.onLogMessageAdded(params.event_time, params.source_file, params.source_line, params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

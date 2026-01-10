@@ -390,13 +390,18 @@ tracing.mojom.ProducerHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -405,6 +410,7 @@ tracing.mojom.ProducerHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.ProducerHost_CommitData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.commitData');
           const result = this.impl.commitData(params.data_request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -416,24 +422,31 @@ tracing.mojom.ProducerHostReceiver = class {
         }
         case 1: {
           const params = tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerDataSource');
           const result = this.impl.registerDataSource(params.registration_info);
           break;
         }
         case 2: {
           const params = tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateDataSource');
           const result = this.impl.updateDataSource(params.registration_info);
           break;
         }
         case 3: {
           const params = tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerTraceWriter');
           const result = this.impl.registerTraceWriter(params.writer_id, params.target_buffer);
           break;
         }
         case 4: {
           const params = tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unregisterTraceWriter');
           const result = this.impl.unregisterTraceWriter(params.writer_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -591,13 +604,18 @@ tracing.mojom.ProducerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -606,11 +624,13 @@ tracing.mojom.ProducerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTracingStart');
           const result = this.impl.onTracingStart();
           break;
         }
         case 1: {
           const params = tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDataSource');
           const result = this.impl.startDataSource(params.id, params.data_source_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -622,6 +642,7 @@ tracing.mojom.ProducerClientReceiver = class {
         }
         case 2: {
           const params = tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopDataSource');
           const result = this.impl.stopDataSource(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -633,14 +654,19 @@ tracing.mojom.ProducerClientReceiver = class {
         }
         case 3: {
           const params = tracing.mojom.ProducerClient_Flush_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush(params.flush_request_id, params.data_source_ids);
           break;
         }
         case 4: {
           const params = tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearIncrementalState');
           const result = this.impl.clearIncrementalState();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -727,13 +753,18 @@ tracing.mojom.PerfettoServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -742,9 +773,13 @@ tracing.mojom.PerfettoServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectToProducerHost');
           const result = this.impl.connectToProducerHost(params.producer_client, params.producer_host_receiver, params.shared_memory, params.shared_memory_buffer_page_size_bytes);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -858,13 +893,18 @@ tracing.mojom.ConsumerHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -873,11 +913,13 @@ tracing.mojom.ConsumerHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableTracing');
           const result = this.impl.enableTracing(params.tracing_session_host, params.tracing_session_client, params.config, params.output_file);
           break;
         }
         case 1: {
           const params = tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cloneSession');
           const result = this.impl.cloneSession(params.tracing_session_host, params.tracing_session_client, params.unguessable_name, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -887,6 +929,9 @@ tracing.mojom.ConsumerHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1052,13 +1097,18 @@ tracing.mojom.TracingSessionHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1067,16 +1117,19 @@ tracing.mojom.TracingSessionHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.changeTraceConfig');
           const result = this.impl.changeTraceConfig(params.config);
           break;
         }
         case 1: {
           const params = tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableTracing');
           const result = this.impl.disableTracing();
           break;
         }
         case 2: {
           const params = tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readBuffers');
           const result = this.impl.readBuffers(params.stream);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1088,6 +1141,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         }
         case 3: {
           const params = tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestBufferUsage');
           const result = this.impl.requestBufferUsage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1099,6 +1153,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         }
         case 4: {
           const params = tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableTracingAndEmitJson');
           const result = this.impl.disableTracingAndEmitJson(params.agent_label_filter, params.stream, params.privacy_filtering_enabled);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1108,6 +1163,9 @@ tracing.mojom.TracingSessionHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1206,13 +1264,18 @@ tracing.mojom.TracingSessionClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1221,14 +1284,19 @@ tracing.mojom.TracingSessionClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTracingEnabled');
           const result = this.impl.onTracingEnabled();
           break;
         }
         case 1: {
           const params = tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTracingDisabled');
           const result = this.impl.onTracingDisabled(params.tracing_succeeded);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

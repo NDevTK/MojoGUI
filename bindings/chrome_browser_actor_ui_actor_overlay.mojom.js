@@ -114,13 +114,18 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -129,9 +134,13 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -236,13 +245,18 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -251,11 +265,13 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHoverStatusChanged');
           const result = this.impl.onHoverStatusChanged(params.is_hovering);
           break;
         }
         case 1: {
           const params = actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCurrentBorderGlowVisibility');
           const result = this.impl.getCurrentBorderGlowVisibility();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -265,6 +281,9 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -421,13 +440,18 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -436,21 +460,25 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setScrimBackground');
           const result = this.impl.setScrimBackground(params.is_visible);
           break;
         }
         case 1: {
           const params = actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBorderGlowVisibility');
           const result = this.impl.setBorderGlowVisibility(params.is_visible);
           break;
         }
         case 2: {
           const params = actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTheme');
           const result = this.impl.setTheme(params.theme);
           break;
         }
         case 3: {
           const params = actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.moveCursorTo');
           const result = this.impl.moveCursorTo(params.point);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -462,6 +490,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         }
         case 4: {
           const params = actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.triggerClickAnimation');
           const result = this.impl.triggerClickAnimation();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -471,6 +500,9 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

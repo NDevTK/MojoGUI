@@ -333,13 +333,18 @@ network.mojom.WebTransportReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -348,6 +353,7 @@ network.mojom.WebTransportReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebTransport_SendDatagram_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendDatagram');
           const result = this.impl.sendDatagram(params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -359,6 +365,7 @@ network.mojom.WebTransportReceiver = class {
         }
         case 1: {
           const params = network.mojom.WebTransport_CreateStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createStream');
           const result = this.impl.createStream(params.readable, params.writable);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -370,6 +377,7 @@ network.mojom.WebTransportReceiver = class {
         }
         case 2: {
           const params = network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acceptBidirectionalStream');
           const result = this.impl.acceptBidirectionalStream();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -381,6 +389,7 @@ network.mojom.WebTransportReceiver = class {
         }
         case 3: {
           const params = network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acceptUnidirectionalStream');
           const result = this.impl.acceptUnidirectionalStream();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -392,26 +401,31 @@ network.mojom.WebTransportReceiver = class {
         }
         case 4: {
           const params = network.mojom.WebTransport_SendFin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendFin');
           const result = this.impl.sendFin(params.stream_id);
           break;
         }
         case 5: {
           const params = network.mojom.WebTransport_AbortStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.abortStream');
           const result = this.impl.abortStream(params.stream_id, params.code);
           break;
         }
         case 6: {
           const params = network.mojom.WebTransport_StopSending_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopSending');
           const result = this.impl.stopSending(params.stream_id, params.code);
           break;
         }
         case 7: {
           const params = network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutgoingDatagramExpirationDuration');
           const result = this.impl.setOutgoingDatagramExpirationDuration(params.duration);
           break;
         }
         case 8: {
           const params = network.mojom.WebTransport_GetStats_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStats');
           const result = this.impl.getStats();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -423,9 +437,13 @@ network.mojom.WebTransportReceiver = class {
         }
         case 9: {
           const params = network.mojom.WebTransport_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close(params.close_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -593,13 +611,18 @@ network.mojom.WebTransportClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -608,34 +631,43 @@ network.mojom.WebTransportClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDatagramReceived');
           const result = this.impl.onDatagramReceived(params.data);
           break;
         }
         case 1: {
           const params = network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onIncomingStreamClosed');
           const result = this.impl.onIncomingStreamClosed(params.stream_id, params.fin_received);
           break;
         }
         case 2: {
           const params = network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOutgoingStreamClosed');
           const result = this.impl.onOutgoingStreamClosed(params.stream_id);
           break;
         }
         case 3: {
           const params = network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReceivedStopSending');
           const result = this.impl.onReceivedStopSending(params.stream_id, params.stream_error_code);
           break;
         }
         case 4: {
           const params = network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReceivedResetStream');
           const result = this.impl.onReceivedResetStream(params.stream_id, params.stream_error_code);
           break;
         }
         case 5: {
           const params = network.mojom.WebTransportClient_OnClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClosed');
           const result = this.impl.onClosed(params.close_info, params.final_stats);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -755,13 +787,18 @@ network.mojom.WebTransportHandshakeClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -770,19 +807,25 @@ network.mojom.WebTransportHandshakeClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBeforeConnect');
           const result = this.impl.onBeforeConnect(params.server_address);
           break;
         }
         case 1: {
           const params = network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnectionEstablished');
           const result = this.impl.onConnectionEstablished(params.transport, params.client, params.response_headers, params.selected_application_protocol, params.initial_stats);
           break;
         }
         case 2: {
           const params = network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHandshakeFailed');
           const result = this.impl.onHandshakeFailed(params.error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

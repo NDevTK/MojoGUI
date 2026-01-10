@@ -140,13 +140,18 @@ printing.mojom.PrintingServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -155,24 +160,31 @@ printing.mojom.PrintingServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindPdfNupConverter');
           const result = this.impl.bindPdfNupConverter(params.receiver);
           break;
         }
         case 1: {
           const params = printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindPdfToPwgRasterConverter');
           const result = this.impl.bindPdfToPwgRasterConverter(params.receiver);
           break;
         }
         case 2: {
           const params = printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindPdfFlattener');
           const result = this.impl.bindPdfFlattener(params.receiver);
           break;
         }
         case 3: {
           const params = printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindPdfToEmfConverterFactory');
           const result = this.impl.bindPdfToEmfConverterFactory(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

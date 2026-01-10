@@ -152,13 +152,18 @@ media.mojom.VideoEncoderMetricsProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -167,24 +172,31 @@ media.mojom.VideoEncoderMetricsProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.encoder_id, params.encoder_use_case, params.profile, params.encode_size, params.is_hardware_encoder, params.svc_mode);
           break;
         }
         case 1: {
           const params = media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setEncodedFrameCount');
           const result = this.impl.setEncodedFrameCount(params.encoder_id, params.num_encoded_frames);
           break;
         }
         case 2: {
           const params = media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setError');
           const result = this.impl.setError(params.encoder_id, params.status);
           break;
         }
         case 3: {
           const params = media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.encoder_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

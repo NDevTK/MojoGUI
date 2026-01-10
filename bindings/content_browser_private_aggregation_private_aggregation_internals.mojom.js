@@ -154,13 +154,18 @@ private_aggregation_internals.mojom.ObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -169,14 +174,19 @@ private_aggregation_internals.mojom.ObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRequestStorageModified');
           const result = this.impl.onRequestStorageModified();
           break;
         }
         case 1: {
           const params = private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReportHandled');
           const result = this.impl.onReportHandled(params.report);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -306,13 +316,18 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -321,6 +336,7 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getReports');
           const result = this.impl.getReports();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -332,6 +348,7 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
         }
         case 1: {
           const params = private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendReports');
           const result = this.impl.sendReports(params.ids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -343,6 +360,7 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
         }
         case 2: {
           const params = private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearStorage');
           const result = this.impl.clearStorage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -352,6 +370,9 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -436,13 +457,18 @@ private_aggregation_internals.mojom.FactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -451,9 +477,13 @@ private_aggregation_internals.mojom.FactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.observer, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

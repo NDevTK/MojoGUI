@@ -436,13 +436,18 @@ crosapi.mojom.TelemetryEventObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -451,9 +456,13 @@ crosapi.mojom.TelemetryEventObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEvent');
           const result = this.impl.onEvent(params.info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -560,13 +569,18 @@ crosapi.mojom.TelemetryEventServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -575,11 +589,13 @@ crosapi.mojom.TelemetryEventServiceReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addEventObserver');
           const result = this.impl.addEventObserver(params.category, params.observer);
           break;
         }
         case 2: {
           const params = crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isEventSupported');
           const result = this.impl.isEventSupported(params.category);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -589,6 +605,9 @@ crosapi.mojom.TelemetryEventServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

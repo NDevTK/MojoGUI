@@ -199,13 +199,18 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -214,6 +219,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readPrefsWithPrefixes');
           const result = this.impl.readPrefsWithPrefixes(params.pref_prefixes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -225,6 +231,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readContentSettings');
           const result = this.impl.readContentSettings(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -236,6 +243,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTpcdMetadataGrants');
           const result = this.impl.getTpcdMetadataGrants();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -247,6 +255,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const params = privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.contentSettingsPatternToString');
           const result = this.impl.contentSettingsPatternToString(params.pattern);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -258,6 +267,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const params = privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stringToContentSettingsPattern');
           const result = this.impl.stringToContentSettingsPattern(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -267,6 +277,9 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -334,19 +347,27 @@ privacy_sandbox_internals.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

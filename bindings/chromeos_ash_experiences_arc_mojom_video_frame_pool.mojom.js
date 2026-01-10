@@ -125,13 +125,18 @@ arc.mojom.VideoFramePoolReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -140,11 +145,13 @@ arc.mojom.VideoFramePoolReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.VideoFramePool_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.client);
           break;
         }
         case 1: {
           const params = arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addVideoFrame');
           const result = this.impl.addVideoFrame(params.video_frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -154,6 +161,9 @@ arc.mojom.VideoFramePoolReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -245,13 +255,18 @@ arc.mojom.VideoFramePoolClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -260,6 +275,7 @@ arc.mojom.VideoFramePoolClientReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestVideoFrames');
           const result = this.impl.requestVideoFrames(params.format, params.coded_size, params.visible_rect, params.num_frames);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -269,6 +285,9 @@ arc.mojom.VideoFramePoolClientReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

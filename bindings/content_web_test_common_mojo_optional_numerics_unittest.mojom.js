@@ -1285,13 +1285,18 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1300,6 +1305,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullBool');
           const result = this.impl.sendNullBool(params.optional_bool);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1311,6 +1317,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 1: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullUint8');
           const result = this.impl.sendNullUint8(params.optional_uint8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1322,6 +1329,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 2: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullInt8');
           const result = this.impl.sendNullInt8(params.optional_int8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1333,6 +1341,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 3: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullUint16');
           const result = this.impl.sendNullUint16(params.optional_uint16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1344,6 +1353,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 4: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullInt16');
           const result = this.impl.sendNullInt16(params.optional_int16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1355,6 +1365,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 5: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullUint32');
           const result = this.impl.sendNullUint32(params.optional_uint32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1366,6 +1377,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 6: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullInt32');
           const result = this.impl.sendNullInt32(params.optional_int32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1377,6 +1389,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 7: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullUint64');
           const result = this.impl.sendNullUint64(params.optional_uint64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1388,6 +1401,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 8: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullInt64');
           const result = this.impl.sendNullInt64(params.optional_int64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1399,6 +1413,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 9: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullFloat');
           const result = this.impl.sendNullFloat(params.optional_float);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1410,6 +1425,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 10: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullDouble');
           const result = this.impl.sendNullDouble(params.optional_double);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1421,6 +1437,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 11: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullEnum');
           const result = this.impl.sendNullEnum(params.optional_enum);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1432,6 +1449,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 12: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullBools');
           const result = this.impl.sendNullBools(params.optional_bools);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1443,6 +1461,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 13: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullInt16s');
           const result = this.impl.sendNullInt16s(params.optional_int16s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1454,6 +1473,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 14: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullUint32s');
           const result = this.impl.sendNullUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1465,6 +1485,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 15: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullDoubles');
           const result = this.impl.sendNullDoubles(params.optional_doubles);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1476,6 +1497,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 16: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullEnums');
           const result = this.impl.sendNullEnums(params.optional_enums);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1487,6 +1509,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 17: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullBoolMap');
           const result = this.impl.sendNullBoolMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1498,6 +1521,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 18: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullDoubleMap');
           const result = this.impl.sendNullDoubleMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1509,6 +1533,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 19: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullEnumMap');
           const result = this.impl.sendNullEnumMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1520,6 +1545,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 20: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalBool');
           const result = this.impl.sendOptionalBool(params.optional_bool);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1531,6 +1557,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 21: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalUint8');
           const result = this.impl.sendOptionalUint8(params.optional_uint8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1542,6 +1569,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 22: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalInt8');
           const result = this.impl.sendOptionalInt8(params.optional_int8);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1553,6 +1581,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 23: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalUint16');
           const result = this.impl.sendOptionalUint16(params.optional_uint16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1564,6 +1593,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 24: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16');
           const result = this.impl.sendOptionalInt16(params.optional_int16);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1575,6 +1605,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 25: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32');
           const result = this.impl.sendOptionalUint32(params.optional_uint32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1586,6 +1617,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 26: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalInt32');
           const result = this.impl.sendOptionalInt32(params.optional_int32);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1597,6 +1629,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 27: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalUint64');
           const result = this.impl.sendOptionalUint64(params.optional_uint64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1608,6 +1641,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 28: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalInt64');
           const result = this.impl.sendOptionalInt64(params.optional_int64);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1619,6 +1653,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 29: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalFloat');
           const result = this.impl.sendOptionalFloat(params.optional_float);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1630,6 +1665,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 30: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalDouble');
           const result = this.impl.sendOptionalDouble(params.optional_double);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1641,6 +1677,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 31: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalEnum');
           const result = this.impl.sendOptionalEnum(params.optional_enum);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1652,6 +1689,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 32: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalBools');
           const result = this.impl.sendOptionalBools(params.optional_enums);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1663,6 +1701,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 33: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16s');
           const result = this.impl.sendOptionalInt16s(params.optional_int16s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1674,6 +1713,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 34: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32s');
           const result = this.impl.sendOptionalUint32s(params.optional_uint32s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1685,6 +1725,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 35: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubles');
           const result = this.impl.sendOptionalDoubles(params.optional_doubles);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1696,6 +1737,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 36: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalEnums');
           const result = this.impl.sendOptionalEnums(params.optional_enums);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1707,6 +1749,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 37: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalBoolMap');
           const result = this.impl.sendOptionalBoolMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1718,6 +1761,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 38: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubleMap');
           const result = this.impl.sendOptionalDoubleMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1729,6 +1773,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 39: {
           const params = content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendOptionalEnumMap');
           const result = this.impl.sendOptionalEnumMap(params.values);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1740,6 +1785,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 40: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendNullStructWithOptionalNumerics');
           const result = this.impl.sendNullStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1751,6 +1797,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 41: {
           const params = content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendStructWithNullOptionalNumerics');
           const result = this.impl.sendStructWithNullOptionalNumerics(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1762,6 +1809,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
         case 42: {
           const params = content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendStructWithOptionalNumerics');
           const result = this.impl.sendStructWithOptionalNumerics(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1771,6 +1819,9 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -2798,13 +2849,18 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -2813,6 +2869,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullBool');
           const result = this.impl.getNullBool();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2824,6 +2881,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 1: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullUint8');
           const result = this.impl.getNullUint8();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2835,6 +2893,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 2: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullInt8');
           const result = this.impl.getNullInt8();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2846,6 +2905,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 3: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullUint16');
           const result = this.impl.getNullUint16();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2857,6 +2917,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 4: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullInt16');
           const result = this.impl.getNullInt16();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2868,6 +2929,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 5: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullUint32');
           const result = this.impl.getNullUint32();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2879,6 +2941,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 6: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullInt32');
           const result = this.impl.getNullInt32();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2890,6 +2953,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 7: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullUint64');
           const result = this.impl.getNullUint64();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2901,6 +2965,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 8: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullInt64');
           const result = this.impl.getNullInt64();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2912,6 +2977,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 9: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullFloat');
           const result = this.impl.getNullFloat();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2923,6 +2989,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 10: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullDouble');
           const result = this.impl.getNullDouble();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2934,6 +3001,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 11: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullEnum');
           const result = this.impl.getNullEnum();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2945,6 +3013,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 12: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullBools');
           const result = this.impl.getNullBools();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2956,6 +3025,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 13: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullInt16s');
           const result = this.impl.getNullInt16s();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2967,6 +3037,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 14: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullUint32s');
           const result = this.impl.getNullUint32s();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2978,6 +3049,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 15: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullDoubles');
           const result = this.impl.getNullDoubles();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2989,6 +3061,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 16: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullEnums');
           const result = this.impl.getNullEnums();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3000,6 +3073,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 17: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullBoolMap');
           const result = this.impl.getNullBoolMap();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3011,6 +3085,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 18: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullInt32Map');
           const result = this.impl.getNullInt32Map();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3022,6 +3097,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 19: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullEnumMap');
           const result = this.impl.getNullEnumMap();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3033,6 +3109,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 20: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalBool');
           const result = this.impl.getOptionalBool(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3044,6 +3121,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 21: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalUint8');
           const result = this.impl.getOptionalUint8(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3055,6 +3133,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 22: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalInt8');
           const result = this.impl.getOptionalInt8(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3066,6 +3145,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 23: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalUint16');
           const result = this.impl.getOptionalUint16(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3077,6 +3157,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 24: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalInt16');
           const result = this.impl.getOptionalInt16(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3088,6 +3169,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 25: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalUint32');
           const result = this.impl.getOptionalUint32(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3099,6 +3181,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 26: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalInt32');
           const result = this.impl.getOptionalInt32(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3110,6 +3193,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 27: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalUint64');
           const result = this.impl.getOptionalUint64(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3121,6 +3205,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 28: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalInt64');
           const result = this.impl.getOptionalInt64(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3132,6 +3217,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 29: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalFloat');
           const result = this.impl.getOptionalFloat(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3143,6 +3229,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 30: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalDouble');
           const result = this.impl.getOptionalDouble(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3154,6 +3241,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 31: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalEnum');
           const result = this.impl.getOptionalEnum(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3165,6 +3253,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 32: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalBools');
           const result = this.impl.getOptionalBools(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3176,6 +3265,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 33: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalInt16s');
           const result = this.impl.getOptionalInt16s(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3187,6 +3277,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 34: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalUint32s');
           const result = this.impl.getOptionalUint32s(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3198,6 +3289,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 35: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalDoubles');
           const result = this.impl.getOptionalDoubles(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3209,6 +3301,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 36: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalEnums');
           const result = this.impl.getOptionalEnums(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3220,6 +3313,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 37: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalBoolMap');
           const result = this.impl.getOptionalBoolMap(params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3231,6 +3325,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 38: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalFloatMap');
           const result = this.impl.getOptionalFloatMap(params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3242,6 +3337,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 39: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOptionalEnumMap');
           const result = this.impl.getOptionalEnumMap(params.key, params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3253,6 +3349,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 40: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNullStructWithOptionalNumerics');
           const result = this.impl.getNullStructWithOptionalNumerics();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3264,6 +3361,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 41: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStructWithNullOptionalNumerics');
           const result = this.impl.getStructWithNullOptionalNumerics();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3275,6 +3373,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
         case 42: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStructWithOptionalNumerics');
           const result = this.impl.getStructWithOptionalNumerics(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3284,6 +3383,9 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -3393,13 +3495,18 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -3408,6 +3515,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
           const result = this.impl.methodWithVersionedParams();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3419,6 +3527,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         }
         case 2: {
           const params = content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3428,6 +3537,9 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -3583,13 +3695,18 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -3598,6 +3715,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
           const result = this.impl.methodWithVersionedParams(params.bool_value, params.uint8_value, params.int8_value, params.uint16_value, params.int16_value, params.uint32_value, params.int32_value, params.uint64_value, params.int64_value, params.float_value, params.double_value, params.enum_value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3609,6 +3727,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         }
         case 2: {
           const params = content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
           const result = this.impl.methodWithVersionedStruct(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3618,6 +3737,9 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

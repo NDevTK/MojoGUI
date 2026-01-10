@@ -93,13 +93,18 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -108,9 +113,13 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getController');
           const result = this.impl.getController(params.receiver, params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -194,13 +203,18 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -209,9 +223,13 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activateMediaPerception');
           const result = this.impl.activateMediaPerception(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -295,13 +313,18 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -310,9 +333,13 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectToVideoCaptureService');
           const result = this.impl.connectToVideoCaptureService(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

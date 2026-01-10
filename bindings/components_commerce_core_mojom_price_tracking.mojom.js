@@ -237,13 +237,18 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -252,21 +257,25 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.trackPriceForBookmark');
           const result = this.impl.trackPriceForBookmark(params.bookmark_id);
           break;
         }
         case 1: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.untrackPriceForBookmark');
           const result = this.impl.untrackPriceForBookmark(params.bookmark_id);
           break;
         }
         case 2: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPriceTrackingStatusForCurrentUrl');
           const result = this.impl.setPriceTrackingStatusForCurrentUrl(params.track);
           break;
         }
         case 3: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllShoppingBookmarkProductInfo');
           const result = this.impl.getAllShoppingBookmarkProductInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -278,6 +287,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 4: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllPriceTrackedBookmarkProductInfo');
           const result = this.impl.getAllPriceTrackedBookmarkProductInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -289,6 +299,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 5: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getShoppingCollectionBookmarkFolderId');
           const result = this.impl.getShoppingCollectionBookmarkFolderId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -300,6 +311,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 6: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getParentBookmarkFolderNameForCurrentUrl');
           const result = this.impl.getParentBookmarkFolderNameForCurrentUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -311,9 +323,13 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
         case 7: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showBookmarkEditorForCurrentUrl');
           const result = this.impl.showBookmarkEditorForCurrentUrl();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -446,13 +462,18 @@ commerce.price_tracking.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -461,24 +482,31 @@ commerce.price_tracking.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.priceTrackedForBookmark');
           const result = this.impl.priceTrackedForBookmark(params.bookmark_product);
           break;
         }
         case 1: {
           const params = commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.priceUntrackedForBookmark');
           const result = this.impl.priceUntrackedForBookmark(params.bookmark_product);
           break;
         }
         case 2: {
           const params = commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.operationFailedForBookmark');
           const result = this.impl.operationFailedForBookmark(params.bookmark_product, params.attempted_track);
           break;
         }
         case 3: {
           const params = commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProductBookmarkMoved');
           const result = this.impl.onProductBookmarkMoved(params.bookmark_product);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -563,13 +591,18 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -578,9 +611,13 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPriceTrackingHandler');
           const result = this.impl.createPriceTrackingHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -111,13 +111,18 @@ glic.mojom.FrePageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -126,9 +131,13 @@ glic.mojom.FrePageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -340,13 +349,18 @@ glic.mojom.FrePageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -355,26 +369,31 @@ glic.mojom.FrePageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.acceptFre');
           const result = this.impl.acceptFre();
           break;
         }
         case 1: {
           const params = glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rejectFre');
           const result = this.impl.rejectFre();
           break;
         }
         case 2: {
           const params = glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dismissFre');
           const result = this.impl.dismissFre(params.panel);
           break;
         }
         case 3: {
           const params = glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.freReloaded');
           const result = this.impl.freReloaded();
           break;
         }
         case 4: {
           const params = glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -386,24 +405,31 @@ glic.mojom.FrePageHandlerReceiver = class {
         }
         case 5: {
           const params = glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.validateAndOpenLinkInNewTab');
           const result = this.impl.validateAndOpenLinkInNewTab(params.url);
           break;
         }
         case 6: {
           const params = glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.webUiStateChanged');
           const result = this.impl.webUiStateChanged(params.new_state);
           break;
         }
         case 7: {
           const params = glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exceededTimeoutError');
           const result = this.impl.exceededTimeoutError();
           break;
         }
         case 8: {
           const params = glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logWebUiLoadComplete');
           const result = this.impl.logWebUiLoadComplete();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

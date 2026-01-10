@@ -209,13 +209,18 @@ ash.boca_receiver.mojom.UntrustedPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -224,34 +229,43 @@ ash.boca_receiver.mojom.UntrustedPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInitReceiverInfo');
           const result = this.impl.onInitReceiverInfo(params.receiver_info);
           break;
         }
         case 1: {
           const params = ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInitReceiverError');
           const result = this.impl.onInitReceiverError();
           break;
         }
         case 2: {
           const params = ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameReceived');
           const result = this.impl.onFrameReceived(params.frame_data);
           break;
         }
         case 3: {
           const params = ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAudioPacket');
           const result = this.impl.onAudioPacket(params.audio_packet);
           break;
         }
         case 4: {
           const params = ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnecting');
           const result = this.impl.onConnecting(params.initiator, params.presenter);
           break;
         }
         case 5: {
           const params = ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnectionClosed');
           const result = this.impl.onConnectionClosed(params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -335,13 +349,18 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -350,9 +369,13 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createUntrustedPageHandler');
           const result = this.impl.createUntrustedPageHandler(params.page);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

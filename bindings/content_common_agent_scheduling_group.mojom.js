@@ -91,13 +91,18 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -106,9 +111,13 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didUnloadRenderFrame');
           const result = this.impl.didUnloadRenderFrame(params.frame_token);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -242,13 +251,18 @@ content.mojom.AgentSchedulingGroupReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -257,24 +271,31 @@ content.mojom.AgentSchedulingGroupReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAssociatedInterfaces');
           const result = this.impl.bindAssociatedInterfaces(params.remote_host, params.route_provider_receiver);
           break;
         }
         case 1: {
           const params = content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createView');
           const result = this.impl.createView(params.params);
           break;
         }
         case 2: {
           const params = content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createFrame');
           const result = this.impl.createFrame(params.params);
           break;
         }
         case 3: {
           const params = content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSharedStorageWorkletService');
           const result = this.impl.createSharedStorageWorkletService(params.receiver, params.global_scope_creation_params);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

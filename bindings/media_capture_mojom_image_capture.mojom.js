@@ -304,13 +304,18 @@ media.mojom.ImageCaptureReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -319,6 +324,7 @@ media.mojom.ImageCaptureReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPhotoState');
           const result = this.impl.getPhotoState(params.source_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -330,6 +336,7 @@ media.mojom.ImageCaptureReceiver = class {
         }
         case 1: {
           const params = media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
           const result = this.impl.setPhotoOptions(params.source_id, params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -341,6 +348,7 @@ media.mojom.ImageCaptureReceiver = class {
         }
         case 2: {
           const params = media.mojom.ImageCapture_TakePhoto_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.takePhoto');
           const result = this.impl.takePhoto(params.source_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -350,6 +358,9 @@ media.mojom.ImageCaptureReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

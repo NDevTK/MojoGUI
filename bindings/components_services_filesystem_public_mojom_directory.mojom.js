@@ -427,13 +427,18 @@ filesystem.mojom.DirectoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -442,6 +447,7 @@ filesystem.mojom.DirectoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = filesystem.mojom.Directory_Read_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -453,6 +459,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 1: {
           const params = filesystem.mojom.Directory_OpenFileHandle_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFileHandle');
           const result = this.impl.openFileHandle(params.path, params.open_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -464,6 +471,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 2: {
           const params = filesystem.mojom.Directory_OpenFileHandles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFileHandles');
           const result = this.impl.openFileHandles(params.files);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -475,6 +483,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 3: {
           const params = filesystem.mojom.Directory_OpenDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDirectory');
           const result = this.impl.openDirectory(params.path, params.directory, params.open_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -486,6 +495,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 4: {
           const params = filesystem.mojom.Directory_Rename_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rename');
           const result = this.impl.rename(params.path, params.new_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -497,6 +507,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 5: {
           const params = filesystem.mojom.Directory_Replace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.replace');
           const result = this.impl.replace(params.path, params.new_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -508,6 +519,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 6: {
           const params = filesystem.mojom.Directory_Delete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.path, params.delete_flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -519,6 +531,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 7: {
           const params = filesystem.mojom.Directory_Exists_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exists');
           const result = this.impl.exists(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -530,6 +543,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 8: {
           const params = filesystem.mojom.Directory_IsWritable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isWritable');
           const result = this.impl.isWritable(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -541,6 +555,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 9: {
           const params = filesystem.mojom.Directory_Flush_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -552,6 +567,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 10: {
           const params = filesystem.mojom.Directory_StatFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.statFile');
           const result = this.impl.statFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -563,11 +579,13 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 11: {
           const params = filesystem.mojom.Directory_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.directory);
           break;
         }
         case 12: {
           const params = filesystem.mojom.Directory_ReadEntireFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.readEntireFile');
           const result = this.impl.readEntireFile(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -579,6 +597,7 @@ filesystem.mojom.DirectoryReceiver = class {
         }
         case 13: {
           const params = filesystem.mojom.Directory_WriteFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeFile');
           const result = this.impl.writeFile(params.path, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -588,6 +607,9 @@ filesystem.mojom.DirectoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

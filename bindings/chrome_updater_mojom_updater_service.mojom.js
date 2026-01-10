@@ -559,13 +559,18 @@ updater.mojom.UpdateServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -574,6 +579,7 @@ updater.mojom.UpdateServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.UpdateService_GetVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVersion');
           const result = this.impl.getVersion();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -585,6 +591,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 1: {
           const params = updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fetchPolicies');
           const result = this.impl.fetchPolicies(params.reason);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -596,6 +603,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 2: {
           const params = updater.mojom.UpdateService_RegisterApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerApp');
           const result = this.impl.registerApp(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -607,6 +615,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 3: {
           const params = updater.mojom.UpdateService_GetAppStates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAppStates');
           const result = this.impl.getAppStates();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -618,6 +627,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 4: {
           const params = updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runPeriodicTasks');
           const result = this.impl.runPeriodicTasks();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -629,6 +639,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 5: {
           const params = updater.mojom.UpdateService_UpdateAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateAll');
           const result = this.impl.updateAll();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -640,6 +651,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 6: {
           const params = updater.mojom.UpdateService_Update_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.app_id, params.install_data_index, params.priority, params.policy_same_version_update, params.do_update_check_only, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -651,6 +663,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 7: {
           const params = updater.mojom.UpdateService_Install_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.install');
           const result = this.impl.install(params.registration, params.client_install_data, params.install_data_index, params.priority, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -662,11 +675,13 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 8: {
           const params = updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelInstalls');
           const result = this.impl.cancelInstalls(params.app_id);
           break;
         }
         case 9: {
           const params = updater.mojom.UpdateService_RunInstaller_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runInstaller');
           const result = this.impl.runInstaller(params.app_id, params.installer_path, params.install_args, params.install_data, params.install_settings, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -678,6 +693,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 10: {
           const params = updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.checkForUpdate');
           const result = this.impl.checkForUpdate(params.app_id, params.priority, params.policy_same_version_update, params.language);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -689,6 +705,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 11: {
           const params = updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUpdaterState');
           const result = this.impl.getUpdaterState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -700,6 +717,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 12: {
           const params = updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUpdaterPolicies');
           const result = this.impl.getUpdaterPolicies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -711,6 +729,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
         case 13: {
           const params = updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAppPolicies');
           const result = this.impl.getAppPolicies();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -720,6 +739,9 @@ updater.mojom.UpdateServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -819,13 +841,18 @@ updater.mojom.StateChangeObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -834,14 +861,19 @@ updater.mojom.StateChangeObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStateChange');
           const result = this.impl.onStateChange(params.state);
           break;
         }
         case 1: {
           const params = updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.result);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

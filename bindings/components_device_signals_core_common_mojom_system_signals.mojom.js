@@ -208,13 +208,18 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -223,6 +228,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFileSystemSignals');
           const result = this.impl.getFileSystemSignals(params.requests);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -234,6 +240,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
         }
         case 1: {
           const params = device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAntiVirusSignals');
           const result = this.impl.getAntiVirusSignals();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -245,6 +252,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
         }
         case 2: {
           const params = device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHotfixSignals');
           const result = this.impl.getHotfixSignals();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -254,6 +262,9 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

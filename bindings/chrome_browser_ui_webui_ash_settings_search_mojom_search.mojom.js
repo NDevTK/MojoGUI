@@ -152,13 +152,18 @@ ash.settings.mojom.SearchResultsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -167,9 +172,13 @@ ash.settings.mojom.SearchResultsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSearchResultsChanged');
           const result = this.impl.onSearchResultsChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -277,13 +286,18 @@ ash.settings.mojom.SearchHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -292,6 +306,7 @@ ash.settings.mojom.SearchHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.SearchHandler_Search_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.search');
           const result = this.impl.search(params.query, params.max_num_results, params.parent_result_behavior);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -303,9 +318,13 @@ ash.settings.mojom.SearchHandlerReceiver = class {
         }
         case 1: {
           const params = ash.settings.mojom.SearchHandler_Observe_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observe');
           const result = this.impl.observe(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

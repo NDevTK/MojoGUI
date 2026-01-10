@@ -258,13 +258,18 @@ audio.mojom.SystemInfoReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -273,6 +278,7 @@ audio.mojom.SystemInfoReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInputStreamParameters');
           const result = this.impl.getInputStreamParameters(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -284,6 +290,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 1: {
           const params = audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOutputStreamParameters');
           const result = this.impl.getOutputStreamParameters(params.device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -295,6 +302,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 2: {
           const params = audio.mojom.SystemInfo_HasInputDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasInputDevices');
           const result = this.impl.hasInputDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -306,6 +314,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 3: {
           const params = audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasOutputDevices');
           const result = this.impl.hasOutputDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -317,6 +326,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 4: {
           const params = audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInputDeviceDescriptions');
           const result = this.impl.getInputDeviceDescriptions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -328,6 +338,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 5: {
           const params = audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOutputDeviceDescriptions');
           const result = this.impl.getOutputDeviceDescriptions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -339,6 +350,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 6: {
           const params = audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAssociatedOutputDeviceID');
           const result = this.impl.getAssociatedOutputDeviceID(params.input_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -350,6 +362,7 @@ audio.mojom.SystemInfoReceiver = class {
         }
         case 7: {
           const params = audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInputDeviceInfo');
           const result = this.impl.getInputDeviceInfo(params.input_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -359,6 +372,9 @@ audio.mojom.SystemInfoReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

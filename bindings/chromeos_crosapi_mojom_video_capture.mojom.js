@@ -204,19 +204,27 @@ crosapi.mojom.ScopedAccessPermissionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -521,13 +529,18 @@ crosapi.mojom.VideoFrameHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -536,79 +549,97 @@ crosapi.mojom.VideoFrameHandlerReceiver = class {
       switch (header.ordinal) {
         case 11: {
           const params = crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCaptureConfigurationChanged');
           const result = this.impl.onCaptureConfigurationChanged();
           break;
         }
         case 0: {
           const params = crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
           const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
           break;
         }
         case 1: {
           const params = crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnFrameReadyInBuffer');
           const result = this.impl.dEPRECATED_OnFrameReadyInBuffer(params.buffer, params.scaled_buffers);
           break;
         }
         case 13: {
           const params = crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameReadyInBuffer');
           const result = this.impl.onFrameReadyInBuffer(params.buffer);
           break;
         }
         case 2: {
           const params = crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
           const result = this.impl.onBufferRetired(params.buffer_id);
           break;
         }
         case 3: {
           const params = crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
         case 4: {
           const params = crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameDropped');
           const result = this.impl.onFrameDropped(params.reason);
           break;
         }
         case 10: {
           const params = crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnNewCropVersion');
           const result = this.impl.dEPRECATED_OnNewCropVersion(params.crop_version);
           break;
         }
         case 12: {
           const params = crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnNewSubCaptureTargetVersion');
           const result = this.impl.dEPRECATED_OnNewSubCaptureTargetVersion(params.sub_capture_target_version);
           break;
         }
         case 14: {
           const params = crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
           const result = this.impl.onNewCaptureVersion(params.capture_version);
           break;
         }
         case 9: {
           const params = crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameWithEmptyRegionCapture');
           const result = this.impl.onFrameWithEmptyRegionCapture();
           break;
         }
         case 5: {
           const params = crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLog');
           const result = this.impl.onLog(params.message);
           break;
         }
         case 6: {
           const params = crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted();
           break;
         }
         case 7: {
           const params = crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStartedUsingGpuDecode');
           const result = this.impl.onStartedUsingGpuDecode();
           break;
         }
         case 8: {
           const params = crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -818,13 +849,18 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -833,21 +869,25 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.requested_settings, params.handler);
           break;
         }
         case 1: {
           const params = crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.maybeSuspend');
           const result = this.impl.maybeSuspend();
           break;
         }
         case 2: {
           const params = crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 3: {
           const params = crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPhotoState');
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -859,6 +899,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
         case 4: {
           const params = crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -870,6 +911,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
         case 5: {
           const params = crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.takePhoto');
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -881,14 +923,19 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
         case 6: {
           const params = crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.processFeedback');
           const result = this.impl.processFeedback(params.feedback);
           break;
         }
         case 7: {
           const params = crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestRefreshFrame');
           const result = this.impl.requestRefreshFrame();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1000,13 +1047,18 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1015,6 +1067,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceInfos');
           const result = this.impl.getDeviceInfos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1026,6 +1079,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
         }
         case 1: {
           const params = crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDevice');
           const result = this.impl.createDevice(params.device_id, params.device_receiver);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1035,6 +1089,9 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

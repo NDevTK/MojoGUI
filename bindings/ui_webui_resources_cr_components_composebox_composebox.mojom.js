@@ -99,13 +99,18 @@ composebox.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -114,9 +119,13 @@ composebox.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler, params.searchbox_page, params.searchbox_handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -280,13 +289,18 @@ composebox.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -295,34 +309,43 @@ composebox.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.focusChanged');
           const result = this.impl.focusChanged(params.focused);
           break;
         }
         case 1: {
           const params = composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDeepSearchMode');
           const result = this.impl.setDeepSearchMode(params.enabled);
           break;
         }
         case 2: {
           const params = composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCreateImageMode');
           const result = this.impl.setCreateImageMode(params.enabled, params.image_present);
           break;
         }
         case 3: {
           const params = composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleLensButtonClick');
           const result = this.impl.handleLensButtonClick();
           break;
         }
         case 4: {
           const params = composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleFileUpload');
           const result = this.impl.handleFileUpload(params.is_image);
           break;
         }
         case 5: {
           const params = composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.navigateUrl');
           const result = this.impl.navigateUrl(params.url);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -390,19 +413,27 @@ composebox.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

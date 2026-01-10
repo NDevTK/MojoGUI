@@ -469,13 +469,18 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -484,11 +489,13 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const params = crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDisplayLayoutInfo');
           const result = this.impl.getDisplayLayoutInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -500,6 +507,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 2: {
           const params = crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDisplayLayoutInfo');
           const result = this.impl.setDisplayLayoutInfo(params.info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -511,6 +519,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 3: {
           const params = crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDisplayUnitInfoList');
           const result = this.impl.getDisplayUnitInfoList(params.single_unified);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -522,6 +531,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 4: {
           const params = crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDisplayProperties');
           const result = this.impl.setDisplayProperties(params.id, params.properties, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -533,11 +543,13 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 5: {
           const params = crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUnifiedDesktopEnabled');
           const result = this.impl.setUnifiedDesktopEnabled(params.enabled);
           break;
         }
         case 6: {
           const params = crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.overscanCalibration');
           const result = this.impl.overscanCalibration(params.display_id, params.op, params.delta);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -549,6 +561,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 7: {
           const params = crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.touchCalibration');
           const result = this.impl.touchCalibration(params.display_id, params.op, params.calibration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -560,14 +573,19 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
         case 8: {
           const params = crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.highlightDisplay');
           const result = this.impl.highlightDisplay(params.id);
           break;
         }
         case 9: {
           const params = crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dragDisplayDelta');
           const result = this.impl.dragDisplayDelta(params.display_id, params.delta_x, params.delta_y);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -650,13 +668,18 @@ crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -665,9 +688,13 @@ crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDisplayConfigChanged');
           const result = this.impl.onDisplayConfigChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -880,13 +880,18 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -895,6 +900,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
       switch (header.ordinal) {
         case 27: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getResult');
           const result = this.impl.getResult(params.routine);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -906,6 +912,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 28: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllResults');
           const result = this.impl.getAllResults();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -917,6 +924,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 12: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runLanConnectivity');
           const result = this.impl.runLanConnectivity(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -928,6 +936,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 13: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runSignalStrength');
           const result = this.impl.runSignalStrength(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -939,6 +948,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 14: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePinged');
           const result = this.impl.runGatewayCanBePinged(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -950,6 +960,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 15: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnection');
           const result = this.impl.runHasSecureWiFiConnection(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -961,6 +972,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 16: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresent');
           const result = this.impl.runDnsResolverPresent(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -972,6 +984,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 17: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsLatency');
           const result = this.impl.runDnsLatency(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -983,6 +996,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 18: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsResolution');
           const result = this.impl.runDnsResolution(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -994,6 +1008,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 19: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runCaptivePortal');
           const result = this.impl.runCaptivePortal(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1005,6 +1020,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 20: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHttpFirewall');
           const result = this.impl.runHttpFirewall(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1016,6 +1032,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 21: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHttpsFirewall');
           const result = this.impl.runHttpsFirewall(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1027,6 +1044,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 22: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHttpsLatency');
           const result = this.impl.runHttpsLatency(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1038,6 +1056,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 23: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runVideoConferencing');
           const result = this.impl.runVideoConferencing(params.stun_server_hostname, params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1049,6 +1068,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 24: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runArcHttp');
           const result = this.impl.runArcHttp(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1060,6 +1080,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 25: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runArcPing');
           const result = this.impl.runArcPing(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1071,6 +1092,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 26: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runArcDnsResolution');
           const result = this.impl.runArcDnsResolution(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1082,6 +1104,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 29: {
           const params = chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runGoogleServicesConnectivity');
           const result = this.impl.runGoogleServicesConnectivity(params.source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1091,6 +1114,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

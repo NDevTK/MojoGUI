@@ -281,13 +281,18 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -296,6 +301,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.script_url, params.options, params.outside_fetch_client_settings_object);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -307,6 +313,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
         }
         case 1: {
           const params = blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRegistration');
           const result = this.impl.getRegistration(params.client_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -318,6 +325,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
         }
         case 2: {
           const params = blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRegistrations');
           const result = this.impl.getRegistrations();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -329,6 +337,7 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
         }
         case 3: {
           const params = blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRegistrationForReady');
           const result = this.impl.getRegistrationForReady();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -340,21 +349,25 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
         }
         case 4: {
           const params = blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.ensureControllerServiceWorker');
           const result = this.impl.ensureControllerServiceWorker(params.receiver, params.purpose);
           break;
         }
         case 5: {
           const params = blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cloneContainerHost');
           const result = this.impl.cloneContainerHost(params.container_host);
           break;
         }
         case 6: {
           const params = blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hintToUpdateServiceWorker');
           const result = this.impl.hintToUpdateServiceWorker();
           break;
         }
         case 7: {
           const params = blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.ensureFileAccess');
           const result = this.impl.ensureFileAccess(params.files);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -366,9 +379,13 @@ blink.mojom.ServiceWorkerContainerHostReceiver = class {
         }
         case 8: {
           const params = blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onExecutionReady');
           const result = this.impl.onExecutionReady();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -486,13 +503,18 @@ blink.mojom.ServiceWorkerContainerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -501,19 +523,25 @@ blink.mojom.ServiceWorkerContainerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setController');
           const result = this.impl.setController(params.controller_info, params.should_notify_controllerchange);
           break;
         }
         case 1: {
           const params = blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.postMessageToClient');
           const result = this.impl.postMessageToClient(params.source, params.message);
           break;
         }
         case 2: {
           const params = blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.countFeature');
           const result = this.impl.countFeature(params.feature);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

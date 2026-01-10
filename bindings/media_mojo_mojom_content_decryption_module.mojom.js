@@ -326,13 +326,18 @@ media.mojom.ContentDecryptionModuleReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -341,11 +346,13 @@ media.mojom.ContentDecryptionModuleReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.ContentDecryptionModule_SetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const params = media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setServerCertificate');
           const result = this.impl.setServerCertificate(params.certificate_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -357,6 +364,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 2: {
           const params = media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStatusForPolicy');
           const result = this.impl.getStatusForPolicy(params.min_hdcp_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -368,6 +376,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 3: {
           const params = media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSessionAndGenerateRequest');
           const result = this.impl.createSessionAndGenerateRequest(params.session_type, params.init_data_type, params.init_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -379,6 +388,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 4: {
           const params = media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadSession');
           const result = this.impl.loadSession(params.session_type, params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -390,6 +400,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 5: {
           const params = media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateSession');
           const result = this.impl.updateSession(params.session_id, params.response);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -401,6 +412,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 6: {
           const params = media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeSession');
           const result = this.impl.closeSession(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -412,6 +424,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
         }
         case 7: {
           const params = media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeSession');
           const result = this.impl.removeSession(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -421,6 +434,9 @@ media.mojom.ContentDecryptionModuleReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -558,13 +574,18 @@ media.mojom.ContentDecryptionModuleClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -573,24 +594,31 @@ media.mojom.ContentDecryptionModuleClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSessionMessage');
           const result = this.impl.onSessionMessage(params.session_id, params.message_type, params.message);
           break;
         }
         case 1: {
           const params = media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSessionClosed');
           const result = this.impl.onSessionClosed(params.session_id, params.reason);
           break;
         }
         case 2: {
           const params = media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSessionKeysChange');
           const result = this.impl.onSessionKeysChange(params.session_id, params.has_additional_usable_key, params.keys_info);
           break;
         }
         case 3: {
           const params = media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSessionExpirationUpdate');
           const result = this.impl.onSessionExpirationUpdate(params.session_id, params.new_expiry_time_sec);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -682,13 +710,18 @@ media.mojom.CdmFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -697,6 +730,7 @@ media.mojom.CdmFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmFactory_CreateCdm_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCdm');
           const result = this.impl.createCdm(params.cdm_config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -706,6 +740,9 @@ media.mojom.CdmFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

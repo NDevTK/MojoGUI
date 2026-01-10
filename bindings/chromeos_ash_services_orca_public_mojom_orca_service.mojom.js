@@ -525,13 +525,18 @@ ash.orca.mojom.EditorClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -540,6 +545,7 @@ ash.orca.mojom.EditorClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPresetTextQueries');
           const result = this.impl.getPresetTextQueries();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -551,6 +557,7 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 1: {
           const params = ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPresetRewrite');
           const result = this.impl.requestPresetRewrite(params.text_query_id, params.text_override);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -562,6 +569,7 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 2: {
           const params = ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestFreeformRewrite');
           const result = this.impl.requestFreeformRewrite(params.input, params.text_override);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -573,6 +581,7 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 3: {
           const params = ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestFreeformWrite');
           const result = this.impl.requestFreeformWrite(params.input);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -584,46 +593,55 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 4: {
           const params = ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text);
           break;
         }
         case 5: {
           const params = ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.approveConsent');
           const result = this.impl.approveConsent();
           break;
         }
         case 6: {
           const params = ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.declineConsent');
           const result = this.impl.declineConsent();
           break;
         }
         case 7: {
           const params = ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dismissConsent');
           const result = this.impl.dismissConsent();
           break;
         }
         case 8: {
           const params = ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;
         }
         case 9: {
           const params = ash.orca.mojom.EditorClient_ShowUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 10: {
           const params = ash.orca.mojom.EditorClient_CloseUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 11: {
           const params = ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.appendText');
           const result = this.impl.appendText(params.text);
           break;
         }
         case 12: {
           const params = ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.previewFeedback');
           const result = this.impl.previewFeedback(params.result_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -635,19 +653,25 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
         case 13: {
           const params = ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.result_id, params.user_description);
           break;
         }
         case 14: {
           const params = ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTrigger');
           const result = this.impl.onTrigger(params.trigger_context);
           break;
         }
         case 15: {
           const params = ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -731,13 +755,18 @@ ash.orca.mojom.EditorClientConnectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -746,9 +775,13 @@ ash.orca.mojom.EditorClientConnectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindEditorClient');
           const result = this.impl.bindEditorClient(params.editor_client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -832,13 +865,18 @@ ash.orca.mojom.EditorEventSinkReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -847,9 +885,13 @@ ash.orca.mojom.EditorEventSinkReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onContextUpdated');
           const result = this.impl.onContextUpdated(params.context);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1057,13 +1099,18 @@ ash.orca.mojom.SystemActuatorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1072,49 +1119,61 @@ ash.orca.mojom.SystemActuatorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text);
           break;
         }
         case 1: {
           const params = ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.approveConsent');
           const result = this.impl.approveConsent();
           break;
         }
         case 2: {
           const params = ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.declineConsent');
           const result = this.impl.declineConsent();
           break;
         }
         case 3: {
           const params = ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;
         }
         case 4: {
           const params = ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 5: {
           const params = ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 6: {
           const params = ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.description);
           break;
         }
         case 7: {
           const params = ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTrigger');
           const result = this.impl.onTrigger(params.trigger_context);
           break;
         }
         case 8: {
           const params = ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1204,13 +1263,18 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1219,6 +1283,7 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.process');
           const result = this.impl.process(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1228,6 +1293,9 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1315,13 +1383,18 @@ ash.orca.mojom.OrcaServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1330,9 +1403,13 @@ ash.orca.mojom.OrcaServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindEditor');
           const result = this.impl.bindEditor(params.system_actuator, params.text_query_provider, params.client_connector, params.event_sink, params.editor_config);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

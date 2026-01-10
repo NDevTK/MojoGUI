@@ -131,13 +131,18 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -146,6 +151,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleAXEvents');
           const result = this.impl.handleAXEvents(params.events_and_updates, params.location_and_scroll_updates, params.reset_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -157,9 +163,13 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
         }
         case 1: {
           const params = blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.handleAXLocationChanges');
           const result = this.impl.handleAXLocationChanges(params.changes, params.reset_token);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -315,13 +325,18 @@ blink.mojom.RenderAccessibilityReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -330,16 +345,19 @@ blink.mojom.RenderAccessibilityReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMode');
           const result = this.impl.setMode(params.ax_mode, params.reset_token);
           break;
         }
         case 1: {
           const params = blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fatalError');
           const result = this.impl.fatalError();
           break;
         }
         case 2: {
           const params = blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hitTest');
           const result = this.impl.hitTest(params.point, params.event_to_fire, params.request_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -351,14 +369,19 @@ blink.mojom.RenderAccessibilityReceiver = class {
         }
         case 3: {
           const params = blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.performAction');
           const result = this.impl.performAction(params.action_data);
           break;
         }
         case 4: {
           const params = blink.mojom.RenderAccessibility_Reset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset(params.reset_token);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

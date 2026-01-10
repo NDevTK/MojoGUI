@@ -101,13 +101,18 @@ reload_button.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -116,9 +121,13 @@ reload_button.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -235,13 +244,18 @@ reload_button.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -250,19 +264,25 @@ reload_button.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = reload_button.mojom.PageHandler_Reload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload(params.ignore_cache, params.flags);
           break;
         }
         case 1: {
           const params = reload_button.mojom.PageHandler_StopReload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopReload');
           const result = this.impl.stopReload();
           break;
         }
         case 2: {
           const params = reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.offset_x, params.offset_y);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -347,13 +367,18 @@ reload_button.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -362,9 +387,13 @@ reload_button.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setReloadButtonState');
           const result = this.impl.setReloadButtonState(params.is_loading, params.is_menu_enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

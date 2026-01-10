@@ -191,13 +191,18 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -206,6 +211,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -217,6 +223,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 1: {
           const params = chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.input_buffer, params.coded_size, params.output_handle, params.output_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -228,6 +235,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 3: {
           const params = chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decodeWithDmaBuf');
           const result = this.impl.decodeWithDmaBuf(params.task_id, params.src_dmabuf_fd, params.src_size, params.src_offset, params.dst_frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -239,9 +247,13 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 4: {
           const params = chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.uninitialize');
           const result = this.impl.uninitialize();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -193,13 +193,18 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -208,29 +213,37 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onResumeClicked');
           const result = this.impl.onResumeClicked();
           break;
         }
         case 1: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUpdateClicked');
           const result = this.impl.onUpdateClicked();
           break;
         }
         case 2: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFinishClicked');
           const result = this.impl.onFinishClicked();
           break;
         }
         case 3: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSkipClicked');
           const result = this.impl.onSkipClicked();
           break;
         }
         case 4: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onReportClicked');
           const result = this.impl.onReportClicked();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -395,13 +408,18 @@ ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -410,34 +428,43 @@ ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUIState');
           const result = this.impl.setUIState(params.state);
           break;
         }
         case 1: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setRequiredFreeDiskSpace');
           const result = this.impl.setRequiredFreeDiskSpace(params.required_space);
           break;
         }
         case 2: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMinimumBatteryPercent');
           const result = this.impl.setMinimumBatteryPercent(params.percent);
           break;
         }
         case 3: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBatteryState');
           const result = this.impl.setBatteryState(params.enough, params.connected);
           break;
         }
         case 4: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMigrationProgress');
           const result = this.impl.setMigrationProgress(params.progress);
           break;
         }
         case 5: {
           const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setEstimatedRemainingTime');
           const result = this.impl.setEstimatedRemainingTime(params.remaining_time);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -580,13 +607,18 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -595,29 +627,37 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStartMigration');
           const result = this.impl.onStartMigration();
           break;
         }
         case 1: {
           const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSkipMigration');
           const result = this.impl.onSkipMigration();
           break;
         }
         case 2: {
           const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRequestRestartOnLowStorage');
           const result = this.impl.onRequestRestartOnLowStorage();
           break;
         }
         case 3: {
           const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRequestRestartOnFailure');
           const result = this.impl.onRequestRestartOnFailure();
           break;
         }
         case 4: {
           const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpenFeedbackDialog');
           const result = this.impl.onOpenFeedbackDialog();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -784,13 +824,18 @@ ash.screens_login.mojom.EncryptionMigrationPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -799,34 +844,43 @@ ash.screens_login.mojom.EncryptionMigrationPageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUIState');
           const result = this.impl.setUIState(params.state);
           break;
         }
         case 1: {
           const params = ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMigrationProgress');
           const result = this.impl.setMigrationProgress(params.progress);
           break;
         }
         case 2: {
           const params = ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsResuming');
           const result = this.impl.setIsResuming(params.is_resuming);
           break;
         }
         case 3: {
           const params = ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBatteryState');
           const result = this.impl.setBatteryState(params.percent, params.is_enough, params.is_charging);
           break;
         }
         case 4: {
           const params = ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNecessaryBatteryPercent');
           const result = this.impl.setNecessaryBatteryPercent(params.percent);
           break;
         }
         case 5: {
           const params = ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSpaceInfoInString');
           const result = this.impl.setSpaceInfoInString(params.available_space, params.required_space);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

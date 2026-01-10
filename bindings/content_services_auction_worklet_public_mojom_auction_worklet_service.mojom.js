@@ -120,13 +120,18 @@ auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -135,9 +140,13 @@ auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sellerWorkletLoaded');
           const result = this.impl.sellerWorkletLoaded(params.trusted_signals_url_allowed);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -280,13 +289,18 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -295,19 +309,25 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTrustedSignalsCache');
           const result = this.impl.setTrustedSignalsCache(params.trusted_signals_cache);
           break;
         }
         case 1: {
           const params = auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadBidderWorklet');
           const result = this.impl.loadBidderWorklet(params.bidder_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.wasm_helper_load, params.trusted_bidding_signals_url, params.trusted_bidding_signals_slot_size_param, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.public_key);
           break;
         }
         case 2: {
           const params = auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadSellerWorklet');
           const result = this.impl.loadSellerWorklet(params.seller_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.trusted_scoring_signals_url, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.send_creative_scanning_metadata, params.public_key, params.load_seller_worklet_client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -141,13 +141,18 @@ data_decoder.mojom.ImageDecoderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -156,6 +161,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decodeImage');
           const result = this.impl.decodeImage(params.encoded_data, params.codec, params.shrink_to_fit, params.max_size_in_bytes, params.desired_image_frame_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -167,6 +173,7 @@ data_decoder.mojom.ImageDecoderReceiver = class {
         }
         case 1: {
           const params = data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decodeAnimation');
           const result = this.impl.decodeAnimation(params.encoded_data, params.shrink_to_fit, params.max_size_in_bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -176,6 +183,9 @@ data_decoder.mojom.ImageDecoderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

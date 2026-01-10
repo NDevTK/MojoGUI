@@ -210,13 +210,18 @@ media.mojom.VideoCaptureObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -225,34 +230,43 @@ media.mojom.VideoCaptureObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStateChanged');
           const result = this.impl.onStateChanged(params.result);
           break;
         }
         case 1: {
           const params = media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
           const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
           break;
         }
         case 2: {
           const params = media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBufferReady');
           const result = this.impl.onBufferReady(params.buffer);
           break;
         }
         case 3: {
           const params = media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBufferDestroyed');
           const result = this.impl.onBufferDestroyed(params.buffer_id);
           break;
         }
         case 4: {
           const params = media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameDropped');
           const result = this.impl.onFrameDropped(params.reason);
           break;
         }
         case 5: {
           const params = media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
           const result = this.impl.onNewCaptureVersion(params.capture_version);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -486,13 +500,18 @@ media.mojom.VideoCaptureHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -501,36 +520,43 @@ media.mojom.VideoCaptureHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoCaptureHost_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.device_id, params.session_id, params.params, params.observer);
           break;
         }
         case 1: {
           const params = media.mojom.VideoCaptureHost_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.device_id);
           break;
         }
         case 2: {
           const params = media.mojom.VideoCaptureHost_Pause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause(params.device_id);
           break;
         }
         case 3: {
           const params = media.mojom.VideoCaptureHost_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume(params.device_id, params.session_id, params.params);
           break;
         }
         case 4: {
           const params = media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestRefreshFrame');
           const result = this.impl.requestRefreshFrame(params.device_id);
           break;
         }
         case 5: {
           const params = media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.releaseBuffer');
           const result = this.impl.releaseBuffer(params.device_id, params.buffer_id, params.feedback);
           break;
         }
         case 6: {
           const params = media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceSupportedFormats');
           const result = this.impl.getDeviceSupportedFormats(params.device_id, params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -542,6 +568,7 @@ media.mojom.VideoCaptureHostReceiver = class {
         }
         case 7: {
           const params = media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceFormatsInUse');
           const result = this.impl.getDeviceFormatsInUse(params.device_id, params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -553,9 +580,13 @@ media.mojom.VideoCaptureHostReceiver = class {
         }
         case 8: {
           const params = media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLog');
           const result = this.impl.onLog(params.device_id, params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

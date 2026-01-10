@@ -235,13 +235,18 @@ ash.cloud_upload.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -250,9 +255,13 @@ ash.cloud_upload.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -604,13 +613,18 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -619,6 +633,7 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDialogArgs');
           const result = this.impl.getDialogArgs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -630,6 +645,7 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isOfficeWebAppInstalled');
           const result = this.impl.isOfficeWebAppInstalled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -641,6 +657,7 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installOfficeWebApp');
           const result = this.impl.installOfficeWebApp();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -652,6 +669,7 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const params = ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isODFSMounted');
           const result = this.impl.isODFSMounted();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -663,6 +681,7 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const params = ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.signInToOneDrive');
           const result = this.impl.signInToOneDrive();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -674,21 +693,25 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const params = ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.respondWithUserActionAndClose');
           const result = this.impl.respondWithUserActionAndClose(params.response);
           break;
         }
         case 6: {
           const params = ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.respondWithLocalTaskAndClose');
           const result = this.impl.respondWithLocalTaskAndClose(params.task_position);
           break;
         }
         case 7: {
           const params = ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOfficeAsDefaultHandler');
           const result = this.impl.setOfficeAsDefaultHandler();
           break;
         }
         case 8: {
           const params = ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAlwaysMoveOfficeFilesToDrive');
           const result = this.impl.getAlwaysMoveOfficeFilesToDrive();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -700,11 +723,13 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const params = ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToDrive');
           const result = this.impl.setAlwaysMoveOfficeFilesToDrive(params.always_move);
           break;
         }
         case 10: {
           const params = ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAlwaysMoveOfficeFilesToOneDrive');
           const result = this.impl.getAlwaysMoveOfficeFilesToOneDrive();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -716,11 +741,13 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const params = ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToOneDrive');
           const result = this.impl.setAlwaysMoveOfficeFilesToOneDrive(params.always_move);
           break;
         }
         case 12: {
           const params = ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOfficeMoveConfirmationShownForDrive');
           const result = this.impl.getOfficeMoveConfirmationShownForDrive();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -732,6 +759,7 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const params = ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOfficeMoveConfirmationShownForOneDrive');
           const result = this.impl.getOfficeMoveConfirmationShownForOneDrive();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -743,9 +771,13 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
         case 14: {
           const params = ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordCancel');
           const result = this.impl.recordCancel(params.page);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

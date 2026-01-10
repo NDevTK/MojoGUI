@@ -115,13 +115,18 @@ media.mojom.CdmContextEventCallbackReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -130,9 +135,13 @@ media.mojom.CdmContextEventCallbackReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.eventCallback');
           const result = this.impl.eventCallback(params.event);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -355,13 +364,18 @@ media.mojom.CdmContextForOOPVDReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -370,6 +384,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHwKeyData');
           const result = this.impl.getHwKeyData(params.decrypt_config, params.hw_identifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -381,11 +396,13 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 1: {
           const params = media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerEventCallback');
           const result = this.impl.registerEventCallback(params.callback);
           break;
         }
         case 2: {
           const params = media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHwConfigData');
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -397,6 +414,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 3: {
           const params = media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getScreenResolutions');
           const result = this.impl.getScreenResolutions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -408,6 +426,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 4: {
           const params = media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -419,6 +438,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 5: {
           const params = media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -430,6 +450,7 @@ media.mojom.CdmContextForOOPVDReceiver = class {
         }
         case 6: {
           const params = media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decryptVideoBuffer');
           const result = this.impl.decryptVideoBuffer(params.buffer, params.bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -439,6 +460,9 @@ media.mojom.CdmContextForOOPVDReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

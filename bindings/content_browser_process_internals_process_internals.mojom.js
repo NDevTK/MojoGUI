@@ -300,13 +300,18 @@ mojom.ProcessInternalsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -315,6 +320,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProcessCountInfo');
           const result = this.impl.getProcessCountInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -326,6 +332,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 1: {
           const params = mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getIsolationMode');
           const result = this.impl.getIsolationMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -337,6 +344,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 2: {
           const params = mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProcessPerSiteMode');
           const result = this.impl.getProcessPerSiteMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -348,6 +356,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 3: {
           const params = mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getUserTriggeredIsolatedOrigins');
           const result = this.impl.getUserTriggeredIsolatedOrigins();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -359,6 +368,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 4: {
           const params = mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWebTriggeredIsolatedOrigins');
           const result = this.impl.getWebTriggeredIsolatedOrigins();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -370,6 +380,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 5: {
           const params = mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getGloballyIsolatedOrigins');
           const result = this.impl.getGloballyIsolatedOrigins();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -381,6 +392,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
         case 6: {
           const params = mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllWebContentsInfo');
           const result = this.impl.getAllWebContentsInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -390,6 +402,9 @@ mojom.ProcessInternalsHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

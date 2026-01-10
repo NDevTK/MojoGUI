@@ -216,13 +216,18 @@ ntp_promo.mojom.NtpPromoHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -231,39 +236,49 @@ ntp_promo.mojom.NtpPromoHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPromos');
           const result = this.impl.requestPromos();
           break;
         }
         case 1: {
           const params = ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPromosShown');
           const result = this.impl.onPromosShown(params.eligible_shown, params.completed_shown);
           break;
         }
         case 2: {
           const params = ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPromoClicked');
           const result = this.impl.onPromoClicked(params.promo_id);
           break;
         }
         case 3: {
           const params = ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.snoozeSetupList');
           const result = this.impl.snoozeSetupList();
           break;
         }
         case 4: {
           const params = ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unsnoozeSetupList');
           const result = this.impl.unsnoozeSetupList();
           break;
         }
         case 5: {
           const params = ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableSetupList');
           const result = this.impl.disableSetupList();
           break;
         }
         case 6: {
           const params = ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.undisableSetupList');
           const result = this.impl.undisableSetupList();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -348,13 +363,18 @@ ntp_promo.mojom.NtpPromoClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -363,9 +383,13 @@ ntp_promo.mojom.NtpPromoClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPromos');
           const result = this.impl.setPromos(params.eligible, params.completed);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -450,13 +474,18 @@ ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -465,9 +494,13 @@ ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createNtpPromoHandler');
           const result = this.impl.createNtpPromoHandler(params.client, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

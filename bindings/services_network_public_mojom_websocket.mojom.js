@@ -153,13 +153,18 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -168,6 +173,7 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
           const result = this.impl.onAuthRequired(params.info, params.headers, params.remote_endpoint);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -177,6 +183,9 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -298,13 +307,18 @@ network.mojom.WebSocketHandshakeClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -313,19 +327,25 @@ network.mojom.WebSocketHandshakeClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOpeningHandshakeStarted');
           const result = this.impl.onOpeningHandshakeStarted(params.request);
           break;
         }
         case 1: {
           const params = network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFailure');
           const result = this.impl.onFailure(params.message, params.net_error, params.response_code);
           break;
         }
         case 2: {
           const params = network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnectionEstablished');
           const result = this.impl.onConnectionEstablished(params.socket, params.client_receiver, params.response, params.readable, params.writable);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -444,13 +464,18 @@ network.mojom.WebSocketClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -459,19 +484,25 @@ network.mojom.WebSocketClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDataFrame');
           const result = this.impl.onDataFrame(params.fin, params.type, params.data_length);
           break;
         }
         case 1: {
           const params = network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDropChannel');
           const result = this.impl.onDropChannel(params.was_clean, params.code, params.reason);
           break;
         }
         case 2: {
           const params = network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onClosingHandshake');
           const result = this.impl.onClosingHandshake();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -588,13 +619,18 @@ network.mojom.WebSocketReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -603,19 +639,25 @@ network.mojom.WebSocketReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocket_SendMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.type, params.data_length);
           break;
         }
         case 1: {
           const params = network.mojom.WebSocket_StartReceiving_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startReceiving');
           const result = this.impl.startReceiving();
           break;
         }
         case 2: {
           const params = network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startClosingHandshake');
           const result = this.impl.startClosingHandshake(params.code, params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

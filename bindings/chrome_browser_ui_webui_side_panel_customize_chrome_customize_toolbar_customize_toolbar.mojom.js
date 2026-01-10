@@ -162,13 +162,18 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -177,9 +182,13 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCustomizeToolbarHandler');
           const result = this.impl.createCustomizeToolbarHandler(params.client, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -342,13 +351,18 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -357,6 +371,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listActions');
           const result = this.impl.listActions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -368,6 +383,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 1: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listCategories');
           const result = this.impl.listCategories();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -379,11 +395,13 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 2: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pinAction');
           const result = this.impl.pinAction(params.action_id, params.pinned);
           break;
         }
         case 3: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getIsCustomized');
           const result = this.impl.getIsCustomized();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -395,9 +413,13 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
         case 4: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetToDefault');
           const result = this.impl.resetToDefault();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -497,13 +519,18 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -512,14 +539,19 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setActionPinned');
           const result = this.impl.setActionPinned(params.action_id, params.pinned);
           break;
         }
         case 1: {
           const params = side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyActionsUpdated');
           const result = this.impl.notifyActionsUpdated();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

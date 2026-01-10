@@ -324,13 +324,18 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -339,19 +344,25 @@ chromeos.machine_learning.mojom.SodaClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStart');
           const result = this.impl.onStart();
           break;
         }
         case 1: {
           const params = chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStop');
           const result = this.impl.onStop();
           break;
         }
         case 2: {
           const params = chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSpeechRecognizerEvent');
           const result = this.impl.onSpeechRecognizerEvent(params.event);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -480,13 +491,18 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -495,24 +511,31 @@ chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addAudio');
           const result = this.impl.addAudio(params.audio);
           break;
         }
         case 1: {
           const params = chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 2: {
           const params = chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 3: {
           const params = chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.markDone');
           const result = this.impl.markDone();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

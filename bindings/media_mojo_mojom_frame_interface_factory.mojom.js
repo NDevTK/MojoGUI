@@ -95,13 +95,18 @@ media.mojom.MuteStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -110,9 +115,13 @@ media.mojom.MuteStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMuteStateChange');
           const result = this.impl.onMuteStateChange(params.muted);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -281,13 +290,18 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -296,26 +310,31 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createProvisionFetcher');
           const result = this.impl.createProvisionFetcher(params.provision_fetcher);
           break;
         }
         case 1: {
           const params = media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCdmStorage');
           const result = this.impl.createCdmStorage(params.cdm_storage);
           break;
         }
         case 2: {
           const params = media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerMuteStateObserver');
           const result = this.impl.registerMuteStateObserver(params.site_mute_observer);
           break;
         }
         case 3: {
           const params = media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDCOMPSurfaceRegistry');
           const result = this.impl.createDCOMPSurfaceRegistry(params.registry);
           break;
         }
         case 4: {
           const params = media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getCdmOrigin');
           const result = this.impl.getCdmOrigin();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -327,9 +346,13 @@ media.mojom.FrameInterfaceFactoryReceiver = class {
         }
         case 5: {
           const params = media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindEmbedderReceiver');
           const result = this.impl.bindEmbedderReceiver(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

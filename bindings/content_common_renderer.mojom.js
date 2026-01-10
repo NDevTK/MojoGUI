@@ -444,13 +444,18 @@ content.mojom.RendererReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -459,56 +464,67 @@ content.mojom.RendererReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createAgentSchedulingGroup');
           const result = this.impl.createAgentSchedulingGroup(params.bootstrap);
           break;
         }
         case 1: {
           const params = content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createAssociatedAgentSchedulingGroup');
           const result = this.impl.createAssociatedAgentSchedulingGroup(params.agent_scheduling_group);
           break;
         }
         case 2: {
           const params = content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.transferSharedLastForegroundTime');
           const result = this.impl.transferSharedLastForegroundTime(params.last_foreground_time_region);
           break;
         }
         case 3: {
           const params = content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkConnectionChanged');
           const result = this.impl.onNetworkConnectionChanged(params.connection_type, params.max_bandwidth_mbps);
           break;
         }
         case 4: {
           const params = content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkQualityChanged');
           const result = this.impl.onNetworkQualityChanged(params.effective_connection_type, params.http_rtt, params.transport_rtt, params.bandwidth_kbps);
           break;
         }
         case 5: {
           const params = content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWebKitSharedTimersSuspended');
           const result = this.impl.setWebKitSharedTimersSuspended(params.suspend);
           break;
         }
         case 6: {
           const params = content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateScrollbarTheme');
           const result = this.impl.updateScrollbarTheme(params.params);
           break;
         }
         case 7: {
           const params = content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSystemColorsChanged');
           const result = this.impl.onSystemColorsChanged(params.aqua_color_variant);
           break;
         }
         case 8: {
           const params = content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateSystemColorInfo');
           const result = this.impl.updateSystemColorInfo(params.params);
           break;
         }
         case 9: {
           const params = content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.purgePluginListCache');
           const result = this.impl.purgePluginListCache();
           break;
         }
         case 10: {
           const params = content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.purgeResourceCache');
           const result = this.impl.purgeResourceCache();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -520,16 +536,19 @@ content.mojom.RendererReceiver = class {
         }
         case 11: {
           const params = content.mojom.Renderer_SetProcessState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setProcessState');
           const result = this.impl.setProcessState(params.process_priority, params.visible_state);
           break;
         }
         case 12: {
           const params = content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsLockedToSite');
           const result = this.impl.setIsLockedToSite();
           break;
         }
         case 13: {
           const params = content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
           const result = this.impl.writeClangProfilingProfile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -541,29 +560,37 @@ content.mojom.RendererReceiver = class {
         }
         case 14: {
           const params = content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsCrossOriginIsolated');
           const result = this.impl.setIsCrossOriginIsolated(params.value);
           break;
         }
         case 15: {
           const params = content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsWebSecurityDisabled');
           const result = this.impl.setIsWebSecurityDisabled(params.value);
           break;
         }
         case 16: {
           const params = content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIsIsolatedContext');
           const result = this.impl.setIsIsolatedContext(params.value);
           break;
         }
         case 17: {
           const params = content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWebUIResourceUrlToCodeCacheMap');
           const result = this.impl.setWebUIResourceUrlToCodeCacheMap(params.resource_map);
           break;
         }
         case 18: {
           const params = content.mojom.Renderer_InitializeRenderer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeRenderer');
           const result = this.impl.initializeRenderer(params.user_agent, params.metadata, params.cors_exempt_header_list, params.origin_trials_settings, params.cpu_performance_tier, params.trace_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

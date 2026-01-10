@@ -157,13 +157,18 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -172,14 +177,19 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateRootScrollOffsetUpdateFrequency');
           const result = this.impl.updateRootScrollOffsetUpdateFrequency(params.frequency);
           break;
         }
         case 1: {
           const params = cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportAllFrameSubmissionsForTesting');
           const result = this.impl.reportAllFrameSubmissionsForTesting(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -296,13 +306,18 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -311,19 +326,25 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRenderFrameMetadataChanged');
           const result = this.impl.onRenderFrameMetadataChanged(params.frame_token, params.metadata);
           break;
         }
         case 1: {
           const params = cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFrameSubmissionForTesting');
           const result = this.impl.onFrameSubmissionForTesting(params.frame_token);
           break;
         }
         case 2: {
           const params = cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRootScrollOffsetChanged');
           const result = this.impl.onRootScrollOffsetChanged(params.root_scroll_offset);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

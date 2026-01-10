@@ -219,13 +219,18 @@ blink.mojom.StorageAccessHandleReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -234,21 +239,25 @@ blink.mojom.StorageAccessHandleReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindIndexedDB');
           const result = this.impl.bindIndexedDB(params.receiver);
           break;
         }
         case 1: {
           const params = blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindLocks');
           const result = this.impl.bindLocks(params.receiver);
           break;
         }
         case 2: {
           const params = blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindCaches');
           const result = this.impl.bindCaches(params.receiver);
           break;
         }
         case 3: {
           const params = blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDirectory');
           const result = this.impl.getDirectory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -260,6 +269,7 @@ blink.mojom.StorageAccessHandleReceiver = class {
         }
         case 4: {
           const params = blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.estimate');
           const result = this.impl.estimate();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -271,19 +281,25 @@ blink.mojom.StorageAccessHandleReceiver = class {
         }
         case 5: {
           const params = blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindBlobStorage');
           const result = this.impl.bindBlobStorage(params.receiver);
           break;
         }
         case 6: {
           const params = blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindBroadcastChannel');
           const result = this.impl.bindBroadcastChannel(params.receiver);
           break;
         }
         case 7: {
           const params = blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSharedWorker');
           const result = this.impl.bindSharedWorker(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

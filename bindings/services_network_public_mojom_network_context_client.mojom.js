@@ -212,13 +212,18 @@ network.mojom.NetworkContextClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -227,6 +232,7 @@ network.mojom.NetworkContextClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFileUploadRequested');
           const result = this.impl.onFileUploadRequested(params.process_id, params.async, params.file_paths, params.destination_url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -238,6 +244,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 1: {
           const params = network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCanSendReportingReports');
           const result = this.impl.onCanSendReportingReports(params.origins);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -249,6 +256,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 2: {
           const params = network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCanSendDomainReliabilityUpload');
           const result = this.impl.onCanSendDomainReliabilityUpload(params.origin);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -260,6 +268,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 3: {
           const params = network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onGenerateHttpNegotiateAuthToken');
           const result = this.impl.onGenerateHttpNegotiateAuthToken(params.server_auth_token, params.can_delegate, params.auth_negotiate_android_account_type, params.spn);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -271,6 +280,7 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 4: {
           const params = network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCanSendSCTAuditingReport');
           const result = this.impl.onCanSendSCTAuditingReport();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -282,9 +292,13 @@ network.mojom.NetworkContextClientReceiver = class {
         }
         case 5: {
           const params = network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewSCTAuditingReportSent');
           const result = this.impl.onNewSCTAuditingReportSent();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

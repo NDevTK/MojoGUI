@@ -236,13 +236,18 @@ network.mojom.ResolveHostHandleReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -251,9 +256,13 @@ network.mojom.ResolveHostHandleReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.result);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -372,13 +381,18 @@ network.mojom.ResolveHostClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -387,19 +401,25 @@ network.mojom.ResolveHostClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.result, params.resolve_error_info, params.resolved_addresses, params.alternative_endpoints);
           break;
         }
         case 1: {
           const params = network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTextResults');
           const result = this.impl.onTextResults(params.text_results);
           break;
         }
         case 2: {
           const params = network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostnameResults');
           const result = this.impl.onHostnameResults(params.hosts);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -538,13 +558,18 @@ network.mojom.MdnsListenClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -553,24 +578,31 @@ network.mojom.MdnsListenClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAddressResult');
           const result = this.impl.onAddressResult(params.update_type, params.query_type, params.endpoint);
           break;
         }
         case 1: {
           const params = network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTextResult');
           const result = this.impl.onTextResult(params.update_type, params.query_type, params.text_records);
           break;
         }
         case 2: {
           const params = network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHostnameResult');
           const result = this.impl.onHostnameResult(params.update_type, params.query_type, params.host);
           break;
         }
         case 3: {
           const params = network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUnhandledResult');
           const result = this.impl.onUnhandledResult(params.update_type, params.query_type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -681,13 +713,18 @@ network.mojom.HostResolverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -696,11 +733,13 @@ network.mojom.HostResolverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.HostResolver_ResolveHost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resolveHost');
           const result = this.impl.resolveHost(params.host, params.network_anonymization_key, params.optional_parameters, params.response_client);
           break;
         }
         case 1: {
           const params = network.mojom.HostResolver_MdnsListen_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mdnsListen');
           const result = this.impl.mdnsListen(params.host, params.query_type, params.response_client);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -710,6 +749,9 @@ network.mojom.HostResolverReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -792,13 +834,18 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -807,9 +854,13 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDnsConfigChanged');
           const result = this.impl.onDnsConfigChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -893,13 +944,18 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -908,9 +964,13 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestNotifications');
           const result = this.impl.requestNotifications(params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

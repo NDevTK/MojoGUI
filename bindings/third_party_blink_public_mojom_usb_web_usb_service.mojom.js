@@ -182,13 +182,18 @@ blink.mojom.WebUsbServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -197,6 +202,7 @@ blink.mojom.WebUsbServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebUsbService_GetDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -208,11 +214,13 @@ blink.mojom.WebUsbServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.WebUsbService_GetDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDevice');
           const result = this.impl.getDevice(params.guid, params.device_receiver);
           break;
         }
         case 2: {
           const params = blink.mojom.WebUsbService_GetPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPermission');
           const result = this.impl.getPermission(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -224,6 +232,7 @@ blink.mojom.WebUsbServiceReceiver = class {
         }
         case 3: {
           const params = blink.mojom.WebUsbService_ForgetDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forgetDevice');
           const result = this.impl.forgetDevice(params.guid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -235,9 +244,13 @@ blink.mojom.WebUsbServiceReceiver = class {
         }
         case 4: {
           const params = blink.mojom.WebUsbService_SetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

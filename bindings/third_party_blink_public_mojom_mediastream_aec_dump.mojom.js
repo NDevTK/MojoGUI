@@ -104,13 +104,18 @@ blink.mojom.AecDumpAgentReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -119,14 +124,19 @@ blink.mojom.AecDumpAgentReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AecDumpAgent_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.file);
           break;
         }
         case 1: {
           const params = blink.mojom.AecDumpAgent_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -210,13 +220,18 @@ blink.mojom.AecDumpManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -225,9 +240,13 @@ blink.mojom.AecDumpManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AecDumpManager_Add_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.add');
           const result = this.impl.add(params.agent);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

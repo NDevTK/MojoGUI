@@ -192,13 +192,18 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -207,14 +212,19 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyboardListUpdated');
           const result = this.impl.onKeyboardListUpdated(params.keyboards);
           break;
         }
         case 1: {
           const params = ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyboardPoliciesUpdated');
           const result = this.impl.onKeyboardPoliciesUpdated(params.policies);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -298,13 +308,18 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -313,9 +328,13 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTouchpadListUpdated');
           const result = this.impl.onTouchpadListUpdated(params.touchpads);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -399,13 +418,18 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -414,9 +438,13 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPointingStickListUpdated');
           const result = this.impl.onPointingStickListUpdated(params.pointSticks);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -516,13 +544,18 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -531,14 +564,19 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMouseListUpdated');
           const result = this.impl.onMouseListUpdated(params.mice);
           break;
         }
         case 1: {
           const params = ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMousePoliciesUpdated');
           const result = this.impl.onMousePoliciesUpdated(params.policies);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -622,13 +660,18 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -637,9 +680,13 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onButtonPressed');
           const result = this.impl.onButtonPressed(params.button);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -723,13 +770,18 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -738,9 +790,13 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onGraphicsTabletListUpdated');
           const result = this.impl.onGraphicsTabletListUpdated(params.graphics_tablets);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -824,13 +880,18 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -839,9 +900,13 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyboardBrightnessChanged');
           const result = this.impl.onKeyboardBrightnessChanged(params.brightness_percent);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -925,13 +990,18 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -940,9 +1010,13 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyboardAmbientLightSensorEnabledChanged');
           const result = this.impl.onKeyboardAmbientLightSensorEnabledChanged(params.keyboard_ambient_light_sensor_enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1026,13 +1100,18 @@ ash.settings.mojom.LidStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1041,9 +1120,13 @@ ash.settings.mojom.LidStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.is_lid_open);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1620,13 +1703,18 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1635,46 +1723,55 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeKeyboardSettings');
           const result = this.impl.observeKeyboardSettings(params.observer);
           break;
         }
         case 1: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeTouchpadSettings');
           const result = this.impl.observeTouchpadSettings(params.observer);
           break;
         }
         case 2: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observePointingStickSettings');
           const result = this.impl.observePointingStickSettings(params.observer);
           break;
         }
         case 3: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeMouseSettings');
           const result = this.impl.observeMouseSettings(params.observer);
           break;
         }
         case 4: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeGraphicsTabletSettings');
           const result = this.impl.observeGraphicsTabletSettings(params.observer);
           break;
         }
         case 5: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeButtonPresses');
           const result = this.impl.observeButtonPresses(params.observer);
           break;
         }
         case 6: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeKeyboardBrightness');
           const result = this.impl.observeKeyboardBrightness(params.observer);
           break;
         }
         case 7: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeKeyboardAmbientLightSensor');
           const result = this.impl.observeKeyboardAmbientLightSensor(params.observer);
           break;
         }
         case 8: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeLidState');
           const result = this.impl.observeLidState(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1686,56 +1783,67 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 9: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.restoreDefaultKeyboardRemappings');
           const result = this.impl.restoreDefaultKeyboardRemappings(params.device_id);
           break;
         }
         case 10: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setKeyboardSettings');
           const result = this.impl.setKeyboardSettings(params.device_id, params.settings);
           break;
         }
         case 11: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPointingStickSettings');
           const result = this.impl.setPointingStickSettings(params.device_id, params.settings);
           break;
         }
         case 12: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMouseSettings');
           const result = this.impl.setMouseSettings(params.device_id, params.settings);
           break;
         }
         case 13: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTouchpadSettings');
           const result = this.impl.setTouchpadSettings(params.device_id, params.settings);
           break;
         }
         case 14: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setGraphicsTabletSettings');
           const result = this.impl.setGraphicsTabletSettings(params.device_id, params.settings);
           break;
         }
         case 15: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setKeyboardBrightness');
           const result = this.impl.setKeyboardBrightness(params.percent);
           break;
         }
         case 16: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setKeyboardAmbientLightSensorEnabled');
           const result = this.impl.setKeyboardAmbientLightSensorEnabled(params.enabled);
           break;
         }
         case 17: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startObserving');
           const result = this.impl.startObserving(params.device_id);
           break;
         }
         case 18: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopObserving');
           const result = this.impl.stopObserving();
           break;
         }
         case 19: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getActionsForMouseButtonCustomization');
           const result = this.impl.getActionsForMouseButtonCustomization();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1747,6 +1855,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 20: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getActionsForGraphicsTabletButtonCustomization');
           const result = this.impl.getActionsForGraphicsTabletButtonCustomization();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1758,6 +1867,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 21: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getMetaKeyToDisplay');
           const result = this.impl.getMetaKeyToDisplay();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1769,6 +1879,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 22: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasKeyboardBacklight');
           const result = this.impl.hasKeyboardBacklight();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1780,6 +1891,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 23: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasAmbientLightSensor');
           const result = this.impl.hasAmbientLightSensor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1791,6 +1903,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 24: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isRgbKeyboardSupported');
           const result = this.impl.isRgbKeyboardSupported();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1802,16 +1915,19 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 25: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordKeyboardColorLinkClicked');
           const result = this.impl.recordKeyboardColorLinkClicked();
           break;
         }
         case 26: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordKeyboardBrightnessChangeFromSlider');
           const result = this.impl.recordKeyboardBrightnessChangeFromSlider(params.percent);
           break;
         }
         case 27: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceIconImage');
           const result = this.impl.getDeviceIconImage(params.device_key);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1823,9 +1939,13 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 28: {
           const params = ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchCompanionApp');
           const result = this.impl.launchCompanionApp(params.package_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

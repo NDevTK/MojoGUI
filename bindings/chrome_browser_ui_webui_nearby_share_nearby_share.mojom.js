@@ -241,13 +241,18 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -256,14 +261,19 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShareTargetDiscovered');
           const result = this.impl.onShareTargetDiscovered(params.share_target);
           break;
         }
         case 1: {
           const params = nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onShareTargetLost');
           const result = this.impl.onShareTargetLost(params.share_target);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -348,13 +358,18 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -363,9 +378,13 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
           const result = this.impl.onTransferUpdate(params.status, params.token);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -464,13 +483,18 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -479,14 +503,19 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNearbyProcessStopped');
           const result = this.impl.onNearbyProcessStopped();
           break;
         }
         case 1: {
           const params = nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStartDiscoveryResult');
           const result = this.impl.onStartDiscoveryResult(params.success);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -657,13 +686,18 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -672,11 +706,13 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addDiscoveryObserver');
           const result = this.impl.addDiscoveryObserver(params.observer);
           break;
         }
         case 1: {
           const params = nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startDiscovery');
           const result = this.impl.startDiscovery(params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -688,6 +724,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         }
         case 2: {
           const params = nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopDiscovery');
           const result = this.impl.stopDiscovery();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -699,6 +736,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         }
         case 3: {
           const params = nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectShareTarget');
           const result = this.impl.selectShareTarget(params.share_target_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -710,6 +748,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         }
         case 4: {
           const params = nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPayloadPreview');
           const result = this.impl.getPayloadPreview();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -719,6 +758,9 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -849,13 +891,18 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -864,6 +911,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -875,6 +923,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
         }
         case 1: {
           const params = nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -886,6 +935,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
         }
         case 2: {
           const params = nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -895,6 +945,9 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1025,13 +1078,18 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1040,24 +1098,31 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHighVisibilityChanged');
           const result = this.impl.onHighVisibilityChanged(params.in_high_visibility);
           break;
         }
         case 1: {
           const params = nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
           const result = this.impl.onTransferUpdate(params.share_target, params.metadata);
           break;
         }
         case 2: {
           const params = nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNearbyProcessStopped');
           const result = this.impl.onNearbyProcessStopped();
           break;
         }
         case 3: {
           const params = nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStartAdvertisingFailure');
           const result = this.impl.onStartAdvertisingFailure();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1264,13 +1329,18 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1279,11 +1349,13 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addReceiveObserver');
           const result = this.impl.addReceiveObserver(params.observer);
           break;
         }
         case 1: {
           const params = nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isInHighVisibility');
           const result = this.impl.isInHighVisibility();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1295,6 +1367,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 2: {
           const params = nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerForegroundReceiveSurface');
           const result = this.impl.registerForegroundReceiveSurface();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1306,6 +1379,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 3: {
           const params = nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unregisterForegroundReceiveSurface');
           const result = this.impl.unregisterForegroundReceiveSurface();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1317,6 +1391,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 4: {
           const params = nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.share_target_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1328,6 +1403,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 5: {
           const params = nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reject');
           const result = this.impl.reject(params.share_target_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1339,9 +1415,13 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
         case 6: {
           const params = nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordFastInitiationNotificationUsage');
           const result = this.impl.recordFastInitiationNotificationUsage(params.success);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

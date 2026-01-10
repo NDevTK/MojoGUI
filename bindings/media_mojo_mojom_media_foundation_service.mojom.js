@@ -97,13 +97,18 @@ media.mojom.GpuInfoObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -112,9 +117,13 @@ media.mojom.GpuInfoObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onGpuInfoUpdate');
           const result = this.impl.onGpuInfoUpdate(params.gpu_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -222,13 +231,18 @@ media.mojom.MediaFoundationServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -237,6 +251,7 @@ media.mojom.MediaFoundationServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isKeySystemSupported');
           const result = this.impl.isKeySystemSupported(params.key_system);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -248,9 +263,13 @@ media.mojom.MediaFoundationServiceReceiver = class {
         }
         case 1: {
           const params = media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createInterfaceFactory');
           const result = this.impl.createInterfaceFactory(params.factory, params.frame_interfaces);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -357,13 +376,18 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -372,6 +396,7 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateGpuInfo');
           const result = this.impl.updateGpuInfo(params.gpu_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -383,9 +408,13 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
         }
         case 1: {
           const params = media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getService');
           const result = this.impl.getService(params.cdm_path, params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -151,13 +151,18 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -166,11 +171,13 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack();
           break;
         }
         case 1: {
           const params = supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestUrlAccessRemote');
           const result = this.impl.requestUrlAccessRemote();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -182,6 +189,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         }
         case 2: {
           const params = supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestUrlAccessLocal');
           const result = this.impl.requestUrlAccessLocal();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -193,6 +201,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         }
         case 3: {
           const params = supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.learnMore');
           const result = this.impl.learnMore();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -202,6 +211,9 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

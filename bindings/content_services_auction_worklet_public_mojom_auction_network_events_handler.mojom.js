@@ -143,13 +143,18 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -158,24 +163,31 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkSendRequest');
           const result = this.impl.onNetworkSendRequest(params.request, params.timestamp);
           break;
         }
         case 1: {
           const params = auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkResponseReceived');
           const result = this.impl.onNetworkResponseReceived(params.request_id, params.loader_id, params.request_url, params.headers);
           break;
         }
         case 2: {
           const params = auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkRequestComplete');
           const result = this.impl.onNetworkRequestComplete(params.request_id, params.status);
           break;
         }
         case 3: {
           const params = auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

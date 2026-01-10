@@ -130,13 +130,18 @@ heap_profiling.mojom.TestConnectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -145,6 +150,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectSnapshotController');
           const result = this.impl.connectSnapshotController(params.controller);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -156,6 +162,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
         }
         case 1: {
           const params = heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectProfileCollector');
           const result = this.impl.connectProfileCollector(params.collector);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -167,9 +174,13 @@ heap_profiling.mojom.TestConnectorReceiver = class {
         }
         case 2: {
           const params = heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

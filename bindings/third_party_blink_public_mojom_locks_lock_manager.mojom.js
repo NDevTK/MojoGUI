@@ -101,19 +101,27 @@ blink.mojom.LockHandleReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -212,13 +220,18 @@ blink.mojom.LockRequestReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -227,14 +240,19 @@ blink.mojom.LockRequestReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LockRequest_Granted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.granted');
           const result = this.impl.granted(params.lock_handle);
           break;
         }
         case 1: {
           const params = blink.mojom.LockRequest_Failed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.failed');
           const result = this.impl.failed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -343,13 +361,18 @@ blink.mojom.LockManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -358,11 +381,13 @@ blink.mojom.LockManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LockManager_RequestLock_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestLock');
           const result = this.impl.requestLock(params.name, params.mode, params.wait, params.request);
           break;
         }
         case 1: {
           const params = blink.mojom.LockManager_QueryState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.queryState');
           const result = this.impl.queryState();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -372,6 +397,9 @@ blink.mojom.LockManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -169,13 +169,18 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -184,14 +189,19 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.postMessage');
           const result = this.impl.postMessage(params.message, params.ports);
           break;
         }
         case 1: {
           const params = js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setBrowserToJsMessaging');
           const result = this.impl.setBrowserToJsMessaging(params.browser_to_js_messaging);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -274,13 +284,18 @@ js_injection.mojom.JsObjectsClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -289,9 +304,13 @@ js_injection.mojom.JsObjectsClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWindowObjectCleared');
           const result = this.impl.onWindowObjectCleared();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -375,13 +394,18 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -390,9 +414,13 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendBrowserToJsMessaging');
           const result = this.impl.sendBrowserToJsMessaging(params.browser_to_js_messaging);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -476,13 +504,18 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -491,9 +524,13 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPostMessage');
           const result = this.impl.onPostMessage(params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -610,13 +647,18 @@ js_injection.mojom.JsCommunicationReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -625,19 +667,25 @@ js_injection.mojom.JsCommunicationReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setJsObjects');
           const result = this.impl.setJsObjects(params.js_objects, params.client);
           break;
         }
         case 1: {
           const params = js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addPersistentJavaScript');
           const result = this.impl.addPersistentJavaScript(params.script);
           break;
         }
         case 2: {
           const params = js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removePersistentJavaScript');
           const result = this.impl.removePersistentJavaScript(params.script_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

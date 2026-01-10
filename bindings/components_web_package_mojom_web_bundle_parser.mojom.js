@@ -304,13 +304,18 @@ web_package.mojom.WebBundleParserFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -319,14 +324,19 @@ web_package.mojom.WebBundleParserFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getParserForDataSource');
           const result = this.impl.getParserForDataSource(params.receiver, params.base_url, params.data_source);
           break;
         }
         case 1: {
           const params = web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindFileDataSource');
           const result = this.impl.bindFileDataSource(params.data_source, params.file);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -484,13 +494,18 @@ web_package.mojom.WebBundleParserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -499,6 +514,7 @@ web_package.mojom.WebBundleParserReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseIntegrityBlock');
           const result = this.impl.parseIntegrityBlock();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -510,6 +526,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         }
         case 1: {
           const params = web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseMetadata');
           const result = this.impl.parseMetadata(params.offset);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -521,6 +538,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         }
         case 2: {
           const params = web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.parseResponse');
           const result = this.impl.parseResponse(params.response_offset, params.response_length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -532,6 +550,7 @@ web_package.mojom.WebBundleParserReceiver = class {
         }
         case 3: {
           const params = web_package.mojom.WebBundleParser_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -541,6 +560,9 @@ web_package.mojom.WebBundleParserReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -693,13 +715,18 @@ web_package.mojom.BundleDataSourceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -708,6 +735,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = web_package.mojom.BundleDataSource_Read_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.offset, params.length);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -719,6 +747,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         }
         case 1: {
           const params = web_package.mojom.BundleDataSource_Length_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.length');
           const result = this.impl.length();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -730,6 +759,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         }
         case 2: {
           const params = web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isRandomAccessContext');
           const result = this.impl.isRandomAccessContext();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -741,6 +771,7 @@ web_package.mojom.BundleDataSourceReceiver = class {
         }
         case 3: {
           const params = web_package.mojom.BundleDataSource_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -750,6 +781,9 @@ web_package.mojom.BundleDataSourceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

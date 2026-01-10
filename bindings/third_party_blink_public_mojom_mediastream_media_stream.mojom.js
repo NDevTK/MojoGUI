@@ -427,13 +427,18 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -442,34 +447,43 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceStopped');
           const result = this.impl.onDeviceStopped(params.label, params.device);
           break;
         }
         case 1: {
           const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
           const result = this.impl.onDeviceChanged(params.label, params.old_device, params.new_device);
           break;
         }
         case 2: {
           const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceRequestStateChange');
           const result = this.impl.onDeviceRequestStateChange(params.label, params.device, params.new_state);
           break;
         }
         case 3: {
           const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceCaptureConfigurationChange');
           const result = this.impl.onDeviceCaptureConfigurationChange(params.label, params.device);
           break;
         }
         case 4: {
           const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceCaptureHandleChange');
           const result = this.impl.onDeviceCaptureHandleChange(params.label, params.device);
           break;
         }
         case 5: {
           const params = blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onZoomLevelChange');
           const result = this.impl.onZoomLevelChange(params.label, params.device, params.zoom_level);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -810,13 +824,18 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -825,6 +844,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.generateStreams');
           const result = this.impl.generateStreams(params.request_id, params.controls, params.user_gesture, params.audio_stream_selection_info);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -836,21 +856,25 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         }
         case 1: {
           const params = blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.focusCapturedSurface');
           const result = this.impl.focusCapturedSurface(params.label, params.focus);
           break;
         }
         case 2: {
           const params = blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelRequest');
           const result = this.impl.cancelRequest(params.request_id);
           break;
         }
         case 3: {
           const params = blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopStreamDevice');
           const result = this.impl.stopStreamDevice(params.device_id, params.session_id);
           break;
         }
         case 4: {
           const params = blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDevice');
           const result = this.impl.openDevice(params.request_id, params.device_id, params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -862,16 +886,19 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         }
         case 5: {
           const params = blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeDevice');
           const result = this.impl.closeDevice(params.label);
           break;
         }
         case 6: {
           const params = blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCapturingLinkSecured');
           const result = this.impl.setCapturingLinkSecured(params.session_id, params.type, params.is_secure);
           break;
         }
         case 7: {
           const params = blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applySubCaptureTarget');
           const result = this.impl.applySubCaptureTarget(params.session_id, params.type, params.sub_capture_target, params.sub_capture_target_version);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -883,11 +910,13 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         }
         case 8: {
           const params = blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendWheel');
           const result = this.impl.sendWheel(params.session_id, params.action);
           break;
         }
         case 9: {
           const params = blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateZoomLevel');
           const result = this.impl.updateZoomLevel(params.session_id, params.action);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -899,6 +928,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         }
         case 10: {
           const params = blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestCapturedSurfaceControlPermission');
           const result = this.impl.requestCapturedSurfaceControlPermission(params.session_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -910,6 +940,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         }
         case 11: {
           const params = blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOpenDevice');
           const result = this.impl.getOpenDevice(params.request_id, params.session_id, params.transfer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -921,6 +952,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         }
         case 12: {
           const params = blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.keepDeviceAliveForTransfer');
           const result = this.impl.keepDeviceAliveForTransfer(params.session_id, params.transfer_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -930,6 +962,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1031,13 +1066,18 @@ blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1046,14 +1086,19 @@ blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addTrack');
           const result = this.impl.addTrack(params.id, params.is_audio, params.is_remote);
           break;
         }
         case 1: {
           const params = blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeTrack');
           const result = this.impl.removeTrack(params.id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

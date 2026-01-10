@@ -211,13 +211,18 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -226,6 +231,7 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSourceInfos');
           const result = this.impl.getSourceInfos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -237,31 +243,37 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
         }
         case 1: {
           const params = video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getVideoSource');
           const result = this.impl.getVideoSource(params.source_id, params.stream);
           break;
         }
         case 2: {
           const params = video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addSharedMemoryVirtualDevice');
           const result = this.impl.addSharedMemoryVirtualDevice(params.device_info, params.producer, params.virtual_device_receiver);
           break;
         }
         case 3: {
           const params = video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addTextureVirtualDevice');
           const result = this.impl.addTextureVirtualDevice(params.device_info, params.virtual_device_receiver);
           break;
         }
         case 4: {
           const params = video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerVirtualDevicesChangedObserver');
           const result = this.impl.registerVirtualDevicesChangedObserver(params.observer, params.raise_event_if_virtual_devices_already_present);
           break;
         }
         case 5: {
           const params = video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerDevicesChangedObserver');
           const result = this.impl.registerDevicesChangedObserver(params.observer);
           break;
         }
         case 6: {
           const params = video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -271,6 +283,9 @@ video_capture.mojom.VideoSourceProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -126,13 +126,18 @@ arc.mojom.VideoHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -141,6 +146,7 @@ arc.mojom.VideoHostReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBootstrapVideoAcceleratorFactory');
           const result = this.impl.onBootstrapVideoAcceleratorFactory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -152,6 +158,7 @@ arc.mojom.VideoHostReceiver = class {
         }
         case 2: {
           const params = arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createVideoAcceleratorFactory');
           const result = this.impl.createVideoAcceleratorFactory();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -161,6 +168,9 @@ arc.mojom.VideoHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -249,13 +259,18 @@ arc.mojom.VideoInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -264,6 +279,7 @@ arc.mojom.VideoInstanceReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -273,6 +289,9 @@ arc.mojom.VideoInstanceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -406,13 +425,18 @@ arc.mojom.VideoAcceleratorFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -421,24 +445,31 @@ arc.mojom.VideoAcceleratorFactoryReceiver = class {
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createEncodeAccelerator');
           const result = this.impl.createEncodeAccelerator(params.video_encoder);
           break;
         }
         case 2: {
           const params = arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDecodeAccelerator');
           const result = this.impl.createDecodeAccelerator(params.video_decoder, params.protected_buffer_manager, params.browser_cdm_factory);
           break;
         }
         case 4: {
           const params = arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
           const result = this.impl.createVideoDecoder(params.video_decoder);
           break;
         }
         case 3: {
           const params = arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createProtectedBufferAllocator');
           const result = this.impl.createProtectedBufferAllocator(params.video_protected_buffer_allocator);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

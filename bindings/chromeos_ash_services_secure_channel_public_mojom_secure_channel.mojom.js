@@ -263,13 +263,18 @@ ash.secure_channel.mojom.ChannelReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -278,6 +283,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendMessage');
           const result = this.impl.sendMessage(params.message);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -289,6 +295,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         }
         case 1: {
           const params = ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerPayloadFile');
           const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -300,6 +307,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         }
         case 2: {
           const params = ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getConnectionMetadata');
           const result = this.impl.getConnectionMetadata();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -309,6 +317,9 @@ ash.secure_channel.mojom.ChannelReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -392,13 +403,18 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -407,9 +423,13 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMessageReceived');
           const result = this.impl.onMessageReceived(params.message);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -511,13 +531,18 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -526,14 +551,19 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnectionAttemptFailure');
           const result = this.impl.onConnectionAttemptFailure(params.reason);
           break;
         }
         case 1: {
           const params = ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onConnection');
           const result = this.impl.onConnection(params.channel, params.message_receiver_receiver, params.nearby_connection_state_listener_receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -651,13 +681,18 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -666,19 +701,25 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logDiscoveryAttempt');
           const result = this.impl.logDiscoveryAttempt(params.result, params.error_code);
           break;
         }
         case 1: {
           const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logNearbyConnectionState');
           const result = this.impl.logNearbyConnectionState(params.step, params.status);
           break;
         }
         case 2: {
           const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logSecureChannelState');
           const result = this.impl.logSecureChannelState(params.state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -827,13 +868,18 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -842,21 +888,25 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listenForConnectionFromDevice');
           const result = this.impl.listenForConnectionFromDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate);
           break;
         }
         case 1: {
           const params = ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initiateConnectionToDevice');
           const result = this.impl.initiateConnectionToDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate, params.secure_channel_structured_metrics_logger);
           break;
         }
         case 2: {
           const params = ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNearbyConnector');
           const result = this.impl.setNearbyConnector(params.nearby_connector);
           break;
         }
         case 3: {
           const params = ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLastSeenTimestamp');
           const result = this.impl.getLastSeenTimestamp(params.remote_device_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -866,6 +916,9 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

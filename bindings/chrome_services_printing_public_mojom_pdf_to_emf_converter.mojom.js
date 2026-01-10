@@ -132,13 +132,18 @@ printing.mojom.PdfToEmfConverterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -147,6 +152,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.convertPage');
           const result = this.impl.convertPage(params.page_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -158,14 +164,19 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         }
         case 1: {
           const params = printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
           const result = this.impl.setWebContentsURL(params.url);
           break;
         }
         case 2: {
           const params = printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
           const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -257,13 +268,18 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -272,6 +288,7 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createConverter');
           const result = this.impl.createConverter(params.pdf_region, params.render_settings);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -281,6 +298,9 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

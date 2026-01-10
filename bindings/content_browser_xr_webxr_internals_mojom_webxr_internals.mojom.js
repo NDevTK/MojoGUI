@@ -203,13 +203,18 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -218,6 +223,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -229,6 +235,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
         case 1: {
           const params = webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getActiveRuntimes');
           const result = this.impl.getActiveRuntimes();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -240,9 +247,13 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
         case 2: {
           const params = webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToEvents');
           const result = this.impl.subscribeToEvents(params.listener);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -438,13 +449,18 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -453,44 +469,55 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logXrSessionRequested');
           const result = this.impl.logXrSessionRequested(params.session_requested_record);
           break;
         }
         case 1: {
           const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logXrSessionRejected');
           const result = this.impl.logXrSessionRejected(params.session_rejected_record);
           break;
         }
         case 2: {
           const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logXrSessionStarted');
           const result = this.impl.logXrSessionStarted(params.session_started_record);
           break;
         }
         case 3: {
           const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logXrSessionStopped');
           const result = this.impl.logXrSessionStopped(params.session_stopped_record);
           break;
         }
         case 4: {
           const params = webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logXrRuntimeAdded');
           const result = this.impl.logXrRuntimeAdded(params.runtime_added_record);
           break;
         }
         case 5: {
           const params = webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logXrRuntimeRemoved');
           const result = this.impl.logXrRuntimeRemoved(params.device_id);
           break;
         }
         case 6: {
           const params = webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logFrameData');
           const result = this.impl.logFrameData(params.xrframe_statistics);
           break;
         }
         case 7: {
           const params = webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logConsoleMessages');
           const result = this.impl.logConsoleMessages(params.xrlogging_statistics);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

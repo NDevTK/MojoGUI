@@ -101,13 +101,18 @@ ax.mojom.AssistiveTechnologyControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -116,9 +121,13 @@ ax.mojom.AssistiveTechnologyControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableAssistiveTechnology');
           const result = this.impl.enableAssistiveTechnology(params.enabled_features);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -236,13 +245,18 @@ ax.mojom.AccessibilityServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -251,19 +265,25 @@ ax.mojom.AccessibilityServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAccessibilityServiceClient');
           const result = this.impl.bindAccessibilityServiceClient(params.accessibility_service_client);
           break;
         }
         case 1: {
           const params = ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAssistiveTechnologyController');
           const result = this.impl.bindAssistiveTechnologyController(params.at_controller, params.enabled_features);
           break;
         }
         case 2: {
           const params = ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectDevToolsAgent');
           const result = this.impl.connectDevToolsAgent(params.agent, params.type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -459,13 +479,18 @@ ax.mojom.AccessibilityServiceClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -474,44 +499,55 @@ ax.mojom.AccessibilityServiceClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAutomation');
           const result = this.impl.bindAutomation(params.automation);
           break;
         }
         case 1: {
           const params = ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAutomationClient');
           const result = this.impl.bindAutomationClient(params.automation_client);
           break;
         }
         case 2: {
           const params = ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAutoclickClient');
           const result = this.impl.bindAutoclickClient(params.autoclick_client);
           break;
         }
         case 3: {
           const params = ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSpeechRecognition');
           const result = this.impl.bindSpeechRecognition(params.sr_receiver);
           break;
         }
         case 4: {
           const params = ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindTts');
           const result = this.impl.bindTts(params.tts_receiver);
           break;
         }
         case 5: {
           const params = ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindUserInput');
           const result = this.impl.bindUserInput(params.user_input_receiver);
           break;
         }
         case 6: {
           const params = ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindUserInterface');
           const result = this.impl.bindUserInterface(params.user_interface_receiver);
           break;
         }
         case 7: {
           const params = ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAccessibilityFileLoader');
           const result = this.impl.bindAccessibilityFileLoader(params.file_loader_receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

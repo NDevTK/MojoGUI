@@ -306,13 +306,18 @@ blink.mojom.CacheStorageCacheReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -321,26 +326,31 @@ blink.mojom.CacheStorageCacheReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.CacheStorageCache_Match_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.match');
           const result = this.impl.match(params.request, params.query_options, params.in_related_fetch_event, params.in_range_fetch_event, params.trace_id);
           break;
         }
         case 1: {
           const params = blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.matchAll');
           const result = this.impl.matchAll(params.request, params.query_options, params.trace_id);
           break;
         }
         case 2: {
           const params = blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllMatchedEntries');
           const result = this.impl.getAllMatchedEntries(params.request, params.query_options, params.trace_id);
           break;
         }
         case 3: {
           const params = blink.mojom.CacheStorageCache_Keys_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.keys');
           const result = this.impl.keys(params.request, params.query_options, params.trace_id);
           break;
         }
         case 4: {
           const params = blink.mojom.CacheStorageCache_Batch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.batch');
           const result = this.impl.batch(params.batch_operations, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -352,6 +362,7 @@ blink.mojom.CacheStorageCacheReceiver = class {
         }
         case 5: {
           const params = blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.writeSideData');
           const result = this.impl.writeSideData(params.url, params.expected_response_time, params.data, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -361,6 +372,9 @@ blink.mojom.CacheStorageCacheReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -533,13 +547,18 @@ blink.mojom.CacheStorageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -548,6 +567,7 @@ blink.mojom.CacheStorageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.CacheStorage_Has_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.has');
           const result = this.impl.has(params.cache_name, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -559,6 +579,7 @@ blink.mojom.CacheStorageReceiver = class {
         }
         case 1: {
           const params = blink.mojom.CacheStorage_Delete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.cache_name, params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -570,6 +591,7 @@ blink.mojom.CacheStorageReceiver = class {
         }
         case 2: {
           const params = blink.mojom.CacheStorage_Keys_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.keys');
           const result = this.impl.keys(params.trace_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -581,14 +603,19 @@ blink.mojom.CacheStorageReceiver = class {
         }
         case 3: {
           const params = blink.mojom.CacheStorage_Match_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.match');
           const result = this.impl.match(params.request, params.match_options, params.in_related_fetch_event, params.in_range_fetch_event, params.trace_id);
           break;
         }
         case 4: {
           const params = blink.mojom.CacheStorage_Open_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open(params.cache_name, params.trace_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

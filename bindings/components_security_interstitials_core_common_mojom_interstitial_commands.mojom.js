@@ -403,13 +403,18 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -418,109 +423,133 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dontProceed');
           const result = this.impl.dontProceed();
           break;
         }
         case 1: {
           const params = security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.proceed');
           const result = this.impl.proceed();
           break;
         }
         case 2: {
           const params = security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showMoreSection');
           const result = this.impl.showMoreSection();
           break;
         }
         case 3: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openHelpCenter');
           const result = this.impl.openHelpCenter();
           break;
         }
         case 4: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDiagnostic');
           const result = this.impl.openDiagnostic();
           break;
         }
         case 5: {
           const params = security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload();
           break;
         }
         case 6: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDateSettings');
           const result = this.impl.openDateSettings();
           break;
         }
         case 7: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openLogin');
           const result = this.impl.openLogin();
           break;
         }
         case 8: {
           const params = security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.doReport');
           const result = this.impl.doReport();
           break;
         }
         case 9: {
           const params = security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dontReport');
           const result = this.impl.dontReport();
           break;
         }
         case 10: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openReportingPrivacy');
           const result = this.impl.openReportingPrivacy();
           break;
         }
         case 11: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openWhitepaper');
           const result = this.impl.openWhitepaper();
           break;
         }
         case 12: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openHelpCenterInNewTab');
           const result = this.impl.openHelpCenterInNewTab();
           break;
         }
         case 13: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openDiagnosticInNewTab');
           const result = this.impl.openDiagnosticInNewTab();
           break;
         }
         case 14: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openReportingPrivacyInNewTab');
           const result = this.impl.openReportingPrivacyInNewTab();
           break;
         }
         case 15: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openWhitepaperInNewTab');
           const result = this.impl.openWhitepaperInNewTab();
           break;
         }
         case 16: {
           const params = security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportPhishingErrorInNewTab');
           const result = this.impl.reportPhishingErrorInNewTab();
           break;
         }
         case 17: {
           const params = security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reportPhishingError');
           const result = this.impl.reportPhishingError();
           break;
         }
         case 18: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openEnhancedProtectionSettings');
           const result = this.impl.openEnhancedProtectionSettings();
           break;
         }
         case 19: {
           const params = security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showCertificateViewer');
           const result = this.impl.showCertificateViewer();
           break;
         }
         case 20: {
           const params = security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openAndroidAdvancedProtectionSettings');
           const result = this.impl.openAndroidAdvancedProtectionSettings();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

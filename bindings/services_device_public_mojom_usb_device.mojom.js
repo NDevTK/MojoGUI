@@ -649,13 +649,18 @@ device.mojom.UsbDeviceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -664,6 +669,7 @@ device.mojom.UsbDeviceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.UsbDevice_Open_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -675,6 +681,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 1: {
           const params = device.mojom.UsbDevice_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -686,6 +693,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 2: {
           const params = device.mojom.UsbDevice_SetConfiguration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setConfiguration');
           const result = this.impl.setConfiguration(params.value);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -697,6 +705,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 3: {
           const params = device.mojom.UsbDevice_ClaimInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.claimInterface');
           const result = this.impl.claimInterface(params.interface_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -708,6 +717,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 4: {
           const params = device.mojom.UsbDevice_ReleaseInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.releaseInterface');
           const result = this.impl.releaseInterface(params.interface_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -719,6 +729,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 5: {
           const params = device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInterfaceAlternateSetting');
           const result = this.impl.setInterfaceAlternateSetting(params.interface_number, params.alternate_setting);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -730,6 +741,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 6: {
           const params = device.mojom.UsbDevice_Reset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -741,6 +753,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 7: {
           const params = device.mojom.UsbDevice_ClearHalt_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearHalt');
           const result = this.impl.clearHalt(params.direction, params.endpoint_number);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -752,6 +765,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 8: {
           const params = device.mojom.UsbDevice_ControlTransferIn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.controlTransferIn');
           const result = this.impl.controlTransferIn(params.params, params.length, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -763,6 +777,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 9: {
           const params = device.mojom.UsbDevice_ControlTransferOut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.controlTransferOut');
           const result = this.impl.controlTransferOut(params.params, params.data, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -774,6 +789,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 10: {
           const params = device.mojom.UsbDevice_GenericTransferIn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.genericTransferIn');
           const result = this.impl.genericTransferIn(params.endpoint_number, params.length, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -785,6 +801,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 11: {
           const params = device.mojom.UsbDevice_GenericTransferOut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.genericTransferOut');
           const result = this.impl.genericTransferOut(params.endpoint_number, params.data, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -796,6 +813,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 12: {
           const params = device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isochronousTransferIn');
           const result = this.impl.isochronousTransferIn(params.endpoint_number, params.packet_lengths, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -807,6 +825,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 13: {
           const params = device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isochronousTransferOut');
           const result = this.impl.isochronousTransferOut(params.endpoint_number, params.data, params.packet_lengths, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -816,6 +835,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -913,13 +935,18 @@ device.mojom.UsbDeviceClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -928,14 +955,19 @@ device.mojom.UsbDeviceClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceOpened');
           const result = this.impl.onDeviceOpened();
           break;
         }
         case 1: {
           const params = device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceClosed');
           const result = this.impl.onDeviceClosed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

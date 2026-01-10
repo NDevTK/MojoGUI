@@ -193,13 +193,18 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -208,6 +213,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -219,6 +225,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         }
         case 1: {
           const params = add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getInstalledArcApps');
           const result = this.impl.getInstalledArcApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -230,6 +237,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         }
         case 2: {
           const params = add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOAuthToken');
           const result = this.impl.getOAuthToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -241,19 +249,25 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         }
         case 3: {
           const params = add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.logOut');
           const result = this.impl.logOut();
           break;
         }
         case 4: {
           const params = add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySupervisionEnabled');
           const result = this.impl.notifySupervisionEnabled();
           break;
         }
         case 5: {
           const params = add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCloseOnEscape');
           const result = this.impl.setCloseOnEscape(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

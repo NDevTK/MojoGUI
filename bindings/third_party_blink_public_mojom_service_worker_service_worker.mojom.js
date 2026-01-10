@@ -443,13 +443,18 @@ blink.mojom.ServiceWorkerHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -458,16 +463,19 @@ blink.mojom.ServiceWorkerHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setCachedMetadata');
           const result = this.impl.setCachedMetadata(params.url, params.data);
           break;
         }
         case 1: {
           const params = blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearCachedMetadata');
           const result = this.impl.clearCachedMetadata(params.url);
           break;
         }
         case 2: {
           const params = blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getClients');
           const result = this.impl.getClients(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -479,6 +487,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 3: {
           const params = blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getClient');
           const result = this.impl.getClient(params.client_uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -490,6 +499,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 4: {
           const params = blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openNewTab');
           const result = this.impl.openNewTab(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -501,6 +511,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 5: {
           const params = blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openPaymentHandlerWindow');
           const result = this.impl.openPaymentHandlerWindow(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -512,11 +523,13 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 6: {
           const params = blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.postMessageToClient');
           const result = this.impl.postMessageToClient(params.client_uuid, params.message);
           break;
         }
         case 7: {
           const params = blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.focusClient');
           const result = this.impl.focusClient(params.client_uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -528,6 +541,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 8: {
           const params = blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.navigateClient');
           const result = this.impl.navigateClient(params.client_uuid, params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -539,6 +553,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 9: {
           const params = blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.skipWaiting');
           const result = this.impl.skipWaiting();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -550,6 +565,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 10: {
           const params = blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.claimClients');
           const result = this.impl.claimClients();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -561,6 +577,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 11: {
           const params = blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addRoutes');
           const result = this.impl.addRoutes(params.rules);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -570,6 +587,9 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1218,13 +1238,18 @@ blink.mojom.ServiceWorkerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1233,11 +1258,13 @@ blink.mojom.ServiceWorkerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeGlobalScope');
           const result = this.impl.initializeGlobalScope(params.service_worker_host, params.associated_interfaces_to_browser, params.associated_interfaces_from_browser, params.registration_info, params.service_worker_info, params.fetch_handler_existence, params.ancestor_frame_type, params.storage_key);
           break;
         }
         case 1: {
           const params = blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchInstallEvent');
           const result = this.impl.dispatchInstallEvent();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1249,6 +1276,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 2: {
           const params = blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchActivateEvent');
           const result = this.impl.dispatchActivateEvent();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1260,6 +1288,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 3: {
           const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchAbortEvent');
           const result = this.impl.dispatchBackgroundFetchAbortEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1271,6 +1300,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 4: {
           const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchClickEvent');
           const result = this.impl.dispatchBackgroundFetchClickEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1282,6 +1312,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 5: {
           const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchFailEvent');
           const result = this.impl.dispatchBackgroundFetchFailEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1293,6 +1324,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 6: {
           const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchSuccessEvent');
           const result = this.impl.dispatchBackgroundFetchSuccessEvent(params.registration);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1304,6 +1336,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 7: {
           const params = blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchCookieChangeEvent');
           const result = this.impl.dispatchCookieChangeEvent(params.change);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1315,6 +1348,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 8: {
           const params = blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchFetchEventForMainResource');
           const result = this.impl.dispatchFetchEventForMainResource(params.params, params.response_callback);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1326,6 +1360,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 9: {
           const params = blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchNotificationClickEvent');
           const result = this.impl.dispatchNotificationClickEvent(params.notification_id, params.notification_data, params.action_index, params.reply);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1337,6 +1372,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 10: {
           const params = blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchNotificationCloseEvent');
           const result = this.impl.dispatchNotificationCloseEvent(params.notification_id, params.notification_data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1348,6 +1384,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 11: {
           const params = blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchPushEvent');
           const result = this.impl.dispatchPushEvent(params.payload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1359,6 +1396,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 12: {
           const params = blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchPushEventRecordingNetworkRequests');
           const result = this.impl.dispatchPushEventRecordingNetworkRequests(params.payload);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1370,6 +1408,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 13: {
           const params = blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchPushSubscriptionChangeEvent');
           const result = this.impl.dispatchPushSubscriptionChangeEvent(params.old_subscription, params.new_subscription);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1381,6 +1420,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 14: {
           const params = blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchSyncEvent');
           const result = this.impl.dispatchSyncEvent(params.tag, params.last_chance, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1392,6 +1432,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 15: {
           const params = blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchPeriodicSyncEvent');
           const result = this.impl.dispatchPeriodicSyncEvent(params.tag, params.timeout);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1403,6 +1444,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 16: {
           const params = blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchAbortPaymentEvent');
           const result = this.impl.dispatchAbortPaymentEvent(params.result_of_abort_payment);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1414,6 +1456,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 17: {
           const params = blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchCanMakePaymentEvent');
           const result = this.impl.dispatchCanMakePaymentEvent(params.event_data, params.result_of_can_make_payment);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1425,6 +1468,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 18: {
           const params = blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchPaymentRequestEvent');
           const result = this.impl.dispatchPaymentRequestEvent(params.request_data, params.response_callback);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1436,6 +1480,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 19: {
           const params = blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchExtendableMessageEvent');
           const result = this.impl.dispatchExtendableMessageEvent(params.event);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1447,6 +1492,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 20: {
           const params = blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchContentDeleteEvent');
           const result = this.impl.dispatchContentDeleteEvent(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1458,6 +1504,7 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 21: {
           const params = blink.mojom.ServiceWorker_Ping_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1469,26 +1516,31 @@ blink.mojom.ServiceWorkerReceiver = class {
         }
         case 22: {
           const params = blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIdleDelay');
           const result = this.impl.setIdleDelay(params.delay);
           break;
         }
         case 23: {
           const params = blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addKeepAlive');
           const result = this.impl.addKeepAlive();
           break;
         }
         case 24: {
           const params = blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearKeepAlive');
           const result = this.impl.clearKeepAlive();
           break;
         }
         case 25: {
           const params = blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addMessageToConsole');
           const result = this.impl.addMessageToConsole(params.level, params.message);
           break;
         }
         case 26: {
           const params = blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.executeScriptForTest');
           const result = this.impl.executeScriptForTest(params.javascript, params.wants_result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1498,6 +1550,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

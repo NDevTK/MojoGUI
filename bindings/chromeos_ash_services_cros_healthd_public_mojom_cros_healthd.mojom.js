@@ -1253,13 +1253,18 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1268,6 +1273,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAvailableRoutines');
           const result = this.impl.getAvailableRoutines();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1279,6 +1285,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRoutineUpdate');
           const result = this.impl.getRoutineUpdate(params.id, params.command, params.include_output);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1290,6 +1297,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 2: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runUrandomRoutine');
           const result = this.impl.runUrandomRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1301,6 +1309,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 3: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryCapacityRoutine');
           const result = this.impl.runBatteryCapacityRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1312,6 +1321,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 4: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryHealthRoutine');
           const result = this.impl.runBatteryHealthRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1323,6 +1333,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 5: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runSmartctlCheckRoutine');
           const result = this.impl.runSmartctlCheckRoutine(params.percentage_used_threshold);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1334,6 +1345,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 6: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runAcPowerRoutine');
           const result = this.impl.runAcPowerRoutine(params.expected_status, params.expected_power_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1345,6 +1357,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 7: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runCpuCacheRoutine');
           const result = this.impl.runCpuCacheRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1356,6 +1369,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 8: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runCpuStressRoutine');
           const result = this.impl.runCpuStressRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1367,6 +1381,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 9: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runFloatingPointAccuracyRoutine');
           const result = this.impl.runFloatingPointAccuracyRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1378,6 +1393,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 10: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold');
           const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(params.wear_level_threshold);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1389,6 +1405,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 32: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutine');
           const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.wear_level_threshold);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1400,6 +1417,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 11: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runNvmeSelfTestRoutine');
           const result = this.impl.runNvmeSelfTestRoutine(params.nvme_self_test_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1411,6 +1429,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 12: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDiskReadRoutine');
           const result = this.impl.runDiskReadRoutine(params.type, params.length_seconds, params.file_size_mb);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1422,6 +1441,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 13: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runPrimeSearchRoutine');
           const result = this.impl.runPrimeSearchRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1433,6 +1453,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 14: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryDischargeRoutine');
           const result = this.impl.runBatteryDischargeRoutine(params.length_seconds, params.maximum_discharge_percent_allowed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1444,6 +1465,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 15: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryChargeRoutine');
           const result = this.impl.runBatteryChargeRoutine(params.length_seconds, params.minimum_charge_percent_required);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1455,6 +1477,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 16: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runMemoryRoutine');
           const result = this.impl.runMemoryRoutine(params.max_testing_mem_kib);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1466,6 +1489,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 17: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runLanConnectivityRoutine');
           const result = this.impl.runLanConnectivityRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1477,6 +1501,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 18: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runSignalStrengthRoutine');
           const result = this.impl.runSignalStrengthRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1488,6 +1513,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 19: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePingedRoutine');
           const result = this.impl.runGatewayCanBePingedRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1499,6 +1525,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 20: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnectionRoutine');
           const result = this.impl.runHasSecureWiFiConnectionRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1510,6 +1537,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 21: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresentRoutine');
           const result = this.impl.runDnsResolverPresentRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1521,6 +1549,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 22: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsLatencyRoutine');
           const result = this.impl.runDnsLatencyRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1532,6 +1561,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 23: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsResolutionRoutine');
           const result = this.impl.runDnsResolutionRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1543,6 +1573,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 24: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runCaptivePortalRoutine');
           const result = this.impl.runCaptivePortalRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1554,6 +1585,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 25: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHttpFirewallRoutine');
           const result = this.impl.runHttpFirewallRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1565,6 +1597,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 26: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHttpsFirewallRoutine');
           const result = this.impl.runHttpsFirewallRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1576,6 +1609,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 27: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runHttpsLatencyRoutine');
           const result = this.impl.runHttpsLatencyRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1587,6 +1621,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 28: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runVideoConferencingRoutine');
           const result = this.impl.runVideoConferencingRoutine(params.stun_server_hostname);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1598,6 +1633,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 29: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runArcHttpRoutine');
           const result = this.impl.runArcHttpRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1609,6 +1645,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 30: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runArcPingRoutine');
           const result = this.impl.runArcPingRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1620,6 +1657,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 31: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runArcDnsResolutionRoutine');
           const result = this.impl.runArcDnsResolutionRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1631,6 +1669,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 33: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runSensitiveSensorRoutine');
           const result = this.impl.runSensitiveSensorRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1642,6 +1681,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 34: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runFingerprintRoutine');
           const result = this.impl.runFingerprintRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1653,6 +1693,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 35: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runFingerprintAliveRoutine');
           const result = this.impl.runFingerprintAliveRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1664,6 +1705,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 36: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runPrivacyScreenRoutine');
           const result = this.impl.runPrivacyScreenRoutine(params.target_state);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1675,6 +1717,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 37: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunLedLitUpRoutine');
           const result = this.impl.dEPRECATED_RunLedLitUpRoutine(params.name, params.color, params.replier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1686,6 +1729,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 38: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runEmmcLifetimeRoutine');
           const result = this.impl.runEmmcLifetimeRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1697,6 +1741,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 39: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunAudioSetVolumeRoutine');
           const result = this.impl.dEPRECATED_RunAudioSetVolumeRoutine(params.node_id, params.volume, params.mute_on);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1708,6 +1753,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 40: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunAudioSetGainRoutine');
           const result = this.impl.dEPRECATED_RunAudioSetGainRoutine(params.node_id, params.gain, params.deprecated_mute_on);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1719,6 +1765,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 41: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothPowerRoutine');
           const result = this.impl.runBluetoothPowerRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1730,6 +1777,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 42: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothDiscoveryRoutine');
           const result = this.impl.runBluetoothDiscoveryRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1741,6 +1789,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 43: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothScanningRoutine');
           const result = this.impl.runBluetoothScanningRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1752,6 +1801,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 44: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothPairingRoutine');
           const result = this.impl.runBluetoothPairingRoutine(params.peripheral_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1763,6 +1813,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 45: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runPowerButtonRoutine');
           const result = this.impl.runPowerButtonRoutine(params.timeout_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1774,6 +1825,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 46: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runAudioDriverRoutine');
           const result = this.impl.runAudioDriverRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1785,6 +1837,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 47: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runUfsLifetimeRoutine');
           const result = this.impl.runUfsLifetimeRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1796,6 +1849,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
         }
         case 48: {
           const params = ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runFanRoutine');
           const result = this.impl.runFanRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1805,6 +1859,9 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -2023,13 +2080,18 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -2038,46 +2100,55 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddBluetoothObserver');
           const result = this.impl.dEPRECATED_AddBluetoothObserver(params.observer);
           break;
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddLidObserver');
           const result = this.impl.dEPRECATED_AddLidObserver(params.observer);
           break;
         }
         case 2: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddPowerObserver');
           const result = this.impl.dEPRECATED_AddPowerObserver(params.observer);
           break;
         }
         case 3: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addNetworkObserver');
           const result = this.impl.addNetworkObserver(params.observer);
           break;
         }
         case 4: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddAudioObserver');
           const result = this.impl.dEPRECATED_AddAudioObserver(params.observer);
           break;
         }
         case 5: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddThunderboltObserver');
           const result = this.impl.dEPRECATED_AddThunderboltObserver(params.observer);
           break;
         }
         case 6: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddUsbObserver');
           const result = this.impl.dEPRECATED_AddUsbObserver(params.observer);
           break;
         }
         case 7: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addEventObserver');
           const result = this.impl.addEventObserver(params.category, params.observer);
           break;
         }
         case 8: {
           const params = ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isEventSupported');
           const result = this.impl.isEventSupported(params.category);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2087,6 +2158,9 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -2221,13 +2295,18 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -2236,6 +2315,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.probeProcessInfo');
           const result = this.impl.probeProcessInfo(params.process_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2247,6 +2327,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
         }
         case 1: {
           const params = ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.probeTelemetryInfo');
           const result = this.impl.probeTelemetryInfo(params.categories);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2258,6 +2339,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
         }
         case 2: {
           const params = ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.probeMultipleProcessInfo');
           const result = this.impl.probeMultipleProcessInfo(params.process_ids, params.ignore_single_process_error);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2267,6 +2349,9 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

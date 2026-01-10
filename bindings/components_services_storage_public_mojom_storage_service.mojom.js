@@ -160,13 +160,18 @@ storage.mojom.StorageServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -175,29 +180,37 @@ storage.mojom.StorageServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableAggressiveDomStorageFlushing');
           const result = this.impl.enableAggressiveDomStorageFlushing();
           break;
         }
         case 1: {
           const params = storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDataDirectory');
           const result = this.impl.setDataDirectory(params.path, params.directory);
           break;
         }
         case 2: {
           const params = storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSessionStorageControl');
           const result = this.impl.bindSessionStorageControl(params.path, params.receiver);
           break;
         }
         case 3: {
           const params = storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindLocalStorageControl');
           const result = this.impl.bindLocalStorageControl(params.path, params.receiver);
           break;
         }
         case 4: {
           const params = storage.mojom.StorageService_BindTestApi_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindTestApi');
           const result = this.impl.bindTestApi(params.test_api_receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

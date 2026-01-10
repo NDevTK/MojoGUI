@@ -147,13 +147,18 @@ device.mojom.GeolocationContextReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -162,24 +167,31 @@ device.mojom.GeolocationContextReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindGeolocation');
           const result = this.impl.bindGeolocation(params.receiver, params.requesting_url, params.client_id, params.has_precise_permission);
           break;
         }
         case 1: {
           const params = device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPermissionUpdated');
           const result = this.impl.onPermissionUpdated(params.origin, params.permission_level);
           break;
         }
         case 2: {
           const params = device.mojom.GeolocationContext_SetOverride_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOverride');
           const result = this.impl.setOverride(params.result);
           break;
         }
         case 3: {
           const params = device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearOverride');
           const result = this.impl.clearOverride();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -123,13 +123,18 @@ chrome.mojom.NetworkEasterEggReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -138,6 +143,7 @@ chrome.mojom.NetworkEasterEggReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHighScore');
           const result = this.impl.getHighScore();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -149,14 +155,19 @@ chrome.mojom.NetworkEasterEggReceiver = class {
         }
         case 1: {
           const params = chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateHighScore');
           const result = this.impl.updateHighScore(params.high_score);
           break;
         }
         case 2: {
           const params = chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetHighScore');
           const result = this.impl.resetHighScore();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

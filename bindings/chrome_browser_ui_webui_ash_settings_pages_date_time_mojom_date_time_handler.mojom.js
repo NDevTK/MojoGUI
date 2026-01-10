@@ -97,13 +97,18 @@ ash.settings.date_time.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -112,9 +117,13 @@ ash.settings.date_time.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -233,13 +242,18 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -248,11 +262,13 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showParentAccessForTimezone');
           const result = this.impl.showParentAccessForTimezone();
           break;
         }
         case 1: {
           const params = ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTimezones');
           const result = this.impl.getTimezones();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -264,9 +280,13 @@ ash.settings.date_time.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showSetDateTimeUI');
           const result = this.impl.showSetDateTimeUI();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -366,13 +386,18 @@ ash.settings.date_time.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -381,14 +406,19 @@ ash.settings.date_time.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSystemClockCanSetTimeChanged');
           const result = this.impl.onSystemClockCanSetTimeChanged(params.is_allowed);
           break;
         }
         case 1: {
           const params = ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onParentAccessValidationComplete');
           const result = this.impl.onParentAccessValidationComplete(params.success);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

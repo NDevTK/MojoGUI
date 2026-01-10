@@ -975,13 +975,18 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -990,6 +995,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAvailableRoutines');
           const result = this.impl.getAvailableRoutines();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1001,6 +1007,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 1: {
           const params = crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRoutineUpdate');
           const result = this.impl.getRoutineUpdate(params.id, params.command, params.include_output);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1012,6 +1019,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 2: {
           const params = crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryCapacityRoutine');
           const result = this.impl.runBatteryCapacityRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1023,6 +1031,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 3: {
           const params = crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryHealthRoutine');
           const result = this.impl.runBatteryHealthRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1034,6 +1043,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 4: {
           const params = crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runSmartctlCheckRoutine');
           const result = this.impl.runSmartctlCheckRoutine(params.percentage_used_threshold);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1045,6 +1055,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 5: {
           const params = crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runAcPowerRoutine');
           const result = this.impl.runAcPowerRoutine(params.expected_status, params.expected_power_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1056,6 +1067,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 6: {
           const params = crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runCpuCacheRoutine');
           const result = this.impl.runCpuCacheRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1067,6 +1079,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 7: {
           const params = crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runCpuStressRoutine');
           const result = this.impl.runCpuStressRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1078,6 +1091,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 8: {
           const params = crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runFloatingPointAccuracyRoutine');
           const result = this.impl.runFloatingPointAccuracyRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1089,6 +1103,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 9: {
           const params = crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutine');
           const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.wear_level_threshold);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1100,6 +1115,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 10: {
           const params = crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runNvmeSelfTestRoutine');
           const result = this.impl.runNvmeSelfTestRoutine(params.nvme_self_test_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1111,6 +1127,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 11: {
           const params = crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDiskReadRoutine');
           const result = this.impl.runDiskReadRoutine(params.type, params.length_seconds, params.file_size_mb);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1122,6 +1139,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 12: {
           const params = crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runPrimeSearchRoutine');
           const result = this.impl.runPrimeSearchRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1133,6 +1151,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 13: {
           const params = crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryDischargeRoutine');
           const result = this.impl.runBatteryDischargeRoutine(params.length_seconds, params.maximum_discharge_percent_allowed);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1144,6 +1163,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 14: {
           const params = crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBatteryChargeRoutine');
           const result = this.impl.runBatteryChargeRoutine(params.length_seconds, params.minimum_charge_percent_required);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1155,6 +1175,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 15: {
           const params = crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runMemoryRoutine');
           const result = this.impl.runMemoryRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1166,6 +1187,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 16: {
           const params = crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runLanConnectivityRoutine');
           const result = this.impl.runLanConnectivityRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1177,6 +1199,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 17: {
           const params = crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsResolutionRoutine');
           const result = this.impl.runDnsResolutionRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1188,6 +1211,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 18: {
           const params = crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runSignalStrengthRoutine');
           const result = this.impl.runSignalStrengthRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1199,6 +1223,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 19: {
           const params = crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePingedRoutine');
           const result = this.impl.runGatewayCanBePingedRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1210,6 +1235,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 20: {
           const params = crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresentRoutine');
           const result = this.impl.runDnsResolverPresentRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1221,6 +1247,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 21: {
           const params = crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runSensitiveSensorRoutine');
           const result = this.impl.runSensitiveSensorRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1232,6 +1259,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 22: {
           const params = crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runFingerprintAliveRoutine');
           const result = this.impl.runFingerprintAliveRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1243,6 +1271,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 23: {
           const params = crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runEmmcLifetimeRoutine');
           const result = this.impl.runEmmcLifetimeRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1254,6 +1283,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 24: {
           const params = crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothPowerRoutine');
           const result = this.impl.runBluetoothPowerRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1265,6 +1295,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 25: {
           const params = crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runUfsLifetimeRoutine');
           const result = this.impl.runUfsLifetimeRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1276,6 +1307,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 26: {
           const params = crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runPowerButtonRoutine');
           const result = this.impl.runPowerButtonRoutine(params.timeout_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1287,6 +1319,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 27: {
           const params = crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runAudioDriverRoutine');
           const result = this.impl.runAudioDriverRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1298,6 +1331,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 28: {
           const params = crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothDiscoveryRoutine');
           const result = this.impl.runBluetoothDiscoveryRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1309,6 +1343,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 29: {
           const params = crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothScanningRoutine');
           const result = this.impl.runBluetoothScanningRoutine(params.length_seconds);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1320,6 +1355,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 30: {
           const params = crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runBluetoothPairingRoutine');
           const result = this.impl.runBluetoothPairingRoutine(params.peripheral_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1331,6 +1367,7 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 31: {
           const params = crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.runFanRoutine');
           const result = this.impl.runFanRoutine();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1340,6 +1377,9 @@ crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

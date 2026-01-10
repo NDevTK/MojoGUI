@@ -110,13 +110,18 @@ media.mojom.WebrtcVideoPerfRecorderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -125,9 +130,13 @@ media.mojom.WebrtcVideoPerfRecorderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateRecord');
           const result = this.impl.updateRecord(params.features, params.video_stats);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -218,13 +227,18 @@ media.mojom.WebrtcVideoPerfHistoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -233,6 +247,7 @@ media.mojom.WebrtcVideoPerfHistoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPerfInfo');
           const result = this.impl.getPerfInfo(params.features, params.frames_per_second);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -242,6 +257,9 @@ media.mojom.WebrtcVideoPerfHistoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

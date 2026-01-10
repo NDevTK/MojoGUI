@@ -154,13 +154,18 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -169,9 +174,13 @@ app_home.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -416,13 +425,18 @@ app_home.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -431,6 +445,7 @@ app_home.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = app_home.mojom.PageHandler_GetApps_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -442,6 +457,7 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDeprecationLinkString');
           const result = this.impl.getDeprecationLinkString();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -453,16 +469,19 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.uninstallApp');
           const result = this.impl.uninstallApp(params.app_id);
           break;
         }
         case 3: {
           const params = app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showAppSettings');
           const result = this.impl.showAppSettings(params.app_id);
           break;
         }
         case 4: {
           const params = app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createAppShortcut');
           const result = this.impl.createAppShortcut(params.app_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -474,29 +493,37 @@ app_home.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const params = app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchApp');
           const result = this.impl.launchApp(params.app_id, params.click_event);
           break;
         }
         case 6: {
           const params = app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setRunOnOsLoginMode');
           const result = this.impl.setRunOnOsLoginMode(params.app_id, params.run_on_os_login_mode);
           break;
         }
         case 7: {
           const params = app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchDeprecatedAppDialog');
           const result = this.impl.launchDeprecatedAppDialog();
           break;
         }
         case 8: {
           const params = app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installAppLocally');
           const result = this.impl.installAppLocally(params.app_id);
           break;
         }
         case 9: {
           const params = app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUserDisplayMode');
           const result = this.impl.setUserDisplayMode(params.app_id, params.display_mode);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -612,13 +639,18 @@ app_home.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -627,19 +659,25 @@ app_home.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = app_home.mojom.Page_AddApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addApp');
           const result = this.impl.addApp(params.app_info);
           break;
         }
         case 1: {
           const params = app_home.mojom.Page_RemoveApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeApp');
           const result = this.impl.removeApp(params.app_info);
           break;
         }
         case 2: {
           const params = app_home.mojom.Page_UpdateApp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateApp');
           const result = this.impl.updateApp(params.app_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

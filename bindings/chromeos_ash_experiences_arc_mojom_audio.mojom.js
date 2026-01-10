@@ -137,13 +137,18 @@ arc.mojom.AudioHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -152,14 +157,19 @@ arc.mojom.AudioHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showVolumeControls');
           const result = this.impl.showVolumeControls();
           break;
         }
         case 1: {
           const params = arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSystemVolumeUpdateRequest');
           const result = this.impl.onSystemVolumeUpdateRequest(params.percent);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -313,13 +323,18 @@ arc.mojom.AudioInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -328,6 +343,7 @@ arc.mojom.AudioInstanceReceiver = class {
       switch (header.ordinal) {
         case 3: {
           const params = arc.mojom.AudioInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -339,24 +355,31 @@ arc.mojom.AudioInstanceReceiver = class {
         }
         case 0: {
           const params = arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySwitchState');
           const result = this.impl.notifySwitchState(params.state);
           break;
         }
         case 2: {
           const params = arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyVolumeState');
           const result = this.impl.notifyVolumeState(params.volume, params.muted);
           break;
         }
         case 4: {
           const params = arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifySpatialAudioState');
           const result = this.impl.notifySpatialAudioState(params.enabled);
           break;
         }
         case 5: {
           const params = arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyOutputDeviceInfo');
           const result = this.impl.notifyOutputDeviceInfo(params.device_type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

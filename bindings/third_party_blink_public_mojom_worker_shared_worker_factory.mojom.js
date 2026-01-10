@@ -111,13 +111,18 @@ blink.mojom.SharedWorkerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -126,9 +131,13 @@ blink.mojom.SharedWorkerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSharedWorker');
           const result = this.impl.createSharedWorker(params.info, params.token, params.constructor_key, params.origin, params.is_constructor_secure_context, params.user_agent, params.ua_metadata, params.pause_on_start, params.devtools_worker_token, params.renderer_preferences, params.preference_watcher_receiver, params.content_settings, params.service_worker_container_info, params.main_script_load_params, params.subresource_loader_factories, params.controller_info, params.policy_container, params.host, params.shared_worker, params.browser_interface_broker, params.ukm_source_id, params.require_cross_site_request_for_cookies, params.coep_reporting_observer_receiver, params.dip_reporting_observer_receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

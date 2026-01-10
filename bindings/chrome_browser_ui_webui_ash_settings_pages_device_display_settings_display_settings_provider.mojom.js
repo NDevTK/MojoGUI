@@ -163,13 +163,18 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -178,9 +183,13 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
           const result = this.impl.onTabletModeChanged(params.is_tablet_mode);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -263,13 +272,18 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -278,9 +292,13 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDisplayConfigurationChanged');
           const result = this.impl.onDisplayConfigurationChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -365,13 +383,18 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -380,9 +403,13 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
           const result = this.impl.onDisplayBrightnessChanged(params.brightness_percent, params.triggered_by_als);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -466,13 +493,18 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -481,9 +513,13 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAmbientLightSensorEnabledChanged');
           const result = this.impl.onAmbientLightSensorEnabledChanged(params.is_ambient_light_sensor_enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -734,13 +770,18 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -749,6 +790,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
           const result = this.impl.observeTabletMode(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -760,11 +802,13 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
         }
         case 1: {
           const params = ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeDisplayConfiguration');
           const result = this.impl.observeDisplayConfiguration(params.observer);
           break;
         }
         case 2: {
           const params = ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeDisplayBrightnessSettings');
           const result = this.impl.observeDisplayBrightnessSettings(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -776,6 +820,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
         }
         case 3: {
           const params = ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeAmbientLightSensor');
           const result = this.impl.observeAmbientLightSensor(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -787,31 +832,37 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
         }
         case 4: {
           const params = ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordChangingDisplaySettings');
           const result = this.impl.recordChangingDisplaySettings(params.type, params.value);
           break;
         }
         case 5: {
           const params = ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setShinyPerformance');
           const result = this.impl.setShinyPerformance(params.enabled);
           break;
         }
         case 6: {
           const params = ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInternalDisplayScreenBrightness');
           const result = this.impl.setInternalDisplayScreenBrightness(params.percent);
           break;
         }
         case 7: {
           const params = ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInternalDisplayAmbientLightSensorEnabled');
           const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.enabled);
           break;
         }
         case 8: {
           const params = ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startNativeTouchscreenMappingExperience');
           const result = this.impl.startNativeTouchscreenMappingExperience();
           break;
         }
         case 9: {
           const params = ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasAmbientLightSensor');
           const result = this.impl.hasAmbientLightSensor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -821,6 +872,9 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -143,13 +143,18 @@ media.mojom.VideoFrameHandleReleaserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -158,9 +163,13 @@ media.mojom.VideoFrameHandleReleaserReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.releaseVideoFrame');
           const result = this.impl.releaseVideoFrame(params.release_token, params.release_sync_token);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -357,13 +366,18 @@ media.mojom.VideoDecoderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -372,6 +386,7 @@ media.mojom.VideoDecoderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSupportedConfigs');
           const result = this.impl.getSupportedConfigs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -383,11 +398,13 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 1: {
           const params = media.mojom.VideoDecoder_Construct_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.construct');
           const result = this.impl.construct(params.client, params.media_log, params.video_frame_handle_releaser, params.decoder_buffer_pipe, params.command_buffer_id, params.target_color_space);
           break;
         }
         case 2: {
           const params = media.mojom.VideoDecoder_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.config, params.low_delay, params.cdm);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -399,6 +416,7 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 3: {
           const params = media.mojom.VideoDecoder_Decode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.buffer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -410,6 +428,7 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 4: {
           const params = media.mojom.VideoDecoder_Reset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -421,9 +440,13 @@ media.mojom.VideoDecoderReceiver = class {
         }
         case 5: {
           const params = media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOverlayInfoChanged');
           const result = this.impl.onOverlayInfoChanged(params.overlay_info);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -540,13 +563,18 @@ media.mojom.VideoDecoderClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -555,19 +583,25 @@ media.mojom.VideoDecoderClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onVideoFrameDecoded');
           const result = this.impl.onVideoFrameDecoded(params.frame, params.can_read_without_stalling, params.release_token);
           break;
         }
         case 1: {
           const params = media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWaiting');
           const result = this.impl.onWaiting(params.reason);
           break;
         }
         case 2: {
           const params = media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestOverlayInfo');
           const result = this.impl.requestOverlayInfo();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

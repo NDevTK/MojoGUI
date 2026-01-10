@@ -213,13 +213,18 @@ viz.mojom.LayerContextReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -228,19 +233,25 @@ viz.mojom.LayerContextReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.LayerContext_SetVisible_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVisible');
           const result = this.impl.setVisible(params.visible);
           break;
         }
         case 1: {
           const params = viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateDisplayTree');
           const result = this.impl.updateDisplayTree(params.update);
           break;
         }
         case 2: {
           const params = viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateDisplayTiling');
           const result = this.impl.updateDisplayTiling(params.tiling);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -341,13 +352,18 @@ viz.mojom.LayerContextClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -356,14 +372,19 @@ viz.mojom.LayerContextClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRequestCommitForFrame');
           const result = this.impl.onRequestCommitForFrame(params.args);
           break;
         }
         case 1: {
           const params = viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTilingsReadyForCleanup');
           const result = this.impl.onTilingsReadyForCleanup(params.layer_id, params.tiling_scales_to_clean_up);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

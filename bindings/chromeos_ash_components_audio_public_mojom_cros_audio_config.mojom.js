@@ -189,13 +189,18 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -204,9 +209,13 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPropertiesUpdated');
           const result = this.impl.onPropertiesUpdated(params.properties);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -481,13 +490,18 @@ ash.audio_config.mojom.CrosAudioConfigReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -496,69 +510,85 @@ ash.audio_config.mojom.CrosAudioConfigReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeAudioSystemProperties');
           const result = this.impl.observeAudioSystemProperties(params.observer);
           break;
         }
         case 1: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutputMuted');
           const result = this.impl.setOutputMuted(params.muted);
           break;
         }
         case 2: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setOutputVolumePercent');
           const result = this.impl.setOutputVolumePercent(params.volume);
           break;
         }
         case 3: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInputGainPercent');
           const result = this.impl.setInputGainPercent(params.gain);
           break;
         }
         case 4: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setActiveDevice');
           const result = this.impl.setActiveDevice(params.device);
           break;
         }
         case 5: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInputMuted');
           const result = this.impl.setInputMuted(params.muted);
           break;
         }
         case 6: {
           const params = ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationEnabledChange');
           const result = this.impl.recordVoiceIsolationEnabledChange();
           break;
         }
         case 7: {
           const params = ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationPreferredEffectChange');
           const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.preferred_effect);
           break;
         }
         case 8: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNoiseCancellationEnabled');
           const result = this.impl.setNoiseCancellationEnabled(params.enabled);
           break;
         }
         case 9: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setStyleTransferEnabled');
           const result = this.impl.setStyleTransferEnabled(params.enabled);
           break;
         }
         case 10: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setForceRespectUiGainsEnabled');
           const result = this.impl.setForceRespectUiGainsEnabled(params.enabled);
           break;
         }
         case 11: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHfpMicSrEnabled');
           const result = this.impl.setHfpMicSrEnabled(params.enabled);
           break;
         }
         case 12: {
           const params = ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSpatialAudioEnabled');
           const result = this.impl.setSpatialAudioEnabled(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

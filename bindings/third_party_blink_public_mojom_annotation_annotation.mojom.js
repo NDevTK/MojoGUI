@@ -139,13 +139,18 @@ blink.mojom.AnnotationAgentReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -154,9 +159,13 @@ blink.mojom.AnnotationAgentReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scrollIntoView');
           const result = this.impl.scrollIntoView(params.applies_focus);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -241,13 +250,18 @@ blink.mojom.AnnotationAgentHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -256,9 +270,13 @@ blink.mojom.AnnotationAgentHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.didFinishAttachment');
           const result = this.impl.didFinishAttachment(params.document_relative_rect, params.attachment_result);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -387,13 +405,18 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -402,11 +425,13 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createAgent');
           const result = this.impl.createAgent(params.host_remote, params.agent_receiver, params.type, params.selector, params.search_range_start_node_id);
           break;
         }
         case 1: {
           const params = blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createAgentFromSelection');
           const result = this.impl.createAgentFromSelection(params.type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -418,9 +443,13 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
         }
         case 2: {
           const params = blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeAgentsOfType');
           const result = this.impl.removeAgentsOfType(params.type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

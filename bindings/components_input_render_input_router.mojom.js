@@ -205,13 +205,18 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -220,34 +225,43 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stateOnTouchTransfer');
           const result = this.impl.stateOnTouchTransfer(params.state);
           break;
         }
         case 1: {
           const params = input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceEnableZoomStateChanged');
           const result = this.impl.forceEnableZoomStateChanged(params.force_enable_zoom, params.frame_sink_id);
           break;
         }
         case 2: {
           const params = input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopFlingingOnViz');
           const result = this.impl.stopFlingingOnViz(params.frame_sink_id);
           break;
         }
         case 3: {
           const params = input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.restartInputEventAckTimeoutIfNecessary');
           const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.frame_sink_id);
           break;
         }
         case 4: {
           const params = input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyVisibilityChanged');
           const result = this.impl.notifyVisibilityChanged(params.frame_sink_id, params.is_hidden);
           break;
         }
         case 5: {
           const params = input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetGestureDetection');
           const result = this.impl.resetGestureDetection(params.root_widget_frame_sink_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -398,13 +412,18 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -413,29 +432,37 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEvent');
           const result = this.impl.notifyObserversOfInputEvent(params.event, params.dispatched_to_renderer);
           break;
         }
         case 1: {
           const params = input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEventAcks');
           const result = this.impl.notifyObserversOfInputEventAcks(params.ack_source, params.ack_result, params.event);
           break;
         }
         case 2: {
           const params = input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInvalidInputEventSource');
           const result = this.impl.onInvalidInputEventSource();
           break;
         }
         case 3: {
           const params = input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stateOnOverscrollTransfer');
           const result = this.impl.stateOnOverscrollTransfer(params.overscroll);
           break;
         }
         case 4: {
           const params = input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rendererInputResponsivenessChanged');
           const result = this.impl.rendererInputResponsivenessChanged(params.is_responsive, params.ack_timeout_ts);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

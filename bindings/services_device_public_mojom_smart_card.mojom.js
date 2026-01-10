@@ -402,13 +402,18 @@ device.mojom.SmartCardTransactionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -417,6 +422,7 @@ device.mojom.SmartCardTransactionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.endTransaction');
           const result = this.impl.endTransaction(params.disposition);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -426,6 +432,9 @@ device.mojom.SmartCardTransactionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -648,13 +657,18 @@ device.mojom.SmartCardConnectionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -663,6 +677,7 @@ device.mojom.SmartCardConnectionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect(params.disposition);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -674,6 +689,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 1: {
           const params = device.mojom.SmartCardConnection_Transmit_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.transmit');
           const result = this.impl.transmit(params.protocol, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -685,6 +701,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 2: {
           const params = device.mojom.SmartCardConnection_Control_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.control');
           const result = this.impl.control(params.control_code, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -696,6 +713,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 3: {
           const params = device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAttrib');
           const result = this.impl.getAttrib(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -707,6 +725,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 4: {
           const params = device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAttrib');
           const result = this.impl.setAttrib(params.id, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -718,6 +737,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 5: {
           const params = device.mojom.SmartCardConnection_Status_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.status');
           const result = this.impl.status();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -729,6 +749,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
         case 6: {
           const params = device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.beginTransaction');
           const result = this.impl.beginTransaction();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -738,6 +759,9 @@ device.mojom.SmartCardConnectionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -820,13 +844,18 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -835,9 +864,13 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyConnectionUsed');
           const result = this.impl.notifyConnectionUsed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -995,13 +1028,18 @@ device.mojom.SmartCardContextReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1010,6 +1048,7 @@ device.mojom.SmartCardContextReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SmartCardContext_ListReaders_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listReaders');
           const result = this.impl.listReaders();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1021,6 +1060,7 @@ device.mojom.SmartCardContextReceiver = class {
         }
         case 1: {
           const params = device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getStatusChange');
           const result = this.impl.getStatusChange(params.timeout, params.reader_states);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1032,6 +1072,7 @@ device.mojom.SmartCardContextReceiver = class {
         }
         case 2: {
           const params = device.mojom.SmartCardContext_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1043,6 +1084,7 @@ device.mojom.SmartCardContextReceiver = class {
         }
         case 3: {
           const params = device.mojom.SmartCardContext_Connect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.reader, params.share_mode, params.preferred_protocols, params.connection_watcher);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1052,6 +1094,9 @@ device.mojom.SmartCardContextReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1140,13 +1185,18 @@ device.mojom.SmartCardContextFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1155,6 +1205,7 @@ device.mojom.SmartCardContextFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createContext');
           const result = this.impl.createContext();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1164,6 +1215,9 @@ device.mojom.SmartCardContextFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

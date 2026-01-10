@@ -121,13 +121,18 @@ cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -136,9 +141,13 @@ cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createURLLoaderFactory');
           const result = this.impl.createURLLoaderFactory(params.url_loader_factory);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -282,13 +291,18 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -297,16 +311,19 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableNetworkAccess');
           const result = this.impl.enableNetworkAccess(params.url_loader_factory, params.reconnector);
           break;
         }
         case 1: {
           const params = cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.verify');
           const result = this.impl.verify(params.params, params.net_log_source, params.cert_verifier_request);
           break;
         }
         case 2: {
           const params = cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.verify2QwacBinding');
           const result = this.impl.verify2QwacBinding(params.binding, params.hostname, params.tls_certificate, params.net_log_source);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -318,9 +335,13 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
         }
         case 3: {
           const params = cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setConfig');
           const result = this.impl.setConfig(params.config);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -403,13 +424,18 @@ cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -418,9 +444,13 @@ cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCertVerifierChanged');
           const result = this.impl.onCertVerifierChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -505,13 +535,18 @@ cert_verifier.mojom.CertVerifierRequestReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -520,9 +555,13 @@ cert_verifier.mojom.CertVerifierRequestReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.result, params.net_error);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

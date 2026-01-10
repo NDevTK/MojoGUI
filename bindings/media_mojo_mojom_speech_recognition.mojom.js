@@ -254,13 +254,18 @@ media.mojom.SpeechRecognitionContextReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -269,6 +274,7 @@ media.mojom.SpeechRecognitionContextReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindRecognizer');
           const result = this.impl.bindRecognizer(params.receiver, params.client, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -280,9 +286,13 @@ media.mojom.SpeechRecognitionContextReceiver = class {
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindWebSpeechRecognizer');
           const result = this.impl.bindWebSpeechRecognizer(params.session_receiver, params.session_client, params.audio_forwarder, params.channel_count, params.sample_rate, params.options, params.continuous);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -430,13 +440,18 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -445,29 +460,37 @@ media.mojom.SpeechRecognitionRecognizerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendAudioToSpeechRecognitionService');
           const result = this.impl.sendAudioToSpeechRecognitionService(params.buffer, params.media_start_pts);
           break;
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.markDone');
           const result = this.impl.markDone();
           break;
         }
         case 2: {
           const params = media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLanguageChanged');
           const result = this.impl.onLanguageChanged(params.language);
           break;
         }
         case 3: {
           const params = media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onMaskOffensiveWordsChanged');
           const result = this.impl.onMaskOffensiveWordsChanged(params.mask_offensive_words);
           break;
         }
         case 4: {
           const params = media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateRecognitionContext');
           const result = this.impl.updateRecognitionContext(params.recognition_context);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -603,13 +626,18 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -618,6 +646,7 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionRecognitionEvent');
           const result = this.impl.onSpeechRecognitionRecognitionEvent(params.result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -629,19 +658,25 @@ media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionStopped');
           const result = this.impl.onSpeechRecognitionStopped();
           break;
         }
         case 2: {
           const params = media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSpeechRecognitionError');
           const result = this.impl.onSpeechRecognitionError();
           break;
         }
         case 3: {
           const params = media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLanguageIdentificationEvent');
           const result = this.impl.onLanguageIdentificationEvent(params.event);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -757,13 +792,18 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -772,19 +812,25 @@ media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.speechRecognitionAvailabilityChanged');
           const result = this.impl.speechRecognitionAvailabilityChanged(params.is_speech_recognition_available);
           break;
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.speechRecognitionLanguageChanged');
           const result = this.impl.speechRecognitionLanguageChanged(params.language);
           break;
         }
         case 2: {
           const params = media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.speechRecognitionMaskOffensiveWordsChanged');
           const result = this.impl.speechRecognitionMaskOffensiveWordsChanged(params.mask_offensive_words);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -888,13 +934,18 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -903,11 +954,13 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activate');
           const result = this.impl.activate();
           break;
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBounds');
           const result = this.impl.getBounds();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -917,6 +970,9 @@ media.mojom.SpeechRecognitionSurfaceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1014,13 +1070,18 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1029,14 +1090,19 @@ media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSessionEnded');
           const result = this.impl.onSessionEnded();
           break;
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFullscreenToggled');
           const result = this.impl.onFullscreenToggled();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1151,13 +1217,18 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1166,19 +1237,25 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSpeechRecognitionBrowserObserver');
           const result = this.impl.bindSpeechRecognitionBrowserObserver(params.observer);
           break;
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_1');
           const result = this.impl.rEMOVED_1();
           break;
         }
         case 2: {
           const params = media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.rEMOVED_2');
           const result = this.impl.rEMOVED_2(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -307,13 +307,18 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -322,6 +327,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setLESupported');
           const result = this.impl.setLESupported(params.available);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -333,6 +339,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
         }
         case 1: {
           const params = bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulateCentral');
           const result = this.impl.simulateCentral(params.state);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -344,6 +351,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
         }
         case 2: {
           const params = bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.allResponsesConsumed');
           const result = this.impl.allResponsesConsumed();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -353,6 +361,9 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1047,13 +1058,18 @@ bluetooth.mojom.FakeCentralReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1062,6 +1078,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulatePreconnectedPeripheral');
           const result = this.impl.simulatePreconnectedPeripheral(params.address, params.name, params.manufacturer_data, params.known_service_uuids);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1073,6 +1090,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 1: {
           const params = bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulateAdvertisementReceived');
           const result = this.impl.simulateAdvertisementReceived(params.result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1084,6 +1102,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 2: {
           const params = bluetooth.mojom.FakeCentral_SetState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setState');
           const result = this.impl.setState(params.state);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1095,6 +1114,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 3: {
           const params = bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextGATTConnectionResponse');
           const result = this.impl.setNextGATTConnectionResponse(params.address, params.code);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1106,6 +1126,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 4: {
           const params = bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextGATTDiscoveryResponse');
           const result = this.impl.setNextGATTDiscoveryResponse(params.address, params.code);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1117,6 +1138,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 5: {
           const params = bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulateGATTOperationResponse');
           const result = this.impl.simulateGATTOperationResponse(params.type, params.address, params.code);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1128,6 +1150,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 6: {
           const params = bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulateGATTDisconnection');
           const result = this.impl.simulateGATTDisconnection(params.address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1139,6 +1162,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 7: {
           const params = bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulateGATTServicesChanged');
           const result = this.impl.simulateGATTServicesChanged(params.address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1150,6 +1174,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 8: {
           const params = bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulateCharacteristicOperationResponse');
           const result = this.impl.simulateCharacteristicOperationResponse(params.type, params.characteristic_id, params.service_id, params.peripheral_address, params.code, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1161,6 +1186,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 9: {
           const params = bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.simulateDescriptorOperationResponse');
           const result = this.impl.simulateDescriptorOperationResponse(params.type, params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address, params.code, params.data);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1172,6 +1198,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 10: {
           const params = bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFakeService');
           const result = this.impl.addFakeService(params.peripheral_address, params.service_uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1183,6 +1210,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 11: {
           const params = bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeFakeService');
           const result = this.impl.removeFakeService(params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1194,6 +1222,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 12: {
           const params = bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFakeCharacteristic');
           const result = this.impl.addFakeCharacteristic(params.characteristic_uuid, params.properties, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1205,6 +1234,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 13: {
           const params = bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeFakeCharacteristic');
           const result = this.impl.removeFakeCharacteristic(params.identifier, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1216,6 +1246,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 14: {
           const params = bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addFakeDescriptor');
           const result = this.impl.addFakeDescriptor(params.descriptor_uuid, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1227,6 +1258,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 15: {
           const params = bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeFakeDescriptor');
           const result = this.impl.removeFakeDescriptor(params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1238,6 +1270,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 16: {
           const params = bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextReadCharacteristicResponse');
           const result = this.impl.setNextReadCharacteristicResponse(params.gatt_code, params.value, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1249,6 +1282,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 17: {
           const params = bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextWriteCharacteristicResponse');
           const result = this.impl.setNextWriteCharacteristicResponse(params.gatt_code, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1260,6 +1294,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 18: {
           const params = bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextSubscribeToNotificationsResponse');
           const result = this.impl.setNextSubscribeToNotificationsResponse(params.gatt_code, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1271,6 +1306,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 19: {
           const params = bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextUnsubscribeFromNotificationsResponse');
           const result = this.impl.setNextUnsubscribeFromNotificationsResponse(params.gatt_code, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1282,6 +1318,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 20: {
           const params = bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isNotifying');
           const result = this.impl.isNotifying(params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1293,6 +1330,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 21: {
           const params = bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLastWrittenCharacteristicValue');
           const result = this.impl.getLastWrittenCharacteristicValue(params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1304,6 +1342,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 22: {
           const params = bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextReadDescriptorResponse');
           const result = this.impl.setNextReadDescriptorResponse(params.gatt_code, params.value, params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1315,6 +1354,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 23: {
           const params = bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNextWriteDescriptorResponse');
           const result = this.impl.setNextWriteDescriptorResponse(params.gatt_code, params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1326,6 +1366,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 24: {
           const params = bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLastWrittenDescriptorValue');
           const result = this.impl.getLastWrittenDescriptorValue(params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1337,9 +1378,13 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 25: {
           const params = bluetooth.mojom.FakeCentral_SetClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1461,13 +1506,18 @@ bluetooth.mojom.FakeCentralClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1476,19 +1526,25 @@ bluetooth.mojom.FakeCentralClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchGATTOperationEvent');
           const result = this.impl.dispatchGATTOperationEvent(params.type, params.peripheral_address);
           break;
         }
         case 1: {
           const params = bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchCharacteristicOperationEvent');
           const result = this.impl.dispatchCharacteristicOperationEvent(params.type, params.data, params.write_type, params.characteristic_id);
           break;
         }
         case 2: {
           const params = bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.dispatchDescriptorOperationEvent');
           const result = this.impl.dispatchDescriptorOperationEvent(params.type, params.data, params.descriptor_id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

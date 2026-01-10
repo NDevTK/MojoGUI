@@ -232,13 +232,18 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -247,24 +252,31 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAvailableEuiccListChanged');
           const result = this.impl.onAvailableEuiccListChanged();
           break;
         }
         case 1: {
           const params = ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProfileListChanged');
           const result = this.impl.onProfileListChanged(params.euicc);
           break;
         }
         case 2: {
           const params = ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEuiccChanged');
           const result = this.impl.onEuiccChanged(params.euicc);
           break;
         }
         case 3: {
           const params = ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProfileChanged');
           const result = this.impl.onProfileChanged(params.profile);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -369,13 +381,18 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -384,11 +401,13 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const params = ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAvailableEuiccs');
           const result = this.impl.getAvailableEuiccs();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -398,6 +417,9 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -596,13 +618,18 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -611,6 +638,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProperties');
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -622,6 +650,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 1: {
           const params = ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProfileList');
           const result = this.impl.getProfileList();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -633,6 +662,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 2: {
           const params = ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestAvailableProfiles');
           const result = this.impl.requestAvailableProfiles();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -644,6 +674,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 3: {
           const params = ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.refreshInstalledProfiles');
           const result = this.impl.refreshInstalledProfiles();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -655,6 +686,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 4: {
           const params = ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installProfileFromActivationCode');
           const result = this.impl.installProfileFromActivationCode(params.activation_code, params.confirmation_code, params.install_method);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -666,6 +698,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
         case 5: {
           const params = ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getEidQRCode');
           const result = this.impl.getEidQRCode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -675,6 +708,9 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -828,13 +864,18 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -843,6 +884,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProperties');
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -854,6 +896,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         }
         case 1: {
           const params = ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installProfile');
           const result = this.impl.installProfile(params.confirmation_code);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -865,6 +908,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         }
         case 2: {
           const params = ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.uninstallProfile');
           const result = this.impl.uninstallProfile();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -876,6 +920,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         }
         case 3: {
           const params = ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setProfileNickname');
           const result = this.impl.setProfileNickname(params.nickname);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -885,6 +930,9 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

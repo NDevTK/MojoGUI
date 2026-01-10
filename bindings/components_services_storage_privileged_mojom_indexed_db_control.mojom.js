@@ -130,13 +130,18 @@ storage.mojom.IndexedDBObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -145,14 +150,19 @@ storage.mojom.IndexedDBObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onIndexedDBListChanged');
           const result = this.impl.onIndexedDBListChanged(params.bucket_locator);
           break;
         }
         case 1: {
           const params = storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onIndexedDBContentChanged');
           const result = this.impl.onIndexedDBContentChanged(params.bucket_locator, params.database_name, params.object_store_name);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -413,13 +423,18 @@ storage.mojom.IndexedDBControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -428,11 +443,13 @@ storage.mojom.IndexedDBControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindIndexedDB');
           const result = this.impl.bindIndexedDB(params.bucket_locator, params.client_info, params.client_state_checker_remote, params.receiver);
           break;
         }
         case 1: {
           const params = storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceClose');
           const result = this.impl.forceClose(params.bucket_id, params.reason);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -444,6 +461,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 2: {
           const params = storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.downloadBucketData');
           const result = this.impl.downloadBucketData(params.bucket_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -455,6 +473,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 3: {
           const params = storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAllBucketsDetails');
           const result = this.impl.getAllBucketsDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -466,6 +485,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 4: {
           const params = storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startMetadataRecording');
           const result = this.impl.startMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -477,6 +497,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 5: {
           const params = storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopMetadataRecording');
           const result = this.impl.stopMetadataRecording(params.bucket_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -488,24 +509,31 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
         case 6: {
           const params = storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setForceKeepSessionState');
           const result = this.impl.setForceKeepSessionState();
           break;
         }
         case 7: {
           const params = storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 8: {
           const params = storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;
         }
         case 9: {
           const params = storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindTestInterfaceForTesting');
           const result = this.impl.bindTestInterfaceForTesting(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

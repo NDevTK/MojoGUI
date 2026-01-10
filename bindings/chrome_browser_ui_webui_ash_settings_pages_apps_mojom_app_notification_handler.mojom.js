@@ -214,13 +214,18 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -229,21 +234,25 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setQuietMode');
           const result = this.impl.setQuietMode(params.enabled);
           break;
         }
         case 1: {
           const params = ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 2: {
           const params = ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNotificationPermission');
           const result = this.impl.setNotificationPermission(params.app_id, params.permission);
           break;
         }
         case 3: {
           const params = ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -255,6 +264,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
         }
         case 4: {
           const params = ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getQuietMode');
           const result = this.impl.getQuietMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -266,9 +276,13 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
         }
         case 5: {
           const params = ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openBrowserNotificationSettings');
           const result = this.impl.openBrowserNotificationSettings();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -368,13 +382,18 @@ ash.settings.app_notification.mojom.AppNotificationsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -383,14 +402,19 @@ ash.settings.app_notification.mojom.AppNotificationsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNotificationAppChanged');
           const result = this.impl.onNotificationAppChanged(params.app);
           break;
         }
         case 1: {
           const params = ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onQuietModeChanged');
           const result = this.impl.onQuietModeChanged(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

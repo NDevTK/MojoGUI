@@ -314,13 +314,18 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -329,16 +334,19 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const params = ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeEnabledStateChanges');
           const result = this.impl.observeEnabledStateChanges(params.observer);
           break;
         }
         case 2: {
           const params = ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getHotspotInfo');
           const result = this.impl.getHotspotInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -350,6 +358,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 3: {
           const params = ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHotspotConfig');
           const result = this.impl.setHotspotConfig(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -361,6 +370,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 4: {
           const params = ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enableHotspot');
           const result = this.impl.enableHotspot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -372,6 +382,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
         case 5: {
           const params = ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disableHotspot');
           const result = this.impl.disableHotspot();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -381,6 +392,9 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -463,13 +477,18 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -478,9 +497,13 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHotspotInfoChanged');
           const result = this.impl.onHotspotInfoChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -579,13 +602,18 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -594,14 +622,19 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHotspotTurnedOn');
           const result = this.impl.onHotspotTurnedOn();
           break;
         }
         case 1: {
           const params = ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onHotspotTurnedOff');
           const result = this.impl.onHotspotTurnedOff(params.reason);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

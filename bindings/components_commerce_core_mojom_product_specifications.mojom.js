@@ -269,13 +269,18 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -284,11 +289,13 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
       switch (header.ordinal) {
         case 0: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAcceptedDisclosureVersion');
           const result = this.impl.setAcceptedDisclosureVersion(params.version);
           break;
         }
         case 1: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.maybeShowDisclosure');
           const result = this.impl.maybeShowDisclosure(params.urls, params.name, params.set_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -300,16 +307,19 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
         }
         case 2: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.declineDisclosure');
           const result = this.impl.declineDisclosure();
           break;
         }
         case 3: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showSyncSetupFlow');
           const result = this.impl.showSyncSetupFlow();
           break;
         }
         case 4: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPageTitleFromHistory');
           const result = this.impl.getPageTitleFromHistory(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -321,21 +331,25 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
         }
         case 5: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showProductSpecificationsSetForUuid');
           const result = this.impl.showProductSpecificationsSetForUuid(params.uuid, params.in_new_tab);
           break;
         }
         case 6: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showProductSpecificationsSetsForUuids');
           const result = this.impl.showProductSpecificationsSetsForUuids(params.uuids, params.disposition);
           break;
         }
         case 7: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showComparePage');
           const result = this.impl.showComparePage(params.in_new_tab);
           break;
         }
         case 8: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getComparisonTableUrlForUuid');
           const result = this.impl.getComparisonTableUrlForUuid(params.uuid);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -345,6 +359,9 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -475,13 +492,18 @@ commerce.product_specifications.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -490,24 +512,31 @@ commerce.product_specifications.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProductSpecificationsSetAdded');
           const result = this.impl.onProductSpecificationsSetAdded(params.set);
           break;
         }
         case 1: {
           const params = commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProductSpecificationsSetUpdated');
           const result = this.impl.onProductSpecificationsSetUpdated(params.set);
           break;
         }
         case 2: {
           const params = commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onProductSpecificationsSetRemoved');
           const result = this.impl.onProductSpecificationsSetRemoved(params.uuid);
           break;
         }
         case 3: {
           const params = commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSyncStateChanged');
           const result = this.impl.onSyncStateChanged();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -592,13 +621,18 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryReceive
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -607,9 +641,13 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryReceive
       switch (header.ordinal) {
         case 0: {
           const params = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createProductSpecificationsHandler');
           const result = this.impl.createProductSpecificationsHandler(params.page, params.handler);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

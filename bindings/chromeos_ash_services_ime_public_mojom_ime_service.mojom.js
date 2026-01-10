@@ -131,13 +131,18 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -146,6 +151,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.connectToImeEngine');
           const result = this.impl.connectToImeEngine(params.ime_spec, params.to_engine_request, params.from_engine, params.extra);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -157,6 +163,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
         }
         case 1: {
           const params = ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeConnectionFactory');
           const result = this.impl.initializeConnectionFactory(params.connection_factory);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -166,6 +173,9 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -256,13 +266,18 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -271,6 +286,7 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.downloadImeFileTo');
           const result = this.impl.downloadImeFileTo(params.url, params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -280,6 +296,9 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -395,13 +414,18 @@ ash.ime.mojom.ImeServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -410,19 +434,25 @@ ash.ime.mojom.ImeServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPlatformAccessProvider');
           const result = this.impl.setPlatformAccessProvider(params.provider);
           break;
         }
         case 1: {
           const params = ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindInputEngineManager');
           const result = this.impl.bindInputEngineManager(params.receiver);
           break;
         }
         case 2: {
           const params = ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindInputMethodUserDataService');
           const result = this.impl.bindInputMethodUserDataService(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

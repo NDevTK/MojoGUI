@@ -180,13 +180,18 @@ remote_cocoa.mojom.MenuHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -195,14 +200,19 @@ remote_cocoa.mojom.MenuHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.commandActivated');
           const result = this.impl.commandActivated(params.command_id, params.event_flags);
           break;
         }
         case 1: {
           const params = remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.menuClosed');
           const result = this.impl.menuClosed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -304,13 +314,18 @@ remote_cocoa.mojom.MenuReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -319,14 +334,19 @@ remote_cocoa.mojom.MenuReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
         case 1: {
           const params = remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateMenuItem');
           const result = this.impl.updateMenuItem(params.command_id, params.enabled, params.visible, params.label);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

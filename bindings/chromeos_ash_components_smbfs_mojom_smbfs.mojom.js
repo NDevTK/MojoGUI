@@ -194,13 +194,18 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -209,6 +214,7 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mountShare');
           const result = this.impl.mountShare(params.options, params.delegate);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -218,6 +224,9 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -328,13 +337,18 @@ smbfs.mojom.SmbFsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -343,6 +357,7 @@ smbfs.mojom.SmbFsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeSavedCredentials');
           const result = this.impl.removeSavedCredentials();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -354,6 +369,7 @@ smbfs.mojom.SmbFsReceiver = class {
         }
         case 1: {
           const params = smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteRecursively');
           const result = this.impl.deleteRecursively(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -363,6 +379,9 @@ smbfs.mojom.SmbFsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -451,13 +470,18 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -466,6 +490,7 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestCredentials');
           const result = this.impl.requestCredentials();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -475,6 +500,9 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

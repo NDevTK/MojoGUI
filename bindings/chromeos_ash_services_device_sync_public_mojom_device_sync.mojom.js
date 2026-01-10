@@ -226,13 +226,18 @@ ash.device_sync.mojom.DeviceSyncObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -241,14 +246,19 @@ ash.device_sync.mojom.DeviceSyncObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEnrollmentFinished');
           const result = this.impl.onEnrollmentFinished();
           break;
         }
         case 1: {
           const params = ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNewDevicesSynced');
           const result = this.impl.onNewDevicesSynced();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -602,13 +612,18 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -617,6 +632,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -628,6 +644,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 1: {
           const params = ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceEnrollmentNow');
           const result = this.impl.forceEnrollmentNow();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -639,6 +656,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 2: {
           const params = ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceSyncNow');
           const result = this.impl.forceSyncNow();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -650,6 +668,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 3: {
           const params = ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getGroupPrivateKeyStatus');
           const result = this.impl.getGroupPrivateKeyStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -661,6 +680,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 4: {
           const params = ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getBetterTogetherMetadataStatus');
           const result = this.impl.getBetterTogetherMetadataStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -672,6 +692,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 5: {
           const params = ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSyncedDevices');
           const result = this.impl.getSyncedDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -683,6 +704,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 6: {
           const params = ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLocalDeviceMetadata');
           const result = this.impl.getLocalDeviceMetadata();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -694,6 +716,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 7: {
           const params = ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSoftwareFeatureState');
           const result = this.impl.setSoftwareFeatureState(params.device_public_key, params.software_feature, params.enabled, params.is_exclusive);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -705,6 +728,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 8: {
           const params = ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFeatureStatus');
           const result = this.impl.setFeatureStatus(params.device_instance_id, params.feature, params.status_change);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -716,6 +740,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 9: {
           const params = ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.findEligibleDevices');
           const result = this.impl.findEligibleDevices(params.software_feature);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -727,6 +752,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 10: {
           const params = ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyDevices');
           const result = this.impl.notifyDevices(params.device_instance_ids, params.cryptauth_service, params.feature);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -738,6 +764,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 11: {
           const params = ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDevicesActivityStatus');
           const result = this.impl.getDevicesActivityStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -749,6 +776,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 12: {
           const params = ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDebugInfo');
           const result = this.impl.getDebugInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -758,6 +786,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

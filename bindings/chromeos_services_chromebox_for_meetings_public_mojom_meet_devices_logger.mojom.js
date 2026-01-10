@@ -137,13 +137,18 @@ chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -152,9 +157,13 @@ chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNotifyState');
           const result = this.impl.onNotifyState(params.state);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -261,13 +270,18 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -276,6 +290,7 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enqueue');
           const result = this.impl.enqueue(params.record, params.priority);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -287,9 +302,13 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
         }
         case 1: {
           const params = chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addStateObserver');
           const result = this.impl.addStateObserver(params.pending_observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

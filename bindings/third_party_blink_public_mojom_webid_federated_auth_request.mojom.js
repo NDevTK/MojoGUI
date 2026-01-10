@@ -448,13 +448,18 @@ blink.mojom.FederatedAuthRequestReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -463,6 +468,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestToken');
           const result = this.impl.requestToken(params.idp_get_params, params.requirement);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -474,6 +480,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 1: {
           const params = blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestUserInfo');
           const result = this.impl.requestUserInfo(params.provider);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -485,11 +492,13 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 2: {
           const params = blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelTokenRequest');
           const result = this.impl.cancelTokenRequest();
           break;
         }
         case 3: {
           const params = blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resolveTokenRequest');
           const result = this.impl.resolveTokenRequest(params.account_id, params.token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -501,6 +510,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 4: {
           const params = blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setIdpSigninStatus');
           const result = this.impl.setIdpSigninStatus(params.origin, params.status, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -512,6 +522,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 5: {
           const params = blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerIdP');
           const result = this.impl.registerIdP(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -523,6 +534,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 6: {
           const params = blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unregisterIdP');
           const result = this.impl.unregisterIdP(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -534,11 +546,13 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 7: {
           const params = blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeModalDialogView');
           const result = this.impl.closeModalDialogView();
           break;
         }
         case 8: {
           const params = blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.preventSilentAccess');
           const result = this.impl.preventSilentAccess();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -550,6 +564,7 @@ blink.mojom.FederatedAuthRequestReceiver = class {
         }
         case 9: {
           const params = blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.disconnect');
           const result = this.impl.disconnect(params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -559,6 +574,9 @@ blink.mojom.FederatedAuthRequestReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -154,13 +154,18 @@ media_session.mojom.MediaControllerManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -169,19 +174,25 @@ media_session.mojom.MediaControllerManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createMediaControllerForSession');
           const result = this.impl.createMediaControllerForSession(params.receiver, params.request_id);
           break;
         }
         case 1: {
           const params = media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createActiveMediaController');
           const result = this.impl.createActiveMediaController(params.receiver);
           break;
         }
         case 2: {
           const params = media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.suspendAllSessions');
           const result = this.impl.suspendAllSessions();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -589,13 +600,18 @@ media_session.mojom.MediaControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -604,114 +620,139 @@ media_session.mojom.MediaControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.MediaController_Suspend_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           break;
         }
         case 1: {
           const params = media_session.mojom.MediaController_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 2: {
           const params = media_session.mojom.MediaController_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 3: {
           const params = media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleSuspendResume');
           const result = this.impl.toggleSuspendResume();
           break;
         }
         case 4: {
           const params = media_session.mojom.MediaController_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 5: {
           const params = media_session.mojom.MediaController_PreviousTrack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.previousTrack');
           const result = this.impl.previousTrack();
           break;
         }
         case 6: {
           const params = media_session.mojom.MediaController_NextTrack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.nextTrack');
           const result = this.impl.nextTrack();
           break;
         }
         case 7: {
           const params = media_session.mojom.MediaController_Seek_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.seek');
           const result = this.impl.seek(params.seek_time);
           break;
         }
         case 8: {
           const params = media_session.mojom.MediaController_ObserveImages_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeImages');
           const result = this.impl.observeImages(params.type, params.minimum_size_px, params.desired_size_px, params.observer);
           break;
         }
         case 9: {
           const params = media_session.mojom.MediaController_SeekTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.seekTo');
           const result = this.impl.seekTo(params.seek_time);
           break;
         }
         case 10: {
           const params = media_session.mojom.MediaController_ScrubTo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.scrubTo');
           const result = this.impl.scrubTo(params.seek_time);
           break;
         }
         case 11: {
           const params = media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enterPictureInPicture');
           const result = this.impl.enterPictureInPicture();
           break;
         }
         case 12: {
           const params = media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.exitPictureInPicture');
           const result = this.impl.exitPictureInPicture();
           break;
         }
         case 13: {
           const params = media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAudioSinkId');
           const result = this.impl.setAudioSinkId(params.id);
           break;
         }
         case 14: {
           const params = media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleMicrophone');
           const result = this.impl.toggleMicrophone();
           break;
         }
         case 15: {
           const params = media_session.mojom.MediaController_ToggleCamera_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.toggleCamera');
           const result = this.impl.toggleCamera();
           break;
         }
         case 16: {
           const params = media_session.mojom.MediaController_HangUp_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hangUp');
           const result = this.impl.hangUp();
           break;
         }
         case 17: {
           const params = media_session.mojom.MediaController_Raise_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.raise');
           const result = this.impl.raise();
           break;
         }
         case 18: {
           const params = media_session.mojom.MediaController_SetMute_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setMute');
           const result = this.impl.setMute(params.mute);
           break;
         }
         case 19: {
           const params = media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestMediaRemoting');
           const result = this.impl.requestMediaRemoting();
           break;
         }
         case 20: {
           const params = media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enterAutoPictureInPicture');
           const result = this.impl.enterAutoPictureInPicture();
           break;
         }
         case 21: {
           const params = media_session.mojom.MediaController_SkipAd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.skipAd');
           const result = this.impl.skipAd();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -859,13 +900,18 @@ media_session.mojom.MediaControllerObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -874,29 +920,37 @@ media_session.mojom.MediaControllerObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaSessionInfoChanged');
           const result = this.impl.mediaSessionInfoChanged(params.info);
           break;
         }
         case 1: {
           const params = media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaSessionMetadataChanged');
           const result = this.impl.mediaSessionMetadataChanged(params.metadata);
           break;
         }
         case 2: {
           const params = media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaSessionActionsChanged');
           const result = this.impl.mediaSessionActionsChanged(params.action);
           break;
         }
         case 3: {
           const params = media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaSessionChanged');
           const result = this.impl.mediaSessionChanged(params.request_id);
           break;
         }
         case 4: {
           const params = media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaSessionPositionChanged');
           const result = this.impl.mediaSessionPositionChanged(params.position);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -998,13 +1052,18 @@ media_session.mojom.MediaControllerImageObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1013,14 +1072,19 @@ media_session.mojom.MediaControllerImageObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaControllerImageChanged');
           const result = this.impl.mediaControllerImageChanged(params.type, params.bitmap);
           break;
         }
         case 1: {
           const params = media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mediaControllerChapterImageChanged');
           const result = this.impl.mediaControllerChapterImageChanged(params.index, params.bitmap);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

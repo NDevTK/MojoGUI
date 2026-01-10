@@ -247,13 +247,18 @@ blink.mojom.DWriteFontProxyReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -262,6 +267,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.findFamily');
           const result = this.impl.findFamily(params.family_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -273,6 +279,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 1: {
           const params = blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFamilyCount');
           const result = this.impl.getFamilyCount();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -284,6 +291,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 2: {
           const params = blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFamilyNames');
           const result = this.impl.getFamilyNames(params.family_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -295,6 +303,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 3: {
           const params = blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFontFileHandles');
           const result = this.impl.getFontFileHandles(params.family_index);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -306,6 +315,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 4: {
           const params = blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.matchUniqueFont');
           const result = this.impl.matchUniqueFont(params.font_unique_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -317,6 +327,7 @@ blink.mojom.DWriteFontProxyReceiver = class {
         }
         case 5: {
           const params = blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.mapCharacters');
           const result = this.impl.mapCharacters(params.text, params.font_style, params.locale_name, params.reading_direction, params.base_family_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -326,6 +337,9 @@ blink.mojom.DWriteFontProxyReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

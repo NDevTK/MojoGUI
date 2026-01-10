@@ -106,13 +106,18 @@ media.mojom.AudioSourceSpeechRecognitionContextReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -121,6 +126,7 @@ media.mojom.AudioSourceSpeechRecognitionContextReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAudioSourceFetcher');
           const result = this.impl.bindAudioSourceFetcher(params.fetcher_receiver, params.client, params.options);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -130,6 +136,9 @@ media.mojom.AudioSourceSpeechRecognitionContextReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -279,13 +288,18 @@ media.mojom.SpeechRecognitionServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -294,29 +308,37 @@ media.mojom.SpeechRecognitionServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindSpeechRecognitionContext');
           const result = this.impl.bindSpeechRecognitionContext(params.context);
           break;
         }
         case 1: {
           const params = media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindAudioSourceSpeechRecognitionContext');
           const result = this.impl.bindAudioSourceSpeechRecognitionContext(params.context);
           break;
         }
         case 2: {
           const params = media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSodaPaths');
           const result = this.impl.setSodaPaths(params.binary_path, params.config_paths, params.primary_language_name);
           break;
         }
         case 3: {
           const params = media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSodaParams');
           const result = this.impl.setSodaParams(params.mask_offensive_words);
           break;
         }
         case 4: {
           const params = media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSodaConfigPaths');
           const result = this.impl.setSodaConfigPaths(params.config_paths);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -417,13 +439,18 @@ media.mojom.AudioSourceFetcherReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -432,14 +459,19 @@ media.mojom.AudioSourceFetcherReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioSourceFetcher_Start_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.factory, params.device_id, params.audio_parameters);
           break;
         }
         case 1: {
           const params = media.mojom.AudioSourceFetcher_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

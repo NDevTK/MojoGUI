@@ -303,13 +303,18 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -318,6 +323,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getOauthToken');
           const result = this.impl.getOauthToken();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -329,6 +335,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 1: {
           const params = parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onParentAccessCallbackReceived');
           const result = this.impl.onParentAccessCallbackReceived(params.encoded_parent_access_callback_proto);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -340,6 +347,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 2: {
           const params = parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getParentAccessParams');
           const result = this.impl.getParentAccessParams();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -351,6 +359,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 3: {
           const params = parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getParentAccessUrl');
           const result = this.impl.getParentAccessUrl();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -362,6 +371,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 4: {
           const params = parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onParentAccessDone');
           const result = this.impl.onParentAccessDone(params.result);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -373,6 +383,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
         case 5: {
           const params = parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBeforeScreenDone');
           const result = this.impl.onBeforeScreenDone();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -382,6 +393,9 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -84,19 +84,27 @@ remote_cocoa.mojom.StubInterfaceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -268,13 +276,18 @@ remote_cocoa.mojom.ApplicationReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -283,34 +296,43 @@ remote_cocoa.mojom.ApplicationReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createAlert');
           const result = this.impl.createAlert(params.alert_bridge_receiver);
           break;
         }
         case 1: {
           const params = remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createNativeWidgetNSWindow');
           const result = this.impl.createNativeWidgetNSWindow(params.bridge_id, params.window_receiver, params.host, params.text_input_host);
           break;
         }
         case 2: {
           const params = remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createRenderWidgetHostNSView');
           const result = this.impl.createRenderWidgetHostNSView(params.view_id, params.host, params.view_receiver);
           break;
         }
         case 3: {
           const params = remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createSystemMediaControlsBridge');
           const result = this.impl.createSystemMediaControlsBridge(params.receiver, params.host);
           break;
         }
         case 4: {
           const params = remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWebContentsNSView');
           const result = this.impl.createWebContentsNSView(params.view_id, params.host, params.view_receiver);
           break;
         }
         case 5: {
           const params = remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forwardCutCopyPaste');
           const result = this.impl.forwardCutCopyPaste(params.command);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

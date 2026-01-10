@@ -209,13 +209,18 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -224,6 +229,7 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPrediction');
           const result = this.impl.getPrediction(params.strokes, params.hints);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -233,6 +239,9 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -345,13 +354,18 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -360,6 +374,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createHandwritingRecognizer');
           const result = this.impl.createHandwritingRecognizer(params.constraint);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -371,6 +386,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
         }
         case 1: {
           const params = handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.queryHandwritingRecognizer');
           const result = this.impl.queryHandwritingRecognizer(params.constraint);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -380,6 +396,9 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

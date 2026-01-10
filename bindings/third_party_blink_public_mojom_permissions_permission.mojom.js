@@ -256,13 +256,18 @@ blink.mojom.PermissionObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -271,9 +276,13 @@ blink.mojom.PermissionObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPermissionStatusChange');
           const result = this.impl.onPermissionStatusChange(params.status);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -358,13 +367,18 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -373,9 +387,13 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEmbeddedPermissionControlRegistered');
           const result = this.impl.onEmbeddedPermissionControlRegistered(params.allow, params.statuses);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -628,13 +646,18 @@ blink.mojom.PermissionServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -643,6 +666,7 @@ blink.mojom.PermissionServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PermissionService_HasPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.hasPermission');
           const result = this.impl.hasPermission(params.permission);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -654,11 +678,13 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.registerPageEmbeddedPermissionControl');
           const result = this.impl.registerPageEmbeddedPermissionControl(params.permissions, params.descriptor, params.client);
           break;
         }
         case 2: {
           const params = blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPageEmbeddedPermission');
           const result = this.impl.requestPageEmbeddedPermission(params.permissions, params.descriptor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -670,6 +696,7 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 3: {
           const params = blink.mojom.PermissionService_RequestPermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.permission, params.user_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -681,6 +708,7 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 4: {
           const params = blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPermissions');
           const result = this.impl.requestPermissions(params.permission, params.user_gesture);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -692,6 +720,7 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 5: {
           const params = blink.mojom.PermissionService_RevokePermission_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.revokePermission');
           const result = this.impl.revokePermission(params.permission);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -703,19 +732,25 @@ blink.mojom.PermissionServiceReceiver = class {
         }
         case 6: {
           const params = blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addPermissionObserver');
           const result = this.impl.addPermissionObserver(params.permission, params.last_known_status, params.observer);
           break;
         }
         case 7: {
           const params = blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addPageEmbeddedPermissionObserver');
           const result = this.impl.addPageEmbeddedPermissionObserver(params.permission, params.last_known_status, params.observer);
           break;
         }
         case 8: {
           const params = blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.notifyEventListener');
           const result = this.impl.notifyEventListener(params.permission, params.event_type, params.is_added);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

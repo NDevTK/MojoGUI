@@ -122,13 +122,18 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -137,6 +142,7 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLanguageDetectionModel');
           const result = this.impl.getLanguageDetectionModel();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -148,6 +154,7 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
         }
         case 1: {
           const params = language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getLanguageDetectionModelStatus');
           const result = this.impl.getLanguageDetectionModelStatus();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -157,6 +164,9 @@ language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

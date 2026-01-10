@@ -168,13 +168,18 @@ webui_browser.mojom.PageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -183,11 +188,13 @@ webui_browser.mojom.PageHandlerFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
         case 1: {
           const params = webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTabStripInset');
           const result = this.impl.getTabStripInset();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -197,6 +204,9 @@ webui_browser.mojom.PageHandlerFactoryReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -345,13 +355,18 @@ webui_browser.mojom.PageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -360,29 +375,37 @@ webui_browser.mojom.PageReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setFocusToLocationBar');
           const result = this.impl.setFocusToLocationBar(params.is_user_initiated);
           break;
         }
         case 1: {
           const params = webui_browser.mojom.Page_SetReloadStopState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setReloadStopState');
           const result = this.impl.setReloadStopState(params.is_loading);
           break;
         }
         case 2: {
           const params = webui_browser.mojom.Page_ShowSidePanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showSidePanel');
           const result = this.impl.showSidePanel(params.guest_contents_id, params.title);
           break;
         }
         case 3: {
           const params = webui_browser.mojom.Page_CloseSidePanel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeSidePanel');
           const result = this.impl.closeSidePanel();
           break;
         }
         case 4: {
           const params = webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onFullscreenModeChanged');
           const result = this.impl.onFullscreenModeChanged(params.is_fullscreen, params.context);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -630,13 +653,18 @@ webui_browser.mojom.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -645,6 +673,7 @@ webui_browser.mojom.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getGuestIdForTabId');
           const result = this.impl.getGuestIdForTabId(params.tab_id, params.handler);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -656,6 +685,7 @@ webui_browser.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const params = webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.loadTabSearch');
           const result = this.impl.loadTabSearch();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -667,49 +697,61 @@ webui_browser.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const params = webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showTabSearchBubble');
           const result = this.impl.showTabSearchBubble(params.anchor_name);
           break;
         }
         case 3: {
           const params = webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openAppMenu');
           const result = this.impl.openAppMenu();
           break;
         }
         case 4: {
           const params = webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openProfileMenu');
           const result = this.impl.openProfileMenu();
           break;
         }
         case 5: {
           const params = webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchDevToolsForBrowser');
           const result = this.impl.launchDevToolsForBrowser();
           break;
         }
         case 6: {
           const params = webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSidePanelClosed');
           const result = this.impl.onSidePanelClosed();
           break;
         }
         case 7: {
           const params = webui_browser.mojom.PageHandler_Minimize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.minimize');
           const result = this.impl.minimize();
           break;
         }
         case 8: {
           const params = webui_browser.mojom.PageHandler_Maximize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.maximize');
           const result = this.impl.maximize();
           break;
         }
         case 9: {
           const params = webui_browser.mojom.PageHandler_Restore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.restore');
           const result = this.impl.restore();
           break;
         }
         case 10: {
           const params = webui_browser.mojom.PageHandler_Close_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -931,13 +973,18 @@ webui_browser.mojom.GuestHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -946,11 +993,13 @@ webui_browser.mojom.GuestHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = webui_browser.mojom.GuestHandler_Navigate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.navigate');
           const result = this.impl.navigate(params.src);
           break;
         }
         case 1: {
           const params = webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canGoBack');
           const result = this.impl.canGoBack();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -962,11 +1011,13 @@ webui_browser.mojom.GuestHandlerReceiver = class {
         }
         case 2: {
           const params = webui_browser.mojom.GuestHandler_GoBack_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack();
           break;
         }
         case 3: {
           const params = webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.canGoForward');
           const result = this.impl.canGoForward();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -978,26 +1029,31 @@ webui_browser.mojom.GuestHandlerReceiver = class {
         }
         case 4: {
           const params = webui_browser.mojom.GuestHandler_GoForward_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.goForward');
           const result = this.impl.goForward();
           break;
         }
         case 5: {
           const params = webui_browser.mojom.GuestHandler_Reload_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload();
           break;
         }
         case 6: {
           const params = webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stopLoading');
           const result = this.impl.stopLoading();
           break;
         }
         case 7: {
           const params = webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openPageInfoMenu');
           const result = this.impl.openPageInfoMenu();
           break;
         }
         case 8: {
           const params = webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSecurityIcon');
           const result = this.impl.getSecurityIcon();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1007,6 +1063,9 @@ webui_browser.mojom.GuestHandlerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

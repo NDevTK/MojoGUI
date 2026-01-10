@@ -193,13 +193,18 @@ ash.diagnostics.mojom.KeyboardObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -208,19 +213,25 @@ ash.diagnostics.mojom.KeyboardObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyEvent');
           const result = this.impl.onKeyEvent(params.event);
           break;
         }
         case 1: {
           const params = ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyEventsPaused');
           const result = this.impl.onKeyEventsPaused();
           break;
         }
         case 2: {
           const params = ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyEventsResumed');
           const result = this.impl.onKeyEventsResumed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -304,13 +315,18 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -319,9 +335,13 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInternalDisplayPowerStateChanged');
           const result = this.impl.onInternalDisplayPowerStateChanged(params.is_display_on);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -405,13 +425,18 @@ ash.diagnostics.mojom.TabletModeObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -420,9 +445,13 @@ ash.diagnostics.mojom.TabletModeObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
           const result = this.impl.onTabletModeChanged(params.is_tablet_mode);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -506,13 +535,18 @@ ash.diagnostics.mojom.LidStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -521,9 +555,13 @@ ash.diagnostics.mojom.LidStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.is_lid_open);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -655,13 +693,18 @@ ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -670,24 +713,31 @@ ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyboardConnected');
           const result = this.impl.onKeyboardConnected(params.new_keyboard);
           break;
         }
         case 1: {
           const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onKeyboardDisconnected');
           const result = this.impl.onKeyboardDisconnected(params.id);
           break;
         }
         case 2: {
           const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTouchDeviceConnected');
           const result = this.impl.onTouchDeviceConnected(params.new_touch_device);
           break;
         }
         case 3: {
           const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTouchDeviceDisconnected');
           const result = this.impl.onTouchDeviceDisconnected(params.id);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -916,13 +966,18 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -931,6 +986,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getConnectedDevices');
           const result = this.impl.getConnectedDevices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -942,16 +998,19 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
         }
         case 1: {
           const params = ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeConnectedDevices');
           const result = this.impl.observeConnectedDevices(params.observer);
           break;
         }
         case 2: {
           const params = ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeKeyEvents');
           const result = this.impl.observeKeyEvents(params.id, params.observer);
           break;
         }
         case 3: {
           const params = ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
           const result = this.impl.observeTabletMode(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -963,6 +1022,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
         }
         case 4: {
           const params = ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeLidState');
           const result = this.impl.observeLidState(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -974,24 +1034,31 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
         }
         case 5: {
           const params = ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.observeInternalDisplayPowerState');
           const result = this.impl.observeInternalDisplayPowerState(params.observer);
           break;
         }
         case 6: {
           const params = ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.moveAppToTestingScreen');
           const result = this.impl.moveAppToTestingScreen(params.evdev_id);
           break;
         }
         case 7: {
           const params = ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.moveAppBackToPreviousScreen');
           const result = this.impl.moveAppBackToPreviousScreen();
           break;
         }
         case 8: {
           const params = ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setA11yTouchPassthrough');
           const result = this.impl.setA11yTouchPassthrough(params.enabled);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -145,13 +145,18 @@ service_manager.mojom.ServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -160,6 +165,7 @@ service_manager.mojom.ServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = service_manager.mojom.Service_OnStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStart');
           const result = this.impl.onStart(params.identity);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -171,6 +177,7 @@ service_manager.mojom.ServiceReceiver = class {
         }
         case 1: {
           const params = service_manager.mojom.Service_OnBindInterface_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onBindInterface');
           const result = this.impl.onBindInterface(params.source, params.interface_name, params.interface_pipe);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -182,9 +189,13 @@ service_manager.mojom.ServiceReceiver = class {
         }
         case 2: {
           const params = service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createPackagedServiceInstance');
           const result = this.impl.createPackagedServiceInstance(params.identity, params.receiver, params.metadata);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

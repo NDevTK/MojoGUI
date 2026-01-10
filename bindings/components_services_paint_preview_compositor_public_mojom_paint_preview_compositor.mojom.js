@@ -254,13 +254,18 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -269,6 +274,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.beginSeparatedFrameComposite');
           const result = this.impl.beginSeparatedFrameComposite(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -280,6 +286,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
         }
         case 1: {
           const params = paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bitmapForSeparatedFrame');
           const result = this.impl.bitmapForSeparatedFrame(params.frame_guid, params.clip_rect, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -291,6 +298,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
         }
         case 2: {
           const params = paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.beginMainFrameComposite');
           const result = this.impl.beginMainFrameComposite(params.request);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -302,6 +310,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
         }
         case 3: {
           const params = paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bitmapForMainFrame');
           const result = this.impl.bitmapForMainFrame(params.clip_rect, params.scale_factor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -313,9 +322,13 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
         }
         case 4: {
           const params = paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setRootFrameUrl');
           const result = this.impl.setRootFrameUrl(params.url);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -442,13 +455,18 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -457,11 +475,13 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setDiscardableSharedMemoryManager');
           const result = this.impl.setDiscardableSharedMemoryManager(params.manager);
           break;
         }
         case 1: {
           const params = paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCompositor');
           const result = this.impl.createCompositor(params.compositor);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -473,6 +493,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
         }
         case 2: {
           const params = paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.listCompositors');
           const result = this.impl.listCompositors();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -482,6 +503,9 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

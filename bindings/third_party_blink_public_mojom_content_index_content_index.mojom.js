@@ -215,13 +215,18 @@ blink.mojom.ContentIndexServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -230,6 +235,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getIconSizes');
           const result = this.impl.getIconSizes(params.category);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -241,6 +247,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         }
         case 1: {
           const params = blink.mojom.ContentIndexService_Add_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.add');
           const result = this.impl.add(params.service_worker_registration_id, params.description, params.icon, params.launchUrl);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -252,6 +259,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         }
         case 2: {
           const params = blink.mojom.ContentIndexService_Delete_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete(params.service_worker_registration_id, params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -263,6 +271,7 @@ blink.mojom.ContentIndexServiceReceiver = class {
         }
         case 3: {
           const params = blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getDescriptions');
           const result = this.impl.getDescriptions(params.service_worker_registration_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -272,6 +281,9 @@ blink.mojom.ContentIndexServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

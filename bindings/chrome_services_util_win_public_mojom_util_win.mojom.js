@@ -356,13 +356,18 @@ chrome.mojom.UtilWinReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -371,6 +376,7 @@ chrome.mojom.UtilWinReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isPinnedToTaskbar');
           const result = this.impl.isPinnedToTaskbar();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -382,6 +388,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 1: {
           const params = chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.unpinShortcuts');
           const result = this.impl.unpinShortcuts(params.shortcut_paths);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -393,6 +400,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 2: {
           const params = chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createOrUpdateShortcuts');
           const result = this.impl.createOrUpdateShortcuts(params.shortcut_paths, params.properties, params.operation);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -404,6 +412,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 3: {
           const params = chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.callExecuteSelectFile');
           const result = this.impl.callExecuteSelectFile(params.type, params.owner, params.title, params.default_path, params.filter, params.file_type_index, params.default_extension);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -415,6 +424,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 4: {
           const params = chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.inspectModule');
           const result = this.impl.inspectModule(params.module_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -426,6 +436,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 5: {
           const params = chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAntiVirusProducts');
           const result = this.impl.getAntiVirusProducts(params.report_full_names);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -437,6 +448,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
         case 6: {
           const params = chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTpmIdentifier');
           const result = this.impl.getTpmIdentifier();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -446,6 +458,9 @@ chrome.mojom.UtilWinReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -533,13 +548,18 @@ chrome.mojom.ProcessorMetricsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -548,6 +568,7 @@ chrome.mojom.ProcessorMetricsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.recordProcessorMetrics');
           const result = this.impl.recordProcessorMetrics();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -557,6 +578,9 @@ chrome.mojom.ProcessorMetricsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

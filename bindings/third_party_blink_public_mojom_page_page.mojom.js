@@ -347,13 +347,18 @@ blink.mojom.PageBroadcastReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -362,6 +367,7 @@ blink.mojom.PageBroadcastReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPageLifecycleState');
           const result = this.impl.setPageLifecycleState(params.state, params.page_restore_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -373,11 +379,13 @@ blink.mojom.PageBroadcastReceiver = class {
         }
         case 1: {
           const params = blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.audioStateChanged');
           const result = this.impl.audioStateChanged(params.is_audio_playing);
           break;
         }
         case 2: {
           const params = blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.activatePrerenderedPage');
           const result = this.impl.activatePrerenderedPage(params.prerender_page_activation_params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -389,49 +397,61 @@ blink.mojom.PageBroadcastReceiver = class {
         }
         case 3: {
           const params = blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateWebPreferences');
           const result = this.impl.updateWebPreferences(params.preferences);
           break;
         }
         case 4: {
           const params = blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateRendererPreferences');
           const result = this.impl.updateRendererPreferences(params.preferences);
           break;
         }
         case 5: {
           const params = blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setHistoryIndexAndLength');
           const result = this.impl.setHistoryIndexAndLength(params.index, params.length);
           break;
         }
         case 6: {
           const params = blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPageBaseBackgroundColor');
           const result = this.impl.setPageBaseBackgroundColor(params.color);
           break;
         }
         case 7: {
           const params = blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createRemoteMainFrame');
           const result = this.impl.createRemoteMainFrame(params.token, params.opener_frame_token, params.replication_state, params.is_loading, params.devtools_frame_token, params.navigation_metrics_token, params.remote_frame_interfaces, params.remote_main_frame_interfaces);
           break;
         }
         case 8: {
           const params = blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updatePageBrowsingContextGroup');
           const result = this.impl.updatePageBrowsingContextGroup(params.browsing_context_group_token);
           break;
         }
         case 9: {
           const params = blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPageAttributionSupport');
           const result = this.impl.setPageAttributionSupport(params.support);
           break;
         }
         case 10: {
           const params = blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateColorProviders');
           const result = this.impl.updateColorProviders(params.color_provider_colors);
           break;
         }
         case 11: {
           const params = blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setSupportsDraggableRegions');
           const result = this.impl.setSupportsDraggableRegions(params.supports_draggable_regions);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

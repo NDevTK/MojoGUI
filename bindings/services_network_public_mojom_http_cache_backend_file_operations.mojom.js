@@ -145,13 +145,18 @@ network.mojom.FileEnumeratorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -160,6 +165,7 @@ network.mojom.FileEnumeratorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.FileEnumerator_GetNext_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNext');
           const result = this.impl.getNext(params.num_entries);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -169,6 +175,9 @@ network.mojom.FileEnumeratorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -433,13 +442,18 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -448,6 +462,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createDirectory');
           const result = this.impl.createDirectory(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -459,6 +474,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
         case 1: {
           const params = network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pathExists');
           const result = this.impl.pathExists(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -470,6 +486,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
         case 2: {
           const params = network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.directoryExists');
           const result = this.impl.directoryExists(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -481,6 +498,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
         case 3: {
           const params = network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.openFile');
           const result = this.impl.openFile(params.path, params.flags);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -492,6 +510,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
         case 4: {
           const params = network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deleteFile');
           const result = this.impl.deleteFile(params.path, params.mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -503,6 +522,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
         case 5: {
           const params = network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.renameFile');
           const result = this.impl.renameFile(params.from_path, params.to_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -514,6 +534,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
         case 6: {
           const params = network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFileInfo');
           const result = this.impl.getFileInfo(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -525,11 +546,13 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
         case 7: {
           const params = network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.enumerateFiles');
           const result = this.impl.enumerateFiles(params.path, params.receiver);
           break;
         }
         case 8: {
           const params = network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cleanupDirectory');
           const result = this.impl.cleanupDirectory(params.path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -539,6 +562,9 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -622,13 +648,18 @@ network.mojom.HttpCacheBackendFileOperationsFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -637,9 +668,13 @@ network.mojom.HttpCacheBackendFileOperationsFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

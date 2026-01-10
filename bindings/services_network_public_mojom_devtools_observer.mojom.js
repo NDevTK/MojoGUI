@@ -392,13 +392,18 @@ network.mojom.DevToolsObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -407,74 +412,91 @@ network.mojom.DevToolsObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRawRequest');
           const result = this.impl.onRawRequest(params.devtool_request_id, params.cookies_with_access_result, params.headers, params.timestamp, params.client_security_state, params.other_partition_info, params.applied_network_conditions_id);
           break;
         }
         case 1: {
           const params = network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onRawResponse');
           const result = this.impl.onRawResponse(params.devtool_request_id, params.cookies_with_access_result, params.headers, params.raw_response_headers, params.resource_address_space, params.http_status_code, params.cookie_partition_key);
           break;
         }
         case 2: {
           const params = network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEarlyHintsResponse');
           const result = this.impl.onEarlyHintsResponse(params.devtool_request_id, params.headers);
           break;
         }
         case 3: {
           const params = network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPrivateNetworkRequest');
           const result = this.impl.onPrivateNetworkRequest(params.devtool_request_id, params.url, params.is_warning, params.resource_address_space, params.client_security_state);
           break;
         }
         case 4: {
           const params = network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequest');
           const result = this.impl.onCorsPreflightRequest(params.devtool_request_id, params.request_headers, params.request_info, params.initiator_url, params.initiator_devtool_request_id);
           break;
         }
         case 5: {
           const params = network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCorsPreflightResponse');
           const result = this.impl.onCorsPreflightResponse(params.devtool_request_id, params.url, params.head);
           break;
         }
         case 6: {
           const params = network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequestCompleted');
           const result = this.impl.onCorsPreflightRequestCompleted(params.devtool_request_id, params.status);
           break;
         }
         case 7: {
           const params = network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTrustTokenOperationDone');
           const result = this.impl.onTrustTokenOperationDone(params.devtool_request_id, params.result);
           break;
         }
         case 8: {
           const params = network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCorsError');
           const result = this.impl.onCorsError(params.devtool_request_id, params.initiator_origin, params.client_security_state, params.url, params.status, params.is_warning);
           break;
         }
         case 9: {
           const params = network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onOrbError');
           const result = this.impl.onOrbError(params.devtools_request_id, params.url);
           break;
         }
         case 10: {
           const params = network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSharedDictionaryError');
           const result = this.impl.onSharedDictionaryError(params.devtool_request_id, params.url, params.error);
           break;
         }
         case 11: {
           const params = network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onSRIMessageSignatureIssue');
           const result = this.impl.onSRIMessageSignatureIssue(params.devtool_request_id, params.url, params.issues);
           break;
         }
         case 12: {
           const params = network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUnencodedDigestError');
           const result = this.impl.onUnencodedDigestError(params.devtool_request_id, params.url, params.issue);
           break;
         }
         case 13: {
           const params = network.mojom.DevToolsObserver_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.listener);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

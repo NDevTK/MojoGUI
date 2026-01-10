@@ -229,13 +229,18 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -244,6 +249,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createCheckerAndCheck');
           const result = this.impl.createCheckerAndCheck(params.frame_token, params.receiver, params.url, params.method, params.headers, params.load_flags, params.has_user_gesture, params.originated_from_service_worker);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -255,9 +261,13 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         }
         case 1: {
           const params = safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -346,13 +356,18 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -361,6 +376,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getThreatDOMDetails');
           const result = this.impl.getThreatDOMDetails();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -370,6 +386,9 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -461,13 +480,18 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -476,6 +500,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startPhishingDetection');
           const result = this.impl.startPhishingDetection(params.url, params.request_type);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -485,6 +510,9 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -639,13 +667,18 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -654,26 +687,31 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setImageEmbeddingAndPhishingFlatBufferModel');
           const result = this.impl.setImageEmbeddingAndPhishingFlatBufferModel(params.region, params.tflite_model, params.image_embedding_model);
           break;
         }
         case 1: {
           const params = safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModel');
           const result = this.impl.attachImageEmbeddingModel(params.image_embedding_model);
           break;
         }
         case 2: {
           const params = safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setPhishingFlatBufferModel');
           const result = this.impl.setPhishingFlatBufferModel(params.region, params.tflite_model);
           break;
         }
         case 3: {
           const params = safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearScorer');
           const result = this.impl.clearScorer();
           break;
         }
         case 4: {
           const params = safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTestObserver');
           const result = this.impl.setTestObserver(params.observer);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -683,6 +721,9 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -765,13 +806,18 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -780,9 +826,13 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.phishingModelUpdated');
           const result = this.impl.phishingModelUpdated();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -873,13 +923,18 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -888,6 +943,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startImageEmbedding');
           const result = this.impl.startImageEmbedding(params.url);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -897,6 +953,9 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -999,13 +1058,18 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1014,14 +1078,19 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendWebRequestData');
           const result = this.impl.sendWebRequestData(params.origin_extension_id, params.telemetry_url, params.protocol_type, params.contact_initiator_type);
           break;
         }
         case 1: {
           const params = safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

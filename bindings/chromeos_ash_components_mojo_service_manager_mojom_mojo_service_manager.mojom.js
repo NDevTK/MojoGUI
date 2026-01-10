@@ -257,13 +257,18 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -272,16 +277,19 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.service_name, params.service_provider);
           break;
         }
         case 1: {
           const params = chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.request');
           const result = this.impl.request(params.service_name, params.timeout, params.receiver);
           break;
         }
         case 2: {
           const params = chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.query');
           const result = this.impl.query(params.service_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -293,9 +301,13 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
         }
         case 3: {
           const params = chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addServiceObserver');
           const result = this.impl.addServiceObserver(params.observer);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -380,13 +392,18 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -395,9 +412,13 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.request');
           const result = this.impl.request(params.client_identity, params.receiver);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -481,13 +502,18 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -496,9 +522,13 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onServiceEvent');
           const result = this.impl.onServiceEvent(params.event);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

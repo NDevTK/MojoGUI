@@ -415,13 +415,18 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -430,19 +435,25 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateTiming');
           const result = this.impl.updateTiming(params.page_load_timing, params.frame_metadata, params.new_features, params.resources, params.render_data, params.cpu_load_timing, params.input_timing_delta, params.subresource_load_metrics, params.soft_navigation_metrics);
           break;
         }
         case 1: {
           const params = page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');
           const result = this.impl.setUpSharedMemoryForDroppedFrames(params.dropped_frames_memory);
           break;
         }
         case 2: {
           const params = page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addCustomUserTiming');
           const result = this.impl.addCustomUserTiming(params.custom_user_timing);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

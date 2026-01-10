@@ -193,13 +193,18 @@ android_webview.mojom.LocalMainFrameReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -208,16 +213,19 @@ android_webview.mojom.LocalMainFrameReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setInitialPageScale');
           const result = this.impl.setInitialPageScale(params.page_scale_factor);
           break;
         }
         case 1: {
           const params = android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTextZoomFactor');
           const result = this.impl.setTextZoomFactor(params.zoom_factor);
           break;
         }
         case 2: {
           const params = android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.documentHasImage');
           const result = this.impl.documentHasImage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -229,14 +237,19 @@ android_webview.mojom.LocalMainFrameReceiver = class {
         }
         case 3: {
           const params = android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetScrollAndScaleState');
           const result = this.impl.resetScrollAndScaleState();
           break;
         }
         case 4: {
           const params = android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.smoothScroll');
           const result = this.impl.smoothScroll(params.target_x, params.target_y, params.duration);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -361,13 +374,18 @@ android_webview.mojom.FrameHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -376,16 +394,19 @@ android_webview.mojom.FrameHostReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateHitTestData');
           const result = this.impl.updateHitTestData(params.data);
           break;
         }
         case 1: {
           const params = android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.contentsSizeChanged');
           const result = this.impl.contentsSizeChanged(params.contents_size);
           break;
         }
         case 2: {
           const params = android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.shouldOverrideUrlLoading');
           const result = this.impl.shouldOverrideUrlLoading(params.url, params.has_user_gesture, params.is_redirect, params.is_outermost_main_frame);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -395,6 +416,9 @@ android_webview.mojom.FrameHostReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

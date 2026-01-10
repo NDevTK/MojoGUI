@@ -265,13 +265,18 @@ media.mojom.DecryptorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -280,11 +285,13 @@ media.mojom.DecryptorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.Decryptor_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.audio_pipe, params.video_pipe, params.decrypt_pipe, params.decrypted_pipe);
           break;
         }
         case 1: {
           const params = media.mojom.Decryptor_Decrypt_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decrypt');
           const result = this.impl.decrypt(params.stream_type, params.encrypted);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -296,11 +303,13 @@ media.mojom.DecryptorReceiver = class {
         }
         case 2: {
           const params = media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancelDecrypt');
           const result = this.impl.cancelDecrypt(params.stream_type);
           break;
         }
         case 3: {
           const params = media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeAudioDecoder');
           const result = this.impl.initializeAudioDecoder(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -312,6 +321,7 @@ media.mojom.DecryptorReceiver = class {
         }
         case 4: {
           const params = media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initializeVideoDecoder');
           const result = this.impl.initializeVideoDecoder(params.config);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -323,6 +333,7 @@ media.mojom.DecryptorReceiver = class {
         }
         case 5: {
           const params = media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decryptAndDecodeAudio');
           const result = this.impl.decryptAndDecodeAudio(params.encrypted);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -334,6 +345,7 @@ media.mojom.DecryptorReceiver = class {
         }
         case 6: {
           const params = media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.decryptAndDecodeVideo');
           const result = this.impl.decryptAndDecodeVideo(params.encrypted);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -345,14 +357,19 @@ media.mojom.DecryptorReceiver = class {
         }
         case 7: {
           const params = media.mojom.Decryptor_ResetDecoder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resetDecoder');
           const result = this.impl.resetDecoder(params.stream_type);
           break;
         }
         case 8: {
           const params = media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.deinitializeDecoder');
           const result = this.impl.deinitializeDecoder(params.stream_type);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -420,19 +437,27 @@ media.mojom.FrameResourceReleaserReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       switch (header.ordinal) {
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

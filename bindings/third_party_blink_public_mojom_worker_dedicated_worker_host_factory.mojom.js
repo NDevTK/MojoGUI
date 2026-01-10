@@ -133,13 +133,18 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -148,19 +153,25 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWorkerHostCreated');
           const result = this.impl.onWorkerHostCreated(params.browser_interface_broker, params.host, params.origin);
           break;
         }
         case 1: {
           const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onScriptLoadStarted');
           const result = this.impl.onScriptLoadStarted(params.service_worker_container_info, params.main_script_load_params, params.subresource_loader_factories, params.subresource_loader_updater, params.controller_info, params.back_forward_cache_controller_host, params.coep_reporting_observer_receiver, params.dip_reporting_observer_receiver);
           break;
         }
         case 2: {
           const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onScriptLoadStartFailed');
           const result = this.impl.onScriptLoadStartFailed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -250,13 +261,18 @@ blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -265,9 +281,13 @@ blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.createWorkerHostAndStartScriptLoad');
           const result = this.impl.createWorkerHostAndStartScriptLoad(params.token, params.script_url, params.credentials_mode, params.outside_fetch_client_settings_object, params.blob_url_token, params.client, params.storage_access_api_status);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

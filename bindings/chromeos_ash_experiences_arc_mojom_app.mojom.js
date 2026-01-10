@@ -693,13 +693,18 @@ arc.mojom.AppHostReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -708,99 +713,121 @@ arc.mojom.AppHostReceiver = class {
       switch (header.ordinal) {
         case 2: {
           const params = arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAppAddedDeprecated');
           const result = this.impl.onAppAddedDeprecated(params.app);
           break;
         }
         case 0: {
           const params = arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onAppListRefreshed');
           const result = this.impl.onAppListRefreshed(params.apps);
           break;
         }
         case 8: {
           const params = arc.mojom.AppHost_OnPackageAdded_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPackageAdded');
           const result = this.impl.onPackageAdded(params.arcPackageInfo);
           break;
         }
         case 13: {
           const params = arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPackageAppListRefreshed');
           const result = this.impl.onPackageAppListRefreshed(params.package_name, params.apps);
           break;
         }
         case 9: {
           const params = arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPackageListRefreshed');
           const result = this.impl.onPackageListRefreshed(params.packages);
           break;
         }
         case 10: {
           const params = arc.mojom.AppHost_OnPackageModified_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPackageModified');
           const result = this.impl.onPackageModified(params.arcPackageInfo);
           break;
         }
         case 3: {
           const params = arc.mojom.AppHost_OnPackageRemoved_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onPackageRemoved');
           const result = this.impl.onPackageRemoved(params.package_name);
           break;
         }
         case 4: {
           const params = arc.mojom.AppHost_OnTaskCreated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTaskCreated');
           const result = this.impl.onTaskCreated(params.task_id, params.package_name, params.activity, params.name, params.intent, params.session_id);
           break;
         }
         case 17: {
           const params = arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTaskDescriptionUpdated');
           const result = this.impl.onTaskDescriptionUpdated(params.task_id, params.label, params.icon_png_data);
           break;
         }
         case 18: {
           const params = arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTaskDescriptionChanged');
           const result = this.impl.onTaskDescriptionChanged(params.task_id, params.label, params.icon, params.primary_color, params.status_bar_color);
           break;
         }
         case 5: {
           const params = arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTaskDestroyed');
           const result = this.impl.onTaskDestroyed(params.task_id);
           break;
         }
         case 6: {
           const params = arc.mojom.AppHost_OnTaskSetActive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTaskSetActive');
           const result = this.impl.onTaskSetActive(params.task_id);
           break;
         }
         case 7: {
           const params = arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onNotificationsEnabledChanged');
           const result = this.impl.onNotificationsEnabledChanged(params.package_name, params.enabled);
           break;
         }
         case 11: {
           const params = arc.mojom.AppHost_OnInstallShortcut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInstallShortcut');
           const result = this.impl.onInstallShortcut(params.shortcut);
           break;
         }
         case 14: {
           const params = arc.mojom.AppHost_OnInstallationStarted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInstallationStarted');
           const result = this.impl.onInstallationStarted(params.package_name);
           break;
         }
         case 15: {
           const params = arc.mojom.AppHost_OnInstallationFinished_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInstallationFinished');
           const result = this.impl.onInstallationFinished(params.result);
           break;
         }
         case 16: {
           const params = arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onUninstallShortcut');
           const result = this.impl.onUninstallShortcut(params.package_name, params.intent_uri);
           break;
         }
         case 19: {
           const params = arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInstallationProgressChanged');
           const result = this.impl.onInstallationProgressChanged(params.package_name, params.progress);
           break;
         }
         case 20: {
           const params = arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onInstallationActiveChanged');
           const result = this.impl.onInstallationActiveChanged(params.package_name, params.active);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -1454,13 +1481,18 @@ arc.mojom.AppInstanceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -1469,6 +1501,7 @@ arc.mojom.AppInstanceReceiver = class {
       switch (header.ordinal) {
         case 21: {
           const params = arc.mojom.AppInstance_Init_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1480,36 +1513,43 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 8: {
           const params = arc.mojom.AppInstance_CloseTask_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeTask');
           const result = this.impl.closeTask(params.task_id);
           break;
         }
         case 11: {
           const params = arc.mojom.AppInstance_InstallPackage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installPackage');
           const result = this.impl.installPackage(params.arcPackageInfo);
           break;
         }
         case 38: {
           const params = arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchAppWithWindowInfo');
           const result = this.impl.launchAppWithWindowInfo(params.package_name, params.activity, params.window_info);
           break;
         }
         case 24: {
           const params = arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchAppShortcutItem');
           const result = this.impl.launchAppShortcutItem(params.package_name, params.shortcut_id, params.display_id);
           break;
         }
         case 39: {
           const params = arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchIntentWithWindowInfo');
           const result = this.impl.launchIntentWithWindowInfo(params.intent_uri, params.window_info);
           break;
         }
         case 40: {
           const params = arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateWindowInfo');
           const result = this.impl.updateWindowInfo(params.window_info);
           break;
         }
         case 27: {
           const params = arc.mojom.AppInstance_RequestAppIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestAppIcon');
           const result = this.impl.requestAppIcon(params.package_name, params.activity, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1521,6 +1561,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 35: {
           const params = arc.mojom.AppInstance_GetAppIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAppIcon');
           const result = this.impl.getAppIcon(params.package_name, params.activity, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1532,6 +1573,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 28: {
           const params = arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestShortcutIcon');
           const result = this.impl.requestShortcutIcon(params.icon_resource_id, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1543,6 +1585,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 36: {
           const params = arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAppShortcutIcon');
           const result = this.impl.getAppShortcutIcon(params.icon_resource_id, params.pixel_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1554,6 +1597,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 30: {
           const params = arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.requestPackageIcon');
           const result = this.impl.requestPackageIcon(params.package_name, params.pixel_size, params.normalize);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1565,6 +1609,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 37: {
           const params = arc.mojom.AppInstance_GetPackageIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPackageIcon');
           const result = this.impl.getPackageIcon(params.package_name, params.pixel_size, params.normalize);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1576,36 +1621,43 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 14: {
           const params = arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeCachedIcon');
           const result = this.impl.removeCachedIcon(params.icon_resource_id);
           break;
         }
         case 7: {
           const params = arc.mojom.AppInstance_SetTaskActive_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setTaskActive');
           const result = this.impl.setTaskActive(params.task_id);
           break;
         }
         case 9: {
           const params = arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showPackageInfoDeprecated');
           const result = this.impl.showPackageInfoDeprecated(params.package_name, params.dimension_on_screen);
           break;
         }
         case 15: {
           const params = arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showPackageInfoOnPageDeprecated');
           const result = this.impl.showPackageInfoOnPageDeprecated(params.package_name, params.page, params.dimension_on_screen);
           break;
         }
         case 20: {
           const params = arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showPackageInfoOnPage');
           const result = this.impl.showPackageInfoOnPage(params.package_name, params.page, params.display_id);
           break;
         }
         case 10: {
           const params = arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setNotificationsEnabled');
           const result = this.impl.setNotificationsEnabled(params.package_name, params.enabled);
           break;
         }
         case 32: {
           const params = arc.mojom.AppInstance_StartPaiFlow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startPaiFlow');
           const result = this.impl.startPaiFlow();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1617,21 +1669,25 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 25: {
           const params = arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startFastAppReinstallFlow');
           const result = this.impl.startFastAppReinstallFlow(params.arc_package_names);
           break;
         }
         case 5: {
           const params = arc.mojom.AppInstance_UninstallPackage_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.uninstallPackage');
           const result = this.impl.uninstallPackage(params.package_name);
           break;
         }
         case 42: {
           const params = arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.updateAppDetails');
           const result = this.impl.updateAppDetails(params.package_name);
           break;
         }
         case 33: {
           const params = arc.mojom.AppInstance_GetAndroidId_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAndroidId');
           const result = this.impl.getAndroidId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1643,6 +1699,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 26: {
           const params = arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAppShortcutGlobalQueryItems');
           const result = this.impl.getAppShortcutGlobalQueryItems(params.query, params.max_results);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1654,6 +1711,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 23: {
           const params = arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAppShortcutItems');
           const result = this.impl.getAppShortcutItems(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1665,6 +1723,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 16: {
           const params = arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getRecentAndSuggestedAppsFromPlayStore');
           const result = this.impl.getRecentAndSuggestedAppsFromPlayStore(params.query, params.max_results);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1676,6 +1735,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 34: {
           const params = arc.mojom.AppInstance_IsInstallable_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.isInstallable');
           const result = this.impl.isInstallable(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1687,6 +1747,7 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 41: {
           const params = arc.mojom.AppInstance_GetAppCategory_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getAppCategory');
           const result = this.impl.getAppCategory(params.package_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1698,9 +1759,13 @@ arc.mojom.AppInstanceReceiver = class {
         }
         case 43: {
           const params = arc.mojom.AppInstance_SetAppLocale_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setAppLocale');
           const result = this.impl.setAppLocale(params.package_name, params.locale_tag);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

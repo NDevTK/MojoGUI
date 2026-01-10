@@ -150,13 +150,18 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -165,11 +170,13 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindGoogleTtsStream');
           const result = this.impl.bindGoogleTtsStream(params.receiver, params.stream_factory);
           break;
         }
         case 1: {
           const params = chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bindPlaybackTtsStream');
           const result = this.impl.bindPlaybackTtsStream(params.receiver, params.stream_factory, params.desired_audio_parameters);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -179,6 +186,9 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -375,13 +385,18 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -390,6 +405,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.installVoice');
           const result = this.impl.installVoice(params.voice_name, params.voice_bytes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -401,6 +417,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
         case 1: {
           const params = chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.selectVoice');
           const result = this.impl.selectVoice(params.voice_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -412,6 +429,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
         case 2: {
           const params = chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.text_jspb, params.speaker_params_jspb);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -423,24 +441,31 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
         case 3: {
           const params = chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 4: {
           const params = chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
         }
         case 5: {
           const params = chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 6: {
           const params = chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -608,13 +633,18 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -623,6 +653,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.play');
           const result = this.impl.play();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -634,29 +665,37 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
         }
         case 1: {
           const params = chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendAudioBuffer');
           const result = this.impl.sendAudioBuffer(params.frames_buffer, params.char_index, params.last_buffer);
           break;
         }
         case 2: {
           const params = chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 3: {
           const params = chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
         }
         case 4: {
           const params = chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 5: {
           const params = chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -785,13 +824,18 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -800,24 +844,31 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onStart');
           const result = this.impl.onStart();
           break;
         }
         case 1: {
           const params = chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onTimepoint');
           const result = this.impl.onTimepoint(params.char_index);
           break;
         }
         case 2: {
           const params = chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onEnd');
           const result = this.impl.onEnd();
           break;
         }
         case 3: {
           const params = chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

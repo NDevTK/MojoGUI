@@ -172,13 +172,18 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -187,6 +192,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -198,6 +204,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
         }
         case 1: {
           const params = chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.encodeWithFD');
           const result = this.impl.encodeWithFD(params.task_id, params.input_fd, params.input_buffer_size, params.coded_size_width, params.coded_size_height, params.exif_fd, params.exif_buffer_size, params.output_fd, params.output_buffer_size);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -209,6 +216,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
         }
         case 2: {
           const params = chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.encodeWithDmaBuf');
           const result = this.impl.encodeWithDmaBuf(params.task_id, params.input_format, params.input_planes, params.output_planes, params.exif_handle, params.exif_buffer_size, params.coded_size_width, params.coded_size_height, params.quality, params.has_input_modifier, params.input_modifier);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -218,6 +226,9 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

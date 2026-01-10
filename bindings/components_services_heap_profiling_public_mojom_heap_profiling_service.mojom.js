@@ -128,13 +128,18 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -143,6 +148,7 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addProfilingClient');
           const result = this.impl.addProfilingClient(params.pid, params.client, params.process_type, params.params);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -154,6 +160,7 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
         }
         case 1: {
           const params = heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getProfiledPids');
           const result = this.impl.getProfiledPids();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -163,6 +170,9 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

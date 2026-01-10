@@ -134,13 +134,18 @@ ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -149,6 +154,7 @@ ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeedbackInfo');
           const result = this.impl.getFeedbackInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -160,14 +166,19 @@ ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class {
         }
         case 1: {
           const params = ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.closeDialog');
           const result = this.impl.closeDialog();
           break;
         }
         case 2: {
           const params = ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.sendFeedback');
           const result = this.impl.sendFeedback(params.user_description);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

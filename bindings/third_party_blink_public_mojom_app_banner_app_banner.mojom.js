@@ -107,13 +107,18 @@ blink.mojom.AppBannerControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -122,6 +127,7 @@ blink.mojom.AppBannerControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bannerPromptRequest');
           const result = this.impl.bannerPromptRequest(params.service, params.event_receiver, params.platform);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -131,6 +137,9 @@ blink.mojom.AppBannerControllerReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -229,13 +238,18 @@ blink.mojom.AppBannerEventReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -244,14 +258,19 @@ blink.mojom.AppBannerEventReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bannerAccepted');
           const result = this.impl.bannerAccepted(params.platform);
           break;
         }
         case 1: {
           const params = blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.bannerDismissed');
           const result = this.impl.bannerDismissed();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -334,13 +353,18 @@ blink.mojom.AppBannerServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -349,9 +373,13 @@ blink.mojom.AppBannerServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.displayAppBanner');
           const result = this.impl.displayAppBanner();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

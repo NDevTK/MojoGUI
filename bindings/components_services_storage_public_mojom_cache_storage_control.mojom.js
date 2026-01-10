@@ -116,13 +116,18 @@ storage.mojom.CacheStorageObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -131,14 +136,19 @@ storage.mojom.CacheStorageObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCacheListChanged');
           const result = this.impl.onCacheListChanged(params.bucket_locator);
           break;
         }
         case 1: {
           const params = storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onCacheContentChanged');
           const result = this.impl.onCacheContentChanged(params.bucket_locator, params.cache_name);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -260,13 +270,18 @@ storage.mojom.CacheStorageControlReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -275,19 +290,25 @@ storage.mojom.CacheStorageControlReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addReceiver');
           const result = this.impl.addReceiver(params.cross_origin_embedder_policy, params.coep_reporter, params.document_isolation_policy, params.dip_reporter, params.bucket_locator, params.owner, params.receiver);
           break;
         }
         case 1: {
           const params = storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 2: {
           const params = storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -259,13 +259,18 @@ autofill.mojom.TypeTraitsTestReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -274,6 +279,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passFormData');
           const result = this.impl.passFormData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -285,6 +291,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 1: {
           const params = autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passFormFieldData');
           const result = this.impl.passFormFieldData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -296,6 +303,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 2: {
           const params = autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passFormDataPredictions');
           const result = this.impl.passFormDataPredictions(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -307,6 +315,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 3: {
           const params = autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passFormFieldDataPredictions');
           const result = this.impl.passFormFieldDataPredictions(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -318,6 +327,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 4: {
           const params = autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passPasswordFormFillData');
           const result = this.impl.passPasswordFormFillData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -329,6 +339,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 5: {
           const params = autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passPasswordFormGenerationData');
           const result = this.impl.passPasswordFormGenerationData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -340,6 +351,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 6: {
           const params = autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passPasswordGenerationUIData');
           const result = this.impl.passPasswordGenerationUIData(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -351,6 +363,7 @@ autofill.mojom.TypeTraitsTestReceiver = class {
         }
         case 7: {
           const params = autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.passPasswordSuggestionRequest');
           const result = this.impl.passPasswordSuggestionRequest(params.s);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -360,6 +373,9 @@ autofill.mojom.TypeTraitsTestReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -552,13 +552,18 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -567,6 +572,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
       switch (header.ordinal) {
         case 0: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getTutorials');
           const result = this.impl.getTutorials();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -578,6 +584,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 1: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.startTutorial');
           const result = this.impl.startTutorial(params.tutorial_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -589,6 +596,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 2: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getSessionData');
           const result = this.impl.getSessionData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -600,6 +608,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 3: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getFeaturePromos');
           const result = this.impl.getFeaturePromos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -611,6 +620,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 4: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.showFeaturePromo');
           const result = this.impl.showFeaturePromo(params.feature_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -622,6 +632,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 5: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearFeaturePromoData');
           const result = this.impl.clearFeaturePromoData(params.feature_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -633,6 +644,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 6: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearSessionData');
           const result = this.impl.clearSessionData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -644,6 +656,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 7: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.forceNewSession');
           const result = this.impl.forceNewSession();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -655,6 +668,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 8: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.removeGracePeriods');
           const result = this.impl.removeGracePeriods();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -666,6 +680,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 9: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNewBadges');
           const result = this.impl.getNewBadges();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -677,6 +692,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 10: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWhatsNewModules');
           const result = this.impl.getWhatsNewModules();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -688,6 +704,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 11: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getWhatsNewEditions');
           const result = this.impl.getWhatsNewEditions();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -699,6 +716,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 12: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNtpPromos');
           const result = this.impl.getNtpPromos();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -710,6 +728,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 13: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getNtpPromoPreferences');
           const result = this.impl.getNtpPromoPreferences();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -721,6 +740,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 14: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearNewBadgeData');
           const result = this.impl.clearNewBadgeData(params.feature_name);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -732,6 +752,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 15: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearWhatsNewData');
           const result = this.impl.clearWhatsNewData();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -743,6 +764,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 16: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearNtpPromoData');
           const result = this.impl.clearNtpPromoData(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -754,6 +776,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 17: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.clearNtpPromoPreferences');
           const result = this.impl.clearNtpPromoPreferences();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -765,9 +788,13 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
         case 18: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.launchWhatsNewStaging');
           const result = this.impl.launchWhatsNewStaging();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }

@@ -390,13 +390,18 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -405,9 +410,13 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.onWebPrintJobUpdate');
           const result = this.impl.onWebPrintJobUpdate(params.update);
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -490,13 +499,18 @@ blink.mojom.WebPrintJobControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -505,9 +519,13 @@ blink.mojom.WebPrintJobControllerReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -619,13 +637,18 @@ blink.mojom.WebPrinterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -634,6 +657,7 @@ blink.mojom.WebPrinterReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.fetchAttributes');
           const result = this.impl.fetchAttributes();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -645,6 +669,7 @@ blink.mojom.WebPrinterReceiver = class {
         }
         case 1: {
           const params = blink.mojom.WebPrinter_Print_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.print');
           const result = this.impl.print(params.document, params.attributes);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -654,6 +679,9 @@ blink.mojom.WebPrinterReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
@@ -742,13 +770,18 @@ blink.mojom.WebPrintingServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        let payload = args[2];
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload);
+        }
         message = {
           header: args[1],
-          payload: args[2],
+          payload: payload,
           handles: args[3] || []
         };
       }
@@ -757,6 +790,7 @@ blink.mojom.WebPrintingServiceReceiver = class {
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.decode(message.payload);
+          console.log('[GeneratedReceiver] Calling impl.getPrinters');
           const result = this.impl.getPrinters();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -766,6 +800,9 @@ blink.mojom.WebPrintingServiceReceiver = class {
           }
           break;
         }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
       }
     }});
   }
