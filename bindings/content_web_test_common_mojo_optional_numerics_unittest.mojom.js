@@ -1283,8 +1283,10 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$.decode(message.payload);
@@ -2784,8 +2786,10 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec.$.decode(message.payload);
@@ -3367,8 +3371,10 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 1: {
           const params = content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec.$.decode(message.payload);
@@ -3545,8 +3551,10 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 1: {
           const params = content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec.$.decode(message.payload);
